@@ -1,0 +1,3230 @@
+<!DOCTYPE html>
+<html><head>
+    <title>
+	  经典病例
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- develop 必引内容，不可删除，不可改动 -->
+	
+
+
+
+
+
+
+<link href="/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/develop/static/common/css/css.css">
+<link rel="stylesheet" href="/js/jqpagination/jqpagination.css">
+<script src="/js/jquery/jquery.min.js"></script>
+<script src="/js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.qrcode.min.js"></script>
+<script src="/develop/static/common/js/common_cn.js"></script>
+<script src="/develop/static/common/js/component_cn.js"></script>
+<script language="javascript" src="/js/store.js"></script>
+<script language="javascript" src="/develop/static/common/js/download_cn.js"></script>
+<script language="javascript" src="/js/My97DatePicker/WdatePicker.js"></script><link href="/js/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="/develop/static/common/js/xss/xss.js"></script>
+<link rel="stylesheet" href="/develop/static/common/bootstrap/js/font-awesome.min.css">
+<script language="javascript" src="/develop/static/common/js/xss/mag-xss.js"></script>
+
+<script>
+	$(document).ready(function(){
+		$("title").text($("title").text().replace(/<\/?[^>]*>/g,""));
+	});
+</script>
+
+
+
+<base href="https://zhrxbzz.cma-cmc.com.cn/CN/subject/listSubjectChapters.do">
+
+<!-- 专题文章列表（CN）HEAD -->
+
+<script>
+	$(document).ready(function(){
+		$("a[href^='#']").attr("href","javascript:;");
+		
+		if($("#articleFenLeiFilter").length>0){
+			mag_ajax_update({
+				ele_id:'articleFenLeiFilter',
+				data:$("#mag-develop-listSubjectChapters-form").serialize(),
+				url:mag_currentQikanUrl() + '/CN/subject/listSubjectChapters.do?subjectId=1606877400016&filterType=articleFenLei'
+			});
+		}
+		
+	});
+	
+	function changePage(pager){
+		$("#mag-develop-listSubjectChapters-form-pager").val(pager);
+		mag_loading();
+		document.getElementById("mag-develop-listSubjectChapters-form").submit();
+	}
+	function filterToArticleList(type,value){
+		if("Journal"==type){
+			var journalFilter = $("#mag-develop-listSubjectChapters-form-journalFilter").val();
+			$("#mag-develop-listSubjectChapters-form-journalFilter").val(journalFilter+"#mag;#"+value+"#mag;#");
+		}else if("ArticleType"==type){
+			var articleTypeFilter = $("#mag-develop-listSubjectChapters-form-articleTypeFilter").val();
+			$("#mag-develop-listSubjectChapters-form-articleTypeFilter").val(articleTypeFilter+"#mag;#"+value+"#mag;#");
+		}else if("Year"==type){
+			var yearFilter = $("#mag-develop-listSubjectChapters-form-yearFilter").val();
+			$("#mag-develop-listSubjectChapters-form-yearFilter").val(yearFilter+"#mag;#"+value+"#mag;#");
+		}else if("LanMu"==type){
+			var lanMuFilter = $("#mag-develop-listSubjectChapters-form-lanMuFilter").val();
+			$("#mag-develop-listSubjectChapters-form-lanMuFilter").val(lanMuFilter+"#mag;#"+value+"#mag;#");
+		}else if("ArticleFenLei"==type){
+			var articleFenLeiFilter = $("#mag-develop-listSubjectChapters-form-articleFenLeiFilter").val();
+			$("#mag-develop-listSubjectChapters-form-articleFenLeiFilter").val(articleFenLeiFilter+"#mag;#"+value+"#mag;#");
+		}
+		
+		mag_loading();
+		document.getElementById("mag-develop-listSubjectChapters-form").submit();
+	}
+	function cancelFilter(type,value){
+		if("Journal"==type){
+			var journalFilter = $("#mag-develop-listSubjectChapters-form-journalFilter").val();
+			$("#mag-develop-listSubjectChapters-form-journalFilter").val(journalFilter.replace("#mag;#"+value+"#mag;#",""));
+		}else if("ArticleType"==type){
+			var articleTypeFilter = $("#mag-develop-listSubjectChapters-form-articleTypeFilter").val();
+			$("#mag-develop-listSubjectChapters-form-articleTypeFilter").val(articleTypeFilter.replace("#mag;#"+value+"#mag;#",""));
+		}else if("Year"==type){
+			var yearFilter = $("#mag-develop-listSubjectChapters-form-yearFilter").val();
+			$("#mag-develop-listSubjectChapters-form-yearFilter").val(yearFilter.replace("#mag;#"+value+"#mag;#",""));
+		}else if("LanMu"==type){
+			var lanMuFilter = $("#mag-develop-listSubjectChapters-form-lanMuFilter").val();
+			$("#mag-develop-listSubjectChapters-form-lanMuFilter").val(lanMuFilter.replace("#mag;#"+value+"#mag;#",""));
+		}else if("ArticleFenLei"==type){
+			var articleFenLeiFilter = $("#mag-develop-listSubjectChapters-form-articleFenLeiFilter").val();
+			$("#mag-develop-listSubjectChapters-form-articleFenLeiFilter").val(articleFenLeiFilter.replace("#mag;#"+value+"#mag;#",""));
+		}
+		
+		mag_loading();
+		document.getElementById("mag-develop-listSubjectChapters-form").submit();
+	}
+	function showOthers(tableID,flag,showCount){
+		if(showCount==null){
+			showCount=5;
+		}
+		jQuery.each(jQuery("#"+tableID+" tr"), function(i){
+			if("O"==flag){
+				if(i==showCount){
+					this.style.display = 'none';
+				}
+			    if(i >= showCount+1){
+			    	this.style.display = 'block';
+			    }
+		    }else{
+		    	if(i==showCount){
+					this.style.display = 'block';
+				}
+			    if(i >= showCount+1){
+			    	this.style.display = 'none';
+			    }
+		    }
+		});  
+	}
+</script>
+	<!-- develop end -->
+<style type="text/css">       
+        .content:nth-child(odd) {
+            background: #f5f5f5;
+        }
+
+        .biaoti-a {
+            color: #8c4409 !important;
+        }
+
+        .content-td {
+            padding: 10px 0px;
+        }
+
+        .content-td td {
+            font-size: 12px;
+        }
+        .page-td td {
+            font-size: 14px;
+        }
+        .a-page,
+        .content-td2 {
+            color: #8c4409 !important;
+        }
+        .a-page:hover {
+            text-decoration: underline;
+        }
+
+        .subject-des {
+            margin-bottom: 20px;
+        }
+        .subject-img {
+			max-width:285px;
+            float: left;           
+            max-height: 187px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+
+        }
+        .sort-order .sortOrder{           
+            background:#0092ff;
+            color:#fff;
+        }
+		.sort-order .sortOrder:focus{
+		    text-decoration: none;
+ 	    }
+        .td-margin {
+            padding-left: 100px;
+        }
+        .img-icon {
+            float: left;
+            width: 16px;
+            height:16px;
+        }
+        .sort-order a {
+            width: 120px;
+            height: 40px;
+            background: #eee;
+            display: block;
+            float: left;
+            text-align: center;
+            line-height: 40px;           
+            margin-right:3px;
+            font-size: 20px;
+            color:#6b6b6b;
+        }
+
+        .text-margin {
+            padding-left: 2em;
+        }
+        .subject-int{
+        	word-wrap:break-word;
+        }
+		.subject-info{padding-left:15px;}
+    </style>
+</head>
+<body>
+<!-- develop 必引内容，不可删除，不可改动 -->
+
+
+
+
+
+
+
+
+
+
+
+
+<input type="hidden" id="mag-common-contextPath" value="">
+
+<div id="mag-component-store-div" style="display:none;" mag-id="ajaxpage-c55d9d50-598f-4b6d-93f2-397b41b66dc1"></div>
+			
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="magModal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="magModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button buttongroup="0" type="button" class="close" aria-hidden="true" onclick="mag_layer_close();">
+					×
+				</button>
+				<h4 class="modal-title" id="magModalLabel">
+					模态框（Modal）标题
+				</h4>
+			</div>
+			<div class="modal-body" id="mag-modal-body" style="overflow:auto;">
+				在这里添加一些文本
+			</div>
+			<div id="mag-layer-button-div" class="modal-footer">
+				<button buttongroup="1" type="button" class="btn btn-default" onclick="mag_layer_close();">关闭
+				</button>
+				<button buttongroup="2" type="button" class="btn btn-default" onclick="mag_layer_close();">关闭
+				</button>
+				<button buttongroup="2" type="button" class="btn btn-primary" onclick="mag_submit()" id="mag_layer_submit_button_2">
+					提交更改
+				</button>
+				<button buttongroup="3" type="button" class="btn btn-default" onclick="mag_layer_close();">取消
+				</button>
+				<button buttongroup="3" type="button" class="btn btn-primary" onclick="mag_submit()" id="mag_layer_submit_button_3">
+					确定并提交
+				</button>
+				
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
+<div id="magModal_2" style="display:none;position:fixed;left:0px;top:0px;right:0px;bottom:0px;z-index:1060">
+	<div class="modal-dialog" style="margin-top:60px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button buttongroup="0" type="button" id="mag-madal-close_bt_2" class="close" aria-hidden="true" onclick="mag_layer_close_2();">
+					×
+				</button>
+				<h4 class="modal-title" id="magModalLabel_2">
+					模态框（Modal）标题
+				</h4>
+			</div>
+			<div id="modal-body_2" class="modal-body"></div>
+		</div>
+	</div>
+</div>
+
+<!-- 模态框-Tab -->
+<div class="modal fade" id="magTabModal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="magTabModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="border-bottom:0px;padding:15px 0px;">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding-right:15px;">
+					×
+				</button>
+				
+<ul id="magTab" class="nav nav-tabs">
+
+</ul>
+			</div>
+			<div class="modal-body">
+				
+<div id="magTabContent" class="tab-content">
+
+</div>
+			</div>
+			<div id="mag-tablayer-button-div" class="modal-footer">
+				
+			</div>
+			
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
+
+
+<div style="display:none;">
+	<iframe id="mag_sendLongReq_iframe" name="mag_sendLongReq_iframe"></iframe>
+	<iframe id="mag_cma_sso_login_iframe" name="mag_cma_sso_login_iframe"></iframe>
+</div>
+<input type="hidden" id="mag_cma_sso_authorizeUrl" value="https://cmhadb.cma-cmc.com.cn/sso/oauth/authorize?client_id=0cfe55cf01184e4f931c729208194087&amp;response_type=code&amp;scope=user_info&amp;redirect_uri=https%3A%2F%2Fvideodata.cma-cmc.com.cn%2Fsso%2Fcma%2FloginCallback">
+		
+
+<!-- 专题文章列表（CN）BODY -->
+
+<form id="mag-develop-listSubjectChapters-form" action="https://zhrxbzz.cma-cmc.com.cn/CN/collection/1606877400016/articles" method="post">
+	<input type="hidden" name="pager" id="mag-develop-listSubjectChapters-form-pager">
+	<input type="hidden" name="sortOrder" value="default">
+	<input type="hidden" name="journalFilter" id="mag-develop-listSubjectChapters-form-journalFilter" value="">
+	<input type="hidden" name="articleTypeFilter" id="mag-develop-listSubjectChapters-form-articleTypeFilter" value="">
+	<input type="hidden" name="yearFilter" id="mag-develop-listSubjectChapters-form-yearFilter" value="">
+	<input type="hidden" name="lanMuFilter" id="mag-develop-listSubjectChapters-form-lanMuFilter" value="">
+	<input type="hidden" name="articleFenLeiFilter" id="mag-develop-listSubjectChapters-form-articleFenLeiFilter" value="">
+</form>
+<!-- develop end -->
+<!-- custom vm必引内容，不可删除，不可改动 -->
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/js/bootstrap/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/js/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/custom/static/common/css/css.css">
+	
+	<link rel="stylesheet" href="/images/1674-0807/css/css.css">
+	<script src="/images/1674-0807/js/indexjs.js"></script>
+	
+    
+	
+
+<!--头部-->
+
+
+<script language="javascript">
+	function tabChange(obj, id) {
+		var arrayli = obj.parentNode.getElementsByTagName("li"); //获取li数组
+		var arrayul = document.getElementById(id).getElementsByTagName("ul"); //获取ul数组
+		for (i = 0; i < arrayul.length; i++) {
+			if (obj == arrayli[i]) {
+				arrayli[i].className = "cli";
+				arrayul[i].className = "";
+			} else {
+				arrayli[i].className = "";
+				arrayul[i].className = "hidden";
+			}
+		}
+	}
+</script>
+<style type="text/css">
+.tabbox {
+	width: 400px;
+	margin-top: 5px;
+	margin-bottom: 5px
+}
+
+.tabmenu {
+	width: 400px;
+	height: 28px;
+	border-left: 1px solid #CCC;
+	border-top: 1px solid #ccc;
+}
+
+.tabmenu ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.tabmenu li {
+	text-align: center;
+	float: left;
+	display: block;
+	width: 99px;
+	overflow: hidden;
+	background-color: #f1f1f1;
+	line-height: 27px;
+	border-right: #ccc 1px solid;
+	border-bottom: #ccc 1px solid;
+	display: inline;
+}
+
+.tabmenu .cli {
+	text-align: center;
+	float: left;
+	display: block;
+	width: 99px;
+	overflow: hidden;
+	background-color: #fff;
+	line-height: 27px;
+	border-right: #ccc 1px solid;
+	border-bottom: #fff 1px solid;
+	display: inline;
+	cursor: pointer;
+	color: #c30000;
+	font-weight: bold
+}
+
+#tabcontent {
+	width: 399px;
+	background-color: #fff;
+	border-left: #CCC 1px solid;
+	border-right: #CCC 1px solid;
+	border-bottom: #CCC 1px solid;
+	height: 65px;
+}
+
+#tabcontent ul {
+	margin: 0;
+	padding: 5px;
+	list-style-type: none;
+}
+
+#tabcontent .hidden {
+	display: none;
+}
+
+img[src*='.traceImg']{
+	width:44px;
+	height:22px;
+}
+</style>
+
+<script src="https://zhrxbzz.cma-cmc.com.cn/images/1674-0807/js/indexjs.js"></script>
+<header>
+    <div class="wrap">
+        <div class="container">
+            <a href="http://videodata.cma-cmc.com.cn/" target="_blank" class="qikanwang">
+                 切换至 "中华医学电子期刊资源库"
+            </a>			
+			<div class="header-r">
+            <!--<a href="#" class="shopping"></a>-->
+            <div class="pull-right login-in">
+				<div class="login-register">
+					<!-- 登录状态 -->
+					<div id="mag-component-loginStatus" mag-id="ajaxpage-bdfde779-447b-466c-a15f-3d6462d982f0">
+
+
+
+
+
+
+<!-- develop 必引内容，不可删除，不可改动 -->
+
+
+
+
+
+<!-- 登录状态（CN）BODY -->
+
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var user = {
+				isLogin:false,
+				userName:'',
+				cmaSsoUserId:0
+		};
+		$.ajax({
+		    url: 'https://cmhadb.cma-cmc.com.cn/sso/online',
+		    type: 'POST',
+		    data: {ContentType:'jsonp'},
+		    dataType: 'jsonp',
+		    success:function(res){
+		    	if(res.Login){
+		    		//sso已登录
+		    		if(user.isLogin && user.cmaSsoUserId == res.AccessID){
+		    			//本地已登录，并且登录的用户和sso是同一个
+		    			$("#loginStatusDiv-4095a2d105664f01bd18b7d25c63ad3a").show();
+		    		}else{
+		    			//本地未登录，或登录的用户和sso不一致，则本地需要重新登录到同sso一致的用户
+		    			cmaSso_authorizeLogin(function(){});
+		    		}
+		    	}else{
+		    		//sso未登录
+		    		if(user.isLogin){
+		    			//本地已登录，则需要本地退出操作
+		    			mag_ajax({
+		    				url:mag_currentQikanUrl()+'/CN/user/userLogin.do?action=logout',
+		    				dataType:'json',
+		    				success:function(){
+		    					mag_update_loginStatus();
+		    				}
+		    			});
+		    		}else{
+		    			//本地未登录
+		    			$("#loginStatusDiv-4095a2d105664f01bd18b7d25c63ad3a").show();
+		    		}
+		    	}
+		    }
+		});
+	});
+	
+	function cmaSsologout(){
+		mag_request({
+			url:'https://cmhadb.cma-cmc.com.cn/sso/ssoLogout',
+			data:{Referer:mag_currentQikanUrl()+'/CN/user/userLogin.do?action=logout'}
+		});
+	}
+</script>
+
+<!-- develop end -->
+
+<div id="loginStatusDiv-4095a2d105664f01bd18b7d25c63ad3a" style=""><!-- 这个div不可以修改，变更，删除，内容必须在这个div内部，该div默认开始是隐藏的，等待js做一些检查判断后会自动改为显示，所以不要改动该div的属性 -->
+
+<!-- 未登录 -->
+<span>
+	<a href="javascript:;" class="login" onclick="mag_login_dialog();">登录</a> | 
+	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/user/register" target="_top" class="register">注册</a>
+</span>
+
+
+
+
+
+</div>
+</div>
+				<!--
+					<a href="https://zhrxbzz.cma-cmc.com.cn/CN/user/userInfo_cn.jsp" class="login">
+						登录
+					</a>
+					<span class="fenxian">|</span>
+					<a href="https://zhrxbzz.cma-cmc.com.cn/CN/user/registerUser.do">
+						注册
+					</a>
+					-->
+				</div>
+			</div>
+            <div class="share">                
+				<a href="javascript:;" class="weixin fa fa-wechat" data-cmd="weixin" title="" data-original-title="分享到微信"></a>
+                <a href="http://www.facebook.com/sharer.php?u=http://zhyxcszz.cma-cmc.com.cn/" class="facebook fa fa-facebook" data-cmd="facebook" title="" data-original-title="facebook"></a>
+                <a href="http://twitter.com/share?url=http://zhyxcszz.cma-cmc.com.cn/" class="twitter fa fa-twitter" data-cmd="twitter" title="" data-original-title="twitter"></a>
+                <div class="show-code" style="display: none;">
+                    <div id="code3"><canvas width="100" height="100"></canvas></div>
+                </div>
+                <script type="text/javascript" src="https://zhrxbzz.cma-cmc.com.cn/images/1674-0807/js/jquery.qrcode.min.js"></script>
+                <script>
+                    jQuery(function(){
+                        jQuery('#code3').qrcode({ width: 100, height: 100, text: window.location.href });
+                    })
+                </script>
+            </div>
+          </div>
+			
+        </div>
+    </div>
+    <div class="main-header">
+        <div class="container">
+            <a href="https://zhrxbzz.cma-cmc.com.cn" class="logo"><img src="https://zhrxbzz.cma-cmc.com.cn/images/1674-0807/images/logo.png" class="img-responsive"></a>
+            <div class="header-search-r">
+                <iframe src="https://zhrxbzz.cma-cmc.com.cn/CN/article/quickSearch.do" width="391" height="34" class="j-search" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+                <div class="author-search">
+                    <div class="gjjs"><a href="https://zhrxbzz.cma-cmc.com.cn/CN/article/advancedSearch.do">高级检索</a></div>
+                    <div class="tbjs hidden-sm hidden-xs"><a href="https://zhrxbzz.cma-cmc.com.cn/CN/figure/figureSearch.do">图表检索</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar site-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">导航切换</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand visible-xs" href="https://zhrxbzz.cma-cmc.com.cn">中华乳腺病杂志(电子版)</a>
+            </div>
+            <div class="navbar-collapse collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li><a href="https://zhrxbzz.cma-cmc.com.cn">首页</a></li>
+                    <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/article/showNewArticle.do">优先出版</a></li>
+                    <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/1674-0807/current.shtml">当期目录</a></li>
+                    <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/article/showOldVolumn.do">过刊浏览</a></li>
+                    <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/articleVideo/advancedSearchResult.do#4" target="_blank">音视频</a></li>
+                    <li><a href="javascript:;" data-toggle="dropdown" aria-expanded="true">期刊介绍 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/column/column42244.shtml">期刊介绍</a></li>
+                            <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/column/column42330.shtml">稿约</a></li>
+
+                       <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/column/column42288.shtml">数据库收录</a></li>
+                         <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/column/column4209.shtml">读者指南</a></li>
+                            <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/column/column4210.shtml">常见问题</a></li>
+                            <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/alert/showAlertInfo.do">Email Alert</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/column/column4211.shtml">编委会</a></li>
+                    <li><a href="https://zhrxbzz.cma-cmc.com.cn/CN/column/column4212.shtml">订阅</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+	
+
+<!--中间-->
+<div class="container mb">		
+		<div class="row">	
+		<div class="col-md-12">
+						<div class="item-title">
+							<h4 class="column">经典病例</h4>        
+						</div>		                
+				        <div class="item-content">  
+						
+						<div class="subject-des lunwen-liebiao">                                       
+							<div class="row">
+							   <div class="subject-int">                                          
+													
+													  <div class="col-md-3 subject-img">
+														  <div class="subject-img">
+														    <img src="https://zhrxbzz.cma-cmc.com.cn/fileup/1674-0807/subject/20201202105752.jpg" class="subject-img" alt="图片丢失啦">
+                                                          </div>															
+													  </div>
+													
+													<div class="col-md-9">
+													  <div class="subject-info">
+														  <div class="subject-price">
+															   <span mag-component-type="subjectPurchase" mag-subjectid="1606877400016">
+					
+
+
+
+
+
+
+
+
+
+<!--
+
+  <div class="subject-price">				  
+	<span style="font-size: 18px;" class="btn btn-danger price-free" onclick="mag_login_dialog();">免费阅读</span>						        
+  </div>
+-->
+					</span>
+														  </div>													  
+														  <!--<div class="lunwen">经典病例</div>-->
+														  <div class="zuozhe"></div>                                       		 
+														  <div class="xinxi"></div>
+													  </div>
+													</div>
+								</div>
+							</div>
+						</div>
+                <!--中间. 中间--> 
+				<div>
+				  <div class="aside-l">
+				                <ul class="aside">
+										  <h3 class="lanmu"><span class="glyphicon glyphicon-list-alt"></span> 期刊</h3>
+						                    		<div id="journalFilter">
+														<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" style="margin-top: 3px" id="journalFilterTable">
+															<tbody>
+															
+																
+																
+																<tr>
+																	<td width="100%" height="26">
+																	
+																	
+																		<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('Journal','4');">
+																			中华乳腺病杂志(电子版)(17)
+																		</a>
+																	
+																	</td>
+																</tr>
+																
+																
+																
+																
+																
+															
+															
+															</tbody>
+														</table>
+														</div>
+								</ul>
+								<ul class="aside">
+														<h3 class="lanmu"><span class="glyphicon glyphicon-calendar"></span> 出版年</h3>
+														<div id="yearFilter">
+														<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" style="margin-top: 3px" id="YearTable">
+															<tbody>
+															
+																
+																
+																<tr>
+																	<td width="353" height="26">
+																	
+																	
+																	<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('Year','2020');">
+																		2020(2)
+																	</a>
+																	
+																	</td>
+																</tr>
+																
+																
+																
+																
+																
+																<tr>
+																	<td width="353" height="26">
+																	
+																	
+																	<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('Year','2019');">
+																		2019(5)
+																	</a>
+																	
+																	</td>
+																</tr>
+																
+																
+																
+																
+																
+																<tr>
+																	<td width="353" height="26">
+																	
+																	
+																	<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('Year','2018');">
+																		2018(10)
+																	</a>
+																	
+																	</td>
+																</tr>
+																
+																
+																
+																
+																
+															
+															
+															</tbody>
+														</table>
+									     			</div>
+								</ul>
+								<ul class="aside">
+													<h3 class="lanmu"><span class="glyphicon glyphicon-th-list"></span> 栏目</h3>
+													<div id="lanMuFilter">
+									     				<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" style="margin-top: 3px" id="lanMuTable">
+															<tbody>
+															
+																
+																
+																<tr>
+																	<td width="353" height="26">
+																	
+																	
+																	<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('LanMu','病例报告');">
+																		病例报告(17)
+																	</a>
+																	
+																	</td>
+																</tr>
+																
+																
+																
+																
+																
+															
+															
+															</tbody>
+														</table>
+									     			</div>
+							</ul>
+							<ul class="aside">
+													<h3 class="lanmu"><span class="glyphicon glyphicon-menu-hamburger"></span> 文献类型</h3>
+													<div id="articleTypeFilter">
+									     				<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" style="margin-top: 3px" id="articleTypeTable">
+															<tbody>
+															
+																
+																
+																<tr>
+																	<td width="353" height="26">
+																	
+																	
+																	<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('ArticleType','病例报告');">
+																		病例报告(17)
+																	</a>
+																	
+																	</td>
+																</tr>
+																
+																
+																
+																
+																
+															
+															
+															</tbody>
+														</table>
+									     			</div>
+						  </ul>	
+
+						  <ul class="aside">
+													<h3 class="lanmu"><span class="glyphicon glyphicon-menu-hamburger"></span> 文献分类</h3>
+													<div id="articleFenLeiFilter" mag-id="ajaxpage-c17bca5d-4cbd-4962-ac37-b7d6356b011f">
+
+
+
+
+
+
+<!-- develop 必引内容，不可删除，不可改动 -->
+
+
+<!-- develop end -->
+
+
+	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" style="margin-top: 3px" id="articleFenLeiTable">
+		<tbody>
+			
+				
+					
+						<tr>
+							<td width="353" height="26">
+							
+							
+								<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('ArticleFenLei','肿瘤');">
+								肿瘤(10)
+								</a>
+							
+							</td>
+						</tr>
+					
+					
+					
+				
+					
+						<tr>
+							<td width="353" height="26">
+							
+							
+								<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('ArticleFenLei','其他');">
+								其他(3)
+								</a>
+							
+							</td>
+						</tr>
+					
+					
+					
+				
+					
+						<tr>
+							<td width="353" height="26">
+							
+							
+								<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('ArticleFenLei','普通外科');">
+								普通外科(2)
+								</a>
+							
+							</td>
+						</tr>
+					
+					
+					
+				
+					
+						<tr>
+							<td width="353" height="26">
+							
+							
+								<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('ArticleFenLei','血液科');">
+								血液科(2)
+								</a>
+							
+							</td>
+						</tr>
+					
+					
+					
+				
+					
+						<tr>
+							<td width="353" height="26">
+							
+							
+								<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('ArticleFenLei','重症医学');">
+								重症医学(1)
+								</a>
+							
+							</td>
+						</tr>
+					
+					
+						<tr>
+							<td width="353" height="26" align="right"><a href="javascript:;" onclick="showOthers('articleFenLeiTable','O',5);">更多</a>&nbsp;&nbsp;</td>
+						</tr>
+					
+					
+				
+					
+					
+					
+						<tr style="display:none;">
+							<td width="353" height="26">
+							
+							
+								<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('ArticleFenLei','心血管内科');">
+								心血管内科(1)
+								</a>
+							
+							</td>
+						</tr>
+					
+				
+					
+					
+					
+						<tr style="display:none;">
+							<td width="353" height="26">
+							
+							
+								<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('ArticleFenLei','消化科');">
+								消化科(1)
+								</a>
+							
+							</td>
+						</tr>
+					
+				
+					
+					
+					
+						<tr style="display:none;">
+							<td width="353" height="26">
+							
+							
+								<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('ArticleFenLei','内分泌科');">
+								内分泌科(1)
+								</a>
+							
+							</td>
+						</tr>
+					
+				
+					
+					
+					
+						<tr style="display:none;">
+							<td width="353" height="26">
+							
+							
+								<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('ArticleFenLei','护理');">
+								护理(1)
+								</a>
+							
+							</td>
+						</tr>
+					
+				
+					
+					
+					
+						<tr style="display:none;">
+							<td width="353" height="26">
+							
+							
+								<a style="color:gray;" href="javascript:;" onclick="filterToArticleList('ArticleFenLei','传染病科');">
+								传染病科(1)
+								</a>
+							
+							</td>
+						</tr>
+					
+				
+				
+					<tr style="display: none;">
+						<td width="353" height="26" align="right"><a href="javascript:;" onclick="showOthers('articleFenLeiTable','H',5);">隐藏</a></td>
+					</tr>
+				
+			
+			
+		</tbody>
+	</table>
+</div>
+						 </ul>
+						
+				</div>
+				<div class="article-r">	
+								
+								    <ul class="wenzhang-liebiao">
+										<li class="current"><a href="/CN/subject/listSubjectChapters.do?subjectId=1606877400016"><span class="wz"></span>文献</a></li>
+										<li><span mag-component-type="showSubjectVideoUrl" mag-subjectid="1606877400016">
+					
+
+
+
+
+
+
+
+					</span></li>
+										<li><a href="/CN/subject/listSubjectHotArticle.do?subjectId=1606877400016"><span class="wz"></span>热点文章</a></li>
+									</ul>
+									<div class="tab-content">									
+											<div class="tiaoshu" style="text-align: left;">
+												共找到 <span class="blue-color">17</span> 条结果
+											</div>																							
+											
+											
+
+
+
+
+
+<!-- develop 必引内容，不可删除，不可改动 -->
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/js/manu/lrtk.css">
+<script language="javascript" src="/js/manu/manu.js"></script>
+<link rel="stylesheet" href="/js/colorbox/colorbox.css">
+<script src="/js/colorbox/jquery.colorbox.js"></script>
+<script language="javascript">
+//文章图片显示隐藏用
+function togthumb() {
+	$(".apwrap").toggleClass("hiden");
+	if($('.apwrap').hasClass('hiden'))
+		$("#thumbtn").attr("src", "/images/sele_pic2.png");
+	else
+		$("#thumbtn").attr("src", "/images/sele_pic1.png");
+}
+//选中文章  文章块  变色
+function hightlightrowaction(rowid) {
+	var thisrow = $("#"+rowid);
+	if ($(thisrow).hasClass("selectedrow")) {
+		$(thisrow).removeClass("selectedrow");
+		$(thisrow).addClass("noselectrow");
+	} else {
+		$(thisrow).addClass("selectedrow");
+		$(thisrow).removeClass("noselectrow");
+	}
+}
+
+function selectall(argu,checkBoxName){
+	var obj = document.getElementsByName(checkBoxName);
+    for(var i= 0;i<obj.length;i++){
+		obj[i].checked = argu.checked;
+        //hightlightrowaction('art'+obj[i].value);
+        var thisrow = $("#art"+obj[i].value);
+        if(obj[i].checked){
+        	if (!$(thisrow).hasClass("selectedrow")) {
+				$(thisrow).addClass("selectedrow");
+				$(thisrow).removeClass("noselectrow");
+			}
+        }else{
+        	if ($(thisrow).hasClass("selectedrow")) {
+				$(thisrow).removeClass("selectedrow");
+				$(thisrow).addClass("noselectrow");
+			}
+        }
+    }
+}
+
+function downloadCitations(type){
+	var flag=0;
+	var ids="";
+	var obj = document.getElementsByName('pid');
+	for(var i= 0;i<obj.length;i++){
+		if(obj[i].checked){
+			flag=1;
+			ids+=obj[i].value+",";
+		}
+    }
+	if(flag==0){
+		mag_layer({content:"请选择文章!"});
+		return  false;
+	}
+	window.location.href="../article/getTxtFiles.do?fileType="+type+"&articleIds="+ids;
+}
+function DrawImage(ImgD,FitWidth,FitHeight){
+	var image=new Image();
+	image.src=ImgD.src;
+	if(image.width>0 && image.height>0){
+		if(image.width/image.height>= FitWidth/FitHeight){
+			if(image.width>FitWidth){
+				ImgD.width=FitWidth;
+				ImgD.height=(image.height*FitWidth)/image.width;
+			}else{
+				ImgD.width=image.width;
+				ImgD.height=image.height;
+			}
+		} else{
+			if(image.height>FitHeight){
+				ImgD.height=FitHeight;
+				ImgD.width=(image.width*FitHeight)/image.height;
+			}else{
+				ImgD.width=image.width;
+				ImgD.height=image.height;
+			}
+		}
+	}
+}
+$(document).ready(function(){
+	$(".figureClass").colorbox({rel:'figureClass', transition:"none", width:"80%", height:"80%"});
+	
+});
+
+//可视化开始
+$(document).ready(function(){
+	var arrSpan=$("[id^='span_visual_article_']");
+	if(arrSpan && arrSpan.length && arrSpan.length>0 ){
+		for(var i=0;i<arrSpan.length;i++){
+			var articleID=arrSpan[i].id.toString().replace("span_visual_article_","");
+			jQuery.getJSON("/CN/lexeme/existsCnctstInArticle.do?articleID="+articleID, null, function(json){
+				if(json.result){
+					$("#span_visual_article_"+json.articleID).show();
+				}
+			});
+		}
+	}
+});
+//可视化结束
+
+function collectArticle(id) {
+	var url = window.location.href;
+	jQuery.ajax({
+		url: "https://zhrxbzz.cma-cmc.com.cn/CN/user/addCollectArticle.do",
+		data: {
+			"articleId": id,
+			"url": url
+		},
+		type: "post",
+		success: function(res) {
+			if (res == "true") {
+				mag_layer({content:"收藏成功！"});
+			} else if (res == "false") {
+				mag_layer({content:"您已经收藏过该篇文章啦！"});
+			} else if (res.length > 5) {
+				mag_layer({content:"您需要先登录，才能完成本次操作."});
+			} else {
+				mag_layer({content:"收藏失败！"});
+			}
+		},
+		error: function() {
+			mag_layer({content:"收藏失败！"});
+		}
+	});
+}
+
+function exportCitations(){
+	var articleSelected=false;
+	var ids=''
+	var checkboxs = document.getElementsByName("pid");
+	if(checkboxs && checkboxs.length && checkboxs.length>0){
+		for(var i=0;i<checkboxs.length;i++){
+			if(checkboxs[i].checked){
+				articleSelected=true;
+				if(ids==''){
+					ids += checkboxs[i].value;
+				}else{
+					ids += ','+checkboxs[i].value;
+				}
+			}
+		}
+	}
+	if(articleSelected){
+		$("#export-citation-form-ids").val(ids);
+		mag_layer({
+			type:4,
+			title:'导出引用',
+			dom:'export-citation-div'
+		})
+	}else{
+		mag_layer({content:'请选择文章.'});
+	}
+}
+
+//导出
+function downloadCitations(){
+	mag_layer_close();
+	$("#export-citation-form").submit();
+}
+
+</script>
+<style type="text/css">
+.black_overlay{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #D8D8D8;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+    filter: alpha(opacity=80);
+}
+.waiting_content {
+    display: none;
+    width: 50%;
+    padding: 16px;
+    border: 1px solid orange;
+    background-color: white;
+    z-index:1002;
+    overflow: auto;
+    position:absolute;/**绝对定位**/
+	left:50%;/**左边50%**/
+	top:50%;/**顶部50%**/
+	margin-top:-50px;/**上移-50%**/
+	margin-left:-100px;/**左移-50%**/
+}
+.hiden {
+  display: none;
+}
+</style>
+<div id="waiting" class="waiting_content">
+	<div style="padding: 10px;">
+	<span id="waitingInfo">Please wait a minute...</span><br>
+	</div>
+</div>
+
+<!--Export弹出-->
+<div id="export-citation-div" class="" style="display:none;">
+	<form id="export-citation-form" action="https://zhrxbzz.cma-cmc.com.cn/CN/article/exportCitation.do">
+	<input type="hidden" id="export-citation-form-ids" name="articleIds">
+	<div class="panel panel-warning" style="color:gray;">
+		下载引用文件后，可以用常见的文献管理软件打开和编辑，包括: BibTex, EndNote, ProCite, RefWorks, and Reference Manager.
+	</div>
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h4 class="panel-title">选择文件类型/文献管理软件名称</h4>
+		</div>
+		<div class="panel-body">
+			<div class="radio">
+				<label> <input type="radio" value="Ris" checked="checked" name="fileType">
+					RIS (ProCite, Reference Manager)
+				</label>
+			</div>
+			<div class="radio">
+				<label> <input type="radio" value="BibTex" name="fileType">
+					BibTeX
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-warning">
+		<div class="panel-heading">
+			<h4 class="panel-title">选择包含的内容</h4>
+		</div>
+		<div class="panel-body">
+			<div class="radio">
+				<label> <input type="radio" value="md" checked="checked" name="contentType">
+					仅文章引用信息
+				</label>
+			</div>
+			<div class="radio">
+				<label> <input type="radio" value="ab" name="contentType">
+					引用信息及摘要
+				</label>
+			</div>
+		</div>
+	</div>
+	
+	<button type="button" class="btn btn-lg btn-primary modal-button" style="width:50%;margin:0 auto;display: block;padding: 7px;" onclick="downloadCitations()">导出</button>
+	</form>
+</div>
+<!--Export弹出end-->
+<!-- develop end -->
+
+<!--<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="2" align="left">
+			
+			<TABLE width="98%" border=0 align="center" cellPadding=0 cellSpacing=3 bgcolor="#FCF5EB" style="background-color:#FCF5EB;" class="table1">
+				<TBODY>
+					<TR>
+                 		<TD width="13" height="24">
+                   			<input class="article_checkbox" onclick="javascript:selectall(this,'pid');"  alt="Select" type="checkbox" id="sel">
+                   		</TD>
+                 		<TD width="90" align="center" class="txt_14000">选择:</TD>
+                 		<td width="28"><a href="#"><img src="/images/sele_down.png" border="0" /></a></td>
+                 		<td>
+                 			<ul id="sddm">
+								<li><a href="#" onmouseover="mopen('DownloadCitationManus')" onmouseout="mclosetime()">导出引用</a>
+		                 			<div id="DownloadCitationManus" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+										<a href="#d" onclick="downloadCitations('EndNote');">EndNote</a>
+										<a href="#d" onclick="downloadCitations('Ris');">Ris</a>
+										<a href="#d" onclick="downloadCitations('BibTeX');">BibTeX</a>
+									</div>
+								</li>
+							</ul>
+                 		</td>
+                 		<td width="32"><img src="/images/sele_pic1.png" title="Toggle Thumbnails" name="thumbtn" id="thumbtn" onclick="togthumb();" /></td>
+                 		<TD><A class="txt_14000" id="thumbtn" onclick="togthumb();" style="cursor: pointer"/>显示/隐藏图片</A></TD>
+                 	</TR>
+				</TBODY>
+			</TABLE>			
+		</td>
+	</tr>
+</table>-->
+<div class="lunwen-liebiao video-list current">
+<form name="AbstractList" id="AbstractList" action="uniteZhaiYao.do" method="post" target="_blank">
+<div class="j-list">
+<ul class="row">
+
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1949" class="article_checkbox" onchange="hightlightrowaction('art1949')" value="1949" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1949">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">1. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2020.02.014" class="lunwen">
+                        		    利培酮致非哺乳期乳腺炎一例报道并文献复习 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1949" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		熊白玉, 朱玮, 区栋财, 刘楚天
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2020, 14 (02): 
+									
+									
+		                            129-130. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2020.02.014" target="_blank">10.3877/cma.j.issn.1674-0807.2020.02.014</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1949').style.display=='block') document.getElementById('Abstract1949').style.display='none'; else document.getElementById('Abstract1949').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>72</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1949','https://zhrxbzz.cma-cmc.com.cn','2020','article/2020/1674-0807/1949/1674-0807-14-02-015.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>2</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1949','https://zhrxbzz.cma-cmc.com.cn','2020','123','1674-0807');">PDF</a>
+		                            	  <span class="number">(797 KB)</span> <span class="number">(<span>14</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1949" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1949">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1949" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2020.02.014#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2020.02.014#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2020.02.014#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2020.02.014#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1934" class="article_checkbox" onchange="hightlightrowaction('art1934')" value="1934" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1934">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">2. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2020.01.016" class="lunwen">
+                        		    男性乳腺导管内乳头状癌一例及文献复习 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1934" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		肖云霄, 王顺涛, 阮胜男, 王秀华, 黎劼潇, 黄韬
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2020, 14 (01): 
+									
+									
+		                            65-66. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2020.01.016" target="_blank">10.3877/cma.j.issn.1674-0807.2020.01.016</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1934').style.display=='block') document.getElementById('Abstract1934').style.display='none'; else document.getElementById('Abstract1934').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>58</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1934','https://zhrxbzz.cma-cmc.com.cn','2020','article/2020/1674-0807/1934/1674-0807-14-01-017.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>0</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1934','https://zhrxbzz.cma-cmc.com.cn','2020','122','1674-0807');">PDF</a>
+		                            	  <span class="number">(816 KB)</span> <span class="number">(<span>7</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1934" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1934">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1934" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2020.01.016#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2020.01.016#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2020.01.016#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2020.01.016#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1914" class="article_checkbox" onchange="hightlightrowaction('art1914')" value="1914" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1914">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">3. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.06.013" class="lunwen">
+                        		    乳腺木村病一例报告并文献分析 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1914" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		姜专基, 高波, 刘鸿雁, 张斌明
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2019, 13 (06): 
+									
+									
+		                            378-380. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2019.06.013" target="_blank">10.3877/cma.j.issn.1674-0807.2019.06.013</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1914').style.display=='block') document.getElementById('Abstract1914').style.display='none'; else document.getElementById('Abstract1914').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>40</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1914','https://zhrxbzz.cma-cmc.com.cn','2019','article/2019/1674-0807/1914/1674-0807-13-06-013.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>2</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1914','https://zhrxbzz.cma-cmc.com.cn','2019','121','1674-0807');">PDF</a>
+		                            	  <span class="number">(1342 KB)</span> <span class="number">(<span>7</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1914" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1914">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1914" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.06.013#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.06.013#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.06.013#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.06.013#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1915" class="article_checkbox" onchange="hightlightrowaction('art1915')" value="1915" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1915">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">4. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.06.014" class="lunwen">
+                        		    乳腺原发性血管肉瘤一例的临床分析并文献复习 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1915" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		马燕红, 李艳青
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2019, 13 (06): 
+									
+									
+		                            381-383. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2019.06.014" target="_blank">10.3877/cma.j.issn.1674-0807.2019.06.014</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1915').style.display=='block') document.getElementById('Abstract1915').style.display='none'; else document.getElementById('Abstract1915').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>30</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1915','https://zhrxbzz.cma-cmc.com.cn','2019','article/2019/1674-0807/1915/1674-0807-13-06-014.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>0</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1915','https://zhrxbzz.cma-cmc.com.cn','2019','121','1674-0807');">PDF</a>
+		                            	  <span class="number">(1034 KB)</span> <span class="number">(<span>6</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1915" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1915">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1915" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.06.014#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.06.014#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.06.014#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.06.014#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         		
+	                         			CSCD(<a href="http://sciencechina.cn/gw.jsp?action=detail.jsp&amp;internal_id=6647693&amp;detailType=1" target="_blank"><strong>1</strong></a>)
+	                         		
+	                         		
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1900" class="article_checkbox" onchange="hightlightrowaction('art1900')" value="1900" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1900">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">5. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.05.013" class="lunwen">
+                        		    乳腺巨大高分化血管肉瘤一例 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1900" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		张姣, 江岷芮
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2019, 13 (05): 
+									
+									
+		                            318-320. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2019.05.013" target="_blank">10.3877/cma.j.issn.1674-0807.2019.05.013</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1900').style.display=='block') document.getElementById('Abstract1900').style.display='none'; else document.getElementById('Abstract1900').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>33</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1900','https://zhrxbzz.cma-cmc.com.cn','2019','article/2019/1674-0807/1900/1674-0807-13-05-013.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>3</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1900','https://zhrxbzz.cma-cmc.com.cn','2019','120','1674-0807');">PDF</a>
+		                            	  <span class="number">(851 KB)</span> <span class="number">(<span>7</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1900" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1900">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1900" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.05.013#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.05.013#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.05.013#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.05.013#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1872" class="article_checkbox" onchange="hightlightrowaction('art1872')" value="1872" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1872">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">6. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.03.012" class="lunwen">
+                        		    乳腺恶性腺肌上皮瘤一例报道并文献回顾 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1872" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		刘嘉琦, 佟德旭, 何雨笑, 何贵金
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2019, 13 (03): 
+									
+									
+		                            191-192. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2019.03.012" target="_blank">10.3877/cma.j.issn.1674-0807.2019.03.012</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1872').style.display=='block') document.getElementById('Abstract1872').style.display='none'; else document.getElementById('Abstract1872').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>38</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1872','https://zhrxbzz.cma-cmc.com.cn','2019','article/2019/1674-0807/1872/1674-0807-13-03-012.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>0</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1872','https://zhrxbzz.cma-cmc.com.cn','2019','118','1674-0807');">PDF</a>
+		                            	  <span class="number">(787 KB)</span> <span class="number">(<span>8</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1872" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1872">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1872" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.03.012#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.03.012#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.03.012#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.03.012#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1846" class="article_checkbox" onchange="hightlightrowaction('art1846')" value="1846" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1846">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">7. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.01.012" class="lunwen">
+                        		    细胞周期蛋白依赖性激酶4/6抑制剂联合芳香化酶抑制剂用于乳腺癌新辅助治疗一例 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1846" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		曲泽睿, 边莉, 王涛, 张少华, 江泽飞
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2019, 13 (01): 
+									
+									
+		                            63-64. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2019.01.012" target="_blank">10.3877/cma.j.issn.1674-0807.2019.01.012</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1846').style.display=='block') document.getElementById('Abstract1846').style.display='none'; else document.getElementById('Abstract1846').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>43</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1846','https://zhrxbzz.cma-cmc.com.cn','2019','article/2019/1674-0807/1846/1674-0807-13-01-012.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>0</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1846','https://zhrxbzz.cma-cmc.com.cn','2019','116','1674-0807');">PDF</a>
+		                            	  <span class="number">(844 KB)</span> <span class="number">(<span>12</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1846" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1846">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1846" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.01.012#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.01.012#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.01.012#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2019.01.012#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1831" class="article_checkbox" onchange="hightlightrowaction('art1831')" value="1831" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1831">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">8. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.012" class="lunwen">
+                        		    乳腺、肺、甲状腺同时性三重癌一例 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1831" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		张晓丹, 陆依珊, 韩雨杉, 高平, 张斌, 鲁晓宁
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2018, 12 (06): 
+									
+									
+		                            376-378. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2018.06.012" target="_blank">10.3877/cma.j.issn.1674-0807.2018.06.012</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1831').style.display=='block') document.getElementById('Abstract1831').style.display='none'; else document.getElementById('Abstract1831').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>38</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1831','https://zhrxbzz.cma-cmc.com.cn','2018','article/2018/1674-0807/1831/1674-0807-12-06-012.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>1</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1831','https://zhrxbzz.cma-cmc.com.cn','2018','115','1674-0807');">PDF</a>
+		                            	  <span class="number">(1118 KB)</span> <span class="number">(<span>4</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1831" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1831">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1831" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.012#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.012#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.012#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.012#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         		
+	                         			CSCD(<a href="http://sciencechina.cn/gw.jsp?action=detail.jsp&amp;internal_id=6406710&amp;detailType=1" target="_blank"><strong>1</strong></a>)
+	                         		
+	                         		
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1832" class="article_checkbox" onchange="hightlightrowaction('art1832')" value="1832" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1832">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">9. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.013" class="lunwen">
+                        		    植入式静脉输液港发生皮氏罗尔斯顿菌感染一例 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1832" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		陈显春, 王寅欢, 范海燕, 刘静, 吴秀娟, 王姝姝, 张毅
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2018, 12 (06): 
+									
+									
+		                            379-380. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2018.06.013" target="_blank">10.3877/cma.j.issn.1674-0807.2018.06.013</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1832').style.display=='block') document.getElementById('Abstract1832').style.display='none'; else document.getElementById('Abstract1832').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>32</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1832','https://zhrxbzz.cma-cmc.com.cn','2018','article/2018/1674-0807/1832/1674-0807-12-06-013.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>0</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1832','https://zhrxbzz.cma-cmc.com.cn','2018','115','1674-0807');">PDF</a>
+		                            	  <span class="number">(882 KB)</span> <span class="number">(<span>5</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1832" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1832">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1832" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.013#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.013#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.013#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1833" class="article_checkbox" onchange="hightlightrowaction('art1833')" value="1833" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1833">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">10. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.014" class="lunwen">
+                        		    乳腺癌治疗相关慢性粒-单核细胞白血病一例并文献复习 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1833" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		李青芬, 孙延庆, 张启科, 魏小芳, 冯友繁
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2018, 12 (06): 
+									
+									
+		                            381-383. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2018.06.014" target="_blank">10.3877/cma.j.issn.1674-0807.2018.06.014</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1833').style.display=='block') document.getElementById('Abstract1833').style.display='none'; else document.getElementById('Abstract1833').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>24</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1833','https://zhrxbzz.cma-cmc.com.cn','2018','article/2018/1674-0807/1833/1674-0807-12-06-014.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>0</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1833','https://zhrxbzz.cma-cmc.com.cn','2018','115','1674-0807');">PDF</a>
+		                            	  <span class="number">(1150 KB)</span> <span class="number">(<span>5</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1833" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1833">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1833" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.014#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.014#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.014#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.06.014#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1819" class="article_checkbox" onchange="hightlightrowaction('art1819')" value="1819" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1819">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">11. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.05.013" class="lunwen">
+                        		    男性易性癖患者注射式隆乳术后感染一例 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1819" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		杨英, 刘静, 齐小梅, 颜贤惠
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2018, 12 (05): 
+									
+									
+		                            319-320. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2018.05.013" target="_blank">10.3877/cma.j.issn.1674-0807.2018.05.013</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1819').style.display=='block') document.getElementById('Abstract1819').style.display='none'; else document.getElementById('Abstract1819').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>38</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1819','https://zhrxbzz.cma-cmc.com.cn','2018','article/2018/1674-0807/1819/1674-0807-12-05-013.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>0</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1819','https://zhrxbzz.cma-cmc.com.cn','2018','114','1674-0807');">PDF</a>
+		                            	  <span class="number">(1565 KB)</span> <span class="number">(<span>12</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1819" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1819">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1819" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.05.013#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.05.013#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.05.013#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.05.013#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1804" class="article_checkbox" onchange="hightlightrowaction('art1804')" value="1804" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1804">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">12. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.04.012" class="lunwen">
+                        		    伴神经内分泌特征的浸润性乳腺癌一例及文献复习 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1804" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		王玺皓, 蔡健, 华平
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2018, 12 (04): 
+									
+									
+		                            250-252. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2018.04.012" target="_blank">10.3877/cma.j.issn.1674-0807.2018.04.012</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1804').style.display=='block') document.getElementById('Abstract1804').style.display='none'; else document.getElementById('Abstract1804').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>45</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1804','https://zhrxbzz.cma-cmc.com.cn','2018','article/2018/1674-0807/1804/1674-0807-12-04-012.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>6</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1804','https://zhrxbzz.cma-cmc.com.cn','2018','113','1674-0807');">PDF</a>
+		                            	  <span class="number">(1009 KB)</span> <span class="number">(<span>9</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1804" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1804">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1804" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.04.012#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.04.012#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.04.012#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.04.012#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         		
+	                         			CSCD(<a href="http://sciencechina.cn/gw.jsp?action=detail.jsp&amp;internal_id=6320791&amp;detailType=1" target="_blank"><strong>1</strong></a>)
+	                         		
+	                         		
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1805" class="article_checkbox" onchange="hightlightrowaction('art1805')" value="1805" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1805">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">13. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.04.013" class="lunwen">
+                        		    以双侧乳腺发育为特点的XX男性综合征一例 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1805" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		王良娇, 黄秋霞, 王永霞, 温鹏强, 张秀薇, 黄广英, 莫锡亮
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2018, 12 (04): 
+									
+									
+		                            253-255. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2018.04.013" target="_blank">10.3877/cma.j.issn.1674-0807.2018.04.013</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1805').style.display=='block') document.getElementById('Abstract1805').style.display='none'; else document.getElementById('Abstract1805').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>35</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1805','https://zhrxbzz.cma-cmc.com.cn','2018','article/2018/1674-0807/1805/1674-0807-12-04-013.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>0</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1805','https://zhrxbzz.cma-cmc.com.cn','2018','113','1674-0807');">PDF</a>
+		                            	  <span class="number">(859 KB)</span> <span class="number">(<span>8</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1805" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1805">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1805" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.04.013#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.04.013#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.04.013#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.04.013#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1792" class="article_checkbox" onchange="hightlightrowaction('art1792')" value="1792" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1792">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">14. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.03.013" class="lunwen">
+                        		    腋窝副乳腺纤维腺瘤二例 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1792" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		李波, 张承圣, 文飞
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2018, 12 (03): 
+									
+									
+		                            191-192. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2018.03.013" target="_blank">10.3877/cma.j.issn.1674-0807.2018.03.013</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1792').style.display=='block') document.getElementById('Abstract1792').style.display='none'; else document.getElementById('Abstract1792').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>30</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1792','https://zhrxbzz.cma-cmc.com.cn','2018','article/2018/1674-0807/1792/1674-0807-12-03-013.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>0</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1792','https://zhrxbzz.cma-cmc.com.cn','2018','112','1674-0807');">PDF</a>
+		                            	  <span class="number">(961 KB)</span> <span class="number">(<span>7</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1792" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1792">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1792" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.03.013#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.03.013#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.03.013#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.03.013#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1777" class="article_checkbox" onchange="hightlightrowaction('art1777')" value="1777" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1777">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">15. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.02.013" class="lunwen">
+                        		    乳腺低度恶性叶状肿瘤伴感染性休克一例 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1777" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		张秀祥, 李梦涵, 赵朋, 李晓莉, 战越, 石爱平
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2018, 12 (02): 
+									
+									
+		                            123-125. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2018.02.013" target="_blank">10.3877/cma.j.issn.1674-0807.2018.02.013</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1777').style.display=='block') document.getElementById('Abstract1777').style.display='none'; else document.getElementById('Abstract1777').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>43</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1777','https://zhrxbzz.cma-cmc.com.cn','2018','article/2018/1674-0807/1777/1674-0807-12-02-013.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>0</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1777','https://zhrxbzz.cma-cmc.com.cn','2018','111','1674-0807');">PDF</a>
+		                            	  <span class="number">(966 KB)</span> <span class="number">(<span>9</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1777" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1777">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1777" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.02.013#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.02.013#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.02.013#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.02.013#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1778" class="article_checkbox" onchange="hightlightrowaction('art1778')" value="1778" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1778">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">16. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.02.014" class="lunwen">
+                        		    应用切除乳头保留乳晕并用乳晕即时再造乳头的保留乳房手术治疗黏液癌一例 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1778" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		刘皓希, 杜俊泽, 范林军
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2018, 12 (02): 
+									
+									
+		                            126-128. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2018.02.014" target="_blank">10.3877/cma.j.issn.1674-0807.2018.02.014</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1778').style.display=='block') document.getElementById('Abstract1778').style.display='none'; else document.getElementById('Abstract1778').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>38</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1778','https://zhrxbzz.cma-cmc.com.cn','2018','article/2018/1674-0807/1778/1674-0807-12-02-014.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>2</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1778','https://zhrxbzz.cma-cmc.com.cn','2018','111','1674-0807');">PDF</a>
+		                            	  <span class="number">(903 KB)</span> <span class="number">(<span>10</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1778" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1778">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1778" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.02.014#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.02.014#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.02.014#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.02.014#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         		
+	                         			CSCD(<a href="http://sciencechina.cn/gw.jsp?action=detail.jsp&amp;internal_id=6236391&amp;detailType=1" target="_blank"><strong>1</strong></a>)
+	                         		
+	                         		
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+			
+		 <li class="col-md-12">
+		    <div class="j-list">
+		                   <div style="display:none;">
+							<input id="thisart_1763" class="article_checkbox" onchange="hightlightrowaction('art1763')" value="1763" alt="Select" type="checkbox" name="pid"> 
+                            <label class="hidelabel" for="thisart_1763">Select</label> 
+                           </div>
+                     
+                        	<div style="display:none;">17. </div>
+                        								
+                        		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.01.012" class="lunwen">
+                        		    男性三阴性副乳腺癌一例 
+																
+<iframe src="/EN/article/articleDownloadControl.do?articleId=1763" width="15" height="15" scrolling="no" frameborder="0" allowtransparency="true"></iframe>								  
+                        		</a>
+								
+                        	
+                        	
+                        	
+                        	
+                        	
+                        	<div class="zuozhe">
+                        	
+                        		刘梦友, 李玉胜, 金功圣, 王本忠
+                        	
+                        	
+                            </div>
+                            
+                            <div class="xinxi">
+                            	中华乳腺病杂志(电子版)   
+                            	
+                            		
+									  2018, 12 (01): 
+									
+									
+		                            60-63. 
+									
+                            	
+                            	
+                            		DOI: <a href="https://doi.org/10.3877/cma.j.issn.1674-0807.2018.01.012" target="_blank">10.3877/cma.j.issn.1674-0807.2018.01.012</a>
+                            	
+                            	
+                            	
+                            </div>
+                           <div class="wenzhang-xinxi">
+                            	                            
+	                            <div class="wenzhang-xinxi">		                            
+		                            <span class="zhaiyao">
+		                            <a class="zhaiyao-a" href="javascript:void(0)" onclick="if (document.getElementById('Abstract1763').style.display=='block') document.getElementById('Abstract1763').style.display='none'; else document.getElementById('Abstract1763').style.display='block'">摘要</a> 
+		                           	<span class="number">(<span>37</span>)</span>
+		                           	</span>
+		                           	
+		                           	
+		                           	
+		                           	
+		                           		<span class="richhtml">
+                                    	  <a href="javascript:;" class="html-a" onclick="lsdy1('RICH_HTML','1763','https://zhrxbzz.cma-cmc.com.cn','2018','article/2018/1674-0807/1763/1674-0807-12-01-012.mag.shtml');return false;">HTML</a>
+                                    	  <span class="number">(<span>3</span>)</span>
+                                    	</span>
+		                           	
+		                           	
+                                   
+		                           	
+		                           	
+		                           		<span class="pdf">
+		                            	  <a href="javascript:;" class="pdf-a" onclick="lsdy1('PDF','1763','https://zhrxbzz.cma-cmc.com.cn','2018','110','1674-0807');">PDF</a>
+		                            	  <span class="number">(1383 KB)</span> <span class="number">(<span>4</span>)</span>
+		                                </span>
+		                           	
+		                           	
+		                            
+		                            <span id="span_visual_article_1763" style="display:none;">
+		                            <img src="/images/knowledge_map.png" width="16" height="16">
+		                            <a href="https://zhrxbzz.cma-cmc.com.cn/CN/lexeme/showArticleByLexeme.do?articleID=1763">可视化</a>
+		                            &nbsp;&nbsp;
+		                            </span>	
+	                            </div>
+	                            <div id="Abstract1763" class="zhaiyao-info white_content">								
+										
+								</div>
+	                           
+	                            <div class="txt_zhaiyao3">
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.01.012#FigureTableTab">图表</a> |
+	                            	
+	                            	
+	                            		<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.01.012#ReferenceTab">参考文献</a> |
+	                            	
+	                            	
+	                            	<a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.01.012#RelatedCitationTab">相关文章</a> | 
+				                    <a href="https://zhrxbzz.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1674-0807.2018.01.012#MetricsTab">多维度评价</a>
+	                            </div>
+	                         
+	                         
+	                         
+	                         
+	                         	<div class="apwrapbycs">
+	                         	
+	                         	
+	                         	
+	                         		
+	                         			CSCD(<a href="http://sciencechina.cn/gw.jsp?action=detail.jsp&amp;internal_id=6196398&amp;detailType=1" target="_blank"><strong>1</strong></a>)
+	                         		
+	                         		
+	                         	
+	                         	
+	                         	
+	                         	
+	  							</div>
+	                            
+						</div>
+			</div>                        
+		</li>
+	
+
+</ul>
+</div>
+</form>
+</div>
+
+
+
+
+											<!-- 分页 -->
+											<div style="overflow: hidden;" class="gigantic pagination"><ul class="page_ul_two"><li class="no_background hideinput">跳至</li><li class="no_background hideinput"><input type="text" size="5" onblur="mag_changePage1(event,1,'changePage')" onkeypress="mag_changePage2(event,1,'changePage')"></li><li class="no_background hideinput">页</li><li class="no_background">第1页</li><li class="no_background">共1页</li><li class="no_background page-total">共17条记录</li></ul><ul class="page_ul"><li class="buneng"><a href="javascript:;" class="first" data-action="first" onclick="changePage('1')">首页</a></li><li class="buneng"><a href="javascript:;" class="previous" data-action="previous" onclick="changePage('0')">上一页</a></li><li class="buneng"><a href="javascript:;" class="next" data-action="next" onclick="changePage('2')">下一页</a></li><li class="buneng"><a href="javascript:;" class="last" data-action="last" onclick="changePage('1')">尾页</a></li></ul></div>
+											
+																					
+									</div>
+								
+				</div>
+				</div>	 
+             </div>						   			
+	    </div>	  		
+		
+</div>
+</div>	
+<!--中间end-->	
+<!--底部-->
+
+
+
+
+<!--底部-->
+<footer class="footer">
+   <div class="container">
+       <div class="row">
+           <div class="col-md-4">
+               <a href="https://zhrxbzz.cma-cmc.com.cn">
+                   <img src="https://zhrxbzz.cma-cmc.com.cn/images/1674-0807/images/footer-logo.png" class="center-block img-responsive" alt="中华乳腺病杂志(电子版)">
+               </a>
+           </div>
+		    <div class="col-md-6">
+               <div class="lianxi-women">联系我们</div>
+               <div class="footer-info">
+                   <p><span>地址：北京市西城区东河沿街69号</span> <span>邮编：100052</span></p>
+                   <p><span>Email：jcbd@medmail.com.cn</span></p>
+                   <p>电话：0086-10-51322630</p>                   <p>建议在 IE9+ 以上版本浏览器阅读本站内容,360浏览器请切换至极速模式</p>
+               </div>
+           </div>         
+           <div class="col-md-2">
+               <div class="wechat">
+                   <img src="https://zhrxbzz.cma-cmc.com.cn/images/1674-0807/images/wechat.jpg" class="img-responsive center-block" alt="">
+                   <p class="wechat-text">官方微信</p>
+               </div>
+           </div>
+       </div>
+   </div>
+</footer>
+<div class="copyright">
+    <div class="container">
+        <span>版权所有 中华医学会 中华医学电子音像出版社有限责任公司 &nbsp;京ICP备14006079号-1&nbsp; 网络出版服务许可证：(署)网出证(京)字第075号</span>
+    </div>
+</div>
+
+ 
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div></body></html>

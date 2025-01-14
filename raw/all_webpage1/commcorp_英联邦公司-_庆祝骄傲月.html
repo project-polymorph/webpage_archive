@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" prefix="og: https://ogp.me/ns#"><head><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	<meta charset="UTF-8">
+			<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	
+<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
+<title>英联邦公司 - 庆祝骄傲月</title>
+<meta name="description" content="骄傲月让我们有机会突出 LGBTQI+ 社区当前面临的问题，并表彰那些在争取平等方面带头冲锋的人。&nbsp;">
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="https://commcorp.org/zh/blog/celebrating-pride-month/">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="英联邦公司 - 庆祝骄傲月">
+<meta property="og:description" content="骄傲月让我们有机会突出 LGBTQI+ 社区当前面临的问题，并表彰那些在争取平等方面带头冲锋的人。&nbsp;">
+<meta property="og:url" content="https://commcorp.org/zh/blog/celebrating-pride-month/">
+<meta property="og:site_name" content="联邦公司">
+<meta property="article:publisher" content="https://www.facebook.com/CommonwealthCorporation/">
+<meta property="article:tag" content="DEI">
+<meta property="article:section" content="多元化、公平、包容">
+<meta property="og:updated_time" content="2022-06-08T14:54:53+00:00">
+<meta property="og:image" content="https://commcorp.org/wp-content/uploads/2022/06/Pride-1024x576.png">
+<meta property="og:image:secure_url" content="https://commcorp.org/wp-content/uploads/2022/06/Pride-1024x576.png">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="450">
+<meta property="og:image:alt" content="骄傲月">
+<meta property="og:image:type" content="image/png">
+<meta property="article:published_time" content="2022-06-07T18:33:01+00:00">
+<meta property="article:modified_time" content="2022-06-08T14:54:53+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="英联邦公司 - 庆祝骄傲月">
+<meta name="twitter:description" content="骄傲月让我们有机会突出 LGBTQI+ 社区当前面临的问题，并表彰那些在争取平等方面带头冲锋的人。&nbsp;">
+<meta name="twitter:site" content="@CommCorp_MA">
+<meta name="twitter:creator" content="@admin">
+<meta name="twitter:image" content="https://commcorp.org/wp-content/uploads/2022/06/Pride-1024x576.png">
+<script type="application/ld+json" class="rank-math-schema">{
+    "@context": "https:\/\/schema.org",
+    "@graph": [
+        {
+            "@type": "Place",
+            "@id": "https:\/\/commcorp.org\/zh\/#place",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "2 Oliver Street 5th Floor",
+                "addressLocality": "Boston",
+                "addressRegion": "Massachusetts",
+                "postalCode": "02109",
+                "addressCountry": "USA"
+            }
+        },
+        {
+            "@type": [
+                "\u653f\u5e9c\u673a\u6784",
+                "Organization"
+            ],
+            "@id": "https:\/\/commcorp.org\/zh\/#organization",
+            "name": "\u8054\u90a6\u516c\u53f8",
+            "url": "https:\/\/commcorp.org",
+            "sameAs": [
+                "https:\/\/www.facebook.com\/CommonwealthCorporation\/",
+                "https:\/\/twitter.com\/CommCorp_MA"
+            ],
+            "email": "info@commcorp.org",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "2 Oliver Street 5th Floor",
+                "addressLocality": "Boston",
+                "addressRegion": "Massachusetts",
+                "postalCode": "02109",
+                "addressCountry": "USA"
+            },
+            "logo": {
+                "@type": "ImageObject",
+                "@id": "https:\/\/commcorp.org\/zh\/#logo",
+                "url": "https:\/\/commcorp.org\/wp-content\/uploads\/2021\/11\/cropped-Full-logo-uppercase.png",
+                "contentUrl": "https:\/\/commcorp.org\/wp-content\/uploads\/2021\/11\/cropped-Full-logo-uppercase.png",
+                "caption": "Commonwealth Corporation",
+                "inLanguage": "zh-Hans",
+                "width": "734",
+                "height": "160"
+            },
+            "contactPoint": [
+                {
+                    "@type": "ContactPoint",
+                    "telephone": "+1-617-717-6910",
+                    "contactType": "customer support"
+                }
+            ],
+            "location": {
+                "@id": "https:\/\/commcorp.org\/zh\/#place"
+            }
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https:\/\/commcorp.org\/zh\/#website",
+            "url": "https:\/\/commcorp.org\/zh",
+            "name": "\u8054\u90a6\u516c\u53f8",
+            "publisher": {
+                "@id": "https:\/\/commcorp.org\/zh\/#organization"
+            },
+            "inLanguage": "zh-Hans"
+        },
+        {
+            "@type": "ImageObject",
+            "@id": "https:\/\/commcorp.org\/wp-content\/uploads\/2022\/06\/Pride.png",
+            "url": "https:\/\/commcorp.org\/wp-content\/uploads\/2022\/06\/Pride.png",
+            "width": "2048",
+            "height": "1152",
+            "inLanguage": "zh-Hans"
+        },
+        {
+            "@type": "WebPage",
+            "@id": "https:\/\/commcorp.org\/zh\/blog\/celebrating-pride-month\/#webpage",
+            "url": "https:\/\/commcorp.org\/zh\/blog\/celebrating-pride-month\/",
+            "name": "\u82f1\u8054\u90a6\u516c\u53f8 - \u5e86\u795d\u9a84\u50b2\u6708",
+            "datePublished": "2022-06-07T18:33:01+00:00",
+            "dateModified": "2022-06-08T14:54:53+00:00",
+            "isPartOf": {
+                "@id": "https:\/\/commcorp.org\/zh\/#website"
+            },
+            "primaryImageOfPage": {
+                "@id": "https:\/\/commcorp.org\/wp-content\/uploads\/2022\/06\/Pride.png"
+            },
+            "inLanguage": "zh-Hans"
+        },
+        {
+            "@type": "Person",
+            "@id": "https:\/\/commcorp.org\/zh\/blog\/celebrating-pride-month\/#author",
+            "name": "\u9732\u897f\u62c9\u00b7\u6851\u5854\u7eb3",
+            "image": {
+                "@type": "ImageObject",
+                "@id": "https:\/\/secure.gravatar.com\/avatar\/71bf01c7e8bd4deeee0e8a93c12ccd13?s=96&amp;d=mm&amp;r=g",
+                "url": "https:\/\/secure.gravatar.com\/avatar\/71bf01c7e8bd4deeee0e8a93c12ccd13?s=96&amp;d=mm&amp;r=g",
+                "caption": "Lucila Santana",
+                "inLanguage": "zh-Hans"
+            },
+            "sameAs": [
+                "https:\/\/twitter.com\/admin"
+            ],
+            "worksFor": {
+                "@id": "https:\/\/commcorp.org\/zh\/#organization"
+            }
+        },
+        {
+            "@type": "BlogPosting",
+            "headline": "Commonwealth Corporation - Celebrating Pride Month",
+            "keywords": "Pride Month,Boston Pride,Massachusetts Pride,LGBTQI+,LGBTQI+ rights",
+            "datePublished": "2022-06-07T18:33:01+00:00",
+            "dateModified": "2022-06-08T14:54:53+00:00",
+            "author": {
+                "@id": "https:\/\/commcorp.org\/zh\/blog\/celebrating-pride-month\/#author",
+                "name": "\u9732\u897f\u62c9\u00b7\u6851\u5854\u7eb3"
+            },
+            "publisher": {
+                "@id": "https:\/\/commcorp.org\/zh\/#organization"
+            },
+            "description": "\u9a84\u50b2\u6708\u8ba9\u6211\u4eec\u6709\u673a\u4f1a\u7a81\u51fa LGBTQI+ \u793e\u533a\u5f53\u524d\u9762\u4e34\u7684\u95ee\u9898\uff0c\u5e76\u8868\u5f70\u90a3\u4e9b\u5728\u4e89\u53d6\u5e73\u7b49\u65b9\u9762\u5e26\u5934\u51b2\u950b\u7684\u4eba\u3002\u00a0",
+            "name": "\u82f1\u8054\u90a6\u516c\u53f8 - \u5e86\u795d\u9a84\u50b2\u6708",
+            "@id": "https:\/\/commcorp.org\/zh\/blog\/celebrating-pride-month\/#richSnippet",
+            "isPartOf": {
+                "@id": "https:\/\/commcorp.org\/zh\/blog\/celebrating-pride-month\/#webpage"
+            },
+            "image": {
+                "@id": "https:\/\/commcorp.org\/wp-content\/uploads\/2022\/06\/Pride.png"
+            },
+            "inLanguage": "zh-Hans",
+            "mainEntityOfPage": {
+                "@id": "https:\/\/commcorp.org\/zh\/blog\/celebrating-pride-month\/#webpage"
+            }
+        }
+    ]
+}</script>
+<!-- /Rank Math WordPress SEO plugin -->
+
+<link rel="dns-prefetch" href="//www.google.com">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="alternate" type="application/rss+xml" title="Commonwealth Corporation » Feed" href="https://commcorp.org/zh/feed/">
+<link rel="alternate" type="application/rss+xml" title="Commonwealth Corporation » 评论 Feed" href="https://commcorp.org/zh/comments/feed/">
+<link rel="alternate" type="text/calendar" title="Commonwealth Corporation » iCal Feed" href="https://commcorp.org/zh/event/?ical=1">
+<link rel="alternate" type="application/rss+xml" title="Commonwealth Corporation » Celebrating Pride Month 评论 Feed" href="https://commcorp.org/zh/blog/celebrating-pride-month/feed/">
+<link data-minify="1" rel="stylesheet" id="fd_plugin_css-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/freshdesk-support/public/css/freshdesk_plugin.css?ver=1736401044" media="all">
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<style id="rank-math-toc-block-style-inline-css">
+.wp-block-rank-math-toc-block nav ol{counter-reset:item}.wp-block-rank-math-toc-block nav ol li{display:block}.wp-block-rank-math-toc-block nav ol li:before{content:counters(item, ".") ". ";counter-increment:item}
+
+</style>
+<style id="rank-math-rich-snippet-style-inline-css">
+/*!
+* Plugin:  Rank Math
+* URL: https://rankmath.com/wordpress/plugin/seo-suite/
+* Name:  rank-math-review-snippet.css
+*/@-webkit-keyframes spin{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(-360deg)}}@keyframes spin{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(-360deg)}}@keyframes bounce{from{-webkit-transform:translateY(0px);transform:translateY(0px)}to{-webkit-transform:translateY(-5px);transform:translateY(-5px)}}@-webkit-keyframes bounce{from{-webkit-transform:translateY(0px);transform:translateY(0px)}to{-webkit-transform:translateY(-5px);transform:translateY(-5px)}}@-webkit-keyframes loading{0%{background-size:20% 50% ,20% 50% ,20% 50%}20%{background-size:20% 20% ,20% 50% ,20% 50%}40%{background-size:20% 100%,20% 20% ,20% 50%}60%{background-size:20% 50% ,20% 100%,20% 20%}80%{background-size:20% 50% ,20% 50% ,20% 100%}100%{background-size:20% 50% ,20% 50% ,20% 50%}}@keyframes loading{0%{background-size:20% 50% ,20% 50% ,20% 50%}20%{background-size:20% 20% ,20% 50% ,20% 50%}40%{background-size:20% 100%,20% 20% ,20% 50%}60%{background-size:20% 50% ,20% 100%,20% 20%}80%{background-size:20% 50% ,20% 50% ,20% 100%}100%{background-size:20% 50% ,20% 50% ,20% 50%}}:root{--rankmath-wp-adminbar-height: 0}#rank-math-rich-snippet-wrapper{overflow:hidden}#rank-math-rich-snippet-wrapper h5.rank-math-title{display:block;font-size:18px;line-height:1.4}#rank-math-rich-snippet-wrapper .rank-math-review-image{float:right;max-width:40%;margin-left:15px}#rank-math-rich-snippet-wrapper .rank-math-review-data{margin-bottom:15px}#rank-math-rich-snippet-wrapper .rank-math-total-wrapper{width:100%;padding:0 0 20px 0;float:left;clear:both;position:relative;-webkit-box-sizing:border-box;box-sizing:border-box}#rank-math-rich-snippet-wrapper .rank-math-total-wrapper .rank-math-total{border:0;display:block;margin:0;width:auto;float:left;text-align:left;padding:0;font-size:24px;line-height:1;font-weight:700;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}#rank-math-rich-snippet-wrapper .rank-math-total-wrapper .rank-math-review-star{float:left;margin-left:15px;margin-top:5px;position:relative;z-index:99;line-height:1}#rank-math-rich-snippet-wrapper .rank-math-total-wrapper .rank-math-review-star .rank-math-review-result-wrapper{display:inline-block;white-space:nowrap;position:relative;color:#e7e7e7}#rank-math-rich-snippet-wrapper .rank-math-total-wrapper .rank-math-review-star .rank-math-review-result-wrapper .rank-math-review-result{position:absolute;top:0;left:0;overflow:hidden;white-space:nowrap;color:#ffbe01}#rank-math-rich-snippet-wrapper .rank-math-total-wrapper .rank-math-review-star .rank-math-review-result-wrapper i{font-size:18px;-webkit-text-stroke-width:1px;font-style:normal;padding:0 2px;line-height:inherit}#rank-math-rich-snippet-wrapper .rank-math-total-wrapper .rank-math-review-star .rank-math-review-result-wrapper i:before{content:"\2605"}body.rtl #rank-math-rich-snippet-wrapper .rank-math-review-image{float:left;margin-left:0;margin-right:15px}body.rtl #rank-math-rich-snippet-wrapper .rank-math-total-wrapper .rank-math-total{float:right}body.rtl #rank-math-rich-snippet-wrapper .rank-math-total-wrapper .rank-math-review-star{float:right;margin-left:0;margin-right:15px}body.rtl #rank-math-rich-snippet-wrapper .rank-math-total-wrapper .rank-math-review-star .rank-math-review-result{left:auto;right:0}@media screen and (max-width: 480px){#rank-math-rich-snippet-wrapper .rank-math-review-image{display:block;max-width:100%;width:100%;text-align:center;margin-right:0}#rank-math-rich-snippet-wrapper .rank-math-review-data{clear:both}}.clear{clear:both}
+
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;line-height: inherit;padding: calc(0.667em + 2px) calc(1.333em + 2px);text-decoration: none;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel="stylesheet" id="bol-elementor-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/bol-resource-library/resource-styles.css?ver=1736401044" media="all">
+<link data-minify="1" rel="stylesheet" id="ctct_form_styles-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/constant-contact-forms/assets/css/style.css?ver=1736401044" media="all">
+<link data-minify="1" rel="stylesheet" id="embedpress-style-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/embedpress/assets/css/embedpress.css?ver=1736401044" media="all">
+<link data-minify="1" rel="stylesheet" id="graphina-charts-for-elementor-public-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/graphina-elementor-charts-and-graphs/elementor/css/graphina-charts-for-elementor-public.css?ver=1736401044" media="all">
+<link data-minify="1" rel="stylesheet" id="graphina-charts-pro-requirement-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/graphina-elementor-charts-and-graphs/elementor/css/graphina-charts-for-elementor-pro.css?ver=1736401044" media="all">
+<link data-minify="1" rel="stylesheet" id="trp-floater-language-switcher-style-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/translatepress-multilingual/assets/css/trp-floater-language-switcher.css?ver=1736401044" media="all">
+<link data-minify="1" rel="stylesheet" id="trp-language-switcher-style-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/translatepress-multilingual/assets/css/trp-language-switcher.css?ver=1736401044" media="all">
+<link rel="stylesheet" id="tribe-events-v2-single-skeleton-css" href="https://commcorp.org/wp-content/plugins/the-events-calendar/src/resources/css/tribe-events-single-skeleton.min.css?ver=6.9.0" media="all">
+<link rel="stylesheet" id="tribe-events-v2-single-skeleton-full-css" href="https://commcorp.org/wp-content/plugins/the-events-calendar/src/resources/css/tribe-events-single-full.min.css?ver=6.9.0" media="all">
+<link rel="stylesheet" id="tec-events-elementor-widgets-base-styles-css" href="https://commcorp.org/wp-content/plugins/the-events-calendar/src/resources/css/integrations/plugins/elementor/widgets/widget-base.min.css?ver=6.9.0" media="all">
+<link rel="stylesheet" id="search-filter-plugin-styles-css" href="https://commcorp.org/wp-content/plugins/search-filter-pro/public/assets/css/search-filter.min.css?ver=2.5.17" media="all">
+<link rel="stylesheet" id="hello-elementor-css" href="https://commcorp.org/wp-content/themes/hello-elementor/style.min.css?ver=3.2.1" media="all">
+<link rel="stylesheet" id="hello-elementor-theme-style-css" href="https://commcorp.org/wp-content/themes/hello-elementor/theme.min.css?ver=3.2.1" media="all">
+<link rel="stylesheet" id="hello-elementor-header-footer-css" href="https://commcorp.org/wp-content/themes/hello-elementor/header-footer.min.css?ver=3.2.1" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://commcorp.org/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.26.4" media="all">
+<style id="elementor-frontend-inline-css">
+.elementor-3143 .elementor-element.elementor-element-e24e4b4:not(.elementor-motion-effects-element-type-background) > .elementor-widget-wrap, .elementor-3143 .elementor-element.elementor-element-e24e4b4 > .elementor-widget-wrap > .elementor-motion-effects-container > .elementor-motion-effects-layer{background-image:url("https://commcorp.org/wp-content/uploads/2022/06/Pride.png");}
+</style>
+<link rel="stylesheet" id="elementor-post-6-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-6.css?ver=1736401059" media="all">
+<link rel="stylesheet" id="widget-spacer-css" href="https://commcorp.org/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=3.26.4" media="all">
+<link rel="stylesheet" id="widget-heading-css" href="https://commcorp.org/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.26.4" media="all">
+<link rel="stylesheet" id="widget-text-editor-css" href="https://commcorp.org/wp-content/plugins/elementor/assets/css/widget-text-editor.min.css?ver=3.26.4" media="all">
+<link rel="stylesheet" id="widget-share-buttons-css" href="https://commcorp.org/wp-content/plugins/elementor-pro/assets/css/widget-share-buttons.min.css?ver=3.26.3" media="all">
+<link rel="stylesheet" id="e-apple-webkit-css" href="https://commcorp.org/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=3.26.4" media="all">
+<link rel="stylesheet" id="elementor-icons-shared-0-css" href="https://commcorp.org/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-icons-fa-solid-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=1736401044" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-icons-fa-brands-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=1736401044" media="all">
+<link data-minify="1" rel="stylesheet" id="elementor-icons-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1736401044" media="all">
+<link data-minify="1" rel="stylesheet" id="swiper-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=1736401053" media="all">
+<link rel="stylesheet" id="e-swiper-css" href="https://commcorp.org/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css?ver=3.26.4" media="all">
+<link rel="stylesheet" id="widget-media-carousel-css" href="https://commcorp.org/wp-content/plugins/elementor-pro/assets/css/widget-media-carousel.min.css?ver=3.26.3" media="all">
+<link rel="stylesheet" id="widget-carousel-module-base-css" href="https://commcorp.org/wp-content/plugins/elementor-pro/assets/css/widget-carousel-module-base.min.css?ver=3.26.3" media="all">
+<link rel="stylesheet" id="elementor-post-11329-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-11329.css?ver=1736401048" media="all">
+<link rel="stylesheet" id="elementor-post-3143-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-3143.css?ver=1736401056" media="all">
+<link data-minify="1" rel="stylesheet" id="dashicons-css" href="https://commcorp.org/wp-content/cache/min/1/wp-includes/css/dashicons.min.css?ver=1736401044" media="all">
+<link rel="stylesheet" id="eael-general-css" href="https://commcorp.org/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/general.min.css?ver=6.1.0" media="all">
+<link data-minify="1" rel="stylesheet" id="ecs-styles-css" href="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/ele-custom-skin/assets/css/ecs-style.css?ver=1736401044" media="all">
+<link rel="stylesheet" id="elementor-post-509-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-509.css?ver=1638915661" media="all">
+<link rel="stylesheet" id="elementor-post-561-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-561.css?ver=1640810688" media="all">
+<link rel="stylesheet" id="elementor-post-3107-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-3107.css?ver=1638921050" media="all">
+<link rel="stylesheet" id="elementor-post-3123-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-3123.css?ver=1706141451" media="all">
+<link rel="stylesheet" id="elementor-post-3146-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-3146.css?ver=1640620149" media="all">
+<link rel="stylesheet" id="elementor-post-3943-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-3943.css?ver=1634932015" media="all">
+<link rel="stylesheet" id="elementor-post-4143-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-4143.css?ver=1639005439" media="all">
+<link rel="stylesheet" id="elementor-post-4187-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-4187.css?ver=1640811647" media="all">
+<link rel="stylesheet" id="elementor-post-4218-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-4218.css?ver=1638921481" media="all">
+<link rel="stylesheet" id="elementor-post-16802-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-16802.css?ver=1715656914" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="https://fonts.googleapis.com/css?family=Karla%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=6.7.1" media="all">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><script type="rocketlazyloadscript" src="https://commcorp.org/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/graphina-elementor-charts-and-graphs/elementor/js/apexcharts.min.js?ver=1.8.10" id="apexcharts-min-js" defer=""></script>
+<script id="graphina-charts-for-elementor-public-js-extra">
+var graphina_localize = {"ajaxurl":"https:\/\/commcorp.org\/wp-admin\/admin-ajax.php","nonce":"53ba9d5cf4","graphinaAllGraphs":[],"graphinaAllGraphsOptions":[],"graphinaBlockCharts":[],"is_view_port_disable":"off","thousand_seperator":","};
+</script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/graphina-elementor-charts-and-graphs/elementor/js/graphina-charts-for-elementor-public.js?ver=1733174657" id="graphina-charts-for-elementor-public-js" defer=""></script>
+<script id="search-filter-elementor-js-extra">
+var SFE_DATA = {"ajax_url":"https:\/\/commcorp.org\/wp-admin\/admin-ajax.php","home_url":"https:\/\/commcorp.org\/zh\/"};
+</script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/search-filter-elementor/assets/v2/js/search-filter-elementor.js?ver=1733174657" id="search-filter-elementor-js" defer=""></script>
+<script id="search-filter-plugin-build-js-extra">
+var SF_LDATA = {"ajax_url":"https:\/\/commcorp.org\/wp-admin\/admin-ajax.php","home_url":"https:\/\/commcorp.org\/zh\/","extensions":["search-filter-elementor"]};
+</script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/search-filter-pro/public/assets/js/search-filter-build.min.js?ver=2.5.17" id="search-filter-plugin-build-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/search-filter-pro/public/assets/js/chosen.jquery.min.js?ver=2.5.17" id="search-filter-plugin-chosen-js" defer=""></script>
+<script id="ecs_ajax_load-js-extra">
+var ecs_ajax_params = {"ajaxurl":"https:\/\/commcorp.org\/wp-admin\/admin-ajax.php","posts":"{\"page\":0,\"blog\":\"celebrating-pride-month\",\"post_type\":\"blog\",\"name\":\"celebrating-pride-month\",\"error\":\"\",\"m\":\"\",\"p\":0,\"post_parent\":\"\",\"subpost\":\"\",\"subpost_id\":\"\",\"attachment\":\"\",\"attachment_id\":0,\"pagename\":\"\",\"page_id\":0,\"second\":\"\",\"minute\":\"\",\"hour\":\"\",\"day\":0,\"monthnum\":0,\"year\":0,\"w\":0,\"category_name\":\"\",\"tag\":\"\",\"cat\":\"\",\"tag_id\":\"\",\"author\":\"\",\"author_name\":\"\",\"feed\":\"\",\"tb\":\"\",\"paged\":0,\"meta_key\":\"\",\"meta_value\":\"\",\"preview\":\"\",\"s\":\"\",\"sentence\":\"\",\"title\":\"\",\"fields\":\"\",\"menu_order\":\"\",\"embed\":\"\",\"category__in\":[],\"category__not_in\":[],\"category__and\":[],\"post__in\":[],\"post__not_in\":[],\"post_name__in\":[],\"tag__in\":[],\"tag__not_in\":[],\"tag__and\":[],\"tag_slug__in\":[],\"tag_slug__and\":[],\"post_parent__in\":[],\"post_parent__not_in\":[],\"author__in\":[],\"author__not_in\":[],\"search_columns\":[],\"ignore_sticky_posts\":false,\"suppress_filters\":false,\"cache_results\":true,\"update_post_term_cache\":true,\"update_menu_item_cache\":false,\"lazy_load_term_meta\":true,\"update_post_meta_cache\":true,\"posts_per_page\":10,\"nopaging\":false,\"comments_per_page\":\"50\",\"no_found_rows\":false,\"order\":\"DESC\"}"};
+</script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/ele-custom-skin/assets/js/ecs_ajax_pagination.js?ver=1733174657" id="ecs_ajax_load-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/ele-custom-skin/assets/js/ecs.js?ver=1733174657" id="ecs-script-js" defer=""></script>
+<link rel="https://api.w.org/" href="https://commcorp.org/zh/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://commcorp.org/xmlrpc.php?rsd">
+<link rel="shortlink" href="https://commcorp.org/zh/?p=11329">
+<meta name="generator" content="Site Kit by Google 1.142.0"><!-- Google tag (gtag.js) --> 
+<script type="rocketlazyloadscript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-11094390849"></script> 
+<script type="rocketlazyloadscript">   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'AW-11094390849'); </script>
+
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M8FB6PKB');</script>
+<!-- End Google Tag Manager -->
+<link rel="alternate" hreflang="es-ES" href="https://commcorp.org/es/blog/celebrating-pride-month/">
+<link rel="alternate" hreflang="en-US" href="https://commcorp.org/blog/celebrating-pride-month/">
+<link rel="alternate" hreflang="zh-CN" href="https://commcorp.org/zh/blog/celebrating-pride-month/">
+<link rel="alternate" hreflang="pt-BR" href="https://commcorp.org/pt/blog/celebrating-pride-month/">
+<link rel="alternate" hreflang="es" href="https://commcorp.org/es/blog/celebrating-pride-month/">
+<link rel="alternate" hreflang="en" href="https://commcorp.org/blog/celebrating-pride-month/">
+<link rel="alternate" hreflang="zh" href="https://commcorp.org/zh/blog/celebrating-pride-month/">
+<link rel="alternate" hreflang="pt" href="https://commcorp.org/pt/blog/celebrating-pride-month/">
+<meta name="et-api-version" content="v1"><meta name="et-api-origin" content="https://commcorp.org/zh"><link rel="https://theeventscalendar.com/" href="https://commcorp.org/zh/wp-json/tribe/tickets/v1/"><meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://commcorp.org/zh"><link rel="alternate" href="https://commcorp.org/zh/wp-json/tribe/events/v1/"><meta name="description" content="骄傲月让我们有机会突出 LGBTQI+ 社区当前面临的问题，并表彰那些在争取平等方面带头冲锋的人。&nbsp;">
+<meta name="generator" content="Elementor 3.26.4; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://commcorp.org/wp-content/uploads/2021/12/cropped-CommCorp-Sub-Logos-32x32.png" sizes="32x32">
+<link rel="icon" href="https://commcorp.org/wp-content/uploads/2021/12/cropped-CommCorp-Sub-Logos-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://commcorp.org/wp-content/uploads/2021/12/cropped-CommCorp-Sub-Logos-180x180.png">
+<meta name="msapplication-TileImage" content="https://commcorp.org/wp-content/uploads/2021/12/cropped-CommCorp-Sub-Logos-270x270.png">
+		<style id="wp-custom-css">
+			.post-password-form{
+display: block;
+max-width: 627px;
+margin: auto;
+  margin-top: auto;
+padding-top: 190px;
+background-image: url('https://commcorp.org/wp-content/uploads/2021/11/cropped-Full-logo-uppercase.png');
+background-position: center top;
+background-repeat: no-repeat;
+background-size: contain;
+margin-top: 40px;
+}
+
+
+[data-tooltip]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+[data-tooltip]:after {
+    content: attr(data-tooltip);
+    background-color: rgba(255,255,255, .85);
+    color: #111;
+    font-size: 110%;
+    position: absolute;
+    padding: 1px 5px 2px 5px;
+    bottom: -1.6em;
+    left: 70%;
+    white-space: wrap;
+	max-width: 400px;
+    box-shadow: 1px 1px 3px #222222;
+    opacity: 0;
+    border: 1px solid #111111;
+    z-index: 99999;
+    visibility: hidden;
+}
+[data-tooltip] {
+    position: relative;
+}
+
+.ctct-label-top label abbr {
+	text-decoration: none;
+}
+
+.ctct-form-field-submit:has(input[type=submit]) {
+	text-align: center;
+}
+@media screen and (max-width: 720px) {
+
+body.postid-5253 .elementor-5254 .elementor-element.elementor-element-a5826a6 img{
+	max-width: 100%;	
+}
+}
+
+/* ----------- iPhone se ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+		body.page-id-14801 iframe#new-directory{
+			height: 5800px;
+		}
+		body.page-id-5253 iframe#new-directory{
+			height: 5000px;
+		}
+}
+
+
+.elementor-element-4d62af9{
+	display:none !important;
+}
+
+
+/*Events*/
+.tribe-events-pg-template {
+    max-width: 100% !important;
+    padding: 0px !important;
+}
+.tribe-events-pg-template .events-header>div>div>div{
+    padding: 0px !important;
+}
+
+		</style>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><link href="https://www.googletagmanager.com" rel="preconnect"><link href="https://www.google.com" rel="preconnect"></head>
+<body class="blog-template-default single single-blog postid-11329 wp-custom-logo wp-embed-responsive translatepress-zh_CN tribe-no-js tec-no-tickets-on-recurring tec-no-rsvp-on-recurring ctct-hello-elementor elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-11329 elementor-page-3143 tribe-theme-hello-elementor">
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8FB6PKB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->		<div data-elementor-type="single-post" data-elementor-id="3143" class="elementor elementor-3143 elementor-location-single post-11329 blog type-blog status-publish has-post-thumbnail hentry category-diversity-equity-inclusion tag-dei" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-882fba7 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="882fba7" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ea93a4d" data-id="ea93a4d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-141a8ae elementor-widget elementor-widget-template" data-id="141a8ae" data-element_type="widget" data-widget_type="template.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-template">
+					<div data-elementor-type="header" data-elementor-id="22" class="elementor elementor-22 elementor-location-single" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-da3f5a8 elementor-hidden-tablet elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="da3f5a8" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-99d6d38" data-id="99d6d38" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-8d02a8c elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="8d02a8c" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+											<a href="https://commcorp.org/zh">
+			<img width="734" height="160" src="https://commcorp.org/wp-content/uploads/2021/11/cropped-Full-logo-uppercase.png" class="attachment-full size-full wp-image-6197" alt="" srcset="https://commcorp.org/wp-content/uploads/2021/11/cropped-Full-logo-uppercase.png 734w, https://commcorp.org/wp-content/uploads/2021/11/cropped-Full-logo-uppercase-300x65.png 300w" sizes="(max-width: 734px) 100vw, 734px">				</a>
+											</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-72f4066" data-id="72f4066" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-0b4abfe elementor-nav-menu__align-end elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="0b4abfe" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<i class=\&quot;fas fa-caret-down\&quot;><\/i>&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none" data-no-translation-aria-label="">
+				<ul id="menu-1-0b4abfe" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-385"><a href="#" class="elementor-item elementor-item-anchor">关于我们</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-185"><a href="https://commcorp.org/zh/about/" class="elementor-sub-item">关于 CommCorp</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-264"><a href="https://commcorp.org/zh/foundation/" class="elementor-sub-item">关于基金会</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8850"><a href="https://commcorp.org/zh/about/team/" class="elementor-sub-item">加入我们的团队</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11225"><a href="https://commcorp.org/zh/about/strategic-plan/" class="elementor-sub-item">战略计划</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-355"><a href="https://commcorp.org/zh/dei/" class="elementor-sub-item">多元化@CommCorp</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-596"><a href="#" class="elementor-item elementor-item-anchor">司法和机会</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5674"><a href="https://commcorp.org/zh/program/re-entry-workforce-demonstration-grants/" class="elementor-sub-item">重新进入劳动力示范补助金</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5673"><a href="https://commcorp.org/zh/program/safe-successful-youth-initiative/" class="elementor-sub-item">安全和成功的青年倡议</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-header_program menu-item-has-children menu-item-4369"><a href="https://commcorp.org/zh/header_program/skill-up/" class="elementor-sub-item">SkillUp</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5680"><a href="https://commcorp.org/zh/program/employer-outreach-specialist-services-department-of-youth-services/" class="elementor-sub-item">雇主外展服务</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5678"><a href="https://commcorp.org/zh/program/career-navigation/" class="elementor-sub-item">Career Navigation</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-597"><a href="#" class="elementor-item elementor-item-anchor">行业与职业</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-has-children menu-item-7871"><a href="https://commcorp.org/zh/program/workforce-training-fund-program/" class="elementor-sub-item">劳动力培训基金计划</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-subprogram menu-item-8559"><a href="https://commcorp.org/zh/subprogram/wtfp-general-program/" class="elementor-sub-item">一般计划</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-subprogram menu-item-8560"><a href="https://commcorp.org/zh/subprogram/wtfp-express-program/" class="elementor-sub-item">快递计划</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15530"><a href="https://commcorp.org/zh/specialpurposegrants/" class="elementor-sub-item">Special Purpose Grants</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-16962"><a href="https://commcorp.org/zh/workforce-competitiveness-trust-fund/" class="elementor-sub-item">劳动力竞争力信托基金</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5683"><a href="https://commcorp.org/zh/program/senatordonnellygrants/" class="elementor-sub-item">肯尼斯·J·唐纳利·格兰特参议员</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-15857"><a href="https://commcorp.org/zh/program/program-design-grant/" class="elementor-sub-item">Program Design Grant</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18150"><a href="https://commcorp.org/zh/risegrant/" class="elementor-sub-item">RISE Grant</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5691"><a href="https://commcorp.org/zh/program/career-technical-initiative/" class="elementor-sub-item">职业技术倡议</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-header_program menu-item-has-children menu-item-5698"><a href="https://commcorp.org/zh/header_program/health-care-initiatives/" class="elementor-sub-item">医疗保健倡议</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5685"><a href="https://commcorp.org/zh/program/health-care-workforce-hubs/" class="elementor-sub-item">卫生保健劳动力中心</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5690"><a href="https://commcorp.org/zh/program/behavioral-health-workforce-hubs/" class="elementor-sub-item">行为健康劳动力中心</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5692"><a href="https://commcorp.org/zh/program/competency-based-education-program/" class="elementor-sub-item">基于能力的教育计划</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5687"><a href="https://commcorp.org/zh/program/digital-innovation-and-lifelong-learning/" class="elementor-sub-item">数字创新与终身学习</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-598"><a href="#" class="elementor-item elementor-item-anchor">青年发展</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-4370"><a href="https://commcorp.org/zh/program/youthworks/" class="elementor-sub-item">青年工作</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5675"><a href="https://commcorp.org/zh/program/signal-success/" class="elementor-sub-item">信号成功</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5686"><a href="https://commcorp.org/zh/program/employment-programs-for-young-adults-with-disabilities/" class="elementor-sub-item">残疾青年就业计划</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-266"><a href="https://commcorp.org/zh/funding/" class="elementor-item">可用基金</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-292"><a href="https://commcorp.org/zh/contact-us/" class="elementor-item">联系我们</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false" data-no-translation-aria-label="">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-0b4abfe" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-385"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">关于我们</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-185"><a href="https://commcorp.org/zh/about/" class="elementor-sub-item" tabindex="-1">关于 CommCorp</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-264"><a href="https://commcorp.org/zh/foundation/" class="elementor-sub-item" tabindex="-1">关于基金会</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8850"><a href="https://commcorp.org/zh/about/team/" class="elementor-sub-item" tabindex="-1">加入我们的团队</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11225"><a href="https://commcorp.org/zh/about/strategic-plan/" class="elementor-sub-item" tabindex="-1">战略计划</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-355"><a href="https://commcorp.org/zh/dei/" class="elementor-sub-item" tabindex="-1">多元化@CommCorp</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-596"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">司法和机会</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5674"><a href="https://commcorp.org/zh/program/re-entry-workforce-demonstration-grants/" class="elementor-sub-item" tabindex="-1">重新进入劳动力示范补助金</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5673"><a href="https://commcorp.org/zh/program/safe-successful-youth-initiative/" class="elementor-sub-item" tabindex="-1">安全和成功的青年倡议</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-header_program menu-item-has-children menu-item-4369"><a href="https://commcorp.org/zh/header_program/skill-up/" class="elementor-sub-item" tabindex="-1">SkillUp</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5680"><a href="https://commcorp.org/zh/program/employer-outreach-specialist-services-department-of-youth-services/" class="elementor-sub-item" tabindex="-1">雇主外展服务</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5678"><a href="https://commcorp.org/zh/program/career-navigation/" class="elementor-sub-item" tabindex="-1">Career Navigation</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-597"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">行业与职业</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-has-children menu-item-7871"><a href="https://commcorp.org/zh/program/workforce-training-fund-program/" class="elementor-sub-item" tabindex="-1">劳动力培训基金计划</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-subprogram menu-item-8559"><a href="https://commcorp.org/zh/subprogram/wtfp-general-program/" class="elementor-sub-item" tabindex="-1">一般计划</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-subprogram menu-item-8560"><a href="https://commcorp.org/zh/subprogram/wtfp-express-program/" class="elementor-sub-item" tabindex="-1">快递计划</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15530"><a href="https://commcorp.org/zh/specialpurposegrants/" class="elementor-sub-item" tabindex="-1">Special Purpose Grants</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-16962"><a href="https://commcorp.org/zh/workforce-competitiveness-trust-fund/" class="elementor-sub-item" tabindex="-1">劳动力竞争力信托基金</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5683"><a href="https://commcorp.org/zh/program/senatordonnellygrants/" class="elementor-sub-item" tabindex="-1">肯尼斯·J·唐纳利·格兰特参议员</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-15857"><a href="https://commcorp.org/zh/program/program-design-grant/" class="elementor-sub-item" tabindex="-1">Program Design Grant</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18150"><a href="https://commcorp.org/zh/risegrant/" class="elementor-sub-item" tabindex="-1">RISE Grant</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5691"><a href="https://commcorp.org/zh/program/career-technical-initiative/" class="elementor-sub-item" tabindex="-1">职业技术倡议</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-header_program menu-item-has-children menu-item-5698"><a href="https://commcorp.org/zh/header_program/health-care-initiatives/" class="elementor-sub-item" tabindex="-1">医疗保健倡议</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5685"><a href="https://commcorp.org/zh/program/health-care-workforce-hubs/" class="elementor-sub-item" tabindex="-1">卫生保健劳动力中心</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5690"><a href="https://commcorp.org/zh/program/behavioral-health-workforce-hubs/" class="elementor-sub-item" tabindex="-1">行为健康劳动力中心</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5692"><a href="https://commcorp.org/zh/program/competency-based-education-program/" class="elementor-sub-item" tabindex="-1">基于能力的教育计划</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5687"><a href="https://commcorp.org/zh/program/digital-innovation-and-lifelong-learning/" class="elementor-sub-item" tabindex="-1">数字创新与终身学习</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-598"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">青年发展</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-4370"><a href="https://commcorp.org/zh/program/youthworks/" class="elementor-sub-item" tabindex="-1">青年工作</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5675"><a href="https://commcorp.org/zh/program/signal-success/" class="elementor-sub-item" tabindex="-1">信号成功</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5686"><a href="https://commcorp.org/zh/program/employment-programs-for-young-adults-with-disabilities/" class="elementor-sub-item" tabindex="-1">残疾青年就业计划</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-266"><a href="https://commcorp.org/zh/funding/" class="elementor-item" tabindex="-1">可用基金</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-292"><a href="https://commcorp.org/zh/contact-us/" class="elementor-item" tabindex="-1">联系我们</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-4d62af9 elementor-search-form--skin-classic elementor-search-form--button-type-icon elementor-search-form--icon-search elementor-widget elementor-widget-search-form" data-id="4d62af9" data-element_type="widget" data-settings="{&quot;skin&quot;:&quot;classic&quot;}" data-widget_type="search-form.default">
+				<div class="elementor-widget-container">
+							<search role="search">
+			<form class="elementor-search-form" action="https://commcorp.org/zh" method="get" data-trp-original-action="https://commcorp.org/zh">
+												<div class="elementor-search-form__container">
+					<label class="elementor-screen-only" for="elementor-search-form-4d62af9" data-no-translation="" data-trp-gettext="">Search</label>
+
+					
+					<input id="elementor-search-form-4d62af9" placeholder="Search..." class="elementor-search-form__input" type="search" name="s" value="">
+					
+											<button class="elementor-search-form__submit" type="submit" aria-label="Search" data-no-translation-aria-label="">
+															<i aria-hidden="true" class="fas fa-search"></i>													</button>
+					
+									</div>
+			<input type="hidden" name="trp-form-language" value="zh"></form>
+		</search>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-b975610 elementor-hidden-desktop elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b975610" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-663a7df" data-id="663a7df" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-469d3b2 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="469d3b2" data-element_type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+											<a href="https://commcorp.org/zh">
+			<img width="734" height="160" src="https://commcorp.org/wp-content/uploads/2021/11/cropped-Full-logo-uppercase.png" class="attachment-full size-full wp-image-6197" alt="" srcset="https://commcorp.org/wp-content/uploads/2021/11/cropped-Full-logo-uppercase.png 734w, https://commcorp.org/wp-content/uploads/2021/11/cropped-Full-logo-uppercase-300x65.png 300w" sizes="(max-width: 734px) 100vw, 734px">				</a>
+											</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-b2d614d" data-id="b2d614d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3d555f9 elementor-view-default elementor-widget elementor-widget-icon" data-id="3d555f9" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="#elementor-action:action=popup:open&amp;settings=eyJpZCI6IjY4MzMiLCJ0b2dnbGUiOmZhbHNlfQ==">
+			<i aria-hidden="true" class="fas fa-bars"></i>			</a>
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+				</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5158c45 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="5158c45" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e24e4b4" data-id="e24e4b4" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;background_motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;background_motion_fx_translateY_effect&quot;:&quot;yes&quot;,&quot;background_motion_fx_translateY_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:4,&quot;sizes&quot;:[]},&quot;background_motion_fx_translateY_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;background_motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+					<div class="elementor-background-overlay"></div>
+						<div class="elementor-element elementor-element-daeef04 elementor-widget elementor-widget-spacer" data-id="daeef04" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-3f59fee elementor-widget elementor-widget-heading" data-id="3f59fee" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">庆祝骄傲月</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-55543d3 elementor-widget elementor-widget-text-editor" data-id="55543d3" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									杰夫·史密斯								</div>
+				</div>
+				<div class="elementor-element elementor-element-3cdfee8 elementor-widget elementor-widget-spacer" data-id="3cdfee8" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-10aeb59 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="10aeb59" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-49e70aa" data-id="49e70aa" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ea6ec82 postContent elementor-widget elementor-widget-theme-post-content" data-id="ea6ec82" data-element_type="widget" data-widget_type="theme-post-content.default">
+				<div class="elementor-widget-container">
+							<div data-elementor-type="wp-post" data-elementor-id="11329" class="elementor elementor-11329" data-elementor-post-type="blog">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-75257f15 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="75257f15" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-10e32fd2" data-id="10e32fd2" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-19b680d8 elementor-widget elementor-widget-text-editor" data-id="19b680d8" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>骄傲月快乐！在 6 月份，女同性恋、男同性恋、双性恋、跨性别、酷儿和双性人 (LGBTQI+) 社区肯定了他们自豪的身份。骄傲在六月庆祝，作为对六月的致敬 <a href="https://www.history.com/topics/gay-rights/the-stonewall-riots" target="_blank" rel="noopener">1969</a> 石墙暴动，最初是为了回应警察对纽约酷儿和跨性别社区的暴力行为。对许多人来说，石墙是争取 LGBTQI+ 平等的分水岭。</p><p>今天，LGBTQI+ 社区及其盟友仍在为获得更大的接受度而战。许多机构和组织正在积极努力剥夺 LGBTQI+ 个人的基本人权。</p><h4><strong>骄傲月让我们有机会突出 LGBTQI+ 社区当前面临的问题，并表彰那些在争取平等方面带头冲锋的人。</strong></h4>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-68ca5df elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="68ca5df" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f392839" data-id="f392839" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-024e893 elementor-skin-carousel elementor-arrows-yes elementor-pagination-type-bullets elementor-pagination-position-outside elementor-widget elementor-widget-media-carousel" data-id="024e893" data-element_type="widget" data-settings="{&quot;slides_per_view&quot;:&quot;1&quot;,&quot;skin&quot;:&quot;carousel&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;show_arrows&quot;:&quot;yes&quot;,&quot;pagination&quot;:&quot;bullets&quot;,&quot;speed&quot;:500,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;loop&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;space_between&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;space_between_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;space_between_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]}}" data-widget_type="media-carousel.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-swiper">
+					<div class="elementor-main-swiper swiper" role="region" aria-roledescription="carousel" aria-label="幻灯片" data-no-translation-aria-label="">
+				<div class="swiper-wrapper">
+											<div class="swiper-slide" role="group" aria-roledescription="slide">
+									<div class="elementor-carousel-image" role="img" aria-label="download (2)" style="background-image: url('https://commcorp.org/wp-content/uploads/2022/06/download-2.jpeg')">
+
+			
+					</div>
+								</div>
+											<div class="swiper-slide" role="group" aria-roledescription="slide">
+									<div class="elementor-carousel-image" role="img" aria-label="download (1)" style="background-image: url('https://commcorp.org/wp-content/uploads/2022/06/download-1.jpeg')">
+
+			
+					</div>
+								</div>
+											<div class="swiper-slide" role="group" aria-roledescription="slide">
+									<div class="elementor-carousel-image" role="img" aria-label="download (3)" style="background-image: url('https://commcorp.org/wp-content/uploads/2022/06/download-3.jpeg')">
+
+			
+					</div>
+								</div>
+											<div class="swiper-slide" role="group" aria-roledescription="slide">
+									<div class="elementor-carousel-image" role="img" aria-label="download" style="background-image: url('https://commcorp.org/wp-content/uploads/2022/06/download.jpeg')">
+
+			
+					</div>
+								</div>
+									</div>
+															<div class="swiper-pagination"></div>
+																<div class="elementor-swiper-button elementor-swiper-button-prev" role="button" tabindex="0" aria-label="以前的" data-no-translation-aria-label="">
+							<i aria-hidden="true" class="eicon-chevron-left"></i>						</div>
+						<div class="elementor-swiper-button elementor-swiper-button-next" role="button" tabindex="0" aria-label="下一个" data-no-translation-aria-label="">
+							<i aria-hidden="true" class="eicon-chevron-right"></i>						</div>
+												</div>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7a92377 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7a92377" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2047665" data-id="2047665" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-49710a2 elementor-widget elementor-widget-text-editor" data-id="49710a2" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<h4>骄傲月也是通过游行、派对和其他社区活动来庆祝 LGBTQI+ 社区的精神和活力。</h4><p>从人们那里查看这个令人难以置信的网站&nbsp;<a href="https://videoout.org/" target="_blank" rel="noopener">影像输出</a>！ VideoOut 创建了他们所说的“世界上第一个关于 LGBTQ+ 身份、历史和文化的所有信息的数字中心。由我们，为所有人！我们与酷儿和跨性别专家和创作者合作，深入探索我们是谁，我们来自哪里，以及我们如何为社会做出贡献。”他们还提供了一个&nbsp;<a href="https://linktr.ee/videoout" target="_blank" rel="noopener">链接树</a>&nbsp;直接连接到当地的 LGBTQI+ 中心和其他服务。您还可以找到信息丰富的视频、创意内容和其他资源，包括 LGBTQI+ 相关术语表。</p><p>正如你们中的一些人可能听说过的，&nbsp;<a href="https://www.bostonpride.org/" target="_blank" rel="noopener">波士顿骄傲</a>&nbsp;解散，所以今年夏天该市不会举行骄傲游行。然而，在波士顿及其周边地区仍有很多很棒的活动可以庆祝 Pride！查看以下链接了解一些即将举行的活动：</p><ul style="font-size: 16px; background-color: #ffffff;"><li style="font-size: 16px;"><a href="https://www.wgbh.org/news/local-news/2022/06/01/pride-everywhere-the-big-list-of-2022-pride-events-in-boston-beyond" target="_blank" rel="noopener">WGBH：骄傲无处不在</a></li><li style="font-size: 16px;"><a href="https://www.bu.edu/articles/2022/boston-pride-events-2022/" target="_blank" rel="noopener">BU Today：庆祝骄傲</a></li></ul><div>&nbsp;</div><p><strong>如果您不住在波士顿附近，我们鼓励您在您的社区寻找骄傲月庆祝活动！</strong></p><p>&nbsp;</p><p>&nbsp;</p><p><em>关于作者： </em><em>Jeff Smith 是 Commonwealth Corporation 的多元化、公平和包容性总监。&nbsp;</em></p><div class="elementor-element elementor-element-860994a postHeading elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="860994a" data-element_type="widget" data-widget_type="theme-post-title.default"><div class="elementor-widget-container">&nbsp;</div></div><div class="elementor-element elementor-element-20bc017 elementor-widget elementor-widget-text-editor" data-id="20bc017" data-element_type="widget" data-widget_type="text-editor.default"><div class="elementor-widget-container">&nbsp;</div></div>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d335f4a elementor-share-buttons--skin-framed elementor-grid-3 elementor-share-buttons--color-custom elementor-grid-mobile-1 elementor-share-buttons--view-icon-text elementor-share-buttons--shape-square elementor-widget elementor-widget-share-buttons" data-id="d335f4a" data-element_type="widget" data-widget_type="share-buttons.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-grid">
+								<div class="elementor-grid-item">
+						<div class="elementor-share-btn elementor-share-btn_facebook" role="button" tabindex="0" aria-label="分享到 facebook" data-no-translation-aria-label="">
+															<span class="elementor-share-btn__icon">
+								<i class="fab fa-facebook" aria-hidden="true"></i>							</span>
+																						<div class="elementor-share-btn__text">
+																			<span class="elementor-share-btn__title">
+										Facebook									</span>
+																	</div>
+													</div>
+					</div>
+									<div class="elementor-grid-item">
+						<div class="elementor-share-btn elementor-share-btn_twitter" role="button" tabindex="0" aria-label="分享到 twitter" data-no-translation-aria-label="">
+															<span class="elementor-share-btn__icon">
+								<i class="fab fa-twitter" aria-hidden="true"></i>							</span>
+																						<div class="elementor-share-btn__text">
+																			<span class="elementor-share-btn__title">
+										推特									</span>
+																	</div>
+													</div>
+					</div>
+									<div class="elementor-grid-item">
+						<div class="elementor-share-btn elementor-share-btn_linkedin" role="button" tabindex="0" aria-label="分享到 linkedin" data-no-translation-aria-label="">
+															<span class="elementor-share-btn__icon">
+								<i class="fab fa-linkedin" aria-hidden="true"></i>							</span>
+																						<div class="elementor-share-btn__text">
+																			<span class="elementor-share-btn__title">
+										领英									</span>
+																	</div>
+													</div>
+					</div>
+						</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-6b8b010 elementor-widget elementor-widget-post-comments" data-id="6b8b010" data-element_type="widget" data-widget_type="post-comments.theme_comments">
+				<div class="elementor-widget-container">
+					<section id="comments" class="comments-area">
+
+	
+		<div id="respond" class="comment-respond">
+		<h2 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/zh/blog/celebrating-pride-month/#respond" style="display:none;" data-no-translation="" data-trp-gettext="">取消回复</a></small></h2><form action="https://commcorp.org/zh/wp-comments-post.php/?wpe-comment-post=commcorpprod" method="post" id="commentform" class="comment-form" novalidate="" data-trp-original-action="https://commcorp.org/wp-comments-post.php?wpe-comment-post=commcorpprod"><p class="comment-notes"><span id="email-notes" data-no-translation="" data-trp-gettext="">您的电子邮箱地址不会被公开。</span> <span class="required-field-message" data-no-translation="" data-trp-gettext="">必填项已用<span class="required">*</span>标注</span></p><p class="comment-form-comment"><label for="comment">评论 <span class="required">*</span></label> <textarea autocomplete="new-password" id="f5d0963131" name="f5d0963131" cols="45" rows="8" maxlength="65525" required=""></textarea><textarea id="comment" aria-label="hp-comment" aria-hidden="true" name="comment" autocomplete="new-password" style="padding:0 !important;clip:rect(1px, 1px, 1px, 1px) !important;position:absolute !important;white-space:nowrap !important;height:1px !important;width:1px !important;overflow:hidden !important;" tabindex="-1"></textarea><script type="rocketlazyloadscript" data-noptimize="">document.getElementById("comment").setAttribute( "id", "ae9aa9429a5962943e8d39375c26d98f" );document.getElementById("f5d0963131").setAttribute( "id", "comment" );</script></p><p class="comment-form-author"><label for="author">显示名称 <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required=""></p>
+<p class="comment-form-email"><label for="email">电子邮箱地址 <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required=""></p>
+<p class="comment-form-url"><label for="url" data-no-translation="" data-trp-gettext="">网站地址</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" autocomplete="url"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent" data-no-translation="" data-trp-gettext="">在此浏览器中保存我的显示名称、邮箱地址和网站地址，以便下次评论时使用。</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论" data-no-translation-value=""> <input type="hidden" name="comment_post_ID" value="11329" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_"><label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="183"><script type="rocketlazyloadscript">document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p><input type="hidden" name="trp-form-language" value="zh"></form>	</div><!-- #respond -->
+	
+</section>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-a65e859 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="a65e859" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d024ae1" data-id="d024ae1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-08ac98f elementor-widget elementor-widget-template" data-id="08ac98f" data-element_type="widget" data-widget_type="template.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-template">
+					<div data-elementor-type="footer" data-elementor-id="103" class="elementor elementor-103 elementor-location-single" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-c0b9b2f elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="c0b9b2f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d638e92" data-id="d638e92" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-a9b55b6 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="a9b55b6" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-dce510c" data-id="dce510c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-40a6df4 elementor-widget elementor-widget-image" data-id="40a6df4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://commcorp.org/zh">
+							<img width="432" height="160" src="https://commcorp.org/wp-content/uploads/2021/09/Light-background-footer.png" class="attachment-full size-full wp-image-3187" alt="" srcset="https://commcorp.org/wp-content/uploads/2021/09/Light-background-footer.png 432w, https://commcorp.org/wp-content/uploads/2021/09/Light-background-footer-300x111.png 300w" sizes="(max-width: 432px) 100vw, 432px">								</a>
+															</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-38f9a09" data-id="38f9a09" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-fb1f4a3 elementor-align-right elementor-mobile-align-center elementor-widget elementor-widget-button" data-id="fb1f4a3" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://commcorp.org/zh/contact-us/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">联系我们</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-59c262a elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="59c262a" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-16 elementor-inner-column elementor-element elementor-element-f566b2c" data-id="f566b2c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-cd0c81a elementor-widget elementor-widget-text-editor" data-id="cd0c81a" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Commonwealth Corporation是一家准公共机构，成立于1996年，隶属于劳工和劳动力发展执行办公室（Executive Office of Labor and Workforce Development）。&nbsp;</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-eeb0b2a elementor-view-stacked elementor-widget__width-auto elementor-widget-mobile__width-inherit elementor-hidden-mobile elementor-shape-circle elementor-widget elementor-widget-icon" data-id="eeb0b2a" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon elementor-animation-shrink" href="https://twitter.com/commcorp_ma?lang=en" target="_blank">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M18.3327 3.34165C17.4993 3.74998 16.6827 3.91581 15.8327 4.16665C14.8985 3.11248 13.5135 3.05415 12.1827 3.55248C10.8518 4.05081 9.98018 5.26915 9.99935 6.66665V7.49998C7.29518 7.56915 4.88685 6.33748 3.33268 4.16665C3.33268 4.16665 -0.152318 10.3608 6.66602 13.3333C5.10602 14.3725 3.55018 15.0733 1.66602 15C4.42268 16.5025 7.42685 17.0191 10.0277 16.2641C13.011 15.3975 15.4627 13.1616 16.4035 9.81248C16.6842 8.79387 16.8235 7.74153 16.8177 6.68498C16.816 6.47748 18.076 4.37498 18.3327 3.34081V3.34165Z" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>			</a>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-1b2ac11 elementor-view-stacked elementor-widget__width-auto elementor-widget-mobile__width-inherit elementor-hidden-mobile elementor-shape-circle elementor-widget elementor-widget-icon" data-id="1b2ac11" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon elementor-animation-shrink" href="https://www.linkedin.com/company/commonwealthcorporation" target="_blank">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15.0006 3.33325H5.00065C4.08018 3.33325 3.33398 4.07944 3.33398 4.99992V14.9999C3.33398 15.9204 4.08018 16.6666 5.00065 16.6666H15.0006C15.9211 16.6666 16.6673 15.9204 16.6673 14.9999V4.99992C16.6673 4.07944 15.9211 3.33325 15.0006 3.33325Z" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6.66602 9.16675V13.3334" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6.66602 6.66673V6.67507" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10 13.3334V9.16675" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13.3333 13.3334V10.8334C13.3333 10.3914 13.1577 9.96746 12.8452 9.6549C12.5326 9.34234 12.1087 9.16675 11.6667 9.16675C11.2246 9.16675 10.8007 9.34234 10.4882 9.6549C10.1756 9.96746 10 10.3914 10 10.8334" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>			</a>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d810925 elementor-view-stacked elementor-widget__width-auto elementor-widget-mobile__width-inherit elementor-hidden-mobile elementor-shape-circle elementor-widget elementor-widget-icon" data-id="d810925" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon elementor-animation-shrink" href="https://www.instagram.com/commcorp_ma/" target="_blank">
+			<i aria-hidden="true" class="fab fa-instagram"></i>			</a>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d2bc151 elementor-view-stacked elementor-widget__width-auto elementor-widget-mobile__width-inherit elementor-hidden-mobile elementor-shape-circle elementor-widget elementor-widget-icon" data-id="d2bc151" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon elementor-animation-shrink" href="https://www.facebook.com/CommonwealthCorporation/" target="_blank">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5.83398 8.33333V11.6667H8.33398V17.5H11.6673V11.6667H14.1673L15.0007 8.33333H11.6673V6.66667C11.6673 6.44565 11.7551 6.23369 11.9114 6.07741C12.0677 5.92113 12.2796 5.83333 12.5007 5.83333H15.0007V2.5H12.5007C11.3956 2.5 10.3358 2.93899 9.55437 3.72039C8.77297 4.50179 8.33398 5.5616 8.33398 6.66667V8.33333H5.83398Z" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>			</a>
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-inner-column elementor-element elementor-element-1c69ec6" data-id="1c69ec6" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2366eae elementor-view-stacked elementor-widget__width-auto elementor-widget-mobile__width-inherit elementor-hidden-desktop elementor-hidden-tablet elementor-shape-circle elementor-widget elementor-widget-icon" data-id="2366eae" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon elementor-animation-shrink" href="https://x.com/commcorp_ma?lang=en" target="_blank">
+			<i aria-hidden="true" class="fab fa-x-twitter"></i>			</a>
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-inner-column elementor-element elementor-element-b95de78" data-id="b95de78" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-cfadf8c elementor-view-stacked elementor-widget__width-auto elementor-widget-mobile__width-inherit elementor-hidden-desktop elementor-hidden-tablet elementor-shape-circle elementor-widget elementor-widget-icon" data-id="cfadf8c" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon elementor-animation-shrink" href="https://www.linkedin.com/company/commonwealth-corporation" target="_blank">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15.0006 3.33325H5.00065C4.08018 3.33325 3.33398 4.07944 3.33398 4.99992V14.9999C3.33398 15.9204 4.08018 16.6666 5.00065 16.6666H15.0006C15.9211 16.6666 16.6673 15.9204 16.6673 14.9999V4.99992C16.6673 4.07944 15.9211 3.33325 15.0006 3.33325Z" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6.66602 9.16675V13.3334" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6.66602 6.66673V6.67507" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10 13.3334V9.16675" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13.3333 13.3334V10.8334C13.3333 10.3914 13.1577 9.96746 12.8452 9.6549C12.5326 9.34234 12.1087 9.16675 11.6667 9.16675C11.2246 9.16675 10.8007 9.34234 10.4882 9.6549C10.1756 9.96746 10 10.3914 10 10.8334" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>			</a>
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-inner-column elementor-element elementor-element-6b3d612" data-id="6b3d612" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-806a280 elementor-view-stacked elementor-widget__width-auto elementor-widget-mobile__width-inherit elementor-hidden-desktop elementor-hidden-tablet elementor-shape-circle elementor-widget elementor-widget-icon" data-id="806a280" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon elementor-animation-shrink" href="https://www.facebook.com/CommonwealthCorporation/" target="_blank">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5.83398 8.33333V11.6667H8.33398V17.5H11.6673V11.6667H14.1673L15.0007 8.33333H11.6673V6.66667C11.6673 6.44565 11.7551 6.23369 11.9114 6.07741C12.0677 5.92113 12.2796 5.83333 12.5007 5.83333H15.0007V2.5H12.5007C11.3956 2.5 10.3358 2.93899 9.55437 3.72039C8.77297 4.50179 8.33398 5.5616 8.33398 6.66667V8.33333H5.83398Z" stroke="#403393" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>			</a>
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-inner-column elementor-element elementor-element-f5536c1" data-id="f5536c1" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-46341d6 elementor-nav-menu__align-start elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="46341d6" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<i class=\&quot;fas fa-caret-down\&quot;><\/i>&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-46341d6" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3955"><a href="https://commcorp.org/zh/resources/" class="elementor-item">资源</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4136"><a href="https://commcorp.org/zh/events/" class="elementor-item">活动</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3157"><a href="https://commcorp.org/zh/blog/" class="elementor-item">博客</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7122"><a href="https://commcorp.org/zh/news/" class="elementor-item">新闻</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-46341d6" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3955"><a href="https://commcorp.org/zh/resources/" class="elementor-item" tabindex="-1">资源</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4136"><a href="https://commcorp.org/zh/events/" class="elementor-item" tabindex="-1">活动</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3157"><a href="https://commcorp.org/zh/blog/" class="elementor-item" tabindex="-1">博客</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7122"><a href="https://commcorp.org/zh/news/" class="elementor-item" tabindex="-1">新闻</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-16 elementor-inner-column elementor-element elementor-element-7e383ba" data-id="7e383ba" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-b853bf4 elementor-nav-menu__align-start elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="b853bf4" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<i class=\&quot;fas fa-caret-down\&quot;><\/i>&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
+				<ul id="menu-1-b853bf4" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7118"><a href="https://commcorp.org/zh/brand-story/" class="elementor-item">品牌故事</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7119"><a href="https://commcorp.org/zh/press-kit/" class="elementor-item">媒体包</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8854"><a href="https://commcorp.org/zh/about/team/" class="elementor-item">招贤纳士</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-b853bf4" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7118"><a href="https://commcorp.org/zh/brand-story/" class="elementor-item" tabindex="-1">品牌故事</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7119"><a href="https://commcorp.org/zh/press-kit/" class="elementor-item" tabindex="-1">媒体包</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8854"><a href="https://commcorp.org/zh/about/team/" class="elementor-item" tabindex="-1">招贤纳士</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-4acd5ee elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="4acd5ee" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-15e9a38 elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-html" data-id="15e9a38" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<style>
+subform {
+  line-height: 3;
+  letter-spacing: 2px;
+  color: #1F1450;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+input[type=text] {
+  border: 1px solid #5C97FF;
+  border-radius: 1px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  border: 1px solid #5C97FF;
+  border-radius: 1px;
+}
+
+Select {
+  border: 1px solid #5C97FF;
+  border-radius: 1px;
+}
+
+input[type=submit] {
+  text-align:center !important;
+  width: 200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.likeLink {
+  font-weight: bold;
+  font-size: 18px;
+  color: red;
+}
+
+</style>
+
+
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+<subform name="myForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+<input type="hidden" name="oid" value="00Dd0000000c6R6">
+<input type="hidden" name="retURL" value="https://www.commcorp.com/">
+
+<input type="hidden" name="SFGA__Web_Source__c">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="rachel.foster@hasunn.com">                                       -->
+<!--  ----------------------------------------------------------------------  -->
+
+<label for="email">订阅我们的时事通讯</label><input id="email" maxlength="80" name="email" size="20" type="text"><br><div>
+
+<input type="submit" name="submit">
+</div>
+</subform>
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript"> 
+    
+    var Vanme = window.location.href;
+    document.forms['myForm']['SFGA__Web_Source__c'].value = Vanme ;
+</script>
+
+
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-58d57c6 elementor-widget elementor-widget-heading" data-id="58d57c6" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h5 class="elementor-heading-title elementor-size-default">Subscribe to Receive our Emails</h5>				</div>
+				</div>
+				<div class="elementor-element elementor-element-c7a559f elementor-widget__width-initial elementor-widget elementor-widget-shortcode" data-id="c7a559f" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-shortcode"><div data-form-id="14141" id="ctct-form-wrapper-0" class="ctct-form-wrapper"><form class="ctct-form ctct-form-14141 no-recaptcha" id="ctct-form-732828978" data-doajax="off" style="" action="" method="post" data-trp-original-action=""><p class="ctct-form-field ctct-form-field-email ctct-form-field-required"><span class="ctct-label-top"><label for="email___3c59495a3edf2d27cd20fc1987544522_0_2247975356">Email (required) <abbr title="required">*</abbr></label></span><input required="" type="email" name="email___3c59495a3edf2d27cd20fc1987544522" value="" placeholder="" class="ctct-email ctct-label-top email___3c59495a3edf2d27cd20fc1987544522" id="email___3c59495a3edf2d27cd20fc1987544522_0_2247975356"></p><div class="ctct-list-selector" style="display:none;"><div class="ctct-form-field ctct-form-field-checkbox ctct-form-field-required"><fieldset><legend class="ctct-label-top" data-no-translation="" data-trp-gettext="">Select list(s) to subscribe to</legend><input type="checkbox" name="lists___145998d7b7a47796ea053fffa785a4f8[]" id="lists___145998d7b7a47796ea053fffa785a4f8_0_0" value="" class="ctct-checkbox ctct-label-right" checked=""><span class="ctct-label-right"><label for="lists___145998d7b7a47796ea053fffa785a4f8_0_0">MA House of Representatives</label></span></fieldset></div></div><p class="ctct-form-field ctct-form-field-submit"><input type="submit" name="ctct-submitted" value="Sign up" class="ctct-submit ctct-label-top ctct-submitted" id="ctct-submitted_0_1710888421"></p><div class="ctct_usage" style="border: 0 none; clip: rect( 0, 0, 0, 0 ); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px;"><label for="ctct_usage_field" data-no-translation="" data-trp-gettext="">Constant Contact Use. Please leave this field blank.</label><input type="text" value="" id="ctct_usage_field" name="ctct_usage_field" class="ctct_usage_field" tabindex="-1"></div><input type="hidden" name="ctct-id" value="14141"><input type="hidden" name="ctct-verify" value="2RZuxzaLNvdPH9qjsBm47QlJL"><input type="hidden" name="ctct-instance" value="0"><input type="hidden" name="ctct_time" value="1736824867"><input type="hidden" name="trp-form-language" value="zh"></form><script type="rocketlazyloadscript" data-rocket-type="text/javascript">var ajaxurl = "https://commcorp.org/wp-admin/admin-ajax.php";</script></div></div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-7441b5a elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-html" data-id="7441b5a" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<form name="myForm" id="myForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+<input type="hidden" name="oid" value="00Dd0000000c6R6">
+<!-- <input type=hidden name="retURL" > --> 
+<input type="hidden" name="SFGA__Web_Source__c">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="rachel.foster@hasunn.com">                                       -->
+<!--  ----------------------------------------------------------------------  -->
+
+<label for="email"> </label><input id="email" maxlength="80" name="email" size="20" type="text" required=""><br>
+
+<input type="submit" name="submit" onclick="submitForm()"> 
+
+
+</form>
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript"> 
+    
+    var Vanme = window.location.href;
+    document.forms['myForm']['SFGA__Web_Source__c'].value = Vanme ;
+    
+
+function submitForm() {
+   alert('Successfully submitted!');
+    var Vanme = window.location.href;
+    var form = document.getElementById("myForm");
+    form.action += "&retURL="+Vanme; // notice the case
+    form.submit(); // submit the form
+}
+    
+
+</script>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7820018 elementor-widget elementor-widget-text-editor" data-id="7820018" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									©2025 CommonWealth Corporation								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-4bd82f4 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4bd82f4" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d1d969e" data-id="d1d969e" data-element_type="column">
+			<div class="elementor-widget-wrap">
+							</div>
+		</div>
+					</div>
+		</section>
+				</div>
+				</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		<template id="tp-language" data-tp-language="zh_CN"></template><script type="rocketlazyloadscript">
+  window.markerConfig = {
+    project: '63e3d8a97f4293755370d0d7', 
+    source: 'snippet'
+  };
+</script>
+
+<script type="rocketlazyloadscript">
+!function(e,r,a){if(!e.__Marker){e.__Marker={};var t=[],n={__cs:t};["show","hide","isVisible","capture","cancelCapture","unload","reload","isExtensionInstalled","setReporter","setCustomData","on","off"].forEach(function(e){n[e]=function(){var r=Array.prototype.slice.call(arguments);r.unshift(e),t.push(r)}}),e.Marker=n;var s=r.createElement("script");s.async=1,s.src="https://edge.marker.io/latest/shim.js";var i=r.getElementsByTagName("script")[0];i.parentNode.insertBefore(s,i)}}(window,document);
+</script>
+<script type="rocketlazyloadscript">
+              (function(e){
+                  var el = document.createElement('script');
+                  el.setAttribute('data-account', 'kskRE4IstG');
+                  el.setAttribute('src', 'https://cdn.userway.org/widget.js');
+                  document.body.appendChild(el);
+                })();
+              </script>        <div id="trp-floater-ls" onclick="" data-no-translation="" class="trp-language-switcher-container trp-floater-ls-codes trp-bottom-right trp-color-light flags-short-names">
+            <div id="trp-floater-ls-current-language" class="trp-with-flags">
+
+                <a href="#" class="trp-floater-ls-disabled-language trp-ls-disabled-language" onclick="event.preventDefault()">
+					<img class="trp-flag-image" src="https://commcorp.org/wp-content/plugins/translatepress-multilingual/assets/images/flags/zh_CN.png" width="18" height="12" alt="zh_CN" title="简体中文">ZH				</a>
+
+            </div>
+            <div id="trp-floater-ls-language-list" class="trp-with-flags">
+
+                <div class="trp-language-wrap trp-language-wrap-bottom">                    <a href="https://commcorp.org/es/blog/celebrating-pride-month/" title="Español">
+          						  <img class="trp-flag-image" src="https://commcorp.org/wp-content/plugins/translatepress-multilingual/assets/images/flags/es_ES.png" width="18" height="12" alt="es_ES" title="Español">ES					          </a>
+                                    <a href="https://commcorp.org/blog/celebrating-pride-month/" title="English">
+          						  <img class="trp-flag-image" src="https://commcorp.org/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png" width="18" height="12" alt="en_US" title="English">EN					          </a>
+                                    <a href="https://commcorp.org/pt/blog/celebrating-pride-month/" title="Português do Brasil">
+          						  <img class="trp-flag-image" src="https://commcorp.org/wp-content/plugins/translatepress-multilingual/assets/images/flags/pt_BR.png" width="18" height="12" alt="pt_BR" title="Português do Brasil">PT					          </a>
+                <a href="#" class="trp-floater-ls-disabled-language trp-ls-disabled-language" onclick="event.preventDefault()"><img class="trp-flag-image" src="https://commcorp.org/wp-content/plugins/translatepress-multilingual/assets/images/flags/zh_CN.png" width="18" height="12" alt="zh_CN" title="简体中文">ZH</a></div>            </div>
+        </div>
+
+    		<script type="rocketlazyloadscript">
+		( function ( body ) {
+			'use strict';
+			body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
+		} )( document.body );
+		</script>
+				<div data-elementor-type="popup" data-elementor-id="6833" class="elementor elementor-6833 elementor-location-popup" data-elementor-settings="{&quot;entrance_animation&quot;:&quot;slideInUp&quot;,&quot;entrance_animation_mobile&quot;:&quot;slideInUp&quot;,&quot;exit_animation&quot;:&quot;slideInUp&quot;,&quot;exit_animation_mobile&quot;:&quot;slideInUp&quot;,&quot;entrance_animation_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0.75,&quot;sizes&quot;:[]},&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-45544db elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="45544db" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-485d762" data-id="485d762" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3ceaa26 elementor-widget elementor-widget-nav-menu" data-id="3ceaa26" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;dropdown&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<i class=\&quot;fas fa-caret-down\&quot;><\/i>&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-3ceaa26" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-385"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">关于我们</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-185"><a href="https://commcorp.org/zh/about/" class="elementor-sub-item" tabindex="-1">关于 CommCorp</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-264"><a href="https://commcorp.org/zh/foundation/" class="elementor-sub-item" tabindex="-1">关于基金会</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8850"><a href="https://commcorp.org/zh/about/team/" class="elementor-sub-item" tabindex="-1">加入我们的团队</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11225"><a href="https://commcorp.org/zh/about/strategic-plan/" class="elementor-sub-item" tabindex="-1">战略计划</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-355"><a href="https://commcorp.org/zh/dei/" class="elementor-sub-item" tabindex="-1">多元化@CommCorp</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-596"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">司法和机会</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5674"><a href="https://commcorp.org/zh/program/re-entry-workforce-demonstration-grants/" class="elementor-sub-item" tabindex="-1">重新进入劳动力示范补助金</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5673"><a href="https://commcorp.org/zh/program/safe-successful-youth-initiative/" class="elementor-sub-item" tabindex="-1">安全和成功的青年倡议</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-header_program menu-item-has-children menu-item-4369"><a href="https://commcorp.org/zh/header_program/skill-up/" class="elementor-sub-item" tabindex="-1">SkillUp</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5680"><a href="https://commcorp.org/zh/program/employer-outreach-specialist-services-department-of-youth-services/" class="elementor-sub-item" tabindex="-1">雇主外展服务</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5678"><a href="https://commcorp.org/zh/program/career-navigation/" class="elementor-sub-item" tabindex="-1">Career Navigation</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-597"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">行业与职业</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-has-children menu-item-7871"><a href="https://commcorp.org/zh/program/workforce-training-fund-program/" class="elementor-sub-item" tabindex="-1">劳动力培训基金计划</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-subprogram menu-item-8559"><a href="https://commcorp.org/zh/subprogram/wtfp-general-program/" class="elementor-sub-item" tabindex="-1">一般计划</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-subprogram menu-item-8560"><a href="https://commcorp.org/zh/subprogram/wtfp-express-program/" class="elementor-sub-item" tabindex="-1">快递计划</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15530"><a href="https://commcorp.org/zh/specialpurposegrants/" class="elementor-sub-item" tabindex="-1">Special Purpose Grants</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-16962"><a href="https://commcorp.org/zh/workforce-competitiveness-trust-fund/" class="elementor-sub-item" tabindex="-1">劳动力竞争力信托基金</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5683"><a href="https://commcorp.org/zh/program/senatordonnellygrants/" class="elementor-sub-item" tabindex="-1">肯尼斯·J·唐纳利·格兰特参议员</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-15857"><a href="https://commcorp.org/zh/program/program-design-grant/" class="elementor-sub-item" tabindex="-1">Program Design Grant</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18150"><a href="https://commcorp.org/zh/risegrant/" class="elementor-sub-item" tabindex="-1">RISE Grant</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5691"><a href="https://commcorp.org/zh/program/career-technical-initiative/" class="elementor-sub-item" tabindex="-1">职业技术倡议</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-header_program menu-item-has-children menu-item-5698"><a href="https://commcorp.org/zh/header_program/health-care-initiatives/" class="elementor-sub-item" tabindex="-1">医疗保健倡议</a>
+	<ul class="sub-menu elementor-nav-menu--dropdown">
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5685"><a href="https://commcorp.org/zh/program/health-care-workforce-hubs/" class="elementor-sub-item" tabindex="-1">卫生保健劳动力中心</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5690"><a href="https://commcorp.org/zh/program/behavioral-health-workforce-hubs/" class="elementor-sub-item" tabindex="-1">行为健康劳动力中心</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5692"><a href="https://commcorp.org/zh/program/competency-based-education-program/" class="elementor-sub-item" tabindex="-1">基于能力的教育计划</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5687"><a href="https://commcorp.org/zh/program/digital-innovation-and-lifelong-learning/" class="elementor-sub-item" tabindex="-1">数字创新与终身学习</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-598"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">青年发展</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-4370"><a href="https://commcorp.org/zh/program/youthworks/" class="elementor-sub-item" tabindex="-1">青年工作</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5675"><a href="https://commcorp.org/zh/program/signal-success/" class="elementor-sub-item" tabindex="-1">信号成功</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-program menu-item-5686"><a href="https://commcorp.org/zh/program/employment-programs-for-young-adults-with-disabilities/" class="elementor-sub-item" tabindex="-1">残疾青年就业计划</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-266"><a href="https://commcorp.org/zh/funding/" class="elementor-item" tabindex="-1">可用基金</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-292"><a href="https://commcorp.org/zh/contact-us/" class="elementor-item" tabindex="-1">联系我们</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		<script type="rocketlazyloadscript"> /* <![CDATA[ */var tribe_l10n_datatables = {"aria":{"sort_ascending":": activate to sort column ascending","sort_descending":": activate to sort column descending"},"length_menu":"Show _MENU_ entries","empty_table":"No data available in table","info":"Showing _START_ to _END_ of _TOTAL_ entries","info_empty":"Showing 0 to 0 of 0 entries","info_filtered":"(filtered from _MAX_ total entries)","zero_records":"No matching records found","search":"Search:","all_selected_text":"All items on this page were selected. ","select_all_link":"Select all pages","clear_selection":"Clear Selection.","pagination":{"all":"All","next":"Next","previous":"Previous"},"select":{"rows":{"0":"","_":": Selected %d rows","1":": Selected 1 row"}},"datepicker":{"dayNames":["\u661f\u671f\u65e5","\u661f\u671f\u4e00","\u661f\u671f\u4e8c","\u661f\u671f\u4e09","\u661f\u671f\u56db","\u661f\u671f\u4e94","\u661f\u671f\u516d"],"dayNamesShort":["\u5468\u65e5","\u5468\u4e00","\u5468\u4e8c","\u5468\u4e09","\u5468\u56db","\u5468\u4e94","\u5468\u516d"],"dayNamesMin":["\u65e5","\u4e00","\u4e8c","\u4e09","\u56db","\u4e94","\u516d"],"monthNames":["1 \u6708","2 \u6708","3 \u6708","4 \u6708","5 \u6708","6 \u6708","7 \u6708","8 \u6708","9 \u6708","10 \u6708","11 \u6708","12 \u6708"],"monthNamesShort":["1 \u6708","2 \u6708","3 \u6708","4 \u6708","5 \u6708","6 \u6708","7 \u6708","8 \u6708","9 \u6708","10 \u6708","11 \u6708","12 \u6708"],"monthNamesMin":["1 \u6708","2 \u6708","3 \u6708","4 \u6708","5 \u6708","6 \u6708","7 \u6708","8 \u6708","9 \u6708","10 \u6708","11 \u6708","12 \u6708"],"nextText":"Next","prevText":"Prev","currentText":"Today","closeText":"Done","today":"Today","clear":"Clear"},"registration_prompt":"There is unsaved attendee information. Are you sure you want to continue?"};/* ]]> */ </script>			<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<link rel="stylesheet" id="elementor-post-22-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-22.css?ver=1736401058" media="all">
+<link rel="stylesheet" id="widget-image-css" href="https://commcorp.org/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.26.4" media="all">
+<link rel="stylesheet" id="widget-nav-menu-css" href="https://commcorp.org/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=3.26.3" media="all">
+<link rel="stylesheet" id="widget-search-form-css" href="https://commcorp.org/wp-content/plugins/elementor-pro/assets/css/widget-search-form.min.css?ver=3.26.3" media="all">
+<link rel="stylesheet" id="elementor-post-103-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-103.css?ver=1736401058" media="all">
+<link rel="stylesheet" id="e-animation-shrink-css" href="https://commcorp.org/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css?ver=3.26.4" media="all">
+<link rel="stylesheet" id="widget-divider-css" href="https://commcorp.org/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=3.26.4" media="all">
+<link rel="stylesheet" id="elementor-post-6833-css" href="https://commcorp.org/wp-content/uploads/elementor/css/post-6833.css?ver=1736401051" media="all">
+<link rel="stylesheet" id="e-animation-slideInUp-css" href="https://commcorp.org/wp-content/plugins/elementor/assets/lib/animations/styles/slideInUp.min.css?ver=3.26.4" media="all">
+<link rel="stylesheet" id="e-popup-css" href="https://commcorp.org/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css?ver=3.26.3" media="all">
+<link rel="stylesheet" id="e-motion-fx-css" href="https://commcorp.org/wp-content/plugins/elementor-pro/assets/css/modules/motion-fx.min.css?ver=3.26.3" media="all">
+<script id="trp-dynamic-translator-js-extra">
+var trp_data = {"trp_custom_ajax_url":"https:\/\/commcorp.org\/wp-content\/plugins\/translatepress-multilingual\/includes\/trp-ajax.php","trp_wp_ajax_url":"https:\/\/commcorp.org\/wp-admin\/admin-ajax.php","trp_language_to_query":"zh_CN","trp_original_language":"en_US","trp_current_language":"zh_CN","trp_skip_selectors":["[data-no-translation]","[data-no-dynamic-translation]","[data-trp-translate-id-innertext]","script","style","head","trp-span","translate-press","[data-trp-translate-id]","[data-trpgettextoriginal]","[data-trp-post-slug]"],"trp_base_selectors":["data-trp-translate-id","data-trpgettextoriginal","data-trp-post-slug"],"trp_attributes_selectors":{"text":{"accessor":"outertext","attribute":false},"block":{"accessor":"innertext","attribute":false},"image_src":{"selector":"img[src]","accessor":"src","attribute":true},"submit":{"selector":"input[type='submit'],input[type='button'], input[type='reset']","accessor":"value","attribute":true},"placeholder":{"selector":"input[placeholder],textarea[placeholder]","accessor":"placeholder","attribute":true},"title":{"selector":"[title]","accessor":"title","attribute":true},"a_href":{"selector":"a[href]","accessor":"href","attribute":true},"button":{"accessor":"outertext","attribute":false},"option":{"accessor":"innertext","attribute":false},"aria_label":{"selector":"[aria-label]","accessor":"aria-label","attribute":true},"image_alt":{"selector":"img[alt]","accessor":"alt","attribute":true},"meta_desc":{"selector":"meta[name=\"description\"],meta[property=\"og:title\"],meta[property=\"og:description\"],meta[property=\"og:site_name\"],meta[property=\"og:image:alt\"],meta[name=\"twitter:title\"],meta[name=\"twitter:description\"],meta[name=\"twitter:image:alt\"],meta[name=\"DC.Title\"],meta[name=\"DC.Description\"],meta[property=\"article:section\"],meta[property=\"article:tag\"]","accessor":"content","attribute":true},"page_title":{"selector":"title","accessor":"innertext","attribute":false},"meta_desc_img":{"selector":"meta[property=\"og:image\"],meta[property=\"og:image:secure_url\"],meta[name=\"twitter:image\"]","accessor":"content","attribute":true}},"trp_attributes_accessors":["outertext","innertext","src","value","placeholder","title","href","aria-label","alt","content"],"gettranslationsnonceregular":"8f30ab2648","showdynamiccontentbeforetranslation":"","skip_strings_from_dynamic_translation":[],"skip_strings_from_dynamic_translation_for_substrings":{"href":["amazon-adsystem","googleads","g.doubleclick"]},"duplicate_detections_allowed":"100","trp_translate_numerals_opt":"no","trp_no_auto_translation_selectors":["[data-no-auto-translation]"]};
+</script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/translatepress-multilingual/assets/js/trp-translate-dom-changes.js?ver=1733174745" id="trp-dynamic-translator-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/constant-contact-forms/assets/js/ctct-plugin-recaptcha-v2.min.js?ver=2.7.0" id="recaptcha-v2-js" defer=""></script>
+<script type="rocketlazyloadscript" async="async" defer="" src="//www.google.com/recaptcha/api.js?onload=renderReCaptcha&amp;render=explicit&amp;ver=2.7.0" id="recaptcha-lib-v2-js"></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/constant-contact-forms/assets/js/ctct-plugin-frontend.min.js?ver=2.7.0" id="ctct_frontend_forms-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/dynamicconditions/Public/js/dynamic-conditions-public.js?ver=1733174657" id="dynamic-conditions-js" defer=""></script>
+<script id="embedpress-front-js-extra">
+var eplocalize = {"ajaxurl":"https:\/\/commcorp.org\/wp-admin\/admin-ajax.php","is_pro_plugin_active":"","nonce":"21a9b321bd"};
+</script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/embedpress/assets/js/front.js?ver=1733174657" id="embedpress-front-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.3" id="jquery-ui-datepicker-js" defer=""></script>
+<script type="rocketlazyloadscript" id="jquery-ui-datepicker-js-after">window.addEventListener('DOMContentLoaded', function() {
+jQuery(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"\u5173\u95ed","currentText":"\u4eca\u5929","monthNames":["1 \u6708","2 \u6708","3 \u6708","4 \u6708","5 \u6708","6 \u6708","7 \u6708","8 \u6708","9 \u6708","10 \u6708","11 \u6708","12 \u6708"],"monthNamesShort":["1 \u6708","2 \u6708","3 \u6708","4 \u6708","5 \u6708","6 \u6708","7 \u6708","8 \u6708","9 \u6708","10 \u6708","11 \u6708","12 \u6708"],"nextText":"\u4e0b\u4e00\u6b65","prevText":"\u4e0a\u4e00\u6b65","dayNames":["\u661f\u671f\u65e5","\u661f\u671f\u4e00","\u661f\u671f\u4e8c","\u661f\u671f\u4e09","\u661f\u671f\u56db","\u661f\u671f\u4e94","\u661f\u671f\u516d"],"dayNamesShort":["\u5468\u65e5","\u5468\u4e00","\u5468\u4e8c","\u5468\u4e09","\u5468\u56db","\u5468\u4e94","\u5468\u516d"],"dayNamesMin":["\u65e5","\u4e00","\u4e8c","\u4e09","\u56db","\u4e94","\u516d"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+});</script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/zh(\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$))|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/commcorp.org\/zh","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/themes/hello-elementor/assets/js/hello-frontend.min.js?ver=3.2.1" id="hello-theme-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js" defer=""></script>
+<script id="eael-general-js-extra">
+var localize = {"ajaxurl":"https:\/\/commcorp.org\/wp-admin\/admin-ajax.php","nonce":"17d2e3b0e1","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing","shipping_text":"Shipping","fg_mfp_counter_text":"of"},"page_permalink":"https:\/\/commcorp.org\/zh\/blog\/celebrating-pride-month\/","cart_redirectition":"","cart_page_url":"","el_breakpoints":{"mobile":{"label":"\u624b\u673a\u7eb5\u5411","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u624b\u673a\u6a2a\u5411","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u5e73\u677f\u7535\u8111\u7eb5\u5411","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u5e73\u677f\u7535\u8111\u6a2a\u5411","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u7b14\u8bb0\u672c\u7535\u8111","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u5168\u5bbd\u5c4f","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}};
+</script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.min.js?ver=6.1.0" id="eael-general-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-includes/js/comment-reply.min.js?ver=6.7.1" id="comment-reply-js" async="" data-wp-strategy="async"></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.26.4" id="elementor-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.26.4" id="elementor-frontend-modules-js" defer=""></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"\u5728\u8138\u4e66\u4e0a\u5206\u4eab","shareOnTwitter":"\u5206\u4eab\u5230Twitter","pinIt":"\u9489\u4f4f","download":"\u4e0b\u8f7d","downloadImage":"\u4e0b\u8f7d\u56fe\u7247","fullscreen":"\u5168\u5c4f","zoom":"\u7f29\u653e","share":"\u5206\u4eab","playVideo":"\u64ad\u653e\u89c6\u9891","previous":"\u4e0a\u4e00\u9875","next":"\u4e0b\u4e00\u9875","close":"\u5173\u95ed","a11yCarouselPrevSlideMessage":"\u4e0a\u4e00\u5f20\u5e7b\u706f\u7247","a11yCarouselNextSlideMessage":"\u4e0b\u4e00\u5f20\u5e7b\u706f\u7247","a11yCarouselFirstSlideMessage":"\u8fd9\u662f\u7b2c\u4e00\u5f20\u5e7b\u706f\u7247","a11yCarouselLastSlideMessage":"\u8fd9\u662f\u6700\u540e\u4e00\u5f20\u5e7b\u706f\u7247","a11yCarouselPaginationBulletMessage":"\u8f6c\u5230\u5e7b\u706f\u7247"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u624b\u673a\u7eb5\u5411","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u624b\u673a\u6a2a\u5411","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u5e73\u677f\u7535\u8111\u7eb5\u5411","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u5e73\u677f\u7535\u8111\u6a2a\u5411","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u7b14\u8bb0\u672c\u7535\u8111","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u5168\u5bbd\u5c4f","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.26.4","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"container":true,"e_swiper_latest":true,"e_nested_atomic_repeaters":true,"e_onboarding":true,"e_css_smooth_scroll":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"home_screen":true,"landing-pages":true,"nested-elements":true,"editor_v2":true,"link-in-bio":true,"floating-buttons":true},"urls":{"assets":"https:\/\/commcorp.org\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/commcorp.org\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/commcorp.org\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"effac6a3e5"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"classic","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal"},"post":{"id":11329,"title":"Commonwealth%20Corporation%20-%20Celebrating%20Pride%20Month","excerpt":"Pride Month offers us a chance to highlight the current issues facing the LGBTQI+ community and recognize those leading the charge in the fight for equality.\u00a0","featuredImage":"https:\/\/commcorp.org\/wp-content\/uploads\/2022\/06\/Pride-1024x576.png"}};
+</script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.26.4" id="elementor-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" data-minify="1" src="https://commcorp.org/wp-content/cache/min/1/wp-content/plugins/ele-custom-skin-pro/assets/js/ecspro.js?ver=1733174657" id="ecspro-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.26.3" id="elementor-pro-webpack-runtime-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/commcorp.org\/wp-admin\/admin-ajax.php","nonce":"162bbfb89c","urls":{"assets":"https:\/\/commcorp.org\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/commcorp.org\/zh\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"zh_CN","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/commcorp.org\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.26.3" id="elementor-pro-frontend-js" defer=""></script>
+<script type="rocketlazyloadscript" src="https://commcorp.org/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.26.3" id="pro-elements-handlers-js" defer=""></script>
+        <script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+            /* <![CDATA[ */
+           document.querySelectorAll("ul.nav-menu").forEach(
+               ulist => { 
+                    if (ulist.querySelectorAll("li").length == 0) {
+                        ulist.style.display = "none";
+
+                                            } 
+                }
+           );
+            /* ]]> */
+        </script>
+        	<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script>
+
+
+<span id="elementor-device-mode" class="elementor-screen-only"></span></body></html>

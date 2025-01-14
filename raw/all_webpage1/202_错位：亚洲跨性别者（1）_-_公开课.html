@@ -1,0 +1,2349 @@
+<!DOCTYPE html>
+<html><head><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style><style class="vjs-styles-dimensions"></style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="广州联图 中华民族文化网站，集影、音、图、文于一体，融合云图资源平台合为一体的民族文化版权资源展示与传承数字化专题平台工程。专题平台利用先进的数字化技术，收集、整理、汇聚各民族优秀的文化资源，并通过线上线下渠道进行宣广和传播。">
+	<meta name="keywords" content="民族，中国民族文化，少数民族，出版物，56个民族，云南民族音像出版社，云南，云图，联图云图，广州联图">
+	<link rel="icon" sizes="any" href="/img/ethnic/ico_logo.png">
+	<title>公开课</title>
+
+	<link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/views/institution/css/institution_base.css?v=20170718">
+	<script src="https://hm.baidu.com/hm.js?703adfe6f565754028f7850563b9c9a3"></script><script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://lib.baomitu.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	
+    <meta charset="utf-8">
+    <meta name="description" content="广州联图 中华民族文化网站，集影、音、图、文于一体，融合云图资源平台合为一体的民族文化版权资源展示与传承数字化专题平台工程。专题平台利用先进的数字化技术，收集、整理、汇聚各民族优秀的文化资源，并通过线上线下渠道进行宣广和传播。">
+    <meta name="keywords" content="民族，中国民族文化，少数民族，出版物，56个民族，云南民族音像出版社，云南，云图，联图云图，广州联图">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="icon" sizes="any" mask="" href="/img/ethnic/ico_logo.png">
+    
+    <link rel="stylesheet" href="/plugins/jscrollpane/jquery.jscrollpane.css">
+    <link rel="stylesheet" href="/plugins/videojs/video-js.min.css">
+    <link rel="stylesheet" href="/views/institution/plugins/swiper/swiper.min.css">
+    <link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://lib.baomitu.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/views/institution/css/index.min.css">
+    <link rel="stylesheet" href="/css/ethnic/ethnic_base.css?v=20170417">
+    <link rel="stylesheet" href="/views/ethnic/css/detail.css?v=20170417">
+
+    <style>
+        
+        ul, li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        body a {
+            color: inherit;
+        }
+
+        body a:focus, body a:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button, input {
+            border: none;
+            outline: none;
+        }
+
+        .autoCenter {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .oneline {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .oneLine {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .clearfix::after, .clearfix::before {
+            content: "";
+            display: block;
+            visibility: hidden;
+            clear: both;
+        }
+
+        .nav-item a {
+            font-size: 16px;
+        }
+
+        
+        .detail-crumb {
+            margin: 40px 0 15px 0;
+        }
+
+        .detail-crumb__title {
+            font-size: 30px;
+        }
+
+        .detail-crumb__item {
+            float: left;
+            line-height: 25px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .detail-crumb__item::before {
+            content: ">";
+            display: inline-block;
+            padding: 0 5px;
+            font-size: 18px;
+        }
+
+        .detail-crumb__item:first-child::before {
+            content: none;
+        }
+
+        /* 简介 */
+        .detail-introduction {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .detail-introduction__txts {
+            max-height: 160px;
+            overflow: hidden;
+        }
+
+        .detail-introduction__txt {
+            line-height: 26px;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        .detail-introduction__btns {
+            margin: 8px 0;
+            text-align: right;
+        }
+
+        .detail-introduction__btn {
+            background: none;
+            border: 1px solid #2dbe60;
+            font-size: 14px;
+        }
+
+        /* 标签 */
+        .detail-tags {
+            height: 30px;
+            padding-left: 32px;
+            margin: 25px 0;
+            background: url(/img/ethnic/spirit_disk.png) no-repeat 0 -273px;
+        }
+
+        .detail-tag {
+            float: left;
+            line-height: 30px;
+            margin-right: 15px;
+        }
+
+        .detail-tag-link {
+            line-height: 26px;
+            padding: 3px 18px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+        }
+
+        /* 功能栏 */
+        .detail-audio-interface {
+            padding: 0 0 8px 15px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+        }
+
+        /* 上传者 */
+        .detail-upload-org {
+            padding: 15px 0;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .detail-upload-org__imgs {
+            float: left;
+            width: 80px;
+            height: 80px;
+        }
+
+        .detail-upload-org__img {
+            width: 100%;
+            height: 100%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .detail-upload-org__name {
+            float: left;
+            line-height: 80px;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        /* 相关推荐 */
+        .detail-related-source {
+            margin-top: 25px;
+        }
+
+        .detail-related-source__title {
+            font-size: 20px;
+        }
+
+        .detail-related-source__list {
+            margin-right: -20px;
+        }
+
+        .detail-related-source__item {
+            float: left;
+            width: 224px;
+            margin-right: 20px;
+        }
+
+        .detail-related-source__imgs {
+            width: 224px;
+            height: 140px;
+        }
+
+        .detail-related-source__img {
+            width: 100%;
+            height: 100%;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        .detail-related-source__name {
+            line-height: 30px;
+            height: 60px;
+            padding: 0 3px;
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            overflow: hidden;
+        }
+
+        /*私有资源*/
+        .alert-Private {
+            display: none;
+        }
+
+        /*禁止videojs的control操作*/
+        .disable-coverView {
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            position: absolute;
+            float: left;
+            z-index: 2;
+        }
+
+
+    </style>
+
+</head>
+<body>
+	
+	
+
+
+
+
+<script src="https://lib.baomitu.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+    @-webkit-keyframes menu {
+        from {
+            opacity: 0;
+            -webkit-transform: rotateY(-90deg) translateY(30px);
+            -moz-transform: rotateY(-90deg) translateY(30px);
+            -ms-transform: rotateY(-90deg) translateY(30px);
+            -o-transform: rotateY(-90deg) translateY(30px);
+            transform: rotateY(-90deg) translateY(30px)
+        }
+        to {
+            opacity: 1;
+            -webkit-transform: rotateY(0) translateY(0);
+            -moz-transform: rotateY(0) translateY(0);
+            -ms-transform: rotateY(0) translateY(0);
+            -o-transform: rotateY(0) translateY(0);
+            transform: rotateY(0) translateY(0)
+        }
+    }
+
+    @-moz-keyframes menu {
+        from {
+            opacity: 0;
+            -webkit-transform: rotateY(-90deg) translateY(30px);
+            -moz-transform: rotateY(-90deg) translateY(30px);
+            -ms-transform: rotateY(-90deg) translateY(30px);
+            -o-transform: rotateY(-90deg) translateY(30px);
+            transform: rotateY(-90deg) translateY(30px)
+        }
+        to {
+            opacity: 1;
+            -webkit-transform: rotateY(0) translateY(0);
+            -moz-transform: rotateY(0) translateY(0);
+            -ms-transform: rotateY(0) translateY(0);
+            -o-transform: rotateY(0) translateY(0);
+            transform: rotateY(0) translateY(0)
+        }
+    }
+
+    @-o-keyframes menu {
+        from {
+            opacity: 0;
+            -webkit-transform: rotateY(-90deg) translateY(30px);
+            -moz-transform: rotateY(-90deg) translateY(30px);
+            -ms-transform: rotateY(-90deg) translateY(30px);
+            -o-transform: rotateY(-90deg) translateY(30px);
+            transform: rotateY(-90deg) translateY(30px)
+        }
+        to {
+            opacity: 1;
+            -webkit-transform: rotateY(0) translateY(0);
+            -moz-transform: rotateY(0) translateY(0);
+            -ms-transform: rotateY(0) translateY(0);
+            -o-transform: rotateY(0) translateY(0);
+            transform: rotateY(0) translateY(0)
+        }
+    }
+
+    @keyframes menu {
+        from {
+            opacity: 0;
+            -webkit-transform: rotateY(-90deg) translateY(30px);
+            -moz-transform: rotateY(-90deg) translateY(30px);
+            -ms-transform: rotateY(-90deg) translateY(30px);
+            -o-transform: rotateY(-90deg) translateY(30px);
+            transform: rotateY(-90deg) translateY(30px)
+        }
+        to {
+            opacity: 1;
+            -webkit-transform: rotateY(0) translateY(0);
+            -moz-transform: rotateY(0) translateY(0);
+            -ms-transform: rotateY(0) translateY(0);
+            -o-transform: rotateY(0) translateY(0);
+            transform: rotateY(0) translateY(0)
+        }
+    }
+    .oneLine {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .header {
+        height: 30px;
+        background: #f5f5f5;
+        border-bottom: 1px solid #e0e0e0
+    }
+
+    .header-logo {
+        float: left;
+        line-height: 30px;
+        font-size: 12px;
+        color: #666
+    }
+
+    .header-logo__img {
+        width: 122px;
+        height: 24px;
+        vertical-align: middle;
+    }
+
+    .header-logo-yuntu {
+        color: #2dbe60
+    }
+
+    .header-nav {
+        float: right;
+        line-height: 30px;
+        /*margin-top: 10px*/
+    }
+
+    .header-nav-item {
+        float: left;
+        margin-left: 10px;
+        font-size: 12px;
+        color: #666
+    }
+
+    .header-nav-item:last-child {
+        color: #2dbe60;
+    }
+
+    .search-logo {
+        float: left;
+        margin-top: 40px;
+        color: #e61414
+    }
+
+    .search-logo-imgs {
+        float: left;
+    }
+
+    .search-logo-imgs >img{
+        width: 100px;
+        height: 100px;
+        position: relative;
+        top: -30px;
+    }
+
+    .search-logo-txts {
+        float: left;
+        margin-left: 10px;
+    }
+
+    .search-logo-china {
+        margin: 0;
+        font-size: 30px;
+        font-weight: bold;
+        letter-spacing: 3px
+    }
+
+    .search-logo-english {
+        line-height: 20px;
+        margin: 0;
+        font-size: 12px
+    }
+
+    .search-box {
+        float: right;
+        margin-top: 40px;
+        height: 80px
+    }
+
+    .search-outer {
+        float: left;
+        border: 2px solid #e61414;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px
+    }
+
+    .search-outer__input {
+        float: left;
+        width: 150px;
+        height: 20px;
+        padding-left: 2.5em;
+        margin: 4px 0;
+        background: url(/views/institution/img/sprite.png) no-repeat 8px -102px;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        -webkit-transition: all 450ms ease-in-out;
+        -moz-transition: all 450ms ease-in-out;
+        -o-transition: all 450ms ease-in-out;
+        transition: all 450ms ease-in-out
+    }
+
+    .search-outer__input::-moz-placeholder {
+        color: #898989
+    }
+
+    .search-outer__input:-ms-input-placeholder {
+        color: #898989
+    }
+
+    .search-outer__input::-webkit-input-placeholder {
+        color: #898989
+    }
+
+    .search-outer__input:focus {
+        width: 400px
+    }
+
+    .search-outer__btn {
+        float: right;
+        width: 70px;
+        height: 28px;
+        background: #e61414;
+        font-size: 14px;
+        color: #fff;
+        border: none;
+        -webkit-border-radius: 6px 0 0 6px;
+        -moz-border-radius: 6px 0 0 6px;
+        border-radius: 6px 0 0 6px;
+        cursor: pointer;
+        outline: none
+    }
+
+    .search-inner {
+        float: right
+    }
+
+    .search-inner__btn {
+        width: 80px;
+        height: 32px;
+        background: #e61414;
+        font-size: 14px;
+        color: #fff;
+        border: none;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        outline: none
+    }
+
+    .nav::after {
+        content: "";
+        display: block;
+        height: 1px;
+        margin-top: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3)
+    }
+
+    .nav-item {
+        position: relative;
+        float: left;
+        line-height: 30px;
+        padding: 0 1.5em;
+        margin-right: 1em;
+        text-align: center;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+    }
+
+    .nav-item:hover .nav-sublist {
+        -webkit-perspective: 1000px;
+        -moz-perspective: 1000px;
+        perspective: 1000px;
+        display: block
+    }
+
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(1) {
+        -webkit-animation: 420ms ease-in-out forwards menu;
+        -moz-animation: 420ms ease-in-out forwards menu;
+        -o-animation: 420ms ease-in-out forwards menu;
+        animation: 420ms ease-in-out forwards menu
+    }
+
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(2) {
+        -webkit-animation: 540ms ease-in-out forwards menu;
+        -moz-animation: 540ms ease-in-out forwards menu;
+        -o-animation: 540ms ease-in-out forwards menu;
+        animation: 540ms ease-in-out forwards menu
+    }
+
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(3) {
+        -webkit-animation: 660ms ease-in-out forwards menu;
+        -moz-animation: 660ms ease-in-out forwards menu;
+        -o-animation: 660ms ease-in-out forwards menu;
+        animation: 660ms ease-in-out forwards menu
+    }
+
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(4) {
+        -webkit-animation: 780ms ease-in-out forwards menu;
+        -moz-animation: 780ms ease-in-out forwards menu;
+        -o-animation: 780ms ease-in-out forwards menu;
+        animation: 780ms ease-in-out forwards menu
+    }
+
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(5) {
+        -webkit-animation: 900ms ease-in-out forwards menu;
+        -moz-animation: 900ms ease-in-out forwards menu;
+        -o-animation: 900ms ease-in-out forwards menu;
+        animation: 900ms ease-in-out forwards menu
+    }
+
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(6) {
+        -webkit-animation: 1020ms ease-in-out forwards menu;
+        -moz-animation: 1020ms ease-in-out forwards menu;
+        -o-animation: 1020ms ease-in-out forwards menu;
+        animation: 1020ms ease-in-out forwards menu
+    }
+
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(7) {
+        -webkit-animation: 1140ms ease-in-out forwards menu;
+        -moz-animation: 1140ms ease-in-out forwards menu;
+        -o-animation: 1140ms ease-in-out forwards menu;
+        animation: 1140ms ease-in-out forwards menu
+    }
+
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(8) {
+        -webkit-animation: 1260ms ease-in-out forwards menu;
+        -moz-animation: 1260ms ease-in-out forwards menu;
+        -o-animation: 1260ms ease-in-out forwards menu;
+        animation: 1260ms ease-in-out forwards menu
+    }
+
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(9) {
+        -webkit-animation: 1380ms ease-in-out forwards menu;
+        -moz-animation: 1380ms ease-in-out forwards menu;
+        -o-animation: 1380ms ease-in-out forwards menu;
+        animation: 1380ms ease-in-out forwards menu
+    }
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(10) {
+        -webkit-animation: 1500ms ease-in-out forwards menu;
+        -moz-animation: 1500ms ease-in-out forwards menu;
+        -o-animation: 1500ms ease-in-out forwards menu;
+        animation: 1500ms ease-in-out forwards menu
+    }
+
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(11) {
+        -webkit-animation: 1620ms ease-in-out forwards menu;
+        -moz-animation: 1620ms ease-in-out forwards menu;
+        -o-animation: 1620ms ease-in-out forwards menu;
+        animation: 1620ms ease-in-out forwards menu
+    }
+
+    .nav-item:hover .nav-sublist .nav-subitem:nth-child(12) {
+        -webkit-animation: 1740ms ease-in-out forwards menu;
+        -moz-animation: 1740ms ease-in-out forwards menu;
+        -o-animation: 1740ms ease-in-out forwards menu;
+        animation: 1740ms ease-in-out forwards menu
+    }
+
+    .nav-item-link {
+        font-size: 16px;
+        -webkit-transition: all linear 300ms;
+        -moz-transition: all linear 300ms;
+        -o-transition: all linear 300ms;
+        transition: all linear 300ms
+    }
+
+    .nav-item.active {
+        background: #e61414
+    }
+
+    .nav-item.active .nav-item-link {
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .nav-sublist {
+        display: none;
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-top: 5px;
+        z-index: 7;
+    }
+
+    .nav-subitem {
+        opacity: 0;
+        min-width: 100px;
+        padding: 0 1em;
+        background: #fff;
+        font-size: 16px;
+        white-space: nowrap;
+        -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        z-index: 8
+    }
+
+    .nav-subitem:last-child {
+        -webkit-border-radius: 0 0 3px 3px;
+        -moz-border-radius: 0 0 3px 3px;
+        border-radius: 0 0 3px 3px
+    }
+
+    .nav-subitem:hover .nav-subitem-link {
+        color: #e61414
+    }
+
+    /*== user information==*/
+    .loginBar {
+        position: relative;
+        width: 210px;
+    }
+
+    .loginBar-brief {
+        position: relative;
+    }
+
+    .loginBar-user-pic-box {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        z-index: 10;
+        transition: all .3s linear;
+    }
+
+    .loginBar-user-pic {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .loginBar-user-txt {
+        padding-left: 50px;
+    }
+
+    .loginBar-user-pic-box.hover {
+        width: 60px;
+        height: 60px;
+    }
+
+    .loginBar-card {
+        display: none;
+        position: absolute;
+        top: 35px;
+        left: -96px;
+        border-radius: 5px;
+        width: 250px;
+        background: #FFF;
+        color: #000;
+        font-size: 16px;
+        z-index: 9;
+        box-shadow: 0 0 10px #666;
+    }
+
+    .loginBar-card-user {
+        padding: 25px 6px 0 6px;
+        text-align: center;
+    }
+
+    .loginBar-card-function-box {
+        padding: 10px 6px;
+        text-align: center;
+    }
+
+    .loginBar-card-list {
+        float: left;
+        width: 50%;
+    }
+
+    .loginBar-card-out {
+        padding: 10px 0px;
+        border-top: 1px solid #F0F0F0;
+        margin: 0 28px;
+        text-align: center;
+    }
+
+</style>
+
+
+
+
+
+
+<!-- 顶部导航 -->
+<header class="header clearfix">
+    <div class="autoCenter">
+        <div class="header-logo">
+            <a href="/" title="云图首页">
+                <img class="header-logo__img" src="/views/institution/img/logo_small.png" alt="云图">
+            </a>
+            <span>
+                欢迎来到<a class="header-logo-yuntu" href="/" title="云图首页">云图</a>
+            </span>
+        </div>
+        <div class="header-nav">
+            <ul class="clearfix">
+                
+                <li class="header-nav-item">
+                    
+                        <a href="javascript:showLoginByCORS()">我的云图</a>
+                    
+                    
+                </li>
+                <li class="header-nav-item">
+                    <a href="/sendUser?type=0">机构中心</a>
+                </li>
+                <li class="header-nav-item">
+                    
+                    
+                        <a href="javascript:showLoginByCORS()">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/register">注册</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!-- 搜索 -->
+<section class="search autoCenter clearfix">
+    <div class="search-logo">
+                <a class="clearfix" href="/institution/57e10a5ea770286d5ebd4878">
+                        <div class="search-logo-imgs">
+                            <img src="http://image.yuntu.io/cover/1138/2503/1501229847994.jpg" alt="机构LOGO">
+                        </div>
+                    <div class="search-logo-txts">
+                        <p class="search-logo-china">公开课</p>
+                    </div>
+                </a>
+    </div>
+    <div class="search-box">
+        <div class="search-outer">
+            <input class="search-outer__input" type="search" name="" value="" placeholder="输入关键字">
+            
+        </div>
+        <div class="search-inner">
+            <button class="search-inner__btn" type="button" name="button">站内搜索</button>
+        </div>
+    </div>
+</section>
+<!-- 分类导航 -->
+<nav class="nav">
+    <ul class="autoCenter clearfix">
+        <li class="js-nav-item nav-item active" style="margin-left: -22px;">
+             <a class="nav-item-link " href="/institution/57e10a5ea770286d5ebd4878">首页</a>
+        </li>
+        
+            
+                
+                
+                    <li class="js-nav-item nav-item">
+                        <a class="nav-item-link" href="/institution/firstList?lid=57e10a5ea770286d5ebd4878&amp;label1=12000">公开课</a>
+                        <ul class="nav-sublist">
+                            
+                                <li class="nav-subitem">
+                                    <a href="/institution/list?label1=12000&amp;label2=12002&amp;lid=57e10a5ea770286d5ebd4878" class="nav-subitem-link">中国高校</a>
+                                </li>
+                            
+                                <li class="nav-subitem">
+                                    <a href="/institution/list?label1=12000&amp;label2=12004&amp;lid=57e10a5ea770286d5ebd4878" class="nav-subitem-link">国际名校</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+            
+        
+            
+                
+                
+                    <li class="js-nav-item nav-item">
+                        <a class="nav-item-link" href="/institution/firstList?lid=57e10a5ea770286d5ebd4878&amp;label1=12100">纪录片</a>
+                        <ul class="nav-sublist">
+                            
+                                <li class="nav-subitem">
+                                    <a href="/institution/list?label1=12100&amp;label2=12102&amp;lid=57e10a5ea770286d5ebd4878" class="nav-subitem-link">BBC</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+            
+        
+            
+                
+                
+                    <li class="js-nav-item nav-item">
+                        <a class="nav-item-link" href="/institution/firstList?lid=57e10a5ea770286d5ebd4878&amp;label1=12200">演讲</a>
+                        <ul class="nav-sublist">
+                            
+                                <li class="nav-subitem">
+                                    <a href="/institution/list?label1=12200&amp;label2=12202&amp;lid=57e10a5ea770286d5ebd4878" class="nav-subitem-link">TED</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+            
+        
+        
+        
+        
+    </ul>
+</nav>
+
+<script>
+    $(function () {
+        'use strict';
+        /* 调用顶部导航条改变函数 */
+        initializeNarbarSeleted();
+        //登录部分 用户信息切换
+        $('.loginBar').hover(function () {
+            $(this).find('.loginBar-user-txt').stop().fadeOut(500);
+            $(this).find('.loginBar-card').stop().slideDown(500);
+            $(this).find('.loginBar-user-pic-box').addClass('hover');
+        }, function () {
+            $(this).find('.loginBar-user-txt').stop().fadeIn(500);
+            $(this).find('.loginBar-card').stop().slideUp(500);
+            $(this).find('.loginBar-user-pic-box').removeClass('hover');
+        });
+        /* 输入框内按enter键进行搜索 */
+        $('.search-outer__input').keyup(function (event) {
+            if(event.keyCode == 13 && $(this).val().length > 1){
+                false ? window.open("/ip/list?keyword=" + $(this).val() + "&lid=57e10a5ea770286d5ebd4878", '_self')
+                                                     : window.open("/institution/list?keyword=" + $(this).val() + "&lid=57e10a5ea770286d5ebd4878", '_self');
+            }
+        });
+
+        // 搜云图
+        $('.search-outer__btn').click(function () {
+            window.open("/list?keyword=" + $(".search-outer__input").val(), '_self');
+        });
+        // 站内搜索
+        $('.search-inner__btn').click(function () {
+          window.open("/institution/list?keyword=" + $(".search-outer__input").val() + "&lid=57e10a5ea770286d5ebd4878", '_self');
+        });
+        //头部显示登录用户的所属机构
+        $.ajax({
+            url: '/getLibName.json?lid=',
+            success: function (data) {
+                if (data.length > 0) {
+                    $("#drop3").html("");
+                    $("#drop3").append(data + '-');
+                    $('.loginBar-user-from').text(data);
+                }
+            }
+        });
+    });
+    /* 初始化顶部导航条的 active 状态 */
+    function initializeNarbarSeleted(){
+        /* replace函数中第一参数需要正则，否则只能执行一遍 */
+        var arr = window.location.search.substring(1).replace(/&/g, '=').split('=');
+        var index = -1;
+        if((index = arr.indexOf('label1')) != -1){
+            $('.nav-item-link[href*="'+ arr[index + 1] +'"]').parent().addClass('active').siblings().removeClass('active');
+        }else{
+            // $('.js-nav-item:first-child').addClass('active'); // 没有选中状态的默认选中第一个
+        }
+    }
+</script>
+
+
+	
+	<div class="">
+		
+
+
+
+<main class="autoCenter">
+    
+    <section class="detail-crumb">
+        <h1 class="detail-crumb__title">错位：亚洲跨性别者（1）</h1>
+        <ul class="clearfix">
+            
+                
+                
+                    <li class="detail-crumb__item"><a href="/institution/57e10a5ea770286d5ebd4878">首页</a></li>
+                
+            
+            
+            <li class="detail-crumb__item"><a href="/institution/firstList?lid=57e10a5ea770286d5ebd4878&amp;label1=0">视频</a>
+            </li>
+            
+                
+            
+            <li class="detail-crumb__item"><a href="#">错位：亚洲跨性别者</a></li>
+        </ul>
+    </section>
+
+    <!-- 视频播放 -->
+    <section class="detail-video clearfix">
+        <!--视频播放区 -->
+        <div class="detail-video-jumbotron" style="position: relative">
+
+            
+            <div class="disable-coverView"></div>
+
+            
+            <dl class="alert alert-danger text-center privateWarning alert-Private" style="display: none; position: absolute; left: 50%; margin-left: -114px; margin-top: -37px; top: 50%; z-index: 1; height: 120px;">
+                
+                    <dd class="alert-title">私有资源 您暂无权完整浏览</dd>
+                    <dd class="alert-title"><button class="btn btn-xs btn-default" type="button" onclick="
+                                                    
+                                                    showLoginByCORS()
+                                                            ">我要申请浏览权限</button>
+                    </dd>
+            </dl>
+
+            <div data-setup="{&quot;language&quot;:&quot;zh&quot;,&quot;autoplay&quot;:false,&quot;example_option&quot;:true,&quot;techOrder&quot;: [&quot;html5&quot;，&quot;flash&quot;]}" poster="http://vimg1.ws.126.net/image/snapshot_movie/2016/10/N/E/MC3P5PHNE.jpg" preload="auto" id="my-video" class="detail-video-box video-js vjs-big-play-centered vjs-paused vjs-controls-enabled vjs-workinghover vjs-user-inactive" role="region" aria-label="video player"><video class="vjs-tech" id="my-video_html5_api" preload="auto" poster="http://vimg1.ws.126.net/image/snapshot_movie/2016/10/N/E/MC3P5PHNE.jpg" data-setup="{&quot;language&quot;:&quot;zh&quot;,&quot;autoplay&quot;:false,&quot;example_option&quot;:true,&quot;techOrder&quot;: [&quot;html5&quot;，&quot;flash&quot;]}">
+                
+                    <source src="http://mov.bn.netease.com/open-movie/nos/mp4/2016/10/31/SC3P5ILLI_shd.mp4" type="video/mp4">
+                
+                
+                
+                
+                <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web
+                    browser that
+                    <a href="http://videojs.com/html5-video-support/" target="_blank" class="vjs-hidden" hidden="hidden">supports HTML5 video</a>
+                </p>
+            </video><div></div><div class="vjs-poster" tabindex="-1" aria-disabled="false" style="background-image: url(&quot;http://vimg1.ws.126.net/image/snapshot_movie/2016/10/N/E/MC3P5PHNE.jpg&quot;);"></div><div class="vjs-text-track-display" aria-live="off" aria-atomic="true"></div><div class="vjs-loading-spinner" dir="ltr"></div><button class="vjs-big-play-button" type="button" aria-live="polite" title="Play Video" aria-disabled="false"><span class="vjs-control-text">Play Video</span></button><div class="vjs-control-bar" dir="ltr" role="group"><button class="vjs-play-control vjs-control vjs-button" type="button" aria-live="polite" title="Play" aria-disabled="false"><span class="vjs-control-text">Play</span></button><div class="vjs-volume-menu-button vjs-menu-button vjs-menu-button-inline vjs-control vjs-button vjs-volume-menu-button-horizontal vjs-vol-3" tabindex="0" role="button" aria-live="polite" title="Mute" aria-disabled="false"><div class="vjs-menu"><div class="vjs-menu-content"><div tabindex="0" class="vjs-volume-bar vjs-slider-bar vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" aria-label="volume level" aria-valuetext="100.00%"><div class="vjs-volume-level"><span class="vjs-control-text"></span></div></div></div></div><span class="vjs-control-text">Mute</span></div><div class="vjs-current-time vjs-time-control vjs-control"><div class="vjs-current-time-display" aria-live="off"><span class="vjs-control-text">Current Time </span>0:00</div></div><div class="vjs-time-control vjs-time-divider"><div><span>/</span></div></div><div class="vjs-duration vjs-time-control vjs-control"><div class="vjs-duration-display" aria-live="off"><span class="vjs-control-text">Duration Time</span> 0:00</div></div><div class="vjs-progress-control vjs-control"><div tabindex="0" class="vjs-progress-holder vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="NaN" aria-valuemin="0" aria-valuemax="100" aria-label="progress bar" aria-valuetext="0:00"><div class="vjs-load-progress"><span class="vjs-control-text"><span>Loaded</span>: 0%</span></div><div class="vjs-mouse-display" data-current-time="0:00" style="left: 0px;"></div><div class="vjs-play-progress vjs-slider-bar" data-current-time="0:00"><span class="vjs-control-text"><span>Progress</span>: 0%</span></div></div></div><div class="vjs-live-control vjs-control vjs-hidden"><div class="vjs-live-display" aria-live="off"><span class="vjs-control-text">Stream Type</span>LIVE</div></div><div class="vjs-remaining-time vjs-time-control vjs-control"><div class="vjs-remaining-time-display" aria-live="off"><span class="vjs-control-text">Remaining Time</span> -0:00</div></div><div class="vjs-custom-control-spacer vjs-spacer ">&nbsp;</div><div class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Playback Rate" aria-disabled="false" aria-expanded="false" aria-haspopup="true"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"></ul></div><span class="vjs-control-text">Playback Rate</span><div class="vjs-playback-rate-value">1</div></div><div class="vjs-chapters-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Chapters" aria-disabled="false" aria-expanded="false" aria-haspopup="true" aria-label="Chapters Menu"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-title" tabindex="-1">Chapters</li></ul></div><span class="vjs-control-text">Chapters</span></div><div class="vjs-descriptions-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Descriptions" aria-disabled="false" aria-expanded="false" aria-haspopup="true" aria-label="Descriptions Menu"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemcheckbox" aria-live="polite" aria-disabled="false" aria-checked="true">descriptions off<span class="vjs-control-text">, selected</span></li></ul></div><span class="vjs-control-text">Descriptions</span></div><div class="vjs-subtitles-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Subtitles" aria-disabled="false" aria-expanded="false" aria-haspopup="true" aria-label="Subtitles Menu"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemcheckbox" aria-live="polite" aria-disabled="false" aria-checked="true">subtitles off<span class="vjs-control-text">, selected</span></li></ul></div><span class="vjs-control-text">Subtitles</span></div><div class="vjs-captions-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Captions" aria-disabled="false" aria-expanded="false" aria-haspopup="true" aria-label="Captions Menu"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-texttrack-settings" tabindex="-1" role="menuitem" aria-live="polite" aria-disabled="false">captions settings<span class="vjs-control-text">, opens captions settings dialog</span></li><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemcheckbox" aria-live="polite" aria-disabled="false" aria-checked="true">captions off<span class="vjs-control-text">, selected</span></li></ul></div><span class="vjs-control-text">Captions</span></div><div class="vjs-audio-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Audio Track" aria-disabled="false" aria-expanded="false" aria-haspopup="true" aria-label="Audio Menu"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"></ul></div><span class="vjs-control-text">Audio Track</span></div><button class="vjs-fullscreen-control vjs-control vjs-button" type="button" aria-live="polite" title="Fullscreen" aria-disabled="false"><span class="vjs-control-text">Fullscreen</span></button></div><div class="vjs-error-display vjs-modal-dialog vjs-hidden " tabindex="-1" aria-describedby="my-video_component_353_description" aria-hidden="true" aria-label="Modal Window" role="dialog"><p class="vjs-modal-dialog-description vjs-offscreen" id="my-video_component_353_description">This is a modal window.</p><div class="vjs-modal-dialog-content" role="document"></div></div><div class="vjs-caption-settings vjs-modal-overlay vjs-hidden" tabindex="-1" role="dialog" aria-labelledby="TTsettingsDialogLabel-my-video_component_358" aria-describedby="TTsettingsDialogDescription-my-video_component_358"><div role="document"><div class="vjs-control-text" id="TTsettingsDialogLabel-my-video_component_358" aria-level="1" role="heading">Caption Settings Dialog</div><div class="vjs-control-text" id="TTsettingsDialogDescription-my-video_component_358">Beginning of dialog window. Escape will cancel and close the window.</div><div class="vjs-tracksettings"><div class="vjs-tracksettings-colors"><fieldset class="vjs-fg-color vjs-tracksetting"><legend>Text</legend><label class="vjs-label" for="captions-foreground-color-my-video_component_358">Color</label><select id="captions-foreground-color-my-video_component_358"><option value="#FFF">White</option><option value="#000">Black</option><option value="#F00">Red</option><option value="#0F0">Green</option><option value="#00F">Blue</option><option value="#FF0">Yellow</option><option value="#F0F">Magenta</option><option value="#0FF">Cyan</option></select><span class="vjs-text-opacity vjs-opacity"><label class="vjs-label" for="captions-foreground-opacity-my-video_component_358">Transparency</label><select id="captions-foreground-opacity-my-video_component_358"><option value="1">Opaque</option><option value="0.5">Semi-Transparent</option></select></span></fieldset><fieldset class="vjs-bg-color vjs-tracksetting"><legend>Background</legend><label class="vjs-label" for="captions-background-color-my-video_component_358">Color</label><select id="captions-background-color-my-video_component_358"><option value="#000">Black</option><option value="#FFF">White</option><option value="#F00">Red</option><option value="#0F0">Green</option><option value="#00F">Blue</option><option value="#FF0">Yellow</option><option value="#F0F">Magenta</option><option value="#0FF">Cyan</option></select><span class="vjs-bg-opacity vjs-opacity"><label class="vjs-label" for="captions-background-opacity-my-video_component_358">Transparency</label><select id="captions-background-opacity-my-video_component_358"><option value="1">Opaque</option><option value="0.5">Semi-Transparent</option><option value="0">Transparent</option></select></span></fieldset><fieldset class="vjs-window-color vjs-tracksetting"><legend>Window</legend><label class="vjs-label" for="captions-window-color-my-video_component_358">Color</label><select id="captions-window-color-my-video_component_358"><option value="#000">Black</option><option value="#FFF">White</option><option value="#F00">Red</option><option value="#0F0">Green</option><option value="#00F">Blue</option><option value="#FF0">Yellow</option><option value="#F0F">Magenta</option><option value="#0FF">Cyan</option></select><span class="vjs-window-opacity vjs-opacity"><label class="vjs-label" for="captions-window-opacity-my-video_component_358">Transparency</label><select id="captions-window-opacity-my-video_component_358"><option value="0">Transparent</option><option value="0.5">Semi-Transparent</option><option value="1">Opaque</option></select></span></fieldset></div><div class="vjs-tracksettings-font"><div class="vjs-font-percent vjs-tracksetting"><label class="vjs-label" for="captions-font-size-my-video_component_358">Font Size</label><select id="captions-font-size-my-video_component_358"><option value="0.50">50%</option><option value="0.75">75%</option><option value="1.00">100%</option><option value="1.25">125%</option><option value="1.50">150%</option><option value="1.75">175%</option><option value="2.00">200%</option><option value="3.00">300%</option><option value="4.00">400%</option></select></div><div class="vjs-edge-style vjs-tracksetting"><label class="vjs-label" for="my-video_component_358">Text Edge Style</label><select id="my-video_component_358"><option value="none">None</option><option value="raised">Raised</option><option value="depressed">Depressed</option><option value="uniform">Uniform</option><option value="dropshadow">Dropshadow</option></select></div><div class="vjs-font-family vjs-tracksetting"><label class="vjs-label" for="captions-font-family-my-video_component_358">Font Family</label><select id="captions-font-family-my-video_component_358"><option value="proportionalSansSerif">Proportional Sans-Serif</option><option value="monospaceSansSerif">Monospace Sans-Serif</option><option value="proportionalSerif">Proportional Serif</option><option value="monospaceSerif">Monospace Serif</option><option value="casual">Casual</option><option value="script">Script</option><option value="small-caps">Small Caps</option></select></div></div><div class="vjs-tracksettings-controls"><button class="vjs-default-button">Defaults</button><button class="vjs-done-button">Done</button></div></div></div></div></div>
+        </div>
+
+        <!--图片信息栏-->
+        <div class="detail-video-info">
+            <div class="detail-video-info__nav">
+                <ul class="clearfix">
+                    <li class="js-detail-video-nav__item detail-video-nav__item active">视频信息</li>
+                    <li class="js-detail-video-nav__item detail-video-nav__item">分集</li>
+                </ul>
+            </div>
+            <div class="js-detail-video-brief detail-video-brief active">
+                <ul class="">
+                    <li class="detail-video-brief__item name">
+                        <div class="detail-video-brief__imgs">
+                            <img class="detail-video-brief__img" src="/img/default.jpg" onerror="this.src='/img/default.jpg'" alt="错位：亚洲跨性别者">
+                        </div>
+                        <p class="js-detail-video-brief__name detail-video-brief__name oneLine">
+                            专辑名称：错位：亚洲跨性别者</p>
+                    </li>
+                    <li class="detail-video-brief__item classify">分类：
+                        
+                    </li>
+                    <li class="detail-video-brief__item classify">作者: </li>
+                    <li class="detail-video-brief__item classify">来源: 网易公开课</li>
+                    <li class="detail-video-brief__item classify">版权所属: </li>
+                    <li class="detail-video-brief__item classify">出版条码(ISBN): </li>
+                    <li class="detail-video-brief__item classify">出版物制作单位: </li>
+                </ul>
+            </div>
+            <div class="js-detail-video-episodes detail-video-episodes">
+                <ul class="detail-video-epiisodes-list scroll-pane" style="overflow: hidden; padding: 0px; width: 300px;">
+                    
+                        
+                            
+                                
+                            
+                            
+                        
+                    
+                        
+                            
+                            
+                                
+                            
+                        
+                    
+                <div class="jspContainer" style="width: 300px; height: 110px;"><div class="jspPane" style="padding: 0px; top: 0px; left: 0px; width: 300px;"><li class="js-detail-video-episode detail-video-episode active" data-url="http://mov.bn.netease.com/open-movie/nos/mp4/2016/10/31/SC3P5ILLI_shd.mp4">
+                                    [第1集] 错位：亚洲跨性别者（1）</li><li class="js-detail-video-episode detail-video-episode" data-url="http://mov.bn.netease.com/open-movie/nos/mp4/2016/10/31/SC3P614N5_shd.mp4"><a href="/institution/media?id=591c13031d41c83deff2ea4c&amp;type=1">[第2集] 错位：亚洲跨性别者（2）</a>
+                                </li></div></div></ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能栏 -->
+    <section class="detail-audio-interface">
+        
+
+
+
+<style type="text/css">
+    /* User and server interact */
+    .DD-interactions {
+        margin-top: 15px;
+        line-height: 2;
+    }
+
+    .DD-interactions__item {
+        float: left;
+        padding-left: 30px;
+        margin-right: 50px;
+        background-repeat: no-repeat;
+        background-image: url(/img/ethnic/spirit_disk.png);
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .DD-interactions__item.include {
+        background-position: 0 3px;
+    }
+
+    .DD-interactions__item.include:hover {
+        background-position: 0 -24px;
+        color: #FC0;
+        text-decoration: none;
+    }
+
+    .DD-interactions__item.fav {
+        background-position: 0 -51px;
+    }
+
+    .DD-interactions__item.fav:hover {
+        background-position: 0 -78px;
+        color: #FC0;
+        text-decoration: none;
+    }
+
+    /*.DD-interactions__item.fav {
+        width: 130px;
+        background-position: 0 -53px;
+    }*/
+
+    .DD-interactions__item.isFavour {
+        background-position: 0 -80px;
+        color: #FC0;
+        text-decoration: none;
+    }
+
+    .DD-interactions__item.comment {
+        background-position: 0 -109px;
+    }
+
+    .DD-interactions__item.comment:hover {
+        background-position: 0 -136px;
+        color: #FC0;
+        text-decoration: none;
+    }
+
+    .DD-interactions__item.check {
+        background-position: 0 -164px;
+    }
+
+    .DD-interactions__item.check:hover {
+        background-position: 0 -191px;
+        color: #FC0;
+        text-decoration: none;
+    }
+
+    .DD-interactions__item.share {
+        position: relative;
+        background-position: 0 -220px;
+    }
+
+    .DD-interactions__item.share:hover {
+        background-position: 0 -247px;
+        color: #51CC61;
+        color: #FC0;
+        text-decoration: none;
+    }
+
+    .DD-interactions__item.share:hover:before {
+        content: "";
+        position: absolute;
+        left: -25px;
+        top: 3px;
+        margin-right: 30px;
+        width: 1px;
+        height: 24px;
+        background: #DCDCDC;
+    }
+
+    .DD-interactions-share {
+        display: none;
+        position: absolute;
+        left: -200px;
+        top: 25px;
+        width: 450px;
+        height: 160px;
+        padding: 20px 0 0 25px;
+        background: #FFF;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        z-index: 5;
+    }
+
+    .DD-interactions-share.is-show {
+        display: block;
+    }
+
+    .DD-interactions-share__item {
+        float: left;
+        width: 100px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .DD-interactions-share__pic {
+        display: block;
+        height: 70px;
+        background-image: url(/img/ethnic/spirit_disk.png);
+        background-repeat: no-repeat;
+    }
+
+    .DD-interactions-share__pic.blog {
+        background-position: 18px -834px;
+    }
+
+    .DD-interactions-share__pic.wechat {
+        background-position: 18px -904px;
+    }
+
+    .DD-interactions-share__pic.qq {
+        background-position: 18px -974px;
+    }
+
+    .DD-interactions-share__pic.board {
+        background-position: 18px -1044px;
+    }
+
+    .DD-interactions__item.share {
+        position: relative;
+        background-position: 0 -220px;
+    }
+
+    .DD-interactions__item.share:hover {
+        background-position: 0 -247px;
+        color: #51CC61;
+    }
+
+    .DD-interactions__item.share:hover:before {
+        content: "";
+        position: absolute;
+        left: -25px;
+        top: 3px;
+        margin-right: 30px;
+        width: 1px;
+        height: 24px;
+        background: #DCDCDC;
+    }
+
+    .DD-interactions__item.share .DD-share-pic.blog {
+        background-position: 18px -834px;
+    }
+
+    .DD-interactions__item.share .DD-share-pic.wechat {
+        background-position: 18px -904px;
+    }
+
+    .DD-interactions__item.share .DD-share-pic.qq {
+        background-position: 18px -974px;
+    }
+
+    .DD-interactions__item.share .DD-share-pic.board {
+        background-position: 18px -1044px;
+    }
+
+    .share-comment-store {
+        margin-top: 10px;
+        line-height: 2;
+    }
+
+    .share-comment-store .include, .share-comment-store .fav, .share-comment-store .comment, .share-comment-store .check, .share-comment-store .share {
+        float: left;
+        padding-left: 30px;
+        margin-right: 50px;
+        background-repeat: no-repeat;
+        background-image: url(/img/ethnic/spirit_disk.png);
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .share-comment-store .include:hover, .share-comment-store .fav:hover, .share-comment-store .comment:hover, .share-comment-store .check:hover, .share-comment-store .share:hover {
+        color: #FC0;
+        text-decoration: none;
+    }
+
+    .share-comment-store .include {
+        background-position: 0 3px;
+    }
+
+    .share-comment-store .include:hover {
+        background-position: 0 -24px;
+    }
+
+    .share-comment-store .fav {
+        background-position: 0 -53px;
+    }
+
+    .share-comment-store .fav:hover {
+        background-position: 0 -80px;
+    }
+
+    .share-comment-store .comment {
+        background-position: 0 -109px;
+    }
+
+    .share-comment-store .comment:hover {
+        background-position: 0 -136px;
+    }
+
+    .share-comment-store .check {
+        background-position: 0 -164px;
+    }
+
+    .share-comment-store .check:hover {
+        background-position: 0 -191px;
+    }
+
+    .share-comment-store .share {
+        position: relative;
+        background-position: 0 -220px;
+    }
+
+    .share-comment-store .share:hover {
+        background-position: 0 -247px;
+        color: #51CC61;
+    }
+
+    .share-comment-store .share:hover:before {
+        content: "";
+        position: absolute;
+        left: -25px;
+        top: 3px;
+        margin-right: 30px;
+        width: 1px;
+        height: 24px;
+        background: #DCDCDC;
+    }
+
+    .share-comment-store .share .DD-share-links {
+        display: none;
+        position: absolute;
+        left: -200px;
+        top: 25px;
+        width: 450px;
+        height: 160px;
+        padding: 20px 0 0 25px;
+        background: #FFF;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        z-index: 5;
+    }
+
+    .share-comment-store .share .DD-share-links.is-show {
+        display: block;
+    }
+
+    .share-comment-store .share .DD-share-link {
+        float: left;
+        width: 100px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .share-comment-store .share .DD-share-pic {
+        display: block;
+        height: 70px;
+        background-image: url(/img/ethnic/spirit_disk.png);
+        background-repeat: no-repeat;
+    }
+
+    .share-comment-store .share .DD-share-pic.blog {
+        background-position: 18px -834px;
+    }
+
+    .share-comment-store .share .DD-share-pic.wechat {
+        background-position: 18px -904px;
+    }
+
+    .share-comment-store .share .DD-share-pic.qq {
+        background-position: 18px -974px;
+    }
+
+    .share-comment-store .share .DD-share-pic.board {
+        background-position: 18px -1044px;
+    }
+</style>
+
+<!-- interface: include, favour, comments, share -->
+<ul class="DD-interactions clearfix">
+    <li class="js-DD-include DD-interactions__item include">
+        
+            
+            
+                <a href="javascript:loginBook();" data-toggle="modal" data-id="{{file.uniqueIdentifier}}">收录</a>
+            
+        
+    </li>
+    <li class="js-DD-fav DD-interactions__item fav">
+        
+        
+            <span class="js-DD-fav__txt">收藏</span>
+        
+        （<span class="js-DD-fav__num">
+        
+        
+            0
+        
+    </span>）
+    </li>
+    <li class="DD-interactions__item comment"><a href="#comments">评论（0）</a></li>
+
+    <li class="js-DD-interactions__itemShare DD-interactions__item share">
+        <a>分享</a>
+        <div class="js-DD-interactions-share DD-interactions-share clearfix">
+            <a class="DD-interactions-share__item" rel="nofollow">
+                <i class="js-share-link-blog DD-interactions-share__pic blog"></i>
+                <p>微博</p>
+            </a>
+            <a class="DD-interactions-share__item" href="" rel="nofollow">
+                <i class="DD-interactions-share__pic wechat"></i>
+                <p>微信</p>
+            </a>
+            <a class="DD-interactions-share__item" rel="nofollow">
+                <i class="js-share-link-qq DD-interactions-share__pic qq"></i>
+                <p>QQ</p>
+            </a>
+            <a class="DD-interactions-share__item" href="" rel="nofollow">
+                <i class="js-share-link-board DD-interactions-share__pic board"></i>
+                <p>贴吧</p>
+            </a>
+        </div>
+    </li>
+    <li class="DD-interactions__item check"><a href="/suggestion/getLink?type=8&amp;&amp;link=/institution/media?id=591c13031d41c83deff2ea4b&amp;type=1">纠错</a></li>
+    <li class="DD-interactions__item check"><a href="/suggestion/getLink?type=9&amp;&amp;link=/institution/media?id=591c13031d41c83deff2ea4b&amp;type=1">举报</a></li>
+
+</ul>
+
+<div class="modal fade" id="setCoverModal" tabindex="1" role="dialog" aria-labelledby="setCoverModalLabel">
+    <div class="modal-dialog_2  modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h2 class="modal-title_2" id="setCoverModalLabel">收录到我的主题</h2>
+            </div>
+            <div class="modal-body" style="height: 400px;overflow-y: scroll;overflow-x: hidden">
+                <section class="changeImg">
+                    <dl>
+                        
+                    </dl>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-left">
+                    <a class="pull-right" target="_blank" style="margin-left:20px;font-size: 18px ;color: #5f99f0" ;="" href="/subject/create">创建新主题</a>
+                </div>
+                <div class="pull-right">
+                    <button id="cancel" type="button" class="btn btn-default_2" data-dismiss="modal">取消</button>
+                    <button type="submit" onclick="include()" class="btn btn-primary_2 ">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        // Change favour status
+        if ($('.js-DD-fav__txt').text() == '已收藏') {
+            $('.js-DD-fav__txt').parent().addClass('isFavour');
+        }
+        $('.js-DD-fav.DD-interactions__item.fav').click(function () {
+            var uid = "";
+            if (uid == '') {
+                $.get('/logind', function (result) {
+                    $(document.body).append(result);
+                    $('#LoginDiv').modal('show');
+                });
+            }
+        })
+        $('.js-DD-include.DD-interactions__item.include').click(function () {
+            var uid = "";
+            if (uid == '') {
+                $.get('/logind', function (result) {
+                    $(document.body).append(result);
+                    $('#LoginDiv').modal('show');
+                });
+            }
+        })
+        // Include -- loading modal
+        $('.js-DD-include').click(function () {
+            if (!$('body').find('.js-DD-ajax-include__wrapper').length) {
+                $.get('data/ajax_modal_include.html', function (data) {
+                    $('body').append(data);
+                })
+            } else {
+                $('.js-DD-ajax-include__wrapper').removeClass('is-hide');
+            }
+        });
+        // Include -- close modal
+        $('body').on('click', '.js-DD-ajax-include__btnCancel', function () {
+            $('.js-DD-ajax-include__wrapper').addClass('is-hide');
+        });
+        // Include -- pictures hovering status change
+        $('body').on('mouseenter', '.js-DD-ajax-include__pics', function (event) {
+            $(event.currentTarget).find('.js-DD-ajax-include__veil').addClass('hover');
+        });
+        $('body').on('mouseleave', '.js-DD-ajax-include__pics', function (event) {
+            $(event.currentTarget).find('.js-DD-ajax-include__veil').removeClass('hover');
+        });
+        // Include --  Choose the picture
+        $('body').on('click', '.js-DD-ajax-include__veil', function () {
+            $(this).toggleClass('chose');
+        });
+
+        // Favorite number and text change
+        $('.js-DD-fav').click(function () {
+            var elem_txt = $(this).find('.js-DD-fav__txt');
+            var elem_num = $(this).find('.js-DD-fav__num');
+            var num = elem_num.text();
+            if (elem_txt.text() == '收藏') {
+                var uid = "";
+                if (uid != '') {
+                    $.ajax({
+                        url: '/favorite/save.json?tid=591c12411d41c83d4a546be5&type=1',
+                        type: 'GET',
+                        success: function (data) {
+                            elem_txt.text('已收藏').parent().addClass('isFavour');
+                            elem_num.text(++num);
+                        }
+                    });
+                }
+            } else {
+                $.ajax({
+                    url: '/favorite/delete.json?tid=591c12411d41c83d4a546be5&type=1',
+                    type: 'GET',
+                    success: function (data) {
+                        elem_txt.text('收藏').parent().removeClass('isFavour');
+                        elem_num.text(--num);
+                    }
+                });
+            }
+        });
+
+        /* Share links */
+        $('.js-DD-interactions__itemShare').hover(function () {
+            $(this).find('.js-DD-interactions-share').toggleClass('is-show');
+        });
+
+        $('.js-share-link-qq').click(function () {
+            window.open('http://connect.qq.com/widget/shareqq/index.html?url='+ encodeURIComponent(window.location.href) + '&title=错位：亚洲跨性别者&desc=好东西，齐分享' + '&summary=本纪录片来到了香港，准备和 Bobbie 一起经历一段奇妙却又艰难的旅程。我们还见到了她那对年轻的跨性别情侣朋友 Damon 和 Kay，聊了聊属于他们的爱情故事。在内地，作为国内第一例跨性别歧视案的主人公 C 先生，也带我们来到了他在贵阳的家，讲了讲他在失业后的生活。回到北京，古着服装店老板超小米带我们去看了看她的漂亮衣服 —— 就像她走路的姿态一样，她的性别也是流动着的。（网易公开课编辑整理）' + '&pics=http://img2.ph.126.net/BbJMpAsmFSnSN2SIWfB4Nw==/6631484480608919495.jpg', '_blank');
+        });
+        $('.js-share-link-blog').click(function () {
+            window.open('http://service.weibo.com/share/share.php?url='+ encodeURIComponent(window.location.href) + '&title=错位：亚洲跨性别者&pic=http://img2.ph.126.net/BbJMpAsmFSnSN2SIWfB4Nw==/6631484480608919495.jpg&appkey=', '_blank');
+        });
+        $('.js-share-link-board').click(function () {
+            window.open('http://tieba.baidu.com/f/commit/share/openShareApi?url='+ encodeURIComponent(window.location.href) + '&title=错位：亚洲跨性别者&desc=好东西，齐分享&pic=', '_blank');
+        });
+
+    })
+</script>
+<script>
+    var ids = [];
+    function include() {
+        $.ajax({
+            url: '/subject/include.json?sids=' + ids + '&type=1&resourcesId=591c12411d41c83d4a546be5',
+            type: 'GET',
+            success: function () {
+                window.location.reload();
+            }
+        });
+    }
+
+    $(function () {
+        $('#setCoverModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var id = button.data('id');
+            var modal = $(this);
+            modal.find('.modal-body dt').attr("id", id);
+            modal.find('dd img').click(function () {
+                if ($(this).parent().find(".yes_pic").css("display") == "none") {
+                    $(this).parent().css("opacity", "0.6").find(".yes_pic").show();
+                    ids.push($(this).attr("name"));
+                } else {
+                    $(this).parent().css("opacity", "1").find(".yes_pic").hide();
+                    ids.splice($.inArray($(this).attr("name"), ids), 1);
+                }
+            });
+        });
+    })
+</script>
+    </section>
+
+    
+    <section class="js-detail-introduction detail-introduction">
+        <div class="detail-introduction__txts">
+            <p class="js-detail-introduction-txt detail-introduction__txt">简介：<span>本纪录片来到了香港，准备和 Bobbie 一起经历一段奇妙却又艰难的旅程。我们还见到了她那对年轻的跨性别情侣朋友 Damon 和 Kay，聊了聊属于他们的爱情故事。在内地，作为国内第一例跨性别歧视案的主人公 C 先生，也带我们来到了他在贵阳的家，讲了讲他在失业后的生活。回到北京，古着服装店老板超小米带我们去看了看她的漂亮衣服 —— 就像她走路的姿态一样，她的性别也是流动着的。（网易公开课编辑整理）</span></p>
+        </div>
+        <div class="js-detail-introduction__btns detail-introduction__btns"></div>
+    </section>
+
+    <!-- 标签 -->
+    <section class="detail-tags">
+        <ul class="clearfix">
+            
+                <li class="detail-tag"><a class="detail-tag-link" href="#">跨性别者</a></li>
+            
+                <li class="detail-tag"><a class="detail-tag-link" href="#">纪录片</a></li>
+            
+                <li class="detail-tag"><a class="detail-tag-link" href="#">社会</a></li>
+            
+                <li class="detail-tag"><a class="detail-tag-link" href="#">LGBT</a></li>
+            
+        </ul>
+    </section>
+
+    <!-- 上传者 -->
+    <section class="detail-upload-org clearfix">
+
+        
+            
+            
+                <div class="detail-upload-org__imgs">
+                    <a href="/institution/57e10a5ea770286d5ebd4878">
+                        <img class="detail-upload-org__img" onerror="this.src='/img/default.jpg'" src="/img/default.jpg" alt="">
+                    </a>
+                </div>
+                <p class="detail-upload-org__name">上传机构名称：<a href="/institution/57e10a5ea770286d5ebd4878">公开课</a></p>
+            
+        
+
+    </section>
+
+    <!-- 相关推荐 -->
+    <section class="detail-related-source">
+        <h2 class="detail-related-source__title">相关推荐</h2>
+        <ul class="detail-related-source__list clearfix">
+            
+        </ul>
+    </section>
+
+    
+    
+
+
+<style type="text/css">
+    /* Comments and hot books Part */
+    .DD-comments-recommend__swrpper {
+        width: 1200px;
+        margin: 50px auto 0;
+    }
+
+    .DD-comments {
+        float: left;
+        width: 920px;
+    }
+
+    .DD-comments__title {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .DD-comments-nav {
+        border-right: 1px solid #EEE;
+        padding-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .DD-comments-nav__item {
+        float: left;
+        position: relative;
+        width: 120px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .DD-comments-nav__item.cur {
+        color: #2DDE60;
+    }
+
+    .DD-comments-nav__item.cur:before {
+        content: "";
+        display: block;
+        bottom: 0;
+        position: absolute;
+        width: 120px;
+        height: 4px;
+        background: #2DDE60;
+        border-radius: 2px;
+    }
+
+    .DD-comments-nav__item.cur:after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 4px;
+        left: 50px;
+        width: 0;
+        height: 0;
+        border-width: 10px 8px;
+        border-style: solid;
+        border-color: transparent;
+        border-bottom-color: #2DDE60;
+    }
+
+    /* Comments main content */
+    .DD-comments-main {
+        border-right: 1px solid #EEE;
+    }
+
+    .DD-comments-remain__pics {
+        float: left;
+        width: 55px;
+        height: 55px;
+        margin-top: 8px;
+    }
+
+    .DD-comments-remain__pic {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .DD-comments-remain__msg {
+        float: left;
+        width: 750px;
+        height: 135px;
+        margin-left: 30px;
+    }
+
+    .DD-comments-remain__txt {
+        float: left;
+        width: 85%;
+        line-height: 70px;
+        font-size: 16px;
+        text-align: center;
+        background: #eee;
+        border-radius: 8px;
+    }
+
+    .DD-comments-remain__login {
+        width: 150px;
+        padding: 3px 12px;
+        margin: 0 5px;
+        color: #fff;
+        background: #3C6;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+
+    .DD-comments-remain__btn {
+        float: right;
+        width: 11%;
+        height: 70px;
+        padding: 15px 25px;
+        background: #eee;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .DD-comments-remain__emo {
+        width: 80px;
+        padding-left: 30px;
+        margin-top: 10px;
+        background: #EEE url(/img/ethnic/spirit_disk.png) no-repeat 5px -802px;
+        line-height: 30px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .DD-comments-details__item {
+        margin-bottom: 20px;
+    }
+
+    .DD-comments-details__pics {
+        float: left;
+        width: 55px;
+        height: 55px;
+        margin-top: 30px;
+    }
+
+    .DD-comments-details__pic {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .DD-comments-details__content {
+        float: left;
+        width: 80%;
+        margin-left: 30px;
+        border-top: 1px solid #EEE;
+    }
+
+    .DD-comments-details__user {
+        margin: 12px 0;
+    }
+
+    .DD-comments-details__id, .DD-comments-details__time, .DD-comments-details__praise, .DD-comments-details__feedback {
+        float: left;
+        margin-right: 100px;
+        font-size: 14px;
+    }
+
+    .DD-comments-details__praise, .DD-comments-details__feedback {
+        width: 100px;
+        cursor: pointer;
+    }
+
+    .DD-comments-details__praise.active, .DD-comments-details__feedback.active {
+        color: #3C6;
+    }
+
+    .DD-comments-details__feedbacks {
+        position: relative;
+        float: left;
+        width: 100%;
+        min-height: 60px;
+        margin-top: 15px;
+    }
+
+    .DD-comments-details__feedbacks:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -8px;
+        left: 66%;
+        width: 15px;
+        height: 15px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #EEE transparent transparent #EEE;
+        background: #FFF;
+        transform: rotate(45deg);
+        z-index: 6;
+    }
+
+    .DD-comments-details__feedbacks.is-hide {
+        display: none;
+    }
+
+    .DD-comments-details__feedbackInput {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 85%;
+        min-height: 60px;
+        padding: 5px 10px;
+        border: 1px solid #EEE;
+        background: #FFF;
+        border-radius: 10px;
+        outline: none;
+        z-index: 5;
+    }
+
+    .DD-comments-details__feedbackSend {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 80px;
+        height: 60px;
+        padding: 8px 20px;
+        background: #3C6;
+        color: #FFF;
+        border-radius: 10px;
+        cursor: pointer;
+        z-index: 5;
+    }
+
+    .DD-comments-subdetails__pics {
+        float: left;
+        width: 50px;
+        height: 50px;
+        margin-top: 20px;
+    }
+
+    .DD-comments-subdetails__pic {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .DD-comments-subdetails_content {
+        float: left;
+        width: 80%;
+        margin-left: 30px;
+    }
+
+    .DD-comments-subdetails__time {
+        float: left;
+        margin-right: 100px;
+        font-size: 14px;
+    }
+
+    .DD-comments-subdetails__praise, .DD-comments-subdetails__feedback {
+        position: relative;
+        float: left;
+        width: 100px;
+        margin-right: 118px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .DD-comments-subdetails__praise.active, .DD-comments-subdetails__feedback.active {
+        color: #3C6;
+    }
+
+    /* more recommend -- aside */
+    .DD-moreRec {
+        float: right;
+        width: 280px;
+    }
+
+    .DD-moreRec__title {
+        padding-left: 30px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .DD-moreRec-content__item {
+        float: left;
+        width: 200px;
+        margin: 0 0 20px 40px;
+        text-align: center;
+    }
+
+    .DD-moreRec-content__pics {
+        width: 135px;
+        height: 180px;
+        margin: 0 auto;
+    }
+
+    .DD-moreRec-content__pic {
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+    }
+    .DD-comments-sends{
+        float: left;
+        margin-left: 30px;
+    }
+    .DD-comments-send{
+        position: relative;
+        width: 750px;
+        height: 50px;
+    }
+    .DD-comments-send__input{
+        position: absolute;
+        left: 10px;
+        top: 0;
+        width: 638px;
+        height: 50px;
+        padding: 5px 12px;
+        border: 1px solid #ccc;
+        border-right: none;
+        border-radius: 10px 0 0 10px;
+        outline: none;
+    }
+    .DD-comments-send__arrow{
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 16px;
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0);
+        border-right-color: #ccc;
+        border-top-color: #ccc;
+        transform: rotate(-133deg);
+        z-index: 3;
+    }
+    .DD-comments-send__btn{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100px;
+        height: 50px;
+        padding: 4px 10px;
+        background: #2dbe60;
+        font-size: 18px;
+        color: #fff;
+        border: 1px solid #2dbe60;
+        border-radius: 12px;
+        z-index: 3;
+    }
+    .DD-comments-send__emo{
+        display: none;
+        width: 80px;
+        line-height: 30px;
+        padding-left: 30px;
+        margin: 10px 0 10px 10px;
+        background: #EEE url(/img/ethnic/spirit_disk.png) no-repeat 5px -802px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+</style>
+<!-- Comments and hot books -->
+<section class="DD-comments-recommend__swrpper clearfix">
+    <section id="DD-comments" class="DD-comments">
+        <h2 class="DD-comments__title">评论（0）</h2>
+        <!-- Comments navigation -->
+        <nav class="DD-comments-nav clearfix">
+            <a name="comments" class="js-DD-comments-nav__item DD-comments-nav__item cur">最新评论</a>
+            <a class="js-DD-comments-nav__item DD-comments-nav__item">热门评论</a>
+        </nav>
+        <!-- Comments main content -->
+        <div class="DD-comments-main">
+            <!-- Login remain message -->
+            <section class="u-padding-top-20 clearfix">
+                <div class="DD-comments-remain__pics">
+                    <img class="DD-comments-remain__pic" src="/img/avatar/no_avatar.png">
+                </div>
+                <div style="display: none;" class="DD-comments-remain__msg">
+                    <div class="clearfix">
+                        <div class="DD-comments-remain__txt">请先<a class="DD-comments-remain__login">登录</a>后再发表评论</div>
+                        <div class="DD-comments-remain__btn">发表评论</div>
+                    </div>
+                    <p class="DD-comments-remain__emo">表情</p>
+                </div>
+                <div style="display: block;" class="DD-comments-sends">
+                    <div class="DD-comments-send">
+                        <i class="DD-comments-send__arrow"></i>
+                        <textarea class="DD-comments-send__input" maxlength="500" placeholder="我也来说说。。。"></textarea>
+                        <input class="DD-comments-send__btn" type="button" value="发送">
+                    </div>
+                    <p class="DD-comments-send__emo">表情</p>
+                </div>
+            </section>
+            <!-- User comments details -->
+            <section class="js-DD-comments-details DD-comments-details">
+                
+            </section>
+        </div>
+    </section>
+</section>
+<script type="text/javascript">
+    $(function () {
+        var username;
+        var newdate;
+        // 最新评论与热门评论切换， 异步请求资源
+        $('.js-DD-comments-nav__item').click(function () {
+            $(this).addClass('cur').siblings().removeClass('cur');
+        })
+        $(".DD-comments-send__btn").click(function () {
+            var content = $(".DD-comments-send__input").val().trim();
+            if (content != null && content != "") {
+                $.post("/comment/save.json", {tid: "591c12411d41c83d4a546be5", content: content,type:1},
+                    function (data) {
+                        $.ajax({
+                            url: '/comment/getTotal.json?tid=591c12411d41c83d4a546be5',
+                            type: 'GET',
+                            success: function (data) {
+                                $(".DD-comments-send__input").val('');
+//                                $('.comment-content i').text(0);
+                                $('h2.DD-comments__title').text("全部评论("+data.total+"条)");
+//                                $('#noComment').hide();
+//                                $(".js-DD-comments-details DD-comments-details").prepend(comment_row);
+                            }
+                        });
+                        username = data.username != null ? data.username : "";
+//									var date = new Date(data.timeline).toLocaleString().replace("\/", "-").replace("\/", "-");
+                        var date = new Date(data.timeline);
+                        newdate= formatDateTime(date);
+
+                    });
+            }
+            var txt = $(this).prev().val();
+            var formatDateTime = function (date) {
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                m = m < 10 ? ('0' + m) : m;
+                var d = date.getDate();
+                d = d < 10 ? ('0' + d) : d;
+                var h = date.getHours();
+                var minute = date.getMinutes();
+                minute = minute < 10 ? ('0' + minute) : minute;
+                return y + '-' + m + '-' + d+' '+h+':'+minute;
+            };
+            if (txt) {
+                $('section.js-DD-comments-details').prepend('<div class="DD-comments-details__item clearfix">'
+                    +'<div class="DD-comments-details__pics"> <img class="DD-comments-details__pic" src=""> </div>'
+                    +'<div class="js-DD-comments-details__content DD-comments-details__content"> <p class="DD-comments-details__user"></p>'
+                    +'<p class="DD-comments-details__txt">'+txt+'</p> <ul class="clearfix"> <li class="DD-comments-details__id">#1</li>'
+                    +'<li class="DD-comments-details__time">'+newdate+'</li>'
+                    +'<li class="js-DD-comments-details__praise DD-comments-details__praise"> <span>赞</span>（<span class="js-DD-comments-details__praiseNum">0</span>）</li>'
+                    +'<li class="js-DD-comments-details__feedback DD-comments-details__feedback"><span>回复(0)</span></li> </ul> </div> </div>');
+            }
+        });
+        // Comments part -- approve number
+        $('.js-DD-comments-details').on('click', '.js-DD-comments-details__praise', function () {
+            var elem = $(this).children('.js-DD-comments-details__praiseNum');
+            var num = elem.text();
+            if (!$(this).hasClass('active')) {
+                $(this).addClass('active');
+                elem.text(++num);
+            } else {
+                $(this).removeClass('active');
+                elem.text(--num);
+            }
+        });
+        // Comments part -- response input block
+        $('.js-DD-comments-details').on('click', '.js-DD-comments-details__feedback', function () {
+            $(this).toggleClass('active');
+            if (!$(this).parent().children('.js-DD-comments-details__feedbacks').length) {
+                $(this).parent().append($('<li class="js-DD-comments-details__feedbacks DD-comments-details__feedbacks">' +
+                    '<textarea placeholder="：" class="DD-comments-details__feedbackInput"></textarea>' +
+                    '<a class="js-DD-comments-details__feedbackSend DD-comments-details__feedbackSend">发表评论</a> </li>'));
+            } else {
+                $(this).parent().children('.js-DD-comments-details__feedbacks').toggleClass('is-hide');
+            }
+        });
+
+        $('.js-DD-comments-details').on('click', '.js-DD-comments-details__feedbackSend', function () {
+            var txt = $(this).prev().val();
+            var formatDateTime = function (date) {
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                m = m < 10 ? ('0' + m) : m;
+                var d = date.getDate();
+                d = d < 10 ? ('0' + d) : d;
+                var h = date.getHours();
+                var minute = date.getMinutes();
+                minute = minute < 10 ? ('0' + minute) : minute;
+                return y + '-' + m + '-' + d+' '+h+':'+minute;
+            };
+            if (txt) {
+                $(this).parents('.js-DD-comments-details__content').append('<div class="DD-comments-subdetails clearfix"><div class="DD-comments-subdetails__pics">' +
+                    '<img class="DD-comments-subdetails__pic" src="images/flower_3.jpeg"></div><div class="DD-comments-subdetails_content clearfix">' +
+                    '<p class="DD-comments-subdetails_user">用户名</p><p class="DD-comments-subdetails__txt">' + txt + '</p>' +
+                    '<ul class="clearfix"> <li class="DD-comments-subdetails__time">'+formatDateTime(new Date())+'</li><li class="js-DD-comments-details__praise DD-comments-subdetails__praise">' +
+                    '<span>赞</span>（<span class="js-DD-comments-details__praiseNum">0</span>）</li><li class="js-DD-comments-details__feedback DD-comments-subdetails__feedback">' +
+                    '<span>回复(0)</span></li> </ul> </div> </div>'
+                );
+            }
+        });
+    })
+</script>
+    
+    
+    </main></div>
+
+
+<script src="/plugins/jscrollpane/jquery.mousewheel.js"></script>
+<script src="/plugins/jscrollpane/jquery.jscrollpane.min.js"></script>
+<script src="/plugins/videojs/video.min.js"></script>
+<script src="/plugins/videojs/videojs.hotkeys.min.js"></script>
+<script>
+    var id = "591c13031d41c83deff2ea4b";
+    var type = "1";
+    $(function () {
+        $('.js-nav-item:first-child').css('margin-left', '-22px');
+        // Plugins -- jScrollpane
+        $('.scroll-pane').jScrollPane();
+        // Plugins -- video.js
+        var video = videojs('my-video', {
+            playbackRates: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 2],
+            plugins: {
+                hotkeys: {
+                    volumeStep: 0.1,
+                    seekStep: 10,
+                    enableMute: false,
+                    enableNumbers: false,
+                    enableModifiersForNumbers: false
+                }
+            }
+        });
+        window.video = video;
+
+        $('.js-detail-video-nav__item').click(function () {
+            if (!$(this).hasClass('active')) {
+                $(this).addClass('active').siblings().removeClass('active');
+                $(this).index() ? $('.js-detail-video-episodes').addClass('active').prev().removeClass('active')
+                    : $('.js-detail-video-brief').addClass('active animated').next().removeClass('active')
+            }
+        });
+        $('.js-detail-video-episode').click(function () {
+            !$(this).hasClass('active') && $(this).addClass('active').siblings().removeClass('active');
+        })
+    });
+
+    if (false) {
+        
+        $(".search-logo-china").css("color", "#066BAF");
+        $(".search-outer__btn").css("background-color", "#066BAF");
+        $(".search-outer").css("border-color", "#066BAF");
+    }
+
+    var player = videojs("my-video");
+
+    var ifOpen = true; //是否公开
+    if (ifOpen) {
+
+
+    }
+    else {
+        //私有资源
+        //$(".alert-title").eq(0).html("私有资源");
+        //$(".alert-title").eq(1).html("您暂无权完整浏览！");
+
+
+        //    全屏播放
+        var cloneAlertView = $(".alert-Private").clone(true);
+        var cloneCoverView = $(".disable-coverView").clone(true);
+        $("#my-video").append(cloneCoverView);
+        $("#my-video").append(cloneAlertView);
+
+        player.on('timeupdate', function () {
+            if (player.currentTime() >= 120) {
+                player.pause();
+                $(".alert-Private").show().css("z-index", 2).css("background-color", "black").css("color", "white").css("border", "none").css("height", "80px");
+                $(".disable-coverView").css("display", "block");
+                cloneAlertView.show();
+                cloneCoverView.show();
+
+            } else {
+                $(".alert-Private").hide();
+            }
+        });
+    }
+
+</script>
+<script>
+
+    var count = false;
+
+    setTimeout(function () {
+        $(".vjs-big-play-button").click(function () {
+            if(count == false){
+                count = true;
+                countPlayNumber();
+            }
+        });
+    },100);
+
+//    alert("te");
+    /**
+     * 后台需要统计播放的次数
+     */
+    function countPlayNumber() {
+        var audioId = '591c13031d41c83deff2ea4b';
+
+        console.log("后台需要统计播放的次数 id = " + audioId);
+        jQuery.ajax({
+            url: "/media/mediaCount",
+            type: "POST",
+            data: {
+                id: audioId,
+                type:1
+            },
+            dataType: "json",
+            success: function (msg) {
+//                console.log("统计成功！");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+//                console.log("统计请求错误！");
+
+            },
+        });
+    }
+</script>
+
+
+	
+
+	
+	
+
+
+<style type="text/css">
+    /*===== footer =======*/
+    .footer-wrap {
+        width: 100%;
+        height: 210px;
+        margin-top: 20px;
+        background: #EFF3F5;
+        line-height: 20px;
+        border-top: 1px solid #D8DBE5;
+    }
+
+    .footer {
+        position: relative;
+        width: 1200px;
+        padding: 40px 0 0 0;
+        margin: 0 auto;
+        text-align: left;
+        color: #666;
+    }
+
+    .footer-statements {
+        line-height: 4em;
+    }
+
+    .footer-statement-link {
+        padding-left: 40px;
+    }
+
+    .footer-copyright {
+        line-height: 7em;
+    }
+
+    .footer-copyright-link {
+        padding-left: 40px;
+    }
+
+    .footer-wechet {
+        position: absolute;
+        top: 20px;
+        right: 0;
+    }
+
+    .footer-copyright-libtop {
+        position: relative;
+        top: -5px;
+    }
+
+    .footer-wechet-app, .footer-wechet-public {
+        margin-top: 15px;
+    }
+
+    .footer-wechet-public {
+        position: absolute;
+        top: 0;
+        right: 150px;
+    }
+
+    .footer-wechet-picture {
+        background: #FFF;
+        padding: 4px;
+        border-radius: 2px;
+    }
+
+    .footer-wechet-txt {
+        line-height: 32px;
+        margin: 0;
+        font-size: 15px;
+        text-align: center;
+    }
+</style>
+<div class="container footer-wrap" id="footer_container">
+    <footer class="footer clearfix">
+        <div class="footer-about-us">
+            <div class="footer-statements">
+                <a href="/">
+                    <img src="/img/index/yuntu_logo_sm.png" alt="">
+                    
+                </a>
+                <a class="footer-statement-link" href="/temp/aboutUs">关于我们</a>
+                <a class="footer-statement-link" href="/temp/copyright">版权声明</a>
+                <a class="footer-statement-link" href="/temp/antiLeech">反盗链声明</a>
+                <a class="footer-statement-link" href="/suggestion/index">用户反馈</a>
+            </div>
+            <div class="footer-copyright">
+                <a href="/">
+                    <img class="footer-copyright-libtop" src="/img/index/libtop_logo.png" alt="">
+                    
+                </a>
+                <span class="footer-copyright-link">Copyright © 2015 云图.<a href="https://beian.miit.gov.cn/#/Integrated/index">粤ICP备09162136号-2</a></span>
+                <a class="footer-copyright-link" href="/temp/aboutUs">广州联图电子科技有限公司</a>
+                
+            </div>
+
+        </div>
+        <div class="footer-wechet">
+            <div class="footer-wechet-app">
+                <img class="footer-wechet-picture" src="/img/weitu/weitu-logo-new.png" width="120" alt="微图书馆 APP 下载">
+                <p class="footer-wechet-txt">微图书馆 APP 下载</p>
+            </div>
+            <div class="footer-wechet-public">
+                <img class="footer-wechet-picture" src="/img/weitu/weitu-weixin-new.png" width="120" alt="微图书馆微信公众号">
+                <p class="footer-wechet-txt">微图书馆微信公众号</p>
+            </div>
+        </div>
+
+        
+    </footer>
+
+    
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?703adfe6f565754028f7850563b9c9a3";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    
+
+</div>
+
+	<script src="/js/yuntu.js"></script>
+
+</body></html>
