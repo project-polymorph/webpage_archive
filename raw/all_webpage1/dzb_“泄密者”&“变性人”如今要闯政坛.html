@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="文汇报 数字报 电子报 看报 报纸 多媒体报刊">
+<meta name="description" content="文汇 报数字报 电子报 看报 报纸 多媒体报刊">
+<title>
+环球
+</title>
+<link href="../../../tplimg/wh_global.css" rel="stylesheet" type="text/css">
+<link href="../../../tplimg/web.css" rel="stylesheet" type="text/css">
+<link href="../../../tplimg/blue1.css" rel="stylesheet" type="text/css">
+<link href="../../../tplimg/jquery.jscrollpane.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="../../../tplimg/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="../../../tplimg/period.js"></script>
+<script type="text/javascript" src="../../../tplimg/calendarp.js"></script>
+<script type="text/javascript" src="../../../tplimg/mpcore.js"></script>
+<script type="text/javascript" src="../../../tplimg/public.js"></script>
+<script type="text/javascript" src="../../../tplimg/range.js"></script>
+<script type="text/javascript" src="../../../tplimg/swfobject.js"></script>
+<script type="text/javascript">
+//画线--写title
+$(function(){
+var obj = document.getElementsByName('PagePicMap');	
+	if ((navigator.userAgent.indexOf('MSIE') >= 0) && (navigator.userAgent.indexOf('Opera') < 0)){
+	    //alert('你是使用IE')
+		obj[0].onmouseover=function(){drawLine(event.srcElement, event);};
+	    obj[0].onmouseout=function(){MouseOutMap();};
+	}else if (navigator.userAgent.indexOf('Firefox') >= 0){
+	    //alert('你是使用Firefox')
+		obj[0].onmouseover=function(){drawLine(arguments[0].target, arguments[0]);};
+		document.getElementById("leveldiv").onmouseout=function(){MouseOutMap();};
+	}else if (navigator.userAgent.indexOf('Opera') >= 0){
+	    //alert('你是使用Opera')
+		obj[0].onmouseover=function(){drawLine(event.srcElement, event);};
+	    obj[0].onmouseout=function(){MouseOutMap();};
+	}else{
+	    //alert('你是使用其他的浏览器浏览网页！')
+		obj[0].onmouseover=function(){drawLine(event.srcElement, event);};
+	    obj[0].onmouseout=function(){MouseOutMap();};
+	}
+		createTInfo();
+		replacePageTitle();
+});
+//素材窗口展示新形式;
+var tStr ="[";
+var T=[];
+function createTInfo(){
+/*
+a 类型
+b 小图
+c 预览地址
+*/
+var trArr= $("#tableInfo tr");
+var t01 = $("#tableInfo tr").length;
+	if(t01>0){
+		for(var i=0;i<t01;i++){
+			var trTemp = trArr[i];
+			var tabStr= $(trTemp).find('table')[0];
+			var objStr=$(trTemp).find('object')[0];
+				if(tabStr != undefined){
+					//有图片素材
+					var tr0 =$(tabStr).find('tr')[0];
+					var  imgPath= $(tr0).find('img')[0].src;
+					var tr1 = $(tabStr).find('tr')[1];
+					var imgText= $(tr1).find('td')[0].innerText;
+						imgText = imgText.replace(/\s/g, "").replace(/\"/g, "");
+					var oneInfo ="{'a':'images','b':'"+imgPath+"','c':'"+imgPath+"','d':'"+imgPath+"','text':'"+imgText+"'},";
+					tStr+=oneInfo;
+				}
+				if(objStr != undefined){
+					//有视频素材
+					var embed0 =$(objStr).find('embed')[0].src;
+					var vInfo ="{'a':'video','b':'../../../tplimg/video.gif','c':'"+embed0+"','text':''},";
+					tStr+=vInfo;
+				}
+		}
+	 var ln = tStr.length;
+	    tStr = tStr.substr(0,ln-1);
+	}
+	
+	 tStr+="]";
+	 var myobj=eval(tStr);
+	 T=myobj;
+}
+//title中关键字屏蔽
+function replacePageTitle(){
+	var reg= /[A-Z]+/g;
+	$("#BM li a:nth-child(2)").each(function(){
+		var aTitle=$(this).text();
+		var aIndex = aTitle.split(':')[0];
+		var aStr = aTitle.split(':')[1];
+		var aNum  = aIndex.match(reg);
+		if(aNum !=null){
+			aIndex_num = aIndex.replace(aNum[0],'');
+			$(this).empty();
+			$(this).append(aIndex_num+":"+aStr);
+		}
+	});
+	var str=$(".B_06_1").text();
+	var ms = str.match(reg);
+	if(ms !=null){
+		str = str.replace(ms[0],'');
+		$(".B_06_1").empty();
+		$(".B_06_1").append(str);
+	}
+}
+
+//页面热区点击跳转
+function goPage(){
+var hrefTemp = $("#leveldiv").attr("class");
+document.location.href = hrefTemp;
+}
+
+//通版显示和隐藏--配合calendar.js
+function mOver()
+{
+var obj1 = document.getElementById("graphics-js");
+	obj1.style.overflow="visible";
+}
+
+function mOut()
+{
+var obj1 = document.getElementById("graphics-js");
+	obj1.style.overflow="hidden";
+}
+</script>
+<script type="text/javascript" src="../../../tplimg/article.js"></script>
+<style type="text/css">
+.preart{
+margin-left: -4px;
+}
+#bmt{	
+}
+#tableInfo{
+display:none;
+}
+.BMTitle li a.titleInfo {
+width:155px;
+height:30px;
+text-overflow:ellipsis;
+white-space:nowrap;
+overflow:hidden;
+}
+.BTArticle li a.articleInfo{
+width:220px;
+height:30px;
+text-overflow:ellipsis;
+white-space:nowrap;
+overflow:hidden;
+}
+
+.B_06_3{
+width:380px;
+text-overflow:ellipsis;
+white-space:nowrap;
+overflow:hidden;
+}
+
+</style>
+
+</head>
+<body>
+<span id="leveldiv" title="点击查看内容" onclick="goPage()" ;="" style="CURSOR: pointer; BORDER-TOP: #ff0000 2px solid; HEIGHT: 312px; BORDER-RIGHT: #ff0000 2px solid; WIDTH: 84px; BORDER-BOTTOM: #ff0000 2px solid; POSITION: absolute; LEFT: 617px; BORDER-LEFT: #ff0000 2px solid; Z-INDEX: 11; DISPLAY: none; TOP: 298px"></span>
+<!--日历部分-->
+<div id="calendarBox" style="left:50%; margin-left:186px; top:121px; display:none">
+  <form name="CLD">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tbody><tr>
+        <td colspan="7" align="center" height="24" bgcolor="#ffffff"><img src="../../../tplimg/d1.gif" width="7" height="11" onclick="turnpage('SY',0)">
+          <select name="SY" onchange="changeMPCld();SetSelectValue(false);" onfocus="SetSelectValue(true);">
+            <script>for(i=2006;i<2051;i++){document.write('<option>'+i+'</option>')}</script><option>2006</option><option>2007</option><option>2008</option><option>2009</option><option>2010</option><option>2011</option><option>2012</option><option>2013</option><option>2014</option><option>2015</option><option>2016</option><option>2017</option><option>2018</option><option>2019</option><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option><option>2030</option><option>2031</option><option>2032</option><option>2033</option><option>2034</option><option>2035</option><option>2036</option><option>2037</option><option>2038</option><option>2039</option><option>2040</option><option>2041</option><option>2042</option><option>2043</option><option>2044</option><option>2045</option><option>2046</option><option>2047</option><option>2048</option><option>2049</option><option>2050</option>
+          </select>
+          <img src="../../../tplimg/d.gif" width="7" height="11" onclick="turnpage('SY',1)"> <img src="../../../tplimg/d1.gif" width="7" height="11" onclick="turnpage('SM',0)">
+          <select name="SM" onchange="changeMPCld();SetSelectValue(false);" onfocus="SetSelectValue(true);">
+            <script>for(i=1;i<13;i++) document.write('<option>'+i+'</option>')</script><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+          </select>
+          <img src="../../../tplimg/d.gif" width="7" height="11" style="cursor:pointer;" onclick="turnpage('SM',1)"></td>
+      </tr>
+      <tr height="22" bgcolor="#e8e8e8">
+        <td align="center"><b>日</b></td>
+        <td align="center"><b>一</b></td>
+        <td align="center"><b>二</b></td>
+        <td align="center"><b>三</b></td>
+        <td align="center"><b>四</b></td>
+        <td align="center"><b>五</b></td>
+        <td align="center"><b>六</b></td>
+      </tr>
+      <script>
+            var gNum;
+            for(i=0;i<6;i++) {
+                document.write('<tr height="20">');
+                for(j=0;j<7;j++){
+                    gNum = i*7+j;
+                    document.write('<td align=center id="GD' + gNum +'" width="14%"><a id="CD' + gNum + '">');
+                    document.write('</a></td>');
+                }
+                document.write('</tr>');
+            } 
+      </script><tr height="20"><td align="center" id="GD0" width="14%"><a id="CD0"></a></td><td align="center" id="GD1" width="14%"><a id="CD1" href="https://dzb.whb.cn/html/2018-01/01/node_61.html" class="paperdate">1</a></td><td align="center" id="GD2" width="14%"><a id="CD2" href="https://dzb.whb.cn/html/2018-01/02/node_61.html" class="paperdate">2</a></td><td align="center" id="GD3" width="14%"><a id="CD3" href="https://dzb.whb.cn/html/2018-01/03/node_61.html" class="paperdate">3</a></td><td align="center" id="GD4" width="14%"><a id="CD4" href="https://dzb.whb.cn/html/2018-01/04/node_61.html" class="paperdate">4</a></td><td align="center" id="GD5" width="14%"><a id="CD5" href="https://dzb.whb.cn/html/2018-01/05/node_61.html" class="paperdate">5</a></td><td align="center" id="GD6" width="14%"><a id="CD6" href="https://dzb.whb.cn/html/2018-01/06/node_61.html" class="paperdate">6</a></td></tr><tr height="20"><td align="center" id="GD7" width="14%"><a id="CD7" href="https://dzb.whb.cn/html/2018-01/07/node_61.html" class="paperdate">7</a></td><td align="center" id="GD8" width="14%"><a id="CD8" href="https://dzb.whb.cn/html/2018-01/08/node_61.html" class="paperdate">8</a></td><td align="center" id="GD9" width="14%"><a id="CD9" href="https://dzb.whb.cn/html/2018-01/09/node_61.html" class="paperdate">9</a></td><td align="center" id="GD10" width="14%"><a id="CD10" href="https://dzb.whb.cn/html/2018-01/10/node_61.html" class="paperdate">10</a></td><td align="center" id="GD11" width="14%"><a id="CD11" href="https://dzb.whb.cn/html/2018-01/11/node_61.html" class="paperdate">11</a></td><td align="center" id="GD12" width="14%"><a id="CD12" href="https://dzb.whb.cn/html/2018-01/12/node_61.html" class="paperdate">12</a></td><td align="center" id="GD13" width="14%"><a id="CD13" href="https://dzb.whb.cn/html/2018-01/13/node_61.html" class="paperdate">13</a></td></tr><tr height="20"><td align="center" id="GD14" width="14%"><a id="CD14" href="https://dzb.whb.cn/html/2018-01/14/node_61.html" class="paperdate">14</a></td><td align="center" id="GD15" width="14%"><a id="CD15" href="https://dzb.whb.cn/html/2018-01/15/node_61.html" class="paperdate">15</a></td><td align="center" id="GD16" width="14%"><a id="CD16" href="https://dzb.whb.cn/html/2018-01/16/node_61.html" class="paperdate">16</a></td><td align="center" id="GD17" width="14%"><a id="CD17" href="https://dzb.whb.cn/html/2018-01/17/node_61.html" class="paperdate">17</a></td><td align="center" id="GD18" width="14%"><a id="CD18" href="https://dzb.whb.cn/html/2018-01/18/node_61.html" class="paperdate">18</a></td><td align="center" id="GD19" width="14%"><a id="CD19" href="https://dzb.whb.cn/html/2018-01/19/node_61.html" class="paperdate">19</a></td><td align="center" id="GD20" width="14%"><a id="CD20" href="https://dzb.whb.cn/html/2018-01/20/node_61.html" class="paperdate">20</a></td></tr><tr height="20"><td align="center" id="GD21" width="14%"><a id="CD21" href="https://dzb.whb.cn/html/2018-01/21/node_61.html" class="paperdate">21</a></td><td align="center" id="GD22" width="14%"><a id="CD22" href="https://dzb.whb.cn/html/2018-01/22/node_61.html" class="paperdate">22</a></td><td align="center" id="GD23" width="14%"><a id="CD23" href="https://dzb.whb.cn/html/2018-01/23/node_61.html" class="paperdate">23</a></td><td align="center" id="GD24" width="14%"><a id="CD24" href="https://dzb.whb.cn/html/2018-01/24/node_61.html" class="paperdate">24</a></td><td align="center" id="GD25" width="14%"><a id="CD25" href="https://dzb.whb.cn/html/2018-01/25/node_61.html" class="paperdate">25</a></td><td align="center" id="GD26" width="14%"><a id="CD26" href="https://dzb.whb.cn/html/2018-01/26/node_61.html" class="paperdate">26</a></td><td align="center" id="GD27" width="14%"><a id="CD27" href="https://dzb.whb.cn/html/2018-01/27/node_61.html" class="paperdate">27</a></td></tr><tr height="20"><td align="center" id="GD28" width="14%"><a id="CD28" href="https://dzb.whb.cn/html/2018-01/28/node_61.html" class="paperdate">28</a></td><td align="center" id="GD29" width="14%"><a id="CD29" href="https://dzb.whb.cn/html/2018-01/29/node_61.html" class="paperdate">29</a></td><td align="center" id="GD30" width="14%"><a id="CD30" href="https://dzb.whb.cn/html/2018-01/30/node_61.html" class="paperdate">30</a></td><td align="center" id="GD31" width="14%"><a id="CD31" href="https://dzb.whb.cn/html/2018-01/31/node_61.html" class="paperdate">31</a></td><td align="center" id="GD32" width="14%"><a id="CD32"></a></td><td align="center" id="GD33" width="14%"><a id="CD33"></a></td><td align="center" id="GD34" width="14%"><a id="CD34"></a></td></tr><tr height="20"><td align="center" id="GD35" width="14%"><a id="CD35"></a></td><td align="center" id="GD36" width="14%"><a id="CD36"></a></td><td align="center" id="GD37" width="14%"><a id="CD37"></a></td><td align="center" id="GD38" width="14%"><a id="CD38"></a></td><td align="center" id="GD39" width="14%"><a id="CD39"></a></td><td align="center" id="GD40" width="14%"><a id="CD40"></a></td><td align="center" id="GD41" width="14%"><a id="CD41"></a></td></tr>
+    </tbody></table>
+  </form>
+</div>
+<!--日历牌,默认不显示;-->
+<!--下拉 版面导航strar  默认看不到-->
+<div id="BM" class="down" style="position:absolute;">
+<ul class="BMTitle">
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/1/10118.pdf"></a>
+<a class="titleInfo" title="要闻" href="node_61.html">1: 要闻</a>
+</li>
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/2/20118.pdf"></a>
+<a class="titleInfo" title="要闻" href="node_63.html">2: 要闻</a>
+</li>
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/3/30118.pdf"></a>
+<a class="titleInfo" title="要闻" href="node_65.html">3: 要闻</a>
+</li>
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/4/40118.pdf"></a>
+<a class="titleInfo" title="近距离" href="node_64.html">4: 近距离</a>
+</li>
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/5/50118.pdf"></a>
+<a class="titleInfo" title="时评;要闻;综合" href="node_66.html">5: 时评;要闻;综合</a>
+</li>
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/6/60118.pdf"></a>
+<a class="titleInfo" title="教科卫;广告" href="node_68.html">6: 教科卫;广告</a>
+</li>
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/7/70118.pdf"></a>
+<a class="titleInfo" title="国际;专题" href="node_69.html">7: 国际;专题</a>
+</li>
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/8/80118.pdf"></a>
+<a class="titleInfo" title="环球" href="node_67.html">8: 环球</a>
+</li>
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/9/90118.pdf"></a>
+<a class="titleInfo" title="文化" href="node_70.html">9: 文化</a>
+</li>
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/10/100118.pdf"></a>
+<a class="titleInfo" title="人文聚焦" href="node_60.html">10: 人文聚焦</a>
+</li>
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/11/110118.pdf"></a>
+<a class="titleInfo" title="文艺百家" href="node_59.html">11: 文艺百家</a>
+</li>
+
+<li>
+<a class="Icon I01" href="../../../images/2018-01/18/12/120118.pdf"></a>
+<a class="titleInfo" title="笔会" href="node_62.html">12: 笔会</a>
+</li>
+</ul>
+</div>
+<!--下拉 版面导航end-->
+
+<!--下拉 标题导航start 默认看不到-->
+<div id="BT" class="down" style="position:absolute;">
+<ul class="BTArticle">
+  
+  <li>
+      <a id="mp629591" class="articleInfo" title="“泄密者”&amp;“变性人”如今要闯政坛" href="./content_629591.html">“泄密者”&amp;“变性人”如今要闯政坛</a>
+ </li> 
+  <li>
+      <a id="mp629593" class="articleInfo" title="被困使馆五年半，阿桑奇终成厄瓜多尔人" href="content_629593.html">被困使馆五年半，阿桑奇终成厄瓜多尔人</a>
+ </li> 
+  <li>
+      <a id="mp629597" class="articleInfo" title="一周数字" href="content_629597.html">一周数字</a>
+ </li> 
+  <li>
+      <a id="mp629599" class="articleInfo" title="一周封面" href="content_629599.html">一周封面</a>
+ </li> 
+
+</ul>
+</div>
+<!--下拉 标题导航end-->
+
+<!--头上部 start-->
+<div class="BGX head">
+	<div class="w">
+		<div class="head_1">
+			<a class="logo" href="#"><img src="../../../tplimg/Logo.gif"></a>
+			<div class="menu">
+			<a href="http://www.whb.cn/" target="_blank" class="M1"> </a>
+			</div>
+		</div>
+		<div class="head_2">
+			<a href="#" class="M4"> </a>|
+			<a href="#" class="M5"> </a>|
+			<a href="#" class="M6" id="calendarBtn"> </a>|
+			<span class="time">
+			2018年01月18日 星期四
+			</span>
+		</div>
+	</div>
+</div>
+<!--头上部 end-->
+<!--中部正文 start-->
+<div class="w body clearfix" style="padding-bottom:25px">
+<div class="left B_01">
+	<div class="B_01_1" style="width: 395px;">
+    	<div class="B_01_3" id="graphics-js">
+		 <!--版面图gjy-->
+        
+<map name="PagePicMap"><area coords="72,313,314,313,314,458,253,458,253,468,314,468,314,567,132,567,132,468,195,468,195,463,139,463,139,458,128,458,128,567,72,567,72,313,296,460,314,460,314,463,296,463,296,460" shape="polygon" href="./content_629591.html"><area coords="9,39,314,39,314,297,212,297,212,301,76,301,76,297,65,297,65,375,65,375,65,394,65,394,65,567,9,567,9,39,294,298,314,298,314,301,294,301,294,298" shape="polygon" href="content_629593.html"><area coords="328,456,381,456,381,567,328,567" shape="polygon" href="content_629597.html"><area coords="325,29,384,29,384,444,325,444" shape="polygon" href="content_629599.html"></map>
+<img id="Bantu" src="../../../images/2018-01/18/8/80118_b.jpg" border="0" usemap="#PagePicMap">
+
+        <!--版面图gjy-->
+		
+		
+      </div>
+      <div class="B_01_4"></div>
+	</div>
+    <div class="B_01_2"> <a href="node_tc.htm" class="Btn01"></a>
+        <!--上一版，下一版gjy-->
+        <a class="preart" href="node_69.html"><span class="Btn02"></span></a>
+        <a class="preart" href="node_70.html"><span class="Btn03"></span></a>
+		<!--上一版，下一版gjy-->
+    </div>
+</div>
+<!--右部文章正文start-->
+<div class="left B_02 clearfix" style="padding-top:10px;">
+	<div class="BGN B_06">
+    	<div class="B_06_1">
+    	  
+8
+</div>
+        <div class="B_06_2" style="display:none">
+          
+2018-01-18
+</div>
+        <div class="B_06_3">
+          
+环球
+</div>
+    </div>
+    
+    <div class="B_02_1 B_07">
+        <div class="L_List clearfix" id="List_1">
+        	<div class="L_AUp L_AUpNo"><span class="Icon"></span></div>
+			<div style="width:530px; overflow:hidden;position:relative;">
+			<div class="L_body" style="width:555px;position:relative;">
+				<div id="textBody">
+				<!--引题标题副题gjy-->
+				
+<h1 class="title1"></h1>
+<h1 class="title">“泄密者”&amp;“变性人”如今要闯政坛</h1>
+<h2 class="title2"></h2>
+
+					<hr align="left" class="hr">
+					<!--素材列-->
+					<div class="img">
+						<div id="view" class="view">
+							<div class="s" id="ListShow" style="display: block;"><a href="https://dzb.whb.cn/images/2018-01/18/8/80118_p63_b.jpg" target="_blank"><img src="https://dzb.whb.cn/images/2018-01/18/8/80118_p63_b.jpg" style="padding-top: 125px;"></a></div>
+						</div>
+						<div class="list">
+								<a href="#" class="i_u" style="display: none;"></a>
+								<div id="list">
+									<ul style="">
+									<!--	缩略图	-->
+									<li i="0"><img style="height:39px;" src="https://dzb.whb.cn/images/2018-01/18/8/80118_p63_b.jpg"></li></ul>
+								</div>
+							<a href="#" class="i_d" style="display: none;"></a>
+						</div>
+						<div class="imgText">曼宁去年5月一出狱就参加支持LGBT群体的游行，为将来从政积累人气。东方IC</div>
+				  </div>
+					  <table id="tableInfo" bgcolor="#efefef">
+     <tbody><tr><td><table><tbody>
+<tr><td><img src="../../../images/2018-01/18/8/80118_p63_b.jpg"></td></tr>
+<tr><td class="tushuo">    曼宁去年5月一出狱就参加支持LGBT群体的游行，为将来从政积累人气。<br><br>    东方IC<br></td></tr>
+</tbody></table></td></tr>
+</tbody></table>
+					
+					<div id="articleText" class="articleText textLR">
+					  
+<!--enpcontent--><p>&nbsp;&nbsp;&nbsp;&nbsp;本报记者　陆益峰</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;1987年12月出生的美国人切尔西·曼宁，刚刚过了而立之年。寻常之人在这个年纪往往还在为自己的未来打拼，而曼宁身上已经被打上了两个显著的身份标签：“泄密者”和“变性人”。</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;去年，她差点成为美国哈佛大学历史上首位变性人客座研究员，现在又瞄准了下一个目标———美国联邦参议员。据美国有线电视新闻网(&nbsp;CNN)&nbsp;14日报道，曾向“维基解密”泄密的美军变性士兵、民主党人曼宁已向美国联邦选举委员会递交材料，申请参选马里兰州参议员。从“布拉德利”变身“切尔西”，从锒铛入狱到竞选议员，短短三十年，曼宁究竟经历了怎样的人生？</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;因泄密入狱，入狱后又“变性”</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;提起当年闹得沸沸扬扬的“维基解密”事件，有两位人物赚足了国际舆论的眼球———一位是“维基解密”创始人朱利安·阿桑奇，一位是向阿桑奇泄露70多万份秘密文件的驻伊拉克美军情报分析员布拉德利·曼宁。对于曼宁，大多数人的印象还是那位穿着美军军装的年轻帅小伙，但变性后的“她”现在已是模样大变。</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;曼宁的母亲是英国人，父亲是驻英的美军士兵，13岁时父母离婚，曼宁跟着父亲生活。高中被退学后，曼宁进入一家软件公司上班。20岁那年，为了存钱上大学，曼宁“子承父业”加入美军，进入陆军第十山地师服役，并被派往伊拉克，担任情报分析员。由于曾在软件公司上班，具有计算机知识的基础，他利用职务之便在美军保密网络上下载了70多万份的机密文件，并提供给“维基解密”网站。其中最著名的一份机密文件是2007年美军阿帕奇武装直升机在伊拉克射杀英国路透社记者的视频。该视频被“维基解密”公布后，引发全球舆论的震动，美国军方狼狈不堪。</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;曼宁于2010年5月被捕。有意思的是，他被捕的原因是向一位黑客炫耀自己窃取并泄露机密的手法，这位黑客随后向美国当局举报。2013年，曼宁被法院定为间谍罪，并被判处35年监禁。与此同时，2013年“棱镜门”爆发，美国情报部门被搞得灰头土脸。而曼宁和斯诺登一样，被一些人视为对抗强权、勇于揭黑的“英雄”，外界声援他的声音也不断高涨，而这也成为他日后闯荡美国政坛的“资本”。</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;入狱后，曼宁宣布开始其第二段人生———通过服用性激素进行变性，并将自己的名字改为“切尔西”。2017年，奥巴马下台前夕进行特赦，把曼宁的刑期减为七年。由于从2010年被捕到2013年宣判已被关押了三年，而这三年也计入刑期，因此曼宁于2017年5月出狱。出狱之后，曼宁开始为　《纽约时报》　撰写专栏，拥护变性人的权利，直到哈佛大学想聘请她担任客座研究员，使她再次成为舆论关注的焦点。</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;与哈佛大学客座研究员擦肩而过</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;去年9月13日，哈佛大学肯尼迪政治学院发布了一条饱受争议的消息———邀请切尔西·曼宁担任为期一年的客座研究员。肯尼迪政治学院解释称，他们长期以来会邀请对国际事件产生重大影响的人物担任客座研究员，以便让学生们有机会聆听到富有争议人物的讲课，这样有利于培养更优秀的公共政策领导人。</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;哈佛的这一决定可谓让美国情报界暴跳如雷。9月14日，美国现任中情局局长迈克·蓬佩奥取消原定于在哈佛的演讲，并直呼母校“丢脸”；而中情局前副局长迈克尔·莫雷尔则愤而辞去肯尼迪政治学院高级研究员一职，他表示：“泄密可耻，伤害国家，哈佛此举可能会鼓励泄密。”但莫雷尔同时声明，他支持曼宁变性和从军的权利，而美国总统特朗普曾表示将禁止变性人从军。这表明，美国情报界的抗议主要聚焦在曼宁泄密上，而非其变性人的身份。</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;9月15日，肯尼迪政治学院院长道格拉斯·埃尔门多夫发表声明，宣布撤回对曼宁的邀请，并称“这一决定是个错误”。其实对于曼宁泄密行为的性质，美国国内也一直有争议。有人认为他是一位揭露美国政府战争暴行的“英雄”，而另一些人认为他是不顾国家安全的“叛国者”。</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;虽然没当成客座研究员，曼宁还是被肯尼迪政治学院邀请做了一次演讲，并与哈佛的变性人团体进行联谊。曼宁还在推特上发布了与哈佛LGBT&nbsp;(同性恋、双性恋和跨性别者)学生团体的合影，吸引了媒体和社交网络的关注。</p><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;直到本月14日，曼宁在推特上证实，她正以民主党人的身份竞选马里兰州的联邦参议员席位，并附上竞选广告。马里兰州现任参议员为民主党人本·卡丁。卡丁现年74岁，2006年首次当选，是美国参议院外交事务委员会成员，也是调查“通俄门”的重要人物之一。目前，卡丁尚未表态是否会参选。不过，美国舆论认为，曼宁想要当上参议员的概率非常低，她更多的是希望积累更多曝光度，为将来成为美国政治新星积聚更多政治资本。</p><p></p><!--/enpcontent-->
+
+				  </div>
+			  </div>
+            </div>
+			</div> 
+        	<div class="L_ADown"><span class="Icon"></span></div>
+            <div class="number BGX" align="right">
+				<a href="javascript:history.go(-1);" class="N_1" style="background:none"><span></span>返回</a>
+				<a href="#" id="font" class="N_2"><span></span>字体</a>
+				<a href="#" class="N_3"><span></span>复制全文</a>
+				
+				<a class="preart" href="content_629593.html"><span></span>下一篇</a>
+				<a href="#" class="N_6" style="color: rgb(170, 170, 170);"><span></span>上页</a>
+				<a href="#" class="N_7" style="color: rgb(0, 0, 0);"><span></span>下页</a>			
+		  </div>
+        </div>
+        <div class="L_AEnd"></div>     
+    </div>  
+</div>
+<!--右侧文章正文end-->
+</div>
+
+<div class="BGX copy">
+<div class="w">上海报业集团 版权所有</div>
+</div>
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-helper-hidden-accessible" style="display:none;"></div>
+
+
+
+
+
+
+<div class="down" style="position:absolute;"><ul><li i="12">12号</li><li i="14">14号</li><li i="16">16号</li><li i="18">18号</li><li i="20">20号</li><li i="24">24号</li><li i="28">28号</li><li i="32">32号</li></ul></div></body></html>

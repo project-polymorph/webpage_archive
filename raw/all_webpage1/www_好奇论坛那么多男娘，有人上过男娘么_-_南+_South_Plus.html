@@ -1,0 +1,981 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="phpwind,bbs,board,php,mysql,forums">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="//www.summer-plus.net/">
+<title>好奇论坛那么多男娘，有人上过男娘么茶馆 南+ South Plus - powered by Pu!mdHd</title>
+<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-3G0BZEH5V0&amp;cx=c&amp;_slc=1"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script language="JavaScript" src="data/bbscache/face.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/5.8.1/css/all.min.css" type="text/css" rel="stylesheet">
+
+<!-- jQuery library -->
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js" type="application/javascript"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/4.3.1/js/bootstrap.min.js" type="application/javascript"></script>
+<!--css--><style type="text/css">
+body {font-family: Verdana;FONT-SIZE: 12px;MARGIN: 0;color: #000000;background: #ffffff;}
+img {border:0;}
+td {FONT-SIZE: 12px;}
+textarea,input,select{
+	font-family: Verdana;
+	font-size: 12px;
+	background-color: #ffffff;
+}
+div.quote{
+	margin:5px 5px;
+	border:1px dashed #dddddd;
+	padding:5px;
+	background:#FFFFFF;
+	line-height:normal;
+}
+a { TEXT-DECORATION: none;}
+a:hover{ color:#ff0000;text-decoration:none;}
+.smalltxt {font-family: Tahoma, Verdana; font-size: 12px;}
+.tpc_content { font-size: 13px;}
+.i_table {BORDER: #E7E3E7 1px solid;}
+.head{background-color: #E7E3E7;}
+@supports (-webkit-overflow-scrolling: touch) {
+    .pagination li input{
+      font-size: 11px !important;
+    }
+}
+/*Back to top start*/
+.cd-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-top-btn {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    bottom: 40px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    /* image replacement properties */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: rgba(255,120,120,0.8) url(/images/cd-top-arrow.svg) no-repeat center 50%;
+    border-radius: 100%;
+}
+.cd-top.cd-is-visible,
+.cd-top.cd-fade-out,
+.no-touch .cd-top:hover {
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+    -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+    /* the button becomes visible */
+    
+    visibility: visible;
+    opacity: 1;
+}
+.cd-top.cd-fade-out {
+    /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+    
+    opacity: 1;
+}
+.no-touch .cd-top:hover {
+    background-color: #888888;
+    opacity: 1;
+}
+@media only screen and (min-width: 768px) {
+    .cd-top-btn {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .cd-top-btn {
+        height: 60px;
+        width: 60px;
+        right: 30px;
+        bottom: 30px;
+    }
+}
+
+/* .modal-fullscreen */
+.modal-fullscreen {
+  background: transparent;
+}
+.modal-fullscreen .modal-content {
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.modal-backdrop.modal-backdrop-fullscreen {
+  background: rgb(237, 241, 242);
+}
+.modal-backdrop.modal-backdrop-fullscreen.in {
+  opacity: .97;
+  filter: alpha(opacity=97);
+}
+/* .modal-fullscreen size: we use Bootstrap media query breakpoints */
+
+.modal-fullscreen .modal-dialog {
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  overflow-y:hidden;
+}
+@media (min-width: 768px) {
+  .modal-fullscreen .modal-dialog {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-fullscreen .modal-dialog {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-fullscreen .modal-dialog {
+     width: 1170px;
+  }
+}
+.m-tool {
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: relative;
+    background-color: rgb(237, 241, 242);
+}
+
+.m-tool > .m-close {
+    position: absolute;
+    left: 2rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    color: #888888;
+}
+
+.m-tool > .m-tool-toolbar {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.m-tool-list > ul {
+    list-style: none;
+    padding: 0 2rem;
+    font-size: 1rem;
+    background-color: rgb(237, 241, 242);
+}
+
+.m-tool-list > ul > li {
+    height: 4rem;
+    line-height: 4rem;
+    border-bottom: 1px solid #E2E2E2;
+}
+.m-tool-title {
+    padding-top: 0.75rem;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #343a40;
+}
+/*Back to top end*/
+</style><!--css-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-8911610-9', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+function showfaces(){
+	$('#showface').toggle(300);
+	path = 'smallface';
+	picpath = "images/post/smile/";
+	if($('#showface').html().trim() == ""){
+		for(var i in faces[path]){
+			var sid = faces[path][i];
+			var pic = document.createElement("img");
+			pic.style.margin = "3px";
+			pic.style.cursor = "pointer";
+			pic.id = sid;
+			pic.onclick = function(){addsmile(this.id);};
+			pic.src = picpath+face[sid][0];
+			pic.title = face[sid][1];
+			$('#showface').append(pic);
+		}
+	}
+	
+	return false;
+}
+
+function addsmile(NewCode){  
+	document.FORM.atc_content.value += ' [s:'+NewCode+'] ';
+}
+function setCookie(name,value,hours) {
+    var expires = "";
+    if (hours) {
+        var date = new Date();
+        date.setTime(date.getTime() + (hours*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {   
+    document.cookie = name+'=; Max-Age=-99999999;';  
+}
+$(function() {
+  if(getCookie('mobilever') == null){
+    setCookie('mobilever',1,6);
+  }
+});
+</script>
+<script>
+jQuery(function() {
+    if(getCookie('peacemaker') == null){
+        ajax.send('pw_ajax.php','action=getblocklist',function(){
+            var parser = new DOMParser;
+            if(ajax.request.responseText != ''){
+                var dom = parser.parseFromString(ajax.request.responseText,'text/html');
+                config = JSON.parse(dom.body.textContent);
+                SP_setValue('config', config);
+                SP_peacemaker();
+                setCookie('peacemaker',1,24);
+            } else {
+                SP_peacemaker();
+                setCookie('peacemaker',1,24);
+            }
+        });
+    }
+    else{
+        SP_peacemaker();
+    }
+});
+
+function SP_setValue(key, value){
+    var existingConfig = window.localStorage.getItem(key);
+    if(existingConfig != JSON.stringify(value)){
+        window.localStorage.setItem(key, JSON.stringify(value));
+        ajax.send('pw_ajax.php?action=updateblocklist','blocklistconfig='+JSON.stringify(value));
+    }
+}
+
+function SP_getValue(key){
+    return JSON.parse(window.localStorage.getItem(key));
+}
+
+function SP_peacemaker(){
+    var config = SP_getValue("config");
+
+    jQuery.each( config.blist, function( i, val ) {
+      //alert(i);
+      //alert(val.level.includes("topic"));
+      
+      if(val.level.includes("topic")){
+        $('.author_'+i).hide();
+        $('.author_'+i).next('br').remove();
+      }
+    });
+}
+</script>
+</head>
+<body vlink="#333333" link="#333333">
+<nav class="navbar navbar-light" style="height: 3rem; background: #FEFFFE; box-shadow: inset 0 -1px 0 0 #E2E2E2;">
+    <div class="container" style="width: 100%; padding-left: 0; padding-right: 0">
+        <div class="row" style="width: 100%; margin-right: 0; margin-left: 0;">
+            <div class="col-4" style="padding-left: 0"><div class="clickable" data-toggle="modal" data-target="#modal-nav">
+            <img src="/images/nav.png" style="height: 2rem;">
+        </div></div>
+            <div class="col-4" style="padding: 0;text-align: center;"><a href="simple/index.php?" class="navbar-brand" style="text-align: center;height:2.5rem;flex:1;margin-top: -0.25rem;cursor: pointer;"><img src="/images/m-logo-south-high.png" style="height: 100%;"></a></div>
+            <div class="col-4" style="padding-right: 0; text-align: right;padding-top: 0.3rem;"><span style="overflow: hidden;text-overflow: ellipsis;color: #FF7878 !important;font-size: 14px;">
+
+<a href="login.php" style="color: #FF7878 !important;">登录</a> | <a href="register.php" style="color: #FF7878 !important;">注册</a>
+
+            </span></div>
+        </div>
+    </div>
+</nav>
+<div class="modal modal-fullscreen fade" id="modal-nav" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:rgb(237, 241, 242);">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" style="margin: auto;width:100%;">
+                <div class="m-tool">
+                    <span class="m-close clickable"><i class="fa fa-times" aria-hidden="true" data-toggle="modal" data-target="#modal-nav"></i></span>
+                    <div class="m-tool-title">
+                        桌面版导航
+                    </div>
+                    <div class="m-tool-list">
+                        <ul>
+                            <li><a href="/search.php" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">搜索</a></li>
+                            <li><a href="/plugin.php?H_name-tasks.html" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">社区论坛任务</a></li>
+                            <li><a href="javascript:setCookie('mobilever',1,720);alert('设置成功！30天内不会自动跳转移动版。');" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">停止自动跳转移动版</a></li>
+                            <li><a href="/" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">桌面版首页</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script language="JavaScript">
+function CopyCode(obj){
+	var js = document.body.createTextRange();
+	js.moveToElementText(obj);
+	js.select(); 
+	js.execCommand("Copy");
+}
+function postreply(txt) {
+	if (typeof document.FORM != "undefined") {
+		document.FORM.atc_title.value = txt;
+		document.FORM.atc_content.focus();
+	} else {
+		window.location = 'post.php?action=reply&fid='+fid+'&tid='+tid;
+	}
+}
+</script>
+<style type="text/css">
+.card img{
+	max-width: 100%;
+    height: auto;
+}
+.blockquote {
+    font-size: 12px;
+    border: 1px solid #eeeeee;
+    background: #f8f8f8;
+    border-left-width: 3px;
+    margin: 0 0 1%;
+    color: #736933;
+}
+.pagination a{
+  color: #888;
+}
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #FF7878;
+    border-color: #FF7878;
+}
+.jumbotron select {
+    padding: 5px;
+    margin: 10px 0;
+}
+.jumbotron {
+    padding: 1rem 1rem; 
+}
+.nopadding-right {
+   padding-right: 0 !important;
+   margin-right: 0 !important;
+}
+.nopadding-left {
+   padding-left: 0 !important;
+   margin-left: 0 !important;
+}
+@media (min-width: 576px){
+.jumbotron {
+    padding: 1rem 1rem; 
+}
+}
+</style>
+
+<nav class="navbar navbar-light bg-light" style="font-size: 14px; display: block;box-shadow: inset 0 -1px 0 0 #E2E2E2;">
+  <a href="simple/index.php?" style="color: #FF7878">南+ South Plus </a> <i class="fas fa-chevron-right" style="color: #999999; font-size: 12px;"></i> <a href="simple/index.php?f9.html" style="color: #FF7878">茶馆</a> <i class="fas fa-chevron-right" style="color: #999999; font-size: 12px;"></i> <span style="color: #444444">好奇论坛那么多男娘，有人上过男娘么</span>
+</nav>
+<div class="container">
+<div class="text-center"><br><a href="https://segucrwj.taobao.com/" onclick="ga('send', 'event', 'mobile', 'clicked', 'ad');"><img src="/images/mobileads020.jpg" class="img-fluid" alt="Responsive image"></a></div>
+<p></p><center><ul class="pagination" style="justify-content: center;"><li class="page-item"><a href="simple/index.php?t2022432_1.html" class="page-link"><span aria-hidden="true">«</span></a></li><li class="page-item active"><b class="page-link">1</b></li><li class="page-item"><a class="page-link" href="simple/index.php?t2022432_2.html">2</a></li><li class="page-item"><input type="text" size="2" placeholder="跳转" class="page-link " style="border-radius:0;width:3.25rem;-webkit-appearance: none;
+" onkeydown="javascript: if(window.event.keyCode==13) window.location='/simple/index.php?t2022432_'+this.value+'.html';"></li><li class="page-item"><a class="page-link" href="simple/index.php?t2022432_2.html"><span aria-hidden="true">»</span></a></li></ul></center><p></p>
+
+
+<div class="card author_99889">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=99889" target="_blank"><strong>111221121</strong></a> - 2023-12-01 15:24
+			<span class="float-right">[GF]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+
+
+曾经极度无聊的情况下，勾搭过一个男娘<br>基本就没事发点红包逗一逗他，偶尔心情好帮他游戏氪一单之类的<br>也请他吃过几次饭，也一起去网吧打过游戏，他都是穿的男装<br>那阵子主要是我嘴馋，有些饭店不好自己去，纯找他当饭搭子<br><br><br>后来就没怎么理他，他有时候会找我借点钱，理由各种各样<br>我一般都是说没钱，发个88R或者188R红包直接打发，<br>期间他就暗示过好多次可以给我艹，还让我包养他<br>我说自己不喜欢男的，他又说可以给我口，给我当飞机杯<br><br><br>感觉南+有很多男娘的样子，有没有人说说到底男娘到底什么感觉... 有事情想起来他还挺遗憾的
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 楼主(111221121) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1814981">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1814981" target="_blank"><strong>munvkong</strong></a> - 2023-12-01 15:25
+			<span class="float-right">[B1F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+我不喜欢男的
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 1楼(munvkong) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_99889">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=99889" target="_blank"><strong>111221121</strong></a> - 2023-12-01 15:29
+			<span class="float-right">[B2F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+有时候想起来还挺遗憾 大概5年前那阵子，机缘巧合接触过很多男娘 <br>但是当时我比较怂，觉得自己不喜欢男的，所以一个都没上过<br><br>现在偶尔想起来，就感觉喜不喜欢是一回事，能尝尝鲜也不错<br><br>当然，也有可能是他们颜值都比较一般，线下见面都没有让我产生那种跨性别的冲动
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 2楼(111221121) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_522163">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=522163" target="_blank"><strong>梦魇君</strong></a> - 2023-12-01 15:29
+			<span class="float-right">[B3F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+评价为没有B数的
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 3楼(梦魇君) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1348140">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1348140" target="_blank"><strong>昏头仔</strong></a> - 2023-12-01 15:29
+			<span class="float-right">[B4F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+大部分是口嗨，线上化妆加高P，哪个都挺好看的，真线下遇到早跑了
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 4楼(昏头仔) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_984960">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=984960" target="_blank"><strong>神啊13145</strong></a> - 2023-12-01 15:37
+			<span class="float-right">[B5F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+因为线下男的再怎么打扮，除非动过手术，不然男人就是男人，看起来永远和女人有差别
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 5楼(神啊13145) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_66233">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=66233" target="_blank"><strong>强仔</strong></a> - 2023-12-01 15:43
+			<span class="float-right">[B6F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face077.gif" loading="lazy"> 因为对男娘有兴趣和真正的GAY不一样，想操男娘只是想操男人扮的女人找新鲜感，需要化妆 伪音 服装 身体条件各个因素都达标才行，不然线下遇到看着还是个男人，不是GAY对男人是不会起兴趣的
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 6楼(强仔) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1233942">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1233942" target="_blank"><strong>他在乎</strong></a> - 2023-12-01 15:50
+			<span class="float-right">[B7F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<span style="color:black;background-color:#ffff66">用户被禁言,该主题自动屏蔽!</span>
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 7楼(他在乎) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1433155">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1433155" target="_blank"><strong>坂本大魔王</strong></a> - 2023-12-01 15:56
+			<span class="float-right">[B8F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+怎么说呢，之前有人总结过，挺直白的，对男娘（伪娘）的热度高其实是虚高，背后折射出的就是数量庞大的屌丝宅男压抑的巨量性需求得不到宣泄。 <img src="images/post/smile/smallface/face020.jpg" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face020.jpg" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face020.jpg" loading="lazy"> <br>所以平时看看帖，跟着调侃下就得了，别当真了，免得真信进去了，XP歪了以后都不好讨媳妇儿。 <img src="images/post/smile/smallface/face056.jpg" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face056.jpg" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face056.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 8楼(坂本大魔王) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1302098">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1302098" target="_blank"><strong>魔幻小龙虾</strong></a> - 2023-12-01 15:59
+			<span class="float-right">[B9F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+男娘，本子可以，游戏可以，里番也可以<br>现实中的三次元男娘？要多远滚多远……
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 9楼(魔幻小龙虾) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_341471">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=341471" target="_blank"><strong>重温城堡</strong></a> - 2023-12-01 16:02
+			<span class="float-right">[B10F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+LZ还是有钱，随手就扔88、188。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 10楼(重温城堡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1397711">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1397711" target="_blank"><strong>tulsneddih</strong></a> - 2023-12-01 16:03
+			<span class="float-right">[B11F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+虽然还没开始女装 但是开了个假男娘号上约会软件 发现好像很多大叔蛮好这口呢 甚至不需要图 像男娘一样说话就会被他们撩骚
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 11楼(tulsneddih) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1828701">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1828701" target="_blank"><strong>上木栗子</strong></a> - 2023-12-01 16:06
+			<span class="float-right">[B12F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+有一说一，我刚开始女装，自己身材还是很有数的。有些角度拍的照片可能会好一点，但线下看那就是虎背熊腰。<br>如果你让我跟一些男娘线下见面，除非真的很女相，不然肯定是接受不了的。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 12楼(上木栗子) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1793172">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1793172" target="_blank"><strong>小憨包</strong></a> - 2023-12-01 16:21
+			<span class="float-right">[B13F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face020.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 13楼(小憨包) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_341471">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=341471" target="_blank"><strong>重温城堡</strong></a> - 2023-12-01 16:24
+			<span class="float-right">[B14F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+我有过三次经历吧，都是先前看照片觉得还挺“有性致”的，现实中见到后，紧张、陌生的感觉会压过性兴奋。<br>无论是男娘还是CD、TS，照片视频呈现出的样貌或者信息，还是非常有限。以及想象中的女性化是非常彻底的，现实中这些女性化元素是无法遮蔽生理性别特征的。化妆了但你也知道面前的人是个男性，这对于顺直男来说是个挺大的挑战的。<br>至少我没有办法忽视这些生理男性特质，所以做的时候非常束手束脚——如果是个女性，我会很自然地抚摸亲吻什么的。对于男娘，你手上的触觉会立刻告诉大脑，这是个男人。我一时是没有办法自然地对一个男人做亲密举动的。<br>总之就是紧张大于性奋，想象中的永远是最美好的。<br>两性生理上的区别是巨大的，尤其是赤裸裸相对的时候。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 14楼(重温城堡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1498221">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1498221" target="_blank"><strong>Ruixi233</strong></a> - 2023-12-01 17:01
+			<span class="float-right">[B15F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+我就看看高p视频打打胶，叶公好龙罢了
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 15楼(Ruixi233) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1908680">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1908680" target="_blank"><strong>refeng0</strong></a> - 2023-12-01 17:02
+			<span class="float-right">[B16F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face002.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 16楼(refeng0) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_401122">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=401122" target="_blank"><strong>无双怪蜀黍</strong></a> - 2023-12-13 03:50
+			<span class="float-right">[B17F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+偏直男的话还是先试试药娘比较好<br>首先皮下脂多点摸起来手感好点手上脚上的血管也会不明显些 毛细血管更丰富足尖和一些地方更红润更有女生感觉体味闻起来也更接近<br>其次多个敏感带就算是微微隆起的小胸部也和男人的大平板揉起来差别挺大 而且视觉上对曲线的优化很大<br>以及受激素影响更容易发情 对方想要自然也会夹的更投入 同时体温更热里面也更滑 不然做着做着要续润滑剂可太影响了心情 <br>个人觉得男娘的加分点在于相对 更容易理解男人&nbsp;&nbsp;屁股更圆 和多一个雌堕玩法所以想追求单纯生理上的快感自然还是女性化高些更舒服
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 17楼(无双怪蜀黍) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1535918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1535918" target="_blank"><strong>浮流生</strong></a> - 2023-12-13 04:05
+			<span class="float-right">[B18F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face056.jpg" loading="lazy"> 没男娘癖好的话就别想了。。<br>到时候纯恶心，男人就是男人，穿了女装也是男人，草男人也太恶心了
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 18楼(浮流生) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1857578">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1857578" target="_blank"><strong>62f7887b</strong></a> - 2023-12-13 10:38
+			<span class="float-right">[B19F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+还是觉得接受不了
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 19楼(62f7887b) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1073786">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1073786" target="_blank"><strong>死神喵</strong></a> - 2023-12-19 07:37
+			<span class="float-right">[B20F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+男娘现在很多人喜欢，都是拜二次元所赐<br>二次元里的伪娘都是画女硬说男<br>现实中不可能违背科学的，男人就是男人，网上那些漂亮的女装大佬都是各种化妆+p图
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 20楼(死神喵) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1390003">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1390003" target="_blank"><strong>栀海い</strong></a> - 2023-12-19 07:40
+			<span class="float-right">[B21F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+有个群友是男娘而且每周都在开银趴，感觉挺牛逼的（
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 21楼(栀海い) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1050427">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1050427" target="_blank"><strong>e967f9ad</strong></a> - 2023-12-19 07:59
+			<span class="float-right">[B22F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+向上 <img src="images/post/smile/smallface/face026.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 22楼(e967f9ad) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1044108">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1044108" target="_blank"><strong>风中残叶</strong></a> - 2023-12-19 08:02
+			<span class="float-right">[B23F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+扒了说不定比你都大 <img src="images/post/smile/smallface/face095.gif" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 23楼(风中残叶) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_458681">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=458681" target="_blank"><strong>Hanngo</strong></a> - 2023-12-19 10:08
+			<span class="float-right">[B24F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+男人就是男人，在如何打扮现实肉眼看了都会有所察觉，那些操的了所谓的“男娘”的其实就是死基佬，说那么哔多借口。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 24楼(Hanngo) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_99889">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=99889" target="_blank"><strong>111221121</strong></a> - 2024-01-10 11:17
+			<span class="float-right">[B25F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+以前有段时间&nbsp;&nbsp;钱来的快 花的也不在意 反正挺败家的
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 25楼(111221121) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1425224">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1425224" target="_blank"><strong>xzvoer</strong></a> - 2024-01-10 12:48
+			<span class="float-right">[B26F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+看骨架和看人，极品男娘骨架很小，骨头也很软，性格也很嫩，跟雌性没什么太大区别
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 26楼(xzvoer) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1969224">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1969224" target="_blank"><strong>黏糊糊的史莱姆</strong></a> - 2024-01-10 12:57
+			<span class="float-right">[B27F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+感觉就和看别人养宠物一样，好看是好看，但是自己养就真的难顶。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 27楼(黏糊糊的史莱姆) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1369806">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1369806" target="_blank"><strong>从前旋律</strong></a> - 2024-01-10 13:02
+			<span class="float-right">[B28F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+八月份在我们这一个大院里面找了一个西班牙混血的，比我高，很好看。问我想不想被肛，我半推半就就从了，说实话很爽，我们两个互相口，还是男人懂男人。我现在都怀疑我有点弯了，想四爱被好看的姐姐肛。但如果是男装我就完全接受不了。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 28楼(从前旋律) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1830459">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1830459" target="_blank"><strong>0977b447</strong></a> - 2024-01-10 13:03
+			<span class="float-right">[B29F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+你仔细看看有好多
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 29楼(0977b447) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1806542">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1806542" target="_blank"><strong>36f02880</strong></a> - 2024-01-10 13:50
+			<span class="float-right">[B30F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+多是叶公好龙
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 30楼(36f02880) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<p></p><center><ul class="pagination" style="justify-content: center;"><li class="page-item"><a href="simple/index.php?t2022432_1.html" class="page-link"><span aria-hidden="true">«</span></a></li><li class="page-item active"><b class="page-link">1</b></li><li class="page-item"><a class="page-link" href="simple/index.php?t2022432_2.html">2</a></li><li class="page-item"><input type="text" size="2" placeholder="跳转" class="page-link " style="border-radius:0;width:3.25rem;-webkit-appearance: none;
+" onkeydown="javascript: if(window.event.keyCode==13) window.location='/simple/index.php?t2022432_'+this.value+'.html';"></li><li class="page-item"><a class="page-link" href="simple/index.php?t2022432_2.html"><span aria-hidden="true">»</span></a></li></ul></center><p></p>
+<form name="FORM" method="post" action="post.php?" enctype="multipart/form-data">
+<div class="form-group">
+<label style="font-size: 16px">回复</label>
+<input type="text" class="form-control" name="atc_title" value="Re:好奇论坛那么多男娘，有人上过男娘么" size="65">
+<br>
+<textarea name="atc_content" rows="4" class="form-control" required=""></textarea> 
+<br>
+<input class="btn btn-danger" type="submit" name="Submit" value=" 提 交 ">
+<button class="btn btn-info" onclick="return showfaces();">&nbsp;表&nbsp;情&nbsp;</button><br><br>
+<div id="showface" style="background: rgb(255, 255, 255);overflow-y: auto; height: 200px; display: none">
+</div>
+</div>
+<input type="hidden" value="9" name="fid"> 
+<input type="hidden" value="2022432" name="tid"> 
+<input type="hidden" name="verify" value="0199e425">
+
+<input type="hidden" name="atc_autourl" value="1">
+<input type="hidden" name="atc_usesign" value="1">
+<input type="hidden" name="atc_convert" value="1">
+<input type="hidden" name="atc_money" value="0">
+<input type="hidden" name="atc_credittype" value="money">
+<input type="hidden" name="atc_rvrc" value="0">
+<input type="hidden" name="atc_enhidetype" value="rvrc">
+<input type="hidden" value="2" name="step"> 
+<input type="hidden" value="reply" name="action">
+<input type="hidden" value="" name="atc_desc1">
+<input type="hidden" name="att_special1" value="0">
+<input type="hidden" name="att_ctype1" value="money">
+<input type="hidden" name="atc_needrvrc1" value="0">
+<input type="hidden" name="simplepost" value="1">
+</form>
+<center><a href="read.php?tid=2022432" target="_blank" style="padding: 1rem;font-size: 16px;color: #555;"><i class="fas fa-desktop"></i> 桌面版</a></center>
+</div>
+
+
+<br><br>
+<center><small><font color="#999999">Powered by <a href="/" target="_blank"><b>SP Project</b></a> <b style="color:#FF9900">v1.0</b> © 2010-2019  <br>
+Time 0.006237 second(s),query:3 Gzip enabled<br><br></font></small>
+</center><br><a href="#0" class="cd-top cd-top-btn">Top</a>
+<script>
+$(function () {
+    InitBackToTop();
+});
+function InitBackToTop() {
+    if ($('.cd-top').length > 0) {
+        // browser window scroll (in pixels) after which the "back to top" link is shown
+        var offset = 300,
+        //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+        offset_opacity = 700,
+        //duration of the top scrolling animation (in ms)
+        scroll_top_duration = 700,
+        //grab the "back to top" link
+        back_to_top = $('.cd-top');
+        back_to_top_btn = $('.cd-top-btn');
+
+        //hide or show the "back to top" link
+        $(window).scroll(function () {
+            ($(this).scrollTop() > offset) ? back_to_top.addClass('cd-is-visible') : back_to_top.removeClass('cd-is-visible cd-fade-out');
+            if ($(this).scrollTop() > offset_opacity) {
+                back_to_top.addClass('cd-fade-out');
+            }
+        });
+
+        //smooth scroll to top
+        back_to_top_btn.on('click', function (event) {
+            event.preventDefault();
+            $('body,html').animate({
+                scrollTop: 0,
+            }, scroll_top_duration
+            );
+        });
+    }
+}
+;(function(f){"use strict";"function"===typeof define&&define.amd?define(["jquery"],f):"undefined"!==typeof module&&module.exports?module.exports=f(require("jquery")):f(jQuery)})(function($){"use strict";function n(a){return!a.nodeName||-1!==$.inArray(a.nodeName.toLowerCase(),["iframe","#document","html","body"])}function h(a){return $.isFunction(a)||$.isPlainObject(a)?a:{top:a,left:a}}var p=$.scrollTo=function(a,d,b){return $(window).scrollTo(a,d,b)};p.defaults={axis:"xy",duration:0,limit:!0};$.fn.scrollTo=function(a,d,b){"object"=== typeof d&&(b=d,d=0);"function"===typeof b&&(b={onAfter:b});"max"===a&&(a=9E9);b=$.extend({},p.defaults,b);d=d||b.duration;var u=b.queue&&1<b.axis.length;u&&(d/=2);b.offset=h(b.offset);b.over=h(b.over);return this.each(function(){function k(a){var k=$.extend({},b,{queue:!0,duration:d,complete:a&&function(){a.call(q,e,b)}});r.animate(f,k)}if(null!==a){var l=n(this),q=l?this.contentWindow||window:this,r=$(q),e=a,f={},t;switch(typeof e){case "number":case "string":if(/^([+-]=?)?\d+(\.\d+)?(px|%)?$/.test(e)){e= h(e);break}e=l?$(e):$(e,q);case "object":if(e.length===0)return;if(e.is||e.style)t=(e=$(e)).offset()}var v=$.isFunction(b.offset)&&b.offset(q,e)||b.offset;$.each(b.axis.split(""),function(a,c){var d="x"===c?"Left":"Top",m=d.toLowerCase(),g="scroll"+d,h=r[g](),n=p.max(q,c);t?(f[g]=t[m]+(l?0:h-r.offset()[m]),b.margin&&(f[g]-=parseInt(e.css("margin"+d),10)||0,f[g]-=parseInt(e.css("border"+d+"Width"),10)||0),f[g]+=v[m]||0,b.over[m]&&(f[g]+=e["x"===c?"width":"height"]()*b.over[m])):(d=e[m],f[g]=d.slice&& "%"===d.slice(-1)?parseFloat(d)/100*n:d);b.limit&&/^\d+$/.test(f[g])&&(f[g]=0>=f[g]?0:Math.min(f[g],n));!a&&1<b.axis.length&&(h===f[g]?f={}:u&&(k(b.onAfterFirst),f={}))});k(b.onAfter)}})};p.max=function(a,d){var b="x"===d?"Width":"Height",h="scroll"+b;if(!n(a))return a[h]-$(a)[b.toLowerCase()]();var b="client"+b,k=a.ownerDocument||a.document,l=k.documentElement,k=k.body;return Math.max(l[h],k[h])-Math.min(l[b],k[b])};$.Tween.propHooks.scrollLeft=$.Tween.propHooks.scrollTop={get:function(a){return $(a.elem)[a.prop]()}, set:function(a){var d=this.get(a);if(a.options.interrupt&&a._last&&a._last!==d)return $(a.elem).stop();var b=Math.round(a.now);d!==b&&($(a.elem)[a.prop](b),a._last=this.get(a))}};return p});
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'901d63c9de9b2522',t:'MTczNjg1NTIzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+</body></html>
