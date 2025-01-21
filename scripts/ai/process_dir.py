@@ -24,6 +24,11 @@ def read_file_content(file_path):
 
 def process_file(file_path, prompt_template, gen_script_path, output_dir, counter, total_files):
     """Process a single file using the provided prompt template."""
+    # Skip if file is larger than 100KB
+    if os.path.getsize(file_path) > 100 * 1024:
+        logging.info(f"Skipping {file_path} - file size exceeds 100KB")
+        return True
+
     # Create output path in dst directory
     rel_path = os.path.relpath(file_path, start=args.src)
     output_path = os.path.join(output_dir, rel_path)
@@ -99,7 +104,7 @@ def main():
     parser.add_argument('prompt', help='Path to prompt template file')
     parser.add_argument('--gen', help='Path to gen.py script', default='scripts/ai/gen.py')
     parser.add_argument('--pattern', default='*.*', help='File pattern to match (default: *.*)')
-    parser.add_argument('--skip-size-check', action='store_true', help='Skip file size check')
+    parser.add_argument('--skip-size-check', action='store_true', default=True, help='Skip initial file size check (default: True)')
 
     global args
     args = parser.parse_args()
