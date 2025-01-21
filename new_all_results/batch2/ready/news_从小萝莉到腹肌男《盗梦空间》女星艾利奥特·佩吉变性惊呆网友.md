@@ -1,0 +1,87 @@
+# 从小萝莉到腹肌男 《盗梦空间》女星艾利奥特·佩吉变性惊呆网友
+
+![用微信扫描二维码](data:image/png;base64,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)
+
+![用QQ扫描二维码](data:image/png;base64,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)
+
+![手机看](https://inews.gtimg.com/newsapp_bt/0/0522140926837_6113/0)
+
+2021-05-26 17:13  
+封面新闻官方账号  
+
+封面新闻记者 杨帆  
+
+2010年小李子主演的《盗梦空间》轰动影坛，该片也捧红了和他演对手戏的女星艾利奥特·佩吉。
+
+5月25日，艾利奥特·佩吉在社交平台上首次晒出了变性后的泳照，照片中的佩吉看起来非常的开心，他头戴棒球帽和一副褐红色太阳眼镜，身穿一条红色的泳裤，站在游泳池旁意气风发，最惹眼的是他的六块腹肌。
+
+艾利奥特·佩吉并不是好莱坞第一个变性人，也肯定不是最后一个，在他之前，还有《黑客帝国》的拉里·沃卓斯基和安迪·沃卓斯基兄弟，他们在多年前同时变性，手术成功后改名“拉娜·沃卓斯基”和“莉莉·沃卓斯基”，成为好莱坞导演界中的“姐妹花”。
+
+艾利奥特·佩吉原名艾伦·佩姬，1987年2月21日出生于加拿大新斯科舍哈利法克斯，1997年，出演个人首部电视电影《小马轴》，以童星身份出道。2001年，参演电视剧《拖车公园男孩第一季》。2005年，主演惊悚电影《水果硬糖》。2006年，在科幻动作电影《X战警：背水一战》中饰演幻影猫。
+
+2008年，艾利奥特·佩吉凭借喜剧电影《朱诺》入围第65届美国金球奖电影类-音乐/喜剧类最佳女主角奖、第80届奥斯卡金像奖最佳女主角奖。
+
+2010年，艾利奥特·佩吉出演科幻动作电影《盗梦空间》，他凭借该片入围第20届MTV电影奖最惊骇表演奖。在片中她出演“造梦师”艾里阿德妮，身高仅1.55米的她气场丝毫不输莱昂纳多·迪卡普里奥。当年她在电影当中的一头漂亮长发和高超演技吸粉无数。
+
+2014年，佩吉出演科幻电影《X战警：逆转未来》。2016年，主演爱情喜剧电影《塔路亚》。2019年，由其主演的动作犯罪剧《伞学院第一季》开播；同年，执导个人首部纪录片《毒水：环境种族主义》。2020年12月2日，他发表声明称其为跨性别者，同时并更名为艾利奥特·佩吉，以此开启新的人生。
+
+2018年，早在艾利奥特·佩吉变性之前，她就曾宣布和女友艾玛·波特纳结婚，只不过两人婚姻关系只维持了两年，去年她在曼哈顿法庭高等法院申请和对方离婚。
+
+这次艾略特·佩吉在晒出变性手术成功的照片引发了更大的轰动，不少网友看见了艾利奥特·佩吉的最新照片，也都纷纷在评论区留言表示鼓励和支持，有网友称赞他非常勇敢，身材超级好的。还有网友也跟着夸奖道：“厉害！腹肌都练出来了。”“祝福他！是主宰自己人生的人！”
+
+![图片](http://inews.gtimg.com/newsapp_bt/0/13571546663/641)
+![图片](http://inews.gtimg.com/newsapp_bt/0/13571546664/1000)
+![图片](http://inews.gtimg.com/newsapp_bt/0/13571546665/641)
+![图片](http://inews.gtimg.com/newsapp_bt/0/13571546667/641)
+![图片](http://inews.gtimg.com/newsapp_bt/0/13571546668/641)
+![图片](http://inews.gtimg.com/newsapp_bt/0/13571546669/641)
+![图片](http://inews.gtimg.com/newsapp_bt/0/13571546670/641)
+![图片](http://inews.gtimg.com/newsapp_bt/0/13571546671/641)
+
+免责声明：本内容来自腾讯平台创作者，不代表腾讯新闻或腾讯网的观点和立场。
+
+评论 63  
+文明上网理性发言，请遵守[《新闻评论服务协议》](https://new.qq.com/static/coralinfo.htm)
+
+#### 评论区
+- 哎、那个胖子  
+  山东网友: 26  
+  2021年5月27日  
+  回复: “还是那句话，挖坑容易种树难活。”
+
+- 密度矩阵  
+  云南网友: 6  
+  2021年5月27日  
+  回复: “那是你没看过女变男的外科手术全程照片，我就用个成语：神乎其神！”
+
+- ぶ鲖窻箼/tp  
+  广东网友: 5  
+  2021年5月27日  
+  回复: “应该是只打雄性激素了。”
+
+- 放眼天下  
+  北京网友: 5  
+  2021年5月27日  
+  回复: “作为女性的时候很美很有女人味 和一般男人婆不一样 咋就变男的了。”
+
+- 鱼和薯条  
+  黑龙江网友: 16  
+  2021年5月27日  
+  回复: “唉，是女人的时候多漂亮。但是，自己开心就好。”
+
+- 杨  
+  浙江网友: 29  
+  2021年5月27日  
+  回复: “为什么看到他变性的照片有欲望，想折磨他、侮辱他、糟蹋他！”
+
+- 放鬆心情  
+  内蒙古网友: 1  
+  2021年5月28日  
+  回复: “控制不了自己的欲望，你会越来越变态。”
+
+- 小Z  
+  北京网友: 20  
+  2021年5月27日  
+  回复: “作为女性的时候很美很有女人味 和一般男人婆不一样 咋就变男的了。”
+
+Copyright © 1998 - 2025 Tencent. All Rights Reserved
