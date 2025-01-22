@@ -1,4 +1,4 @@
-# 多元性别档案馆 - 女装大佬Jerzy超话
+# 女装大佬Jerzy超话
 
 ![女装大佬Jerzy超话还未创建](https://h5.sinaimg.cn/upload/100/1445/2021/11/19/2setup_icon_zhuli.png)
 
