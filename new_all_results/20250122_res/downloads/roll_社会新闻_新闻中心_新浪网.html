@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>社会新闻_新闻中心_新浪网</title>
+<meta name="Keywords" content="新闻中心,新浪网">
+<meta name="Description" content=",新闻中心_新浪网">
+<!--script type="text/javascript" src="http://image2.sina.com.cn/home/sinaflash.js"></script-->
+<script id="sinaads-ck-script" charset="utf-8" src="//d3.sina.com.cn/litong/zhitou/sinaads/src/spec/sinaads_ck.js"></script><script type="text/javascript">
+	document.domain = "sina.com.cn";
+	var catNews = "shxw";
+	var colNews = "";
+</script>
+<script type="text/javascript">
+//===================================
+/*
+舌签构造函数
+SubShowClass(ID[,eventType][,defaultID][,openClassName][,closeClassName])
+version 1.21
+*/
+function SubShowClass(ID,eventType,defaultID,openClassName,closeClassName){this.version="1.21";this.author="mengjia";this.parentObj=SubShowClass.$(ID);if(this.parentObj==null&&ID!="none"){throw new Error("SubShowClass(ID)参数错误:ID 对像存在!(value:"+ID+")")};if(!SubShowClass.childs){SubShowClass.childs=[]};this.ID=SubShowClass.childs.length;SubShowClass.childs.push(this);this.lock=false;this.label=[];this.defaultID=defaultID==null?0:defaultID;this.selectedIndex=this.defaultID;this.openClassName=openClassName==null?"selected":openClassName;this.closeClassName=closeClassName==null?"":closeClassName;this.mouseIn=false;var mouseInFunc=Function("SubShowClass.childs["+this.ID+"].mouseIn = true"),mouseOutFunc=Function("SubShowClass.childs["+this.ID+"].mouseIn = false");if(ID!="none"){if(this.parentObj.attachEvent){this.parentObj.attachEvent("onmouseover",mouseInFunc)}else{this.parentObj.addEventListener("mouseover",mouseInFunc,false)}};if(ID!="none"){if(this.parentObj.attachEvent){this.parentObj.attachEvent("onmouseout",mouseOutFunc)}else{this.parentObj.addEventListener("mouseout",mouseOutFunc,false)}};if(typeof(eventType)!="string"){eventType="onmousedown"};eventType=eventType.toLowerCase();switch(eventType){case "onmouseover":this.eventType="mouseover";break;case "onmouseout":this.eventType="mouseout";break;case "onclick":this.eventType="click";break;case "onmouseup":this.eventType="mouseup";break;default:this.eventType="mousedown"};this.addLabel=function(labelID,contID,parentBg,springEvent,blurEvent){if(SubShowClass.$(labelID)==null&&labelID!="none"){throw new Error("addLabel(labelID)参数错误:labelID 对像存在!(value:"+labelID+")")};var TempID=this.label.length;if(parentBg==""){parentBg=null};this.label.push([labelID,contID,parentBg,springEvent,blurEvent]);var tempFunc=Function('SubShowClass.childs['+this.ID+'].select('+TempID+')');if(labelID!="none"){if(SubShowClass.$(labelID).attachEvent){SubShowClass.$(labelID).attachEvent("on"+this.eventType,tempFunc)}else{SubShowClass.$(labelID).addEventListener(this.eventType,tempFunc,false)}};if(TempID==this.defaultID){if(labelID!="none"){SubShowClass.$(labelID).className=this.openClassName};if(SubShowClass.$(contID)){SubShowClass.$(contID).style.display=""};if(ID!="none"){if(parentBg!=null){this.parentObj.style.background=parentBg}};if(springEvent!=null){eval(springEvent)}}else{if(labelID!="none"){SubShowClass.$(labelID).className=this.closeClassName};if(SubShowClass.$(contID)){SubShowClass.$(contID).style.display="none"}};if(SubShowClass.$(contID)){if(SubShowClass.$(contID).attachEvent){SubShowClass.$(contID).attachEvent("onmouseover",mouseInFunc)}else{SubShowClass.$(contID).addEventListener("mouseover",mouseInFunc,false)};if(SubShowClass.$(contID).attachEvent){SubShowClass.$(contID).attachEvent("onmouseout",mouseOutFunc)}else{SubShowClass.$(contID).addEventListener("mouseout",mouseOutFunc,false)}}};this.select=function(num,force){if(typeof(num)!="number"){throw new Error("select(num)参数错误:num 不是 number 类型!(value:"+num+")")};if(force!=true&&this.selectedIndex==num){return};var i;for(i=0;i<this.label.length;i++){if(i==num){if(this.label[i][0]!="none"){SubShowClass.$(this.label[i][0]).className=this.openClassName};if(SubShowClass.$(this.label[i][1])){SubShowClass.$(this.label[i][1]).style.display=""};if(ID!="none"){if(this.label[i][2]!=null){this.parentObj.style.background=this.label[i][2]}};if(this.label[i][3]!=null){eval(this.label[i][3])}}else if(this.selectedIndex==i||force==true){if(this.label[i][0]!="none"){SubShowClass.$(this.label[i][0]).className=this.closeClassName};if(SubShowClass.$(this.label[i][1])){SubShowClass.$(this.label[i][1]).style.display="none"};if(this.label[i][4]!=null){eval(this.label[i][4])}}};this.selectedIndex=num};this.random=function(){if(arguments.length!=this.label.length){throw new Error("random()参数错误:参数数量与标签数量不符!(length:"+arguments.length+")")};var sum=0,i;for(i=0;i<arguments.length;i++){sum+=arguments[i]};var randomNum=Math.random(),percent=0;for(i=0;i<arguments.length;i++){percent+=arguments[i]/sum;if(randomNum<percent){this.select(i);break}}};this.autoPlay=false;var autoPlayTimeObj=null;this.spaceTime=5000;this.play=function(spTime){if(typeof(spTime)=="number"){this.spaceTime=spTime};clearInterval(autoPlayTimeObj);autoPlayTimeObj=setInterval("SubShowClass.childs["+this.ID+"].autoPlayFunc()",this.spaceTime);this.autoPlay=true};this.autoPlayFunc=function(){if(this.autoPlay==false||this.mouseIn==true){return};this.nextLabel()};this.nextLabel=function(){var index=this.selectedIndex;index++;if(index>=this.label.length){index=0};this.select(index);if(this.autoPlay==true){clearInterval(autoPlayTimeObj);autoPlayTimeObj=setInterval("SubShowClass.childs["+this.ID+"].autoPlayFunc()",this.spaceTime)}};this.previousLabel=function(){var index=this.selectedIndex;index--;if(index<0){index=this.label.length-1};this.select(index);if(this.autoPlay==true){clearInterval(autoPlayTimeObj);autoPlayTimeObj=setInterval("SubShowClass.childs["+this.ID+"].autoPlayFunc()",this.spaceTime)}};this.stop=function(){clearInterval(autoPlayTimeObj);this.autoPlay=false}};SubShowClass.$=function(objName){if(document.getElementById){return eval('document.getElementById("'+objName+'")')}else{return eval('document.all.'+objName)}}
+//===================================
+</script>
+
+<style type="text/css">
+/* 奥运新闻列表页 */
+
+
+/* 全局 */
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}
+body{background:#fff;color:#000;}
+td,p,li,select,input,textarea,div{font-size:12px;}
+
+ul{list-style-type:none;}
+select,input{vertical-align:middle;}
+
+a{text-decoration:none;}
+a:link{color:#0334ad;}
+a:visited{color:#0334ad;}
+a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}
+
+#page{width:950px; margin:5px auto; overflow:hidden;}
+
+
+/* Main */
+#Main{}
+.MainBtm{height:20px; border:1px #a1d1ff solid; border-top:none;}
+
+/*  */
+/* 080719001 ws begin */
+.Main_b1{height:41px; /*overflow:hidden;*/ zoom:1; background:url(http://www.sinaimg.cn/dy/deco/2009/0114/2008_szz_list_bg_001.gif) no-repeat 0 0;}
+.Main_b1 h1{float:left; width:286px; overflow:hidden; padding:3px 0 0 12px;}
+.aL{float:left;width:330px;overflow:hidden; background:url(http://www.sinaimg.cn/dy/deco/2009/0114/olyready_bg_cl_001.gif) no-repeat 0 0;text-align:center;}
+.aL .logo_01{float:left;width:86px;}
+.aL .logo_02{float:left;width:220px;padding:8px 0 0 20px;text-align:left;}
+.aL .imgPic{margin:8px 0 0 35px;}
+.aL h2{font-family: "微软雅黑", Microsoft YaHei, "宋体", SimSun, Arial, System; font-size:18px; color:#025fcd; text-align:left; text-indent:39px; padding-top:6px;font-weight:bold}
+.crumb{float:left; padding:0 0 0 10px; overflow:hiddenl; line-height:34px; color:#333;}
+.crumb a,.crumb a:visited{color:#333; text-decoration:none;}
+.crumb a:hover,.crumb a:active{color:#c00; text-decoration:underline;}
+
+
+/* 搜索 */
+.searchBlk{height:54px; overflow:visible; zoom:1; background:url(http://www.sinaimg.cn/dy/deco/2009/0114/2008_szz_list_bg_001.gif) no-repeat 0 -32px; padding:0 0 0 470px; color:#999;}
+.searchBlk label{float:left; width:55px; overflow:hidden; cursor:pointer;}
+span.sBTR{float:left; padding:2px 0 0 0; vertical-align:top;}
+span.sBTT{float:left; line-height:27px; *line-height:30px;}
+.searchBlk_iB{float:left; overflow:visible; zoom:1; width:300px;}
+.searchBlk_iB_i{width:217px; height:17px; *height:16px; overflow:hidden; border:1px #a4abb1 solid; padding:3px 0 0 0; *padding:4px 0 0 0; margin:2px 10px 0 0; background:url(http://www.sinaimg.cn/dy/deco/2009/0114/2008_szz_list_bg_001.gif) no-repeat 0 -100px #fff; color:#a5a5a5; text-indent:28px; float:left;}
+.searchBlk_iB_s{float:left; width:66px; height:22px; overflow:hidden; border:none; padding:0; margin:0; text-align:center; font-size:12px; color:#000; background:url(http://www.sinaimg.cn/dy/deco/2009/0114/2008_szz_list_bg_001.gif) no-repeat -885px -100px; margin:2px 0 0; cursor:pointer;}
+/* 080719001 ws end */
+
+
+/* 列表 */
+.listBlk{border:1px #a1d1ff solid; border-bottom:none; border-top:none; background:url(http://www.sinaimg.cn/dy/deco/2009/0114/2008_szz_list_bg_002.gif) repeat-y center; padding:5px 0 25px;}
+.listBlk ul{padding:7px 0 8px 200px; overflow:hidden;}
+.listBlk li{font-size:14px; line-height:23px; clear:both;}
+.listBlk li span{font-size:12px; color:#9a9a9a; margin-left:8px}
+
+
+/* 分页 */
+.pagebox{overflow:hidden; zoom:1; font-size:12px; font-family:"宋体",sans-serif;}
+.pagebox span{float:left; margin-right:2px; overflow:hidden; text-align:center; background:#fff;}
+.pagebox span a{display:block; overflow:hidden; zoom:1; _float:left;}
+.pagebox span.pagebox_pre_nolink{border:1px #ddd solid; width:53px; height:21px; line-height:21px; text-align:center; color:#999; cursor:default;}
+.pagebox span.pagebox_pre{color:#3568b9; height:23px;}
+.pagebox span.pagebox_pre a,.pagebox span.pagebox_pre a:visited,.pagebox span.pagebox_next a,.pagebox span.pagebox_next a:visited{border:1px #b8b8b8 solid; color:#b8b8b8; text-decoration:none; text-align:center; width:53px; cursor:pointer; height:21px; line-height:21px;}
+.pagebox span.pagebox_pre a:hover,.pagebox span.pagebox_pre a:active,.pagebox span.pagebox_next a:hover,.pagebox span.pagebox_next a:active{color:#363636; border:1px #363636 solid;}
+.pagebox span.pagebox_num_nonce{border:1px #ab0101 solid; padding:0 8px; height:21px; line-height:21px; color:#fff; cursor:default; background:#d20001;}
+.pagebox span.pagebox_num{color:#3568b9; height:23px;}
+.pagebox span.pagebox_num a,.pagebox span.pagebox_num a:visited{border:1px #b8b8b8 solid; color:#8a8a8a; text-decoration:none; padding:0 8px; cursor:pointer; height:21px; line-height:21px;}
+.pagebox span.pagebox_num a:hover,.pagebox span.pagebox_num a:active{border:1px #363636 solid;color:#363636;}
+.pagebox span.pagebox_num_ellipsis{color:#393733; width:22px; background:none; line-height:23px;}
+.pagebox span.pagebox_next_nolink{border:1px #ddd solid; width:53px; height:21px; line-height:21px; text-align:center; color:#999; cursor:default;}
+
+
+
+
+
+/* footer */
+.footer{text-align:center; line-height:30px; padding:20px 0 0;}
+.copyright{font-family:Arial, Helvetica, sans-serif;}
+
+
+/* 间隔 */
+.hs01{height:10px; overflow:hidden; background:#fff; clear:both; font-size:0; line-height:500px;}
+
+
+/* 常用链接 begin */
+a.linkRed:link,a.linkRed:visited{color:#f00!important;}/* 红色 */
+a.linkRed:hover{color:#c00!important;}
+a.linkBlack:link,a.linkBlack:visited{color:#000!important;}/* 黑色 */
+a.linkBlack:hover{color:#f00!important;}
+a.linkWhite:link,a.linkWhite:visited{color:#fff!important;}/* 白色 */
+a.linkWhite:hover{color:#f00!important;}
+a.linkGray:link,a.linkGray:visited{color:#5d5d5d!important;}/* 灰色 */
+a.linkGray:hover{color:#f00!important;}
+a.linkCyan:link,a.linkCyan:visited{color:#92e4fa!important;text-decoration:underline;}/* 青色 */
+a.linkCyan:hover{color:#f00!important;}
+a.videoNews{background:url(http://i1.sinaimg.cn/dy/deco/2007/1211/yocc/unfcn_mj_01.gif) no-repeat 100% 50%;padding-right:18px;}/* 视频图标链接 */
+a.videoNewsLeft{background:url(http://i1.sinaimg.cn/dy/deco/2007/1211/yocc/unfcn_mj_01.gif) no-repeat -19982px 50%;padding-left:18px;}/* 视频图标链接（左图标） */
+/* 常用链接 end */
+
+/* 共用列表 begin */
+.list_009 li{padding-left:1em;background:url(http://i1.sinaimg.cn/dy/deco/2007/1211/yocc/unfcn_mj_01.gif) no-repeat 5px 50%;}
+.list_00f li{padding-left:1em;background:url(http://i1.sinaimg.cn/dy/deco/2007/1211/yocc/unfcn_mj_01.gif) no-repeat -995px 50%;}
+.list_000 li{padding-left:1em;background:url(http://i1.sinaimg.cn/dy/deco/2007/1211/yocc/unfcn_mj_01.gif) no-repeat -1995px 50%;}
+.list_333 li{padding-left:1em;background:url(http://i1.sinaimg.cn/dy/deco/2007/1211/yocc/unfcn_mj_01.gif) no-repeat -2995px 50%;}
+.list_666 li{padding-left:1em;background:url(http://i1.sinaimg.cn/dy/deco/2007/1211/yocc/unfcn_mj_01.gif) no-repeat -3995px 50%;}
+.list_999 li{padding-left:1em;background:url(http://i1.sinaimg.cn/dy/deco/2007/1211/yocc/unfcn_mj_01.gif) no-repeat -4995px 50%;}
+li.list_nostyle{background:none;}
+/* 共用列表 end */
+</style>
+
+<style type="text/css">
+.secondaryHeader{height:33px;overflow:hidden;background:url(http://i2.sinaimg.cn/dy/images/header/2008/standardl2nav_bg.gif) repeat-x #fff;color:#000;font-size:12px;}
+.secondaryHeader a,.secondaryHeader a:visited{color:#000;text-decoration:none;}
+.secondaryHeader a:hover,.secondaryHeader a:active{color:#c00;text-decoration:underline;}
+.sHBorder{border:1px #e3e3e3 solid;padding:0 10px 0 12px;overflow:hidden;zoom:1;}
+.sHLogo{float:left;height:31px;line-height:31px;overflow:hidden;}
+.sHLogo span{display:block;float:left;display:table-cell;vertical-align:middle;*display:block;*font-size:27px;*font-family:Arial;height:31px;}
+.sHLogo span img{vertical-align:middle;}
+.sHLinks{float:right;line-height:31px;}
+/* nav begin */
+.Nav{zoom:1;height:45px;}
+.Nav .Logo{width:161px;padding-left:15px;float:left;}
+.Nav .NavLink{width:844px;margin-top:5px;height:28px;line-height:28px;padding:2px 0 0 27px;color:#5374b7;background:url(http://i0.sinaimg.cn/dy/deco/2008/0331/yocc08img/news_mj_001.gif) #0b3798 repeat-x 0 -50px;float:left;white-space:nowrap;overflow:hidden;}
+.Nav .NavSelect{width:79px;float:left;background:url(http://i0.sinaimg.cn/dy/deco/2008/0331/yocc08img/news_mj_001.gif) #0b3798 repeat-x 0 -50px;height:26px;margin-top:5px;padding:4px 0 0;position:relative;}
+.Nav .NavSelect h4{width:59px;line-height:19px;padding:2px 15px 0 0;cursor:pointer;background:url(http://i2.sinaimg.cn/dy/deco/2008/0618/news_mj_001.gif) no-repeat 0 0;color:#fff;text-align:center;font-size:12px;font-weight:normal;}
+#blk_lmdh_01 a{margin:0 4px}
+.Nav .NavSelect #blk_sjdy_01{z-index:1;display:none;top:25px;left:0;border:1px solid #011e62;border-top:none;width:64px;padding:4px;background:#fff;filter:Alpha(Opacity=90);opacity:0.9;position:absolute;}
+#blk_sjdy_01 a{line-height:20px;display:block;padding-left:3px;color:#222;text-decoration:none;}
+#blk_sjdy_01 a:hover{background:#eee;}
+#blk_sjdy_01 .line{height:1px;overflow:hidden;background:#ddd;font-size:0;margin:2px 0;display:block;}
+
+.Nav a:link,.Nav a:visited{color:#fff;text-decoration:none;}
+.Nav a:hover{text-decoration:underline;}
+/* Nav end */
+.listBlk .hs01{background:none}
+
+</style>
+</head>
+<body>
+<!-- for iPad begin -->
+    <script type="text/javascript">
+    (function(){
+    	if(!/\((iPhone|iPad|iPod)/i.test(navigator.userAgent)){return};
+    	var iPadScript = document.createElement("script");
+    	iPadScript.src = "http://news.sina.com.cn/js/ui/ipad/reset.js";
+    	document.getElementsByTagName("head")[0].appendChild(iPadScript);
+    })();
+    </script>
+<!-- for iPad end -->
+<div id="page">
+
+<!-- 标准二级导航_新闻中心 begin -->
+
+<!-- 标准二级导航_新闻中心 begin -->
+<style type="text/css">
+.secondaryHeader{height:33px;overflow:hidden;background:url(http://i2.sinaimg.cn/dy/images/header/2008/standardl2nav_bg.gif) repeat-x #fff;color:#000;font-size:12px;font-weight:100;}
+.secondaryHeader a,.secondaryHeader a:visited{color:#000;text-decoration:none;}
+.secondaryHeader a:hover,.secondaryHeader a:active{color:#c00;text-decoration:underline;}
+.sHBorder{border:1px #e3e3e3 solid;padding:0 10px 0 12px;overflow:hidden;zoom:1;}
+.sHLogo{float:left;height:31px;line-height:31px;overflow:hidden;}
+.sHLogo span{display:block;float:left;display:table-cell;vertical-align:middle;*display:block;*font-size:27px;*font-family:Arial;height:31px;}
+.sHLogo span img{vertical-align:middle;}
+.sHLinks{float:right;line-height:31px;}
+</style>
+<div class="secondaryHeader">
+	<div class="sHBorder">
+		<div class="sHLogo"><span><a href="http://www.sina.com.cn/"><img src="http://i1.sinaimg.cn/dy/images/header/2009/standardl2nav_sina_new.gif" alt="新浪网"></a><a href="http://news.sina.com.cn/"><img src="http://i1.sinaimg.cn/dy/images/header/2009/standardl2nav_news.gif" alt="新闻中心"></a></span></div>
+
+		<div class="sHLinks"><a href="http://news.sina.com.cn/">新闻首页</a>&nbsp;|&nbsp;<a href="http://www.sina.com.cn/">新浪首页</a>&nbsp;|&nbsp;<a href="http://news.sina.com.cn/guide/">新浪导航</a></div>
+	</div>
+</div>
+<!-- 标准二级导航_新闻中心 end -->
+<!-- 标准二级导航_新闻中心 end -->
+
+<!-- Nav begin -->
+	<div class="Nav" style="position:relative;">
+	<div class="NavLink" id="blk_lmdh_01">
+	         <a href="http://www.sina.com.cn/">首页</a>
+		<a href="http://news.sina.com.cn/china/">国内</a>
+		<a href="http://news.sina.com.cn/world/">国际</a>
+		<a href="http://news.sina.com.cn/society/">社会</a>
+
+		<a href="http://mil.news.sina.com.cn/">军事</a>
+		<a href="http://sky.news.sina.com.cn/">航天航空</a>
+		<a href="http://weather.news.sina.com.cn/">天气</a>		
+		|
+		<a href="http://sports.sina.com.cn/">体育</a>
+		<a href="http://ent.sina.com.cn/">娱乐</a>
+
+		<a href="http://finance.sina.com.cn/">财经</a>
+		<a href="http://tech.sina.com.cn/">科技</a>
+	         <a href="http://gongyi.sina.com.cn/">公益</a>		
+		|
+                  <a href="http://video.sina.com.cn/news/">视频</a>		
+	         <a href="http://news.sina.com.cn/opinion/index.shtml">评论</a>
+                  <a href="http://news.sina.com.cn/interview/index.shtml">访谈</a>	
+		<a href="http://news.sina.com.cn/photo/">图片</a>
+
+                  <a href="http://survey.news.sina.com.cn/list.php?channel=news&amp;dpc=1">调查</a>
+		|
+		<a href="http://news.sina.com.cn/news1000/">滚动</a>
+		<a href="http://news.sina.com.cn/hotnews/">排行</a>		
+		<a href="http://news.sina.com.cn/zt/">专题</a>
+	</div>
+<!-- 手机订阅 begin -->
+	<script language="javascript" type="text/javascript">
+	<!--//--><![CDATA[//><!--
+										
+var sina = {
+	$ : function(objName){if(document.getElementById){return eval('document.getElementById("'+objName+'")')}else{return eval('document.all.'+objName)}},
+	isIE : navigator.appVersion.indexOf("MSIE")!=-1?true:false,
+	addEvent : function(obj,eventType,func){if(obj.attachEvent){obj.attachEvent("on" + eventType,func);}else{obj.addEventListener(eventType,func,false)}},
+	delEvent : function(obj,eventType,func){
+		if(obj.detachEvent){obj.detachEvent("on" + eventType,func)}else{obj.removeEventListener(eventType,func,false)}
+	},
+	readCookie : function(l){var i="",I=l+"=";if(document.cookie.length>0){offset=document.cookie.indexOf(I);if(offset!=-1){offset+=I.length;end=document.cookie.indexOf(";",offset);if(end==-1)end=document.cookie.length;i=unescape(document.cookie.substring(offset,end))}};return i},
+	writeCookie : function(O,o,l,I){var i="",c="";if(l!=null){i=new Date((new Date).getTime()+l*3600000);i="; expires="+i.toGMTString()};if(I!=null){c=";domain="+I};document.cookie=O+"="+escape(o)+i+c}
+};
+
+	function OpenNavSelect(){
+		if(sina.$("blk_sjdy_01").style.display == "block"){
+			CloseNavSelect();
+		}else{
+			sina.$("blk_sjdy_01").style.display = "block";
+			setTimeout('sina.addEvent(document.body,"click",CloseNavSelect)',200);
+		}
+	};
+	function CloseNavSelect(){
+		sina.$("blk_sjdy_01").style.display = "none";
+		sina.delEvent(document.body,"click",CloseNavSelect);
+	};
+	//--><!]]>
+	</script>
+
+	<div class="NavSelect">
+<span style="display:none;">
+		<h4 onclick="OpenNavSelect();">手机订阅</h4>
+		<div id="blk_sjdy_01">
+			<a href="http://sms.sina.com.cn/docs/c/ttxw.html?from=403" target="_blank">头条短信</a>
+			<a href="http://sms.sina.com.cn/docs/c/yuleshehui.html?from=403" target="_blank">社会新闻</a>
+			<span class="line"></span>
+			<a href="http://sms.sina.com.cn/docs/c/yuleshehui-zh.html?from=430" target="_blank">娱乐资讯</a>
+
+			<a href="http://sms.sina.com.cn/docs/c/101041.html?from=403" target="_blank">体育资讯</a>
+			<a href="http://sms.sina.com.cn/docs/c/100064.html?from=430" target="_blank">财经资讯</a>
+			<a href="http://weather.news.sina.com.cn/" target="_blank">天气信息</a>
+		</div>
+</span>
+	</div>
+<!-- 手机订阅 end -->
+</div><!-- Nav end -->
+
+<!-- Main begin -->
+<div id="Main">
+	
+	<div class="Main_b1">
+		<!-- 080719001 ws begin -->
+		<div class="aL">
+				<h2>社会新闻</h2>
+		</div>
+		<!-- 080719001 ws end -->
+		<!-- 路径导航 begin -->
+		<div class="crumb"><a href="http://news.sina.com.cn/">新闻中心</a>&nbsp;&gt;&nbsp;社会新闻</div>
+		<!-- 路径导航 end -->
+<!-- 回顾 begin -->
+<div class="date">
+	<style>
+		.SinaCalendar_Cnl{width:140px; line-height:22px; padding:2px 0 0 0; text-align:center; color:#d5e4f3; background:url(http://i2.sinaimg.cn/dy/deco/2008/1111/yocc081109img/nwn_cl_018.gif) no-repeat; cursor: pointer; font-size:14px;}
+		.date{position:relative ;top:5px;width:150px; float:right; margin-right:12px;}
+	</style>
+	<script type="text/javascript">
+		function SinaCalendar_GetObj(objName)
+		{
+			if(document.getElementById)
+			{
+				return eval('document.getElementById("' + objName + '")');
+			}else if(document.layers)
+			{
+				return eval("document.layers['" + objName +"']");
+			}else
+			{
+				return eval('document.all.' + objName);
+			}
+		}
+
+		function SinaCalendar_GetOffsetPos(element)
+		{
+			var posTop = 0, posLeft = 0;
+			do 
+			{
+				posTop += element.offsetTop || 0;
+				posLeft += element.offsetLeft || 0;
+				element = element.offsetParent;
+			} while (element);
+			
+			return [posLeft, posTop];
+		 }
+
+		function SinaCalendar_ie()
+		{
+			var browser = navigator.appVersion;
+			if(browser.indexOf("MSIE") >= 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		function SinaCalendar_ChangeCnl(divIdOrder)
+		{
+			var divName = "SinaCalendar_CnlCon_" +  divIdOrder;
+			var topDivName = "SinaCalendar_Cnl_" +  divIdOrder;
+			if(SinaCalendar_GetObj(divName).style.display == 'block')
+			{
+				SinaCalendar_GetObj(divName).style.display = 'none';
+			}
+			else if(SinaCalendar_GetObj(divName).style.display == 'none')
+			{
+				var i = 0;
+
+				while(1)
+				{
+					if(document.getElementById("SinaCalendar_CnlCon_" + i))
+					{
+						document.getElementById("SinaCalendar_CnlCon_" + i).style.display = "none";
+					}
+					else
+					{
+						break;
+					}
+
+					i ++;
+				}
+				SinaCalendar_GetObj(divName).style.display = 'block';
+			}
+		}
+
+		function SinaCalendar_closeDiv(divIdOrder)
+		{
+			document.getElementById("SinaCalendar_CnlCon_" + divIdOrder).style.display	=	'none';
+		}
+
+
+		function CreateDiv(divIdOrder,title,url,defaultUrl,startdate,top,left,divZindex)//061221修改，增加divZindex参数，在CreateDiv时需递减
+		{
+			document.write("<div style='width:140px; margin:0 auto;'>");//增加宽度控制并居中
+			document.write("<div style='position:relative;' style='z-index:"+ divZindex + ";'>");
+			document.write("	<div class='SinaCalendar_Cnl' id='SinaCalendar_Cnl_" + divIdOrder + "' onclick='javascript:SinaCalendar_ChangeCnl(" + divIdOrder + ");'>&nbsp;&nbsp;" + title + "</div>");
+
+
+			document.write("	<div name='SinaCalendar_CnlCon' id='SinaCalendar_CnlCon_" + divIdOrder + "' style='display:none;position:absolute; top:" + top + "px; left:" + left + "px; *top:50px; width:140px; height:176px;z-index:999'>");
+
+
+			document.write("		<div style='background:#cde0f4; width:140px; height:15px;' align='right'><img src='http://i1.sinaimg.cn/dy/20061220_calendar/RLT_ws_002.gif' width='15' height='15' alt='关闭' title='关闭' style='cursor:pointer;' onclick='SinaCalendar_closeDiv(" + divIdOrder +")'/></div>");
+
+
+			//document.write("		<iframe name='RL' frameborder='0' height='162' width='140' marginheight='0' marginwidth='0' scrolling='no' src='http://news.sina.com.cn/iframe/news/calender102/index.html?startDate=" + startdate + "&url=" + url + "&defaultUrl=" + defaultUrl + "'></iframe>");
+			document.write("		<iframe name='RL' frameborder='0' height='162' width='140' marginheight='0' marginwidth='0' scrolling='no' src='http://news.sina.com.cn/iframe/332/2009/0218/46.html?startDate=" + startdate + "&url=" + url + "&defaultUrl=" + defaultUrl + "'></iframe>");
+			document.write("	</div>");
+			document.write("</div>");
+			document.write("</div>");
+		}
+
+	CreateDiv(0,"查看往日新闻","http://roll.news.sina.com.cn/news/gnxw/szyw/year-month-day/index.shtml","http://news.sina.com.cn/","2009-1-15",20,0,99);
+
+	</script><div style="width:140px; margin:0 auto;"><div style="position:relative;">	<div class="SinaCalendar_Cnl" id="SinaCalendar_Cnl_0" onclick="javascript:SinaCalendar_ChangeCnl(0);">&nbsp;&nbsp;查看往日新闻</div>	<div name="SinaCalendar_CnlCon" id="SinaCalendar_CnlCon_0" style="display:none;position:absolute; top:20px; left:0px; *top:50px; width:140px; height:176px;z-index:999">		<div style="background:#cde0f4; width:140px; height:15px;" align="right"><img src="http://i1.sinaimg.cn/dy/20061220_calendar/RLT_ws_002.gif" width="15" height="15" alt="关闭" title="关闭" style="cursor:pointer;" onclick="SinaCalendar_closeDiv(0)"></div>		<iframe name="RL" frameborder="0" height="162" width="140" marginheight="0" marginwidth="0" scrolling="no" src="http://news.sina.com.cn/iframe/332/2009/0218/46.html?startDate=2009-1-15&amp;url=http://roll.news.sina.com.cn/news/gnxw/szyw/year-month-day/index.shtml&amp;defaultUrl=http://news.sina.com.cn/"></iframe>	</div></div></div>
+</div>
+<!-- 回顾 end -->
+	</div>
+	
+<!-- 搜索css start -->
+					<style type="text/css">
+					.msearch,.msearch .mform{overflow:visible;}
+					.inp-txt-wrap{position: relative;}
+					.top-suggest-wrap{top:23px; position: absolute;border: 1px solid #E1E1E1;background: #fff;width:217px;margin:0 0 0 1px;z-index:99999;zoom:1; left: -1px;font-family: "Arial","SimSun","宋体";overflow: hidden;}
+					.top-suggest-wrap .top-suggest-item,.top-suggest-wrap .top-suggest-tip,.top-suggest-wrap .top-suggest-more{height: 26px;line-height: 26px;padding-left: 14px;overflow: hidden;}
+					.top-suggest-wrap .top-suggest-item{cursor: pointer;}
+					.top-suggest-wrap .top-suggest-mover{background-color: #ddd;color: #000;}
+					.top-suggest-wrap .top-suggest-tip{color: #000;line-height: 30px;height: 30px;border-bottom: 1px dashed #eee;}
+					.top-suggest-wrap .top-suggest-more{font-size: 12px;border-top: 1px dashed #eee;height: 30px;line-height: 30px;}
+					.top-suggest-more a{display: inline;line-height: 30px;}
+					/*.top-suggest-more a:link, .top-suggest-more a:visited{color: #000;}
+					.top-suggest-more a:hover, .top-suggest-more a:active, .top-suggest-more a:focus{color: #ff8400}*/
+					.top-suggest-more .top-suggest-hotAll{float: left;margin-left: 0px;}
+					.top-suggest-more .top-suggest-toHomePage{float:right;margin-right: 10px;}
+					</style>
+					<!-- 搜索css end -->	
+
+	<!-- 搜索 begin -->
+	<div class="searchBlk">
+		<form name="SearchEcho">
+		<div id="T_Menu_01">
+			<label for="S_Menu_00"><span class="sBTR"><input type="radio" name="kl" checked="checked" id="S_Menu_00" value="新闻" class="selected"></span><span class="sBTT">新闻</span></label>
+			<label for="S_Menu_01"><span class="sBTR"><input type="radio" name="kl" id="S_Menu_01" value="图片" class=""></span><span class="sBTT">图片</span></label>
+			<label for="S_Menu_02"><span class="sBTR"><input type="radio" name="kl" id="S_Menu_02" value="视频" class=""></span><span class="sBTT">视频</span></label>
+		</div>
+		</form>
+
+		<!-- 搜新闻 begin -->
+		<div class="searchBlk_iB inp-txt-wrap" id="S_Cont_00"><form name="hform_02" action="http://search.sina.com.cn/" method="get">
+                                <input type="hidden" name="c" value="news">
+                                <input type="hidden" name="from" value="chanel2">
+				<input type="text" name="q" class="searchBlk_iB_i" value="输入关键字" onclick="this.value=''">
+				<input type="submit" class="searchBlk_iB_s" value="搜新闻"></form>
+		</div>
+		<!-- 搜新闻 end -->
+		
+		<!-- 搜图片 begin -->
+		<div class="searchBlk_iB" id="S_Cont_01" style="display: none;"><form action="http://search.sina.com.cn/" name="hform_05" target="_blank">
+			<input type="text" name="q" class="searchBlk_iB_i" value="输入关键字" onclick="this.value=''">
+                        <input type="hidden" name="t" value="3">
+                        <input type="hidden" name="c" value="news">
+			<input type="submit" class="searchBlk_iB_s" value="搜图片"></form>
+		</div>
+		<!-- 搜图片 end -->
+		
+		<!-- 搜视频 begin -->
+		<div class="searchBlk_iB" id="S_Cont_02" style="display: none;"><form action="http://video.sina.com.cn/search/index.php" name="hform_03" target="_blank">
+			<input type="text" name="q" class="searchBlk_iB_i" value="输入关键字" onclick="this.value=''">
+                        <input type="hidden" name="t" value="2">
+                        <input type="hidden" name="c" value="news">
+			<input type="submit" class="searchBlk_iB_s" value="搜视频"></form>
+		</div>
+		<!-- 搜视频 end -->
+
+		<script type="text/javascript">
+			var SubShow_01=new SubShowClass("T_Menu_01","onclick");for(var i=0;i<3;i++){SubShow_01.addLabel("S_Menu_0"+i,"S_Cont_0"+i)}
+		</script>
+	</div>
+	<!-- 搜索 end -->
+	
+<!-- 搜索js start -->
+				<script src="http://ent.sina.com.cn/470/2014/0328/search_suggest.js"></script>
+				<script type="text/javascript">
+				(function(){
+						// 表单
+						var frm = document.SearchEcho;
+						// 下拉选择
+						var select = frm.kl;
+
+						// 输入框
+						var frm2 = document.hform_02;
+						var input = frm2.q;
+						// 提交按钮
+						var submit = function(){
+							frm2.submit();
+						};
+						// 是否新闻
+						var isNews = function(){
+				var item;
+				var value = '';
+				for (var i = select.length - 1; i >= 0; i--) {
+				item = select[i];
+				console.log(item.checked,item.value);
+				if(item.checked==true){
+				value=item.value;
+				break;
+				}
+				};
+				return value === '新闻';
+						};
+						// 提交
+						new searchsUggest({
+							input : input,
+							maxLen : 10,
+							randomKey:false,
+							placeholderStr:'请输入关键词',
+							showHotList:isNews,
+							showSuggestList:isNews,
+							onSelect: submit
+						});
+				})();
+				</script>
+					<!-- 搜索js end -->
+	
+	<!-- 列表 begin -->
+	<div class="listBlk">
+		<!-- 分页 begin -->
+		<table cellspacing="0" style="margin:0 auto;"><tbody><tr><td>
+			<div class="pagebox">
+				<span class="pagebox_pre"><a title="上5页" href="./index_3385.shtml">上5页</a></span><span class="pagebox_pre"><a title="上一页" href="./index_3389.shtml">上一页</a></span><span class="pagebox_num"><a href="./index_3386.shtml">3386</a></span><span class="pagebox_num"><a href="./index_3387.shtml">3387</a></span><span class="pagebox_num"><a href="./index_3388.shtml">3388</a></span><span class="pagebox_num"><a href="./index_3389.shtml">3389</a></span><span class="pagebox_num_nonce">3390</span><span class="pagebox_next"><a title="下一页" href="./index_3391.shtml">下一页</a></span><span class="pagebox_next"><a title="下5页" href="./index_3395.shtml">下5页</a></span>
+			</div>
+		</td></tr></tbody></table>
+		<!-- 分页 end -->
+		
+		<div class="hs01"></div>
+		
+		<ul class="list_009">
+							<li><a href="http://news.sina.com.cn/o/2017-02-18/doc-ifyarrcf4540430.shtml" target="_blank">女学生多花钱却买到廉价电脑 店家坚持不退货</a><span>(2017年02月18日 01:00)</span></li>
+							<li><a href="http://news.sina.com.cn/o/2017-02-18/doc-ifyarref5812560.shtml" target="_blank">73岁精神病患者持铁锤杀人 被判强制医疗</a><span>(2017年02月18日 01:00)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-18/doc-ifyarrcc7762967.shtml" target="_blank">福建渔船马祖海上起火 8名渔民获救1人失踪</a><span>(2017年02月18日 00:40)</span></li>
+							<li><a href="http://news.sina.com.cn/o/2017-02-18/doc-ifyarzzv3048007.shtml" target="_blank">江苏沭阳法院副院长遇袭 行凶者曾长期闹访</a><span>(2017年02月18日 00:03)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcc7758282.shtml" target="_blank">江苏沭阳法官遭报复被撞车刀捅 嫌犯已被抓获</a><span>(2017年02月17日 23:54)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcf4528145.shtml" target="_blank">临汾交警治闯红灯:罚写“红灯停绿灯行”100遍</a><span>(2017年02月17日 23:09)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarref5801241.shtml" target="_blank">预备役军官藏玩具枪被抓 取保后称枪还我也砸掉</a><span>(2017年02月17日 22:53)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/o/doc/2017-02-17/220965729691.html" target="_blank">实拍14岁初中生作业没完成 先跳河再跳楼</a><span>(2017年02月17日 22:11)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/o/doc/2017-02-17/220665729671.html" target="_blank">顽皮海豹爬上游艇求搭“顺风车” 船主乐开花</a><span>(2017年02月17日 22:07)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-18/doc-ifyarrcf4517283.shtml" target="_blank">女博士研究“小姐”10年:你以为她们最在乎钱？</a><span>(2017年02月17日 21:58)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcc7743383.shtml" target="_blank">盲人因无法阅读风险提示办信用卡被拒 起诉银行</a><span>(2017年02月17日 21:57)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcf4510214.shtml" target="_blank">国家中医药局长:女孩不孕或因爱吃冷饮穿低腰裤</a><span>(2017年02月17日 21:20)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/s/doc/2017-02-17/211765729521.html" target="_blank">央视深扒搜狐掌门人张朝阳：揭秘他的痛与悟</a><span>(2017年02月17日 21:17)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/s/doc/2017-02-17/205865729345.html" target="_blank">货车隧道连撞多车致人受伤 车辆让出救援通道</a><span>(2017年02月17日 20:58)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/o/doc/2017-02-17/205265729319.html" target="_blank">小鹦鹉患病羽毛脱落 网友为其做保暖毛衣</a><span>(2017年02月17日 20:54)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-18/doc-ifyarrcf4502796.shtml" target="_blank">男子在ATM机上查余额 隔壁机器吐9300元现金</a><span>(2017年02月17日 20:42)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcc7724591.shtml" target="_blank">母亲接精神病儿子回家过年 不料遭其砸死</a><span>(2017年02月17日 20:16)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcf4497282.shtml" target="_blank">女白领长期吃避孕药推迟大姨妈 引发腿部血栓</a><span>(2017年02月17日 20:11)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcf4494202.shtml" target="_blank">村支书被曝霸占他人妻子多年 曾因扶贫违纪受处</a><span>(2017年02月17日 19:54)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/o/doc/2017-02-17/192265728805.html" target="_blank">渣男骗30多名女性财色 称因离婚报复女性</a><span>(2017年02月17日 19:22)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcc7714555.shtml" target="_blank">哥哥因盗窃被抓 弟弟“捞人”心切被骗15万</a><span>(2017年02月17日 19:17)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcf4484263.shtml" target="_blank">2人轻信天上掉馅饼 换假美元被骗18万</a><span>(2017年02月17日 18:58)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcc7702890.shtml" target="_blank">玛丽莲-梦露生前孕照公开 惊爆其搞婚外情</a><span>(2017年02月17日 18:22)</span></li>
+							<li><a href="http://news.sina.com.cn/c/2017-02-17/doc-ifyarrcc7702785.shtml" target="_blank">殡仪馆招火化工要本科学历 欲多招经济类人才</a><span>(2017年02月17日 18:22)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcc7687194.shtml" target="_blank">餐厅收购77只活体穿山甲做菜 老板获刑11年</a><span>(2017年02月17日 17:31)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/o/doc/2017-02-17/173065727921.html" target="_blank">挡牌新技术：一个遥控器车牌有无随意切换</a><span>(2017年02月17日 17:31)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/o/doc/2017-02-17/171265727879.html" target="_blank">中国游客被老挝警察抢走手机 使领馆出面帮要回</a><span>(2017年02月17日 17:15)</span></li>
+							<li><a href="http://news.sina.com.cn/o/2017-02-17/doc-ifyarref5732824.shtml" target="_blank">保洁阿姨被强吻之后 涉事地铁站换上了保洁大爷</a><span>(2017年02月17日 16:45)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-18/doc-ifyarrcf4446406.shtml" target="_blank">店里玩具车失踪 店老板对两名8岁孩子强行搜身</a><span>(2017年02月17日 16:42)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/o/doc/2017-02-17/163265727827.html" target="_blank">72岁老汉要做变性手术 获全家支持</a><span>(2017年02月17日 16:36)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/o/doc/2017-02-17/162765727817.html" target="_blank">男子看网络小说走火入魔 为重生劫持人质</a><span>(2017年02月17日 16:29)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcf4432512.shtml" target="_blank">双色球525万大奖得主火速现身 丈母娘陪同领奖</a><span>(2017年02月17日 16:01)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/s/doc/2017-02-17/153965727647.html" target="_blank">感天动地！母亲舍身护子反而躲过一劫</a><span>(2017年02月17日 15:39)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/o/doc/2017-02-17/151565727551.html" target="_blank">两辆玛莎拉蒂撞脸撞号 车牌竟然都是真的</a><span>(2017年02月17日 15:18)</span></li>
+							<li><a href="http://news.sina.com.cn/c/nd/2017-02-17/doc-ifyarrcc7646796.shtml" target="_blank">载30吨浓硫酸罐车侧翻 大量硫酸流入农田(图)</a><span>(2017年02月17日 15:14)</span></li>
+							<li><a href="http://news.sina.com.cn/c/2017-02-17/doc-ifyarzzv2947206.shtml" target="_blank">男子租到盗抢车遭盘查 诉租车公司获赔1.6万</a><span>(2017年02月17日 15:02)</span></li>
+							<li><a href="http://video.sina.com.cn/p/news/s/doc/2017-02-17/145965727469.html" target="_blank">我是大咖 张朝阳预告片</a><span>(2017年02月17日 14:59)</span></li>
+							<li><a href="http://news.sina.com.cn/c/2017-02-17/doc-ifyarref5686510.shtml" target="_blank">公司被指采购1500公斤穿山甲片 供货方称是存货</a><span>(2017年02月17日 13:17)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarzzv2918437.shtml" target="_blank">男子花200元买来烂木头 伪造鉴定文书168万卖出</a><span>(2017年02月17日 12:18)</span></li>
+							<li><a href="http://news.sina.com.cn/s/wh/2017-02-17/doc-ifyarrcf4369559.shtml" target="_blank">陌生女子情人节赖老汉床上不走 称要给他当媳妇</a><span>(2017年02月17日 11:33)</span></li>
+					
+		</ul>
+
+		<div class="hs01"></div>
+		
+		<!-- 分页 begin -->
+		<table cellspacing="0" style="margin:0 auto;"><tbody><tr><td>
+			<div class="pagebox">
+				<span class="pagebox_pre"><a title="上5页" href="./index_3385.shtml">上5页</a></span><span class="pagebox_pre"><a title="上一页" href="./index_3389.shtml">上一页</a></span><span class="pagebox_num"><a href="./index_3386.shtml">3386</a></span><span class="pagebox_num"><a href="./index_3387.shtml">3387</a></span><span class="pagebox_num"><a href="./index_3388.shtml">3388</a></span><span class="pagebox_num"><a href="./index_3389.shtml">3389</a></span><span class="pagebox_num_nonce">3390</span><span class="pagebox_next"><a title="下一页" href="./index_3391.shtml">下一页</a></span><span class="pagebox_next"><a title="下5页" href="./index_3395.shtml">下5页</a></span>
+			</div>
+		</td></tr></tbody></table>
+		<!-- 分页 end -->
+	</div>
+	<!-- 列表 end -->
+	
+	<div class="MainBtm"></div>
+	
+</div>
+<!-- Main end -->
+
+
+<!-- footer begin -->
+<div class="footer">
+	<p><a href="http://corp.sina.com.cn/chn/" class="sinatail">新浪简介</a> | 
+		<a href="http://corp.sina.com.cn/eng/" class="sinatail">About Sina</a> | 
+		<a href="http://ads.sina.com.cn/" class="sinatail">广告服务</a> | 
+		<a href="http://corp.sina.com.cn/chn/sina_job.html" class="sinatail">招聘信息</a> | 
+		<a href="http://www.sina.com.cn/intro/lawfirm.shtml" class="sinatail">网站律师</a> | 
+		<a href="http://english.sina.com" class="sinatail">SINA English</a> | 
+		<a href="http://members.sina.com.cn/apply/" class="sinatail">会员注册</a> | 
+		<a href="http://tech.sina.com.cn/focus/sinahelp.shtml" class="sinatail">产品答疑</a></p>
+	<p>Copyright <span class="copyright">©</span> 1996 - 2015 SINA Corporation,  All Rights Reserved</p>
+	<p>新浪公司 <a href="http://www.sina.com.cn/intro/copyright.shtml" class="sinatail">版权所有</a></p>
+</div>
+<!-- footer end -->
+</div>
+
+
+<!-- SUDA_CODE_START -->
+<script type="text/javascript" src="http://www.sinaimg.cn/unipro/pub/suda_s_v851c.js"></script>
+<script type="text/javascript">
+_S_pSt(_S_PID_);
+</script>
+<noscript>
+<div style='position:absolute;top:0;left:0;width:0;height:0;visibility:hidden'><img width=0 height=0 src='http://beacon.sina.com.cn/a.gif?noScript' border='0' alt='' /></div>
+</noscript>
+<!-- SUDA_CODE_END -->
+
+<!-- START WRating v1.0 -->
+<script type="text/javascript" src="http://sina.wrating.com/a1.js"></script>
+<script type="text/javascript">
+try{
+var vjAcc="860010-0310010000";
+var wrUrl="http://sina.wrating.com/";
+vjTrack("");
+}catch(e){};
+</script>
+<noscript><img src="http://sina.wrating.com/a.gif?a=&c=860010-0310010000" width="1" height="1" style="display: none;"/></noscript>
+<!-- END WRating v1.0 -->
+
+
+ 
+<!-- DMP_CODE_START DAGGER -->                                                               
+<script type="text/javascript">
+(function(d, s, id) {
+    var n = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    s = d.createElement(s);
+    s.id = id;
+    s.setAttribute('charset', 'utf-8');
+    s.src = '//d' + Math.floor(0 + Math.random() * (8 - 0 + 1)) +  '.sina.com.cn/litong/zhitou/sinaads/src/spec/sinaads_ck.js'; 
+    n.parentNode.insertBefore(s, n);
+})(document, 'script', 'sinaads-ck-script');
+</script>
+<!-- DMP_CODE_END DAGGER -->
+<iframe id="sinaads-ck-iframe" src="//d8.sina.com.cn/litong/zhitou/sinaads/src/spec/sinaads_ck.html" style="display: none;"></iframe></body></html>
