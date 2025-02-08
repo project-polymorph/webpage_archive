@@ -1,0 +1,115 @@
+# 变性人，越来越多了
+
+![图片](data:image/png;base64,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)
+
+> 2023-09-01 20:30发布于北京国际领域创作者
+
+大卫，布兰达，大卫
+
+1966年，加拿大一名7个月大的男孩大卫在接受包皮切割手术时遭遇了意外——手术失败，他的阴茎被烧毁。
+
+心急如焚的父母带着大卫四处求医，霍普金斯大学一位心理学家曼尼成了他们的救星。
+
+曼尼主张性别并非与生俱来，而是在成长和社会化中发展而来的社会角色。在曼尼的建议下，大卫在22个月大时被“将错就错”，接受了性别重置手术。此后，大卫常年使用激素，成长为一个女孩儿“布兰达”。
+
+曼尼每年都会拜访布兰达和她的同卵双胞胎兄弟布莱恩，还教布莱恩和布兰达模仿性交的姿势。曼尼认为，这种“预演”有助于发展性别意识。
+
+逐渐长大的布兰达因错乱的性别认知罹患抑郁症。直到14岁时，“布兰达”决定以男性身份生活。22岁时，“布兰达”再次接受性别重置手术，恢复男儿身——“大卫”。38岁时，大卫自杀身亡。在那之前，他的孪生兄弟布莱恩也因服用过量抗抑郁药死去。
+
+大卫变成布兰达又变回大卫的故事曾令世界悲痛，也推动了规范变性手术的众多变革和立法。
+
+今天，世界主要国家都将18岁设定为可接受变性手术的最低年龄。国际性别障碍协会为寻求变性手术者推荐的标准流程是：在接受激素治疗前应接受至少三个月的心理治疗，并以认同的性别生活至少一年，再接受手术。
+
+越来越多的人因此能在自主、规范、有保障的情况下转变性别。以美国为例，美国现有约0.6%的跨性别人口，每年约有9000例变性手术，且这个数字还在稳定增长。
+
+![欧美多地群众呼吁为跨性别立法](https://inews.gtimg.com/newsapp_bt/0/0522140926837_6113/0)
+
+但关于变性手术的争议也从未平息。仍以美国为例，多年来，美国有多种团体在推动放宽年龄限制、激素治疗、心理治疗和评估时期这些标准。在他们的努力下，世界跨性别者健康专业协会于2022年将接受变性手术的最低年龄下调至17岁。美国也有多州在修改立法。
+
+## 变性手术，效果如何？
+
+大部分变性手术伴随着巨大痛苦，生殖能力的损害，或多或少的并发症，且一般不可逆。
+
+例如，在阴茎成形术中，医生会将提取的阴蒂皮瓣外翻，和其他组织一起缝成阴茎，在新的阴茎中构建出尿道口，并与跨性别者原有的尿道口连接。这种成形术术后出现泌尿系统并发症的概率有25%到75%。
+
+而在阴道成形术中，用阴茎皮肤和其他组织构建的阴道需要扩张器来保持深度和宽度。这类成形术也易损伤肠道，粪便甚至会在肠道穿孔时进入新建的阴道中。
+
+无论是阴茎成形术还是阴道成形术，
+
+术后感染的比例都相当高。
+
+![图片](https://inews.gtimg.com/om_bt/OFbSAcXDsxb6BlTBXZyRhLGvXgvijMKJx4NPQ6Puz5eUEAA/641)
+
+那么，这样的变性手术在多大程度上能治疗性别认同障碍？
+
+瑞典一项跨越30年的追踪显示，性别重置术后人群在术后十年的自杀率高出对照组19倍，精神病症住院率高出2.8倍。2016年，奥巴马政府否决了将变性手术纳入医保的提案，原因是“没有足够的临床证据表示变性手术能改善性别认同障碍者的临床状况和生活质量”。
+
+数据显示，70%的成年跨性别者
+
+都患有不同程度的抑郁症。
+
+这份报告还指出，现有的关于变性手术积极效果的研究结果通常“失去跟踪”（lost to flow-up）了一些病例——TA们或许在经历创伤不愿接受随访，或许已经自杀。
+
+变性手术的局限性在于，改造身体和在社会意义上转换性别不是一回事。手术或许在医学上很成功，但只要患者不满意，那么手术依然效果不佳。
+
+寻求变性手术的跨性别人群往往将手术重心放在生殖器官和性征的改造——切除阴茎，用剥离的阴茎皮肤和其他组织缝出阴道；或用提取的阴蒂皮肤和其他组织构建阴茎。但这些改变并不能确保跨性别群体被“认可”。
+
+例如，多项研究显示，跨性别男性，无论其取向为何，往往都因缺少“男子气概”而被男性群体排斥，在求偶中受挫。
+
+10个成年跨性别者中，就有3个失业
+
+统计显示，那些较晚接受变性手术的人，相比较早者，对手术的满意度更低。但有大卫的故事在前，人们不免要问，那些在较小年龄接受变性手术的人，有多大程度的自主权？仅从手术效果考虑，或许应该鼓励跨性别人群尽早进行变性手术；但从自主决策的角度来说，或许应该强制他们“等待”。
+
+而跨性别社会活动家则呼吁，现行标准是为了防止跨性别者后悔，但这些标准妨碍了那些饱受性别认同障碍折磨的青少年尽快获得帮助。何况，自主权也意味着要为自己的选择负责。——后悔者可以学习与自己的选择和解，也可以选择再做手术修补或重建。
+
+可以说，在变性手术这件事上，跨性别人士、外科医生、心理学家、政策制定者和社会活动家的争执并不能以对错而言。只是他们立场不同，视角不同，利益不同，因而众说纷纭。
+
+## 变性手术，伦理困境？
+
+变性手术不负责让人变成TA喜爱的样子。毕竟，它甚至不能让人“健康”。什么是“健康”？对医生来说，健康是“正常运转”。而变性手术的本质是破坏或移除正常的器官，重建出非正常的器官。
+
+此外，由于变性手术着重生殖器和性征的改造，它在大众的一般理解中也更接近于“整形手术”。这里，与其说变性手术与主流医学观念相悖，不如说变性手术挑战了主流医学观念，以及大众对于“身心”的分裂认知。
+
+该电影的原型是上世纪30年代丹麦艺术家艾纳·维格纳和他妻子格尔达·韦格纳的故事，他是世界首个接受变性手术的人。
+
+![电影《丹麦女孩》](https://inews.gtimg.com/om_bt/OxSobsGTw9fwThm7GIuINVQK5yIA-KuS_ffURTq8TSrgwAA/641)
+
+目前，大部分国家的公费医疗或公共医疗保险不覆盖变性手术。高昂的手术费用阻碍了患者成为TA心理认同的性别的努力，但决策者更关心的是如何让有限的公共税收服务全民医疗需求，而非一部分人的变性梦想。
+
+而跨性别者术后的社会生活，更向作为共同体生活的人类群体抛出了诸多挑战。很多人质疑：
+
+在手术后，TA们真的成为了TA们现在声称的那种性别了吗？抑或只是改头换面成为“男性化的女性”和“女性化的男性”？参加女子竞技体育比赛的跨性别女性，虽然激素水平已达到女性水平，是否在破坏比赛公平？
+
+这类“恐跨”观点中最有代表性的是TERF（排斥跨性别的激进女性主义者）。在TERF看来，改造出女性的身体并不意味着体验女性的处境。
+
+正如1979年，Janice Raymond，一位女性哲学家在《变性帝国》的序言中写道：“割掉阴茎并不意味着失去了‘插入’女性的能力——女性的身份，女性的精神，女性的性……”她警告那些准备拥抱新姐妹的女性主义者们——变性手术是一种伪装，诡计多端的男性混入女性群体之中，继续戕害女性。
+
+而光谱的另一端，对保守主义者来说，“性别不是在出生时被‘分配’的，因此它也不能被‘重新分配’（reassigned），性别是一个身体的现实……”这个现实恰好不是TA们期望的样子，但现实还是现实。
+
+性别认知障碍并不会随着变性手术的发生而消失。
+
+也有更多变性手术亲历者通过社交媒体分享他们的经历。TA们展示着手术疤痕，造瘘口、造瘘袋，告诫人们：
+
+你不需要变性手术去变成某个性别，你可以是别人口中的“假小子”、“伪娘”、“女汉子”、“娘娘腔”，但你是你，你有自由以你喜欢的样子生活，你不需要为了取悦直男用手术看起来更像直女——变性手术本身就在强化关于性别的刻板印象。
+
+今天，西方越来越多的年轻人开始以“They/Them”介绍自己，作为流动的性别生活。
+
+在这些争议中，接受变性手术的人数还在逐年增加。根据自己的意愿改造身体，让身体和灵魂匹配合一，这个古人并不能梦想的梦想，正在现代科技的帮助下变成现实。但现代科技的帮助也到此为止了。变性手术不是一劳永逸。它只是一个起点。
+
+以两条蓝色、两条粉色和一条白色构成的跨性别旗帜，由跨性别女性Monica Helms于1999年设计，比LGBT（T是Transgender，跨性别者）的彩虹旗晚出现20年。
+
+![跨性别旗帜](https://inews.gtimg.com/om_bt/O5A6P4IueIcnKlPKYskoCNtRb_X2fM0iEt9wptdxAwhZYAA/641)
+
+当代著名的医学人类学家安娜玛丽·摩尔指出，在“选择的逻辑”之外，我们还需要“照护的逻辑”（logic of care）。手术是个体的选择，但照护的逻辑期待我们多问一句：怎样让选择成为可能？在选择之后，怎样提供更好的关怀？
+
+跨性别者被推出手术室大门的那一刻，TA们的梦想便已非一个肩膀能荷起。很多很多双手需要给力，给出更充足的医疗资源和精神卫生资源，更慷慨的社会福利，更公平的就业机会，更广阔的接受。
+
+## 参考资料
+
+1. Anderson, R. T. (2018). *When Harry became Sally: Responding to the transgender moment*. Encounter Books.
+2. Dhejne, C., Lichtenstein, P., et al (2011). Long-term follow-up of transsexual persons undergoing sex reassignment surgery: cohort study in Sweden. *PloS one*, 6(2), e16885.
+3. Mani, V. R., Valdivieso, S. C., Hanandeh, A., Kalabin, A., Ramcharan, A., & Donaldson, B. (2021). Transgender surgery–Knowledge gap among physicians impacting patient care. *Current Urology*, 15(1), 68.
+4. Moisés da Silva, G. V., Lobato, et al. (2021). Male-to-female gender-affirming surgery: 20-year review of technique and surgical results. *Frontiers in surgery*, 8, 639430.
+5. Selvaggi, G., & Bellringer, J. (2011). Gender reassignment surgery: an overview. *Nature Reviews Urology*, 8(5), 274-282.
+
+免责声明：本内容来自腾讯平台创作者，不代表腾讯新闻或腾讯网的观点和立场。

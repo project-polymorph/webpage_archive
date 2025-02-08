@@ -1,0 +1,321 @@
+<html class=""><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="content-language" content="zh">
+  <title>Open Multilingual Wordnet 1.3</title>
+  <link href="../tag-wn.css" rel="stylesheet" type="text/css">
+  <script src="../tag-wn.js" language="javascript"></script>
+
+
+  <!-- KICKSTART -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+  </script>
+  <script src="../HTML-KickStart-master/js/kickstart.js"></script>
+  <link rel="stylesheet" href="../HTML-KickStart-master/css/kickstart.css" media="all"> 
+
+
+  <!-- NTUMC COMMON STYLES -->
+  <link href="../ntumc-common.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+  <!-- FANCYBOX -->
+  <!-- Needs jQuery library -->
+  <!-- Add fancyBox main JS and CSS files -->
+  <script type="text/javascript" src="../fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+  <link rel="stylesheet" type="text/css" href="../fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen">
+  <script type="text/javascript" src="../fancybox-ready.js"></script>
+
+
+
+   <!-- TOGGLE DIV VISIBILITY OF COLUMNS BY ID -->
+   <script type="text/javascript">
+
+     <!-- HIDE ALL ROWS BY POS  -->
+     function toggleRowsByClass(c) {
+       var ids = document.getElementsByClassName(c);
+       for (i = 0; i < ids.length; i++) {
+         togglecol(ids[i].id);
+       }
+     }
+
+
+
+     <!-- SHOW ONLY ROWS BY POS  -->
+     function showOnlyRowsByClass(c) {
+
+       var allPOS  = ['n', 'v', 'a', 'r'];
+       var index = allPOS.indexOf(c);
+       if (index > -1) {
+         allPOS.splice(index, 1);
+       }
+
+
+       showallunder('ss_table');
+
+       for (i = 0; i < allPOS.length; i++) {
+     
+         var ids = document.getElementsByClassName(allPOS[i]);
+         for (z = 0; z < ids.length; z++) {
+           togglecol(ids[z].id);
+         }
+       }
+     }
+
+
+
+      function togglecol(id1) {
+          if (window.document.getElementById(id1).style.visibility == "collapse") {
+              window.document.getElementById(id1).style.display = "table-row";
+              window.document.getElementById(id1).style.visibility = "visible";
+
+          } else {
+              window.document.getElementById(id1).style.visibility = "collapse";
+              window.document.getElementById(id1).style.display = "none";
+
+             var element = document.getElementById('ss_table');
+             var allElements = element.getElementsByTagName("*");
+             var allIds = [];
+             for (var i = 0, n = allElements.length; i < n; ++i) {
+               var el = allElements[i];
+               if (el.id) { allIds.push(el.id); }
+             }
+
+             for (index = 0; index < allIds.length; index++) {
+               tableids = allIds[index];
+               window.document.getElementById(tableids).style.boxSizing = "content-box";
+       }
+
+          }
+      }
+   </script>
+
+
+
+   <!-- SHOW ALL UNDER ID -->
+   <script type="text/javascript">
+     function showallunder(myNode) {
+       var element = document.getElementById(myNode);
+       var allElements = element.getElementsByTagName("*");
+       var allIds = [];
+       for (var i = 0, n = allElements.length; i < n; ++i) {
+         var el = allElements[i];
+         if (el.id) { allIds.push(el.id); }
+       }
+
+       for (index = 0; index < allIds.length; index++) {
+         id = allIds[index];
+         if (window.document.getElementById(id).style.visibility == "collapse") {
+              subElement = window.document.getElementById(id);
+              removeClass(subElement, 'lightrow')
+              subElement.style.display = "table-row";
+              subElement.style.visibility = "visible";
+         }
+       } 
+     }
+
+
+
+      <!-- TOGGLE CLASS IN ELEMENT, USES hasClass underneath -->
+      function addClass(el, className) {
+        var classes = el.className.match(/\S+/g) || [];  
+        if (!hasClass(el, className)) {
+          classes.push(className);
+        } else { var index = classes.indexOf(className);
+                 classes.splice(index, 1);
+               }
+        el.className = classes.join(' ');
+      }
+      function removeClass(el, className) {
+        var classes = el.className.match(/\S+/g) || [];  
+        if (!hasClass(el, className)) {
+        } else { var index = classes.indexOf(className);
+                 classes.splice(index, 1);
+               }
+        el.className = classes.join(' ');
+      }
+      function hasClass(element, classNameToTestFor) {
+          var classNames = element.className.split(' ');
+          for (var i = 0; i < classNames.length; i++) {
+              if (classNames[i].toLowerCase() == classNameToTestFor.toLowerCase()) {
+                  return true;
+              }
+          }
+          return false;
+      }
+
+   </script>
+
+
+  <!-- TO SHOW / HIDE BY ID (FOR DIVs)-->
+  <script type="text/javascript">
+   function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+   }
+  </script>
+
+
+
+   <style>
+      /* lightrow is a faded yellow */
+     .lightrow {
+          background-color: #FFFFCC;
+     }
+
+
+      .hoverTable{
+      }
+      .hoverTable td{ 
+      }
+      /* Define the default color for all the table rows */
+      .hoverTable tr{
+      }
+      /* Define the hover highlight color for the table row */
+      .hoverTable tr:hover {
+          background-color: #FFFFCC;
+      }
+
+  </style>
+
+  <style>
+    hr{
+      padding: 0px;
+      margin: 10px;    
+    }
+  </style>
+
+
+  <style>
+  blockquote {
+  font: 14px/20px italic Times, serif;
+  padding-left: 20px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  border: none;
+  margin: 0px;
+  text-indent: 20px;
+  }
+  </style>
+
+<style type="text/css">.fancybox-margin{margin-right:0px;}</style></head>
+<body>
+<span style="display: inline-block; float:right">
+                  <ul class="button-bar"><li class="first"><a title="Invalid User" disabled=""><span style="color: #bc5847;">
+                        <i class="icon-user"></i></span></a></li> <li class="last"><a title="Go to Dashboard" href="dashboard.cgi"><span style="color: #4D99E0;">
+                   <i class="icon-home"></i></span></a></li></ul></span>
+<h6>Results for « 易性癖 » (cmn)</h6>
+
+<table>
+
+<tbody><tr class="alt first last">
+
+<td valign="top"><a href="wn-gridx.cgi?gridmode=grid&amp;synset=14572074-n&amp;lang=cmn&amp;lang2=eng">
+                     <nobr>14572074-n
+</nobr><br><font size="-1"></font></a></td>
+<td valign="top"><table style="width:100%"><tbody><tr class="alt first">
+                         <td bgcolor="#ededed"><span style=" color:DarkGreen;" title="conf  1.00
+src  cow">易性癖</span>, <span style="" title="conf  1.00
+src  cow">有易性癖</span>, <span style="" title="conf  1.00
+src  cow">变性</span>, <span style="" title="conf  1.00
+src  cow">性别倒错</span>, <span style="" title="conf  1.00
+src  cow">改变性别</span></td></tr>
+                         <tr class="alt last"><td><span style="" title="conf  1.00
+src  eng30">transsexualism</span></td></tr></tbody></table>
+  </td><td valign="top">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td valign="top"> condition in which a person assumes the identity and permanently acts the part of the gender opposite to his or her biological sex</td>
+</tr>
+
+</tbody></table>
+<div class="clear">&nbsp;</div><hr><p>
+</p><form method="post" style="display: inline-block" title="search for a word  —  'word'
+or pattern  — '[wW]ord*' (using sqlite GLOB)
+or synset-id  — '06286395-n'
+or a pattern in a definition — 'def::*word*' (using sqlite GLOB)" id="newquery" action="wn-gridx.cgi?gridmode=grid">
+                  <span style="font-size: 100%">
+                  <input style="font-size: 100%" type="text" name="lemma" value="易性癖" size="8" maxlength="50">
+
+        <button class="small"> <a href="javascript:{}" onclick="document.getElementById('newquery').submit(); 
+           return false;"><span title="Search">
+           <span style="color: #4D99E0;"><i class="icon-search"></i>
+           </span></span></a></button>
+ 
+         <strong>Langs: </strong><select name="lang" size="1" style="font-size: 100%" onchange="if(this.value == 'showmore') 
+               toggle_visibility('langselect');">
+          <option value="eng">英语
+                        </option><option value="jpn">日语
+                        </option><option value="cmn" selected="">汉语
+                        </option><option value="ind">Indonesian
+                        </option><option value="msa">Malay
+                        </option><option value="showmore">More...</option></select><select name="lang2" style="font-size: 100%" title="backoff language" size="1" onchange="if(this.value == 'showmore') 
+               toggle_visibility('langselect');"><option value="eng" selected="">英语
+                        </option><option value="jpn">日语
+                        </option><option value="cmn">汉语
+                        </option><option value="ind">Indonesian
+                        </option><option value="msa">Malay
+                        </option><option value="showmore">More...</option></select></span></form>
+<div class="clear">&nbsp;</div><hr><div style="font-size:90%;color:grey;float:right">
+<a onclick="toggle_visibility('langselect');">
+                   <i class="icon-wrench"></i> Preferences</a><div id="langselect" style="display: none"><span style="color: #4D99E0;display: inline-block; 
+                    float:right">
+             <a href="javascript:{}" onclick="document.getElementById('langselection').submit(); 
+             return false;"><span title="Update Language Selection">
+             Update Language Selection
+             </span></a></span><br><span style="color: #4D99E0;display: inline-block; 
+                    float:right"><input type="checkbox" onclick="for(c in document.getElementsByName('langselect[]')) 
+             document.getElementsByName('langselect[]').item(c).checked 
+             = this.checked" ;="" class="checkbox"> Select All/None</span><h6>Language Selection</h6>
+                   <form method="post" action="wn-gridx.cgi?gridmode=grid" id="langselection"><table><tbody><tr class="alt first"><td><input type="checkbox" name="langselect[]" value="als" class="checkbox"> Albanian</td>
+                    <td><input type="checkbox" name="langselect[]" value="arb" class="checkbox"> Arabic</td>
+                    <td><input type="checkbox" name="langselect[]" value="bul" class="checkbox"> Bulgarian</td>
+                    <td><input type="checkbox" name="langselect[]" value="cat" class="checkbox"> Catalan</td>
+                    <td><input type="checkbox" name="langselect[]" value="ces" class="checkbox"> Czech</td>
+                    </tr><tr><td><input type="checkbox" name="langselect[]" value="cmn" checked="" class="checkbox"> Chinese (simplified)</td>
+                        <td><input type="checkbox" name="langselect[]" value="dan" class="checkbox"> Danish</td>
+                    <td><input type="checkbox" name="langselect[]" value="ell" class="checkbox"> Greek</td>
+                    <td><input type="checkbox" name="langselect[]" value="eng" checked="" class="checkbox"> English</td>
+                        <td><input type="checkbox" name="langselect[]" value="eus" class="checkbox"> Basque</td>
+                    </tr><tr class="alt"><td><input type="checkbox" name="langselect[]" value="fas" class="checkbox"> Farsi</td>
+                    <td><input type="checkbox" name="langselect[]" value="fin" class="checkbox"> Finnish</td>
+                    <td><input type="checkbox" name="langselect[]" value="fra" class="checkbox"> French</td>
+                    <td><input type="checkbox" name="langselect[]" value="glg" class="checkbox"> Galician</td>
+                    <td><input type="checkbox" name="langselect[]" value="heb" class="checkbox"> Hebrew</td>
+                    </tr><tr><td><input type="checkbox" name="langselect[]" value="hrv" class="checkbox"> Croatian</td>
+                    <td><input type="checkbox" name="langselect[]" value="ind" checked="" class="checkbox"> Indonesian</td>
+                        <td><input type="checkbox" name="langselect[]" value="isl" class="checkbox"> Icelandic</td>
+                    <td><input type="checkbox" name="langselect[]" value="ita" class="checkbox"> Italian</td>
+                    <td><input type="checkbox" name="langselect[]" value="jpn" checked="" class="checkbox"> Japanese</td>
+                        </tr><tr class="alt"><td><input type="checkbox" name="langselect[]" value="lit" class="checkbox"> Lithuanian</td>
+                    <td><input type="checkbox" name="langselect[]" value="nld" class="checkbox"> Dutch</td>
+                    <td><input type="checkbox" name="langselect[]" value="nno" class="checkbox"> Nynorsk</td>
+                    <td><input type="checkbox" name="langselect[]" value="nob" class="checkbox"> Bokmål</td>
+                    <td><input type="checkbox" name="langselect[]" value="pol" class="checkbox"> Polish</td>
+                    </tr><tr><td><input type="checkbox" name="langselect[]" value="por" class="checkbox"> Portuguese</td>
+                    <td><input type="checkbox" name="langselect[]" value="qcn" class="checkbox"> Chinese (traditional)</td>
+                    <td><input type="checkbox" name="langselect[]" value="ron" class="checkbox"> Romanian</td>
+                    <td><input type="checkbox" name="langselect[]" value="slk" class="checkbox"> Slovak</td>
+                    <td><input type="checkbox" name="langselect[]" value="slv" class="checkbox"> Slovene</td>
+                    </tr><tr class="alt last"><td><input type="checkbox" name="langselect[]" value="spa" class="checkbox"> Spanish</td>
+                    <td><input type="checkbox" name="langselect[]" value="swe" class="checkbox"> Swedish</td>
+                    <td><input type="checkbox" name="langselect[]" value="tha" class="checkbox"> Thai</td>
+                    <td><input type="checkbox" name="langselect[]" value="yue" class="checkbox"> Yue Chinese</td>
+                    <td><input type="checkbox" name="langselect[]" value="zsm" class="checkbox"> Malaysian</td>
+                    </tr></tbody></table><a href="javascript:{}" onclick="document.getElementById('langselection').submit(); 
+             return false;"><span title="Update Language Selection" style="display: inline-block; float:right">
+             <span style="color: #4D99E0;">Update Language Selection
+             </span></span></a></form></div>
+<br><span style="font-size:80%;color:grey;">(0.00222 seconds)</span></div>
+<nobr><a href="https://omwn.org/omw1.html">More detail about the Open Multilingual Wordnet (1.3)</a></nobr>
+<br>This project is now integrated in the 
+             <a href="https://omwn.org/omw1.html"> Extended Open Multilingual Wordnet (1.3)</a>
+<br>Maintainer: <a href="https://fcbond.github.io/">
+             Francis Bond</a>
+&lt;<a href="mailto:bond@ieee.org">bond@ieee.org</a>&gt;
+  
+
+</body></html>
