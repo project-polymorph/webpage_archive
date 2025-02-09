@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.png"><title>OpenAlex | </title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"><link href="https://fonts.googleapis.com/css2?family=Dosis:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><script defer="defer" data-domain="openalex.org" src="https://plausible.io/js/script.outbound-links.js"></script><script defer="defer" src="/js/chunk-vendors.0723205f.js"></script><script defer="defer" src="/js/app.91809485.js"></script><link href="/css/chunk-vendors.80669647.css" rel="stylesheet"><link href="/css/app.09c38048.css" rel="stylesheet"><style type="text/css">span.vue-typer[data-v-c41bac74]{cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}span.vue-typer span.left[data-v-c41bac74],span.vue-typer span.right[data-v-c41bac74]{display:inline}</style><style type="text/css">@keyframes vue-typer-caret-blink{50%{opacity:0}to{opacity:1}}@keyframes vue-typer-caret-smooth{0%,20%{opacity:1}60%,to{opacity:0}}@keyframes vue-typer-caret-phase{0%,20%{opacity:1}90%,to{opacity:0}}@keyframes vue-typer-caret-expand{0%,20%{transform:scaleY(1)}80%,to{transform:scaleY(0)}}.vue-typer-caret-blink[data-v-a16e0f02]{animation:vue-typer-caret-blink 1s step-start 0s infinite}.vue-typer-caret-smooth[data-v-a16e0f02]{animation:vue-typer-caret-smooth .5s ease-in-out 0s infinite alternate}.vue-typer-caret-phase[data-v-a16e0f02]{animation:vue-typer-caret-phase .5s ease-in-out 0s infinite alternate}.vue-typer-caret-expand[data-v-a16e0f02]{animation:vue-typer-caret-expand .5s ease-in-out 0s infinite alternate}span.caret[data-v-a16e0f02]:empty:before{content:"\200B"}span[data-v-a16e0f02]{display:inline-block;width:1px}.idle[data-v-a16e0f02],.typing[data-v-a16e0f02]{background-color:#000}.selecting[data-v-a16e0f02]{display:none;background-color:#000}.erasing[data-v-a16e0f02]{background-color:#000}.complete[data-v-a16e0f02]{display:none;background-color:#000}</style><style type="text/css">.char[data-v-302772ec]{display:inline-block;white-space:pre-wrap}.newline[data-v-302772ec]{display:inline}.typed[data-v-302772ec]{color:#000;background-color:transparent}.selected[data-v-302772ec]{color:#000;background-color:#accef7}.erased[data-v-302772ec]{display:none}</style><style data-vue-meta="vuetify" type="text/css" id="vuetify-theme-stylesheet" nonce="undefined">.v-application a { color: #1976d2; }
+.v-application .primary {
+  background-color: #1976d2 !important;
+  border-color: #1976d2 !important;
+}
+.v-application .primary--text {
+  color: #1976d2 !important;
+  caret-color: #1976d2 !important;
+}
+.v-application .primary.lighten-5 {
+  background-color: #c7fdff !important;
+  border-color: #c7fdff !important;
+}
+.v-application .primary--text.text--lighten-5 {
+  color: #c7fdff !important;
+  caret-color: #c7fdff !important;
+}
+.v-application .primary.lighten-4 {
+  background-color: #a8e0ff !important;
+  border-color: #a8e0ff !important;
+}
+.v-application .primary--text.text--lighten-4 {
+  color: #a8e0ff !important;
+  caret-color: #a8e0ff !important;
+}
+.v-application .primary.lighten-3 {
+  background-color: #8ac5ff !important;
+  border-color: #8ac5ff !important;
+}
+.v-application .primary--text.text--lighten-3 {
+  color: #8ac5ff !important;
+  caret-color: #8ac5ff !important;
+}
+.v-application .primary.lighten-2 {
+  background-color: #6aaaff !important;
+  border-color: #6aaaff !important;
+}
+.v-application .primary--text.text--lighten-2 {
+  color: #6aaaff !important;
+  caret-color: #6aaaff !important;
+}
+.v-application .primary.lighten-1 {
+  background-color: #488fef !important;
+  border-color: #488fef !important;
+}
+.v-application .primary--text.text--lighten-1 {
+  color: #488fef !important;
+  caret-color: #488fef !important;
+}
+.v-application .primary.darken-1 {
+  background-color: #005eb6 !important;
+  border-color: #005eb6 !important;
+}
+.v-application .primary--text.text--darken-1 {
+  color: #005eb6 !important;
+  caret-color: #005eb6 !important;
+}
+.v-application .primary.darken-2 {
+  background-color: #00479b !important;
+  border-color: #00479b !important;
+}
+.v-application .primary--text.text--darken-2 {
+  color: #00479b !important;
+  caret-color: #00479b !important;
+}
+.v-application .primary.darken-3 {
+  background-color: #003180 !important;
+  border-color: #003180 !important;
+}
+.v-application .primary--text.text--darken-3 {
+  color: #003180 !important;
+  caret-color: #003180 !important;
+}
+.v-application .primary.darken-4 {
+  background-color: #001e67 !important;
+  border-color: #001e67 !important;
+}
+.v-application .primary--text.text--darken-4 {
+  color: #001e67 !important;
+  caret-color: #001e67 !important;
+}
+.v-application .secondary {
+  background-color: #263238 !important;
+  border-color: #263238 !important;
+}
+.v-application .secondary--text {
+  color: #263238 !important;
+  caret-color: #263238 !important;
+}
+.v-application .secondary.lighten-5 {
+  background-color: #9fadb5 !important;
+  border-color: #9fadb5 !important;
+}
+.v-application .secondary--text.text--lighten-5 {
+  color: #9fadb5 !important;
+  caret-color: #9fadb5 !important;
+}
+.v-application .secondary.lighten-4 {
+  background-color: #85939a !important;
+  border-color: #85939a !important;
+}
+.v-application .secondary--text.text--lighten-4 {
+  color: #85939a !important;
+  caret-color: #85939a !important;
+}
+.v-application .secondary.lighten-3 {
+  background-color: #6c7980 !important;
+  border-color: #6c7980 !important;
+}
+.v-application .secondary--text.text--lighten-3 {
+  color: #6c7980 !important;
+  caret-color: #6c7980 !important;
+}
+.v-application .secondary.lighten-2 {
+  background-color: #536067 !important;
+  border-color: #536067 !important;
+}
+.v-application .secondary--text.text--lighten-2 {
+  color: #536067 !important;
+  caret-color: #536067 !important;
+}
+.v-application .secondary.lighten-1 {
+  background-color: #3c484f !important;
+  border-color: #3c484f !important;
+}
+.v-application .secondary--text.text--lighten-1 {
+  color: #3c484f !important;
+  caret-color: #3c484f !important;
+}
+.v-application .secondary.darken-1 {
+  background-color: #111d23 !important;
+  border-color: #111d23 !important;
+}
+.v-application .secondary--text.text--darken-1 {
+  color: #111d23 !important;
+  caret-color: #111d23 !important;
+}
+.v-application .secondary.darken-2 {
+  background-color: #00030d !important;
+  border-color: #00030d !important;
+}
+.v-application .secondary--text.text--darken-2 {
+  color: #00030d !important;
+  caret-color: #00030d !important;
+}
+.v-application .secondary.darken-3 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-3 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .secondary.darken-4 {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+.v-application .secondary--text.text--darken-4 {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+.v-application .accent {
+  background-color: #3f51b5 !important;
+  border-color: #3f51b5 !important;
+}
+.v-application .accent--text {
+  color: #3f51b5 !important;
+  caret-color: #3f51b5 !important;
+}
+.v-application .accent.lighten-5 {
+  background-color: #d2d2ff !important;
+  border-color: #d2d2ff !important;
+}
+.v-application .accent--text.text--lighten-5 {
+  color: #d2d2ff !important;
+  caret-color: #d2d2ff !important;
+}
+.v-application .accent.lighten-4 {
+  background-color: #b5b7ff !important;
+  border-color: #b5b7ff !important;
+}
+.v-application .accent--text.text--lighten-4 {
+  color: #b5b7ff !important;
+  caret-color: #b5b7ff !important;
+}
+.v-application .accent.lighten-3 {
+  background-color: #989cff !important;
+  border-color: #989cff !important;
+}
+.v-application .accent--text.text--lighten-3 {
+  color: #989cff !important;
+  caret-color: #989cff !important;
+}
+.v-application .accent.lighten-2 {
+  background-color: #7b82ee !important;
+  border-color: #7b82ee !important;
+}
+.v-application .accent--text.text--lighten-2 {
+  color: #7b82ee !important;
+  caret-color: #7b82ee !important;
+}
+.v-application .accent.lighten-1 {
+  background-color: #5e69d1 !important;
+  border-color: #5e69d1 !important;
+}
+.v-application .accent--text.text--lighten-1 {
+  color: #5e69d1 !important;
+  caret-color: #5e69d1 !important;
+}
+.v-application .accent.darken-1 {
+  background-color: #193a9a !important;
+  border-color: #193a9a !important;
+}
+.v-application .accent--text.text--darken-1 {
+  color: #193a9a !important;
+  caret-color: #193a9a !important;
+}
+.v-application .accent.darken-2 {
+  background-color: #00257f !important;
+  border-color: #00257f !important;
+}
+.v-application .accent--text.text--darken-2 {
+  color: #00257f !important;
+  caret-color: #00257f !important;
+}
+.v-application .accent.darken-3 {
+  background-color: #001265 !important;
+  border-color: #001265 !important;
+}
+.v-application .accent--text.text--darken-3 {
+  color: #001265 !important;
+  caret-color: #001265 !important;
+}
+.v-application .accent.darken-4 {
+  background-color: #00004d !important;
+  border-color: #00004d !important;
+}
+.v-application .accent--text.text--darken-4 {
+  color: #00004d !important;
+  caret-color: #00004d !important;
+}
+.v-application .error {
+  background-color: #ff5252 !important;
+  border-color: #ff5252 !important;
+}
+.v-application .error--text {
+  color: #ff5252 !important;
+  caret-color: #ff5252 !important;
+}
+.v-application .error.lighten-5 {
+  background-color: #ffe4d5 !important;
+  border-color: #ffe4d5 !important;
+}
+.v-application .error--text.text--lighten-5 {
+  color: #ffe4d5 !important;
+  caret-color: #ffe4d5 !important;
+}
+.v-application .error.lighten-4 {
+  background-color: #ffc6b9 !important;
+  border-color: #ffc6b9 !important;
+}
+.v-application .error--text.text--lighten-4 {
+  color: #ffc6b9 !important;
+  caret-color: #ffc6b9 !important;
+}
+.v-application .error.lighten-3 {
+  background-color: #ffa99e !important;
+  border-color: #ffa99e !important;
+}
+.v-application .error--text.text--lighten-3 {
+  color: #ffa99e !important;
+  caret-color: #ffa99e !important;
+}
+.v-application .error.lighten-2 {
+  background-color: #ff8c84 !important;
+  border-color: #ff8c84 !important;
+}
+.v-application .error--text.text--lighten-2 {
+  color: #ff8c84 !important;
+  caret-color: #ff8c84 !important;
+}
+.v-application .error.lighten-1 {
+  background-color: #ff6f6a !important;
+  border-color: #ff6f6a !important;
+}
+.v-application .error--text.text--lighten-1 {
+  color: #ff6f6a !important;
+  caret-color: #ff6f6a !important;
+}
+.v-application .error.darken-1 {
+  background-color: #df323b !important;
+  border-color: #df323b !important;
+}
+.v-application .error--text.text--darken-1 {
+  color: #df323b !important;
+  caret-color: #df323b !important;
+}
+.v-application .error.darken-2 {
+  background-color: #bf0025 !important;
+  border-color: #bf0025 !important;
+}
+.v-application .error--text.text--darken-2 {
+  color: #bf0025 !important;
+  caret-color: #bf0025 !important;
+}
+.v-application .error.darken-3 {
+  background-color: #9f0010 !important;
+  border-color: #9f0010 !important;
+}
+.v-application .error--text.text--darken-3 {
+  color: #9f0010 !important;
+  caret-color: #9f0010 !important;
+}
+.v-application .error.darken-4 {
+  background-color: #800000 !important;
+  border-color: #800000 !important;
+}
+.v-application .error--text.text--darken-4 {
+  color: #800000 !important;
+  caret-color: #800000 !important;
+}
+.v-application .info {
+  background-color: #2196f3 !important;
+  border-color: #2196f3 !important;
+}
+.v-application .info--text {
+  color: #2196f3 !important;
+  caret-color: #2196f3 !important;
+}
+.v-application .info.lighten-5 {
+  background-color: #d4ffff !important;
+  border-color: #d4ffff !important;
+}
+.v-application .info--text.text--lighten-5 {
+  color: #d4ffff !important;
+  caret-color: #d4ffff !important;
+}
+.v-application .info.lighten-4 {
+  background-color: #b5ffff !important;
+  border-color: #b5ffff !important;
+}
+.v-application .info--text.text--lighten-4 {
+  color: #b5ffff !important;
+  caret-color: #b5ffff !important;
+}
+.v-application .info.lighten-3 {
+  background-color: #95e8ff !important;
+  border-color: #95e8ff !important;
+}
+.v-application .info--text.text--lighten-3 {
+  color: #95e8ff !important;
+  caret-color: #95e8ff !important;
+}
+.v-application .info.lighten-2 {
+  background-color: #75ccff !important;
+  border-color: #75ccff !important;
+}
+.v-application .info--text.text--lighten-2 {
+  color: #75ccff !important;
+  caret-color: #75ccff !important;
+}
+.v-application .info.lighten-1 {
+  background-color: #51b0ff !important;
+  border-color: #51b0ff !important;
+}
+.v-application .info--text.text--lighten-1 {
+  color: #51b0ff !important;
+  caret-color: #51b0ff !important;
+}
+.v-application .info.darken-1 {
+  background-color: #007cd6 !important;
+  border-color: #007cd6 !important;
+}
+.v-application .info--text.text--darken-1 {
+  color: #007cd6 !important;
+  caret-color: #007cd6 !important;
+}
+.v-application .info.darken-2 {
+  background-color: #0064ba !important;
+  border-color: #0064ba !important;
+}
+.v-application .info--text.text--darken-2 {
+  color: #0064ba !important;
+  caret-color: #0064ba !important;
+}
+.v-application .info.darken-3 {
+  background-color: #004d9f !important;
+  border-color: #004d9f !important;
+}
+.v-application .info--text.text--darken-3 {
+  color: #004d9f !important;
+  caret-color: #004d9f !important;
+}
+.v-application .info.darken-4 {
+  background-color: #003784 !important;
+  border-color: #003784 !important;
+}
+.v-application .info--text.text--darken-4 {
+  color: #003784 !important;
+  caret-color: #003784 !important;
+}
+.v-application .success {
+  background-color: #4caf50 !important;
+  border-color: #4caf50 !important;
+}
+.v-application .success--text {
+  color: #4caf50 !important;
+  caret-color: #4caf50 !important;
+}
+.v-application .success.lighten-5 {
+  background-color: #dcffd6 !important;
+  border-color: #dcffd6 !important;
+}
+.v-application .success--text.text--lighten-5 {
+  color: #dcffd6 !important;
+  caret-color: #dcffd6 !important;
+}
+.v-application .success.lighten-4 {
+  background-color: #beffba !important;
+  border-color: #beffba !important;
+}
+.v-application .success--text.text--lighten-4 {
+  color: #beffba !important;
+  caret-color: #beffba !important;
+}
+.v-application .success.lighten-3 {
+  background-color: #a2ff9e !important;
+  border-color: #a2ff9e !important;
+}
+.v-application .success--text.text--lighten-3 {
+  color: #a2ff9e !important;
+  caret-color: #a2ff9e !important;
+}
+.v-application .success.lighten-2 {
+  background-color: #85e783 !important;
+  border-color: #85e783 !important;
+}
+.v-application .success--text.text--lighten-2 {
+  color: #85e783 !important;
+  caret-color: #85e783 !important;
+}
+.v-application .success.lighten-1 {
+  background-color: #69cb69 !important;
+  border-color: #69cb69 !important;
+}
+.v-application .success--text.text--lighten-1 {
+  color: #69cb69 !important;
+  caret-color: #69cb69 !important;
+}
+.v-application .success.darken-1 {
+  background-color: #2d9437 !important;
+  border-color: #2d9437 !important;
+}
+.v-application .success--text.text--darken-1 {
+  color: #2d9437 !important;
+  caret-color: #2d9437 !important;
+}
+.v-application .success.darken-2 {
+  background-color: #00791e !important;
+  border-color: #00791e !important;
+}
+.v-application .success--text.text--darken-2 {
+  color: #00791e !important;
+  caret-color: #00791e !important;
+}
+.v-application .success.darken-3 {
+  background-color: #006000 !important;
+  border-color: #006000 !important;
+}
+.v-application .success--text.text--darken-3 {
+  color: #006000 !important;
+  caret-color: #006000 !important;
+}
+.v-application .success.darken-4 {
+  background-color: #004700 !important;
+  border-color: #004700 !important;
+}
+.v-application .success--text.text--darken-4 {
+  color: #004700 !important;
+  caret-color: #004700 !important;
+}
+.v-application .warning {
+  background-color: #fb8c00 !important;
+  border-color: #fb8c00 !important;
+}
+.v-application .warning--text {
+  color: #fb8c00 !important;
+  caret-color: #fb8c00 !important;
+}
+.v-application .warning.lighten-5 {
+  background-color: #ffff9e !important;
+  border-color: #ffff9e !important;
+}
+.v-application .warning--text.text--lighten-5 {
+  color: #ffff9e !important;
+  caret-color: #ffff9e !important;
+}
+.v-application .warning.lighten-4 {
+  background-color: #fffb82 !important;
+  border-color: #fffb82 !important;
+}
+.v-application .warning--text.text--lighten-4 {
+  color: #fffb82 !important;
+  caret-color: #fffb82 !important;
+}
+.v-application .warning.lighten-3 {
+  background-color: #ffdf67 !important;
+  border-color: #ffdf67 !important;
+}
+.v-application .warning--text.text--lighten-3 {
+  color: #ffdf67 !important;
+  caret-color: #ffdf67 !important;
+}
+.v-application .warning.lighten-2 {
+  background-color: #ffc24b !important;
+  border-color: #ffc24b !important;
+}
+.v-application .warning--text.text--lighten-2 {
+  color: #ffc24b !important;
+  caret-color: #ffc24b !important;
+}
+.v-application .warning.lighten-1 {
+  background-color: #ffa72d !important;
+  border-color: #ffa72d !important;
+}
+.v-application .warning--text.text--lighten-1 {
+  color: #ffa72d !important;
+  caret-color: #ffa72d !important;
+}
+.v-application .warning.darken-1 {
+  background-color: #db7200 !important;
+  border-color: #db7200 !important;
+}
+.v-application .warning--text.text--darken-1 {
+  color: #db7200 !important;
+  caret-color: #db7200 !important;
+}
+.v-application .warning.darken-2 {
+  background-color: #bb5900 !important;
+  border-color: #bb5900 !important;
+}
+.v-application .warning--text.text--darken-2 {
+  color: #bb5900 !important;
+  caret-color: #bb5900 !important;
+}
+.v-application .warning.darken-3 {
+  background-color: #9d4000 !important;
+  border-color: #9d4000 !important;
+}
+.v-application .warning--text.text--darken-3 {
+  color: #9d4000 !important;
+  caret-color: #9d4000 !important;
+}
+.v-application .warning.darken-4 {
+  background-color: #802700 !important;
+  border-color: #802700 !important;
+}
+.v-application .warning--text.text--darken-4 {
+  color: #802700 !important;
+  caret-color: #802700 !important;
+}</style></head><body><noscript><strong>We're sorry but ourresearch-website-2 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div data-app="true" class="v-application v-application--is-ltr theme--light" id="app"><div class="v-application--wrap"><div role="progressbar" aria-valuemin="0" aria-valuemax="100" class="v-progress-linear v-progress-linear--fixed v-progress-linear--visible theme--light" style="height: 4px; z-index: 9999;"><div class="v-progress-linear__background primary" style="opacity: 0.3; left: 0%; width: 100%;"></div><div class="v-progress-linear__buffer"></div><div class="v-progress-linear__indeterminate v-progress-linear__indeterminate--active"><div class="v-progress-linear__indeterminate long primary"></div><div class="v-progress-linear__indeterminate short primary"></div></div></div><header class="v-sheet theme--light v-toolbar v-toolbar--absolute v-toolbar--flat v-app-bar transparent" data-booted="true" style="height: 70px; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px;"><div class="v-toolbar__content" style="height: 70px;"><a href="/" class="logo-link ml-3 router-link-active"><img src="/img/openalex-logo-icon-black-and-white.ea51cede.png" class="logo-icon mr-0 colorizable"><span class="logo-text colorizable"> OpenAlex </span></a><!----><div class="flex-grow-1"></div><div data-v-119241e9=""><div data-v-119241e9=""><button data-v-119241e9="" type="button" class="v-btn v-btn--rounded v-btn--text theme--light v-size--default"><span class="v-btn__content"> Log in </span></button><button data-v-119241e9="" type="button" class="v-btn v-btn--rounded v-btn--text theme--light v-size--default"><span class="v-btn__content"> Sign up </span></button></div><div data-v-4754668c="" data-v-119241e9="" class="v-dialog__container"><!----></div><div data-v-6abc3e6f="" data-v-119241e9="" class="v-dialog__container"><!----></div></div><div class="v-menu"><!----></div><button type="button" class="v-btn v-btn--icon v-btn--round theme--light v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-help-circle-outline theme--light"></i></span></button></div></header><div></div><main class="v-main ma-0 pb-0" data-booted="true" style="padding: 70px 0px 0px;"><div class="v-main__wrap"><div data-v-6d56f797="" class="color-2" style="min-height: 80vh;"><!----><nav data-v-37bd0ac9="" data-v-6d56f797="" class="v-navigation-drawer v-navigation-drawer--close v-navigation-drawer--fixed v-navigation-drawer--right v-navigation-drawer--temporary theme--light" data-booted="true" style="height: 100vh; top: 0px; transform: translateX(100%); width: 50%;"><div class="v-navigation-drawer__content"><div data-v-37bd0ac9="" class="v-card v-card--flat v-sheet theme--light rounded-0" style="min-height: 100px;"></div></div><div class="v-navigation-drawer__border"></div></nav></div></div></main><footer data-v-3e2a4a08="" class="v-footer site-footer v-sheet theme--light" data-booted="true" style="background-color: rgb(255, 255, 255); border-color: rgb(255, 255, 255); padding: 0px 0px 100px;"><div data-v-3e2a4a08="" class="container"><div data-v-3e2a4a08="" class="row"><div data-v-3e2a4a08="" class="col-sm-5 col-12"><div data-v-3e2a4a08=""><img data-v-3e2a4a08="" src="/img/logo-full-small.a21c0984.png" class="logo-icon mt-1 mb-2 colorizable" style="height: 25px;"></div> Made by <a data-v-3e2a4a08="" href="https://ourresearch.org">OurResearch</a> with support from <a data-v-3e2a4a08="" href="https://www.arcadiafund.org.uk/">Arcadia.</a></div><div data-v-3e2a4a08="" class="spacer"></div><div data-v-3e2a4a08="" class="col-sm-2 col-12"><div data-v-3e2a4a08="" class="mb-4">Learn</div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="https://help.openalex.org/" target="_blank"> About the data </a></div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="https://docs.openalex.org/" target="_blank"> API docs </a></div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="https://github.com/ourresearch" target="_blank"> Source Code </a></div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="OpenAlex_termsofservice.pdf" target="_blank"> Terms of Service </a></div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="OpenAlex_privacy_policy.pdf" target="_blank"> Privacy </a></div></div><div data-v-3e2a4a08="" class="col-sm-2 col-12"><div data-v-3e2a4a08="" class="mb-4">Evaluate</div><div data-v-3e2a4a08=""><a data-v-3e2a4a08="" href="/testimonials" class=""> Testimonials </a><!----></div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="https://help.openalex.org/hc/en-us/articles/27190301279127-How-does-the-coverage-of-OpenAlex-compare-to-other-databases" target="_blank"> Coverage </a></div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="https://help.openalex.org/pricing" target="_blank"> Pricing </a></div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="https://help.openalex.org/hc/en-us/articles/29039538348823-OpenAlex-in-the-News" target="_blank"> Press </a></div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="/works-citing-openalex" target="_blank"> Citations </a></div></div><div data-v-3e2a4a08="" class="col-sm-2 col-12"><div data-v-3e2a4a08="" class="mb-4">Connect</div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="https://openalex.zendesk.com/hc/requests/new" target="_blank"> Contact </a></div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="https://groups.google.com/g/openalex-users" target="_blank"> Mailing list </a></div><div data-v-3e2a4a08=""><!----><a data-v-3e2a4a08="" href="https://twitter.com/openalex_org" target="_blank"> Twitter </a></div></div></div></div></footer><div class="v-snack v-snack--bottom v-snack--has-background"><div class="v-snack__wrapper v-sheet theme--dark" style="display: none;"><div role="status" aria-live="polite" class="v-snack__content"><!---->  </div><div class="v-snack__action "><button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default v-snack__btn"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-close theme--dark"></i></span></button></div></div></div><div data-v-5f330294="" class="v-dialog__container"><!----></div><div data-v-3800d5a0="" class="v-dialog__container"><!----></div></div></div></body></html>

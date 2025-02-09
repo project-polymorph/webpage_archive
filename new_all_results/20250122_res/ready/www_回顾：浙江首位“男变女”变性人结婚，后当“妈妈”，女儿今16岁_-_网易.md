@@ -1,0 +1,53 @@
+# 浙江首位“男变女”变性人结婚，后当“妈妈”，女儿今16岁
+
+2024-07-12 00:57:30 来源: [我是斌哥哥](https://www.163.com/dy/media/T1698692868744.html) 
+
+分享至
+
+![Scan me!](data:image/png;base64,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)
+
+性别研究学者**朱迪斯·巴特勒**曾经犀利地指出：“性别不应该被解释为一种稳定的身份，或是产生各种行动的一个能动的场域；相反地，性别是在时间的过程中建立的一种脆弱的身份，通过风格/程式化而产生的。”
+
+在她看来，性别身份不是固定的，而是像水一样可以流动，**所谓“男性”和“女性”的定义，**是在文化预期上形成的，从而引导着人们行为和选择，做出符合相应性别身份所预期的举动。
+
+朱迪斯的这一观念让人们对于性别身份的探索有更多的可能性，同时，也为我们看待身边发生的各色事件提供了新的思考角度，**浙江首位变性人雷晓晨的故事，正是其中之一**。
+
+一、前卫的思想，大胆改变自身性别
+
+对于雷晓晨来说，2004年6月17日，是一个极其不平凡的日子，在这一天，他实现了毕生的梦想，**在上海第二军医大学附属长征医院进行了变性手术，**解决了自己的身份危机。
+
+在2004年，变性手术还未被大众所熟知的时候，雷晓晨的这一举动可谓惊人。
+
+要知道，当年变性手术的开展，**可是十分困难的**。
+
+首先，是技术问题，在1990年代，变性手术的成功案例还非常少，只能到个别大医院进行；
+
+其次，接受变性手术，还要完成一系列手续，除了要提供自愿声明书外，还需要当地派出所开具相关的户籍证明；
+
+最后，变性手术还需要**一笔不小的费用**。
+
+面对这重重阻碍，雷晓晨没有气馁，反倒是更加坚定了自己的决心。
+
+为了筹措手术费，他开始打工攒钱，这期间，他一直给整形医院和报社写信，向他们寻求帮助，**将性别焦虑带给自己的困惑和折磨写在纸上，**希望能够得到回复。为了顺利实施手术，他还多次前往派出所办理相关手续，不断地奔波。
+
+庆幸的是，雷晓晨的努力没有白费，他的所想所念终于被听见了。
+
+2004年，宁波协和医院的美容整形门诊部，**董事长丁芳芳**听说了雷晓晨的故事并为之锲而不舍的精神所打动。
+
+面对雷晓晨痛苦而又混乱的生活，丁芳芳决定伸出援手。她决定**自费5万元**帮助雷晓晨进行变性手术。
+
+就这样，6月17日，雷晓晨在丁芳芳的帮助下，前往了**上海第二军医大学附属长征医院**进行了变性手术。
+
+手术从早上9点开始，一直持续到下午4点，进行得非常成功，雷晓晨终于从**“他”变成了“她”。**
+
+在术后，**体贴的丁芳芳还为雷晓晨请了一个保姆**，照顾她的术后恢复。丁芳芳的慷慨无私让雷晓晨感慨道：**“如果我这辈子要感谢谁的话，那就只有丁芳芳一个人了。”**
+
+手术成功后，梦想实现的喜悦和激动让雷晓晨彻夜难眠，当看到自己的身份证上性别一栏终于是“女”后，雷晓晨更是高兴得哭了出来。
+
+看到如此激动的雷晓晨，不少人在感慨的同时也十分疑惑，雷晓晨为什么会如此执着于改变自己的性别呢？
+
+付费解锁全篇
+
+购买本篇
+
+[《购买须知》](https://www.163.com/special/0077450P/purchase_notes.html)  支付遇到问题 [提交反馈](https://www.163.com/special/0077jt/userfeedback.html)

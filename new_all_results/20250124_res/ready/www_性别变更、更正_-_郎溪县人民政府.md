@@ -1,0 +1,42 @@
+# 性别变更、更正 - 郎溪县人民政府
+
+**索引号：** 113417220032515429/202404-00046  
+**组配分类：** 性别变更、更正  
+**发布机构：** 县公安局  
+**主题分类：** 公安、安全、司法  
+**名称：** 性别变更、更正  
+**文号：** 无  
+**成文日期：** 2024-04-03  
+**发布日期：** 2024-04-03  
+
+发布时间：2024-04-03 09:24  
+来源：县公安局  
+浏览次数：1155  
+
+## 性别登记及变更
+
+第七十八条 〔性别登记及变更〕性别按照《出生医学证明》的记载，登记男或女。因实施医学变性等原因造成性别变化的，应当由本人或其监护人提交国内三级医院出具的性别鉴定证明，或者具备资格的司法鉴定机构出具的证明，向户口所在地公安派出所申报变更性别登记，公安派出所受理后，报县级公安机关审核批准后办理。
+
+### 性别变更
+
+性别变更（实施变性手术后）
+
+1. 变更人《居民户口簿》、《居民身份证》
+2. 国内三级医院出具的性别鉴定证明，或者具备资格的司法鉴定机构出具的证明。
+
+因实施医学变性等原因造成性别变化的，应当由本人或其监护人向户口所在地公安派出所申报变更性别登记，公安派出所受理后，报县级公安机关审核批准后办理。
+
+![Scan me!](data:image/png;base64,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)
+
+用微信扫描二维码分享至好友和朋友圈
+
+---
+
+主办单位：郎溪县人民政府办公室  
+网站标识码：3418210040  
+联系电话：0563-7031842  
+E-mail：langxixxb@163.com  
+版权所有：郎溪县人民政府  
+[皖ICP备07502513号-1](https://beian.miit.gov.cn/)  
+[皖公网安备 34182102000001号](http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34182102000001)  
+本站已支持IPv6访问
