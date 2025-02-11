@@ -1,0 +1,932 @@
+<html><head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <link rel="shortcut icon" href="/Content/images/ico/favicon.ico">
+            
+
+            
+        </head>
+
+        <body>
+            
+
+
+
+
+
+
+
+<style type="text/css">
+          #searchBoxWrap .tt-open:before {content: "近期浏览的主题:"; }
+
+          #searchBoxWrap .tt-label-override:before, 
+          #searchBoxWrap .tt-suggested:before {content: "推荐主题:" !important; }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--[if IE 9]> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="stylesheet" type="text/css" href="/Content/css/lte-ie-9.css">
+<![endif]-->
+
+<!--[if IE 8]> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/Content/css/material.css">
+<link rel="stylesheet" type="text/css" href="/Content/css/styles.css">
+
+<link rel="shortcut icon" href="/Content/images/ico/favicon.ico">
+<style>
+
+#alertplan{
+    color:#c50084;
+    text-align:center;
+}
+
+</style>
+<script async="" src="https://cdn.appdynamics.com/adrum-ext.0086dbec5e8a6e717bf36d3a06b62042.js"></script><script src="/Content/js/jquery.js"></script> 
+<script>  
+    langCode = 'ZH_CN';
+    searchDefaultLanguageCode =langCode;
+</script> 
+
+<script src="/Content/js/calculatorAndPatientLeaflets.js"></script> 
+<script src="/Content/js/content.js"></script> 
+<script src="/Content/js/feedback.js"></script> 
+<script src="/Content/js/login.js"></script> 
+<script src="/Content/js/main.js"></script> 
+<script src="/Content/js/material-scrolltop.js"></script> 
+<script src="/Content/js/registration.js"></script> 
+<script src="/Content/js/search_autocomplete.js"></script> 
+<script src="/Content/js/topic-nav.js"></script> 
+<script src="/Content/js/search.js"></script> 
+<script src="/Content/js/waves.js"></script> 
+<script src="/Content/js/external/adrum.js"></script> 
+<script src="/Content/js/external/cookieconsent.min.js"></script> 
+<script src="/Content/js/external/jquery.gridder.min.js"></script> 
+<script src="/Content/js/external/jquery.i18n.properties-1.0.9.js"></script> 
+<script src="/Content/js/external/jquery.placeholder.js"></script> 
+<script src="/Content/js/external/jquery.validate.min.js"></script> 
+<script src="/Content/js/external/material.js"></script> 
+<script src="/Content/js/external/material.min.js"></script> 
+<script src="/Content/js/external/project.js"></script> 
+<script src="/Content/js/external/project.min.js"></script> 
+<script src="/Content/js/external/tether.min.js"></script> 
+<script src="/Content/js/external/typeahead.bundle.js"></script> 
+<script src="/Content/js/browserupdate.js"></script> 
+<script src="/Content/js/external/bootstrap.min.js"></script> 
+ <script>  
+      $(document).ready(function() {
+          //点击关闭按钮
+          $("#poplangControl a.guanbi").click(function() {
+              $("#gray").hide();
+              $("#poplangControl").hide(); //查找ID为popup的DIV hide()隐藏
+              return;
+          });
+        
+	    var langControlCheck = '0';
+
+	    if("EN" == langControlCheck){
+	    	$("#gray").show();
+			$("#poplangControl").show(); //查找ID为popup的DIV show()显示#gray
+			tc_langControl();
+	    }else if("ZH_CN" == langControlCheck){
+	    	$("#gray").show();
+			$("#poplangControl").show(); //查找ID为popup的DIV show()显示#gray
+			tc_langControl();
+	    }else{
+	    	
+	    }
+	});
+
+      function tc_langControl() {
+          var _top = ($(window).height() - $(".popdown").height()) / 2;
+          var _left = ($(window).width() - $(".popdown").width()) / 2;
+
+          $("#poplangControl").css({
+              top: _top,
+              left: _left
+          });
+      }
+      
+    function changelang(data) {  
+        if(data.className!="selectlang"){
+        	var url = window.location.href;
+        	if(url.indexOf("/ZH_CN")!=-1){
+        		url=url.replace("/ZH_CN","/EN");
+        		langCode = 'ZH_CN';
+        	}
+        	else if(url.indexOf("/EN")!=-1){
+        		url=url.replace("/EN","/ZH_CN");
+        		langCode = 'EN';
+        	}
+        	window.location.href=url;
+        } 
+    }  
+    
+    function getfocus(data){
+    	if(data.value==""){
+    		$.post("/Search/Suggested",
+    			    {
+    		 			NUM:"10",				       
+    			    },
+    			        function(json,status)
+    			        {
+    			    		if(json!=null)
+    			    		{
+    			    			
+    			    			//var json=$.parseJSON(data_temp1);
+    			    			if(json.length>0)
+    			    			{ 
+    			    				var suggest=document.getElementById("tt-suggest");
+    			    				suggest.innerHTML="";
+    								for(t=0;t<json.length;t++)
+    								{	
+    									
+    									var a = document.createElement("a");
+    									a.setAttribute("class", "dropdown-item");
+    									a.setAttribute("href", "/topics/"+json[t].lang+"/"+json[t].xml_id);
+    									
+    									//p.setAttribute("id", json[t].position_id+"_"+json[t].id+"_"+json[t].gender); 
+    									a.innerHTML=json[t].title;
+    									
+    									var div = document.createElement("div");
+    									
+    									div.setAttribute("class", "card tt-suggestion tt-selectable");
+    									div.appendChild(a);
+    									
+    									//div.onclick=addSymptom(div);
+    									//div.live('click', addSymptom(this));
+    									
+    									suggest.appendChild(div);
+
+    									
+    									
+    									
+    									
+    								}
+    								suggest.setAttribute("class", "tt-menu tt-open");
+    								suggest.setAttribute("style", "position: absolute; top: 100%; left: 0px; z-index: 100; display: block;");
+    								
+
+    			        		}
+    			    			
+    			    		}
+    			    			
+    			    	}
+    			);
+    	}else{
+    		lostfocus(data);
+    	}
+		
+    }
+    function lostfocus(data){
+    	
+    	var suggest=document.getElementById("tt-suggest");
+    	suggest.setAttribute("class", "tt-menu");
+		suggest.setAttribute("style", "position: absolute; top: 100%; left: 0px; z-index: 100; display: none;");
+    }
+    function laglostfocus(data){
+    	window.setTimeout(function(){ lostfocus(data);},100); 
+    } 
+</script>
+
+<title>欢迎访问BMJ临床实践/BMJ Best Practice</title>
+
+
+<header id="header" role="banner">
+        <div class="bg-info text-white">    
+        </div>
+		<nav id="globalNav" class="navbar navbar-toggleable-md">
+			<div class="container">
+				<a href="/ZH_CN" class="mobLogo"><span class="remove"><abbr>BMJ</abbr>
+						Best Practice</span></a>
+				<div id="navbarNav" class="collapse navbar-collapse">
+					<ul id="globalNav-ul" class="navbar-nav" role="menubar">
+						<li id="globalNav-access" class="nav-item" role="presentation">
+							<span class="nav-link">访问权限提供方：</span>
+						</li>
+                             
+                 					
+                 					<li id="globalNav-account" class="nav-item dropdown" role="menuitem">
+                 						<a href="#" class="nav-link " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                 						   <span></span>
+                 					       <!-- <span>当前语言为：中文</span> -->
+                 					    </a>
+                 					</li>
+                 					
+                 					
+
+														
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div id="mainSearch" class="container">
+			<div class="row">
+				<div class="col-lg-7">
+					<div class="logo-img-china">
+						<a href="/index/ZH_CN"><span class="remove"><abbr title="British Medical Journal">BMJ</abbr> Best Practice</span></a>
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<form id="searchBoxForm" action="/search/ZH_CN" role="search" method="get" novalidate="novalidate">
+						<div class="input-group">
+							<div id="searchBoxWrap">
+								<span class="twitter-typeahead" style="position: relative; display: inline-block;"><span class="twitter-typeahead" style="position: relative; display: inline-block;"><span class="twitter-typeahead" style="position: relative; display: inline-block;"><input id="q" type="text" name="q" onblur="laglostfocus(this);" onfocus="getfocus(this);" placeholder="检索疾病、症状..." value="" class="tt-input" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"><div class="tt-dataset tt-dataset-0"></div></div></span><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"><div class="tt-dataset tt-dataset-0"></div></div></span>
+									<pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: sans-serif;
+									 font-size: 25.6px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; 
+									 text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+									<div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;" id="tt-suggest">
+										<div class="tt-dataset tt-dataset-0">
+											<div class="card tt-suggestion tt-selectable">
+											</div>
+										</div>
+									</div></span>
+								<button id="mainSearchBtn" type="submit">
+									<span class="material-icons"></span>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<nav id="mainNav" class="navbar navbar-toggleable-md" role="navigation">
+			<div class="container">
+				<div id="mainNavbarNav">
+				
+					<ul class="navbar-nav" role="menubar">
+						<li class="nav-item main" role="menuitem"><a class="nav-link" href="/recentupdates/ZH_CN"><span class="icon icon-bp-icons-recent-updates"></span><span> 近期更新</span></a></li>
+									
+						<li class="nav-item main" role="menuitem"><a class="nav-link" href="/specialties/ZH_CN"><span class="icon icon-bp-icons-specialties"></span><span>学科</span></a></li>
+								
+						<li class="nav-item main" role="menuitem"><a class="nav-link" href="/calculators/ZH_CN"><span class="icon icon-bp-icons-calculators"></span><span>医学计算器</span></a></li>
+																	
+						<li class="nav-item main" role="menuitem"><a class="nav-link" href="/procedural-videos/ZH_CN"><span class="icon icon-bp-icons-procedural-videos"></span><span>视频</span></a></li>
+									
+						<li class="nav-item main" role="menuitem"><a class="nav-link" href="/ZH_CN/evidence"><span class="icon icon-bp-icons-evidence"></span><span>证据</span></a></li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+</header>
+
+
+            <main id="tmp" class="container tmp tmp-basic" role="main">
+                
+
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="/Content/css/material.css">
+<link rel="stylesheet" type="text/css" href="/Content/css/styles.css">
+<link rel="shortcut icon" href="/Content/images/ico/favicon.ico">
+<title>BMJ Best Practice</title>
+
+
+
+
+<div id="topicNav" class="container">
+	    <script type="text/javascript">
+	        lang = 'ZH_CN';
+	        langCode = 'ZH_CN';
+	        topicId = '992';
+		    id = '992';
+
+	    </script>
+		<div id="topicMenuTopBg" style="height: 110px;"></div>
+
+		<div id="topicMenuTopWrap" style="height: 110px;">
+			<div id="topicMenuTop" style="height: 110px;">
+				<h1>性别焦虑</h1>
+				
+				<div id="mobileMenu" class="mUp">
+					<a href="#" role="button"> <span><span class="material-icons"></span>菜单 </span> <span><span class="material-icons"></span> 关闭</span>
+					</a>
+				</div>
+
+				<ul id="menuLinks" role="menu">
+				
+							<li>
+							    <a href="#smenu-0" aria-owns="menu-0" }="">
+							    概述<span class="material-icons"></span><span class="material-icons"></span></a></li>
+				
+							<li>
+							    <a href="#smenu-1" aria-owns="menu-1" }="">
+							    基础知识<span class="material-icons"></span><span class="material-icons"></span></a></li>
+				
+							<li>
+							    <a href="#smenu-2" aria-owns="menu-2" }="">
+							    诊断<span class="material-icons"></span><span class="material-icons"></span></a></li>
+				
+							<li>
+							    <a href="#smenu-3" aria-owns="menu-3" }="">
+							    治疗<span class="material-icons"></span><span class="material-icons"></span></a></li>
+				
+							<li>
+							    <a href="#smenu-4" aria-owns="menu-4" }="">
+							    随访<span class="material-icons"></span><span class="material-icons"></span></a></li>
+				
+							<li>
+							    <a href="#smenu-5" aria-owns="menu-5" }="">
+							    资源<span class="material-icons"></span><span class="material-icons"></span></a></li>
+				
+				</ul>
+			</div>
+		</div>
+
+		<div id="topicMenuBottomWrap" style="height: 208px;">
+			<nav id="topicMenuBottom" class="mUp" role="navigation" style="height: 208px;">
+				<ul id="menus" role="menubar">
+					
+                        <li><a href="#" class="parent"><span>概述</span><span class="material-icons"></span><span class="material-icons"></span></a>
+                        	<ul role="menu" id="menu-0">
+                        	
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992">
+                                                小结</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	
+							</ul>
+                        </li>
+				    
+                        <li><a href="#" class="parent"><span>基础知识</span><span class="material-icons"></span><span class="material-icons"></span></a>
+                        	<ul role="menu" id="menu-1">
+                        	
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/epidemiology">
+                                                流行病学</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                <!--如果 --> 
+                                                <li><a href="/topics/ZH_CN/992/aetiology" class="active">
+                                                病因学</a></li>
+                                                  
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/case-history">
+                                                案例</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	
+							</ul>
+                        </li>
+				    
+                        <li><a href="#" class="parent"><span>诊断</span><span class="material-icons"></span><span class="material-icons"></span></a>
+                        	<ul role="menu" id="menu-2">
+                        	
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/diagnosis-approach">
+                                                诊断步骤</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/history-exam">
+                                                病史和查体</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/investigations">
+                                                检查</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/differentials">
+                                                鉴别诊断 </a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/criteria">
+                                                诊断标准</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/screening">
+                                                筛查</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	
+							</ul>
+                        </li>
+				    
+                        <li><a href="#" class="parent"><span>治疗</span><span class="material-icons"></span><span class="material-icons"></span></a>
+                        	<ul role="menu" id="menu-3">
+                        	
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/management-approach">
+                                                治疗步骤</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/treatment-algorithm">
+                                                治疗流程</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/emergingtxs">
+                                                新兴疗法</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/prevention">
+                                                预防</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/patient-discussions">
+                                                患者指导</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	
+							</ul>
+                        </li>
+				    
+                        <li><a href="#" class="parent"><span>随访</span><span class="material-icons"></span><span class="material-icons"></span></a>
+                        	<ul role="menu" id="menu-4">
+                        	
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/monitoring">
+                                                监测</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/complications">
+                                                并发症</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/prognosis">
+                                                预后</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	
+							</ul>
+                        </li>
+				    
+                        <li><a href="#" class="parent"><span>资源</span><span class="material-icons"></span><span class="material-icons"></span></a>
+                        	<ul role="menu" id="menu-5">
+                        	
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/guidelines">
+                                                指南</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	        
+                        	             
+                                                  
+                                              <!--否则 -->    
+                                                <li><a href="/topics/ZH_CN/992/references">
+                                                参考文献</a></li>
+                                             
+                                        
+                        	        
+                        	    
+                        	
+							</ul>
+                        </li>
+				    
+				  <!-- 
+					<li class="mpdf"><a href="/topics/en-gb/1117/pdf/1117.pdf" target="_blank"><span class="icon icon-bp-icons-pdf-extra-small-on-white"></span> <span>View
+								PDF</span></a></li>
+				  -->
+
+				</ul>
+			</nav>
+		</div>
+		</div>
+
+
+
+                
+                
+                
+                    <h2>
+                        病因学
+                    </h2>
+                    <div class="card">
+                        <div class="card-block">
+                            <p class="w-75">尚不清楚引起性别认同障碍的原因。首先，对该病病因的假设着眼于精神因素，且主要从精神层面进行剖析。<span class="reference"><a href="#referencePop8" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[8]</a><span class="citationText" aria-hidden="true">Money J, Ehrhardt AA. Man and woman, boy and girl: differentiation and dimorphism of gender identity from conception to maturity. Baltimore, MD: Johns Hopkins University Press; 1973.</span></span>但在过去几十年中，已有证据表明该病的病因是多方面的，其中生物因素的重要性正在上升。<span class="reference"><a href="#referencePop9" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[9]</a><span class="citationText" aria-hidden="true">Swaab DF, Chung WC, Kruijver FP, et al. Sex differences in the human hypothalamus in the different stages of human life. Neurobiol Aging. 2003 May-Jun;24(Suppl 1):S1-S16.</span><span class="referenceUniqueId" aria-hidden="true">http://www.ncbi.nlm.nih.gov/pubmed/12829102?tool=bestpractice.com</span></span></p><p class="w-75">已知在患有 Klinefelter 综合征的患者中，出现性别认同障碍的比例正在增加。<span class="reference"><a href="#referencePop10" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[10]</a><span class="citationText" aria-hidden="true">Diamond M, Watson LA. Androgen insensitivity syndrome and Kleinfelter's syndrome: sex and gender considerations. Child Adolesc Psychiatr Clin N Am. 2004 Jul;13(3):623-40.</span><span class="referenceUniqueId" aria-hidden="true">http://www.ncbi.nlm.nih.gov/pubmed/15183377?tool=bestpractice.com</span></span>还已知和普通人群相比，具有性别认同障碍的男性更有可能是左利手。<span class="reference"><a href="#referencePop11" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[11]</a><span class="citationText" aria-hidden="true">Cohen-Kettenis PT, van Goozen SH, Doorn C, et al. Cognitive ability and cerebral lateralization in transsexuals. Psychoneuroendocrinology. 1998 Aug;23(6):631-41.</span><span class="referenceUniqueId" aria-hidden="true">http://www.ncbi.nlm.nih.gov/pubmed/9802133?tool=bestpractice.com</span></span>家谱显示相对来说患者的舅舅较少，而且这些患者很可能是家族中出生较晚的男性。<span class="reference"><a href="#referencePop12" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[12]</a><span class="citationText" aria-hidden="true">Green R, Keverne EB. The disparate maternal aunt-uncle ratio in male transexuals: an explanation involving genomic imprinting. J Theor Biol. 2000 Jan 7;202(1):55-63.</span><span class="referenceUniqueId" aria-hidden="true">http://www.ncbi.nlm.nih.gov/pubmed/10623499?tool=bestpractice.com</span></span>从这些发现推断出一项假设，认为在这些家庭中，女性怀孕时对 Y 染色体产生免疫反应，且该反应会随着连续怀上男性胎儿次数的增加而增强。</p><p class="w-75">一些观察结果表明，具有性别认同障碍的儿童和成人比一般人群更容易存在自闭症谱系障碍 (ASD) 的特征。在一个性别门诊中，那些接受治疗的患者出现符合 ASD 临床诊断的自闭症特征的比例为 5.5%，相比之下，普通人群中被诊断为 ASD 的比例仅为 0.5%~2.0%。<span class="reference"><a href="#referencePop13" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[13]</a><span class="citationText" aria-hidden="true">Pasterski V, Gilligan L, Curtis R.  Traits of autism spectrum disorders in adults with gender dysphoria. Arch Sex Behav. 2014 Feb;43(2):387-93.</span><span class="referenceUniqueId" aria-hidden="true">http://www.ncbi.nlm.nih.gov/pubmed/23864402?tool=bestpractice.com</span></span></p>
+                            <!-- Classifications section-->
+                        </div>
+                    </div>
+                
+                
+                    <h2>
+                        病理生理学
+                    </h2>
+                    <div class="card">
+                        <div class="card-block">
+
+                            <p class="w-75">一般情况下，性别认同障碍患者的神经和生理功能似乎与一般人群相同。</p><p class="w-75">但看来在这个人群中的确有较高比例的非右利手，以及较高比例的 Asperger 综合征患者和具有 Asperger 综合征特征的患者。一项小型研究显示，大脑终纹床核的大小与患者对自身性别的感觉一致，而并非与患者的生理性别一致。<span class="reference"><a href="#referencePop14" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[14]</a><span class="citationText" aria-hidden="true">Le Vay S. The sexual brain. Boston, MA: MIT Press;1993.</span></span>另一项研究显示，出生时为女性的变性者在接受激素治疗之前白质发生改变，与男性类似。<span class="reference"><a href="#referencePop15" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[15]</a><span class="citationText" aria-hidden="true">Rametti G, Carrillo B, Gómez-Gil E et al. The microstructure of white matter in male to female transsexuals before cross-sex hormonal treatment. A DTI study. J Psychiatr Res. 2011 Jul;45(7):949-54.</span><span class="referenceUniqueId" aria-hidden="true">http://www.ncbi.nlm.nih.gov/pubmed/21195418?tool=bestpractice.com</span></span></p><p class="w-75">在患有 Klinefelter 综合征、部分性雄激素不敏感综合征<span class="reference"><a href="#referencePop16" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[16]</a><span class="citationText" aria-hidden="true">Peterson RE, Imparato-McGinley J, Gautier T, et al. Male pseudohermaphroditism due to steroid 5 alpha reductase deficiency. Am J Med. 1977 Feb;62(2):170-91.</span><span class="referenceUniqueId" aria-hidden="true">http://www.ncbi.nlm.nih.gov/pubmed/835597?tool=bestpractice.com</span></span>以及先天性肾上腺增生症的患者中具有性别认同不安感的人略多。<span class="reference"><a href="#referencePop17" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[17]</a><span class="citationText" aria-hidden="true">Meyer-Bahlburg HF. Hormones and psychosexual differentiation: implications for the management of intersexuality, homosexuality and transsexuality. Clin Endocrinol Metab. 1982 Nov;11(3):681-701.</span><span class="referenceUniqueId" aria-hidden="true">http://www.ncbi.nlm.nih.gov/pubmed/7139993?tool=bestpractice.com</span></span><span class="reference"><a href="#referencePop18" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[18]</a><span class="citationText" aria-hidden="true">Dittmann RW, Kappes MH, Kappes ME, et al. Congenital adrenal hyperplasia II: gender-related behavior and attitudes in female salt-wasting and simple virilizing patients. Psychoneuroendocrinology. 1990;15(5-6):421-34.</span><span class="referenceUniqueId" aria-hidden="true">http://www.ncbi.nlm.nih.gov/pubmed/2101964?tool=bestpractice.com</span></span><span class="reference"><a href="#referencePop19" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[19]</a><span class="citationText" aria-hidden="true">Dittmann RW, Kappes MH, Kappes ME, et al. Gender related behavior and attitudes in female patients and sisters. Psychoneuroendocrinology. 1990;15(5-6):401-20.</span><span class="referenceUniqueId" aria-hidden="true">http://www.ncbi.nlm.nih.gov/pubmed/2101963?tool=bestpractice.com</span></span>在这些情况下，应诊断为性别焦虑（其他方面未特指），而非易性癖，因为诊断后者需要排除任何内分泌或染色体异常。管理方式与易性癖相同。</p>
+
+                            <!-- Classifications section-->
+                        </div>
+                    </div>
+                
+                
+                    <h2>
+                        分类
+                    </h2>
+                   <div class="card">
+                    <div class="card-block">
+                    
+                    <h3>疾病与健康相关问题的国际统计分类 (ICD-10)<span class="reference"><a href="#referencePop3" data-trigger="click focus" data-toggle="popover" class="referencePop" data-original-title="" title="">[3]</a><span class="citationText" aria-hidden="true">World Health Organization. International statistical classification of diseases and health related problems (ICD). 10th revision. 2016 [Internet publication].</span><span class="citationFullTextUrl" aria-hidden="true">http://apps.who.int/classifications/icd10/</span></span></h3>
+                   	<p class="w-75">双重角色异装癖</p><ul class="w-75"><li><p class="w-75">部分时间穿着异性的服装以享受作为异性的暂时经历，但没有更永久的渴望。穿着异性服装时不伴有性兴奋，通过这一点可与恋物性异装癖进行区别。</p></li></ul><p class="w-75">易性癖</p><ul class="w-75"><li><p class="w-75">渴望作为异性的身份生活和被接受，通常伴有对自身解剖学性别的不适感。该渴望应至少持续 2 年，而且不是另一种精神障碍的症状或与任何两性畸形、遗传或性染色体异常有关。</p></li></ul><p class="w-75">儿童性别焦虑</p><ul class="w-75"><li><p class="w-75">对出生性别产生持续和强烈的苦恼，并希望成为异性。当作为男性或女性的正常感觉出现极大障碍时方可作出诊断。进入青春期后，不应作出该诊断。</p></li></ul>
+                    
+                    <h3>易性癖（非正式分类）</h3>
+                   	<p class="w-75">原发性易性癖</p><ul class="w-75"><li><p class="w-75">根据在儿童时期具有性别焦虑的既往史，以及终生被同性吸引的病史作出诊断。</p></li></ul><p class="w-75">继发性易性癖</p><ul class="w-75"><li><p class="w-75">根据男异性恋双重角色异装癖、女性化的男同性恋、男性化的女同性恋或自我暗示女性化癖等既往史作出诊断。</p></li></ul>
+                    
+                    </div>
+                    </div>
+                
+                     <div class="card-block disclaimer">
+ 				        <p><span>使用此内容应接受我们的<a href="/ZH_CN/disdisclaimer">免责声明</a>。</span></p>
+                    </div>
+                
+                
+                
+            
+            </main>
+            
+    
+    
+    
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+    
+    <aside id="panel-nhs" class="card-block">
+        <div id="access" class="col-sm-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>访问权限提供方：</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="/Content/images/bmjLogo.png">
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <nav class="col-md-9" role="navigation">
+                    <div class="row">
+                        <dl class="col-md-4" role="menu">
+                            <dt>浏览</dt>
+                            <dd>
+                                <a href="/index/ZH_CN">
+                                    首页
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="/recentupdates/ZH_CN#npce">
+                                    近期更新
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="/specialties/ZH_CN">
+                                    学科
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="/calculators/ZH_CN">
+                                    医学计算器
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="/procedural-videos/ZH_CN">
+                                    视频
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="/ZH_CN/evidence">
+                                    证据
+                                </a>
+                            </dd>
+
+                        </dl>
+
+                        <!-- logged-in individual or institutional user -->
+                        <dl class="col-md-4" role="menu">
+                            <dt>服务</dt>
+                            <dd>
+                                <a href="/ZH_CN/getting-started/">
+                                    使用入门
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="/ZH_CN/faq/">
+                                    常见问题解答
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="/ZH_CN/contact-us/">
+                                    联系我们
+                                </a>
+                            </dd>
+                        </dl>
+
+
+                        <!-- unknown user -->
+
+                        <!--institutional user not logged in-->
+
+
+                        <dl class="col-md-4" role="menu">
+                            <dt>法律条款</dt>
+                            <dd>
+                                <a href="/ZH_CN/disdisclaimer/" target="_blank">
+                                    免责声明
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="/Content/pdf/ZH_CN/Website-Terms-and-Conditions-translated.pdf" target="_blank">
+                                    条款和条件
+                                </a>
+                            </dd>
+                            <dd>
+                                <a href="/Content/pdf/ZH_CN/Privacy-and-Cookie-Policy-translated.pdf" target="_blank">
+                                    保密和隐私政策
+                                </a>
+                            </dd>
+                        </dl>
+
+                    </div>
+                    <!-- row -->
+                </nav>
+
+                <div class="col-md-3" align="center">
+                        <img src="/Content/images/code.jpg" style="width:95px;heigh:95px;">
+                    <p class="copyright" style="margin-top: 1rem;">
+                        <small>© BMJ Publishing Group 2018</small>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </footer>
+    <div class="container modal-registration-form" aria-hidden="true">
+      <div id="feedBackBtn"> 
+       <p role="button" align="center"><a href="#">
+           <span class="material-icons"></span>&nbsp;&nbsp;&nbsp;反馈&nbsp;&nbsp;&nbsp;</a></p> 
+      </div>
+    </div>
+    <div id="gray"></div>
+    
+    <div class="popup" id="popup" style="height: 355px; top: 383.5px; left: 166.5px;">
+		<div class="top_nav" id="top_nav" style="width: auto;border: 0;" align="left">
+				<span style="color:#000000;text-align:left;"><h3>帮助我们改进BMJ临床实践</h3></span> <a class="guanbi"></a>
+		</div>
+		<div class="min" style="color:#3C3C3C;">
+			<div class="tc_login" style="width: auto; position: absolute;height: 280px;">
+				<div class="left" style="float: left;">
+					<div id="feedbackContent" align="center" style="color:#3C3C3C;">
+						<p style="text-align:justify;">BMJ临床实践的持续改进离不开您的帮助和反馈。如果您发现任何功能问题和内容错误，或您对BMJ临床实践有任何疑问或建议，请您扫描右侧二维码并根据页面指导填写您的反馈和联系信息*。一旦您的建议在我们核实后被采纳，您将会收到一份小礼品。</p>
+						<p style="text-align: left;">如果您有紧急问题需要我们帮助，请您联系我们。</p>
+						
+						<p style="text-align: left;color:#3C3C3C;">邮箱：bmjchina.support@bmj.com<br>
+						电话：+86 10 64100686-612</p>
+						<p style="text-align: left;color:#3C3C3C;">
+							<small style="color:#3C3C3C;">*您的联系信息仅会用于我们与您确认反馈信息和礼品事宜。</small>
+						</p>
+					</div>
+
+				</div>
+
+				<div class="right" style="position:relative;right: 0xp;text-align:center;margin-left:20px;" align="center">
+					<img src="/Content/images/feedbackcode.png" style="width: 140px; heigh: 140px;margin-top: 25px;margin-left: 35px;margin-bottom: 10px;">
+
+					<p style="color:#000000;width:200px;">
+
+						BMJ临床实践官方反馈平台
+					</p>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	
+<div class="popdown" id="poplangControl">
+	<div class="top_navdown" id="top_langControl" align="center">
+		<div>
+			<a class="guanbi"></a>
+		</div>
+	</div>
+    <div class="min" style="color:#3C3C3C;" align="center">
+		<div class="tc_poplangControl" style="width: auto;">
+			<p id="langControlplan">您没有英文内容的访问权限，如有此需求请联系我们。</p>
+		</div>
+    </div>
+</div>
+
+	<script type="text/javascript">
+        //窗口效果
+        //点击登录class为tc 显示
+        $("#feedBackBtn a").click(function() {
+            $("#gray").show();
+            $("#popup").show(); //查找ID为popup的DIV show()显示#gray
+            tc_center();
+        });
+        //点击关闭按钮
+        $("a.guanbi").click(function() {
+            $("#gray").hide();
+            $("#popup").hide(); //查找ID为popup的DIV hide()隐藏
+        })
+
+        //窗口水平居中
+        $(window).resize(function() {
+            tc_center();
+        });
+
+        function tc_center() {
+            var _top = ($(window).height() - $(".popup").height()) / 2;
+            var _left = ($(window).width() - $(".popup").width()) / 2;
+
+            $(".popup").css({
+                top: _top,
+                left: _left
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+	    var test = window.location.pathname;
+
+        $(document).ready(function() {
+			$.post("/log",
+				    {
+			 			url:test,				       
+				    },function(json,status){}
+				);
+            $(".top_nav").mousedown(function(e) {
+                $(this).css("cursor", "move"); //改变鼠标指针的形状 
+                var offset = $(this).offset(); //DIV在页面的位置 
+                var x = e.pageX - offset.left; //获得鼠标指针离DIV元素左边界的距离 
+                var y = e.pageY - offset.top; //获得鼠标指针离DIV元素上边界的距离 
+                $(document).bind("mousemove", function(ev) { //绑定鼠标的移动事件，因为光标在DIV元素外面也要有效果，所以要用doucment的事件，而不用DIV元素的事件 
+                    $(".popup").stop(); //加上这个之后 
+                    var _x = ev.pageX - x; //获得X轴方向移动的值 
+                    var _y = ev.pageY - y; //获得Y轴方向移动的值 
+
+                    $(".popup").animate({
+                        left: _x + "px",
+                        top: _y + "px"
+                    }, 10);
+                });
+
+            });
+
+            $(document).mouseup(function() {
+                $(".popup").css("cursor", "default");
+                $(this).unbind("mousemove");
+            });
+        })
+    </script>
+
+        
+             <style type="text/css">
+                .tmp .card-block>ul, .tmp .card-block>section>ul {
+                    padding: 0;
+                } 
+                @media (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm)
+                    .tmp .card-block ul {
+                    margin-left: 5px;
+                }
+                .tmp .card-block>ul li, .tmp .card-block>section>ul li {
+                    margin: 0 0 0.8rem 0;
+                }      
+                .tmp .card-block ul>li {
+                   padding: 0;
+                }         
+                .tmp .card-block ul {
+                     margin-left: 5px;
+                }
+                .tmp .card-block ul.w-75 ul.w-75{
+                    width: 100% !important;
+                    margin-left: 35px;
+                }
+                
+                .tmp .card-block li>p.w-75+p.w-75 {
+                    display: inline-block;
+                    margin-top: 0.5rem;
+                }
+                .tmp .card-block ul.w-75 ul.w-75, .tmp .card-block ul.w-75>li>p.w-75 {
+                     width: 100% !important;
+                }
+            </style>
+        
+        
+        </body></html>

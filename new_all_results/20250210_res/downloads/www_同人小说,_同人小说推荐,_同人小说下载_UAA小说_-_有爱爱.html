@@ -1,0 +1,2266 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN"><head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/image/apple-touch-icon.webp">
+    <title>同人小说, 同人小说推荐, 同人小说下载 | UAA小说</title>
+    <meta name="keywords" content="同人小说,同人小说推荐,同人小说下载,同人改编">
+    <meta name="description" content="同人小说, 同人改编小说在线阅读 - UAA小说, 每日更新, 小说题材丰富多样, 聚集众多原创作者, 让您告别书荒!">
+    <meta property="og:url" content="https://www.uaa.com">
+    <meta property="og:site_name" content="有爱爱">
+    <meta property="og:title" content="想爱爱就上有爱爱">
+    <meta property="og:description" content="有爱爱，想爱爱就上有爱爱。有爱爱为您提供优质的成人内容与极致的阅读体验。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:image:alt" content="uaa.com｜有爱爱，想爱爱就上有爱爱">
+    <meta name="twitter:title" content="uaa.com｜有爱爱，想爱爱就上有爱爱">
+    <meta name="twitter:description" content="有爱爱，想爱爱就上有爱爱。有爱爱为您提供优质的成人内容与极致的阅读体验。">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uaamedia">
+    <meta name="twitter:creator" content="@uaamedia">
+    <link href="/css/main.css?v=202312021440" rel="stylesheet" type="text/css" media="all">
+    <link href="/css/index.css?v=202312021440" rel="stylesheet" type="text/css">
+    <link href="/css/list.css?v=202312021440" rel="stylesheet" type="text/css">
+    <link href="/css/novel.css?v=202312021440" rel="stylesheet" type="text/css">
+    <link href="/css/shield_tag.css?v=202312021440" rel="stylesheet" type="text/css">
+    <link href="/css/toastr.min.css" rel="stylesheet" type="text/css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/validator.min.js"></script>
+    <script src="/js/pubsub.js"></script>
+    <script src="/js/toastr.min.js"></script>
+    <script src="/js/store2.min.js"></script>
+    <script src="/js/template-web.js"></script>
+    <script src="/js/common.js?v=202312021440"></script>
+    <script src="/js/list.js?v=202312021440"></script>
+</head>
+
+<body>
+<!-- 首页头部开始 -->
+<div class="head_box">
+    <div class="content_box">
+        <div class="logo_box">
+            <div class="toggle_menu_box">
+                <img class="menu_btn" src="/image/menu.svg" onclick="toggleMenu('')">
+            </div>
+            <a href="/" title="首页"><img src="/image/logo.webp"></a>
+            <span>·</span>
+            <a href="https://www.uaa.com">
+                有爱爱
+            </a>
+        </div>
+            <form class="search_box" action="/novel/list">
+                    <input name="searchType" type="hidden" value="1">
+                    <div class="search_type" onclick="changeSearchType(this)">
+                            智能
+                    </div>
+                <img class="search_icon" src="/image/search_icon.svg" alt="搜索" onclick="showSearch()">
+                <div id="search_close" class="close" onclick="clearKeyword()">
+                    <img src="/image/search_close_icon.svg" alt="关闭">
+                </div>
+                        <input placeholder="搜索小说作品" name="keyword" value="" onfocus="showClose(this)">
+            </form>
+        <div class="center_box">
+                <div class="enroll_box"><a onclick="publish({code: 2})">注册</a><b>|</b><a onclick="publish({code: 1})">登录</a>
+                </div>
+                <div class="user_box"><img src="/image/user_icon.svg" onclick="publish({code: 1})"></div>
+        </div>
+    </div>
+<div class="menu_box hide">
+    <div class="menu_item">
+        <div class="caption_box">
+            <img src="/image/novel_menu.svg">
+            <a href="/novel">小说</a>
+        </div>
+        <div class="links_box">
+            <a class="highlight" href="/novel/list">全部小说</a>
+            <a href="/novel/rank?type=1">排行榜</a>
+            <a href="/novel/list?category=都市">都市</a>
+            <a href="/novel/list?category=校园">校园</a>
+            <a href="/novel/list?category=乱伦">乱伦</a>
+            <a href="/novel/list?category=玄幻">玄幻</a>
+            <a href="/novel/list?category=系统">系统</a>
+            <a href="/novel/list?category=穿越">穿越</a>
+            <a href="/novel/list?category=武侠">武侠</a>
+            <a href="/novel/list?category=奇幻">奇幻</a>
+            <a href="/novel/list?category=乡村">乡村</a>
+            <a href="/novel/list?category=历史">历史</a>
+            <a href="/novel/list?category=明星">明星</a>
+            <a href="/novel/list?category=科幻">科幻</a>
+            <a href="/novel/list?category=同人">同人</a>
+        </div>
+    </div>
+    <div class="menu_item">
+        <div class="caption_box">
+            <img src="/image/video_menu.svg">
+            <a href="/video">视频</a>
+        </div>
+        <div class="links_box">
+            <a class="highlight" href="/video/list">全部视频</a>
+            <a href="/video/rank?type=1">排行榜</a>
+            <a href="/actress">AV女优</a>
+            <a href="/authors">片商排行</a>
+            <a href="/chinese-av-porn">国产视频</a>
+            <a href="/jav">日本AV</a>
+            <a href="/video/list?category=无码流出&amp;origin=2">无码流出</a>
+            <a href="/video/list?origin=3">H动漫</a>
+            <a href="/video/list?category=里番">里番</a>
+            <a href="/video/list?category=泡面番">泡面番</a>
+
+        </div>
+    </div>
+    <div class="menu_item">
+        <div class="caption_box">
+            <img src="/image/comic_menu.svg">
+            <a href="/comic">禁漫</a>
+        </div>
+        <div class="links_box">
+            <a class="highlight" href="/comic/list">全部禁漫</a>
+            <a href="/comic/rank?type=1">排行榜</a>
+            <a href="/comic/japanese">日漫</a>
+            <a href="/comic/korean">韩漫</a>
+            <a href="/comic/list?category=单本&amp;origin=1">单本</a>
+            <a href="/comic/list?category=同人&amp;origin=1">同人</a>
+            <a href="/comic/list?category=乱伦&amp;origin=2">乱伦</a>
+            <a href="/comic/list?category=调教&amp;origin=2">调教</a>
+            <a href="/comic/list?category=短篇&amp;origin=1">短篇</a>
+            <a href="/comic/list?category=剧情&amp;origin=2">剧情</a>
+            <a href="/comic/list?category=校园&amp;origin=2">校园</a>
+            <a href="/comic/list?category=爱情&amp;origin=2">爱情</a>
+            <a href="/comic/list?category=BL&amp;origin=2">BL</a>
+            <a href="/comic/list?category=奇幻&amp;origin=2">奇幻</a>
+        </div>
+    </div>
+    <div class="menu_item">
+        <div class="caption_box">
+            <img src="/image/audio_menu.svg">
+            <a href="/audio">有声</a>
+        </div>
+        <div class="links_box">
+            <a class="highlight" href="/audio/list">全部有声</a>
+            <a href="/audio/rank?type=1">排行榜</a>
+            <a href="/cvs">全部CV</a>
+            <a href="/audio/list?category=有声小说">有声小说</a>
+            <a href="/audio/list?category=激情骚麦">激情骚麦</a>
+            <a href="/audio/list?category=寸止训练">寸止训练</a>
+            <a href="/audio/list?category=ASMR">ASMR</a>
+        </div>
+    </div>
+    <div class="menu_item">
+        <div class="caption_box">
+            <img src="/image/live_menu.svg">
+            <a href="https://live.uaa.com/" target="_blank" rel="nofollow">直播</a>
+        </div>
+        <div class="links_box">
+            <a class="highlight" href="https://live.uaa.com/" rel="nofollow" target="_blank">全部直播</a>
+            <a href="https://zh.stripchat.com/become-a-model?realDomain=go.xxxvjmp.com&amp;referrer=https%3A%2F%2Fzh.live.uaa.com%2F&amp;sourceId=live.uaa.com&amp;stripbotVariation=NullWidget" rel="nofollow" target="_blank">主播入驻</a>
+            <a href="https://stripcash.com/sign-up/uaaus" target="_blank" rel="nofollow">代理加盟</a>
+        </div>
+    </div>
+    <div class="menu_item">
+        <div class="caption_box">
+            <!-- <img src="image/live_menu.svg" /> -->
+            <span>更多</span>
+        </div>
+        <div class="links_box">
+            <a class="highlight" href="/">返回首页</a>
+            <a href="/vpn">VPN推荐</a>
+            <a href="https://uaadizhi.com" target="_blank" rel="nofollow">回家的路</a>
+        </div>
+    </div>
+    <div style="height: 10rem"></div>
+</div>    <div class="head_menu_box">
+        <div class="item"><a href="/">首页</a>
+        </div>
+        <div class="active">
+            <div class="parent_link" onclick="toggleItemMenu(this, '')">小说<img src="/image/arrow_down.svg"></div>
+            <div class="item_menu_box hide">
+                <div><a class="item_link" href="/novel">小说首页</a></div>
+                <div><a class="item_link" href="/novel/list">全部小说</a></div>
+                <div><a class="item_link" href="/novel/rank">小说排行榜</a></div>
+                <div><a class="item_link" href="/novel/hot">热门小说</a></div>
+                <div><a class="item_link" href="/novel/new">最新上架小说</a></div>
+                <div><a class="item_link" href="/novel/update">最新更新小说</a></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="parent_link" onclick="toggleItemMenu(this, '')">视频<img src="/image/arrow_down.svg"></div>
+            <div class="item_menu_box hide">
+                <div><a class="item_link" href="/video">视频首页</a></div>
+                <div><a class="item_link" href="/video/list">全部视频</a></div>
+                <div><a class="item_link" href="/video/rank">视频排行榜</a></div>
+                <div><a class="item_link" href="/actress">女优排行榜</a></div>
+                <div><a class="item_link" href="/authors">片商排行榜</a></div>
+                <div><a class="item_link" href="/video/91porn">91视频</a></div>
+                <div><a class="item_link" href="/video/new">最新上架视频</a></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="parent_link" onclick="toggleItemMenu(this, '')">禁漫<img src="/image/arrow_down.svg"></div>
+            <div class="item_menu_box hide">
+                <div><a class="item_link" href="/comic">禁漫首页</a></div>
+                <div><a class="item_link" href="/comic/list">全部禁漫</a></div>
+                <div><a class="item_link" href="/comic/rank">禁漫排行榜</a></div>
+                <div><a class="item_link" href="/comic/hot">热门禁漫</a></div>
+                <div><a class="item_link" href="/comic/new">最新上架禁漫</a></div>
+                <div><a class="item_link" href="/comic/update">最新更新禁漫</a></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="parent_link" onclick="toggleItemMenu(this, '')">有声<img src="/image/arrow_down.svg"></div>
+            <div class="item_menu_box hide">
+                <div><a class="item_link" href="/audio">有声首页</a></div>
+                <div><a class="item_link" href="/audio/list">全部有声</a></div>
+                <div><a class="item_link" href="/audio/rank">有声排行榜</a></div>
+                <div><a class="item_link" href="/cvs">全部CV</a></div>
+                <div><a class="item_link" href="/audio/hot">热门有声</a></div>
+                <div><a class="item_link" href="/audio/new">最新上架有声</a></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="parent_link" onclick="toggleItemMenu(this, '')">直播<img src="/image/arrow_down.svg"></div>
+            <div class="item_menu_box hide">
+                <div><a class="item_link" href="https://live.uaa.com/" rel="nofollow" target="_blank">全部直播</a></div>
+                <div><a class="item_link" href="https://zh.stripchat.com/become-a-model?realDomain=go.xxxvjmp.com&amp;referrer=https%3A%2F%2Fzh.live.uaa.com%2F&amp;sourceId=live.uaa.com&amp;stripbotVariation=NullWidget" rel="nofollow" target="_blank">主播入驻</a></div>
+                <div><a class="item_link" href="https://stripcash.com/sign-up/uaaus" rel="nofollow" target="_blank">代理加盟</a></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="main_box">
+
+    <!-- 广告开始 -->
+<div class="shortcut_box">
+        <div class="shortcut_item">
+        <div>
+                <div class="icon_bg">
+                    <a href="https://afd.fwrxzkvp.cc/chan/GS0161/a8HTT" target="_blank" rel="nofollow">
+                        <img class="shortcut_icon" src="https://cdn.uaa010.com/file/bucket-media/image/icon/c4798990a7464a82a5aef863e78eae35.gif">
+                    </a>
+                </div>
+                <a href="https://afd.fwrxzkvp.cc/chan/GS0161/a8HTT" target="_blank" rel="nofollow">TikTok成人版</a>
+        </div>
+    </div>
+    <div class="shortcut_item">
+        <div>
+                <div class="icon_bg">
+                    <a href="https://2e106.soqpmnq.com/chan/GS0056/pzZn" target="_blank" rel="nofollow">
+                        <img class="shortcut_icon" src="https://cdn.uaa010.com/file/bucket-media/image/icon/16e91b8e64104574b3a7fe279935334f.gif">
+                    </a>
+                </div>
+                <a href="https://2e106.soqpmnq.com/chan/GS0056/pzZn" target="_blank" rel="nofollow">PornHub</a>
+        </div>
+    </div>
+    <div class="shortcut_item">
+        <div>
+                <div class="icon_bg">
+                    <a href="https://4c3.rkeiarif.com/aff-b9sFJ" target="_blank" rel="nofollow">
+                        <img class="shortcut_icon" src="https://cdn.uaa010.com/file/bucket-media/image/icon/404ccfe0ba304b19bda7ca74c3bbda28.gif">
+                    </a>
+                </div>
+                <a href="https://4c3.rkeiarif.com/aff-b9sFJ" target="_blank" rel="nofollow">海角乱伦社区</a>
+        </div>
+    </div>
+    <div class="shortcut_item">
+        <div>
+                <div class="icon_bg">
+                    <a href="https://05867.ylqrhaov.com/?code=aTD3G&amp;c=15512" target="_blank" rel="nofollow">
+                        <img class="shortcut_icon" src="https://cdn.uaa010.com/file/bucket-media/image/icon/2c8740fe4bd14b69a399960e9ae08a5a.gif">
+                    </a>
+                </div>
+                <a href="https://05867.ylqrhaov.com/?code=aTD3G&amp;c=15512" target="_blank" rel="nofollow">51动漫</a>
+        </div>
+    </div>
+</div>    <!-- 广告结束 -->
+
+    <!-- 面包屑开始 -->
+    <div class="crumbs_box">
+        <a href="/">首页</a>
+        <img src="/image/crumb_split.svg">
+        <a href="/novel">有爱爱小说</a>
+        <img src="/image/crumb_split.svg">
+        <a class="current" href="#">全部小说</a>
+    </div>
+    <!-- 面包屑结束 -->
+
+    <!-- 筛选开始 -->
+    <div class="filter_box">
+        <div class="search_option_box hide">
+            <div class="search_item">
+                <a class="label" href="/novel/list?keyword=&amp;searchType=1&amp;searchType=1&amp;author=&amp;category=&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">全部题材</a>
+                <ul>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=都市&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">都市</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=校园&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">校园</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=乱伦&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">乱伦</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=玄幻&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">玄幻</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=系统&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">系统</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=穿越&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">穿越</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=武侠&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">武侠</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=奇幻&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">奇幻</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=乡村&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">乡村</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=历史&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">历史</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=明星&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">明星</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=科幻&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">科幻</a>
+                        </li>
+                        <li class="active">
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">同人</a>
+                        </li>
+                </ul>
+            </div>
+            <div class="search_item">
+                <a class="label" href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">全部状态</a>
+                <ul>
+                    <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=1&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">已完结</a>
+                    </li>
+                    <li>
+                        <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=0&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">连载中</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="search_item">
+                <a class="label" href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">全部篇幅</a>
+                <ul>
+                    <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=1&amp;source=2&amp;tag=性转&amp;sort=3">短篇小说（小于10万字）</a>
+                    </li>
+                    <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=2&amp;source=2&amp;tag=性转&amp;sort=3">中篇小说（10-100万字）</a>
+                    </li>
+                    <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=3&amp;source=2&amp;tag=性转&amp;sort=3">长篇小说（大于100万字）</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="search_item">
+                <a class="label" href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=&amp;tag=性转&amp;sort=3">全部来源</a>
+                <ul>
+                    <li>
+                        <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=1&amp;tag=性转&amp;sort=3">原创首发</a>
+                    </li>
+                    <li class="active">
+                        <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">会员上传</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="search_item">
+                    <div>
+                        <a class="label" href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=&amp;sort=3">全部标签</a>
+                        <a class="tag_intro" href="/novel/tags" target="_blank">标签说明</a>
+                    </div>
+                <ul class="">
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=1v1&amp;sort=3">1v1</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=BE&amp;sort=3">BE</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=Futa&amp;sort=3">Futa</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=HE&amp;sort=3">HE</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=NP&amp;sort=3">NP</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=NTL&amp;sort=3">NTL</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=NTR&amp;sort=3">NTR</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=SC&amp;sort=3">SC</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=SM&amp;sort=3">SM</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=暗黑&amp;sort=3">暗黑</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=白虎&amp;sort=3">白虎</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=百合&amp;sort=3">百合</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=暴虐&amp;sort=3">暴虐</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=病娇&amp;sort=3">病娇</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=产奶&amp;sort=3">产奶</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=痴女&amp;sort=3">痴女</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=出轨&amp;sort=3">出轨</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=触手&amp;sort=3">触手</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=纯爱&amp;sort=3">纯爱</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=粗口&amp;sort=3">粗口</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=催眠&amp;sort=3">催眠</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=耽美&amp;sort=3">耽美</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=道具&amp;sort=3">道具</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=调教&amp;sort=3">调教</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=反差&amp;sort=3">反差</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=父女&amp;sort=3">父女</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=复仇&amp;sort=3">复仇</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=改造&amp;sort=3">改造</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=搞笑&amp;sort=3">搞笑</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=公媳&amp;sort=3">公媳</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=骨科&amp;sort=3">骨科</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=官场&amp;sort=3">官场</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=好文笔&amp;sort=3">好文笔</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=红帽&amp;sort=3">红帽</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=后宫&amp;sort=3">后宫</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=监禁&amp;sort=3">监禁</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=交换伴侣&amp;sort=3">交换伴侣</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=姐妹花&amp;sort=3">姐妹花</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=经典&amp;sort=3">经典</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=剧情&amp;sort=3">剧情</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=快穿&amp;sort=3">快穿</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=捆绑&amp;sort=3">捆绑</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=浪漫&amp;sort=3">浪漫</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=恋足&amp;sort=3">恋足</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=猎艳&amp;sort=3">猎艳</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=灵异&amp;sort=3">灵异</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=凌辱&amp;sort=3">凌辱</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=露出&amp;sort=3">露出</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=绿母&amp;sort=3">绿母</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=绿奴&amp;sort=3">绿奴</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=萝莉&amp;sort=3">萝莉</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=媚黑&amp;sort=3">媚黑</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=末世&amp;sort=3">末世</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=母女花&amp;sort=3">母女花</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=母子&amp;sort=3">母子</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=目前犯&amp;sort=3">目前犯</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=逆NTR&amp;sort=3">逆NTR</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=逆推&amp;sort=3">逆推</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=女性视角&amp;sort=3">女性视角</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=虐心&amp;sort=3">虐心</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=破处&amp;sort=3">破处</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=强奸&amp;sort=3">强奸</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=全家桶&amp;sort=3">全家桶</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=群交&amp;sort=3">群交</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=人妻&amp;sort=3">人妻</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=人兽&amp;sort=3">人兽</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=人妖&amp;sort=3">人妖</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=肉便器&amp;sort=3">肉便器</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=适合女生&amp;sort=3">适合女生</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=手枪文&amp;sort=3">手枪文</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=受孕&amp;sort=3">受孕</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=熟女&amp;sort=3">熟女</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=爽文&amp;sort=3">爽文</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=丝袜&amp;sort=3">丝袜</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=甜文&amp;sort=3">甜文</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=微肉&amp;sort=3">微肉</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=微重口&amp;sort=3">微重口</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=伪娘&amp;sort=3">伪娘</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=无绿&amp;sort=3">无绿</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=下克上&amp;sort=3">下克上</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=小马拉大车&amp;sort=3">小马拉大车</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=校花&amp;sort=3">校花</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性奴&amp;sort=3">性奴</a>
+                        </li>
+                        <li class="active">
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3">性转</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=药物&amp;sort=3">药物</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=异国&amp;sort=3">异国</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=异世界&amp;sort=3">异世界</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=异种族&amp;sort=3">异种族</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=淫堕&amp;sort=3">淫堕</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=淫妻&amp;sort=3">淫妻</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=隐奸&amp;sort=3">隐奸</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=有父&amp;sort=3">有父</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=榨精&amp;sort=3">榨精</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=制服&amp;sort=3">制服</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=种马&amp;sort=3">种马</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=重口&amp;sort=3">重口</a>
+                        </li>
+                        <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=足交&amp;sort=3">足交</a>
+                        </li>
+                </ul>
+            </div>
+                <div class="search_item">
+                    <span class="label">多选标签</span>
+                    <ul>
+                            <li>
+                                性转
+                            </li>
+                    </ul>
+                    <img class="edit_shield_icon" src="/image/edit_icon.svg" onclick="toggleMultipleTag()">
+                </div>
+                <div class="search_item">
+                    <span class="label">屏蔽标签</span>
+                    <ul>
+                    </ul>
+                    <img class="edit_shield_icon" src="/image/edit_icon.svg" onclick="toggleShieldTag()">
+                </div>
+            <div class="pull_back_box"><span onclick="toggleSearchBar()">收起</span></div>
+        </div>
+            <div class="filter_option_box">
+                <div class="search_box" onclick="toggleSearchBar()">
+                        <img src="/image/filter.svg">
+                        <span>筛选（22）</span>
+                </div>
+                <ul class="sort_box">
+                    <li>
+                    </li>
+                    <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=2">更新</a>
+                    </li>
+                    <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=-3">观看</a>
+                            <img src="/image/down.svg">
+                    </li>
+                    <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=4">收藏</a>
+                    </li>
+                    <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=5">评分</a>
+                    </li>
+                    <li>
+                            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=6">肉量</a>
+                    </li>
+                </ul>
+            </div>
+    </div>
+    <!-- 筛选结束 -->
+
+    <!-- 列表开始 -->
+    <div class="novel_list_box">
+        <ul>
+<li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">完结</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=961781452687675392" title="综漫之鼠">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/89b13bd81777470d946b819a63b635b3.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=961781452687675392" title="综漫之鼠">综漫之鼠</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=知足常乐">知足常乐</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>7.71</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+                    <a href="/novel/list?category=穿越">穿越</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=人兽"><b>#</b>人兽</a>
+                    <a href="/novel/list?tag=伪娘"><b>#</b>伪娘</a>
+                    <a href="/novel/list?tag=后宫"><b>#</b>后宫</a>
+                    <a href="/novel/list?tag=群交"><b>#</b>群交</a>
+                    <a href="/novel/list?tag=重口"><b>#</b>重口</a>
+                    <a href="/novel/list?tag=性奴"><b>#</b>性奴</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+                    <a href="/novel/list?tag=异种族"><b>#</b>异种族</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第350章 脑洞</span>（11个月前）
+            </div>
+            <div class="other_box">
+                <span>217K观看</span>
+                <span>900K字</span>
+                <span>20.67%(中肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=902796164989063168" title="无限之淫神的诅咒">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/bee5fcdc8d4f4e408d72a97836ff3014.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=902796164989063168" title="无限之淫神的诅咒">无限之淫神的诅咒</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=abc123421">abc123421</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>7.33</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=重口"><b>#</b>重口</a>
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=凌辱"><b>#</b>凌辱</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">番外：淫狱迷宫（十）</span>（1年前）
+            </div>
+            <div class="other_box">
+                <span>54.4K观看</span>
+                <span>440K字</span>
+                <span>44.86%(多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=895141400679682048" title="最强魔法少女灌满白浊精液堕落受孕生活">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/86015e32d7c34d46a15e4e692262618b.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=895141400679682048" title="最强魔法少女灌满白浊精液堕落受孕生活">最强魔法少女灌满白浊精液堕落受孕生活</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=水少多文酱">水少多文酱</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>10.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+                    <a href="/novel/list?tag=受孕"><b>#</b>受孕</a>
+                    <a href="/novel/list?tag=群交"><b>#</b>群交</a>
+                    <a href="/novel/list?tag=女性视角"><b>#</b>女性视角</a>
+                    <a href="/novel/list?tag=制服"><b>#</b>制服</a>
+                    <a href="/novel/list?tag=丝袜"><b>#</b>丝袜</a>
+                    <a href="/novel/list?tag=淫堕"><b>#</b>淫堕</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第6章 最强魔法少女才不会才不会如同飞机杯般被肏到高潮失神！魔法少女常识修改到自愿献身的催眠生活！</span>（11个月前）
+            </div>
+            <div class="other_box">
+                <span>27.5K观看</span>
+                <span>168K字</span>
+                <span>52.12%(多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=11303274" title="超级淫乱变身美少女">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/662.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=11303274" title="超级淫乱变身美少女">超级淫乱变身美少女</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=fcatym">fcatym</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>10.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=穿越">穿越</a>
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+                    <a href="/novel/list?tag=女性视角"><b>#</b>女性视角</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第23章</span>（2年前）
+            </div>
+            <div class="other_box">
+                <span>19.2K观看</span>
+                <span>104K字</span>
+                <span>29.55%(中肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1083499775023779840" title="人在柯学">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/3cfd9a89e5114ad5b0ddf922f0abe887.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1083499775023779840" title="人在柯学">人在柯学</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=因为兴趣而已">因为兴趣而已</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>10.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=都市">都市</a>
+                    <a href="/novel/list?category=同人">同人</a>
+                    <a href="/novel/list?category=穿越">穿越</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=剧情"><b>#</b>剧情</a>
+                    <a href="/novel/list?tag=榨精"><b>#</b>榨精</a>
+                    <a href="/novel/list?tag=熟女"><b>#</b>熟女</a>
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=凌辱"><b>#</b>凌辱</a>
+                    <a href="/novel/list?tag=丝袜"><b>#</b>丝袜</a>
+                    <a href="/novel/list?tag=制服"><b>#</b>制服</a>
+                    <a href="/novel/list?tag=NTL"><b>#</b>NTL</a>
+                    <a href="/novel/list?tag=人妻"><b>#</b>人妻</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第8章 婊子配狗天长地久</span>（1周前）
+            </div>
+            <div class="other_box">
+                <span>16.8K观看</span>
+                <span>22.4K字</span>
+                <span>64.54%(超多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=11305270" title="穿越碧蓝航线的我变成美少女指挥官">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/3729.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=11305270" title="穿越碧蓝航线的我变成美少女指挥官">穿越碧蓝航线的我变成美少女指挥官</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=眼镜莉莉艾">眼镜莉莉艾</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>6.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+                    <a href="/novel/list?category=穿越">穿越</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+                    <a href="/novel/list?tag=异世界"><b>#</b>异世界</a>
+                    <a href="/novel/list?tag=淫妻"><b>#</b>淫妻</a>
+                    <a href="/novel/list?tag=NTR"><b>#</b>NTR</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第18章 指挥官的过夜</span>（2年前）
+            </div>
+            <div class="other_box">
+                <span>13.3K观看</span>
+                <span>51.5K字</span>
+                <span>57.90%(多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">完结</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=995760957189918720" title="用大肉棒对傲娇仙人进行人格修正">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/016c249c203c421587d9629b30d3e1f2.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=995760957189918720" title="用大肉棒对傲娇仙人进行人格修正">用大肉棒对傲娇仙人进行人格修正</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=Daiakko">Daiakko</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>10.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=反差"><b>#</b>反差</a>
+                    <a href="/novel/list?tag=手枪文"><b>#</b>手枪文</a>
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=异世界"><b>#</b>异世界</a>
+                    <a href="/novel/list?tag=痴女"><b>#</b>痴女</a>
+                    <a href="/novel/list?tag=肉便器"><b>#</b>肉便器</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+                    <a href="/novel/list?tag=无绿"><b>#</b>无绿</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">全1章</span>（8个月前）
+            </div>
+            <div class="other_box">
+                <span>10.8K观看</span>
+                <span>23.3K字</span>
+                <span>76.40%(超多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=916901678257672192" title="圣斗士性转同人">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/102b6782f0114fc6aadddd7c6e69a723.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=916901678257672192" title="圣斗士性转同人">圣斗士性转同人</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=motaee">motaee</a>
+            </div>
+            <div class="score_box">
+                    <span>暂无评分</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=捆绑"><b>#</b>捆绑</a>
+                    <a href="/novel/list?tag=凌辱"><b>#</b>凌辱</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+                    <a href="/novel/list?tag=后宫"><b>#</b>后宫</a>
+                    <a href="/novel/list?tag=灵异"><b>#</b>灵异</a>
+                    <a href="/novel/list?tag=爽文"><b>#</b>爽文</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第33章分支结局--无尽欲望之主</span>（3个月前）
+            </div>
+            <div class="other_box">
+                <span>8.08K观看</span>
+                <span>674K字</span>
+                <span>39.82%(中肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=11306062" title="桐人的DSO">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/860086730630500352.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=11306062" title="桐人的DSO">桐人的DSO</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=122h">122h</a>
+            </div>
+            <div class="score_box">
+                    <span>暂无评分</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=系统">系统</a>
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=性奴"><b>#</b>性奴</a>
+                    <a href="/novel/list?tag=淫堕"><b>#</b>淫堕</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第21章 棋子的派对</span>（2年前）
+            </div>
+            <div class="other_box">
+                <span>7.31K观看</span>
+                <span>197K字</span>
+                <span>43.51%(多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=11304825" title="屌丝白领穿越成黄色游戏女主角">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/1820.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=11304825" title="屌丝白领穿越成黄色游戏女主角">屌丝白领穿越成黄色游戏女主角</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=czwuliao">czwuliao</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>10.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+                    <a href="/novel/list?category=穿越">穿越</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=强奸"><b>#</b>强奸</a>
+                    <a href="/novel/list?tag=爽文"><b>#</b>爽文</a>
+                    <a href="/novel/list?tag=猎艳"><b>#</b>猎艳</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第6章</span>（2年前）
+            </div>
+            <div class="other_box">
+                <span>6.75K观看</span>
+                <span>21.7K字</span>
+                <span>38.39%(中肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">完结</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1081403344196603904" title="因为受不了舰娘榨取所以被迫换位体验的指挥官">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/db3c0417874a43379d3fb78573b6c120.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1081403344196603904" title="因为受不了舰娘榨取所以被迫换位体验的指挥官">因为受不了舰娘榨取所以被迫换位体验的指挥官</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=自然的曲调">自然的曲调</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>10.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+                    <a href="/novel/list?category=奇幻">奇幻</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=剧情"><b>#</b>剧情</a>
+                    <a href="/novel/list?tag=后宫"><b>#</b>后宫</a>
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=丝袜"><b>#</b>丝袜</a>
+                    <a href="/novel/list?tag=性奴"><b>#</b>性奴</a>
+                    <a href="/novel/list?tag=制服"><b>#</b>制服</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+                    <a href="/novel/list?tag=榨精"><b>#</b>榨精</a>
+                    <a href="/novel/list?tag=肉便器"><b>#</b>肉便器</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">间章：为防止指挥官同志异想天开，港区经过研究决定以下内容</span>（2周前）
+            </div>
+            <div class="other_box">
+                <span>4.06K观看</span>
+                <span>60.5K字</span>
+                <span>23.08%(中肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">完结</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1072669072010907648" title="巨乳异瞳美少女魅魔不会梦到羞涩内向小正太主人">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/ecc4b336a1b7424988bbd175c019e7b5.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1072669072010907648" title="巨乳异瞳美少女魅魔不会梦到羞涩内向小正太主人">巨乳异瞳美少女魅魔不会梦到羞涩内向小正太主人</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=星宫六喰">星宫六喰</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>10.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=都市">都市</a>
+                    <a href="/novel/list?category=同人">同人</a>
+                    <a href="/novel/list?category=奇幻">奇幻</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=剧情"><b>#</b>剧情</a>
+                    <a href="/novel/list?tag=纯爱"><b>#</b>纯爱</a>
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=小马拉大车"><b>#</b>小马拉大车</a>
+                    <a href="/novel/list?tag=丝袜"><b>#</b>丝袜</a>
+                    <a href="/novel/list?tag=制服"><b>#</b>制服</a>
+                    <a href="/novel/list?tag=榨精"><b>#</b>榨精</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第4章 魅魔姐姐只想和主人一起做H的事，但是……你管这叫约会？</span>（1个月前）
+            </div>
+            <div class="other_box">
+                <span>3.30K观看</span>
+                <span>94.6K字</span>
+                <span>45.98%(多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">完结</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1053414896068333568" title="天下布武-英灵召唤系统">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/353e38adfe9d4222a035659984ba0571.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1053414896068333568" title="天下布武-英灵召唤系统">天下布武-英灵召唤系统</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=江弥弥">江弥弥</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>10.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=破处"><b>#</b>破处</a>
+                    <a href="/novel/list?tag=丝袜"><b>#</b>丝袜</a>
+                    <a href="/novel/list?tag=露出"><b>#</b>露出</a>
+                    <a href="/novel/list?tag=性奴"><b>#</b>性奴</a>
+                    <a href="/novel/list?tag=制服"><b>#</b>制服</a>
+                    <a href="/novel/list?tag=催眠"><b>#</b>催眠</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+                    <a href="/novel/list?tag=剧情"><b>#</b>剧情</a>
+                    <a href="/novel/list?tag=目前犯"><b>#</b>目前犯</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">番外：BE 颜凝恶堕于伯爵之手，全员沦为母狗肉便器</span>（3个月前）
+            </div>
+            <div class="other_box">
+                <span>2.88K观看</span>
+                <span>201K字</span>
+                <span>57.84%(多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1046205726504128512" title="海贼之变身op">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/16fab287e2ff4708a03abc99d55a42bd.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1046205726504128512" title="海贼之变身op">海贼之变身op</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=三好">三好</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>2.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=剧情"><b>#</b>剧情</a>
+                    <a href="/novel/list?tag=熟女"><b>#</b>熟女</a>
+                    <a href="/novel/list?tag=丝袜"><b>#</b>丝袜</a>
+                    <a href="/novel/list?tag=制服"><b>#</b>制服</a>
+                    <a href="/novel/list?tag=道具"><b>#</b>道具</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">番外：黑暗降临</span>（3个月前）
+            </div>
+            <div class="other_box">
+                <span>2.74K观看</span>
+                <span>37.9K字</span>
+                <span>20.49%(中肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1044397808792244224" title="淫乱的女干员们">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/eecdcf5c95e74de0b29784ad69fd2eca.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1044397808792244224" title="淫乱的女干员们">淫乱的女干员们</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=黑眼圈">黑眼圈</a>
+            </div>
+            <div class="score_box">
+                    <span>暂无评分</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=痴女"><b>#</b>痴女</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+                    <a href="/novel/list?tag=白虎"><b>#</b>白虎</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">全1章</span>（3个月前）
+            </div>
+            <div class="other_box">
+                <span>2.04K观看</span>
+                <span>41.3K字</span>
+                <span>80.56%(超多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1066105525747453952" title="遭受邪魔污染的黍将坍缩魔爪伸向岁家姐妹，为救国穿上ts蓬乳黑胶紧身衣的正太左乐雌堕记">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/6df56cb763c94620a306e8c4d9beeba6.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1066105525747453952" title="遭受邪魔污染的黍将坍缩魔爪伸向岁家姐妹，为救国穿上ts蓬乳黑胶紧身衣的正太左乐雌堕记">遭受邪魔污染的黍将坍缩魔爪伸向岁家姐妹，为救国穿上ts蓬乳黑胶紧身衣的正太左乐雌堕记</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=汐华">汐华</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>10.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=小马拉大车"><b>#</b>小马拉大车</a>
+                    <a href="/novel/list?tag=丝袜"><b>#</b>丝袜</a>
+                    <a href="/novel/list?tag=性奴"><b>#</b>性奴</a>
+                    <a href="/novel/list?tag=制服"><b>#</b>制服</a>
+                    <a href="/novel/list?tag=榨精"><b>#</b>榨精</a>
+                    <a href="/novel/list?tag=肉便器"><b>#</b>肉便器</a>
+                    <a href="/novel/list?tag=剧情"><b>#</b>剧情</a>
+                    <a href="/novel/list?tag=搞笑"><b>#</b>搞笑</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第4章 不贞者之夜</span>（1个月前）
+            </div>
+            <div class="other_box">
+                <span>2.00K观看</span>
+                <span>21.2K字</span>
+                <span>42.35%(多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1049030997733150720" title="拥有了面板修改器的扶她魔女，在大陆掀起一场淫靡恶堕的“征服之路”">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/26f7d09fe8b1448ca56ded05c9661df2.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1049030997733150720" title="拥有了面板修改器的扶她魔女，在大陆掀起一场淫靡恶堕的“征服之路”">拥有了面板修改器的扶她魔女，在大陆掀起一场淫靡恶堕的“征服之路”</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=《地狱道》当然是地狱统领写的了">《地狱道》当然是地狱统领写的了</a>
+            </div>
+            <div class="score_box">
+                    <span>暂无评分</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=反差"><b>#</b>反差</a>
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=性奴"><b>#</b>性奴</a>
+                    <a href="/novel/list?tag=Futa"><b>#</b>Futa</a>
+                    <a href="/novel/list?tag=微重口"><b>#</b>微重口</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第3章 即将和另一个帝国的王子联姻的公主，被扶她魔女进行改造后，不知道该如何面对自己下面突然长出来的扶她肉棒❤️</span>（3个月前）
+            </div>
+            <div class="other_box">
+                <span>1.98K观看</span>
+                <span>168K字</span>
+                <span>48.16%(多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">完结</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1073802156408180736" title="猫眼三姐妹同人--被凌辱的小瞳">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/788be131ab7e4445ab7d01b71ea07c8b.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1073802156408180736" title="猫眼三姐妹同人--被凌辱的小瞳">猫眼三姐妹同人--被凌辱的小瞳</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=motaee">motaee</a>
+            </div>
+            <div class="score_box">
+                    <span>暂无评分</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=都市">都市</a>
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=凌辱"><b>#</b>凌辱</a>
+                    <a href="/novel/list?tag=丝袜"><b>#</b>丝袜</a>
+                    <a href="/novel/list?tag=制服"><b>#</b>制服</a>
+                    <a href="/novel/list?tag=榨精"><b>#</b>榨精</a>
+                    <a href="/novel/list?tag=剧情"><b>#</b>剧情</a>
+                    <a href="/novel/list?tag=肉便器"><b>#</b>肉便器</a>
+                    <a href="/novel/list?tag=强奸"><b>#</b>强奸</a>
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">全1章</span>（1个月前）
+            </div>
+            <div class="other_box">
+                <span>1.76K观看</span>
+                <span>35.7K字</span>
+                <span>49.62%(多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1040034337522847744" title="火影之鸣子">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/4637d1332f47405f8a9e3bc365c4ef66.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1040034337522847744" title="火影之鸣子">火影之鸣子</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=hentaineko">hentaineko</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>10.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=剧情"><b>#</b>剧情</a>
+                    <a href="/novel/list?tag=制服"><b>#</b>制服</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">第9章 骄纵的欲望</span>（4个月前）
+            </div>
+            <div class="other_box">
+                <span>1.71K观看</span>
+                <span>20.4K字</span>
+                <span>26.16%(中肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">完结</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1041473119015014400" title="完蛋！我被德丽莎包围了">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/9716e8744f054660b13afa59a70957b8.webp">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1041473119015014400" title="完蛋！我被德丽莎包围了">完蛋！我被德丽莎包围了</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=月黑风高">月黑风高</a>
+            </div>
+            <div class="score_box">
+                    <span>暂无评分</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=丝袜"><b>#</b>丝袜</a>
+                    <a href="/novel/list?tag=药物"><b>#</b>药物</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">全1章</span>（4个月前）
+            </div>
+            <div class="other_box">
+                <span>1.63K观看</span>
+                <span>49.2K字</span>
+                <span>62.20%(超多肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">连载中</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1065385293638668288" title="变成光辉的指挥官会雌堕为人妻吗">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/6e5c0e1b55024c77a12434394af5f9ce.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1065385293638668288" title="变成光辉的指挥官会雌堕为人妻吗">变成光辉的指挥官会雌堕为人妻吗</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=奥加Orga">奥加Orga</a>
+            </div>
+            <div class="score_box">
+                    评分：<span>10.00</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                        <img class="star" src="/image/star_red.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=剧情"><b>#</b>剧情</a>
+                    <a href="/novel/list?tag=纯爱"><b>#</b>纯爱</a>
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=丝袜"><b>#</b>丝袜</a>
+                    <a href="/novel/list?tag=制服"><b>#</b>制服</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">全1章</span>（1个月前）
+            </div>
+            <div class="other_box">
+                <span>1.52K观看</span>
+                <span>65.1K字</span>
+                <span>34.28%(中肉)</span>
+            </div>
+        </div>
+    </div>
+</li><li class="novel_li_2">
+    <div class="novel_item_2">
+        <div class="cover_box_2">
+            <div class="state">完结</div>
+            <div class="cover_box">
+                <a href="/novel/intro?id=1065627539269095424" title="变成新泽西的我被指挥官下药后用肉棒征服成婚舰了">
+                    <img class="cover" src="https://cdn.uaa010.com/file/bucket-media/image/cover/171dbce700174c08a8af7361e068482c.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="brief_box_2">
+            <div class="title">
+                <a href="/novel/intro?id=1065627539269095424" title="变成新泽西的我被指挥官下药后用肉棒征服成婚舰了">变成新泽西的我被指挥官下药后用肉棒征服成婚舰了</a>
+            </div>
+            <div class="info_box">作者：
+                    <a href="/novel/list?author=奥加Orga">奥加Orga</a>
+            </div>
+            <div class="score_box">
+                    <span>暂无评分</span>
+                <div class="star_box">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                        <img class="star" src="/image/star_icon.svg">
+                </div>
+            </div>
+            <div class="info_box">题材：
+                    <a href="/novel/list?category=同人">同人</a>
+            </div>
+            <div class="info_box">标签：
+                    <a href="/novel/list?tag=剧情"><b>#</b>剧情</a>
+                    <a href="/novel/list?tag=调教"><b>#</b>调教</a>
+                    <a href="/novel/list?tag=丝袜"><b>#</b>丝袜</a>
+                    <a href="/novel/list?tag=药物"><b>#</b>药物</a>
+                    <a href="/novel/list?tag=性奴"><b>#</b>性奴</a>
+                    <a href="/novel/list?tag=制服"><b>#</b>制服</a>
+                    <a href="/novel/list?tag=榨精"><b>#</b>榨精</a>
+                    <a href="/novel/list?tag=性转"><b>#</b>性转</a>
+            </div>
+            <div class="update_state_box">
+                最新： <span class="update_desc">全1章</span>（1个月前）
+            </div>
+            <div class="other_box">
+                <span>1.40K观看</span>
+                <span>15.3K字</span>
+                <span>35.78%(中肉)</span>
+            </div>
+        </div>
+    </div>
+</li>        </ul>
+    </div>
+
+    <!-- 列表结束 -->
+
+    <!-- 推荐标签开始 -->
+    <div class="tag_box">
+        <ul>
+        </ul>
+    </div>
+    <!-- 推荐标签结束 -->
+<div class="pagination_box">
+    <div class="content_box">
+        <div class="arrow_box">
+            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3&amp;page=1" title="上一页">
+                <img src="/image/pre_page_icon.svg" alt="上一页">
+            </a>
+        </div>
+
+                <div><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3&amp;page=1" class="active">1</a></div>
+
+
+        <div class="arrow_box">
+            <a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=同人&amp;finished=&amp;space=&amp;source=2&amp;tag=性转&amp;sort=3&amp;page=1" title="下一页">
+                <img src="/image/nxt_page_icon.svg" alt="下一页">
+            </a>
+        </div>
+    </div>
+</div>    <!-- 底部广告支持 -->
+        <div class="place_holder_box">
+            <a href="https://www.gjufbg.cn/?ch=108111" target="_blank" title="广告" rel="nofollow">
+                <img src="https://cdn.uaa010.com/file/bucket-media/image/advertisement/aecbda75c303419e8d88eb17aade8e45.jpg">
+            </a>
+            <div>广告</div>
+        </div>
+    <!-- 推荐标签开始 -->
+    <div class="tag_box">
+        <ul>
+            <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=&amp;finished=&amp;space=&amp;source=&amp;tag=NTR&amp;sort=2">NTR小说</a></li>
+            <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=&amp;finished=&amp;space=&amp;source=&amp;tag=%E7%BA%AF%E7%88%B1&amp;sort=2">纯爱小说</a></li>
+            <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=&amp;finished=&amp;space=&amp;source=&amp;tag=%E8%B0%83%E6%95%99&amp;sort=2">调教小说</a></li>
+            <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=&amp;finished=&amp;space=&amp;source=&amp;tag=%E5%90%8E%E5%AE%AB&amp;sort=2">后宫小说</a></li>
+            <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=&amp;finished=&amp;space=&amp;source=&amp;tag=%E7%99%BE%E5%90%88&amp;sort=2">百合小说</a></li>
+            <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=&amp;finished=&amp;space=&amp;source=&amp;tag=%E4%BA%BA%E5%A6%BB&amp;sort=2">人妻小说</a></li>
+            <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=&amp;finished=&amp;space=&amp;source=&amp;tag=%E7%94%9C%E6%96%87&amp;sort=2">甜文</a></li>
+            <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=&amp;finished=&amp;space=&amp;source=&amp;tag=%E7%86%9F%E5%A5%B3&amp;sort=2">熟女小说</a></li>
+            <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=&amp;finished=&amp;space=&amp;source=&amp;tag=%E6%AF%8D%E5%AD%90&amp;sort=2">母子小说</a></li>
+            <li><a href="/novel/list?keyword=&amp;searchType=1&amp;author=&amp;category=&amp;finished=&amp;space=&amp;source=&amp;tag=%E9%AA%A8%E7%A7%91&amp;sort=2">骨科文</a></li>
+        </ul>
+    </div>
+    <!-- 推荐标签结束 -->
+
+    <!-- stripchat广告 -->
+
+    <div class="divider"></div>
+
+    <!-- 声明开始 -->
+<div class="main_box" style="margin-top: 0; margin-bottom: 1.6rem">
+    <div class="shortcut_box">
+    </div></div>
+<div class="note_box">
+    <p>
+        看<a href="https://www.uaa.com/video">成人视频</a>,<a href="https://uaa.live.com" target="_blank" ref="nofollow">色情直播</a>,<a href="https://www.uaa.com/comic">成人动漫</a>, <a href="https://www.uaa.com/novel">成人小说</a>, <a href="https://www.uaa.com/comic">色情漫画</a>, 听<a href="https://www.uaa.com/audio">色情有声</a>,&nbsp;上<a href="https://www.uaa.com">UAA.COM</a>, 有爱爱是体验最好的色情网站！为获得最佳显示效果，建议您使用谷歌Chrome浏览器。
+    </p>
+    <p>
+        <a class="comic" href="https://www.favcomic.com/r18">成人漫画</a><a class="comic" href="https://www.favcomic.com">喜漫漫画</a><a class="comic" href="https://www.favcomic.com/webtoon">热门韩漫</a>
+    </p>
+</div>    <!-- 声明截止 -->
+</div>
+<div class="dialog_mask"></div>
+<div class="login_box hide">
+    <div class="main_box">
+        <div class="close_box" onclick="toggleLogin()">
+            <img src="/image/dialog_close.svg" alt="关闭">
+        </div>
+        <div class="logo_box"><img src="/image/logo.webp" alt="标识"></div>
+        <form class="form_box" onsubmit="login(event, '')">
+            <div class="form_title">会员登录</div>
+            <div class="form_item">
+                <img class="icon" src="/image/username_icon.svg" alt="用户名">
+                <input name="login_name" placeholder="请输入邮箱地址">
+                <img class="option" src="/image/clear_input_icon.svg" alt="清除" onclick="clearInput('login_name')">
+            </div>
+            <div class="form_item">
+                <img class="icon" src="/image/password_icon.svg" alt="密码">
+                <input name="login_password" type="password" placeholder="密码" autocomplete="on">
+                <img class="option" src="/image/close_eye_icon.svg" alt="显示" onclick="showPassword(this,'login_password', '')">
+            </div>
+            <div class="option_box">
+                <span class="txt" onclick="(()=>{
+                    toggleLogin();
+                    publish({code: 3});
+                })()">忘记密码</span>
+                <span class="txt" onclick="(()=>{
+                    toggleLogin();
+                    publish({code: 2});
+                })()">免费注册会员&nbsp;
+                    <img src="/image/more.svg" alt="点击">
+                </span>
+            </div>
+            <div>
+                <button type="submit" class="login_btn">登录</button>
+            </div>
+        </form>
+    </div>
+</div><div class="regist_box hide">
+    <div class="main_box">
+        <div class="close_box" onclick="toggleRegist()">
+            <img src="/image/dialog_close.svg" alt="关闭按钮">
+        </div>
+        <div class="logo_box"><img src="/image/logo.webp" alt="标识"></div>
+        <form class="form_box" onsubmit="regist(event, '')" method="post">
+            <div class="form_title">注册会员</div>
+            <div class="form_item">
+                <img class="icon" src="/image/username_icon.svg" alt="用户名">
+                <input name="regist_name" placeholder="请输入邮箱地址">
+                <img class="option" src="/image/clear_input_icon.svg" alt="清除" onclick="clearInput('regist_name')">
+            </div>
+            <div class="form_item">
+                <img class="icon" src="/image/email_icon.svg" alt="验证码">
+                <input name="check_code" maxlength="6" placeholder="请输入验证码">
+                <span id="regist_code_btn" onclick="sendCode('regist_name', 'regist_code_btn', 2)">获取验证码</span>
+            </div>
+            <div class="form_item">
+                <img class="icon" src="/image/password_icon.svg" alt="密码">
+                <input name="regist_password" type="password" placeholder="请设置密码" autocomplete="on">
+                <img class="option" src="/image/close_eye_icon.svg" alt="查看密码" onclick="showPassword(this,'regist_password', '')">
+            </div>
+            <div class="form_item">
+                <img class="icon" src="/image/invent_icon.svg" alt="邀请码">
+                <input name="recommend_number" placeholder="请输入邀请码（可不填）">
+                <img class="option" src="/image/clear_input_icon.svg" alt="清除" onclick="clearInput('recommend_number')">
+            </div>
+            <div class="note_box">
+                如果加入会员，则表示您同意我们的<br>
+                <a href="/terms" target="_blank" rel="nofollow">使用条款</a>&nbsp;及&nbsp;
+                <a href="/privacy" target="_blank" rel="nofollow">隐私政策</a>
+            </div>
+            <div class="button_box">
+                <button class="regist_btn" type="submit">注册</button>
+                <div>
+                    已有账号？&nbsp; <span onclick="(()=>{
+                    toggleRegist();
+                    publish({code: 1});
+                })()">去登录</span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="forget_box hide">
+    <div class="main_box">
+        <div class="close_box" onclick="toggleForget()">
+            <img src="/image/dialog_close.svg" alt="关闭">
+        </div>
+        <div class="logo_box">
+            <img src="/image/logo.webp" alt="标识"></div>
+        <form class="form_box" onsubmit="forget(event)" method="post">
+            <div class="form_title">找回密码</div>
+            <div class="form_item">
+                <img class="icon" src="/image/username_icon.svg" alt="用户名">
+                <input name="forget_name" placeholder="请输入邮箱地址">
+                <img class="option" src="/image/clear_input_icon.svg" alt="清除" onclick="clearInput('forget_name')">
+            </div>
+            <div class="form_item">
+                <img class="icon" src="/image/email_icon.svg" alt="邮箱">
+                <input name="forget_check_code" maxlength="6" placeholder="请输入验证码">
+                <span id="forget_code_btn" onclick="sendCode('forget_name', 'forget_code_btn', 2)">获取验证码</span>
+            </div>
+            <div class="form_item">
+                <img class="icon" src="/image/password_icon.svg" alt="密码">
+                <input name="forget_password" type="password" placeholder="请设置新密码" autocomplete="on">
+                <img class="option" src="/image/close_eye_icon.svg" alt="查看密码" onclick="showPassword(this,'forget_password', '')">
+            </div>
+            <div class="form_item">
+                <img class="icon" src="/image/password_icon.svg" alt="密码">
+                <input name="forget_repassword" type="password" placeholder="请确认新密码" autocomplete="on">
+                <img class="option" src="/image/close_eye_icon.svg" alt="查看密码" onclick="showPassword(this,'forget_repassword', '')">
+            </div>
+            <div class="button_box">
+                <button class="forget_btn" type="submit">修改密码</button>
+                <div>已有账号？&nbsp; <span onclick="(()=>{
+                    toggleForget();
+                    publish({code: 1});
+                })()">去登录</span></div>
+            </div>
+        </form>
+    </div>
+</div><div class="foot_box">
+    <div class="content_box">
+        <ul class="policy_box">
+            <li><a href="/contact" rel="nofollow">联系我们</a></li>
+            <li><a href="/terms" rel="nofollow">用户条款</a></li>
+            <li><a href="/privacy" rel="nofollow">隐私协议</a></li>
+            <li><a href="/2257A" rel="nofollow">2257A</a></li>
+            <li><a href="/dmca" rel="nofollow">DMCA</a></li>
+            <li><a href="/faq" rel="nofollow">FAQ</a></li>
+        </ul>
+        <div class="slogan_box">
+            <img src="/image/logo.webp">想爱爱，就上<span>有爱爱</span>
+        </div>
+        <ul class="contact_box">
+            <li>
+                <a href="https://x.com/uaamedia" target="_blank" rel="nofollow">
+                    <img src="/image/x.svg"> @uaamedia
+                </a>
+            </li>
+            <li>
+                <a href="https://t.me/uaasupport" target="_blank" rel="nofollow">
+                    <img src="/image/telegram.svg"> @uaasupport
+                </a>
+            </li>
+            <li>
+                <a href="mailto:support@uaa.com" target="_blank" rel="nofollow">
+                    <img src="/image/email.svg"> support@uaa.com
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="copy_box">
+        Copyright © 2024 UAA.COM 保留所有权利。
+    </div>
+</div><div id="shield_tag_box" class="edit_tag_dialog_box hide">
+    <div class="close" onclick="toggleShieldTag()">
+        <img src="/image/dialog_close.svg" alt="关闭">
+    </div>
+    <form id="shied_tag_form" class="edit_tag_form_box" onsubmit="shieldTags(event)">
+        <ul>
+            <li class="title">
+                屏蔽标签
+            </li>
+            <li class="dotted">所有标签：</li>
+            <li class="tag_list_box">
+                    <span id="933881804631445504" class="" onclick="setTag(this, '933881804631445504')">1v1</span>
+                    <span id="934055024567390208" class="" onclick="setTag(this, '934055024567390208')">BE</span>
+                    <span id="934005964175183872" class="" onclick="setTag(this, '934005964175183872')">Futa</span>
+                    <span id="933237225754333184" class="" onclick="setTag(this, '933237225754333184')">HE</span>
+                    <span id="933237296239611904" class="" onclick="setTag(this, '933237296239611904')">NP</span>
+                    <span id="933237326086279168" class="" onclick="setTag(this, '933237326086279168')">NTL</span>
+                    <span id="933265467605389312" class="" onclick="setTag(this, '933265467605389312')">NTR</span>
+                    <span id="949984098586333184" class="" onclick="setTag(this, '949984098586333184')">SC</span>
+                    <span id="933237356155244544" class="" onclick="setTag(this, '933237356155244544')">SM</span>
+                    <span id="933242668811685888" class="" onclick="setTag(this, '933242668811685888')">暗黑</span>
+                    <span id="1009341130493530112" class="" onclick="setTag(this, '1009341130493530112')">白虎</span>
+                    <span id="933265302307868672" class="" onclick="setTag(this, '933265302307868672')">百合</span>
+                    <span id="938618048586321920" class="" onclick="setTag(this, '938618048586321920')">暴虐</span>
+                    <span id="933265102306676736" class="" onclick="setTag(this, '933265102306676736')">病娇</span>
+                    <span id="935375354531549184" class="" onclick="setTag(this, '935375354531549184')">产奶</span>
+                    <span id="933928331848585216" class="" onclick="setTag(this, '933928331848585216')">痴女</span>
+                    <span id="938618152533757952" class="" onclick="setTag(this, '938618152533757952')">出轨</span>
+                    <span id="933265651089412096" class="" onclick="setTag(this, '933265651089412096')">触手</span>
+                    <span id="933265401050173440" class="" onclick="setTag(this, '933265401050173440')">纯爱</span>
+                    <span id="933998004178915328" class="" onclick="setTag(this, '933998004178915328')">粗口</span>
+                    <span id="933237647458045952" class="" onclick="setTag(this, '933237647458045952')">催眠</span>
+                    <span id="933265565710159872" class="" onclick="setTag(this, '933265565710159872')">耽美</span>
+                    <span id="933997889112379392" class="" onclick="setTag(this, '933997889112379392')">道具</span>
+                    <span id="933675367099666432" class="" onclick="setTag(this, '933675367099666432')">调教</span>
+                    <span id="933238105341825024" class="" onclick="setTag(this, '933238105341825024')">反差</span>
+                    <span id="933264902460674048" class="" onclick="setTag(this, '933264902460674048')">父女</span>
+                    <span id="934046036412993536" class="" onclick="setTag(this, '934046036412993536')">复仇</span>
+                    <span id="933872633911578624" class="" onclick="setTag(this, '933872633911578624')">改造</span>
+                    <span id="933242648456728576" class="" onclick="setTag(this, '933242648456728576')">搞笑</span>
+                    <span id="934045273716559872" class="" onclick="setTag(this, '934045273716559872')">公媳</span>
+                    <span id="933237677245992960" class="" onclick="setTag(this, '933237677245992960')">骨科</span>
+                    <span id="938617839802257408" class="" onclick="setTag(this, '938617839802257408')">官场</span>
+                    <span id="933242496711004160" class="" onclick="setTag(this, '933242496711004160')">好文笔</span>
+                    <span id="1031427264048402432" class="" onclick="setTag(this, '1031427264048402432')">红帽</span>
+                    <span id="933242461889892352" class="" onclick="setTag(this, '933242461889892352')">后宫</span>
+                    <span id="933997919059709952" class="" onclick="setTag(this, '933997919059709952')">监禁</span>
+                    <span id="934043907598192640" class="" onclick="setTag(this, '934043907598192640')">交换伴侣</span>
+                    <span id="933879856524038144" class="" onclick="setTag(this, '933879856524038144')">姐妹花</span>
+                    <span id="934955790610075648" class="" onclick="setTag(this, '934955790610075648')">经典</span>
+                    <span id="933237703045156864" class="" onclick="setTag(this, '933237703045156864')">剧情</span>
+                    <span id="933242593003835392" class="" onclick="setTag(this, '933242593003835392')">快穿</span>
+                    <span id="957439000950476800" class="" onclick="setTag(this, '957439000950476800')">捆绑</span>
+                    <span id="943000221707800576" class="" onclick="setTag(this, '943000221707800576')">浪漫</span>
+                    <span id="934040515857485824" class="" onclick="setTag(this, '934040515857485824')">恋足</span>
+                    <span id="934680974942408704" class="" onclick="setTag(this, '934680974942408704')">猎艳</span>
+                    <span id="938617747259133952" class="" onclick="setTag(this, '938617747259133952')">灵异</span>
+                    <span id="933676649491337216" class="" onclick="setTag(this, '933676649491337216')">凌辱</span>
+                    <span id="933725388805378048" class="" onclick="setTag(this, '933725388805378048')">露出</span>
+                    <span id="934042437612081152" class="" onclick="setTag(this, '934042437612081152')">绿母</span>
+                    <span id="1042277257227407360" class="" onclick="setTag(this, '1042277257227407360')">绿奴</span>
+                    <span id="934043548205060096" class="" onclick="setTag(this, '934043548205060096')">萝莉</span>
+                    <span id="933925834136358912" class="" onclick="setTag(this, '933925834136358912')">媚黑</span>
+                    <span id="933242707890016256" class="" onclick="setTag(this, '933242707890016256')">末世</span>
+                    <span id="933879818653667328" class="" onclick="setTag(this, '933879818653667328')">母女花</span>
+                    <span id="933242728530186240" class="" onclick="setTag(this, '933242728530186240')">母子</span>
+                    <span id="934682990943014912" class="" onclick="setTag(this, '934682990943014912')">目前犯</span>
+                    <span id="1031430634947612672" class="" onclick="setTag(this, '1031430634947612672')">逆NTR</span>
+                    <span id="934041640656572416" class="" onclick="setTag(this, '934041640656572416')">逆推</span>
+                    <span id="933265375364255744" class="" onclick="setTag(this, '933265375364255744')">女性视角</span>
+                    <span id="933265624103260160" class="" onclick="setTag(this, '933265624103260160')">虐心</span>
+                    <span id="957858339860123648" class="" onclick="setTag(this, '957858339860123648')">破处</span>
+                    <span id="933242569306017792" class="" onclick="setTag(this, '933242569306017792')">强奸</span>
+                    <span id="934041163332194304" class="" onclick="setTag(this, '934041163332194304')">全家桶</span>
+                    <span id="933265501587640320" class="" onclick="setTag(this, '933265501587640320')">群交</span>
+                    <span id="934679638008008704" class="" onclick="setTag(this, '934679638008008704')">人妻</span>
+                    <span id="933237396705775616" class="" onclick="setTag(this, '933237396705775616')">人兽</span>
+                    <span id="934005841927999488" class="" onclick="setTag(this, '934005841927999488')">人妖</span>
+                    <span id="935375152814886912" class="" onclick="setTag(this, '935375152814886912')">肉便器</span>
+                    <span id="933265747877171200" class="" onclick="setTag(this, '933265747877171200')">适合女生</span>
+                    <span id="933242627262910464" class="" onclick="setTag(this, '933242627262910464')">手枪文</span>
+                    <span id="935375285736574976" class="" onclick="setTag(this, '935375285736574976')">受孕</span>
+                    <span id="933264857569038336" class="" onclick="setTag(this, '933264857569038336')">熟女</span>
+                    <span id="933264933217505280" class="" onclick="setTag(this, '933264933217505280')">爽文</span>
+                    <span id="933712933207281664" class="" onclick="setTag(this, '933712933207281664')">丝袜</span>
+                    <span id="933265045117341696" class="" onclick="setTag(this, '933265045117341696')">甜文</span>
+                    <span id="945130187908059136" class="" onclick="setTag(this, '945130187908059136')">微肉</span>
+                    <span id="945130263841738752" class="" onclick="setTag(this, '945130263841738752')">微重口</span>
+                    <span id="933237509993926656" class="" onclick="setTag(this, '933237509993926656')">伪娘</span>
+                    <span id="934685306962186240" class="" onclick="setTag(this, '934685306962186240')">无绿</span>
+                    <span id="1042337884474052608" class="" onclick="setTag(this, '1042337884474052608')">下克上</span>
+                    <span id="933711141014736896" class="" onclick="setTag(this, '933711141014736896')">小马拉大车</span>
+                    <span id="934783032894820352" class="" onclick="setTag(this, '934783032894820352')">校花</span>
+                    <span id="933728676082749440" class="" onclick="setTag(this, '933728676082749440')">性奴</span>
+                    <span id="934042168501342208" class="" onclick="setTag(this, '934042168501342208')">性转</span>
+                    <span id="933727077411196928" class="" onclick="setTag(this, '933727077411196928')">药物</span>
+                    <span id="933722812001161216" class="" onclick="setTag(this, '933722812001161216')">异国</span>
+                    <span id="934040363482615808" class="" onclick="setTag(this, '934040363482615808')">异世界</span>
+                    <span id="945130101589282816" class="" onclick="setTag(this, '945130101589282816')">异种族</span>
+                    <span id="933996059745718272" class="" onclick="setTag(this, '933996059745718272')">淫堕</span>
+                    <span id="944751124626411520" class="" onclick="setTag(this, '944751124626411520')">淫妻</span>
+                    <span id="966282588069171200" class="" onclick="setTag(this, '966282588069171200')">隐奸</span>
+                    <span id="1066599150184960000" class="" onclick="setTag(this, '1066599150184960000')">有父</span>
+                    <span id="935100948844515328" class="" onclick="setTag(this, '935100948844515328')">榨精</span>
+                    <span id="933924642052247552" class="" onclick="setTag(this, '933924642052247552')">制服</span>
+                    <span id="934040749241143296" class="" onclick="setTag(this, '934040749241143296')">种马</span>
+                    <span id="933265775773487104" class="" onclick="setTag(this, '933265775773487104')">重口</span>
+                    <span id="945130017283772416" class="" onclick="setTag(this, '945130017283772416')">足交</span>
+            </li>
+            <li>
+                <span>*红色为选中标签，点击取消</span>
+            </li>
+            <li>
+                <button type="submit" class="send_btn">提交</button>
+            </li>
+        </ul>
+    </form>
+</div><div id="multiple_tag_box" class="edit_tag_dialog_box hide">
+    <div class="close" onclick="toggleMultipleTag()">
+        <img src="/image/dialog_close.svg" alt="关闭">
+    </div>
+    <form id="multiple_tag_form" class="edit_tag_form_box" onsubmit="searchTags('',event)">
+        <ul>
+            <li class="title">
+                多选标签
+            </li>
+            <li class="dotted">所有标签：</li>
+            <li class="tag_list_box">
+                    <span id="933881804631445504" class="" onclick="chooseTag(this, '1v1')">1v1</span>
+                    <span id="934055024567390208" class="" onclick="chooseTag(this, 'BE')">BE</span>
+                    <span id="934005964175183872" class="" onclick="chooseTag(this, 'Futa')">Futa</span>
+                    <span id="933237225754333184" class="" onclick="chooseTag(this, 'HE')">HE</span>
+                    <span id="933237296239611904" class="" onclick="chooseTag(this, 'NP')">NP</span>
+                    <span id="933237326086279168" class="" onclick="chooseTag(this, 'NTL')">NTL</span>
+                    <span id="933265467605389312" class="" onclick="chooseTag(this, 'NTR')">NTR</span>
+                    <span id="949984098586333184" class="" onclick="chooseTag(this, 'SC')">SC</span>
+                    <span id="933237356155244544" class="" onclick="chooseTag(this, 'SM')">SM</span>
+                    <span id="933242668811685888" class="" onclick="chooseTag(this, '暗黑')">暗黑</span>
+                    <span id="1009341130493530112" class="" onclick="chooseTag(this, '白虎')">白虎</span>
+                    <span id="933265302307868672" class="" onclick="chooseTag(this, '百合')">百合</span>
+                    <span id="938618048586321920" class="" onclick="chooseTag(this, '暴虐')">暴虐</span>
+                    <span id="933265102306676736" class="" onclick="chooseTag(this, '病娇')">病娇</span>
+                    <span id="935375354531549184" class="" onclick="chooseTag(this, '产奶')">产奶</span>
+                    <span id="933928331848585216" class="" onclick="chooseTag(this, '痴女')">痴女</span>
+                    <span id="938618152533757952" class="" onclick="chooseTag(this, '出轨')">出轨</span>
+                    <span id="933265651089412096" class="" onclick="chooseTag(this, '触手')">触手</span>
+                    <span id="933265401050173440" class="" onclick="chooseTag(this, '纯爱')">纯爱</span>
+                    <span id="933998004178915328" class="" onclick="chooseTag(this, '粗口')">粗口</span>
+                    <span id="933237647458045952" class="" onclick="chooseTag(this, '催眠')">催眠</span>
+                    <span id="933265565710159872" class="" onclick="chooseTag(this, '耽美')">耽美</span>
+                    <span id="933997889112379392" class="" onclick="chooseTag(this, '道具')">道具</span>
+                    <span id="933675367099666432" class="" onclick="chooseTag(this, '调教')">调教</span>
+                    <span id="933238105341825024" class="" onclick="chooseTag(this, '反差')">反差</span>
+                    <span id="933264902460674048" class="" onclick="chooseTag(this, '父女')">父女</span>
+                    <span id="934046036412993536" class="" onclick="chooseTag(this, '复仇')">复仇</span>
+                    <span id="933872633911578624" class="" onclick="chooseTag(this, '改造')">改造</span>
+                    <span id="933242648456728576" class="" onclick="chooseTag(this, '搞笑')">搞笑</span>
+                    <span id="934045273716559872" class="" onclick="chooseTag(this, '公媳')">公媳</span>
+                    <span id="933237677245992960" class="" onclick="chooseTag(this, '骨科')">骨科</span>
+                    <span id="938617839802257408" class="" onclick="chooseTag(this, '官场')">官场</span>
+                    <span id="933242496711004160" class="" onclick="chooseTag(this, '好文笔')">好文笔</span>
+                    <span id="1031427264048402432" class="" onclick="chooseTag(this, '红帽')">红帽</span>
+                    <span id="933242461889892352" class="" onclick="chooseTag(this, '后宫')">后宫</span>
+                    <span id="933997919059709952" class="" onclick="chooseTag(this, '监禁')">监禁</span>
+                    <span id="934043907598192640" class="" onclick="chooseTag(this, '交换伴侣')">交换伴侣</span>
+                    <span id="933879856524038144" class="" onclick="chooseTag(this, '姐妹花')">姐妹花</span>
+                    <span id="934955790610075648" class="" onclick="chooseTag(this, '经典')">经典</span>
+                    <span id="933237703045156864" class="" onclick="chooseTag(this, '剧情')">剧情</span>
+                    <span id="933242593003835392" class="" onclick="chooseTag(this, '快穿')">快穿</span>
+                    <span id="957439000950476800" class="" onclick="chooseTag(this, '捆绑')">捆绑</span>
+                    <span id="943000221707800576" class="" onclick="chooseTag(this, '浪漫')">浪漫</span>
+                    <span id="934040515857485824" class="" onclick="chooseTag(this, '恋足')">恋足</span>
+                    <span id="934680974942408704" class="" onclick="chooseTag(this, '猎艳')">猎艳</span>
+                    <span id="938617747259133952" class="" onclick="chooseTag(this, '灵异')">灵异</span>
+                    <span id="933676649491337216" class="" onclick="chooseTag(this, '凌辱')">凌辱</span>
+                    <span id="933725388805378048" class="" onclick="chooseTag(this, '露出')">露出</span>
+                    <span id="934042437612081152" class="" onclick="chooseTag(this, '绿母')">绿母</span>
+                    <span id="1042277257227407360" class="" onclick="chooseTag(this, '绿奴')">绿奴</span>
+                    <span id="934043548205060096" class="" onclick="chooseTag(this, '萝莉')">萝莉</span>
+                    <span id="933925834136358912" class="" onclick="chooseTag(this, '媚黑')">媚黑</span>
+                    <span id="933242707890016256" class="" onclick="chooseTag(this, '末世')">末世</span>
+                    <span id="933879818653667328" class="" onclick="chooseTag(this, '母女花')">母女花</span>
+                    <span id="933242728530186240" class="" onclick="chooseTag(this, '母子')">母子</span>
+                    <span id="934682990943014912" class="" onclick="chooseTag(this, '目前犯')">目前犯</span>
+                    <span id="1031430634947612672" class="" onclick="chooseTag(this, '逆NTR')">逆NTR</span>
+                    <span id="934041640656572416" class="" onclick="chooseTag(this, '逆推')">逆推</span>
+                    <span id="933265375364255744" class="" onclick="chooseTag(this, '女性视角')">女性视角</span>
+                    <span id="933265624103260160" class="" onclick="chooseTag(this, '虐心')">虐心</span>
+                    <span id="957858339860123648" class="" onclick="chooseTag(this, '破处')">破处</span>
+                    <span id="933242569306017792" class="" onclick="chooseTag(this, '强奸')">强奸</span>
+                    <span id="934041163332194304" class="" onclick="chooseTag(this, '全家桶')">全家桶</span>
+                    <span id="933265501587640320" class="" onclick="chooseTag(this, '群交')">群交</span>
+                    <span id="934679638008008704" class="" onclick="chooseTag(this, '人妻')">人妻</span>
+                    <span id="933237396705775616" class="" onclick="chooseTag(this, '人兽')">人兽</span>
+                    <span id="934005841927999488" class="" onclick="chooseTag(this, '人妖')">人妖</span>
+                    <span id="935375152814886912" class="" onclick="chooseTag(this, '肉便器')">肉便器</span>
+                    <span id="933265747877171200" class="" onclick="chooseTag(this, '适合女生')">适合女生</span>
+                    <span id="933242627262910464" class="" onclick="chooseTag(this, '手枪文')">手枪文</span>
+                    <span id="935375285736574976" class="" onclick="chooseTag(this, '受孕')">受孕</span>
+                    <span id="933264857569038336" class="" onclick="chooseTag(this, '熟女')">熟女</span>
+                    <span id="933264933217505280" class="" onclick="chooseTag(this, '爽文')">爽文</span>
+                    <span id="933712933207281664" class="" onclick="chooseTag(this, '丝袜')">丝袜</span>
+                    <span id="933265045117341696" class="" onclick="chooseTag(this, '甜文')">甜文</span>
+                    <span id="945130187908059136" class="" onclick="chooseTag(this, '微肉')">微肉</span>
+                    <span id="945130263841738752" class="" onclick="chooseTag(this, '微重口')">微重口</span>
+                    <span id="933237509993926656" class="" onclick="chooseTag(this, '伪娘')">伪娘</span>
+                    <span id="934685306962186240" class="" onclick="chooseTag(this, '无绿')">无绿</span>
+                    <span id="1042337884474052608" class="" onclick="chooseTag(this, '下克上')">下克上</span>
+                    <span id="933711141014736896" class="" onclick="chooseTag(this, '小马拉大车')">小马拉大车</span>
+                    <span id="934783032894820352" class="" onclick="chooseTag(this, '校花')">校花</span>
+                    <span id="933728676082749440" class="" onclick="chooseTag(this, '性奴')">性奴</span>
+                    <span id="934042168501342208" class="select" onclick="chooseTag(this, '性转')">性转</span>
+                    <span id="933727077411196928" class="" onclick="chooseTag(this, '药物')">药物</span>
+                    <span id="933722812001161216" class="" onclick="chooseTag(this, '异国')">异国</span>
+                    <span id="934040363482615808" class="" onclick="chooseTag(this, '异世界')">异世界</span>
+                    <span id="945130101589282816" class="" onclick="chooseTag(this, '异种族')">异种族</span>
+                    <span id="933996059745718272" class="" onclick="chooseTag(this, '淫堕')">淫堕</span>
+                    <span id="944751124626411520" class="" onclick="chooseTag(this, '淫妻')">淫妻</span>
+                    <span id="966282588069171200" class="" onclick="chooseTag(this, '隐奸')">隐奸</span>
+                    <span id="1066599150184960000" class="" onclick="chooseTag(this, '有父')">有父</span>
+                    <span id="935100948844515328" class="" onclick="chooseTag(this, '榨精')">榨精</span>
+                    <span id="933924642052247552" class="" onclick="chooseTag(this, '制服')">制服</span>
+                    <span id="934040749241143296" class="" onclick="chooseTag(this, '种马')">种马</span>
+                    <span id="933265775773487104" class="" onclick="chooseTag(this, '重口')">重口</span>
+                    <span id="945130017283772416" class="" onclick="chooseTag(this, '足交')">足交</span>
+            </li>
+            <li>
+                <span>*红色为选中标签，点击取消</span>
+            </li>
+            <li>
+                <button type="submit" class="send_btn">提交</button>
+            </li>
+        </ul>
+    </form>
+</div><script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-4BC3P9JVX3');
+    window.addEventListener('load', function () {
+        let script = document.createElement('script');
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-4BC3P9JVX3";
+        document.body.appendChild(script);
+    });
+</script>
+
+
+<iframe allow="join-ad-interest-group" data-tagging-id="G-4BC3P9JVX3" data-load-time="1739286611317" height="0" width="0" src="https://td.doubleclick.net/td/ga/rul?tid=G-4BC3P9JVX3&amp;gacid=1058908686.1739286611&amp;gtm=45je5280v878058663za200&amp;dma=0&amp;gcd=13l3l3l3l1l1&amp;npa=0&amp;pscdl=noapi&amp;aip=1&amp;fledge=1&amp;frm=0&amp;tag_exp=101732282~101732284~102067808~102482433~102539968~102558064~102587591~102605417&amp;z=273020599" style="display: none; visibility: hidden;"></iframe><script src="https://www.googletagmanager.com/gtag/js?id=G-4BC3P9JVX3"></script></body></html>
