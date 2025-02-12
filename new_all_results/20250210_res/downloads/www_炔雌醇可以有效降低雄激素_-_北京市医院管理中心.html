@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>北京市医院管理中心</title>
+<link href="../../images/css20120803.css" type="text/css" rel="stylesheet">
+<script src="../../images/navi20120803.js" type="text/javascript"></script>
+<script src="../../images/bottom_scroll20120803.js" type="text/javascript"></script>
+
+<style type="text/css">
+.con_tit2 {font-size:12px;}
+.con_tit2 span {cursor:hand;text-decoration:none;color:blue;}
+</style>
+<script src="../../images/prototype.js"></script>
+<script src="../../images/common.js"></script>
+<script type="text/javascript"> 
+	function documentClickGet(docid){
+	         //alert(docid);
+		var action="http://www.bjygzx.org.cn/trs_search/documentClickGet.action";
+		var a=new Array();
+		a['docid']=docid;
+		a['tSessionId']=new Date().valueOf();
+		a['postAjax']='true';
+		var pars = $H(a).toQueryString();	
+                  //alert(0);
+			c_operPars(pars,action,'re_documentClickGet');
+		/**/
+	}
+	function re_documentClickGet(response){
+                  //alert(response);
+		var xmldoc = response.responseXML;
+                  //alert(xmldoc);
+		var clickNum = 0;
+		var code = xmldoc.getElementsByTagName('code')[0].firstChild.data;
+		//alert(code);
+		switch(parseInt(code)){
+			case 0:
+				clickNum = xmldoc.getElementsByTagName("clickNum")[0].firstChild.data;
+				break;
+			case 1:
+				var desc = xmldoc.getElementsByTagName('desc')[0].firstChild.data;
+				//alert(desc);
+				break;
+			case 999:
+				break;
+		}
+		document.getElementById('doc_clickNum').innerHTML=clickNum;
+		//document.write(clickNum);
+	}
+//
+</script>
+
+
+</head>
+
+<body>
+<div class="bodyDiv">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td class="top1">&nbsp;</td>
+    <td class="top2"> <map name="Map" id="Map"><area shape="rect" coords="2,23,74,113" href="http://www.beijing.gov.cn/" target="_blank"></map><img src="../../images/top0220120803.gif" border="0" usemap="#Map">
+
+</td>
+   
+
+  </tr>
+</tbody></table>
+	<script>
+function isnull(str){if(str==null||str==""||str=="undefine"||str=="undefined"||!str)return true;
+ return false;
+}
+
+function menushow(n){
+	for(var i=0;i<=8;i++){
+                  o = getObject('tab_'+i);
+		if (i==n){if(!isnull(o))o.style.display='block';}
+		else {if(!isnull(o))o.style.display='none';}
+	}
+}
+
+function menuhide(n){
+	for(var i=0;i<=8;i++){
+		if (i==n){			
+			o = getObject('tab_'+i);
+                           if(!isnull(o))o.style.display='none';
+		}
+	}
+}
+
+function getObject(objectId) {
+    if(document.getElementById && document.getElementById(objectId)) {
+	// W3C DOM
+	return document.getElementById(objectId);
+    } else if (document.all && document.all(objectId)) {
+	// MSIE 4 DOM
+	return document.all(objectId);
+    } else if (document.layers && document.layers[objectId]) {
+	// NN 4 DOM.. note: this won't find nested layers
+	return document.layers[objectId];
+    } else {
+	return false;
+    }
+} 
+
+</script>
+
+
+<div class="menu1">
+	<div class="nav" onmouseover="menushow(-1)" onmouseout="menuhide(-1)"><a href="../../sy/"><span>&nbsp;&nbsp; 首页&nbsp;&nbsp;</span></a></div>
+
+
+
+
+
+<div class="nav" onmouseover="menushow(0)" onmouseout="menuhide(0)">
+<a href="../../zwgk/"><span>&nbsp;&nbsp;信息公开&nbsp;&nbsp;</span></a>
+	
+	<div class="menu_sec" id="tab_0" style="display:none;">
+		<div class="menu_sec_a">
+		<div class="menu_sec_c">
+			
+			<div class="menu_sec_a1"> <a href="/jgzn/ldjs/" target="_blank">机构设置</a> </div>
+			
+			<div class="menu_sec_a1"> <a href="/jgzn/ssyy/" target="_blank">市属医院</a> </div>
+			
+			<div class="menu_sec_a1"> <a href="http://www.bjygzx.org.cn/xxgk/zfxxgk/gknr/fgwj/" target="_blank">信息公开</a> </div>
+			
+ <!--
+                           <div class="menu_sec_a1"><a href="http://www.bjygzx.org.cn/jzxx_ygj/pages/apply/addTable.jsp" target="_blank">依申请公开</a></div>
+-->
+		</div>
+		<div style="clear:both;"></div>
+		</div>
+
+	</div>
+</div>
+
+
+
+	<div class="nav" onmouseover="menushow(1)" onmouseout="menuhide(1)"><a href="../../gzdt/"><span>&nbsp;&nbsp;工作动态&nbsp;&nbsp;</span></a>
+
+	</div>
+	<div class="nav" onmouseover="menushow(2)" onmouseout="menuhide(2)">
+
+ <a href="../../gzdt/yygzdt/"> <span>&nbsp;医院工作动态&nbsp;</span> </a> 
+
+	</div>
+	<div class="nav" onmouseover="menushow(3)" onmouseout="menuhide(3)"><a href="../../ygzc/"><span>&nbsp;&nbsp;政策解读&nbsp;&nbsp;</span></a>
+
+	</div>
+
+
+
+
+
+	<div class="nav" onmouseover="menushow(4)" onmouseout="menuhide(4)"><a href="../../gh/"><span>&nbsp;&nbsp;预约挂号&nbsp;&nbsp;</span></a>
+
+
+	
+	</div>
+
+
+
+
+	<div class="nav" onmouseover="menushow(6)" onmouseout="menuhide(6)"><a href="../../bxhd/">
+                    <span>&nbsp;&nbsp;互动交流&nbsp;&nbsp;</span>
+         </a>
+	
+	<div class="menu_sec7" id="tab_6" style="display:none;right:25px;">
+		<div class="menu_sec_a">
+		<div class="menu_sec_c">
+			
+			<div class="menu_sec_a1"><a href="http://www.bjygzx.org.cn/jzxx_ygj/letter/ZwMail.jsp" target="_blank">主任信箱</a></div>
+			
+			<div class="menu_sec_a1"><a href="../../bxhd/myzj/" target="_blank">民意征集</a></div>
+			
+			<div class="menu_sec_a1"><a href="http://weibo.com/beijingshiyiguanju" target="_blank">政务微博</a></div>
+			
+			<div class="menu_sec_a1"><a href="../../bxhd/gfwx/" target="_blank">官方微信</a></div>
+			
+		</div>
+		<div style="clear:both;"></div>
+		</div>
+
+	</div>
+	
+	</div>
+</div>
+   <div class="ygj_main">
+    <div class="subTop">&nbsp;</div>
+
+<div class="subDiv">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td class="subL">
+    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="con_main">
+  <tbody><tr>
+    <td align="left" valign="middle" class="ygj_list"><a href="../../" target="_self" class="CurrChnlCls">首页</a>&gt;&gt;<a href="../" target="_self" class="CurrChnlCls">百姓健康</a></td>
+  </tr>
+  <tr>
+    <td align="left" valign="middle">
+	<div class="con_tit" style="height:auto">妇产科普| “高雄激素”是怎么回事？有什么方法可以“降低雄激素”吗？ </div>
+	<div class="con_tit2">发布日期:2020-10-14| 文章来源: 北京妇产医院| 浏览量:<script>documentClickGet(292435);</script><span id="doc_clickNum" style="text-decoration:none">557</span> | 【<a href="#" onclick="window.close();">关闭</a>】</div>
+	<div class="con_con" style="min-height:500px; height:auto !important; height:500px;">
+         <center></center>
+         <div class="TRS_Editor"><p align="justify">　　很多女孩脸上的痘痘常驻不去，也有很多女孩说自己身上体毛分布与男孩相似，这些问题对于爱美之心人皆有之的女孩们甚是苦恼。这是什么原因呢？原因是你体内内分泌紊乱引起的雄激素升高。</p><p align="justify">　　高雄激素究竟是怎么回事？</p><p align="justify">　　其实高雄激素的表现远不止我们上述提到的脸上长痘痘和身上多毛问题。除此之外，女性型脱发、皮脂溢出、女性男性化表现、乳房平小均是高雄激素的表现。这也是多囊卵巢综合征患者的特征性表现之一。</p><p align="justify">　　出现高雄激素应该怎么办呢？</p><p align="justify">　　现在临床上有很多可以降低雄激素的药物：如炔雌醇是目前口服避孕药中最常用的雌激素成分。</p><p align="justify">　　炔雌醇可以有效降低雄激素，机制如下：</p><p align="justify">　　① 抑制生成雄激素的酶，减轻雄激素过多产生的临床症状；</p><p align="justify">　　② 使肝脏合成性激素结合球蛋白增多，使游离睾酮浓度降低。</p><p align="justify">　　醋酸环丙孕酮是雄激素受体的竞争性拮抗剂，抑制靶细胞的雄激素产生，并可通过抗促性腺效应来降低雄激素。此外口服避孕药中的孕激素成分以屈螺酮较常见也可呈现抗雄激素作用。</p><p align="justify">　　将以上提到的炔雌醇与醋酸环丙孕酮以及炔雌醇与屈螺酮进行结合制成即为复方短效口服避孕药，其可以抑制垂体分泌促性腺激素，特别是LH的分泌，减少卵巢产生过多的雄激素。</p><p align="justify">　　它不仅可以有效调节PCOS患者的月经周期，还具有明显的降雄激素作用，是暂时不想怀孕女性的首选药物。目前临床上常用的复方短效口服避孕药有炔雌醇环丙孕酮、去氧孕烯炔雌醇片、屈螺酮炔雌醇片。</p><p align="justify">　　通常经过规范化治疗3~4个月后可使已有的痤疮皮疹痊愈。头发与皮肤的过量油脂一般消退较早，多毛症的治疗结果在用药半年后才会明显表现出来。</p></div><br>
+         </div>
+	</td>
+  </tr>
+</tbody></table>
+
+    </td>
+    <td>&nbsp;</td>
+    <td class="subR">
+    
+<div class="subRT">互动交流</div>
+    &nbsp;&nbsp;&nbsp;&nbsp;<table width="100%" border="0" cellspacing="0" cellpadding="10">
+          <tbody><tr></tr><tr></tr>
+          <tr>
+            <td class="subRC1"><a href="http://www.bjygzx.org.cn/jzxx_ygj/letter/ZwMail.jsp" target="_blank"><img src="../../images/subRT1220120803.gif" width="162" height="48"></a></td>
+          </tr>
+          <tr>
+            <td class="subRC1"><a href="../../bxhd/myzj/" target="_blank"><img src="../../images/subRT1320120803.gif" width="162" height="48"></a></td>
+          </tr>
+          <!-- <tr>
+            <td class="subRC1"><a href="" target="_blank" ><img src="../../images/subRT1420120803.gif" width="162" height="48" /></a></td>
+          </tr> -->
+          
+    </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+<br>
+
+</div>
+<div class="leftDiv">
+
+
+
+
+<div class="leftDiv copy" style="text-align:left;height:120px; ">
+<div style="margin-left:100px; float:left;;margin-top:25px;height:110px; margin-left:150px; width:110px;  ">
+<!--
+<script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/01/000/0000/60439690/CA010000000604396900007.js' type='text/javascript'%3E%3C/script%3E"));</script>
+-->
+
+<span id="_ideConac"></span>
+<script src="http://dcs.conac.cn/js/01/000/0000/60439690/CA010000000604396900007.js" type="text/javascript"></script>
+
+
+</div>
+<div style="margin-top:5px; ">
+COPY 2011 北京市医院管理中心<br>
+单位地址：北京市通州区达济街6号院1号楼
+<!-- 北京市西城区枣林前街70号中环办公大楼 -->
+<br>
+<a target="_blank" href="http://www.beian.gov.cn/portal/index.do"> 京ICP备19053086号-1<!--京ICP备19053086号--> </a> 
+<a target="_blank" href="http://www.beian.gov.cn/portal/index.do"> 京公网安备：11010202008120号  </a> <br>
+<div style="color: #0a4581;">网站标识码：1100000133  </div>
+
+</div>
+
+
+<div style="margin-right:50px; float:right;margin-top:-90px;margin-right:100px;  ">
+<!--
+<script id="_jiucuo_" sitecode='1100000133' src='http://pucha.kaipuyun.cn/exposure/jiucuo.js'></script>
+-->
+<div style="float:right;margin-top:-25px; ">
+<img src="../../images/jcjkshz_20170914.jpg" border="0" width="100px" height="100px"> 
+<img src="../../images/jingyishi_20170914.png" border="0" width="100px" height="100px"> 
+</div>
+
+</div>
+</div>
+ <iframe style="display:none" src="http://www.bjygzx.org.cn/trs_search/documentClickSet.action?docid=292435">
+
+
+</div>
+</div>
+</body>
+</html></iframe></div></div></div></body></html>

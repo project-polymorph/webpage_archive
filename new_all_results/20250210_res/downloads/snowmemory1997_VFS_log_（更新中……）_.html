@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+  <meta charset="utf-8">
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    VFS log （更新中……） |  
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="雪中足迹" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet"><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none; box-sizing: content-box}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.MathJax_test.mjx-test-display {display: table!important}
+.MathJax_test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.MathJax_test.mjx-test-default {display: block!important; clear: both}
+.MathJax_ex_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.MathJax_em_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60em}
+.mjx-test-inline .MathJax_left_box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .MathJax_right_box {display: inline-block; width: 0; float: right}
+.mjx-test-display .MathJax_right_box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.6') format('woff'), url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.6') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.6') format('woff'), url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.6') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.6') format('woff'), url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.6') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.6') format('woff'), url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.6') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.6') format('woff'), url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.6') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.6') format('woff'), url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.6') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.6') format('woff'), url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.6') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.6') format('woff'), url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.6') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.6') format('woff'), url('https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/../fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.6') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body class=" pace-done" style=""><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+
+
+  <div id="app">
+    
+      <canvas class="fireworks" width="1920" height="993" style="width: 1920px; height: 993px;"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article id="post-VFS-log" class="article article-type-post" itemscope="" itemprop="blogPost" data-scroll-reveal="">
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  VFS log （更新中……）
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/08/26/VFS-log/" class="article-date">
+  <time datetime="2020-08-26T05:18:25.000Z" itemprop="datePublished">2020-08-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Transition/">Transition</a> / <a class="article-category-link" href="/categories/Transition/Voice/">Voice</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">9.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">33 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"><ol class="toc-list "><li class="toc-list-item is-active-li"><a href="#一-写在前面：科普与说明" class="toc-link node-name--H2  is-active-link">一、写在前面：科普与说明</a><ol class="toc-list  is-collapsible"><li class="toc-list-item"><a href="#1-vfs-是什么？" class="toc-link node-name--H3 ">1、VFS 是什么？</a></li><li class="toc-list-item"><a href="#2-vfs-怎么做？" class="toc-link node-name--H3 ">2、VFS 怎么做？</a></li><li class="toc-list-item"><a href="#3-什么情况下可以做vfs？" class="toc-link node-name--H3 ">3、什么情况下可以做VFS？</a></li><li class="toc-list-item"><a href="#4-vfs前后需要什么准备-有什么注意事项？" class="toc-link node-name--H3 ">4、VFS前后需要什么准备、有什么注意事项？</a></li><li class="toc-list-item"><a href="#5-vfs与其他手术" class="toc-link node-name--H3 ">5、VFS与其他手术</a></li><li class="toc-list-item"><a href="#6-本文为什么有好多-1-？" class="toc-link node-name--H3 ">6、本文为什么有好多 –1 ？</a></li></ol></li><li class="toc-list-item"><a href="#二-手术记录" class="toc-link node-name--H2 ">二、手术记录</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="#day-7-1" class="toc-link node-name--H3 ">Day –7–1</a></li><li class="toc-list-item"><a href="#day-3-1" class="toc-link node-name--H3 ">Day –3–1</a></li><li class="toc-list-item"><a href="#day-2-1" class="toc-link node-name--H3 ">Day –2–1</a></li><li class="toc-list-item"><a href="#day-1-1" class="toc-link node-name--H3 ">Day –1–1</a></li><li class="toc-list-item"><a href="#day-0-1" class="toc-link node-name--H3 ">Day 0–1</a></li><li class="toc-list-item"><a href="#day-0" class="toc-link node-name--H3 ">Day 0</a></li><li class="toc-list-item"><a href="#day-1" class="toc-link node-name--H3 ">Day +1</a></li><li class="toc-list-item"><a href="#day-2" class="toc-link node-name--H3 ">Day +2</a></li><li class="toc-list-item"><a href="#day-3" class="toc-link node-name--H3 ">Day +3</a></li><li class="toc-list-item"><a href="#day-4" class="toc-link node-name--H3 ">Day +4</a></li><li class="toc-list-item"><a href="#day-5-7" class="toc-link node-name--H3 ">Day +5~+7</a></li></ol></li><li class="toc-list-item"><a href="#三-复查记录" class="toc-link node-name--H2 ">三、复查记录</a><ol class="toc-list  is-collapsible is-collapsed"><li class="toc-list-item"><a href="#day-12-术后2周" class="toc-link node-name--H3 ">Day +12 (术后2周)</a></li></ol></li></ol></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <br>
+<h2 id="一-写在前面：科普与说明">一、写在前面：科普与说明</h2>
+<br>
+<h3 id="1-vfs-是什么？">1、VFS 是什么？</h3>
+<p>VFS，即 Voice Feminizing Surgery，其目的主要是通过手术的方式使得话声音频得到提高，常用于跨性别女性（MtF，male to female）的音调矫正。在国内， 主要进行VFS的医生为北京友谊医院耳鼻喉科的李革临主任和侯倩医生，其中李革临医生为主刀医生。友谊医院所采用的技术主要有两种，包括声带截短术和喉软骨接近术。我使用的是声带截短术，后文不能从上下文推知指代广义VFS的情况，会使用VFS代指声带截短术。<a id="more"></a></p>
+<br>
+<br>
+<h3 id="2-vfs-怎么做？">2、VFS 怎么做？</h3>
+<p>声带截短术主要使用可吸收线将声带前端部分缝合，让声带的有效震动长度减少，从而提高音调；喉软骨接近术主要通过缝合声带和喉软骨，让声带的张力增大，从而提高音调。声带截短术从口腔进入，同时是不可逆手术，因而术后长期结果通常较为稳定，但VFS后需要半年到一年的时间才可以进行喉结手术，且术后需要一定嗓音训练才能稳定声音；喉软骨接近术是可逆的，术后即刻提升明显，但在自身进行代偿或缝线在软组织作用下松动从而效果逐渐消失的可能性很高，相对的，由于使用外部切口，该手术可以和喉结切除手术同时进行，减少手术次数，但这样做会比单独的喉结切除术留下更大更明显的较难掩盖的创口。声带截短术和喉软骨接近术都是全麻手术，并且声带状况和声音的关系十分复杂，因而手术结果都难以准确预测，但在声带截短术上，友谊医院已经有了较多的经验，可以有效规避许多风险，只是音频提升的程度依然有相当的个体差异。另一点需要注意的是，对于个别声带振动非常强烈的受术者，声带截短术后可能缝合部分依然保持震动，从而未能提高音频，该问题出现情况很少且可以通过训练解决。</p>
+<br>
+<br>
+<h3 id="3-什么情况下可以做vfs？">3、什么情况下可以做VFS？</h3>
+<p>VFS虽然是一个星期就可以出院的手术，但依然是手术，如果可以的话建议有相关需求的情况下可以先尝试进行嗓音训练来提高音调。有关嗓音训练有空我会再写一篇。但嗓音训练有利也有弊。好的一面可以不需要手术就达到好的声音，避免了各种风险和手术无法回避的轻度发声能力减弱；然而，嗓音训练存在个体差异（毕竟和声乐差不多，而且还和发声能力有关），且只能在当前声带结构的发声范围（音域）内进行变化，同时费时较长，特别是对于起床后、受惊吓、大叫等特殊情景下的声音需要数年时间进行习惯。相对的，VFS很适合几类人：嗓音训练找不到窍门的、因为听力或发声能力关系而难以训练的、因为重度性别焦虑无法听自己声音无法讲话所以也无法训练的、寻求音域整体上移的、希望尽快提高音频的、希望迅速做到在各种情况下避免发出低音的……但需要注意的一点是，声带截短带来的发声能力下降是不可避免的，响度、音质、音域都会有所下降，响度和音质问题目前通常可以较好的控制，但音域变窄的程度控制范围有限，因此音域的上界会同时在音域上移的作用下升高并在音域变窄的作用下下降，最终是否会比原音域上界高是不能完全保证的（但说话的音频通常远低于音域上界，话声基频和音域下界一般是确定可以提高的）。另一点需要注意的是，声带的发声长度是有限的，声带严重闭合不全或者声带长度本身就不大的人，可能并不适合手术。</p>
+<br>
+<br>
+<h3 id="4-vfs前后需要什么准备-有什么注意事项？">4、VFS前后需要什么准备、有什么注意事项？</h3>
+<p>VFS是手术，因此需要停用影响凝血的药物，包括雌二醇、抗凝血剂等等，停药时间不小于一周，术后两周以后可以复用雌二醇，同理，生理期前雌激素高峰中的生理女性也是不能手术的。但对HRT中的MtF来说，抗雄药物通常不需要停用。VFS术前如果进行了一定的语音训练有助于改善VFS的术后效果。在VFS术后一段时间内需要尽可能少发声，之后视个体情况需要进行少量的嗓音训练，训练可以开始的时间建议在术后两个月后。</p>
+<br>
+<br>
+<h3 id="5-vfs与其他手术">5、VFS与其他手术</h3>
+<p>VFS是在声带进行的手术，而声带除了负责发声，其后部的呼吸部还是呼吸时气体出入通道上的闸门，因此VFS手术后，进行插管将产生风险，所有需要插管的全麻手术都需要特别注意。侯姐姐给出的建议是两个月以后可以进行手术，但泰国的SRS医生普遍认为SRS是长达6个小时的手术，对于VFS术后的受术者，插管风险非常高，因此大多要求在VFS后6个月以上再进行SRS，国内SRS医生的要求不详。此外，喉结切除通常在声带截短后半年到一年以后可以进行。</p>
+<br>
+<br>
+<h3 id="6-本文为什么有好多-1-？">6、本文为什么有好多 –1 ？</h3>
+<p>因为在原定手术时间前一天我被医生告知要推后一天手术，于是术前的相对时间全都 –1 了……</p>
+<br>
+<br>
+<br>
+<br>
+<h2 id="二-手术记录">二、手术记录</h2>
+<br>
+<h3 id="day-7-1">Day –7–1</h3>
+<p>8月20日，手术前七天，按道理应该开始停用雌二醇，实际上为了保险已经提前一天多停药了，所以并不用担心。停用雌二醇是因为雌二醇对凝血和出血都有影响，所以需要停用。此外，今天还给侯姐姐发了消息，确认了要在下周手术，也表达了自己的期望：希望话声基频能在尽量避免风险的前提下尽可能地提高，在实现这一点的基础上希望音域的上界能同样得到尽可能提高，但即便音域上界真的下降了，只要第一点好好实现了，就不至于后悔。从上周六晚上见过侯姐姐回来以后到昨天，一直在纠结到底要不要手术的问题。侯姐姐觉得我训练的结果还不错，可以考虑不手术，然而声音问题带给我的严重社交问题和之前因为声音而发生的事情留下的严重心理阴影都显得难以等待。换言之，虽然手术的mtf很多可能都是训练无效或者因为没办法再听下去自己的声音所以没办法训练的，但我因为社交的问题，如果声音问题不解决，社交就会继续变得更加困难，即便现在还能进行训练，但在训练达到目标之前，变成没办法听自己声音没办法说话的情况也是会发生的，既然如此那不如趁着发声能力还没有减弱尽快手术，还能有更好一点的手术效果。在考虑出结果之前，连续哭了好几天，也放弃了一些不可能实现的期待——实际上对放弃的这些期待来说，训练并不能实现，手术是最后的可能性，但也只是可能性，而且不大。希望之后能一切顺利吧。</p>
+<br>
+<br>
+<h3 id="day-3-1">Day –3–1</h3>
+<p>8月24日，周一，手术前三天。</p>
+<p>今天和女票一起来了友谊做入院前的新冠筛查，这是疫情期间多出来的步骤：<strong>抗体检查、核酸检查、胸部CT筛查。</strong>（后来想了想，这筛查难道不是不管结果是什么都要么被抓去住院手术要么被抓去住院隔离吗？）筛查总共是采血两管、一个鼻咽拭子、一个CT，因为周一做入院筛查的人很多，所以<strong>建议的流程是：</strong></p>
+<ul>
+<li><strong>下午1点前（最好12点半左右）就在门诊楼三层排CT的队，CT-5室旁边有更衣室，进去前记得提前脱掉内衣（如果有金属扣）、去掉身上的金属物品；我自己大概一点半不到就做完了CT，但是之前也有听说一直排到第二天的，所以还是尽早去排队比较好；另外，上午如果排满了似乎也不会提前发下午的号（此条存疑），所以上午11点多如果没排到的话可能浪费时间（并没有试过）；</strong></li>
+<li><strong>采血通常可以在门诊楼四层妇科那边（耳鼻喉科楼下），疫情期间和入口说“是来采血的”可以节省一些登记步骤，什么时候去都比较快，所以可以不用着急；</strong></li>
+<li><strong>核酸检查的地点在门诊楼背后（和大门相对的位置）的一排平房，我是下午一点四十左右到了的，排队很快，医生下手也很轻（对比返校时核酸检测），但是排队在室外，好在有亭子，所以也不是特别热。</strong></li>
+</ul>
+<p>作为家属，女票需要在手术当日来给我签字。签字不能自己签，因为是全麻手术，必须有委托人。为此，女票需要在当天进入外科楼到手术室外，所以也需要做核酸检查，但抗体检查和CT是不需要的。原则上<strong>家属的核酸检查要在手术日三天以内。</strong></p>
+<p>做完入院筛查就可以回去了，不需要等任何一个结果，第二天医生会通知是否能入院的。</p>
+<br>
+<br>
+<h3 id="day-2-1">Day –2–1</h3>
+<p>8月25日，周二，手术前两天。</p>
+<p>早晨8点半不到，侯姐姐就在微信告知我检查结果正常，下午可以办理入院了。昨天侯姐姐说，疫情期间住院部是封闭管理的，不能见家属、不能陪护、不能点外卖，所以第一次就要尽量带好所有东西。结果带了两三条睡裙（-）、一个盆、一条毛巾、洗漱用品、阳伞（-）、一包口罩、以前在友谊的检查记录（-）、六院的易性症诊断证明（-）、饭盒、电脑、手机、AD钙奶四瓶、水杯一个、卷纸一桶、抽湿巾一包（标记减号的是没用到的东西，这个会持续更新）。</p>
+<p>原定下午1点办理手续，结果我2点才从家出门（……），但没有大碍。三点多到医院，首先去门诊楼一楼西边打印核酸检测和抗体检测的报告（京医通卡使用身份证打印），然后上三楼在放射科门口有自助取片机，取CT片子和报告单 <s>（因为是胸部CT所以还能随便观察一下自己的发育情况）</s> 。为了便于快速行动，我让女票带着行李在门诊楼外等我，免得过一堆安检，而我顺便取了她的核酸结果。</p>
+<p>取完检查报告，可以到住院部办入院手续。具体流程是，先到门诊楼西门（扶梯后面那个，急诊入口那）正对面的门口有喷泉的楼，在做过新冠筛查登记后，进到大厅，先到左手边，工作人员会检查筛查的结果，之后会让你去取号办理入院手续，需要叫1万人民币的押金，支持微信（应该也支持支付宝）。入院的时候会同时办饭卡，建议大家多充一点，用不完可以退，我只充了200，到住院楼以后被保安说“这太少了……”。</p>
+<p>办完入院手续可以入院，耳鼻喉科在儿科楼四楼 <s>（我怀疑你们是拼音序排的科室）</s> ，位置比较难找，路上问了几个医生甚至有不少指错路的……实际上办理入院手续的是内科楼，注意进去的时候是从内科楼的东门进去的，而儿科楼在内科楼的西北角。如果你是从出内科楼后右手边绕过去，那需要在见到外科楼之前，从右手边的第一个向上的坡道上去，有一个四层的小楼。如果你是出内科楼从左手边过去的……理论上直接过去就是了，但是我并不知道那边的路是否是通的。总之，儿科楼这栋楼在地图上还是有标注的，大家也可以看看地图。</p>
+<p>到儿科楼后，需要让保安检查你的入院手续凭据，之后保安会联系科室，让护士下来接，需要等一段时间。在护士带走之前，还可以和家属待在一起，在之后就只能自己一个人了，如果没有特别的检查之类的，<strong>活动范围限制是病房所在楼层，不能下楼，每天下午4点到5点家属可以送东西到一楼保安那里，有人帮你去取</strong>。</p>
+<p>这里有个小插曲，在一楼等护士来接的时候，等了非常久，期间有个护工下来和保安聊天，看到我提着一筐洗浴用品，和我说：“姑娘，没地方洗澡的，带这些没用。”我感到疑惑，但是还好没听她的，病房里的淋浴设备确实没有热水，但是储物间里有两个隔间可以洗澡。嗯，不分性别的那种，我很开心。</p>
+<p>这次我入住的是双人病房，之前大家都反映MTF入住单人病房很好什么的，然而侯姐姐说现在没有空的单人病房了，感觉自己命途多舛（×）。同病房的阿姨是来做声带息肉的，人很好。在入院不久我就发现，我带了各种东西却忘了最重要的<strong>餐具</strong>（我知道我蠢了……），阿姨就拿了个勺给我，之后也聊了不少。</p>
+<p>在住院主管医生那检查基本体征的时候，发现了耵聍阻塞（然而自己完全没感觉），被开了滴耳液，医生表示，“出院的时候我试着取取”……</p>
+<p><strong>医护和同病房的阿姨都很好地把我当做女孩子对待了，也拿到了女款病号服和写着“性别：女”的床头卡（即使没有SRS），我很开心。</strong> 这里是耳鼻喉科，所以即使声音听起来不像女孩子也不会有人过多怀疑，毕竟，我就是来解决这个问题的啊。</p>
+<p>今天写了好多了，关于病房的情况明天再写吧。</p>
+<br>
+<br>
+<h3 id="day-1-1">Day –1–1</h3>
+<p>嗯，今天是8月26日，周三，原定手术前一天。加上了原定，是因为一大早就被侯姐姐在查房的时候告知，因为有大手术安排，所以李主任的手术日改到了周五，周四的六台手术只有两台时间不变（其中一台是同病房的阿姨的），于是我的手术日期就这样推后了一天，因此实际上今天是术前两天。晚上查房的时候被又侯姐姐告知，考虑到VFS比较精密，所以排在了周五的第一台，需要女票8点半之前就到外科楼手术室外，大约9点前准备好以后就要签字，之后在等候区等候。手术结束后（包括麻醉唤醒），大约11点多，在我清醒后送我出手术室，需要女票帮忙推床送我回住院楼。于是今天一天都在想，到时候自己会是什么样的心情看着她呢？</p>
+<p>说一下今天的日程，起床后采了5管血，还采了尿，一切都在6:30之前完成；随后，上午做了声带B超。如果你看过侯姐姐的论文（的题目），你就知道声带B超确认声带长度用于声带截短手术是友谊开发的。声带B超目前在友谊只有朱紫吟医生可以做，而约声带B超的医生也差不多只有侯姐姐一个，感觉是真的很不容易，不过好处是在超声科可以不用排队，交了单子就可以做了。声带B超并不是一个舒服的检查，超声探头需要紧贴脖颈（喉软骨附近），所以难以避免地会压迫喉咙、喉结，会很不舒服。检查结果来说，我一侧1.91cm一侧1.92cm，侯姐姐认为我的声带还是比较长的，所以可以给医生更多的操作空间，相对有一些好处。</p>
+<p>下午的时候，回到门诊楼在九诊室侯姐姐给我做了频闪喉镜 <s>（既然要回门诊楼那封闭管理的意义何在啊！）</s> ，发现声带有些红肿，被要求今天明天少说话了。</p>
+<p>啊，对了，昨天说好要给大家看病房情况的，照片已经拍好了，但是插图片好麻烦 <s>（其实就是我懒）</s> ，等我出院的时候把各种需要插图片的地方再补上吧。</p>
+<p>（此处待补图）</p>
+<br>
+<br>
+<h3 id="day-0-1">Day 0–1</h3>
+<p>今天是8月27日，周四，原定的手术日，但是因为已经提过的李主任的时间情况，变成了手术前一日。今天基本没有什么活动，早晨6点照常测体温，每天要测4次，最后一次是晚上7~9点之间。8点查房，之后去超声科做了甲状腺B超，也是术前最后一项检查，常规检查，没什么要说的了。检查回来，同病房的阿姨正去手术。她是上午第二台手术，回来的时候已经是12点多，观察了一下阿姨回来的状况，作为自己明天的参考。之后因为太困就睡了一会。下午麻醉师来确认了各种信息和参数，我稍微问了一下“术中知晓”的事情，被告知“不会的，这种情况一年可能就一两个”，虽然我想说万一我是那一两个怎么办，但还是没问233333。今天下午查房比较晚，接近6点侯姐姐她们才来，李主任看了一下我的开口度，表示“行吧”，我有点慌……之后侯姐姐找我做了最后的术前说明，虽然说是说明但其实之前训练和入院前的交流都已经了解的很清楚了，所以只是我单方面对还有疑问的地方提问而已，被告知的最重要的信息除了以前知道的 <strong>术后结果不能保证</strong> 以外，又多了 <strong>截短通常是缝2~3针，一般是2针，但具体截短的长度要在术中根据声带的薄厚和状况来决定，无法术前确认</strong>。另外，得知一直担心的自己的发声时声带后部闭合不全的部分其实是呼吸部的软骨，虽然确实是个体差异，也是发声能力弱一点的表现，但和发声并没有太大关系，这让我稍微安心了一些。</p>
+<p>明天的手术时间是上午第一台，大约8:15从病房出发，地点是外科楼三层的中心手术室。手术还是有风险的，希望明天一切顺利吧。</p>
+<br>
+<br>
+<h3 id="day-0">Day 0</h3>
+<p>今天是8月28日，周五，手术日。</p>
+<p>早晨6点整醒来打开女票的聊天窗口准备叫她起床，结果刚刚打完字“醒了吗”还没发出就发现上面显示”对方正在输入……“，也许这就是默契吧。</p>
+<blockquote>
+<p>- 早</p>
+<p>- 早上好</p>
+</blockquote>
+<p>6点~7点，查体温，洗漱。7点之后吃饭、点明天的餐。7点半之后我就一直在找护士，这是因为术前需要换一套新的病号服过去，而我昨天晚上拿到的衣服有一点被打湿了（但也是新的），所以护士让我最好今早过去再取一套，但是6点多去要的时候只有上衣没有裤子了，于是便一直在问其他地方有没有。结果是7:50告诉我已经没有了，昨晚的其实也能穿，所以就穿了昨晚取的衣服。</p>
+<p><s>PS. 过去的时候病号服里面内衣内裤什么都不能穿，必须是完全真空的（小声</s></p>
+<p>8点之后开始等查房，然而说好8:15手术室护士就回来带我过去了，但8:15别说手术室护士了，查房的李主任侯姐姐张医生都没来。又等了几分钟，李主任出现，简单看了下我的嗓子状况后表示可以手术，把我带回病房后没几分钟我就被手术护士带走了，嗯，要求摘掉眼镜，然后轮椅送过去（不近视也是轮椅送过去） <s>（体验残疾生活）</s> 。走之前给8点钟就已经到了家属等待区的女票发了条消息，时间是 <strong>8:33:17</strong> 。</p>
+<blockquote>
+<br>
+<p>在去手术室之前，有两个小故事：</p>
+  <br>
+<p>我做完检查和李主任聊了几句，我说我很紧张，李主任问我“以前进过手术室吗？”，我表示没有，但是做过扁桃体双侧切除，但是是局麻的，李主任瞬间表示“那你太厉害了，哇塞，扁桃体，都做过这个手术了，对你来说别的手术还有什么好怕的啊。谁要现在给我做扁桃体，还局麻，打死我都不会做的！”</p>
+<br>
+<p>接上一个故事，回病房前，我和李主任说：“我有挺多的梦魇经历的，所以还是有点怕术中知晓这种小概率事件。”李主任回复：“你放心，我会和她们说的，保证让你一点都不知晓。”我OS：？？？听起来怎么这么可怕……</p>
+<br>
+</blockquote>
+<p>到了手术室外，和女票见过面后进入手术室。（一般没有这个流程，签字的时候有可能能见到，但是我去的时候问了一下手术室护士，“我能进去前先见一下家属吗？”，然后得到了同意。）手术室比想象中小，我到的时候有几个医生在，可惜没有眼镜，看不清是谁。于是我在按要求躺到手术台上，腿被拘束带固定好之前，发出了第二个请求：“麻醉之前我能见一下医生吗？”得到了麻醉小姐姐的确认。（事实上，一般情况不要求也会见的，没有医生确认不太会开始麻醉。）很快作为 <strong>主刀医生的李主任</strong> 就来了，麻醉小姐姐 <s>一幅看动物的样子</s> 指着门口和我说“快看快看，李主任来了！”我想了想，提出了第三个问题：“李主任，侯姐姐去哪了？”结果手术室的医生们都笑得开心，嘲弄我：“你怎么还要全见一遍的，见了李主任还要见侯姐姐，太贪心了吧！”（后来得知侯姐姐临时被派去通州院区了，所以 <strong>我的手术一助并不是侯姐姐</strong> ，甚至现在我都还不知道是谁 TAT)</p>
+<p>和医生开开心心聊着天，我大概不那么紧张了，尤其是李主任，平时虽然似乎有一点随性的样子，仿佛不那么温柔，还总是吐槽役，但在这个时间点上，却实在是气氛活跃剂。手术准备开始了，我还在和李主任聊着侯姐姐的事情，麻醉姐姐和我说：“来，深呼吸，别怕，这是氧气哦”，于是我说完要说的最后一句，觉着是差不多是要开始了吧，就吸了口气，一下就昏了过去。 <s>麻醉姐姐你算计我呜呜</s></p>
+<blockquote>
+<br>
+<p>在手术室会扎留置针，这是麻醉前就做的，这个针是真的好粗</p>
+  <br>
+<p>术前听到的最后一句李主任的话是向麻醉报告 <strong>预计手术时间为1~1.5小时</strong></p>
+<br>
+</blockquote>
+<br>
+<p>睡了有生以来最安稳的一觉，什么都没有发生。</p>
+<br>
+<blockquote>
+<br>
+<p>后来看到女票在我手术的时候给我发了好多话，泪目——最喜欢你了！</p>
+<br>
+</blockquote>
+<p>在观察室醒来，感觉有些迷糊，喉咙感觉有些麻木和肿的感觉，稍微定了定神，过了几分钟，大概理解了一切 <s>(我完全理解了.jpg)</s> 。我拍了拍旁边的 <s>随便一个</s> 麻醉师，指了指墙上的圆形物体，麻醉师告诉我，现在时间是 <strong>11:10</strong> 。</p>
+<p>在观察室又停留了大约5~10分钟后，我被送出了观察室，女票帮我推床回病房，塞给了我一包东西，然后在住院楼电梯口分别前，好好地抱了抱我。</p>
+<p>回到病房，需要卧床四小时，并且也是禁食的四小时，期间会连检测仪，<s>检测仪控制呼吸可以画画（×）</s> ，同时会打点滴。四小时后会撤检测仪，但点滴输完前是不能下床的。撤走检测仪后会马上做雾化，做完雾化打完点滴就快去上厕所吧……</p>
+<p>上述过程我的结束时间 <strong>约莫在下午3:30~4:00</strong> 。</p>
+<blockquote>
+<br>
+<p>术后这几个小时虽然醒着，但是顺行记忆的能力和联想启动的能力似乎有些下降，有很多东西在需要或者被提醒的时候才突然发觉“啊，还有这个啊”，但也收益于此，在这几个小时里，虽然记忆是有的，但每个瞬间依然要比以往新鲜一点，而过去经历的事情只要不被提及，就仿佛不存在一样，这让我感觉天空变得更加晴朗了，感到了已经有三年没感受到过的那种清晰的感官和愉悦的心情。<s>我可能做的不是VFS是MECT吧</s></p>
+<p>当然，这些情况几个小时后就基本消失。</p>
+<br>
+</blockquote>
+<p>5:00前晚饭，只能吃流质和软的食物哦，禁止刺激性食物，餐后要用专门的漱口水漱口（其实术前也要）。</p>
+<p>五点多，李主任查房，试着让我发了下声音，感觉很难发出了，而且非常哑，李主任说是正常的，需要过两天再看。“周一就差不多了。”</p>
+<p>虽然现在才7点，但是不出意外的话，今天的内容就到这里结束了，我最头大的还是这个粘到了中指、无名指、小指的留置针，不仅因为胶布拉扯所以活动空间受限，很多工作左手只能有两个手指可以动，更重要的，我比较担心晚上睡觉的时候压到它。</p>
+<p>嗯，目前感觉没有特别大的不适，术后几个小时，相比于伤口上仅有的偶尔的瘙痒，支撑喉镜在左侧咽部留下的软组织损伤的疼痛要清晰得多，但是现在也基本上已经不疼了，除了有痰和不能发声以外，并没有什么别的感觉。</p>
+<p>今天，就这样。</p>
+<p>结束~</p>
+<br>
+<br>
+<h3 id="day-1">Day +1</h3>
+<p>8月29日，周六，终于是正数了。</p>
+<p>昨天就在想，周五手术的话，周末岂不是只有值班医生，查房都没有了，万一自己出点什么事情可怎么办。万幸，一切正常。</p>
+<p>今天的行动非常简单，早晨输液一瓶（我猜是抗生素，但也没看到标签，明天注意一下），上午下午两次雾化。其他时间，基本都在睡觉……折腾了这么几天真的困了……</p>
+<p>下午和女票用网易云一起听了一个多小时歌，22/7的曲子，很开心。<s>网易云请给我钱（22/7就不用了）</s></p>
+<p>发现米家APP原来可以广域网使用，于是在医院捉弄了一下在家里的女票——遥控了一下房间的小米智能灯。<s>小米也打钱</s></p>
+<p>上午稍微能发出一点点声音了，APP显示频率240Hz，但是感觉还是有假声的，而且恢复以后肯定会低一些，估计能有210~220的样子吧。</p>
+<p>下午又试着发了下声音，比早晨稳定得多，APP捕捉不到，但是录音好好地录下了，听起来感觉问题也不大，频率也不错。</p>
+<p>因为只是手术第二天，原则上只有医生问我的时候我才能试着发声，但是昨天李主任就让我试着发了一下了，所以今天两次也都是和昨天一样的，十分短暂的，大约1~2秒的，单次的发声，单纯的“啊~”，其他时间都没有试着发声，也极力避免咳嗽，因此大约也不会有什么问题。</p>
+<p>今天明显感到比昨天好了，主要是痰少了很多，做过雾化之后清理下嗓子，之后基本就没有痰了。</p>
+<p>除了这个留置针依然让我不舒服以外，今天还是轻松愉快的。<s>毕竟一直在睡觉</s></p>
+<p>今天就这样吧~ 有空以后可以补个音频或者图什么的。</p>
+<p>结束~</p>
+<br>
+<br>
+<h3 id="day-2">Day +2</h3>
+<p>8月30日，周日。（来自Day +7的补档）</p>
+<p>日程和前一天一样，两次雾化一次点滴。但是今天的点滴感觉比较痛，所以开得很慢，一直滴到了下午快两点。</p>
+<p>今天是最后一天点滴，所以拔了留置针。拔针的时候把护士说的“按上五分钟“听成了“按十五分钟”，于是按着胶布在楼道里来回踱步，想着走个八九百步就够了，结果十分钟后被护士一脸看傻子地表情拦下来：你按那么久干什么？</p>
+<p>拔针以后依然觉得留置针下游大约15~20公分的血管有些疼痛，在腕关节附近的位置甚至还有些肿，于是去找了医生，按压以后肿消了，但是依然在疼，于是开了多磺酸粘多糖乳膏每日两次外用——是静脉炎呢。</p>
+<p>今天发生了非常不开心的事情。</p>
+<p>是去年七月的事情的第三次重演。</p>
+<p>几乎要成为心理阴影的事情的类似事件的重演。</p>
+<p>于是自闭了许久。</p>
+<p>晚上回想这件事几乎要哭出来，但是术后才两天，必须要忍住</p>
+<p>恐惧……</p>
+<p>人类好可怕……</p>
+<br>
+<br>
+<h3 id="day-3">Day +3</h3>
+<p>8月31日，周一。（来自Day +7的补档）</p>
+<p>检查日。今天除了检查，就只做了两次雾化。</p>
+<p>通常来说，术后四天会进行复查，检查喉镜和嗓音频谱，但由于我的手术推后了一天，因此变成了术后三天复查。</p>
+<p>李主任表示我的缝线位置和恢复情况在频闪喉镜下看起来都不错，还给我指了缝线的位置，不过确实也能看到声带还有红肿。</p>
+<p>频谱检查结果并不理想。基频只有162Hz，比术前几乎没什么变化，音域96~600+（具体数据忘记了，过几天才能拿到复印件），比术前整体提升了2key左右。</p>
+<p>虽然侯姐姐说，术后三四天的情况什么样都有可能，之后会有变化，两三个月声音会逐渐稳定，会和现在不同（术后训练也是以稳定后的声音为准），但是看到这个结果自己还是多少不开心的。加上前一天发生的事情，心情有些糟糕，于是晚上早早就睡了，明天出院。</p>
+<blockquote>
+<p>来自术后七天的评论：但是根据第三天和第四天的自己的情况看，差别真的太大了，三天和四天对我基本上是个分水岭，感觉如果是第四天复查，结果可能会很不一样，尤其是频谱。虽然可能依然不会很高，但三天测频谱的时候真的非常费力困难了，但是第四天发出声音比第三天容易了太多。</p>
+</blockquote>
+<br>
+<br>
+<h3 id="day-4">Day +4</h3>
+<p>9月1日，周二。（来自Day +7的补档）</p>
+<p>出院。前一天就领到了出院后的药，一盒保胃，一盒防止胃酸反流，一盒抗生素。一大早只是去护士台领了出院单、复查单、住院证明和假条，剪断手环，就可以走了。<strong>复查单上会有复查的时间，号已经提前约好了</strong>，我的复查时间是9号上午预计8点到8点半。在护士清理房间的时候，同房间的阿姨恰好不在，于是护士问我“现在声音的情况到你理想的状况了吗？”我摇摇头，和她说，只提升了10Hz，结果护士却表示“那很不错了。”一时之间感到无法理解……</p>
+<p>离开住院楼后，因为我并没有北京本地医保，因此可以当日结账，拿着办理入院时的绿色押金条去内科楼（办入院的地方）办理出院即可。结账下来，我甚至10000押金还有1200+结余，之前看过其他人花了11000+的，感觉自己省了些钱。大致看了下详情单，手术费并不是大头，麻醉的各种药物和西药费才是最大的开销，剩余的还有各种检查费、化验费，也有不少。</p>
+<p>办理出院的时候，可以退饭卡，一定记得。</p>
+<p>办完手续就去门诊楼找侯姐姐了，这是自己的特殊情况，因为女票一会来接我，顺便先去侯姐姐那训练。站在六楼床边一边望风景，一边等女票，于是预料之中地毫无察觉地被从后面直接抱住了w</p>
+<blockquote>
+<p>明明和侯姐姐约了十点训练，结果我9:30就在六楼等她，她却一直等到10:20才到，大鸽子……</p>
+</blockquote>
+<p>训练结束，一起回家。</p>
+<br>
+<br>
+<h3 id="day-5-7">Day +5~+7</h3>
+<p>术后第一周的最后三天。</p>
+<p>在家度过的恢复期头三天。</p>
+<p>最大的感受是没有雾化以后痰多，所以询问了一下侯姐姐，侯姐姐让我加了盐酸氨溴索，之后感觉有所好转。</p>
+<p>另一个感觉就是每一天发声的能力和声音的状态都不一样，但是回头看起来，差别最大的还是第三天、第四天、第五天。第三天发声依然非常费力；第四天已经比较正常，但发声时间非常短，稍微长一点点的十来个字的句子，声音就会不稳定；第五天声音就稳定了许多，能读稍微长一点点的句子了；之后每一天声音的质量和发声能力都在一点点缓慢恢复。</p>
+<p>这几天依然在喝粥，稍微吃一点软丸子，软粉条，软白菜，冬瓜，鸡蛋之类的软食……感觉要被饿死了……</p>
+<br>
+<blockquote>
+<p>虽然我写了声音的变化情况，但是每天的声音使用还是很节制的，毕竟是恢复期，少说话为好，绝大部分需要说话的时候还是在小声+气声来减弱声带振动，偶尔会用真声讲话，但如果可能的话，建议气声也少说。</p>
+ <br>
+<p>可是虽然提到了真声，术后一个很大的感觉就是并不知道什么样的发声位置、发声方式和听起来什么样的声音才是现在的声带结构能发出的正确而舒适的声音，所以每句“真声”的话声音可能都完全不同。</p>
+<br>
+<p>Btw, 周三（Day +5）的时候去三院开了SRS的诊断建议，感觉又了却了一个任务。在候诊名单上还看到了一直在担心的某失踪人口，也稍微放心了一些。</p>
+</blockquote>
+<br>
+<br>
+<br>
+<br>
+<h2 id="三-复查记录">三、复查记录</h2>
+<br>
+<h3 id="day-12-术后2周">Day +12 (术后2周)</h3>
+<p>今天是9月9日，周三，李主任的门诊日。复查的时间在出院的时候就已经提前发了预约号，早晨 <strong>按时去报到</strong> 就好。如果不小心 <strong>错过了建议就诊时间一小时以上</strong> ，就不能自助报到，需要 <strong>先在自助机取号，再到耳鼻喉科诊区入口的分诊台手动报到（号条给护士就好）。</strong></p>
+<p>两周复查主要是检查水肿是否消除，查看是否有感染。李主任只是看了下我的嗓子，确认没什么感染水肿就算结束了，开了一个月的复查单，和下次要做的检查，因为一切正常，痰消得也还不错，所以什么药也都没开。不过听李主任的意思好像是，今天其实可以查一下喉镜和频谱，但是毕竟疫情期间，要查的话前置检查很麻烦，不如就算了，一个月复查的时候再细查也没关系。</p>
+<p>询问了李主任忌口是否有放宽，李主任吐槽我们过于谨慎，居然喝了十几天粥，然后表示现在的情况很好，除了过甜过腻过酸这些生痰的和辣的，别的都可以吃，硬的也可以。于是复诊完开开心心去吃好吃的了（有好吃的原来是如此幸福的事情）。</p>
+<p>声音方面，今天自己回来用APP稍微测了一下，音域大概从 85~310~620 （min-真声-假声，Hz）提高到了 92(F#2)~310~770(G5)，没有太大变化，但是假声提高了不少，而且现在的音色似乎更加统一，换声点非常不明显，自己不仔细感觉都感觉不到（术前我并不能在换声点附近发声，而且不能随意在真假声切换，虽然都能单独发出来）；至于话声，基本在110~130，相比于术前130~150，提升甚至是 <span class="katex"><span class="katex-mathml has-jax"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><semantics><mrow><mo>&amp;#x2212;</mo><mn>20</mn><mrow><mi mathvariant=&quot;normal&quot;>H</mi><mi mathvariant=&quot;normal&quot;>z</mi></mrow></mrow><annotation encoding=&quot;application/x-tex&quot;>      -20\mathrm{Hz}</annotation></semantics></math>" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 3.015em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.964em; height: 0px; font-size: 102%;"><span style="position: absolute; clip: rect(1.483em, 1002.91em, 2.556em, -999.997em); top: -2.295em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="semantics" id="MathJax-Span-3"><span class="mrow" id="MathJax-Span-4"><span class="mo" id="MathJax-Span-5" style="font-family: MathJax_Main;">−</span><span class="mn" id="MathJax-Span-6" style="font-family: MathJax_Main;">20</span><span class="mrow" id="MathJax-Span-7"><span class="mi" id="MathJax-Span-8" style="font-family: MathJax_Main;">H</span><span class="mi" id="MathJax-Span-9" style="font-family: MathJax_Main;">z</span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.3em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.154em; border-left: 0px solid; width: 0px; height: 0.888em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>20</mn><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">      -20\mathrm{Hz}</annotation></semantics></math></span></span><script type="math/mml" id="MathJax-Element-1"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>20</mn><mrow><mi mathvariant="normal">H</mi><mi mathvariant="normal">z</mi></mrow></mrow><annotation encoding="application/x-tex">-20\mathrm{Hz}</annotation></semantics></math></script></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">2</span><span class="mord">0</span><span class="mord"><span class="mord mathrm">H</span><span class="mord mathrm">z</span></span></span></span></span> ，但是现在的发声非常不自然，非常哑，而且在恢复期。虽然医生没表示什么，但是我自己对音域的变化不抱有更多期待，基频的变化也许可以通过术后训练解决。具体的声音情况还需要看一两个月后怎么样吧。</p>
+<p>今天就这样~</p>
+<br>
+<br>
+<br>
+<br> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=http://yoursite.com/2020/08/26/VFS-log/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/" rel="tag">life</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mtf/" rel="tag">mtf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/surgery/" rel="tag">surgery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transition/" rel="tag">transition</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/voice/" rel="tag">voice</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/08/26/%E5%A4%A7%E5%AE%B6%E5%A5%BD%EF%BC%8C%E8%BF%99%E9%87%8C%E6%98%AF%E9%9B%AA%E7%9A%84%E8%AE%B0%E5%BF%86%EF%BC%88Snow-Memory%EF%BC%89/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">大家好，这里是雪的记忆（Snow-Memory）</div>
+      </a>
+    
+  </nav>
+
+  
+   
+<div class="gitalk" id="gitalk-container"><div class="gt-container"><div class="gt-meta"><span class="gt-counts"><a class="gt-link gt-link-counts" href="null" target="_blank">0</a> comments</span><div class="gt-user"><div class="gt-user-inner"><span class="gt-user-name">Anonymous</span><span class="gt-ico gt-ico-arrdown"><span class="gt-svg"><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" p-id="1619"><path d="M511.872 676.8c-0.003 0-0.006 0-0.008 0-9.137 0-17.379-3.829-23.21-9.97l-251.277-265.614c-5.415-5.72-8.743-13.464-8.744-21.984 0-17.678 14.33-32.008 32.008-32.008 9.157 0 17.416 3.845 23.25 10.009l228.045 241.103 228.224-241.088c5.855-6.165 14.113-10.001 23.266-10.001 8.516 0 16.256 3.32 21.998 8.736 12.784 12.145 13.36 32.434 1.264 45.233l-251.52 265.6c-5.844 6.155-14.086 9.984-23.223 9.984-0.025 0-0.051 0-0.076 0z" p-id="1620"></path></svg></span></span></div></div></div><div class="gt-error">Error: Request aborted</div><div class="gt-header"><a class="gt-avatar-github"><span class="gt-ico gt-ico-github"><span class="gt-svg"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64 524C64 719.602 189.356 885.926 364.113 947.017 387.65799 953 384 936.115 384 924.767L384 847.107C248.118 863.007 242.674 773.052 233.5 758.001 215 726.501 171.5 718.501 184.5 703.501 215.5 687.501 247 707.501 283.5 761.501 309.956 800.642 361.366 794.075 387.658 787.497 393.403 763.997 405.637 743.042 422.353 726.638 281.774 701.609 223 615.67 223 513.5 223 464.053 239.322 418.406 271.465 381.627 251.142 320.928 273.421 269.19 276.337 261.415 334.458 256.131 394.888 302.993 399.549 306.685 432.663 297.835 470.341 293 512.5 293 554.924 293 592.81 297.896 626.075 306.853 637.426 298.219 693.46 258.054 747.5 262.966 750.382 270.652 772.185 321.292 753.058 381.083 785.516 417.956 802 463.809 802 513.5 802 615.874 742.99 701.953 601.803 726.786 625.381 750.003 640 782.295 640 818.008L640 930.653C640.752 939.626 640 948.664978 655.086 948.665 832.344 888.962 960 721.389 960 524 960 276.576 759.424 76 512 76 264.577 76 64 276.576 64 524Z"></path>
+</svg>
+</span></span></a><div class="gt-header-comment"><textarea class="gt-header-textarea " placeholder="Leave a comment" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 72px;"></textarea><div class="gt-header-preview markdown-body hide"></div><div class="gt-header-controls"><a class="gt-header-controls-tip" href="https://guides.github.com/features/mastering-markdown/" target="_blank"><span class="gt-ico gt-ico-tip"><span class="gt-svg"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 366.949535c-16.065554 0-29.982212 13.405016-29.982212 29.879884l0 359.070251c0 16.167882 13.405016 29.879884 29.982212 29.879884 15.963226 0 29.879884-13.405016 29.879884-29.879884L541.879884 396.829419C541.879884 380.763865 528.474868 366.949535 512 366.949535L512 366.949535z" p-id="3083"></path>
+  <path d="M482.017788 287.645048c0-7.776956 3.274508-15.553912 8.80024-21.181973 5.525732-5.525732 13.302688-8.80024 21.181973-8.80024 7.776956 0 15.553912 3.274508 21.079644 8.80024 5.525732 5.62806 8.80024 13.405016 8.80024 21.181973 0 7.776956-3.274508 15.656241-8.80024 21.181973-5.525732 5.525732-13.405016 8.697911-21.079644 8.697911-7.879285 0-15.656241-3.274508-21.181973-8.697911C485.292295 303.301289 482.017788 295.524333 482.017788 287.645048L482.017788 287.645048z" p-id="3084"></path>
+  <path d="M512 946.844409c-239.8577 0-434.895573-195.037873-434.895573-434.895573 0-239.8577 195.037873-434.895573 434.895573-434.895573 239.755371 0 434.895573 195.037873 434.895573 434.895573C946.895573 751.806535 751.755371 946.844409 512 946.844409zM512 126.17088c-212.740682 0-385.880284 173.037274-385.880284 385.777955 0 212.740682 173.037274 385.777955 385.880284 385.777955 212.740682 0 385.777955-173.037274 385.777955-385.777955C897.777955 299.208154 724.740682 126.17088 512 126.17088z" p-id="3085"></path>
+</svg>
+</span><span class="gt-ico-text">Markdown is supported</span></span></a><button class="gt-btn gt-btn-preview"><span class="gt-btn-text">Preview</span></button><button class="gt-btn gt-btn-login"><span class="gt-btn-text">Login with GitHub</span></button></div></div></div><div class="gt-comments"><div style="position: relative;"></div><p class="gt-comments-null">Be the first person to leave a comment!</p></div></div></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'ff2f3d21ecac7dffa4a8',
+    clientSecret: '905cff261b308d1f792b1d0c7a21f44457c021d7',
+    repo: 'snowmemory1997.github.io',
+    owner: 'SnowMemory1997',
+    admin: ['SnowMemory1997'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+  
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights ©
+        2020
+        <i class="ri-heart-fill heart_icon"></i> Yuki
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv">1723</span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv">1608</span></span>
+</span>
+        
+      </span></li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop" style="display: none;">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="雪中足迹"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">时光机</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i></p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script><script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config;executed=true">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+            <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css">
+        
+    
+
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52" src="//music.163.com/outchain/player?type=2&amp;id=22706999&amp;auto=0&amp;height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+  </div>
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: MathJax_Main, sans-serif;"></div></div></body></html>
