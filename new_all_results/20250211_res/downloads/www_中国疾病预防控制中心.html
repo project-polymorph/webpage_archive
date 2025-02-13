@@ -1,0 +1,794 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" data-dpr="1" style="font-size: 100px;"><head><script type="text/javascript">
+  function goto(channelid) { 
+      alert("goto");
+      if (document.searchform.searchword.value.trim()==''){
+          if(channelid=='233877'){
+              window.location.href='/was5/web/search?channelid='+channelid;
+          }
+          else{
+              window.location.href='index.jsp?channelid='+channelid;
+          }
+      }
+    
+  }
+  String.prototype.trim = function () {
+      return this.replace(/^\s*/, "").replace(/\s*$/, "");
+  }
+  function checkInput()
+  {	 
+      if (document.searchform.searchword.value.trim()==''){
+          document.searchform.searchword.focus();
+          return false;
+      }
+      else{
+          return true;
+      }
+  }
+</script>
+<script language="javascript">
+  function setAdvancedWords() {
+      alert("setAdvancedWords");
+      document.searchform.andsen.value = '';
+      document.searchform.total.value = '';
+      document.searchform.orsen.value = '';
+      document.searchform.exclude.value = '';
+  }
+  function setSearchScope(type) {
+      document.searchform.searchscope.value = type;
+      document.searchform.submit();
+  }
+
+  function setTimeScope(type,column) {
+
+      document.searchform.timescope.value = type;
+      document.searchform.timescopecolumn.value = column;
+       //alert("hello: "+type+" : "+column);
+      document.searchform.submit();
+  }
+  function setOrderBy(type) {
+
+      document.searchform.orderby.value = type;
+      document.searchform.submit();
+  }
+</script>
+<script type="text/javascript">
+  String.prototype.trim = function () {
+    return this.replace(/^\s*/, "").replace(/\s*$/, "");
+  };
+  function checkInput(){
+    if (document.searchform.searchword.value.trim()==''){
+        document.searchform.searchword.focus();
+        return false;
+    }
+    else{
+        return true;
+    }
+  }
+function Search() {
+  var searchword ="";
+  var search = document.searchform.searchword.value;
+  //alert("Search"-------"search====="+search);
+  if (search.trim()==''){
+        document.searchform.searchword.focus();
+        alert("检索词不能为空");
+        return false;
+  }
+  searchword ="'"+search+"'";
+  alert("000000000000000000000000------------------"+searchword);
+  document.searchform.searchword.value = searchword;
+  document.searchform.submit();
+}
+
+</script>  
+
+
+
+
+
+
+    <meta charset="UTF-8">
+    <title>中国疾病预防控制中心-搜索</title>
+
+    <meta content="IE=11.0000" http-equiv="X-UA-Compatible">
+    <meta id="viewport-name" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="images/newSite/logo_ico.png" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="js/newSite/swiper.min.css">
+    <link rel="stylesheet" href="css/newSite/lzc-style.css">
+    <script src="js/newSite/jquery.min.js"></script>
+    <script src="js/newSite/swiper.min.js"></script>
+    <script src="js/newSite/index.js"></script>
+    <script src="js/newSite/mobile-rem.js"></script><meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+
+    <script type="text/javascript">
+
+
+      function setSearchTab(name,num,n){
+        var searchword = document.searchform.searchword.value;
+        //alert("--------------searchword----------"+searchword);
+        searchword = searchword.replace(/\&#39;/g,"").replace(/\&/g,"%26");
+        var url = '';
+        if(num == 1){
+          url = '/was5/web/search?channelid=233877&searchword='+searchword;
+        }else if(num == 2){
+          url = '/was5/web/search?channelid=214876&searchword='+searchword;
+        }else if(num == 3){
+          url = '/was5/web/search?channelid=247517&searchword='+searchword;
+        }else if(num == 4){
+          url = '/was5/web/search?channelid=243142&searchword='+searchword;
+        }else if(num == 5){
+          url = '/was5/web/search?channelid=254386&searchword='+searchword;
+        }
+        location.href = url;
+        document.searchform.searchword.value = searchword;
+        //统计代码
+        _vaq.push(['trackSiteSearch', searchword.replace(/\'/g,''), '', '']);
+        
+        var aryChnlId = [233877,214876,247517,243142,287408];
+        for(i=0;i<=n;i++){
+          var menu = document.getElementById(name+i);
+          //var con=document.getElementById(name+"_"+"con"+i);
+          if(i==num)
+          {
+            if(menu.className == "")
+            {
+              menu.className="now";
+              $("#channelid").val(aryChnlId[num]);
+            }
+            else
+            {
+              menu.className="";
+              $("#channelid").val(233877);
+            }
+          }
+          else
+          {
+            menu.className=i==num?"now":"";
+            //menu.className = " ";
+          }
+            //con.style.display=i==num?"block":"none"; 
+        }
+      }
+      
+      
+      
+      function setTab(name,num,n){
+        for(i=1;i<=n;i++){
+          var menu=document.getElementById(name+i);
+          var con=document.getElementById(name+"_"+"con"+i);
+          menu.className=i==num?"now":"";
+            con.style.display=i==num?"block":"none"; 
+        }
+      }
+      
+</script>
+
+  </head>
+  <body>
+
+
+<!-- header开始 -->
+   <div class="header clearfix">
+    <div class="nav" id="nav">
+      <div class="wrap">
+        <img class="logo" src="images/newSite/logo.png" alt="">
+        <div class="navCont">
+
+          <ul class="navContList navDisBlock">
+            <li><a href="https://www.chinacdc.cn/">首页</a></li>
+            <li>
+              <a href="../../jgxx/">机构信息</a>
+              <div class="sub-menu" style="display: none;">
+				 <a href="../../jgxx/zxjj/">中心简介</a>
+				 <a href="../../jgxx/zxld/">中心领导</a>
+				 <a href="../../jgxx/zbcs/">总部处室</a>
+				 <a href="../../jgxx/zxcs/">中心直属单位</a>
+				 <a href="../../jgxx/gkdw/">挂靠单位</a>
+				 <a href="../../jgxx/fzls/">发展历史</a>
+				 <a href="../../jgxx/bcskb/">班车时刻表</a>
+              </div>
+            </li>
+            <li>
+              <a href="../../dqgz/">党建园地</a>
+              <div class="sub-menu" style="display: none;">
+				 <a href="../../dqgz/djgz/">党建工作</a>
+				 <a href="../../dqgz/djgz_13611/">廉政文化</a>
+				 <a href="../../dqgz/ghgz/">工会工作</a>
+				 <a href="../../dqgz/tqgz/">团青工作</a>
+				 <a href="../../dqgz/tqgz_13618/">理论学习</a>
+              </div>
+            </li>
+            <li>
+              <a href="../../jkyj/">疾控应急</a>
+              <div class="sub-menu" style="display: none;">
+				 <a href="../../jkyj/crb2/">传染病</a>
+				 <a href="../../jkyj/tfggws/">突发公共卫生事件</a>
+				 <a href="../../jkyj/mxfcrxjb2/">慢性病与伤害防控</a>
+				 <a href="../../jkyj/yckz/">烟草控制</a>
+				 <a href="../../jkyj/yyyjk2/">营养与健康</a>
+				 <a href="../../jkyj/hjyjk/">环境与健康</a>
+				 <a href="../../jkyj/hjwsyzdkz/">职业卫生与中毒控制</a>
+				 <a href="../../jkyj/fsws/">放射卫生</a>
+				 <a href="../../jkyj/mygh02/">免疫规划</a>
+				 <a href="../../jkyj/jhbfk/">结核病防控</a>
+				 <a href="../../jkyj/jscb/">寄生虫病</a>
+				 <!-- <a href="../../jkyj/azfk/">艾滋防控</a> -->
+              </div>
+            </li>
+            <li>
+              <a href="../../kxyj/">科学研究</a>
+              <div class="sub-menu" style="display: none;">
+				 <a href="../../kxyj/kjjz/">科技进展</a>
+				 <a href="../../kxyj/xsdt/">学术动态</a>
+				 <a href="../../kxyj/xsjl/">科研平台</a>
+				 <a href="../../kxyj/kyld/">科研亮点</a>
+				 <a href="../../kxyj/kjzc/">科技政策</a>
+              </div>
+            </li>
+            <li>
+			 <a href="../../jypx/">教育培训</a>
+			 <div class="sub-menu" style="display: none;">
+				 <a href="../../jypx/yjsy/">研究生院</a>
+				 <a href="../../jypx/jxjy/">继续教育</a>
+				 <a href="../../jypx/bsh/">博士后</a>
+				 <a href="../../jypx/CFETP/">中国现场流行病学培训项目（CFETP）</a>
+			 </div>
+			</li>
+            <li>
+              <a href="../../qqgw/">全球公卫</a>
+              <div class="sub-menu" style="display: none;">
+				 <a href="../../qqgw/hzhb/">合作伙伴</a>
+				 <a href="../../qqgw/wszz/">世界卫生组织合作中心和参比实验室</a>
+				 <a href="../../qqgw/gjjl/">国际交流(港澳台交流)</a>
+				 <a href="../../qqgw/ggws/">公共卫生援外</a>
+              </div>
+            </li>
+            <li>
+              <a href="../../rcjs/">人才建设</a>
+              <div class="sub-menu" style="display: none;">
+				 <a href="../../rcjs/ysfc/">院士风采</a>
+				 <a href="../../rcjs/sxzj/">首席专家</a>
+				 <a href="../../rcjs/rcdw/">人才队伍</a>
+				 <a href="../../rcjs/rczp/">人才招聘</a>
+              </div>
+            </li>
+			<li class="">
+              <a href="../../jksj/">健康数据</a>
+              <div class="sub-menu" style="display: none;">
+				 <a href="../../jksj/jksj01/">全国法定传染病疫情情况</a>
+				 <a href="../../jksj/xgbdyq/">全国新型冠状病毒感染疫情情况</a>
+				 <a href="../../jksj/jksj02/">重点传染病和突发公共卫生事件风险评估报告</a>
+				 <a href="../../jksj/jksj03/">全球传染病事件风险评估报告</a>
+				 <a href="../../jksj/jksj04_14209/">全国预防接种异常反应监测信息</a>
+				 <a href="../../jksj/jksj04_14249/">流感周报</a>
+				 <a href="../../jksj/jksj04/">健康报告</a>
+              </div>
+            </li>
+            <li>
+              <a href="../../jkkp/">健康科普</a>
+              <div class="sub-menu" style="display: none;">
+				 <a href="../../jkkp/crb/">传染病</a>
+				 <a href="../../jkkp/mxfcrb/">慢性非传染性疾病</a>
+				 <a href="../../jkkp/mygh/">免疫规划</a>
+				 <a href="../../jkkp/ggws/">公共卫生事件</a>
+				 <a href="../../jkkp/yckz/">烟草控制</a>
+				 <a href="../../jkkp/yyjk/">营养与健康</a>
+				 <a href="../../jkkp/hjjk/">环境健康</a>
+				 <a href="../../jkkp/zyjk/">职业健康与中毒控制</a>
+				 <a href="../../jkkp/fsws/">放射卫生</a>
+              </div>
+            </li>
+            <li><a href="../../xsqk/">学术期刊</a></li>
+            <li class="noLi hide">
+              <div class="">
+                <a class="en" href="#">EN</a>
+                <a class="wechatIcon" href="../../lxwm/202407/t20240723_286242.html"><img src="images/newSite/wechatIcon.png" alt=""></a>
+                <a class="maillInfor" href="http://mail.chinacdc.cn"><img src="images/newSite/mailIcon.png" alt=""></a>
+              </div>
+            </li>
+          </ul>
+
+          <div class="navContUp">
+            <a class="wechatIcon" href="../../lxwm/202407/t20240723_286242.html"><img src="images/newSite/wechatIcon.png" alt=""></a>
+            <a class="maillInfor" href="http://mail.chinacdc.cn"><img src="images/newSite/mailIcon.png" alt=""></a>
+            <a class="en" target="_blank" href="https://en.chinacdc.cn/">EN</a>
+            <div class="mobileNav"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+<!-- header结束 -->
+
+
+
+    <div class="erjiBanner"></div>
+
+    <style type="text/css">
+      .erjiLeft {
+        display: none;
+      }
+      .erjiRight {
+        width: 100%;
+      }
+    </style>
+    <div class="erjiCon wrap clearfix">
+      <div class="erjiRight fr">
+        <div class="erjiRightBox">
+		
+		
+          <style>
+            .width-page{width:1440px;margin:0 auto;}
+            .inlineBlock{display:inline-block;}
+            .fLeft{float:left;}
+            .fRight{float:right;}
+            .jsa-container{background-color:#fff;}
+            .jsa-container .search{position:relative;overflow:hidden;width:100%;height:57px;margin-bottom:10px;text-align:center;margin-top:20px;}
+            .jsa-container .searchInputs{width:84%;height:45px;border:solid 1px #0b45a1;margin-right:-5px;padding-left: 1%;}
+            .jsa-container .searchBtn{width:10%;height:47px;background-color:#0b45a1;border:solid 1px #0b45a1;vertical-align:top;cursor:pointer;}
+            .search-bg_out{background:#f0f0f0;width:100%;height:100%;padding:0;margin:0;overflow:hidden;}
+            .search-bg_con{width:1110px;height:100%;background:#fff;margin:auto;overflow:hidden;}
+            .search-div_find{width:95%;height:42px;border:2px solid #1e50b3;background:#1e50b3;padding:10px 0;}
+            .search-input_import{width:92%;height:94%;font-size:20px;}
+            .search-result_num{width:95%;height:14px;margin-left:44px;color:#999999;font-size:14px;}
+            .searchResult-con_out{width:95%;margin:20px auto 50px auto;overflow:hidden;}
+            .searchResult-tabbar_out{height:45px;background: #f8f8f8;line-height:45px;color:#666666;font-weight:bold;font-size:16px;cursor:pointer;}
+            .searchResult-tabbar_out span a{color:#646770;}
+            .searchResult-con_left{width:74%;float:left;}
+            .searchResult-con_right{width:25%;float:right;margin-top:20px;}
+            .search-title-text{font-size:16px;color:#2084c4;padding:10px 0;margin-top:10px;font-weight:bold;cursor:pointer;line-height: 26px;}
+            .search-title-text > a{color:#0b45a1;}
+            .search-con-text{font-size:12px;padding:0px;padding-bottom:10px;color:#333333;line-height: 24px;}
+            .search-contxt-from{font-size:12px;color:#999999;}
+            .search-contxt-time{font-size:13px;color:#a1a1a1;}
+            .search-conright-timeTitle{font-size:14px;color:#333333;}
+            .search-conright-timeCon{display:block;font-size:12px;color:#2084c4;margin-top:20px;}
+            .searchResult-pageNum-out{width:95%;overflow:hidden;font-size:16px;margin:0 auto;text-align:center;margin-top:30px;margin-bottom:100px;}
+            .searchResult-pageNumcon-div{width:35px;height:35px;}
+            .searchResult-pageNumcon-div a{display:inline-block;width:100%;height:100%;line-height:35px;color:#000;}
+            .searchResult-pageNum-input{width:35px;height:35px;font-size:16px;line-height:35px;}
+            .searchResult-pageNumcon-div a.active{background-color:#1e50b3;color:#ffffff;}
+            .searchResult-pageNumcon-div a:hover{background-color:#1e50b3;color:#ffffff;}
+            .searchResult-pageNumPre-div{width:60px;height:35px;line-height:35px;background-color:#f0f0f0;}
+            div.searchResult-pageNumPre-div > a{color:#000;}
+            .searchResult- .inline-block{display:inline-block;}
+            .search-footer-bg{width:100%;height:190px;background-color:#2b2b2b;overflow:hidden;}
+            .search-footer-conbg{width:85%;height:120px;margin:40px auto;text-align:center;}
+            .search-footer-contxt{font-size:13px;color:#6c6e7b;padding:2px;display:inline-block;}
+            .search-footer-hr{border-bottom:1px solid #444444;width:100%;margin:15px;}
+            .searchResult-getTotalNum{font-size:14px;color:#2084c4;}
+            .mg-l_32{margin-right:50px;}
+            .mg-l_20{margin-left:20px;}
+            .mg-r_10{margin-right:10px;}
+            .mg-t_60{margin-top:60px;}
+            .pd-all_15{padding:15px;}
+            .float-l{float:left;}
+            .float-r{float:right;}
+            .border_no{border:none;}
+            .border-l{border-left:1px #dadada solid;padding-left:20px;margin-bottom:30px;}
+            .searchResult-tabbar_out > span.active{color:#1e50b3;border-bottom:2px solid #1e50b3;}
+            .checkActive{color:#f00;}
+            #search_page{text-align:center;margin-top:20px;padding-top:20px;border-top:1px solid #ddd;}
+            #search_page a{display:inline-block;vertical-align:bottom;padding:0px 13px;border:1px solid #e6e6e6;background-color:#fff;color:#999999;height:33px;line-height:31px;margin:2px;opacity:0.9;}
+            #search_page a:hover{background-color:#0b45a1;color:#fff;}
+            #search_page span{display:inline-block;vertical-align:bottom;padding:0px 14px;background-color:#0b45a1 !important;color:#fff;height:34px;line-height:31px;margin:2px;border:1px solid #0b45a1 !important;font-weight:normal;}
+            .phone_top{display:none;}
+            .iconfont{display:flex;height:100%;justify-content:center;align-items:center;}
+            @media only screen and (max-width:1024px){.width-page{width:100%;}
+            .jsa-container .searchInputs{width:79%;}
+            .jsa-container .searchBtn{width:19%;}
+            .mg-l_32{margin-right:0;padding: 0 0.15rem;}
+            .searchResult-con_out{width:100%;margin:20px auto 50px auto;overflow:hidden;}
+            .search-result_num{margin-left:0;height:auto;}
+            .jsa-container .searchBtn i{font-size:0.4rem;}
+            #menu{display:flex;width:100%;overflow-x:scroll;overflow-y:hidden;flex-wrap:nowrap;white-space:nowrap;justify-content:space-around;}
+            /* 隐藏垂直滚动条 */
+            #menu::-webkit-scrollbar {
+                width: 0;
+            }
+            /* 隐藏水平滚动条 */
+            #menu::-webkit-scrollbar {
+                height: 0;
+            }
+            /* 隐藏滚动条的轨道 */
+            #menu::-webkit-scrollbar-track {
+                background-color: rgba(0, 0, 0, 0);
+            }
+            /* 隐藏滚动条的滑块 */
+            #menu::-webkit-scrollbar-thumb {
+                background-color: rgba(0, 0, 0, 0);
+            }
+            .searchResult-con_left{float:none;width:100%;}
+            .searchResult-con_right{float:none;width:100%;display:none;}
+            .phone_top{display:block;}
+            .search-contxt-time{margin-left:0;}
+            .border-l{display:flex;width:100%;/* overflow-y:hidden;overflow-x:scroll; */justify-content:start;align-items:center;padding-left:0;margin-bottom:0.3rem;flex-wrap:wrap;}
+            .border-l p{margin-left:0.2rem;}
+            .search-conright-timeCon{margin-top:0;}
+            .mg-t_60{margin-top:0;}
+            .search-conright-timeTitle-flex{display:flex;justify-content:start;align-items:center;flex-wrap:wrap;}
+            .border-l-three{flex-wrap:nowrap;}
+            #search_page{text-align:center;margin-top:20px;border-top:1px solid #ddd;}
+            #search_page a{padding:0.06rem 0.13rem;height:0.32rem;line-height:0.32rem;}
+            #search_page span{padding:0.06rem 0.13rem;height:0.32rem;line-height:0.32rem;}
+            }
+            </style>
+		
+          <div class="width-page jsa-container">
+            <!-- 输入搜索区域开始-->
+            <div class="search">
+              <form name="searchform" action="search" method="get" style="margin-bottom: 15px">
+                <input type="text" id="searchword" name="searchword" class="searchInputs" value="" "="">
+                <button type="submit" class="searchBtn">
+                  <i class="iconfont icon-sousuo">
+                    <img src="images/newSite/searchBtn.png" alt="">
+                  </i>
+                </button>
+
+                <input type="hidden" name="channelid" value="254386">
+                <input type="hidden" name="timescope" value="date">
+                <input type="hidden" name="timescopecolumn" value="日期">
+                <input type="hidden" name="orderby" value="LIFO">
+                <input type="hidden" name="perpage" value="10">
+                <input type="hidden" name="searchscope" value="">
+              </form>
+
+            </div>
+
+            <div class="search-result_num">
+              <span class="searchResult-getTotalNum">
+                35342
+              </span> 条，用时0.0010秒
+            </div>
+
+
+            <!-- 输入搜索框区域结束 -->
+            <!-- 搜索内容区域开始 -->
+            <div class="searchResult-con_out">
+              <div class="searchResult-tabbar_out" id="menu">
+                <span id="ser-con-all" class="mg-l_32 inline-block active"><a id="one1" onclick="setSearchTab('one',1,5)">全部</a></span>
+                <span id="ser-con-news" class="mg-l_32 inline-block"><a id="one2" onclick="setSearchTab('one',2,5)">新闻动态</a></span>
+                <span id="ser-con-notifi" class="mg-l_32 inline-block"><a id="one3" onclick="setSearchTab('one',3,5)">通知公告</a></span>
+                <span id="ser-con-health" class="mg-l_32 inline-block"><a id="one4" onclick="setSearchTab('one',4,5)">健康科普</a></span>
+                <span id="ser-con-webq" class="mg-l_32 inline-block active"><a id="one5" onclick="setSearchTab('one',5,5)" class="now">网站群</a></span>
+
+
+              </div>
+
+              <div class="searchResult-con_right phone_top">
+                <div class="border-l timeFilter">
+                  <span class="search-conright-timeTitle">全部时间</span>
+                  <p><a class="search-conright-timeCon" onclick="setTimeScope('');">时间不限</a></p>
+                  <p><a class="search-conright-timeCon" onclick="setTimeScope('week','发布时间');">一周内</a></p>
+                  <p><a class="search-conright-timeCon" onclick="setTimeScope('month','发布时间');">一月内</a></p>
+                  <p><a class="search-conright-timeCon" onclick="setTimeScope('date','发布时间');">一年内</a></p>
+                </div>
+
+                <div class="border-l rangeFilter">
+                  <span class="search-conright-timeTitle mg-t_60">查询范围</span>
+                  <p><a class="search-conright-timeCon" onclick="setSearchScope('');">所有结果</a></p>
+                  <p><a class="search-conright-timeCon" onclick="setSearchScope('标题');">标题</a></p>
+                  <p><a class="search-conright-timeCon" onclick="setSearchScope('正文');">正文</a></p>
+                </div>
+
+                <div class="border-l reaultFilter border-l-three">
+                  <span class="search-conright-timeTitle mg-t_60">结果排序</span>
+                  <div class="search-conright-timeTitle-flex">
+                    <p><a class="search-conright-timeCon" onclick="setOrderBy('RELEVANCE');">按相关度升序</a></p>
+                    <p><a class="search-conright-timeCon" onclick="setOrderBy('-RELEVANCE');">按相关度降序</a></p>
+                    <p><a class="search-conright-timeCon" onclick="setOrderBy('日期');">时间升序</a></p>
+                    <p><a class="search-conright-timeCon" onclick="setOrderBy('-日期');">时间降序</a></p>
+                  </div>
+                </div>
+
+              </div>
+              <div id="sear-con" class="searchResult-con_left">
+                <!-- 新闻动态 -->
+
+                <div class="searchResult-con_news">
+
+                  
+                    
+                    	
+  
+  
+  
+                    <div id="search_page">
+                        <style>
+                            #search_page{
+                              text-align: center;
+                              margin-top: 20px;
+                              padding-top: 20px;
+                              border-top: 1px solid #ddd;
+                            }
+                             #search_page a{ display: inline-block; vertical-align: bottom;padding: 0px 13px; border: 1px solid #e6e6e6;background-color: #fff;color: #999999;height: 33px;line-height: 31px;margin: 2px;opacity: 0.9; }
+                             #search_page a:hover{ background-color:#4c94d1;color:#fff;}
+  
+                               #search_page span{ display: inline-block; vertical-align: bottom;padding: 0px 14px;  background-color:#4c94d1 !important;color:#fff;height: 34px;line-height: 31px;margin: 2px;border: 1px solid #4c94d1 !important;font-weight: normal;}
+  
+                          </style>
+                          <script type="text/javascript">
+                              var currentPage = 5060;//所在页从0开始
+                              var prevPage = currentPage - 1 //上一页
+                              var nextPage = currentPage + 1 //下一页
+                              var zong = 35342;
+                              var ye = 20;
+                              var countPage = 1; //共多少页
+                              if (zong % 20 == 0)
+                                  countPage = zong / 20;
+                              else
+                                  countPage = Math.floor((zong + 20) / 20);         
+          
+          
+                              //设置上一页代码
+                              if (currentPage == 1)
+                                  document.write("<a class='sy'>首页</a>&nbsp;<a class='syy'>上一页</a>&nbsp;");
+          
+                              //跳转页面
+                          </script>
+                          <a class="first-page" href="search?page=1&amp;channelid=254386&amp;orderby=LIFO&amp;was_custom_expr=%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4+%3D+between%5B%272024.02.14%27%2C+%272025.02.13%27%5D&amp;perpage=10&amp;outlinepage=5&amp;andsen=&amp;total=&amp;orsen=&amp;exclude=&amp;searchscope=&amp;timescope=date&amp;timescopecolumn=%E6%97%A5%E6%9C%9F&amp;orderby=LIFO" target="_self">首页</a>&nbsp;<a class="prev-page" href="search?page=5059&amp;channelid=254386&amp;orderby=LIFO&amp;was_custom_expr=%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4+%3D+between%5B%272024.02.14%27%2C+%272025.02.13%27%5D&amp;perpage=10&amp;outlinepage=5&amp;andsen=&amp;total=&amp;orsen=&amp;exclude=&amp;searchscope=&amp;timescope=date&amp;timescopecolumn=%E6%97%A5%E6%9C%9F&amp;orderby=LIFO" target="_self">上一页</a>&nbsp;<a target="_self" href="search?page=3531&amp;channelid=254386&amp;orderby=LIFO&amp;was_custom_expr=%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4+%3D+between%5B%272024.02.14%27%2C+%272025.02.13%27%5D&amp;perpage=10&amp;outlinepage=5&amp;andsen=&amp;total=&amp;orsen=&amp;exclude=&amp;searchscope=&amp;timescope=date&amp;timescopecolumn=%E6%97%A5%E6%9C%9F&amp;orderby=LIFO">3531</a>&nbsp;<a target="_self" href="search?page=3532&amp;channelid=254386&amp;orderby=LIFO&amp;was_custom_expr=%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4+%3D+between%5B%272024.02.14%27%2C+%272025.02.13%27%5D&amp;perpage=10&amp;outlinepage=5&amp;andsen=&amp;total=&amp;orsen=&amp;exclude=&amp;searchscope=&amp;timescope=date&amp;timescopecolumn=%E6%97%A5%E6%9C%9F&amp;orderby=LIFO">3532</a>&nbsp;<a target="_self" href="search?page=3533&amp;channelid=254386&amp;orderby=LIFO&amp;was_custom_expr=%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4+%3D+between%5B%272024.02.14%27%2C+%272025.02.13%27%5D&amp;perpage=10&amp;outlinepage=5&amp;andsen=&amp;total=&amp;orsen=&amp;exclude=&amp;searchscope=&amp;timescope=date&amp;timescopecolumn=%E6%97%A5%E6%9C%9F&amp;orderby=LIFO">3533</a>&nbsp;<a target="_self" href="search?page=3534&amp;channelid=254386&amp;orderby=LIFO&amp;was_custom_expr=%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4+%3D+between%5B%272024.02.14%27%2C+%272025.02.13%27%5D&amp;perpage=10&amp;outlinepage=5&amp;andsen=&amp;total=&amp;orsen=&amp;exclude=&amp;searchscope=&amp;timescope=date&amp;timescopecolumn=%E6%97%A5%E6%9C%9F&amp;orderby=LIFO">3534</a>&nbsp;<a target="_self" href="search?page=3535&amp;channelid=254386&amp;orderby=LIFO&amp;was_custom_expr=%E5%8F%91%E5%B8%83%E6%97%B6%E9%97%B4+%3D+between%5B%272024.02.14%27%2C+%272025.02.13%27%5D&amp;perpage=10&amp;outlinepage=5&amp;andsen=&amp;total=&amp;orsen=&amp;exclude=&amp;searchscope=&amp;timescope=date&amp;timescopecolumn=%E6%97%A5%E6%9C%9F&amp;orderby=LIFO">3535</a>&nbsp;下一页尾页
+                          <script type="text/javascript">
+                              if (currentPage == countPage && currentPage != 2)
+                                  document.write("<a class='xyy'>下一页</a>&nbsp;<a class='my'>尾页</a>&nbsp;");
+          
+          
+                              //跳转页面         
+          
+                              function toPage() {
+                                  var _num = document.getElementById("num").value;
+                                  if (isNaN(_num)) {
+                                      alert("请输入数字");
+                                      return false;
+                                  }
+                                  var str = "search?page=" + _num + "." + "html";
+                                  var url = location.href.substring(0, location.href.lastIndexOf("/") + 1);
+                                  if (_num <= 1 || _num == null)
+                                      location.href = url + "index" + "." + "html";
+                                  else if (_num > countPage)
+                                      alert("本频道最多" + countPage + "页");
+                                  else
+                                      location.href = url + str;
+                              }
+                          </script>
+                      </div>
+                  
+
+                </div>
+              </div>
+
+              <!-- 查询出来内容的右边 -->
+              <div class="searchResult-con_right">
+
+                <div class="border-l timeFilter">
+                  <span class="search-conright-timeTitle">全部时间</span>
+                  <p><a class="search-conright-timeCon" onclick="setTimeScope('');">时间不限</a></p>
+                  <p><a class="search-conright-timeCon" onclick="setTimeScope('week','发布时间');">一周内</a></p>
+                  <p><a class="search-conright-timeCon" onclick="setTimeScope('month','发布时间');">一月内</a></p>
+                  <p><a class="search-conright-timeCon" onclick="setTimeScope('date','发布时间');">一年内</a></p>
+                </div>
+
+                <div class="border-l rangeFilter">
+                  <span class="search-conright-timeTitle mg-t_60">查询范围</span>
+                  <p><a class="search-conright-timeCon" onclick="setSearchScope('');">所有结果</a></p>
+        		 <p><a class="search-conright-timeCon" onclick="setSearchScope('标题');">标题</a></p>
+        		 <p><a class="search-conright-timeCon" onclick="setSearchScope('正文');">正文</a></p>
+                </div>
+
+                <div class="border-l reaultFilter">
+                  <span class="search-conright-timeTitle mg-t_60">结果排序</span>
+                  <p><a class="search-conright-timeCon" onclick="setOrderBy('RELEVANCE');">按相关度升序</a></p>
+                  <p><a class="search-conright-timeCon" onclick="setOrderBy('-RELEVANCE');">按相关度降序</a></p>
+                  <p><a class="search-conright-timeCon" onclick="setOrderBy('日期');">时间升序</a></p>
+                  <p><a class="search-conright-timeCon" onclick="setOrderBy('-日期');">时间降序</a></p>
+                </div>
+
+                <script type="text/javascript">
+                  var orderBy = 'LIFO';
+                  if(orderBy=='RELEVANCE' && document.getElementById("tdsortrelevance")!=null){
+                      document.getElementById("tdsortrelevance").className="searchtoolsactive" ;
+                  }
+                  else if(orderBy=='-发布时间' && document.getElementById("tdsorttime")!=null){
+                      document.getElementById("tdsorttime").className="searchtoolsactive" ;
+                  }
+                </script>
+
+
+              </div>
+            </div>
+            <!-- 搜索内容区域结束 -->
+          </div>
+
+		  
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  <!-- ====================footer开始==================== -->
+
+  <div class="footer clearfix">
+    <!-- 网站导航&相关链接&公众号 -->
+    <div class="footerUpInfor">
+      <div class="watermark wrap">
+		<div class="footWebNav">
+          <p class="webNavTitle">网站导航</p>
+          <div class="newRelatedLink">
+            <a href="http://www.nhc.gov.cn/" target="_black">国家卫生健康委员会</a>
+            <a href="https://www.ndcpa.gov.cn/" target="_black">国家疾病预防控制局</a>
+          </div>
+		  <p class="webNavTitle" style="margin-top:10px;">直属单位</p>
+		  <div class="newRelatedLink">
+            <a href="https://icdc.chinacdc.cn/" target="_black">传染病所</a>
+            <a href="https://ivdc.chinacdc.cn/" target="_black">病毒病所</a>
+            <a href="http://www.ipd.org.cn/" target="_black">寄生虫病所</a>
+            <a href="https://ncaids.chinacdc.cn/" target="_black">艾防中心</a>
+            <a href="https://ncncd.chinacdc.cn/" target="_black">慢病中心</a>
+            <a href="https://www.chinanutri.cn" target="_black">营养所</a>
+            <a href="https://iehs.chinacdc.cn" target="_black">环境所</a>
+            <a href="https://niohp.chinacdc.cn/" target="_black">职业卫生所</a>
+            <a href="https://nirp.chinacdc.cn/" target="_black">辐射安全所</a>
+            <a href="https://ncrwstg.chinacdc.cn/" target="_black">改水中心</a>
+          </div>
+        </div>
+		
+		
+        <!-- 专题网站 -->
+        <div class="relatedLink">
+          <p class="webNavTitle">网站服务</p>
+          <a href="https://ivdc.chinacdc.cn/cnic/" target="_black">中国疾控中心公共卫生科学数据中心</a>
+          <!--<a href="#" target="_black">新版网站意见</a>-->
+          <a href="https://literature.chinacdc.cn" target="_black">中国疾控中心科技文献服务系统</a>
+          <!--<a href="#" target="_black">网站调查</a>-->
+          <a href="https://caigou.chinacdc.cn/" target="_black">中国疾控中心电子采购平台</a>
+        </div>
+        <!-- 公众号 -->
+        <div class="mediumCode">
+          <img src="images/newSite/gongzhonghao.jpg" alt="">
+          <p>中国疾控中心微信公众号</p>
+        </div>
+      </div>
+    </div>
+    <!-- 版权及其他信息 -->
+    <div class="copyrightOther">
+      <p>
+        <span>中国疾病预防控制中心 版权所有</span>
+        <a class="mob-none" href="https://www.chinacdc.cn/mzsm/202410/t20241028_302192.html">版权与免责声明</a>
+        <a class="mob-none" href="https://beian.miit.gov.cn" target="_blank">京ICP备11024750号-1</a>
+        <a class="mob-none" href="https://www.beian.gov.cn/" target="_blank">京公网安备 11011402013004号</a>
+      </p>
+      <p class="mob-none">
+        <span class="title">中国疾控中心信息中心 内容管理与技术支持 建议使用1920*1080分辨率访问本站</span>
+      </p>
+      <p class="mob-none"><span class="title">地址：北京市昌平区昌百路155号 丨 邮编：102206 丨 行政值班电话：010-58900001 丨 健康咨询电话：12320 </span></p>
+      <div class="toPC"><span>电脑端</span></div>
+    </div>
+  </div>
+
+  <!-- ====================footer结束==================== -->
+<!-- 返回顶部 -->
+<div class="goTop hide"><img src="images/newSite/top.jpg" alt=""></div>
+
+<script type="text/javascript">
+  $(".toPC").on("click",function(event){
+    $(".toPC").fadeOut('fast');
+    event.preventDefault();
+     if (window.innerWidth >= 400) {
+       $("#viewport-name").attr("content","width=1400px, user-scalable=yes, initial-scale=0.28, user-scalable=yes");
+      }else{
+        $("#viewport-name").attr("content","width=1400px, user-scalable=yes, initial-scale=0.15, user-scalable=yes");
+      }
+  })
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+
+} else {
+  $(window).resize(function () {
+    if (window.innerWidth <= 1024) {
+        location.reload();
+    }
+  });
+}
+
+</script>
+
+<style>
+  .search-conright-timeCon{cursor: pointer;}
+  .footerUpInfor{height:260px;}
+  .watermark{height:260px;}
+  
+  /*20241023调整颜色*/
+  .changed,
+  .footerUpInfor,
+  .copyrightOther{background:#0b45a1;}
+  .copyrightOther{border-top:1px solid #0d4fad;}
+  
+  /*20241025注释网站调查*/
+  .relatedLink{width:350px;margin-left:110px;}
+  .relatedLink a:nth-child(odd){width:282px;}
+  .toPC{display: none;}
+  
+  @media only screen and (max-width: 1024px){
+  .footerUpInfor{height:auto;}
+  .watermark{height:auto;}
+  
+  /*20241025注释网站调查*/
+  .relatedLink{width:100%;margin-left:0px;}
+  .relatedLink a:nth-of-type(2n){width:100%;}
+  
+  /*20241028增加底部跳转电脑端*/
+  .footer{background: #0b45a1;}
+  .copyrightOther .mob-none{display: none!important;}
+  .copyrightOther p:nth-child(1){display: inline-block;}
+  .toPC{display: inline-block;background: #0b45a1;text-align: center;padding-bottom: .2rem;margin-left: 0.3rem;}
+  .toPC span{border: 1px solid #a7d0ff;font-size: 0.22rem;padding: 0.02rem 0.1rem;color: #a7d0ff;cursor: pointer;}
+
+  }
+  </style>
+  <style type="text/css">
+  
+  .navContList li{font-size: 16px;}
+  .erjiLeft .leftNavBar dd{font-size: 16px;}
+  
+  .navContUp a img{width:21px;}
+  .navContUp .maillInfor img{width:20px;}
+  .en{font-size:16px;}
+  .searchInfor img{width:60%;}
+  
+  .navContUp{/*增加适老图标后的宽度 width:192px;*/ width:154px;}
+  .navContList{width:80.2%;}
+  .dg-container .dg-wrapper a{overflow:hidden;}
+  .bannerImgText a{font-size:14px;}
+  .jkkpBox .tong_tit .ying{color: rgba(255, 255, 255, .9);}
+  
+  .navContUp a{margin-left:16px; float: none;}
+  .searchInfor{margin-left:14px;}
+  .dg-container .swiper-slide-active a div{background-color:rgba(11,69,161,.8);transition: all .5s ease;}
+  
+  @media only screen and (max-width: 1024px){
+  .xw_list li:hover{box-shadow:0;}   
+  .xw_list li:hover dl{border:0;}
+  
+  .navContList li{font-size: 0.28rem;}
+  .erjiLeft .leftNavBar dd{font-size: 0.32rem;}
+  
+  .navContUp a img{width:100%;}
+  .navContUp .maillInfor img{width:100%;}
+  .en{font-size:0.34rem;}
+  .searchInfor img{width:94%;}
+  
+  .navContUp{width:1.0rem;}
+  .navContList{width:100%;}
+  
+  .navContList li:nth-child(6):after,
+  .navContList li:nth-child(10):after{display:block;}
+  .navContList li:nth-child(12):after{display: none;}
+  
+  .navContList li:nth-child(6):after{display:block;}
+  .bannerImgText a{font-size:0.24rem;}
+  .bannerImgText a span{width:5rem;}
+  .jkkpBox .tong_tit .ying{color:#00afec;}
+  .jkkpBox{background:none;}
+  
+  .footerUpInfor{height:auto;}
+  .watermark{height:auto;}
+  
+  }
+  </style>
+
+
+
+<script src="./js/jquery.min-jsearch.js"></script>
+<script src="./js/jSearch.js"></script>
+
+
+
+
+
+
+</body></html>
