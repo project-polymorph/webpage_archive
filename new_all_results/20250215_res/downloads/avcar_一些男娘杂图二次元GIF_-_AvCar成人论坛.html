@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title>登录-AvCar成人论坛_老司机汇集地 </title>
+
+<meta name="keywords" content="">
+<meta name="description" content=",AvCar成人论坛_老司机汇集地">
+<meta name="generator" content="Discuz! X3.4">
+<meta name="author" content="Discuz! Team and Comsenz UI Team">
+<meta name="copyright" content="2001-2020 Tencent Cloud.">
+<meta name="MSSmartTagsPreventParsing" content="True">
+<meta http-equiv="MSThemeCompatible" content="Yes"><link rel="stylesheet" type="text/css" href="data/cache/style_6_common.css?BY5"><script type="text/javascript">var STYLEID = '6', STATICURL = '/static/', IMGDIR = '/static/image/common/', VERHASH = 'BY5', charset = 'gbk', discuz_uid = '0', cookiepre = 'YFh7_2132_', cookiedomain = '', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'login|sendpm|newthread|reply', creditnotice = '1|金币|,2|威望|,3|贡献|,4|元|', defaultstyle = '', REPORTURL = 'aHR0cHM6Ly9hdmNhci52aXAvbWVtYmVyLnBocD9tb2Q9bG9nZ2luZyZhY3Rpb249bG9naW4=', SITEURL = 'https://avcar.vip/', JSPATH = 'static/js/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
+<script src="static/js/common.js?BY5" type="text/javascript"></script>
+<script src="/captcha/tn_code.js?v=35" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/captcha/style.css?v=28">
+    
+    <style>.loading-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;}.loading-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;}.cancel-button{display:inline-block;margin-top:20px;padding: 5px 15px;background-color:#da8080;color:white;border:none;border-radius:15px;cursor:pointer;font-size:12px;}
+.loading-spinner {
+  height: 30px;
+  aspect-ratio: 2.5;
+  --_g: no-repeat radial-gradient(farthest-side, #fff 90%, #0000);
+  background:var(--_g), var(--_g), var(--_g), var(--_g);
+  background-size: 20% 50%;
+  animation: l43 1s infinite linear; 
+}@keyframes l43 {
+  0%     {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+  16.67% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+  33.33% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0   ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+  50%    {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 0   ,calc(3*100%/3) 50% }
+  66.67% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 0   }
+  83.33% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%}
+  100%   {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+}</style>
+<!-- 加载中遮罩 -->
+</head><body id="nv_member" class="pg_logging" onkeydown="if(event.keyCode==27) return false;"><div class="loading-overlay">
+    <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <p style="font-size: 15px;color: #ffffff;margin-top: 10px;">加载中...</p>
+        <button class="cancel-button" onclick="closeOverlay(event)" id="cancel-button">取消</button>
+    </div>
+</div>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // 监听带有show-loading类的元素点击事件
+        var show_loading = document.querySelectorAll('.show-loading');
+        if(show_loading){
+            show_loading.forEach(function(element) {
+                element.addEventListener('click', function() {
+                    showloadingOverlay();
+                });
+            });
+        }
+        // 监听带a链接点击事件
+        var links = document.querySelectorAll('a');
+        if(links){
+            links.forEach(function(link) {
+                var onclickAttr = link.getAttribute('onclick');
+                // 忽略带 onclick 的，但不忽略 onclick="atarget(this)"
+                if (!onclickAttr || onclickAttr === 'atarget(this)') {
+                // if (!link.onclick) { //忽略带onclick的
+                    link.addEventListener('click', function(event) {
+                        var href = link.getAttribute('href').toLowerCase();
+                        if (href && !href.startsWith('javascript:') && !href.startsWith('#')) {
+                            showloadingOverlay();
+                        }
+                    }, true); // 添加 true 参数使其在捕获阶段触发
+                }
+            });
+        }
+        //监听购买按钮(pc，laowang)
+        document.body.addEventListener('submit', function(event) {
+            if (event.target && event.target.id === 'dtpaytipform') {
+                showloadingOverlay(1);
+            }
+        }, true);
+    });
+    //窗口变动时隐藏
+    document.addEventListener("visibilitychange", function() {
+        hideloadingOverlay();
+    });
+
+    // 显示遮罩层
+    function showloadingOverlay(hidden_cancel = 0, message = '') {
+        if (hidden_cancel) {
+            document.getElementById('cancel-button').style.display = 'none';
+        } else {
+            document.getElementById('cancel-button').style.display = 'inline-block';
+        }
+    
+        if (message) {
+            document.querySelector('#loading-content-text').textContent = message;
+        }
+    
+        document.querySelector('.loading-overlay').style.display = 'block';
+    }
+
+    // 隐藏遮罩层
+    function hideloadingOverlay() {
+        document.querySelector('.loading-overlay').style.display = 'none';
+    }
+
+    // 点击取消按钮，关闭遮罩并阻止默认事件（例如链接跳转）
+    function closeOverlay(event) {
+        window.stop();
+        event.preventDefault(); // 阻止链接跳转
+        hideloadingOverlay();
+        return false;
+    }
+
+</script>
+    
+<meta name="application-name" content="AvCar成人论坛_老司机汇集地">
+<meta name="msapplication-tooltip" content="AvCar成人论坛_老司机汇集地">
+<meta name="msapplication-task" content="name=首页;action-uri=https://avcar.vip/forum.php;icon-uri=https://avcar.vip//static/image/common//bbs.ico">
+<meta name="msapplication-task" content="name=;action-uri=https://avcar.vip/group.php;icon-uri=https://avcar.vip//static/image/common//group.ico">    <link rel="stylesheet" type="text/css" href="static/css/domain_save.css">
+
+
+
+
+<div id="append_parent"></div><div id="ajaxwaitid"></div>
+<div id="toptb" class="cl">
+            <div class="wpdh">
+<div class="z"><a href="/forum.php?mod=viewthread&amp;tid=155614" target="_blank" style="font-weight: bold;color: blue">APP下载</a><a href="plugin.php?id=e6_propaganda" style="font-weight: bold;">推广中心</a><a href="/forum.php?mod=viewthread&amp;tid=61736" target="_blank" style="font-weight: bold;color: red">永久地址</a></div>
+<div class="y">
+                    </div>
+                <ul class="delu">
+         
+    	 <li><a href="member.php?mod=logging&amp;action=login" onclick="showWindow('login', this.href)">登录</a></li>
+         <li><a href="member.php?mod=register">注册</a></li>
+         <li><a href="javascript:;" onclick="showWindow('login', 'member.php?mod=logging&amp;action=login&amp;viewlostpw=1')" title="找回密码">找回密码</a></li>
+    </ul>
+    
+</div>
+        </div>
+
+<div id="qmenu_menu" class="p_pop blk" style="display: none;">
+<div class="ptm pbw hm">
+请 <a href="javascript:;" class="xi2" onclick="lsSubmit()"><strong>登录</strong></a> 后使用快捷导航<br>没有帐号？<a href="member.php?mod=register" class="xi2 xw1">立即注册</a>
+</div>
+<div id="fjump_menu" class="btda"></div></div><div id="hd">
+<div>
+<div class="hdc cl">
+                <div id="fix">
+                <div id="logo"><h2><em><a href="./" title="AvCar成人论坛_老司机汇集地"><img src="/template/color_luntan19/images/logo.png" alt="AvCar成人论坛_老司机汇集地" border="0"></a></em></h2>
+                    <div id="scbar" class="cl xg1">
+<form method="get" class="site-search-form" action="/search/s.php" target="_blank" accept-charset="utf-8" _charset="utf-8">
+              <select name="fid" class="search-cat">
+              	<option value="">全站</option>
+              	              </select>  
+              <input class="search-input" name="q" type="text" placeholder="搜索一下">
+              <button class="search-btn" type="submit">搜索</button>
+    </form>
+</div>
+<ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="group"></a></li><li><a href="javascript:;" rel="user">用户</a></li></ul>
+<script type="text/javascript">
+initSearchmenu('scbar', '');
+</script>
+ 
+</div>
+                </div>
+                </div>
+                
+                <div id="nvv">
+                <div class="wpdh">
+<div id="nv">
+<a href="javascript:;" id="qmenu" onmouseover="delayShow(this, function () {showMenu({'ctrlid':'qmenu','pos':'34!','ctrlclass':'a','duration':2});showForummenu(0);})">快捷导航</a>
+<ul><li id="mn_forum"><a href="forum.php" hidefocus="true" title="BBS">首页<span>BBS</span></a></li><li id="mn_Na642"><a href="plugin.php?id=strong_follow&amp;mod=follow" hidefocus="true">我的关注</a></li><li id="mn_N306e" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="#" hidefocus="true" style="font-weight: bold;color: blue">在线视频</a></li><li id="mn_Ne4b8" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="forum.php?gid=7084" hidefocus="true">种子磁力</a></li><li id="mn_Ne6cd" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="#" hidefocus="true">AV磁力</a></li><li id="mn_F38" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="forum-38-1.html" hidefocus="true">图片</a></li><li id="mn_F39" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="forum-39-1.html" hidefocus="true">小说</a></li><li id="mn_F49" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="forum-49-1.html" hidefocus="true">动漫</a></li><li id="mn_N72c2" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="forum.php?gid=1220" hidefocus="true">伪娘</a></li><li id="mn_Ne1c4" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="forum.php?gid=597" hidefocus="true">绿帽淫妻</a></li><li id="mn_F37" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="forum-37-1.html" hidefocus="true" style="font-weight: bold;color: red">飙车区</a></li><li id="mn_Nc14f" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="group.php" hidefocus="true" style="font-weight: bold;">兴趣圈</a></li><li id="mn_N920f"><a href="xiaomy_buycardvipgroup-buycardvipgroup.html" hidefocus="true" style="font-weight: bold;color: red">开通VIP</a></li><li id="mn_N5202"><a href="forum.php?mod=viewthread&amp;tid=61735&amp;page=1&amp;extra=#pid62248" hidefocus="true" style="font-weight: bold;">指南</a></li><li id="mn_Nc4d8"><a href="/ad/laogewen.php" hidefocus="true" target="_blank" style="color: blue">嫖娼性息</a></li></ul>
+                    <script src="/template/color_luntan19/images/fixed.js" type="text/javascript"></script>
+</div>
+                </div>
+                </div>
+
+                
+                <div class="wpdh">
+<ul class="p_pop h_pop" id="mn_N306e_menu" style="display: none"><li><a href="forum-8148-1.html" hidefocus="true">综合分类大区</a></li><li><a href="forum-3498-1.html" hidefocus="true">国产自拍</a></li><li><a href="forum-3604-1.html" hidefocus="true">网络热门</a></li><li><a href="forum-3605-1.html" hidefocus="true">猎奇另类</a></li><li><a href="forum-3606-1.html" hidefocus="true">中文字幕</a></li><li><a href="forum-3607-1.html" hidefocus="true">国产sm区</a></li><li><a href="forum-3608-1.html" hidefocus="true">韩国视频</a></li><li><a href="forum-3603-1.html" hidefocus="true">三级伦理</a></li><li><a href="forum-3609-1.html" hidefocus="true">无码资源</a></li><li><a href="forum-8149-1.html" hidefocus="true">综合存档区</a></li></ul><ul class="p_pop h_pop" id="mn_Ne4b8_menu" style="display: none"><li><a href="forum-7085-1.html" hidefocus="true">国产原创</a></li><li><a href="forum-7086-1.html" hidefocus="true">亚洲无码原创</a></li><li><a href="forum-7087-1.html" hidefocus="true">亚洲有码原创</a></li><li><a href="forum-7090-1.html" hidefocus="true">VR视频区</a></li><li><a href="forum-7088-1.html" hidefocus="true">高清中文字幕</a></li><li><a href="forum-7089-1.html" hidefocus="true">三级写真</a></li><li><a href="forum-7093-1.html" hidefocus="true">4K原版</a></li><li><a href="forum-7095-1.html" hidefocus="true">动漫原创</a></li><li><a href="forum-7091-1.html" hidefocus="true">素人有码系列</a></li><li><a href="forum-7094-1.html" hidefocus="true">韩国主播</a></li><li><a href="forum-7092-1.html" hidefocus="true">欧美无码</a></li></ul><ul class="p_pop h_pop" id="mn_Ne6cd_menu" style="display: none"><li><a href="forum.php?gid=1" hidefocus="true">按主题分类</a></li><li><a href="forum.php?gid=126" hidefocus="true">按体型分类</a></li><li><a href="forum.php?gid=124" hidefocus="true">按角色分类</a></li><li><a href="forum.php?gid=128" hidefocus="true">按玩法分类</a></li><li><a href="forum.php?gid=125" hidefocus="true">按服装分类</a></li><li><a href="forum.php?gid=127" hidefocus="true">按行为分类</a></li></ul><ul class="p_pop h_pop" id="mn_F38_menu" style="display: none"><li><a href="forum-50-1.html" hidefocus="true">sm专栏</a></li><li><a href="forum-6302-1.html" hidefocus="true">GIF动图</a></li><li><a href="forum-51-1.html" hidefocus="true">亚洲美图</a></li><li><a href="forum-52-1.html" hidefocus="true">欧洲美图</a></li><li><a href="forum-53-1.html" hidefocus="true">高跟丝袜图区</a></li><li><a href="forum-54-1.html" hidefocus="true">人妻乱伦</a></li></ul><ul class="p_pop h_pop" id="mn_F39_menu" style="display: none"><li><a href="forum-7107-1.html" hidefocus="true">TXT小说下载</a></li><li><a href="forum-7118-1.html" hidefocus="true">人妻绿帽</a></li><li><a href="forum-7120-1.html" hidefocus="true">强暴凌辱</a></li><li><a href="forum-79-1.html" hidefocus="true">乱伦迷情</a></li><li><a href="forum-7109-1.html" hidefocus="true">都市制服</a></li><li><a href="forum-7112-1.html" hidefocus="true">重口另类</a></li><li><a href="forum-7111-1.html" hidefocus="true">武侠玄幻</a></li></ul><ul class="p_pop h_pop" id="mn_F49_menu" style="display: none"><li><a href="forum-62-1.html" hidefocus="true">成人动漫视频</a></li><li><a href="forum-63-1.html" hidefocus="true">动漫游戏资源</a></li><li><a href="forum-64-1.html" hidefocus="true">成人H漫画</a></li><li><a href="forum-65-1.html" hidefocus="true">里番合集</a></li></ul><ul class="p_pop h_pop" id="mn_N72c2_menu" style="display: none"><li><a href="forum-1224-1.html" hidefocus="true">交流讨论</a></li><li><a href="forum-1221-1.html" hidefocus="true">伪娘交友</a></li><li><a href="forum-1223-1.html" hidefocus="true">伪娘小说</a></li><li><a href="forum-1222-1.html" hidefocus="true">伪娘图片</a></li></ul><ul class="p_pop h_pop" id="mn_Ne1c4_menu" style="display: none"><li><a href="forum-617-1.html" hidefocus="true">交流分享</a></li><li><a href="forum-619-1.html" hidefocus="true">绿帽淫妻小说</a></li><li><a href="forum-618-1.html" hidefocus="true">夫妻情侣单男交友</a></li></ul><ul class="p_pop h_pop" id="mn_F37_menu" style="display: none"><li><a href="forum-7099-1.html" hidefocus="true">老司机交流</a></li><li><a href="forum-7100-1.html" hidefocus="true">网友分享区</a></li><li><a href="forum-67-1.html" hidefocus="true">资源求助</a></li><li><a href="forum-222-1.html" hidefocus="true" style="font-weight: bold;color: red">站务管理</a></li></ul><ul class="p_pop h_pop" id="mn_Nc14f_menu" style="display: none"><li><a href="group.php?gid=3" hidefocus="true">AV影视圈</a></li><li><a href="group.php?gid=5" hidefocus="true">SM圈</a></li><li><a href="group.php?gid=6" hidefocus="true">动漫二次元圈</a></li><li><a href="group.php?gid=7" hidefocus="true">恋物圈</a></li><li><a href="group.php?gid=8" hidefocus="true">经验教程圈</a></li><li><a href="group.php?gid=9" hidefocus="true">约炮交友圈</a></li><li><a href="group.php?gid=10" hidefocus="true">变装变性圈</a></li><li><a href="group.php?gid=11" hidefocus="true">其他圈</a></li></ul><div id="mu" class="cl">
+                </div>
+                </div>
+                </div>
+</div>
+
+<div class="wpdh"><style type="text/css">.h_avatar,.xr_tl td.o{vertical-align:top}.xr_tl td.o input{margin-top:10px;}.xinruiOneImg span{display:block;}.tl_picList{margin:5px 0;}.xinruiInfo{color:#999;line-height:22px;font-size:13px;}.xinruiPic li{width:92px;height:92px;float:left; margin-right:10px; margin-top:6px;}.xinruiPic span,.xinruiOneImg li span{display:block;width:90px;height:90px;background:#fff;border:solid 1px #eee; border-radius:3px; overflow:hidden; text-align:center; position:relative; cursor:url(source/plugin/xinrui_list_pic/images/cur_zin.cur),pointer; _cursor:url(source/plugin/xinrui_list_pic/images/cur_zin.cur),pointer;} .xinruiOneImg li img, .xinruiPic li img{position:absolute; top:0;left:50%;max-height:100%; transform: translate(-50%);} .xinruiOneImg,.xinruiOneImg ul{float:left;}.xinruiOneImg li{margin-top:0;margin-right:10px;width:90px;height:90px;float:left;}</style></div>
+
+<div id="wp" class="wp">
+<div id="ct" class="ptm wp w cl">
+<div class="nfl" id="main_succeed" style="display: none">
+<div class="f_c altw">
+<div class="alert_right">
+<p id="succeedmessage"></p>
+<p id="succeedlocation" class="alert_btnleft"></p>
+<p class="alert_btnleft"><a id="succeedmessage_href">如果您的浏览器没有自动跳转，请点击此链接</a></p>
+</div>
+</div>
+</div>
+<div class="mn" id="main_message">
+<div class="bm">
+<div class="bm_h bbs">
+<span class="y">
+<a href="member.php?mod=register" class="xi2">没有帐号？</a><a href="member.php?mod=register">立即注册</a>
+</span>
+<h3 class="xs2">登录</h3>
+</div>
+<div>
+
+<div id="main_messaqge_LsgeD">
+<div id="layer_login_LsgeD">
+<h3 class="flb">
+<em id="returnmessage_LsgeD">
+</em>
+<span></span>
+</h3>
+<form method="post" autocomplete="off" name="login" id="loginform_LsgeD" class="cl" onsubmit="pwmd5('password3_LsgeD');pwdclear = 1;ajaxpost('loginform_LsgeD', 'returnmessage_LsgeD', 'returnmessage_LsgeD', 'onerror');return false;" action="member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;loginhash=LsgeD">
+<div class="c cl">
+<input type="hidden" name="formhash" value="b3d06442">
+<input type="hidden" name="referer" value="https://avcar.vip/./">
+<div class="rfm">
+<table>
+<tbody><tr>
+<th>
+<label for="username_LsgeD">帐号:</label></th>
+<td><input type="text" name="username" id="username_LsgeD" autocomplete="off" size="30" class="px p_fre" tabindex="1" value=""></td>
+<td class="tipcol"><a href="member.php?mod=register">立即注册</a></td>
+</tr>
+</tbody></table>
+</div>
+<div class="rfm">
+<table>
+<tbody><tr>
+<th><label for="password3_LsgeD">密码:</label></th>
+<td><input type="password" id="password3_LsgeD" name="password" onfocus="clearpwd()" size="30" class="px p_fre" tabindex="1"></td>
+<td class="tipcol"><a href="javascript:;" onclick="display('layer_login_LsgeD');display('layer_lostpw_LsgeD');" title="找回密码">找回密码</a></td>
+</tr>
+</tbody></table>
+</div>
+
+<div class="rfm" id="pstx" style="display:none;">
+    <table>
+<tbody><tr>
+    <th></th>
+    <td><p id="pstxxs"></p></td>
+</tr>
+</tbody></table>
+</div>
+
+<div class="rfm">
+<table>
+<tbody><tr>
+<th>安全提问:</th>
+<td><select id="loginquestionid_LsgeD" width="213" name="questionid" onchange="if($('loginquestionid_LsgeD').value > 0) {$('loginanswer_row_LsgeD').style.display='';} else {$('loginanswer_row_LsgeD').style.display='none';}">
+<option value="0">安全提问(未设置请忽略)</option>
+<option value="1">母亲的名字</option>
+<option value="2">爷爷的名字</option>
+<option value="3">父亲出生的城市</option>
+<option value="4">您其中一位老师的名字</option>
+<option value="5">您个人计算机的型号</option>
+<option value="6">您最喜欢的餐馆名称</option>
+<option value="7">驾驶执照最后四位数字</option>
+</select></td>
+</tr>
+</tbody></table>
+</div>
+<div class="rfm" id="loginanswer_row_LsgeD" style="display:none">
+<table>
+<tbody><tr>
+<th>答案:</th>
+<td><input type="text" name="answer" id="loginanswer_LsgeD" autocomplete="off" size="30" class="px p_fre" tabindex="1"></td>
+</tr>
+</tbody></table>
+</div>
+
+
+<div class="rfm ">
+<table>
+<tbody><tr>
+<th></th>
+<td><label for="cookietime_LsgeD"><input type="checkbox" checked="checked" class="pc" name="cookietime" id="cookietime_LsgeD" tabindex="1" value="2592000">自动登录</label></td>
+</tr>
+</tbody></table>
+</div>
+
+<div class="rfm">
+                	<table>
+                		<tbody><tr>
+                			<th style="line-height: 40px;">验证:</th>
+                			<td><div class="tncode" id="tncode">点击进行验证</div></td>
+                		</tr>
+                	</tbody></table>
+                </div>
+                <input type="hidden" id="clicaptcha-submit-info" name="clicaptcha-submit-info">
+
+                <div style="margin: 0 auto;width: 500px;padding: 0 50px;color: blue;margin-top: 20px;">郑重声明：请不要将账号信息给任何人！如果因为账号共享，被别人恶意发广告导致账号被封，请自行承担责任！！！</div>
+<div class="rfm mbw bw0">
+<table width="100%">
+<tbody><tr>
+<th>&nbsp;</th>
+<td>
+<button class="pn pnc" type="submit" name="loginsubmit" id="captcha_submit" value="true" tabindex="1"><strong>登录</strong></button>
+</td>
+<td>
+								
+</td>
+</tr>
+</tbody></table>
+</div>
+
+</div>
+</form>
+</div>
+<script src="static/js/md5.js?BY5" type="text/javascript" reload="1"></script>
+<div id="layer_lostpw_LsgeD" style="display: none;">
+<h3 class="flb">
+<em id="returnmessage3_LsgeD">找回密码</em>
+<span></span>
+</h3>
+<form method="post" autocomplete="off" id="lostpwform_LsgeD" class="cl" onsubmit="ajaxpost('lostpwform_LsgeD', 'returnmessage3_LsgeD', 'returnmessage3_LsgeD', 'onerror');return false;" action="member.php?mod=lostpasswd&amp;lostpwsubmit=yes&amp;infloat=yes">
+<div class="c cl">
+<input type="hidden" name="formhash" value="b3d06442">
+<input type="hidden" name="handlekey" value="lostpwform">
+<div class="rfm">
+<table>
+<tbody><tr>
+<th><span class="rq">*</span><label for="lostpw_email">Email:</label></th>
+<td><input type="text" name="email" id="lostpw_email" size="30" value="" tabindex="1" class="px p_fre"></td>
+</tr>
+</tbody></table>
+</div>
+<div class="rfm">
+<table>
+<tbody><tr>
+<th><label for="lostpw_username">用户名（选填）:</label></th>
+<td><input type="text" name="username" id="lostpw_username" size="30" value="" tabindex="1" class="px p_fre"></td>
+</tr>
+</tbody></table>
+</div>
+                <div class="rfm" style="padding: 20px;"><b>【找回密码说明】</b>：请先用绑定的邮箱发送任意内容到邮箱：<font style="color:blue;">pw@avcar.vip</font>  
+                <br> <br>发送后请耐心等待两分钟后再点击提交按钮
+                <br><br>如果发送邮件后50分钟内没有点击提交按钮，请重新发送邮件<br><br>
+                
+               常见问题请<a href="/forum.php?mod=viewthread&amp;tid=929819" target="_blank">【点击这里】</a><br><br>
+                </div>
+<div class="rfm mbw bw0">
+<table>
+<tbody><tr>
+<th></th>
+<td><button class="pn pnc" type="submit" name="lostpwsubmit" value="true" tabindex="100"><span>提交</span></button></td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</form>
+</div>
+</div>
+
+<div id="layer_message_LsgeD" class="f_c blr nfl" style="display: none;">
+<h3 class="flb" id="layer_header_LsgeD">
+</h3>
+<div class="c"><div class="alert_right">
+<div id="messageleft_LsgeD"></div>
+<p class="alert_btnleft" id="messageright_LsgeD"></p>
+</div>
+</div>
+
+<script type="text/javascript" reload="1">
+var pwdclear = 0;
+function initinput_login() {
+document.body.focus();
+if($('loginform_LsgeD')) {
+$('loginform_LsgeD').username.focus();
+}
+}
+initinput_login();
+
+function clearpwd() {
+if(pwdclear) {
+$('password3_LsgeD').value = '';
+}
+pwdclear = 0;
+}
+</script></div></div></div></div>
+</div>
+<script>
+    function clickHandler2(e) {
+        setTimeout(clickHandler3,1000);
+    }
+    function clickHandler3(e) {
+        document.getElementById("tncode").innerHTML="点击进行验证";
+    }
+    document.getElementById("captcha_submit").onclick = clickHandler2;
+    
+        //登录页面用户名和密码处理
+    //聚焦清空和密码
+    var passwordInput = document.querySelector('input[name="password"]');
+    if (passwordInput) {
+        passwordInput.addEventListener('focus', function() {
+            document.getElementById("pstx").style.display = "none";
+            this.value = '';  // 清空输入框
+        });
+        passwordInput.addEventListener('blur', function() {
+            if (passwordInput.value) {
+                // 检查是否含有非ASCII字符
+                const nonASCIIRegex = /[^\x00-\x7F]/g;
+                const nonASCIICharacters = passwordInput.value.match(nonASCIIRegex);
+                if (nonASCIICharacters) {
+                    const  feiasciizifu=nonASCIICharacters.join('');
+                    // 如果有非ASCII字符，输出警告并显示非ASCII字符
+                    console.log("非ASCII字符部分："+feiasciizifu,);
+                    document.getElementById("pstx").style.display = "block";
+                    document.getElementById("pstxxs").innerText = "密码不能包含特殊字符："+feiasciizifu+" 可能会导致登录失败，请及时修改";
+                    // 阻止后续操作
+                    return feiasciizifu;
+                }
+            }
+        });
+    }
+</script></div>
+    
+    
+    <div id="footer">
+<div id="ft" class="wp cl">
+    
+    <div id="xinxi">
+
+    
+    <em> 邮箱E-mail：avcar@avcar.vip </em>
+    <span>Av Car_老司机必备的福利社区</span>
+
+    </div>
+    
+<div id="ftw">
+<div id="flk" class="y">
+<p>
+<a href="https://avgood.com" target="_blank">AvGood</a><span class="pipe">|</span><a href="archiver/">Archiver</a><span class="pipe">|</span><a href="forum.php?mod=misc&amp;action=showdarkroom">小黑屋</a><span class="pipe">|</span><!--<strong><a href="https://avcar.vip" target="_blank">AvCar成人论坛_老司机汇集地</a></strong>-->
+<span class="pipe">|</span><a href="sitemap.xml" target="_blank" title="网站地图">网站地图</a><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VSTV4J2HKP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VSTV4J2HKP');
+</script></p>
+<p class="xs1">
+GMT+8, 2025-2-19 17:55<span id="debuginfo">
+</span>
+</p>
+</div>
+<div id="frt">
+<p>Powered by <strong><a href="http://www.discuz.net" target="_blank">Discuz!</a></strong> <em>X3.4</em></p>
+<p class="xs1">© 2001-2013 <a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a></p>
+</div></div>
+    </div>
+    </div>
+<script src="home.php?mod=misc&amp;ac=sendmail&amp;rand=1739958931" type="text/javascript"></script>
+<div id="scrolltop">
+<span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa"><b>返回顶部</b></a></span>
+</div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+<div id="save_info" class="modal fade in" style="display: none;">
+    <div class="modal-dialog" id="cltc">
+    	<div class="modal-content">
+    		<div class="modal-header">
+      			<button type="button" class="close" onclick="close_ls()"><span>×</span></button>
+    		              <h4 class="modal-title">重要说明</h4>
+            </div>
+            <div class="modal-body">
+                            <p style="color: #D80456;">此网址随时会失效，推荐截图保存此说明或者存一下地址发布邮箱，以防地址失效！！！</p>
+              <br>
+              <p>永久主域名：<b style="color:blue;">avcar.vip</b>（大陆地区需要翻墙）</p>
+              <br>
+              <p>地址发布邮箱：<b style="color:blue;">avcar@avcar.vip</b>（发送任意内容到此邮箱即可获取最新大陆可访问地址）</p>
+                        </div>
+            <div class="modal-footer">
+              <button class="btn btn_c" onclick="clos_no_day()">一天内不再提醒</button>
+              <button class="btn" onclick="close_ls()">close</button>
+            </div>
+          </div>
+    </div>
+</div> 
+
+<script src="static/js/domain_save.js" type="text/javascript"></script>
+
+
+
+<div class="tncode_div_bg" id="tncode_div_bg"></div><div class="tncode_div" id="tncode_div"><div class="loading">加载中</div><canvas class="tncode_canvas_bg"></canvas><canvas class="tncode_canvas_mark"></canvas><div class="hgroup"></div><div class="tncode_msg_error"></div><div class="tncode_msg_ok"></div><div class="slide"><div class="slide_block"></div><div class="slide_block_text">按住左边滑块后完成拼图</div></div><div class="tools"><div class="tncode_close"></div><div class="tncode_refresh"></div></div></div></body></html>
