@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html><head>
+        <title>error connecting: Timeout expired. &nbsp;The timeout period elapsed prior to obtaining a connection from the pool. &nbsp;This may have occurred because all pooled connections were in use and max pool size was reached.</title>
+        <meta name="viewport" content="width=device-width">
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Consolas","Lucida Console",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:pointer; }
+         @media screen and (max-width: 639px) {
+          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }
+         }
+         @media screen and (max-width: 479px) {
+          pre { width: 280px; }
+         }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><h1>“/”应用程序中的服务器错误。<hr width="100%" size="1" color="silver"></h1>
+
+            <h2> <i>error connecting: Timeout expired. &nbsp;The timeout period elapsed prior to obtaining a connection from the pool. &nbsp;This may have occurred because all pooled connections were in use and max pool size was reached.</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> 说明: </b>执行当前 Web 请求期间，出现未经处理的异常。请检查堆栈跟踪信息，以了解有关该错误以及代码中导致错误的出处的详细信息。
+
+            <br><br>
+
+            <b> 异常详细信息: </b>MySql.Data.MySqlClient.MySqlException: error connecting: Timeout expired. &nbsp;The timeout period elapsed prior to obtaining a connection from the pool. &nbsp;This may have occurred because all pooled connections were in use and max pool size was reached.<br><br>
+
+            <b>源错误:</b> <br><br>
+
+            <table width="100%" bgcolor="#ffffcc">
+               <tbody><tr>
+                  <td>
+                      <code>
+
+只有在调试模式下进行编译时，生成此未经处理的异常的源代码才会显示出来。若要启用此功能，请执行以下步骤之一，然后请求 URL: <br><br>1. 在产生错误的文件的顶部添加一条“Debug=true”指令。例如: <br><br> &nbsp;&nbsp;&lt;%@ Page Language="C#" Debug="true" %&gt;<br><br>或:<br><br>2. 将以下的节添加到应用程序的配置文件中:<br><br>&lt;configuration&gt;<br> &nbsp;&nbsp;&nbsp;&lt;system.web&gt;<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;compilation debug="true"/&gt;<br> &nbsp;&nbsp;&nbsp;&lt;/system.web&gt;<br>&lt;/configuration&gt;<br><br> 请注意，第二个步骤将使给定应用程序中的所有文件在调试模式下进行编译；第一个步骤仅使该特定文件在调试模式下进行编译。<br><br>重要事项: 以调试模式运行应用程序一定会产生内存/性能系统开销。在部署到生产方案之前，应确保应用程序调试已禁用。                      </code>
+
+                  </td>
+               </tr>
+            </tbody></table>
+
+            <br>
+
+            <b>堆栈跟踪:</b> <br><br>
+
+            <table width="100%" bgcolor="#ffffcc">
+               <tbody><tr>
+                  <td>
+                      <code><pre>
+[MySqlException (0x80004005): error connecting: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.]
+   MySql.Data.MySqlClient.MySqlPool.GetConnection() +193
+   MySql.Data.MySqlClient.MySqlConnection.Open() +1214
+   BaseDB.DB.CreateConn() in F:\My Documents\Visual Studio 2010\Projects\lwz_tp_cms\BaseDB\Properties\DB.cs:59
+   BaseDB.DB.ExecuteReader(String sql) in F:\My Documents\Visual Studio 2010\Projects\lwz_tp_cms\BaseDB\Properties\DB.cs:138
+   template_touxiang.getBody() +484
+   template_touxiang.Page_Load(Object sender, EventArgs e) +598
+   System.Web.UI.Control.OnLoad(EventArgs e) +108
+   System.Web.UI.Control.LoadRecursive() +90
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +1533
+</pre>                      </code>
+
+                  </td>
+               </tr>
+            </tbody></table>
+
+            <br>
+
+            <hr width="100%" size="1" color="silver">
+
+            <b>版本信息:</b>&nbsp;Microsoft .NET Framework 版本:4.0.30319; ASP.NET 版本:4.8.4380.0
+
+            </font>
+
+    
+
+</body></html>
