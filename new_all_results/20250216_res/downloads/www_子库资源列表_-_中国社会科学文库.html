@@ -1,0 +1,2661 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+	<meta charset="UTF-8">
+	<title>子库资源列表</title>
+	<meta charset="utf-8">
+	
+<link rel="shortcut icon" href="https://www.sklib.cn//favicon.ico" type="image/x-icon">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="format-detection" content="telephone=no">
+<script>
+	var frontAppContext = 'https://www.sklib.cn/booklib/';
+	var siteID = "122";
+	var siteUrl = "https://www.sklib.cn/";
+	var fromSubID = "326"
+	var subID = "" 
+	var secondSubID = "" // 二级子库ID,用于检索
+	window.onload = function(){
+		var location = window.location.href;
+		if(!fromSubID && location.indexOf('sublibrary') >= 0){
+			fromSubID = "328"
+		}
+		if(location.indexOf('historyResources') >= 0){
+			secondSubID = "328"
+		}
+		subID = "" ? "" : secondSubID ? secondSubID : fromSubID 
+	}
+	var ZASUrl = "https://www.sklib.cn/sso/";
+	var AppURL = siteUrl + frontAppContext.substring(1);
+	AppURL = 'https://www.sklib.cn/booklib/';
+	var clientID = '';
+	var referer = encodeURIComponent(AppURL + 'member/login');
+</script>
+
+<link rel="stylesheet" href="https://www.sklib.cn/v3/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="https://www.sklib.cn/v3/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="https://www.sklib.cn/v3/css/v3-framework.css" type="text/css">
+<link rel="stylesheet" href="https://www.sklib.cn/v3/css/v3-common.css" type="text/css">
+<link rel="stylesheet" href="https://www.sklib.cn/v3/css/v3-site.css" type="text/css">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+<script src="https://www.sklib.cn/booklib/framework/zcms_common.js"></script>
+<script src="https://www.sklib.cn/booklib/framework/zcms_require.js"></script><link rel="stylesheet" type="text/css" href="/booklib/framework/zcms_components.css"><script type="text/javascript" src="/booklib/framework/zcms_common.js"></script><style type="text/css" id="styleNaN">body,input,textarea,select,button { font-family:Helvetica, Arial, sans-serif; }h1,h2,h3,h4,h5,h6{font-family:'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;}.navigation a ,.sideNavigation a{font-family:'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;}#loginBtnWrap a{ letter-spacing:1px; }</style><script type="text/javascript" src="/booklib/framework/lang/en.js"></script><script type="text/javascript" src="/booklib/framework/zcms_frontend.js"></script>
+<script>
+if(isIE8){
+
+}else{
+	importJS('../v3/js/hammer.min.js')
+}
+</script><script type="text/javascript" src="/booklib/framework/../v3/js/hammer.min.js"></script>
+<!-- 评论所需js -->
+<script src="https://www.sklib.cn/v3/js/v3_site_new.js"></script>
+<script src="https://www.sklib.cn/v3/js/bootstrap.min.js"></script>
+<script src="https://www.sklib.cn/v3/js/hammer.min.js"></script>
+<script src="https://www.sklib.cn/v3/js/scroll/smoothscroll.js"></script>
+<script type="text/javascript" src="https://www.sklib.cn/js/jquery.js"></script>
+<link rel="stylesheet" href="https://www.sklib.cn/css/slick.css" type="text/css">
+<script type="text/javascript" src="https://www.sklib.cn/js/slick.min.js"></script>
+<script type="text/javascript" src="https://www.sklib.cn/js/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="https://www.sklib.cn/v3/js/scroll/smoothscroll.js"></script>
+<script type="text/javascript" src="https://www.sklib.cn/js/customBootstap.js"></script>
+<script type="text/javascript" src="https://www.sklib.cn/js/bootstrap.min.js"></script>
+<script>
+if(isIE && ieVersion<9 || isIE8){
+  importJS('https://www.sklib.cn/v3/js/ie/html5shiv.js')
+  if(!isIE6 && !isIE7){
+    importJS('https://www.sklib.cn/v3/js/ie/respond.min.js')
+  }
+  importJS('https://www.sklib.cn/v3/js/ie/excanvas.js')
+}
+if(inTouch){
+  importJS('https://www.sklib.cn/v3/js/ie/hammer.min.js')
+}
+window.jQuery.bootstrapFlag = true;
+</script>
+<style>
+	a{cursor: pointer;}
+/*******************************
+	-------[登录、注册]--------
+********************************/
+.dialogMask{position: fixed;z-index:1000; top:0; left:0; width:100%;height:100%; background:rgba(0,0,0,0.4)}
+.dialogBg{position: fixed;z-index:1001; top:200px; left:50%;margin-left:-225px;width:550px;max-width:100%;background-color:#fff;border-radius:10px;padding:40px 60px;}
+.dialogBg .dialog_close{position: absolute;right:15px; top:0;font-size:40px;color:#333;cursor: pointer;}
+.loginMethodTab{position: absolute;top:0;left:0;width:92px;height:92px;}
+.loginMethodTab span{cursor: pointer;display:inline;}
+.loginMethodTab span.on {display:none;}
+.dialogTab{text-align:center;margin-bottom:30px;height:42px;}
+.dialogTab span{position: relative;height:100%;display:inline-block;cursor:pointer;margin:0 30px;font-size:24px;color:#bfbfbf;}
+.dialogTab span::after{content:''; position: absolute;width:100%; height:2px;left:0; bottom:0;background:none;background-size:100% 100%;}
+.dialogTab span.on{color:#333333;}
+.dialogTab span.on::after{background: url(../../images/dialogBtnBg.png) no-repeat;background-size:100% 100%;}
+.dialogBg .input-group-addon{background:none;border:none;}
+.dialogBg .input-group-addon img{min-width:80px;cursor: pointer;}
+.dialogBg .form-control{background:none;border:none;font-size:16px;}
+.dialogBg select{border:none;background:None;padding:0;}
+.dialogBg .item{background:#f9f9f9;margin-bottom:20px;height:48px;line-height:48px;}
+.dialogBg .item input{height:48px;line-height:48px;}
+.dialogBg .btn{width:100%;height:48px;line-height:36px;background: url(../../images/dialogBtnBg.png) no-repeat;background-size:100% 100%;border:none;font-size:20px;letter-spacing: 1rem;}
+.dialogBg input[type=radio]{position: relative;top:2px;margin-right:10px;}
+.dialogBg .regulations{color:#bfc4cd;font-size:16px;}
+.dialogBg a{color:#2378e4;}
+.dialogBg a.carsi{color:#33b18f;}
+.dialogBg a.forget{color:#bfc4cd;cursor: pointer;}
+.dialogBg a.disabled{    color: #999;}
+.retrieve-dialog .dialogTab span.on::after{background:#3dcdaa}
+.retrieve-dialog .btn{background:#3dcdaa}
+.retrieve-dialog a{color:#3dcdaa;}
+/*******************************
+	-------[头部]--------
+********************************/
+.header{padding:0;background:url(../../images/head-bg.png) repeat-x left bottom;z-index:9; height:97px;line-height:97px;position: relative;}
+.head{position: relative;z-index:1;}
+/*******************************
+  --------[图书列表头部]-------
+********************************/
+.header-top{border-bottom:1px solid #fff;line-height: 40px; color:#fff;}
+.header-top a{color:#fff;}
+.header-top .loginColor a,.header-top .loginColor {color:#fff;}
+.header-book{background:none;height:140px;line-height:140px;}
+.header-book .search {margin: 48px 0;float:right;width:730px;}
+.header-book .search .subsearch-query{width: calc(100% - 85px);margin-left:0;}
+.header-book .search .advanceLink{margin-top:0px;float:right;}
+/*******************************
+  --------[第三方登录]-------
+********************************/
+.other-login h4{text-align: center;overflow: hidden;margin: 0;margin-bottom: 18px;}
+.other-login h4 span{font-size: 12px;padding: 0 12px;position: relative;}
+.other-login h4 span:after,.other-login h4 span:before{content: '';position: absolute;top: 50%;
+	height: 1px;background-color: #e8e8e8;width: 200px;
+}
+.other-login h4 span:after{left: 100%;}
+.other-login h4 span:before{right: 100%;}
+.other-login .other{text-align: center;}
+.other-login .other a{width: 30px;height: 30px;display: inline-block;border-radius: 50%;
+	background-position: center center;background-repeat: no-repeat;margin: 0 12px;
+}
+.other-login .other .qq{background: #76aee5 url(../../images/ico-qq.png) no-repeat center center;}
+.other-login .other .weix{background: #6bc784 url(../../images/ico-weix.png) no-repeat center center;}
+.other-login .other .sina{background: #fa8884 url(../../images/ico-sina.png) no-repeat center center;}
+.other-login .other a:hover{
+	opacity: .8;
+	-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity= 80)';
+	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+}
+@media only screen and (max-width: 992px){
+	.dialogBg, .dialogBg.spde_feedback_box {
+    padding: 20px;
+    top: 100px;
+    /* max-height: 500px; */
+	max-height: calc(100vh - 50px);
+    overflow-y: auto;
+	}
+}
+@media only screen and (max-width: 767px){
+	.loginMethodTab{width:60px;height:60px;}
+	.dialogBg{left: 0; margin: auto 15px; width: calc(100% - 30px);}
+	.dialogTab span{font-size:16px;margin:15px 10px auto;}
+	.dialogBg .dialog_close{font-size:32px;}
+	.dialogTab{margin-bottom:10px;}
+	.dialogTab span.on::after{display:none;}
+	.dialogBg .item,.dialogBg .item input{line-height:34px;height:34px;}
+	.dialogBg .btn{height:34px;line-height:22px;font-size:16px;}
+	.dialogBg .form-control{font-size: 14px;}
+	.dialogBg .regulations,.dialogBg .input-group-addon{font-size:14px;}
+	.dialogBg .input-group-addon img{min-width:60px;}
+}
+</style>
+<!-- Swiper JS -->
+<script src="https://www.sklib.cn/js/slick_new.min.js"></script>
+<script src="https://www.sklib.cn/booklib/stat/dealer?SiteID=122&amp;sr=800x600&amp;cd=24&amp;ce=1&amp;la=en-US&amp;cs=UTF-8&amp;vq=1&amp;Title=%E5%AD%90%E5%BA%93%E8%B5%84%E6%BA%90%E5%88%97%E8%A1%A8&amp;URL=https://www.sklib.cn/booklib/historyResources%3FSiteID%3D122%26ID%3D328%26ResType%3Dliterature%26fromSubID%3D326%26PageIndex%3D273&amp;Host=www.sklib.cn"></script><script src="https://www.sklib.cn/sso/doLogin?plat=IP&amp;ContentType=jsonp&amp;client_id=2d56a12b31aa4033b3bff7fa9e784cf9&amp;response_type=code&amp;scope=user_info&amp;redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fbooklib%2Fmember%2Flogin&amp;callback=_jsonpcallback1740052824838"></script></head><body><div class="dialogMask hide"></div>
+<!-- 注册 -->
+
+	<div class="dialogBg J-register-dialog hide">
+		<a class="dialog_close">×</a>
+		<div class="dialogTab TAB_CLICK" id=".registerBox">
+			<span class="on">手机注册</span>
+			<span>邮箱注册</span>
+		</div>
+		<div class="registerBox">
+			<form id="registMobileForm" name="registMobileForm" method="post">
+				<input type="hidden" id="Type" name="Type" value="Mobile">
+				<input type="hidden" id="AppID" name="AppID" value="">
+				<div class="input-group item">
+					<span class="input-group-addon">
+						<select>
+							<option>+86</option>
+						</select>
+					</span>
+					<input type="text" class="form-control" placeholder="输入手机号" name="Mobile" id="Regist_Mobile">
+				</div>
+				<div class="form-group item">
+					<input type="Password" class="form-control" placeholder="输入6位或以上密码" id="Regist_Mobile_Password" name="Password">
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入图形验证码" id="Regist_Mobile_AuthCode" name="AuthCode">
+					<span class="input-group-addon font18"><img src="https://www.sklib.cn/sso/authCode.zhtml?_=" +math.random()="" onclick="initAuthCode('mobileImage');return false;" id="mobileImage"></span>
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入短信验证码" name="SMSCode" id="Regist_SMSCode">
+					<a href="javascript:void(0);" class="input-group-addon font18 regist-mobile-code-btn" onclick="registSendSMS()">获取短信验证码</a>
+				</div>
+				<div class="m-b-md">
+					<button type="button" class="btn btn-primary" onclick="registByMobile();return false;">注册</button>
+				</div>
+				<div class="text-center regulations m-b-md"><input type="checkbox" name="CheckCode" checked="" id="Mobile_Check_Code">&nbsp;<span onclick="mobileCheck()">我已阅读并接受</span><a href="https://www.sklib.cn/booklib/protocal?SiteID=122" target="_blank">《中国社会科学文库用户协议》 </a></div>
+				<script>
+				function mobileCheck() {
+					 var mobileCheck = document.getElementById("Mobile_Check_Code").checked
+					 if (mobileCheck) {
+						 document.getElementById("Mobile_Check_Code").checked = false
+					 } else {
+						 document.getElementById("Mobile_Check_Code").checked = true
+					 } 
+				 }
+				</script>
+				<p class="text-center regulations">已有账号，<a class="J-loginBtn">返回登录</a></p>
+			</form>
+		</div>
+		<div class="registerBox" style="display:none;">
+			<form id="registEmailForm" name="registEmailForm" method="post">
+				<input type="hidden" id="Type" name="Type" value="Email">
+				<input type="hidden" id="Referer" name="Referer" value="http://zshop.chinabuilding.com.cn/shop/goodsInfo/goodsDetail?SiteID=26&amp;goodsID=420600">
+				<div class="form-group item">
+					<input type="email" class="form-control" placeholder="输入邮箱" id="Regist_Email" name="Email">
+				</div>
+				<div class="form-group item">
+					<input type="Password" class="form-control" placeholder="输入6位或以上密码" id="Regist_Email_Password" name="Password">
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入图形验证码" id="Regist_Email_AuthCode" name="AuthCode">
+					<span class="input-group-addon font18"><img src="https://www.sklib.cn/sso/authCode.zhtml?_=" +math.random()="" onclick="initAuthCode('emailImage');return false;" id="emailImage"></span>
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入邮箱验证码" id="Regist_EmailCode" name="EmailCode">
+					<a href="javascript:void(0);" class="input-group-addon font18 regist-email-code-btn" onclick="registSendEmail()">获取邮箱验证码</a>
+				</div>
+				<div class="m-b-md">
+					<button type="button" class="btn btn-primary" onclick="registByEmail();return false;">注册</button>
+				</div>
+				<div class="text-center regulations m-b-md"><input type="checkbox" name="CheckCode" checked="" id="Email_Check_Code">&nbsp;<span onclick="emailCheck()">我已阅读并接受</span><a href="https://www.sklib.cn/booklib/protocal?SiteID=122" target="_blank">《中国社会科学文库用户协议》 </a></div>
+				<script>
+					 function emailCheck() {
+						 var emailCheck = document.getElementById("Email_Check_Code").checked
+						 if (emailCheck) {
+							 document.getElementById("Email_Check_Code").checked = false
+						 } else {
+							 document.getElementById("Email_Check_Code").checked = true
+						 } 
+					 }
+				</script>
+				<p class="text-center regulations">已有账号，<a class="J-loginBtn">返回登录</a></p>
+			</form>
+		</div>
+	</div>
+	<script>
+	function registSendSMS(){
+		var mobile = $("#Regist_Mobile").val().trim()
+		if (mobile.length==0) {
+			 alert("手机号不能为空")
+			 $('#Regist_Mobile').focus()
+			 return false;
+		}
+		var authCode = $("#Regist_Mobile_AuthCode").val().trim()
+		if (authCode.length==0) {
+			 alert("请填写图形验证码")
+			 $('#Regist_Mobile_AuthCode').focus()
+			 return false;
+		}
+		$.ajax({
+			 url:ZASUrl+"/regValidate",
+			 type: "get",
+			 contentType:"json",
+			 async: true,
+			 data:{
+				 "Type":"Mobile", 
+				 "Value":mobile
+			 },
+			 error:function(error){
+				if ( error.responseText == 'exists') {
+					alert("您注册的手机号已经存在")
+				} else {
+					var ssoUrl=ZASUrl+"/ajax/invoke";
+					var loginParam={};
+					var requestParam = {
+						_ZVING_DATA_FORMAT : "json",
+						_ZVING_METHOD : "sendSMS"
+					}
+					loginParam.toJString = function(){
+						var resString = "{";
+						for(var i in this){
+							if("toJString"!=i){
+								resString += "'"+i + "':'" + this[i]+"',";
+							}
+							
+						}
+						resString += "}";
+						return resString;
+					}
+					var dc = new DataCollection();
+					dc.add("Mobile",mobile);
+					dc.add("AuthCode",authCode)
+					$.extend(loginParam,dc.map);
+					requestParam._ZVING_DATA = loginParam.toJString();
+					$.post(ssoUrl,requestParam,function(response){
+						if (response._ZVING_STATUS == 1) {
+							// 设置倒计时
+			 				setRegistMobileCount();
+						} else {
+							initAuthCode('mobileImage')
+							$('#Regist_Mobile_AuthCode').focus()
+							alert(response._ZVING_MESSAGE)
+						}
+					},"json")
+				}
+			 }
+		})
+	}
+	var t  = /^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+	function registSendEmail(){
+		var email = $('#Regist_Email').val().trim()
+		if(email.length==0){
+		    alert("邮箱不能为空")
+		    $('#Regist_Email').focus()
+			return false;
+		}
+		if($('#Regist_Email_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Regist_Email_AuthCode').focus()
+			return false;
+		}
+		if(!(t.test(email))){
+			 alert("邮箱格式不正确")
+			 $('#Regist_Email').focus()
+			 return false; 
+		 }
+		$.ajax({
+			 url:ZASUrl+"/regValidate",
+			 type: "get",
+			 contentType:"json",
+			 async: true,
+			 data:{
+				 "Type":"Email", 
+				 "Value":$('#Regist_Email').val().trim()
+			 },
+			 error:function(error){
+				if ( error.responseText == 'exists') {
+					alert("您注册的邮箱已经存在")
+				} else {
+					var ssoUrl=ZASUrl+"/ajax/invoke";
+					var loginParam={};
+					var requestParam = {
+						_ZVING_DATA_FORMAT : "json",
+						_ZVING_METHOD : "sendEmail"
+					}
+					loginParam.toJString = function(){
+						var resString = "{";
+						for(var i in this){
+							if("toJString"!=i){
+								resString += "'"+i + "':'" + this[i]+"',";
+							}
+							
+						}
+						resString += "}";
+						return resString;
+					}
+					var dc = new DataCollection();
+					dc.add("Email",$('#Regist_Email').val());
+					dc.add("AuthCode",$('#Regist_Email_AuthCode').val())
+					$.extend(loginParam,dc.map);
+					requestParam._ZVING_DATA = loginParam.toJString();
+					$.post(ssoUrl,requestParam,function(response){
+						if (response._ZVING_STATUS == 1) {
+							// 设置倒计时
+			 				setRegistEmailCount();
+						} else {
+							initAuthCode('emailImage')
+							$('#Regist_Email_AuthCode').focus()
+							alert(response._ZVING_MESSAGE)
+						}
+					},"json")
+				}
+			 }
+		})
+	}
+	var registMobileCountNum = 60;
+	var registEmailCountNum = 60;
+
+	function setRegistMobileCount() {
+		var text = "";;
+		if (registMobileCountNum === 0) {
+			text = "重新获取";
+			$(".regist-mobile-code-btn").text(text);
+			$(".regist-mobile-code-btn").attr('onclick', 'registSendSMS()');
+			$(".regist-mobile-code-btn").removeClass('disabled')
+			registMobileCountNum = 60;
+			return;
+		} else {
+			registMobileCountNum--;
+			text = "已发送<span class='count-num'>" + registMobileCountNum + "s</span>";
+			$(".regist-mobile-code-btn").attr('onclick', '');
+			$(".regist-mobile-code-btn").addClass('disabled')
+			$(".regist-mobile-code-btn").html(text);
+		}
+		setTimeout(function(){
+			setRegistMobileCount()
+		}, 1000);
+	}
+	function setRegistEmailCount() {
+		var text = "";;
+		if (registEmailCountNum === 0) {
+			text = "重新获取";
+			$(".regist-email-code-btn").text(text);
+			$(".regist-email-code-btn").attr('onclick', 'registSendEmail()');
+			$(".regist-email-code-btn").removeClass('disabled')
+			registEmailCountNum = 60;
+			return;
+		} else {
+			registEmailCountNum--;
+			text = "已发送<span class='count-num'>" + registEmailCountNum + "s</span>";
+			$(".regist-email-code-btn").attr('onclick', '');
+			$(".regist-email-code-btn").addClass('disabled')
+			$(".regist-email-code-btn").html(text);
+		}
+		setTimeout(function(){
+			setRegistEmailCount()
+		}, 1000);
+	}
+	function registByEmail(){
+		if(!document.getElementById("Email_Check_Code").checked){
+		    alert("请阅读并接受用户协议")
+			return false;
+		}
+		if($('#Regist_Email').val().trim().length==0){
+		    alert("邮箱不能为空")
+		    $('#Regist_Email').focus()
+			return false;
+		}
+		if($('#Regist_Email_Password').val().trim().length==0){
+		    alert("密码不能为空")
+		    $('#Regist_Mobile_Password').focus()
+			return false;
+		}
+		if($('#Regist_Email_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Regist_Mobile_AuthCode').focus()
+			return false;
+		}
+		if($('#Regist_EmailCode').val().trim().length==0){
+		    alert("请填写邮箱验证码")
+		    $('#Regist_EmailCode').focus()
+			return false;
+		}
+		var ssoUrl=ZASUrl+"/ajax/invoke";
+		var loginParam={};
+		var requestParam = {
+			_ZVING_DATA_FORMAT : "json",
+			_ZVING_METHOD : "doNewRegist"
+		}
+		loginParam.toJString = function(){
+			var resString = "{";
+			for(var i in this){
+				if("toJString"!=i){
+					resString += "'"+i + "':'" + this[i]+"',";
+				}
+				
+			}
+			resString += "}";
+			return resString;
+		}
+		$.extend(loginParam,Form.getData("registEmailForm"));
+		requestParam._ZVING_DATA = loginParam.toJString();
+		$.post(ssoUrl,requestParam,function(response){
+			if (response.Success) {
+				window.location.href = AuthorizeUrl
+				$('.dialog_close').parent().addClass('hide')
+				$('.dialogMask').addClass('hide')
+			} else {
+				alert(response._ZVING_MESSAGE);
+			}
+		})
+		
+	}
+	function registByMobile(){
+		if(!document.getElementById("Mobile_Check_Code").checked){
+			alert("请阅读并接受用户协议")
+			return false;
+		}
+		if($('#Regist_Mobile').val().trim().length==0){
+		    alert("手机号不能为空")
+		    $('#Regist_Mobile').focus()
+			return false;
+		}
+		if($('#Regist_Mobile_Password').val().trim().length==0){
+		    alert("密码不能为空")
+		    $('#Regist_Mobile_Password').focus()
+			return false;
+		}
+		if($('#Regist_Mobile_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Regist_Mobile_AuthCode').focus()
+			return false;
+		}
+		if($('#Regist_SMSCode').val().trim().length==0){
+		    alert("请填写短信验证码")
+		    $('#Regist_SMSCode').focus()
+			return false;
+		}
+		var ssoUrl=ZASUrl+"/ajax/invoke";
+		var loginParam={};
+		var requestParam = {
+			_ZVING_DATA_FORMAT : "json",
+			_ZVING_METHOD : "doNewRegist"
+		}
+		loginParam.toJString = function(){
+			var resString = "{";
+			for(var i in this){
+				if("toJString"!=i){
+					resString += "'"+i + "':'" + this[i]+"',";
+				}
+				
+			}
+			resString += "}";
+			return resString;
+		}
+		$.extend(loginParam,Form.getData("registMobileForm"));
+		requestParam._ZVING_DATA = loginParam.toJString();
+		$.post(ssoUrl,requestParam,function(response){
+			if (response.Success) {
+				window.location.href = AuthorizeUrl
+				$('.dialog_close').parent().addClass('hide')
+				$('.dialogMask').addClass('hide')
+			} else {
+				alert(response._ZVING_MESSAGE);
+			}
+		})
+	}
+	</script>
+<!-- end注册 -->
+<!-- 登录 -->
+
+<style>
+  #showWXMaskFlag {
+    display: none;
+  }
+</style>
+<div class="dialogBg J-login-dialog hide loginDialog">
+  <a class="dialog_close">×</a>
+  <div class="loginMethodTab TAB_CLICK" id=".dialogLoginMethod">
+    <span class="on"><img src="../../images/pc-login.png" data-src="../../images/pc-login.png"></span>
+    <span id="wechat"><img src="../../images/wechat-login.png" data-src="../../images/wechat-login.png"></span>
+  </div>
+  <div class="dialogLoginMethod">
+    <div class="dialogTab TAB_CLICK" id=".dialogLoginBox">
+      <span class="on">账号登录</span> <span>一键登录</span>
+    </div>
+    <div class="dialogLoginBox">
+      <input name="QueryString" id="QueryString" type="hidden" value="SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=273">
+      <form id="loginByUserName" method="post" action="https://www.sklib.cn/template/checklogin?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=273">
+        <input name="Referer" type="hidden" id="Referer" value="">
+        <input name="plat" type="hidden" id="plat" value="">
+        <input name="AppID" type="hidden" id="AppID" value="">
+        <div class="form-group item">
+          <input type="text" class="form-control" placeholder="请输入用户名/邮箱/手机号" name="UserName" id="UserName">
+        </div>
+        <div class="form-group item">
+          <input type="Password" class="form-control" placeholder="输入6位或以上密码" id="Password">
+        </div>
+        <div class="input-group item" style="margin-bottom: 5px; display: none" id="AuthCodeBox">
+          <input type="text" class="form-control" placeholder="输入图形验证码" id="AuthCode" name="AuthCode">
+          <span class="input-group-addon font18"><img id="AuthCodeImg" src="https://www.sklib.cn/sso/authCode.zhtml?_=" +math.random()="" onclick="initAuthCode();return false;"></span>
+        </div>
+        <div class="clearfix m-b-md">
+          <a class="pull-right forget J-forgetBtn">忘记密码?</a>
+        </div>
+        <div class="m-b-md">
+          <button type="button" class="btn btn-primary" onclick="loginByUserName();return false;">登录</button>
+        </div>
+        <p class="text-center regulations m-b-md">
+          没有账号，<a class="J-registerBtn">快速注册</a>
+        </p>
+      </form>
+      <div class="other-login">
+        <h4><span>其它方式登录</span></h4>
+        <div class="other"><a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxe9b0081cee602d9e&amp;redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fsso%2FSocial.redirect%3FReferer%3Dhttps%253A%252F%252Fwww.sklib.cn%252Fsso%252Foauth%252Fauthorize%253Fclient_id%253D2d56a12b31aa4033b3bff7fa9e784cf9%2526response_type%253Dcode%2526scope%253Duser_info%2526redirect_uri%253Dhttps%25253A%25252F%25252Fwww.sklib.cn%25252Fbooklib%25252Fmember%25252Flogin%25253Freferer%25253Dhttps%2525253A%2525252F%2525252Fwww.sklib.cn%2525252Fbooklib%2525252FhistoryResources%2525253FSiteID%2525253D122%25252526ID%2525253D328%25252526ResType%2525253Dliterature%25252526fromSubID%2525253D326%25252526PageIndex%2525253D273&amp;response_type=code&amp;scope=snsapi_login&amp;state=__Z_Wechat_ZAUser__1740052827357_e3b00af42e7cb82295f8e68625dd27a11b18b5345aa9db3b" title="微信平台"><img alt="微信平台" src="../../images/Wechat.gif"></a><a href="https://sso.ckrsc.com/oauth/authorize?client_id=980f281d872642028eaedf6f9fe30994&amp;response_type=code&amp;state=__Z_ZAS_ZAUser__1740052827357_86083724bc7893ef6f359a6864c412684a1af92867845719&amp;redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fsso%2FSocial.redirect%3FReferer%3Dhttps%253A%252F%252Fwww.sklib.cn%252Fsso%252Foauth%252Fauthorize%253Fclient_id%253D2d56a12b31aa4033b3bff7fa9e784cf9%2526response_type%253Dcode%2526scope%253Duser_info%2526redirect_uri%253Dhttps%25253A%25252F%25252Fwww.sklib.cn%25252Fbooklib%25252Fmember%25252Flogin%25253Freferer%25253Dhttps%2525253A%2525252F%2525252Fwww.sklib.cn%2525252Fbooklib%2525252FhistoryResources%2525253FSiteID%2525253D122%25252526ID%2525253D328%25252526ResType%2525253Dliterature%25252526fromSubID%2525253D326%25252526PageIndex%2525253D273&amp;scope=user_info" title="国家知识资源服务中心"><img alt="国家知识资源服务中心" src="../../images/Ckrsc.gif"></a><a href="javascript:void(0);" onclick="carsiLogin();return false;" title="通过CARSI登录"><img alt="通过CARSI登录" src="../../images/CARSI.png"></a><a href="javascript:void(0);" onclick="offCampusLogin();return false;" title="校外访问"><img alt="校外访问" src="../../assets/images/components/header-menu/off-campus-visits.png" style="width: 40px"></a></div>
+      </div>
+    </div>
+    <div class="dialogLoginBox" style="display: none">
+      <form id="loginByMobile" method="post" action="https://www.sklib.cn/template/checklogin?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=273">
+        <input name="Referer" type="hidden" id="Referer" value="">
+        <input name="plat" type="hidden" id="plat" value="SMS">
+        <input name="AppID" type="hidden" id="AppID" value="">
+        <input name="remFlag" type="hidden" id="remFlag" value="">
+        <div class="input-group clearfix item">
+          <span class="input-group-addon">
+            <select>
+              <option>+86</option>
+            </select>
+          </span>
+          <input type="text" class="form-control" placeholder="输入手机号" name="Mobile" id="Mobile">
+        </div>
+        <div class="input-group item">
+          <input type="text" class="form-control" placeholder="输入图形验证码" name="SMSAuthCode" id="SMSAuthCode">
+          <span class="input-group-addon font18"><img onclick="initAuthCode('sms');return false;" id="smsImage"></span>
+        </div>
+        <div class="input-group item" style="margin-bottom: 5px">
+          <input type="text" class="form-control" placeholder="输入短信验证码" name="SMSCode" id="SMSCode">
+          <a href="javascript:void(0);" class="input-group-addon font18 code-btn" onclick="sendSMS()">获取短信验证码</a>
+        </div>
+        <div class="clearfix m-b-md">
+          <a class="pull-left carsi" href="javascript:void(0);" onclick="carsiLogin();return false;">通过CARSI登录</a>
+          <a class="pull-left" style="color: #999" href="javascript:void(0);" onclick="helpDownlosd()"><i class="font16 fa fa-question m-l-sm"></i></a>
+          <script>
+            function heloDownload() {
+              window.open(
+                "https://mgmt.carsi.edu.cn/frontend/web/member_files/www.csspw.cn/%E4%B8%AD%E5%9B%BD%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6%E6%96%87%E5%BA%93.step_file.pdf",
+                "_blank"
+              );
+            }
+          </script>
+          <a class="pull-right forget J-forgetBtn">忘记密码?</a>
+        </div>
+        <div class="m-b-md">
+          <button type="button" class="btn btn-primary" onclick="loginByMobile();return false;">登录</button>
+        </div>
+        <p class="text-center regulations m-b-md">请使用手机登录默认注册账号</p>
+      </form>
+    </div>
+  </div>
+  <div class="dialogLoginMethod" style="display: none">
+    <div class="dialogTab TAB_CLICK">
+      <span class="on"><i class="fa fa-wechat m-r-sm"></i>推荐使用微信扫码登录</span>
+    </div>
+    <div class="loginBox text-center">
+      <iframe id="frame1" scrolling="no" height="340" align="middle" frameborder="0"></iframe>
+    </div>
+  </div>
+</div>
+<!-- 引导 -->
+<div class="hidden-lg hidden-md" id="showWXMaskFlag">
+  <div class="tip_wrapper">
+    <div class="tip_image">
+      <div class="z_wrapper">
+        <img src="https://www.sklib.cn/images/wx_z.png">
+      </div>
+      <div class="first">
+        <div class="tip_title_wrapper tip_title_wrapper-QQ">
+          <div class="tip_title">1</div>
+          <div>点击右上角的</div>
+          <img class="brower" src="https://www.sklib.cn/images/wx_more.png">
+          <div>按钮</div>
+        </div>
+        <div class="tip_title_wrapper tip_title_wrapper-qt">
+          <div class="tip_title">1</div>
+          <div>点击下方的分享按钮</div>
+        </div>
+        <div class="tip_title_wrapper">
+          <div class="tip_title">2</div>
+          <div>选择分享到微信打开</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var getQueryString = function (name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+      return unescape(r[2]);
+    }
+    return null;
+  };
+
+  var AuthorizeUrl;
+  var currentBranchID = "";
+  var loginRequested = false;
+  var branchLoginStatus = false;
+  var userLoginStatus;
+  var userBranchName = "";
+  var userName = "";
+  var isformal = false;
+  var rdid;
+  var token;
+  $(function () {
+    $(".power").hover(
+      function () {
+        $(".powermodal").removeClass("hide");
+      },
+      function () {
+        $(".powermodal").addClass("hide");
+      }
+    );
+    token = getQueryString("Token");
+    rdid = getQueryString("rdid");
+    var name = getQueryString("name");
+    var nickname = getQueryString("nickname");
+    var openid = getQueryString("openid");
+    var headimgurl = getQueryString("headimgurl");
+    var mirror = "N";
+    if ("Y" != mirror) {
+      isOnlineHandler();
+    } else {
+      doMirrorIPLogin();
+      $(".switchUser").hide();
+    }
+    if (token == "db676791811e4796b0a2dda1c72138b5") {
+      $(".loginColor").addClass("hide");
+    }
+    // 获取授权地址
+    var dc = new Object();
+    dc.Referer = window.location.href;
+    dc.SiteID = "122";
+    $.get(frontAppContext + "member/authorizeUrl", dc, function (response) {
+      AuthorizeUrl = response.authorizeUrl;
+    });
+
+    // 获取第三方登录的地址
+    $.get(
+      "https://www.sklib.cn/sso/getSocialURL",
+      {
+        ContentType: "json",
+        client_id: "2d56a12b31aa4033b3bff7fa9e784cf9",
+        referer: window.location.href,
+      },
+      function (result) {
+        if (!result) {
+          return;
+        }
+        var response = JSON.parse(result);
+        if (response.Success) {
+          $(".other").html("");
+          if (response.Report["Wechat"] && !ismobile()) {
+            $(".other").append(
+              "<a href='" +
+                response.Report["Wechat"].LoginURL +
+                "' title='" +
+                response.Report["Wechat"].Name +
+                "'><img alt='" +
+                response.Report["Wechat"].Name +
+                "' src='../../images/Wechat.gif'></a>"
+            );
+          }
+          if (!isWeiXin() && ismobile()) {
+            $(".other").append(
+              "<a  onclick='carsiWeiXin();return false;' title='" +
+                response.Report["Wechat"].Name +
+                "'><img alt='" +
+                response.Report["Wechat"].Name +
+                "' src='../../images/Wechat.gif'></a>"
+            );
+          }
+          if (response.Report["MpWechat"] && isWeiXin()) {
+            $(".other").append(
+              "<a href='" +
+                response.Report["MpWechat"].LoginURL +
+                "' title='" +
+                response.Report["MpWechat"].Name +
+                "'><img alt='" +
+                response.Report["MpWechat"].Name +
+                "' src='../../images/Wechat.gif'></a>"
+            );
+          }
+          if (response.Report["ZAS"]) {
+            $(".other").append(
+              "<a href='" +
+                response.Report["ZAS"].LoginURL +
+                "' title='国家知识资源服务中心'><img alt='国家知识资源服务中心' src='../../images/Ckrsc.gif'></a>"
+            );
+          }
+          $(".other").append(
+            "<a href='javascript:void(0);' onclick='carsiLogin();return false;' title='通过CARSI登录'><img alt='通过CARSI登录' src='../../images/CARSI.png'></a>"
+          );
+          $(".other").append(
+            "<a href='javascript:void(0);' onclick='offCampusLogin();return false;' title='校外访问'><img alt='校外访问' src='../../assets/images/components/header-menu/off-campus-visits.png' style='width: 40px'></a>"
+          );
+        }
+      }
+    );
+  });
+
+  // 是否是移动端
+  function ismobile() {
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphone = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "web";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    if (
+      bIsIpad ||
+      bIsIphone ||
+      bIsMidp ||
+      bIsUc7 ||
+      bIsUc ||
+      bIsCE ||
+      bIsWM ||
+      bIsAndroid
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  function doMirrorIPLogin() {
+    $.get(
+      "https://www.sklib.cn/sso/mirrorLogin",
+      { ContentType: "json" },
+      function (result) {}
+    );
+  }
+
+  function isBranch() {
+    //机构用户登录，并且个人用户没有登陆的时候
+    if (branchLoginStatus && !userLoginStatus) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  function logout() {
+    var dc = new DataCollection();
+    dc.add("Referer", window.location.href);
+    Server.sendRequest("member/logout", dc, function (response) {
+      if (response.logout) {
+        window.location.href = response.logout;
+      }
+    });
+  }
+  // IP登录
+  function ipLogin() {
+    var localURL = window.location.href;
+    localURL = encodeURIComponent(localURL);
+    var memberLoginUrl = frontAppContext + "member/login";
+    memberLoginUrl = encodeURIComponent(memberLoginUrl);
+    loadJsonp(
+      "https://www.sklib.cn/sso/doLogin?plat=IP&ContentType=jsonp&client_id=2d56a12b31aa4033b3bff7fa9e784cf9&response_type=code&scope=user_info&redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fbooklib%2Fmember%2Flogin",
+      function (response) {
+        if (response.Success || response.Message == "登录成功") {
+          window.location.href = response.RedirectURL + "&Referer=" + localURL;
+        }
+      }
+    );
+  }
+  // 营销活动登录
+  function activityLogin(token) {
+    var localURL = window.location.href;
+    localURL = encodeURIComponent(localURL);
+    loadJsonp(
+      "https://www.sklib.cn/sso/doLogin?plat=Activity&Token=" +
+        token +
+        "&ContentType=jsonp&client_id=2d56a12b31aa4033b3bff7fa9e784cf9&response_type=code&scope=user_info&redirect_uri=" +
+        referer,
+      function (response) {
+        console.log(response, "3");
+        if (response.Success || response.Message == "登录成功") {
+          window.location.href = response.RedirectURL + "&Referer=" + localURL;
+        }
+      }
+    );
+  }
+  // 广东大学自动登录
+  function gdLogin(rdid, name, openid, nickname, headimgurl) {
+    var ssoUrl = ZASUrl + "/ajax/invoke";
+    var loginParam = {
+      plat: "gdkf",
+      rdid: rdid,
+      name: name,
+      openid: openid,
+      nickname: nickname,
+      headimgurl: headimgurl,
+    };
+    var requestParam = {
+      _ZVING_DATA_FORMAT: "json",
+      _ZVING_METHOD: "dologin",
+    };
+    loginParam.toJString = function () {
+      var resString = "{";
+      for (var i in this) {
+        if ("toJString" != i) {
+          resString += "'" + i + "':'" + this[i] + "',";
+        }
+      }
+      resString += "}";
+      return resString;
+    };
+    requestParam._ZVING_DATA = loginParam.toJString();
+    $.post(
+      ssoUrl,
+      requestParam,
+      function (response) {
+        if (
+          response._ZVING_STATUS == 1 ||
+          response._ZVING_MESSAGE == "登录成功"
+        ) {
+          // 登陆成功
+          window.location.href = AuthorizeUrl;
+        }
+      },
+      "json"
+    );
+  }
+  function isOnline() {
+    $.get("https://www.sklib.cn/sso/online", function (response) {
+      console.log(response);
+    });
+  }
+  function isOnlineHandler() {
+    $.ajax({
+      url: "https://www.sklib.cn/sso/online",
+      type: "get",
+      dataType: "json",
+      crossDomain: true,
+      xhrFields: { withCredentials: true },
+      success: function (data) {
+        if (data.Login) {
+          var dc = new Object();
+          dc.Referer = window.location.href;
+          dc.SiteID = "122";
+          $.get(frontAppContext + "member/memberInfo", dc, function (data) {
+            if (data.branchInfo.branchID === 167) {
+              $("#libraryResources-167,#libraryResources_xs-167").show();
+            }
+            if (data.branchInfo.branchID === 632) {
+              $(".research-tool .chat").hide();
+              $(".bock-right .chat").hide();
+            }
+            if (data.branchInfo && data.branchInfo.isBranchLogin) {
+              var expiredTime = data.branchInfo.expTime || "";
+              if (expiredTime === "已过期") {
+                $(".footer__expired-time-tip").text("访问权限已到期！");
+              }
+            }
+            if (data.branchInfo.isBranchLogin && data.userInfo.islogin) {
+              $(".branch-name").html(
+                data.branchInfo.branchName + "[" + data.userInfo.userName + "]"
+              );
+              $(".person-branch-name").html(data.branchInfo.branchName);
+              $(".loginColor").hide();
+              $(".switchUser").hide();
+              $(".personinfo").removeClass("hide");
+            } else if (data.branchInfo.isBranchLogin) {
+              $(".branch-name").html(data.branchInfo.branchName);
+              $(".member-logofile").hide();
+              $(".select-list").hide();
+              $(".logout").hide();
+              $(".currentBranchNav").removeClass("hide");
+              currentBranchID = data.branchInfo.branchID;
+              if (
+                data.branchInfo.branchID === 1137 &&
+                data.branchInfo.isformal
+              ) {
+                if ($(".header-advertisement").css("display") === "none") {
+                  $(".header-advertisement").show();
+                }
+              }
+              $(".branchinfo").removeClass("hide");
+              $(".branch-name").removeClass("hide");
+              $(".power").removeClass("hide");
+              $(".powermodal").html(
+                "<p>机构权限：<b>" + data.branchInfo.expTime + "</b></p>"
+              );
+            } else if (data.userInfo.islogin) {
+              $(".personinfo").removeClass("hide");
+              $(".member-name").removeClass("hide");
+              $(".member-name").html(data.userInfo.userName);
+              $(".loginColor").addClass("hide");
+              $(".switchUser").hide();
+              $(".member-logofile").show();
+              $(".personinfo").removeClass("hide");
+              $(".member-name").removeClass("hide");
+              $(".branchinfo").hide();
+              $(".login_register").addClass("hide");
+              $("#listByConcern").show();
+              $(".personinfo").show();
+              $(".member-name").show();
+              $(".logout").show();
+            } else {
+              //未登录
+              window.location.href = AuthorizeUrl;
+            }
+            if (data.branchInfo.isBranchLogin) {
+              $("#currentBranch").removeClass("hide"); //本机构作者等
+              $(".currentBranchReadRanking").removeClass("hidden"); //本机构阅读排行
+              userBranchName = data.branchInfo.branchName;
+              isformal = data.branchInfo.isformal;
+              branchLoginStatus = true;
+              $(function () {
+                libraryResourcesShow();
+              });
+            }
+
+            if (data.userInfo.islogin) {
+              userName = data.userInfo.userName;
+              if (data.userInfo.logoFile) {
+                if (data.userInfo.logoFile.startsWith("http")) {
+                  $(".member-logofile").attr(
+                    "src",
+                    data.userInfo.logoFile + "?time=" + new Date().getTime()
+                  );
+                } else {
+                  $(".member-logofile").attr(
+                    "src",
+                    "https://www.sklib.cn/" +
+                      data.userInfo.logoFile +
+                      "?time=" +
+                      new Date().getTime()
+                  );
+                }
+              }
+              if (data.userInfo.address) {
+                if (typeof window.sessionStorage !== "undefined") {
+                  sessionStorage.setItem("address", data.userInfo.address);
+                }
+              }
+              userLoginStatus = true;
+              syncLocalCollects();
+              if(!isMobile()){
+				  $(".member-name,.member-logofile").click(toMemberIndex);
+			  }
+              document.getElementsByClassName("member-name")[0].style.cursor =
+                "pointer";
+            }
+
+            if (data.branchInfo.isBranchLogin && !data.userInfo.islogin) {
+              $(".switchUser").removeClass("hide");
+            }
+          });
+        } else {
+          console.log("{}");
+          //if(""!=="" || "" !==""){
+          //var dc = new DataCollection();
+          //    dc.add("Referer", window.location.href);
+          //    Server.sendRequest("member/logout", dc, function (response) {
+          //        if (response.logout) {
+          //			  alert("登录过期，即将退出登录跳转首页");
+          //			  window.location.href = "https://www.sklib.cn/";
+          //         }
+          //    });
+          //	return;
+          // }
+          loginRequested = true;
+          //SSO未登录时，并且自身有登录时则调一下退出
+          if (rdid) {
+            gdLogin(rdid, name, openid, nickname, headimgurl);
+          } else if (token) {
+            activityLogin(token);
+          } else if ("") {
+            setTimeout(function () {
+              window.location.href = $(".other a")[0].href;
+            }, 1000);
+          } else {
+            ipLogin();
+          }
+        }
+      },
+      complete: function (xhr, status) {
+        loginRequested = true;
+      },
+    });
+  }
+  function carsiLogin() {
+    window.location.href =
+      "/sso/service/gocarsi?url=" +
+      encodeURIComponent(AuthorizeUrl);
+  }
+  function offCampusLogin() {
+    location.href = "https://www.sklib.cn/extension-tool/external-access/";
+  }
+  function is_weixn_qq() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/QQ/i) == "qq") {
+      $(".tip_title_wrapper-qt").css("display", "none");
+      return "QQ";
+    } else {
+      $(".z_wrapper img").css("transform", "rotate(90deg)");
+      $("#showWXMaskFlag").addClass("carsiWeiXin");
+      $(".tip_title_wrapper-QQ").css("display", "none");
+    }
+    debugger;
+    return false;
+  }
+  function carsiWeiXin() {
+    is_weixn_qq();
+    $("#showWXMaskFlag").css("display", "block");
+  }
+  $("#showWXMaskFlag").click(function () {
+    $("#showWXMaskFlag").css("display", "none");
+  });
+  var authCodeTime = "";
+  var errorTimes = 0;
+  function sendSMS() {
+    var mobile = $("#Mobile").val().trim();
+    if (mobile.length == 0) {
+      alert("手机号不能为空");
+      $("#Mobile").focus();
+      return false;
+    }
+    var authCode = $("#SMSAuthCode").val().trim();
+    if (authCode.length == 0) {
+      alert("请填写图形验证码");
+      $("#SMSAuthCode").focus();
+      return false;
+    }
+    var ssoUrl = ZASUrl + "/ajax/invoke";
+    var loginParam = {};
+    var requestParam = {
+      _ZVING_DATA_FORMAT: "json",
+      _ZVING_METHOD: "sendSMS",
+    };
+    loginParam.toJString = function () {
+      var resString = "{";
+      for (var i in this) {
+        if ("toJString" != i) {
+          resString += "'" + i + "':'" + this[i] + "',";
+        }
+      }
+      resString += "}";
+      return resString;
+    };
+    var dc = new DataCollection();
+    dc.add("Mobile", mobile);
+    dc.add("AuthCode", authCode);
+    $.extend(loginParam, dc.map);
+    requestParam._ZVING_DATA = loginParam.toJString();
+    $.post(
+      ssoUrl,
+      requestParam,
+      function (response) {
+        if (response._ZVING_STATUS == 1) {
+          // 设置倒计时
+          setCount();
+        } else {
+          initAuthCode("sms");
+          $("#SMSAuthCode").focus();
+          alert(response._ZVING_MESSAGE);
+        }
+      },
+      "json"
+    );
+  }
+  var countNum = 60;
+  var $codeBtn = $(".code-btn");
+
+  function setCount() {
+    var text = "";
+    // $codeBtn.prop('disabled', true);
+    if (countNum === 0) {
+      text = "重新获取";
+      $codeBtn.text(text);
+      // $codeBtn.prop('disabled', false);
+      $codeBtn.attr("onclick", "sendSMS()");
+      $codeBtn.removeClass("disabled");
+      countNum = 60;
+      return;
+    } else {
+      countNum--;
+      text = "已发送<span class='count-num'>" + countNum + "s</span>";
+      // $codeBtn.attr('disabled', 'disabled');
+      $codeBtn.attr("onclick", "");
+      $codeBtn.addClass("disabled");
+      $codeBtn.html(text);
+    }
+    setTimeout(setCount, 1000);
+  }
+  function loginByUserName() {
+    if ($("#UserName").val().trim().length == 0) {
+      alert("用户名/邮箱/手机号不能为空");
+      $("#UserName").focus();
+      return false;
+    }
+    if ($("#Password").val().trim().length == 0) {
+      alert("密码不能为空");
+      $("#Password").focus();
+      return false;
+    }
+    if ($("#AuthCodeImg").attr("isInit") && $("#AuthCode").val().length == 0) {
+      alert("请填写图形验证码");
+      $("#AuthCode").focus();
+      return false;
+    }
+    var ssoUrl = ZASUrl + "/ajax/invoke";
+    var loginParam = {};
+    var requestParam = {
+      _ZVING_DATA_FORMAT: "json",
+      _ZVING_METHOD: "dologin",
+    };
+    loginParam.toJString = function () {
+      var resString = "{";
+      for (var i in this) {
+        if ("toJString" != i) {
+          resString += "'" + i + "':'" + this[i] + "',";
+        }
+      }
+      resString += "}";
+      return resString;
+    };
+    $.extend(loginParam, Form.getData("loginByUserName"));
+    requestParam._ZVING_DATA = loginParam.toJString();
+    $.post(
+      ssoUrl,
+      requestParam,
+      function (response) {
+        if (
+          response._ZVING_STATUS == 1 ||
+          response._ZVING_MESSAGE == "登录成功"
+        ) {
+          // 登陆成功\
+          window.location.href = AuthorizeUrl;
+          $(".dialog_close").parent().addClass("hide");
+          $(".dialogMask").addClass("hide");
+        } else {
+          //登陆失败
+          errorTimes++;
+          if (
+            errorTimes >= authCodeTime ||
+            (response.Report && response.Report.state == 31)
+          ) {
+            initAuthCode();
+          }
+          if (response.Report) {
+            var state = response.Report.state;
+            switch (state) {
+              case 30:
+              case 31: {
+                $("#AuthCode").focus();
+                break;
+              }
+              default: {
+                $("#Password").focus();
+              }
+            }
+          }
+          if (response.Report.message) {
+            alert(response.Report.message);
+          }
+        }
+      },
+      "json"
+    );
+  }
+  function loginByMobile() {
+    var mobile = $("#Mobile").val().trim();
+    if (mobile.length == 0) {
+      alert("手机号不能为空");
+      $("#Mobile").focus();
+      return false;
+    }
+    var authCode = $("#SMSAuthCode").val().trim();
+    if (authCode.length == 0) {
+      alert("请填写图形验证码");
+      $("#SMSAuthCode").focus();
+      return false;
+    }
+    var smscode = $("#SMSCode").val().trim();
+    if (authCode.length == 0) {
+      alert("请填写短信验证码");
+      $("#SMSCode").focus();
+      return false;
+    }
+    var ssoUrl = ZASUrl + "/ajax/invoke";
+    var loginParam = {};
+    var requestParam = {
+      _ZVING_DATA_FORMAT: "json",
+      _ZVING_METHOD: "dologin",
+    };
+    loginParam.toJString = function () {
+      var resString = "{";
+      for (var i in this) {
+        if ("toJString" != i) {
+          resString += "'" + i + "':'" + this[i] + "',";
+        }
+      }
+      resString += "}";
+      return resString;
+    };
+    $.extend(loginParam, Form.getData("loginByMobile"));
+    requestParam._ZVING_DATA = loginParam.toJString();
+    $.post(
+      ssoUrl,
+      requestParam,
+      function (response) {
+        if (
+          response._ZVING_STATUS == 1 ||
+          response._ZVING_MESSAGE == "登录成功"
+        ) {
+          // 登陆成功
+          window.location.href = AuthorizeUrl;
+          $(".dialog_close").parent().addClass("hide");
+          $(".dialogMask").addClass("hide");
+        } else {
+          //登陆失败
+          errorTimes++;
+          if (
+            errorTimes >= authCodeTime ||
+            (response.Report && response.Report.state == 31)
+          ) {
+            initAuthCode();
+          }
+          if (response.Report) {
+            var state = response.Report.state;
+            switch (state) {
+              case 30:
+              case 31: {
+                $("#SMSAuthCode").focus();
+                break;
+              }
+              default: {
+                $("#Mobile").focus();
+              }
+            }
+          }
+          if (response.Report.message) {
+            alert(response.Report.message);
+          }
+        }
+      },
+      "json"
+    );
+  }
+  $(".dialog_close").click(function () {
+    $(this).parent().addClass("hide");
+    $(".dialogMask").addClass("hide");
+  });
+
+  // 是否显示本馆资源
+  function libraryResourcesShow() {
+    var branchHasAllPriv = "";
+    if (branchLoginStatus && branchHasAllPriv === "false") {
+      $("#libraryResources,#libraryResources_xs").show();
+    }
+  }
+  // 同步本地收藏
+  function syncLocalCollects() {
+    var collects = getLocalStorage("local_collect");
+    if (collects.length > 0) {
+      var dc = new DataCollection();
+      dc.add("siteID", "122");
+      dc.add("collects", collects);
+      Server.sendRequest(
+        "memberOperate.memberCollect",
+        dc,
+        function (response) {
+          var loginID;
+          if (response.Status != 1) {
+            loginID = Ewin.alert(response.Message).id;
+            $("#" + loginID.toString())
+              .find(".ok")
+              .hide();
+          } else {
+            localStorage.removeItem("local_collect");
+            setTimeout(location.reload(), 500);
+          }
+        }
+      );
+    }
+  }
+</script>
+
+<!-- end登录 -->
+<!-- 找回密码 -->
+
+	<div class="dialogBg J-retrieve-dialog hide">
+		<a class="dialog_close">×</a>
+		<div class="dialogTab TAB_CLICK" id=".retrieveBox1">
+			<span class="on" id="retrieveByMobile">手机找回</span>
+			<span id="retrieveByEmail">邮箱找回</span>
+		</div>
+		<div class="retrieveBox1">
+			<form id="forgetMobileForm" method="post">
+				<input type="hidden" id="Type" name="Type" value="Mobile">
+				<div class="input-group clearfix item">
+					<span class="input-group-addon">
+						<select>
+							<option>+86</option>
+						</select>
+					</span>
+					<input type="text" class="form-control" placeholder="输入手机号" name="Address" id="Forget_Mobile">
+				</div>
+				<div class="form-group item">
+					<input type="Password" class="form-control" placeholder="请输入新密码6位或以上" id="Forget_Mobile_Password" name="Password">
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入图形验证码" id="Forget_Mobile_AuthCode" name="AuthCode">
+					<span class="input-group-addon font18"><img src="https://www.sklib.cn/sso/authCode.zhtml?_=" +math.random()="" onclick="initAuthCode('forgetMobileImage');return false;" id="forgetMobileImage"></span>
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入短信验证码" name="Code" id="Forget_SMSCode">
+					<a href="javascript:void(0);" class="input-group-addon font18 forget-mobile-code-btn" onclick="forgetSendSMS()">获取短信验证码</a>
+				</div>
+				<div class="m-b-md">
+					<button type="button" class="btn btn-primary" onclick="confirmUpdateByMobile();return false;">确认修改</button>
+				</div>
+				<p class="text-center regulations m-b-md J-loginBtn"><span style="cursor: pointer;">返回登录</span></p>
+			</form>
+		</div>
+		<div class="retrieveBox1" style="display:none;">
+			<form id="forgetEmailForm" method="post">
+				<input type="hidden" id="Type" name="Type" value="Email">
+				<div class="form-group item">
+					<input type="email" class="form-control" placeholder="输入邮箱" name="Address" id="Forget_Email">
+				</div>
+				<div class="form-group item">
+					<input type="Password" class="form-control" placeholder="输入6位或以上密码" name="Password" id="Forget_Email_Password">
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入图形验证码" id="Forget_Email_AuthCode" name="AuthCode">
+					<span class="input-group-addon font18"><img src="https://www.sklib.cn/sso/authCode.zhtml?_=" +math.random()="" onclick="initAuthCode('forgetEmailImage');return false;" id="forgetEmailImage"></span>
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入邮箱验证码" name="Code" id="Forget_EmailCode">
+					<a href="#" class="input-group-addon font18 forget-email-code-btn" onclick="forgetSendEmail()">获取邮箱验证码</a>
+				</div>
+				
+				<div class="m-b-md">
+					<button type="button" class="btn btn-primary" onclick="confirmUpdateByEmail();return false;">确认修改</button>
+				</div>
+				<p class="text-center regulations m-b-md J-loginBtn"><span style="cursor: pointer;">返回登录</span></p>
+			</form>
+		</div>
+	</div>
+	<script>
+	function forgetSendSMS(){
+		var mobile = $("#Forget_Mobile").val().trim()
+		if (mobile.length==0) {
+			 alert("手机号不能为空")
+			 $('#Forget_Mobile').focus()
+			 return false;
+		}
+		var password =$("#Forget_Mobile_Password").val().trim()
+		if (password.length==0) {
+			 alert("请输入密码")
+			 $('#Forget_Mobile_Password').focus()
+			 return false;
+		}
+		var authCode = $("#Forget_Mobile_AuthCode").val().trim()
+		if (authCode.length==0) {
+			 alert("请填写图形验证码")
+			 $('#Forget_Mobile_AuthCode').focus()
+			 return false;
+		}
+		$.ajax({
+			 url:ZASUrl+"/regValidate",
+			 type: "get",
+			 contentType:"json",
+			 async: true,
+			 data:{
+				 "Type":"Mobile", 
+				 "Value":mobile
+			 },
+			 success:function(error){
+				 if ( error == 'exists' || error =='exists_self') {
+						var ssoUrl=ZASUrl+"/ajax/invoke";
+						var loginParam={};
+						var requestParam = {
+							_ZVING_DATA_FORMAT : "json",
+							_ZVING_METHOD : "sendSMS"
+						}
+						loginParam.toJString = function(){
+							var resString = "{";
+							for(var i in this){
+								if("toJString"!=i){
+									resString += "'"+i + "':'" + this[i]+"',";
+								}
+								
+							}
+							resString += "}";
+							return resString;
+						}
+						var dc = new DataCollection();
+						dc.add("Mobile",mobile);
+						dc.add("AuthCode",authCode)
+						$.extend(loginParam,dc.map);
+						requestParam._ZVING_DATA = loginParam.toJString();
+						$.post(ssoUrl,requestParam,function(response){
+							if (response._ZVING_STATUS == 1) {
+								// 设置倒计时
+				 				setForgetMobileCount();
+							} else {
+								initAuthCode('forgetMobileImage')
+								$('#Forget_Mobile_AuthCode').focus()
+								alert(response._ZVING_MESSAGE)
+							}
+						},"json")
+					} else {
+						alert("您找回的手机号不存在")
+					}
+			 },
+			 error:function(error){
+				if ( error.responseText == 'exists' || error.responseText =='exists_self') {
+					var ssoUrl=ZASUrl+"/ajax/invoke";
+					var loginParam={};
+					var requestParam = {
+						_ZVING_DATA_FORMAT : "json",
+						_ZVING_METHOD : "sendSMS"
+					}
+					loginParam.toJString = function(){
+						var resString = "{";
+						for(var i in this){
+							if("toJString"!=i){
+								resString += "'"+i + "':'" + this[i]+"',";
+							}
+							
+						}
+						resString += "}";
+						return resString;
+					}
+					var dc = new DataCollection();
+					dc.add("Mobile",mobile);
+					dc.add("AuthCode",authCode)
+					$.extend(loginParam,dc.map);
+					requestParam._ZVING_DATA = loginParam.toJString();
+					$.post(ssoUrl,requestParam,function(response){
+						if (response._ZVING_STATUS == 1) {
+							// 设置倒计时
+			 				setForgetMobileCount();
+						} else {
+							initAuthCode('forgetMobileImage')
+							$('#Forget_Mobile_AuthCode').focus()
+							alert(response._ZVING_MESSAGE)
+						}
+					},"json")
+				} else {
+					alert("您找回的手机号不存在")
+				}
+			 }
+		})
+	}
+	function forgetSendEmail(){
+		if($('#Forget_Email').val().trim().length==0){
+		    alert("邮箱不能为空")
+		    $('#Forget_Email').focus()
+			return false;
+		}
+		if($('#Forget_Email_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Forget_Email_AuthCode').focus()
+			return false;
+		}
+		$.ajax({
+			 url:ZASUrl+"/regValidate",
+			 type: "get",
+			 contentType:"json",
+			 async: true,
+			 data:{
+				 "Type":"Email", 
+				 "Value":$('#Forget_Email').val().trim()
+			 },
+			 error:function(error){
+				if ( error.responseText == 'exists' || error.responseText =='exists_self') {
+					var ssoUrl=ZASUrl+"/ajax/invoke";
+					var loginParam={};
+					var requestParam = {
+						_ZVING_DATA_FORMAT : "json",
+						_ZVING_METHOD : "sendEmail"
+					}
+					loginParam.toJString = function(){
+						var resString = "{";
+						for(var i in this){
+							if("toJString"!=i){
+								resString += "'"+i + "':'" + this[i]+"',";
+							}
+							
+						}
+						resString += "}";
+						return resString;
+					}
+					var dc = new DataCollection();
+					dc.add("Email",$('#Forget_Email').val());
+					dc.add("AuthCode",$('#Forget_Email_AuthCode').val())
+					$.extend(loginParam,dc.map);
+					requestParam._ZVING_DATA = loginParam.toJString();
+					$.post(ssoUrl,requestParam,function(response){
+						if (response._ZVING_STATUS == 1) {
+							// 设置倒计时
+			 				setForgetEmailCount();
+						} else {
+							initAuthCode('forgetEmailImage')
+							$('#Forget_Email_AuthCode').focus()
+							alert(response._ZVING_MESSAGE)
+						}
+					},"json")
+				} else {
+					alert("您找回的邮箱不存在")
+				}
+			 }
+		})
+	}
+	var forgetMobileCountNum = 60;
+	var forgetEmailCountNum = 60;
+	function setForgetMobileCount() {
+		var text = "";
+		if (forgetMobileCountNum === 0) {
+			text = "重新获取";
+			$(".forget-mobile-code-btn").text(text);
+			$(".forget-mobile-code-btn").attr('onclick', 'forgetSendSMS()');
+			$(".forget-mobile-code-btn").removeClass('disabled')
+			forgetMobileCountNum = 60;
+			return;
+		} else {
+			forgetMobileCountNum--;
+			text = "已发送<span class='count-num'>" + forgetMobileCountNum + "s</span>";
+			$(".forget-mobile-code-btn").attr('onclick', '');
+			$(".forget-mobile-code-btn").addClass('disabled')
+			$(".forget-mobile-code-btn").html(text);
+		}
+		setTimeout(setForgetMobileCount, 1000);
+	}
+	function setForgetEmailCount() {
+		var text = "";
+		if (forgetEmailCountNum === 0) {
+			text = "重新获取";
+			$(".forget-email-code-btn").text(text);
+			$(".forget-email-code-btn").attr('onclick', 'forgetSendEmail()');
+			$(".forget-email-code-btn").removeClass('disabled')
+			forgetEmailCountNum = 60;
+			return;
+		} else {
+			forgetEmailCountNum--;
+			text = "已发送<span class='count-num'>" + forgetEmailCountNum + "s</span>";
+			$(".forget-email-code-btn").attr('onclick', '');
+			$(".forget-email-code-btn").addClass('disabled')
+			$(".forget-email-code-btn").html(text);
+		}
+		setTimeout(setForgetEmailCount, 1000);
+	}
+	function confirmUpdateByMobile(){
+		if($('#Forget_Mobile').val().trim().length==0){
+		    alert("手机号不能为空")
+		    $('#Forget_Mobile').focus()
+			return false;
+		}
+		if($('#Forget_Mobile_Password').val().trim().length==0){
+		    alert("密码不能为空")
+		    $('#Forget_Mobile_Password').focus()
+			return false;
+		}
+		if($('#Forget_Mobile_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Forget_Mobile_AuthCode').focus()
+			return false;
+		}
+		if($('#Forget_SMSCode').val().trim().length==0){
+		    alert("请填写短信验证码")
+		    $('#Forget_SMSCode').focus()
+			return false;
+		}
+		var ssoUrl=ZASUrl+"/ajax/invoke";
+		var loginParam={};
+		var requestParam = {
+			_ZVING_DATA_FORMAT : "json",
+			_ZVING_METHOD : "findpwd/newreset"
+		}
+		loginParam.toJString = function(){
+			var resString = "{";
+			for(var i in this){
+				if("toJString"!=i){
+					resString += "'"+i + "':'" + this[i]+"',";
+				}
+				
+			}
+			resString += "}";
+			return resString;
+		}
+		$.extend(loginParam,Form.getData("forgetMobileForm"));
+		requestParam._ZVING_DATA = loginParam.toJString();
+		$.post(ssoUrl,requestParam,function(response){
+			if(response._ZVING_STATUS == 1){
+				alert(response._ZVING_MESSAGE)
+				$('.dialog_close').parent().addClass('hide')
+				$('.dialogMask').addClass('hide')
+			} else {
+				alert(response._ZVING_MESSAGE)
+			}
+		})
+	}
+	function confirmUpdateByEmail(){
+		if($('#Forget_Email').val().trim().length==0){
+		    alert("手机号不能为空")
+		    $('#Forget_Email').focus()
+			return false;
+		}
+		if($('#Forget_Email_Password').val().trim().length==0){
+		    alert("密码不能为空")
+		    $('#Forget_Email_Password').focus()
+			return false;
+		}
+		if($('#Forget_Email_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Forget_Email_AuthCode').focus()
+			return false;
+		}
+		if($('#Forget_EmailCode').val().trim().length==0){
+		    alert("请填写短信验证码")
+		    $('#Forget_EmailCode').focus()
+			return false;
+		}
+		var ssoUrl=ZASUrl+"/ajax/invoke";
+		var loginParam={};
+		var requestParam = {
+			_ZVING_DATA_FORMAT : "json",
+			_ZVING_METHOD : "findpwd/newreset"
+		}
+		loginParam.toJString = function(){
+			var resString = "{";
+			for(var i in this){
+				if("toJString"!=i){
+					resString += "'"+i + "':'" + this[i]+"',";
+				}
+				
+			}
+			resString += "}";
+			return resString;
+		}
+		$.extend(loginParam,Form.getData("forgetEmailForm"));
+		requestParam._ZVING_DATA = loginParam.toJString();
+		$.post(ssoUrl,requestParam,function(response){
+			if(response._ZVING_STATUS == 1){
+				alert(response._ZVING_MESSAGE)
+				$('.dialog_close').parent().addClass('hide')
+				$('.dialogMask').addClass('hide')
+			} else {
+				alert(response._ZVING_MESSAGE)
+			}
+		})
+	}
+	</script>
+<!-- end找回密码 -->
+
+<style>
+	.resource-list{border-top: 1px solid #efefed;}
+	.subreslist .auth{white-space: nowrap;}
+	.pictureTable:nth-child(3n+1){padding-right:0px;}
+	#page2 .nav .cls-tab{width: 260.5px;margin-left: 15px;}
+	#page2 .nav .tab-classify{width: 259.5px;}
+	@media only screen and  (max-width: 450px) {
+		#page2 .nav .cls-tab{width: 92%;margin-left: 15px;}
+	}
+</style>
+
+	<!-- 头部 -->
+	<div id="page2">
+		
+    	
+		
+	    
+	    
+	    
+	    
+	</div>
+    <!-- 主内容 -->
+    <div class="main">
+        <div class="crumbs">
+			<div class="container clearfix">
+                <div class="cur-tit  hidden-xs">
+                	当前位置：<a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=326">首页</a>
+                	&nbsp;&gt;&nbsp;&nbsp;&gt;&nbsp;资源列表
+               	</div>
+            </div>
+            <div class="container clearfix">
+                <div class="row">
+<!-- col-md-3 start -->
+					<div class="col-md-3 hidden-xs hidden-sm">
+						<!-- <cms:include file="${prefix("template/left_hotword.template.html")}"></cms:include>  						
+						<div class="h15"></div> -->
+						
+<!-- 推荐图书start -->                       
+        <div class="search-left search-left-1 recommend">
+            <h4 class="search-tit">推荐图书</h4>
+            <ul class="g-ul yz-ul3">
+            	<!-- <zp:booklist type="new" slibid="${SublibID}" count="8" className="Y"> -->
+            	
+				
+					<li class="li1 on">
+					
+						<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=11830788&amp;fromSubID=326" title="方法集：挑战哲学史与重开传统：卷二"> 
+							<em class="numb1">1
+							</em>
+							<div class="img-txt">
+								<div class="img">
+									<img src="https://www.sklib.cn/booklib/zpimage.zhtml?ID=11830789&amp;SiteID=122&amp;draft=0&amp;type=logo" alt="">
+								</div>
+								<div class="txt1">
+									<h5 title="方法集：挑战哲学史与重开传统：卷二">方法集：挑战哲学史与重开传统：...</h5>
+									<p title="崔平  2024-12">崔平  (2024-12)</p>
+								</div>
+							</div>
+							<p class="p1">方法集：挑战哲学史与重开传统：卷...</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=11753803&amp;fromSubID=326" title="高成长企业智改数转"> 
+							<em class="numb1">2
+							</em>
+							<div class="img-txt">
+								<div class="img">
+									<img src="https://www.sklib.cn/booklib/zpimage.zhtml?ID=11753804&amp;SiteID=122&amp;draft=0&amp;type=logo" alt="">
+								</div>
+								<div class="txt1">
+									<h5 title="高成长企业智改数转">高成长企业智改数转</h5>
+									<p title="郑琼洁 李宏亮  2024-12">郑琼洁 李宏亮  (2024-12)</p>
+								</div>
+							</div>
+							<p class="p1">高成长企业智改数转</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=11830898&amp;fromSubID=326" title="方法集：挑战哲学史与重开传统：卷三"> 
+							<em class="numb1">3
+							</em>
+							<div class="img-txt">
+								<div class="img">
+									<img src="https://www.sklib.cn/booklib/zpimage.zhtml?ID=11830899&amp;SiteID=122&amp;draft=0&amp;type=logo" alt="">
+								</div>
+								<div class="txt1">
+									<h5 title="方法集：挑战哲学史与重开传统：卷三">方法集：挑战哲学史与重开传统：...</h5>
+									<p title="崔平  2024-12">崔平  (2024-12)</p>
+								</div>
+							</div>
+							<p class="p1">方法集：挑战哲学史与重开传统：卷...</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=11751102&amp;fromSubID=326" title="2023年中国小微企业运行状况年度报告"> 
+							
+							<em class="numb">4</em>
+							<div class="img-txt">
+								<div class="img">
+									<img src="https://www.sklib.cn/booklib/zpimage.zhtml?ID=11751103&amp;SiteID=122&amp;draft=0&amp;type=logo" alt="">
+								</div>
+								<div class="txt1">
+									<h5 title="2023年中国小微企业运行状况年度报告">2023年中国小微企业运行状况年度...</h5>
+									<p title="孙文凯 蔡禹 张展  2024-12">孙文凯 蔡禹 张展  (2024-12)</p>
+								</div>
+							</div>
+							<p class="p1">2023年中国小微企业运行状况年度报...</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=11831244&amp;fromSubID=326" title="方法集：挑战哲学史与重开传统：卷一"> 
+							
+							<em class="numb">5</em>
+							<div class="img-txt">
+								<div class="img">
+									<img src="https://www.sklib.cn/booklib/zpimage.zhtml?ID=11831245&amp;SiteID=122&amp;draft=0&amp;type=logo" alt="">
+								</div>
+								<div class="txt1">
+									<h5 title="方法集：挑战哲学史与重开传统：卷一">方法集：挑战哲学史与重开传统：...</h5>
+									<p title="崔平  2024-12">崔平  (2024-12)</p>
+								</div>
+							</div>
+							<p class="p1">方法集：挑战哲学史与重开传统：卷...</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=11831033&amp;fromSubID=326" title="方法集：挑战哲学史与重开传统：卷四"> 
+							
+							<em class="numb">6</em>
+							<div class="img-txt">
+								<div class="img">
+									<img src="https://www.sklib.cn/booklib/zpimage.zhtml?ID=11831034&amp;SiteID=122&amp;draft=0&amp;type=logo" alt="">
+								</div>
+								<div class="txt1">
+									<h5 title="方法集：挑战哲学史与重开传统：卷四">方法集：挑战哲学史与重开传统：...</h5>
+									<p title="崔平  2024-12">崔平  (2024-12)</p>
+								</div>
+							</div>
+							<p class="p1">方法集：挑战哲学史与重开传统：卷...</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=11753991&amp;fromSubID=326" title="骠骑突击：匈牙利互联互通战略"> 
+							
+							<em class="numb">7</em>
+							<div class="img-txt">
+								<div class="img">
+									<img src="https://www.sklib.cn/booklib/zpimage.zhtml?ID=11753992&amp;SiteID=122&amp;draft=0&amp;type=logo" alt="">
+								</div>
+								<div class="txt1">
+									<h5 title="骠骑突击：匈牙利互联互通战略">骠骑突击：匈牙利互联互通战略</h5>
+									<p title="（匈）鲍拉日·欧尔班 孔元 刘倬妍  2024-11">（匈）鲍拉日·欧尔班 ...  (2024-11)</p>
+								</div>
+							</div>
+							<p class="p1">骠骑突击：匈牙利互联互通战略</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=11716378&amp;fromSubID=326" title="中国百年师范教育史论"> 
+							
+							<em class="numb">8</em>
+							<div class="img-txt">
+								<div class="img">
+									<img src="https://www.sklib.cn/booklib/zpimage.zhtml?ID=11716379&amp;SiteID=122&amp;draft=0&amp;type=logo" alt="">
+								</div>
+								<div class="txt1">
+									<h5 title="中国百年师范教育史论">中国百年师范教育史论</h5>
+									<p title="曲铁华  2024-11">曲铁华  (2024-11)</p>
+								</div>
+							</div>
+							<p class="p1">中国百年师范教育史论</p>
+						</a>
+					</li>
+				
+                <div class="h10"></div>
+          	</ul>
+       </div>
+<!-- 推荐图书 end -->
+<script>
+$('.yz-ul3 li').hover(function(){
+	$(this).addClass('on').siblings('li').removeClass('on');
+});
+</script>
+
+						<div class="h15"></div>
+						<meta charset="utf-8">
+<!-- 相关作者start -->
+       <div class="search-left search-left-1 clearfix">
+           <h4 class="search-tit search-tit-2">推荐作者 <a href="https://www.sklib.cn/booklib/expertsList?SiteID=122&amp;fromSubID=326" class="author-m fr" style="margin-top:0">更多</a></h4>
+           
+           <div class="yz-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 1827px; transform: translate3d(-783px, 0px, 0px);"><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 261px;"><div><div class="slide" style="width: 100%; display: inline-block;">
+	                  		<div class="img">
+	                      		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" tabindex="-1"><img title="谢治菊" src="https://www.sklib.cn/upload/resources/image/2024/10/9787522735924-001-0002-i.jpg" alt="" onerror="this.onerror='';this.src='https://www.sklib.cn/images/noauthor.gif'"></a>
+	                  		</div>
+		                  	<div class="txt">
+		                  		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" tabindex="-1"><h5>谢治菊</h5></a>
+		                     	<p title="谢治菊（1978— ），重庆合川人，管理学博士、社会学博士后，广州大学公共管理学院教授、博士生导师、乡村振兴研究院院长，广东省乡村振兴智库联合会会长，广州市乡村振兴研究会会长，教育部新世纪优秀人才，全国民族教育专家委员会委员，国家社会科学基金重大项目首席专家。主要研究方向为减贫治理、结对帮扶与乡村振兴。">
+			                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" tabindex="-1"> 谢治菊（1978— ），重庆合川人，管理学博士、社会...</a>
+		                     	</p>
+		                     	
+		                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" class="yz-more" tabindex="-1">详细&gt;&gt;</a>
+		                  	</div>
+	              		</div></div></div><div class="slick-slide" data-slick-index="0" aria-hidden="true" role="tabpanel" id="slick-slide00" tabindex="-1" aria-describedby="slick-slide-control00" style="width: 261px;"><div><div class="slide" style="width: 100%; display: inline-block;">
+	                  		<div class="img">
+	                      		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=326966&amp;SiteID=122" tabindex="-1"><img title="周少川" src="https://www.sklib.cn/upload/resources/image/2025/02/19/107880.jpeg" alt="" onerror="this.onerror='';this.src='https://www.sklib.cn/images/noauthor.gif'"></a>
+	                  		</div>
+		                  	<div class="txt">
+		                  		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=326966&amp;SiteID=122" tabindex="-1"><h5>周少川</h5></a>
+		                     	<p title="周少川，北京师范大学历史学院教授、博士生导师，中国历史文献研究会荣誉会长，全国古籍整理出版规划领导小组成员。长期从事历史文献学、史学史、古代文化史的教学与研究，以及古籍的整理与研究。出版专著《古籍目录学》《元代史学思想研究》《陈垣史学思想与20世纪中国史学》等20余部，点校整理古籍多部，发表论文百余篇。主编国家重大文化工程《中华大典·文献目录典》，主持多项国家级人文社会科学研究项目。成果多次获中国出版政府奖、高等学校科学研究优秀成果奖（人文社会科学）、全国优秀古籍图书奖等奖项。">
+			                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=326966&amp;SiteID=122" tabindex="-1"> 周少川，北京师范大学历史学院教授、博士生导师，中...</a>
+		                     	</p>
+		                     	
+		                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=326966&amp;SiteID=122" class="yz-more" tabindex="-1">详细&gt;&gt;</a>
+		                  	</div>
+	              		</div></div></div><div class="slick-slide" data-slick-index="1" aria-hidden="true" role="tabpanel" id="slick-slide01" aria-describedby="slick-slide-control01" tabindex="-1" style="width: 261px;"><div><div class="slide" style="width: 100%; display: inline-block;">
+	                  		<div class="img">
+	                      		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=324812&amp;SiteID=122" tabindex="-1"><img title="王元骧" src="https://www.sklib.cn/upload/resources/image/2025/02/19/107879.jpg" alt="" onerror="this.onerror='';this.src='https://www.sklib.cn/images/noauthor.gif'"></a>
+	                  		</div>
+		                  	<div class="txt">
+		                  		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=324812&amp;SiteID=122" tabindex="-1"><h5>王元骧</h5></a>
+		                     	<p title="王元骧（1934—　），男，浙江玉环人，浙江大学中文系教授，博士生导师。1958年毕业于浙江师院（现浙江大学西溪校区前身）中文系，留校从事文艺理论和美学的教学与研究工作。后为浙江大学教授、博士研究生导师，兼任全国哲学社会科学规划办中国文学组及中华哲学社会科学基金中国文学评审组副组长、教育部《高校理论战线》编委，中外文化及文学理论学会常务理事、浙江省美学研究会副会长等职。迄今发表论著约180万字，曾16次获得中宣部、教育部、中国社会科学院、浙江省人民政府的嘉奖。其论著以人的活动的理论为出发点，把认识与实践、认识论与价值论、科学精神与人文精神有机地结合起来，并吸取相关学科的研究成果，对文艺问题进行立体交叉的全方位的考察，在国内外理论界独树一帜。著有《论美与人的生存》，浙江大学出版社2010年版；《审美超越与艺术精神》，浙江大学出版社2006年版等，并有学术论文二百余篇。">
+			                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=324812&amp;SiteID=122" tabindex="-1"> 王元骧（1934—　），男，浙江玉环人，浙江大学中文...</a>
+		                     	</p>
+		                     	
+		                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=324812&amp;SiteID=122" class="yz-more" tabindex="-1">详细&gt;&gt;</a>
+		                  	</div>
+	              		</div></div></div><div class="slick-slide slick-current slick-active" data-slick-index="2" aria-hidden="false" role="tabpanel" id="slick-slide02" aria-describedby="slick-slide-control02" style="width: 261px;"><div><div class="slide" style="width: 100%; display: inline-block;">
+	                  		<div class="img">
+	                      		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" tabindex="0"><img title="谢治菊" src="https://www.sklib.cn/upload/resources/image/2024/10/9787522735924-001-0002-i.jpg" alt="" onerror="this.onerror='';this.src='https://www.sklib.cn/images/noauthor.gif'"></a>
+	                  		</div>
+		                  	<div class="txt">
+		                  		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" tabindex="0"><h5>谢治菊</h5></a>
+		                     	<p title="谢治菊（1978— ），重庆合川人，管理学博士、社会学博士后，广州大学公共管理学院教授、博士生导师、乡村振兴研究院院长，广东省乡村振兴智库联合会会长，广州市乡村振兴研究会会长，教育部新世纪优秀人才，全国民族教育专家委员会委员，国家社会科学基金重大项目首席专家。主要研究方向为减贫治理、结对帮扶与乡村振兴。">
+			                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" tabindex="0"> 谢治菊（1978— ），重庆合川人，管理学博士、社会...</a>
+		                     	</p>
+		                     	
+		                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" class="yz-more" tabindex="0">详细&gt;&gt;</a>
+		                  	</div>
+	              		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" tabindex="-1" style="width: 261px;"><div><div class="slide" style="width: 100%; display: inline-block;">
+	                  		<div class="img">
+	                      		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=326966&amp;SiteID=122" tabindex="-1"><img title="周少川" src="https://www.sklib.cn/upload/resources/image/2025/02/19/107880.jpeg" alt="" onerror="this.onerror='';this.src='https://www.sklib.cn/images/noauthor.gif'"></a>
+	                  		</div>
+		                  	<div class="txt">
+		                  		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=326966&amp;SiteID=122" tabindex="-1"><h5>周少川</h5></a>
+		                     	<p title="周少川，北京师范大学历史学院教授、博士生导师，中国历史文献研究会荣誉会长，全国古籍整理出版规划领导小组成员。长期从事历史文献学、史学史、古代文化史的教学与研究，以及古籍的整理与研究。出版专著《古籍目录学》《元代史学思想研究》《陈垣史学思想与20世纪中国史学》等20余部，点校整理古籍多部，发表论文百余篇。主编国家重大文化工程《中华大典·文献目录典》，主持多项国家级人文社会科学研究项目。成果多次获中国出版政府奖、高等学校科学研究优秀成果奖（人文社会科学）、全国优秀古籍图书奖等奖项。">
+			                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=326966&amp;SiteID=122" tabindex="-1"> 周少川，北京师范大学历史学院教授、博士生导师，中...</a>
+		                     	</p>
+		                     	
+		                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=326966&amp;SiteID=122" class="yz-more" tabindex="-1">详细&gt;&gt;</a>
+		                  	</div>
+	              		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" tabindex="-1" style="width: 261px;"><div><div class="slide" style="width: 100%; display: inline-block;">
+	                  		<div class="img">
+	                      		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=324812&amp;SiteID=122" tabindex="-1"><img title="王元骧" src="https://www.sklib.cn/upload/resources/image/2025/02/19/107879.jpg" alt="" onerror="this.onerror='';this.src='https://www.sklib.cn/images/noauthor.gif'"></a>
+	                  		</div>
+		                  	<div class="txt">
+		                  		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=324812&amp;SiteID=122" tabindex="-1"><h5>王元骧</h5></a>
+		                     	<p title="王元骧（1934—　），男，浙江玉环人，浙江大学中文系教授，博士生导师。1958年毕业于浙江师院（现浙江大学西溪校区前身）中文系，留校从事文艺理论和美学的教学与研究工作。后为浙江大学教授、博士研究生导师，兼任全国哲学社会科学规划办中国文学组及中华哲学社会科学基金中国文学评审组副组长、教育部《高校理论战线》编委，中外文化及文学理论学会常务理事、浙江省美学研究会副会长等职。迄今发表论著约180万字，曾16次获得中宣部、教育部、中国社会科学院、浙江省人民政府的嘉奖。其论著以人的活动的理论为出发点，把认识与实践、认识论与价值论、科学精神与人文精神有机地结合起来，并吸取相关学科的研究成果，对文艺问题进行立体交叉的全方位的考察，在国内外理论界独树一帜。著有《论美与人的生存》，浙江大学出版社2010年版；《审美超越与艺术精神》，浙江大学出版社2006年版等，并有学术论文二百余篇。">
+			                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=324812&amp;SiteID=122" tabindex="-1"> 王元骧（1934—　），男，浙江玉环人，浙江大学中文...</a>
+		                     	</p>
+		                     	
+		                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=324812&amp;SiteID=122" class="yz-more" tabindex="-1">详细&gt;&gt;</a>
+		                  	</div>
+	              		</div></div></div><div class="slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 261px;"><div><div class="slide" style="width: 100%; display: inline-block;">
+	                  		<div class="img">
+	                      		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" tabindex="-1"><img title="谢治菊" src="https://www.sklib.cn/upload/resources/image/2024/10/9787522735924-001-0002-i.jpg" alt="" onerror="this.onerror='';this.src='https://www.sklib.cn/images/noauthor.gif'"></a>
+	                  		</div>
+		                  	<div class="txt">
+		                  		<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" tabindex="-1"><h5>谢治菊</h5></a>
+		                     	<p title="谢治菊（1978— ），重庆合川人，管理学博士、社会学博士后，广州大学公共管理学院教授、博士生导师、乡村振兴研究院院长，广东省乡村振兴智库联合会会长，广州市乡村振兴研究会会长，教育部新世纪优秀人才，全国民族教育专家委员会委员，国家社会科学基金重大项目首席专家。主要研究方向为减贫治理、结对帮扶与乡村振兴。">
+			                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" tabindex="-1"> 谢治菊（1978— ），重庆合川人，管理学博士、社会...</a>
+		                     	</p>
+		                     	
+		                     	<a href="https://www.sklib.cn/booklib/expertsDetail?authorID=321643&amp;SiteID=122" class="yz-more" tabindex="-1">详细&gt;&gt;</a>
+		                  	</div>
+	              		</div></div></div></div></div><ul class="slick-dots" style="display: block;" role="tablist"><li class="" role="presentation"><button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 3" tabindex="-1">1</button></li><li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control01" aria-controls="slick-slide01" aria-label="2 of 3" tabindex="-1">2</button></li><li role="presentation" class="slick-active"><button type="button" role="tab" id="slick-slide-control02" aria-controls="slick-slide02" aria-label="3 of 3" tabindex="0" aria-selected="true">3</button></li></ul></div>
+       </div>
+       <div class="h15"></div>
+<!-- 相关作者 end -->
+<script>
+//专家作者
+if( $('.yz-slider').length ){
+	$('.yz-slider').slick({
+	    dots:true,
+	    arrows:false,
+	    autoplay:true,
+	    slidesToShow: 1,
+	    autoplaySpeed: 5000,
+	    pauseOnHover:false,
+	    lazyLoad: 'ondemand'
+	});
+}
+</script>
+						<div class="h15"></div>
+                    </div>
+<!-- col-md-3 end -->
+<!-- col-md-9 start -->
+                    <div class="col-md-9">
+                    	<!-- 多维筛选start -->
+                    	<!-- <cms:include file="${prefix("template/resType.template.html")}"></cms:include>  -->
+                        <!-- 多维筛选start -->
+						<div class="search-left resource-type clearfix">
+                            <div class="row">
+                            	<div class="col-xs-12">
+                            	<!-- <zp:ClassStat id="${Request.ID}"> -->
+									
+                                    	<ul>
+                                    		<li><span>资源类型：</span></li>
+			                                <li>
+			                                	
+			                                	<a href="https://www.sklib.cn/booklib/historyResources?SiteID=122&amp;ID=328&amp;ResType=book&amp;fromSubID=326">
+			                                	
+			                                	图书                   
+		                                	</a></li>
+		                                	
+			                                <li class="on">
+			                                	
+			                                	<a href="https://www.sklib.cn/booklib/historyResources?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326">
+			                                	
+			                                	条目
+		                                	</a></li>
+			                                <li>
+			                                	
+			                                	<a href="https://www.sklib.cn/booklib/historyResources?SiteID=122&amp;ID=328&amp;ResType=paper&amp;fromSubID=326">
+		                                		
+		                                		论文
+											</a></li>
+			                                <li>
+			                                	
+			                                	<a href="https://www.sklib.cn/booklib/historyResources?SiteID=122&amp;ID=328&amp;ResType=table&amp;fromSubID=326">
+		                                		
+		                                		表格
+	                                		</a></li>
+	                                		<li>
+			                                	
+	                                			<a href="https://www.sklib.cn/booklib/historyResources?SiteID=122&amp;ID=328&amp;ResType=image&amp;fromSubID=326">
+		                                		
+		                                		图片
+	                                		</a></li>
+			                            </ul>
+                                    
+		                        </div>
+                            </div> 
+                        </div>
+                    
+                    	
+                    	
+                    	
+                    		
+                       	
+                       		
+			            	 
+							<div class="search-box1 resliter clearfix">   
+								
+                         		<div class="resource-list literlist condition-box">
+                               		<div class="row">
+                                   		<div class="col-md-12">                                  
+                                       		<h3><em>■</em>
+                                     			<a href="https://www.sklib.cn/booklib/databasedetail?SiteID=122&amp;ID=1963786&amp;fromSubID=328" target="_blank">
+                                           			跨性别者身份认同概述
+                                        		</a>
+                                       		</h3>
+                                       		<div class="bookDet p-sm clearfix">
+                                       			<div class="row info">
+                                               		<div class="col-md-9">
+                                               			<span>来源图书：</span>
+                                               			<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=1963558&amp;fromSubID=328" target="_blank">肯定性咨询法</a>
+                                           			</div> 
+                                       			</div>
+                                           		<div class="row info">
+                                               		<div class="col-md-9"><span>作者：</span><a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(70273)" title="方刚">方刚</a> <a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(30208)" title="杨志红">杨志红</a></div>
+                                               		<div class="col-md-3 p-r-none"><span>出版日期：</span>2018年04月01日</div>    
+                                           		</div>
+                                           		<div class="book-brief">
+                                           			<span>简介：</span>
+                                           			跨性别者认同其跨性别身份的方式各有不同，同时他们发现自己存在跨性别意识的年龄也不尽相同。一些跨性别者可能从有记忆起便有了跨性别身份的感觉和认同，可能存在与“同性”相处不来的模糊感觉，或者希望变成所赋予性别以外的人；另一些跨性别者可能在青春期或之后才感知到自己的跨性别意识，或开始探索和体验与被指定性别不同的态度和行为。跨性别者开始质疑自己的性别或认为自己是跨性别者可能通过以下的方式（包含但不限于）：（1）有一种内在的感觉，感觉到自己与出生时所赋予的性别不符、性别混合、中间性别或无性别；（2）当看到其他跨性别者、在电视上看到与跨性别相关的节目或阅读有关跨性别的资料时有一种亲近感；（3）对于作为女性...
+		                               				
+                                           		</div>
+                                           		<div class="searcy-Key-word ">
+	                                             	<span>关键词：</span>
+	                                             	
+					                                     <a href="javascript:;" onclick="searchString(&quot;性别&quot;)" style="color: #D6880A;">性别</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;跨性别&quot;)" style="color: #D6880A;">跨性别</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;阶段&quot;)" style="color: #D6880A;">阶段</a>&nbsp;&nbsp;
+					                                
+					                                
+                                           		</div>
+                                       		</div>
+                                   		</div>
+                               		</div>
+                             	</div>
+                         		<div class="resource-list literlist condition-box">
+                               		<div class="row">
+                                   		<div class="col-md-12">                                  
+                                       		<h3><em>■</em>
+                                     			<a href="https://www.sklib.cn/booklib/databasedetail?SiteID=122&amp;ID=1963783&amp;fromSubID=328" target="_blank">
+                                           			同性恋者身份认同概述
+                                        		</a>
+                                       		</h3>
+                                       		<div class="bookDet p-sm clearfix">
+                                       			<div class="row info">
+                                               		<div class="col-md-9">
+                                               			<span>来源图书：</span>
+                                               			<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=1963558&amp;fromSubID=328" target="_blank">肯定性咨询法</a>
+                                           			</div> 
+                                       			</div>
+                                           		<div class="row info">
+                                               		<div class="col-md-9"><span>作者：</span><a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(70273)" title="方刚">方刚</a> <a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(30208)" title="杨志红">杨志红</a></div>
+                                               		<div class="col-md-3 p-r-none"><span>出版日期：</span>2018年04月01日</div>    
+                                           		</div>
+                                           		<div class="book-brief">
+                                           			<span>简介：</span>
+                                           			同性恋身份的发展与认同过程，包括性身份的形成与整合，即同性恋者从开始意识到自己的性倾向与主流异性恋身份不同，到其逐渐厘清、接受自己的性身份的过程。达到积极的身份认同的同性恋者往往会积极参与社区活动（如去同志活动中心、酒吧、咖啡厅等），对同性恋持积极的态度，对于他人知道自己的性倾向没有觉得不舒适，可以向他人公开自己的性倾向等。1979年，卡斯（Cass）提出了首个同性恋身份形成的模型，彻底革新了人们对性少数人群的理解观念，她提出的六阶段模型也已经成为很多人理解同性恋身份形成的经典轮廓。Cass认为，个体看待自己的观点和她/他所感知的别人看待她/他的观点之间的一致和不一致性，形塑了其认同发展的过程...
+		                               				
+                                           		</div>
+                                           		<div class="searcy-Key-word ">
+	                                             	<span>关键词：</span>
+	                                             	
+					                                     <a href="javascript:;" onclick="searchString(&quot;身份&quot;)" style="color: #D6880A;">身份</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;同性恋者&quot;)" style="color: #D6880A;">同性恋者</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;同性恋&quot;)" style="color: #D6880A;">同性恋</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;模型&quot;)" style="color: #D6880A;">模型</a>&nbsp;&nbsp;
+					                                
+					                                
+                                           		</div>
+                                       		</div>
+                                   		</div>
+                               		</div>
+                             	</div>
+                         		<div class="resource-list literlist condition-box">
+                               		<div class="row">
+                                   		<div class="col-md-12">                                  
+                                       		<h3><em>■</em>
+                                     			<a href="https://www.sklib.cn/booklib/databasedetail?SiteID=122&amp;ID=1963771&amp;fromSubID=328" target="_blank">
+                                           			多元文化咨询理论与肯定性咨询
+                                        		</a>
+                                       		</h3>
+                                       		<div class="bookDet p-sm clearfix">
+                                       			<div class="row info">
+                                               		<div class="col-md-9">
+                                               			<span>来源图书：</span>
+                                               			<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=1963558&amp;fromSubID=328" target="_blank">肯定性咨询法</a>
+                                           			</div> 
+                                       			</div>
+                                           		<div class="row info">
+                                               		<div class="col-md-9"><span>作者：</span><a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(70273)" title="方刚">方刚</a> <a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(30208)" title="杨志红">杨志红</a></div>
+                                               		<div class="col-md-3 p-r-none"><span>出版日期：</span>2018年04月01日</div>    
+                                           		</div>
+                                           		<div class="book-brief">
+                                           			<span>简介：</span>
+                                           			多元文化咨询理论注重来访者所处文化背景对其自身的影响。这一咨询理论对于性与性别少数咨询具有重要启发。传统的心理咨询实践中，咨询师往往不会将种族、民族以及性别认同发展问题等各种因素纳入对来访者的评估和干预过程中，这样的心理咨询模式常常无法保证有着多重压迫身份的个体达到全面的文化认同。咨询师了解相关的文化变量交互作用对个体产生的影响，有助于咨询师对来访者做出更准确的诊断，并相应地提供更有效的干预和咨询方法。（Constantine, 2002）多元文化咨询理论在过去30多年的发展过程中，在社会政治语境中介绍了被边缘化的人群的生活经验，这些边缘化人群包括女性、性与性别少数者、工人阶级、有色人种、残疾...
+		                               				
+                                           		</div>
+                                           		<div class="searcy-Key-word ">
+	                                             	<span>关键词：</span>
+	                                             	
+					                                     <a href="javascript:;" onclick="searchString(&quot;性别&quot;)" style="color: #D6880A;">性别</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;咨询师&quot;)" style="color: #D6880A;">咨询师</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;来访者&quot;)" style="color: #D6880A;">来访者</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;多元文化&quot;)" style="color: #D6880A;">多元文化</a>&nbsp;&nbsp;
+					                                
+					                                
+                                           		</div>
+                                       		</div>
+                                   		</div>
+                               		</div>
+                             	</div>
+                         		<div class="resource-list literlist condition-box">
+                               		<div class="row">
+                                   		<div class="col-md-12">                                  
+                                       		<h3><em>■</em>
+                                     			<a href="https://www.sklib.cn/booklib/databasedetail?SiteID=122&amp;ID=1963765&amp;fromSubID=328" target="_blank">
+                                           			酷儿理论与肯定性咨询
+                                        		</a>
+                                       		</h3>
+                                       		<div class="bookDet p-sm clearfix">
+                                       			<div class="row info">
+                                               		<div class="col-md-9">
+                                               			<span>来源图书：</span>
+                                               			<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=1963558&amp;fromSubID=328" target="_blank">肯定性咨询法</a>
+                                           			</div> 
+                                       			</div>
+                                           		<div class="row info">
+                                               		<div class="col-md-9"><span>作者：</span><a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(70273)" title="方刚">方刚</a> <a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(30208)" title="杨志红">杨志红</a></div>
+                                               		<div class="col-md-3 p-r-none"><span>出版日期：</span>2018年04月01日</div>    
+                                           		</div>
+                                           		<div class="book-brief">
+                                           			<span>简介：</span>
+                                           			酷儿理论是当今思考和研究涉及性与性别问题时的一个非常主流的理论。说到酷儿理论，不能不提到法国思想家福柯。福柯的观点极富挑战性和反叛性，他的思想体现和代表了后现代哲学思潮。“后现代强调不稳定、不确定、非连续、无序性；后现代是一个告别了整体性、同一性，彻底多元化的时代；后现代的基本经验是完全不同的知识形态、生活设计、思维和行为方式的不可剥夺的权利”。（钱善行, 1993：96—97）福柯的思想和著作在人类思想史上占有极其重要的地位，其关于同性恋问题的看法更是颠覆了人们以往对同性恋的刻板印象。首先，在性别的两分结构上，福柯解构了生理性别和社会性别二元模式。他认为，生理性别，无论是男性气质还是女性气质...
+		                               				
+                                           		</div>
+                                           		<div class="searcy-Key-word ">
+	                                             	<span>关键词：</span>
+	                                             	
+					                                     <a href="javascript:;" onclick="searchString(&quot;性别&quot;)" style="color: #D6880A;">性别</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;酷儿理论&quot;)" style="color: #D6880A;">酷儿理论</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;同性恋&quot;)" style="color: #D6880A;">同性恋</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;福柯&quot;)" style="color: #D6880A;">福柯</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;身份&quot;)" style="color: #D6880A;">身份</a>&nbsp;&nbsp;
+					                                
+					                                
+                                           		</div>
+                                       		</div>
+                                   		</div>
+                               		</div>
+                             	</div>
+                         		<div class="resource-list literlist condition-box">
+                               		<div class="row">
+                                   		<div class="col-md-12">                                  
+                                       		<h3><em>■</em>
+                                     			<a href="https://www.sklib.cn/booklib/databasedetail?SiteID=122&amp;ID=1963763&amp;fromSubID=328" target="_blank">
+                                           			性人权理论与肯定性咨询
+                                        		</a>
+                                       		</h3>
+                                       		<div class="bookDet p-sm clearfix">
+                                       			<div class="row info">
+                                               		<div class="col-md-9">
+                                               			<span>来源图书：</span>
+                                               			<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=1963558&amp;fromSubID=328" target="_blank">肯定性咨询法</a>
+                                           			</div> 
+                                       			</div>
+                                           		<div class="row info">
+                                               		<div class="col-md-9"><span>作者：</span><a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(70273)" title="方刚">方刚</a> <a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(30208)" title="杨志红">杨志红</a></div>
+                                               		<div class="col-md-3 p-r-none"><span>出版日期：</span>2018年04月01日</div>    
+                                           		</div>
+                                           		<div class="book-brief">
+                                           			<span>简介：</span>
+                                           			性人权理论认为，性不是一种和身份联系在一起的权利，而是人作为个体与生俱来的人权，应该站在人权的角度考察人类性的多样性。可以说，性人权就来源于人性、性的尊严和价值，其目的也是维护人性、性的尊严和价值。性人权注重一般的人性，更注重每个人的独特的人性，强调每个人独具的性的尊严和价值：“性自由权、性平等权、追求性福权，就成了三种核心的性人权”。（赵合俊，2007：5）同性恋者选择自己的情欲和情爱对象，跨性别者选择自己的性别认同与性别实践，这是其基本人权的组成部分，他人无权干涉，更无权通过种种途径要求其“逆转”。有人认为性与性别少数者不符合主流的性道德。有学者反驳说，性人权具有普遍性，性道德则具有文化性...
+		                               				
+                                           		</div>
+                                           		<div class="searcy-Key-word ">
+	                                             	<span>关键词：</span>
+	                                             	
+					                                     <a href="javascript:;" onclick="searchString(&quot;性别&quot;)" style="color: #D6880A;">性别</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;人权&quot;)" style="color: #D6880A;">人权</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;性倾向&quot;)" style="color: #D6880A;">性倾向</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;性别认同&quot;)" style="color: #D6880A;">性别认同</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;个人&quot;)" style="color: #D6880A;">个人</a>&nbsp;&nbsp;
+					                                
+					                                
+                                           		</div>
+                                       		</div>
+                                   		</div>
+                               		</div>
+                             	</div>
+                         		<div class="resource-list literlist condition-box">
+                               		<div class="row">
+                                   		<div class="col-md-12">                                  
+                                       		<h3><em>■</em>
+                                     			<a href="https://www.sklib.cn/booklib/databasedetail?SiteID=122&amp;ID=1963737&amp;fromSubID=328" target="_blank">
+                                           			女权主义理论与肯定性咨询
+                                        		</a>
+                                       		</h3>
+                                       		<div class="bookDet p-sm clearfix">
+                                       			<div class="row info">
+                                               		<div class="col-md-9">
+                                               			<span>来源图书：</span>
+                                               			<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=1963558&amp;fromSubID=328" target="_blank">肯定性咨询法</a>
+                                           			</div> 
+                                       			</div>
+                                           		<div class="row info">
+                                               		<div class="col-md-9"><span>作者：</span><a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(70273)" title="方刚">方刚</a> <a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(30208)" title="杨志红">杨志红</a></div>
+                                               		<div class="col-md-3 p-r-none"><span>出版日期：</span>2018年04月01日</div>    
+                                           		</div>
+                                           		<div class="book-brief">
+                                           			<span>简介：</span>
+                                           			女权主义心理咨询也称女权主义咨询法，兴起于20世纪60年代的女权主义运动。它将女权主义研究与心理咨询的理论与实践有机地结合起来，以弥补传统心理咨询研究的不足与偏颇。女权主义心理咨询对传统心理咨询中的实证主义假设、性别偏见以及咨询关系中的权力不对等之类的问题提出了挑战。它以社会性别视角透视心理咨询的理论与实践问题，关注社会情境对来访者心理健康的影响，主张建立平等的咨询关系，促进社会变革与发展。女权主义心理咨询提出了一种生物的、心理的、社会的、文化的以及结构的咨询模式，这不仅有助于对个体心理功能的全面理解，而且为心理咨询的发展指明了方向。（郭爱妹，2006）女权主义心理咨询原则和技术等主要是基于女...
+		                               				
+                                           		</div>
+                                           		<div class="searcy-Key-word ">
+	                                             	<span>关键词：</span>
+	                                             	
+					                                     <a href="javascript:;" onclick="searchString(&quot;来访者&quot;)" style="color: #D6880A;">来访者</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;性别&quot;)" style="color: #D6880A;">性别</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;女权主义&quot;)" style="color: #D6880A;">女权主义</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;心理咨询&quot;)" style="color: #D6880A;">心理咨询</a>&nbsp;&nbsp;
+					                                
+					                                
+                                           		</div>
+                                       		</div>
+                                   		</div>
+                               		</div>
+                             	</div>
+                         		<div class="resource-list literlist condition-box">
+                               		<div class="row">
+                                   		<div class="col-md-12">                                  
+                                       		<h3><em>■</em>
+                                     			<a href="https://www.sklib.cn/booklib/databasedetail?SiteID=122&amp;ID=1963725&amp;fromSubID=328" target="_blank">
+                                           			肯定性咨询法实施的三个步骤
+                                        		</a>
+                                       		</h3>
+                                       		<div class="bookDet p-sm clearfix">
+                                       			<div class="row info">
+                                               		<div class="col-md-9">
+                                               			<span>来源图书：</span>
+                                               			<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=1963558&amp;fromSubID=328" target="_blank">肯定性咨询法</a>
+                                           			</div> 
+                                       			</div>
+                                           		<div class="row info">
+                                               		<div class="col-md-9"><span>作者：</span><a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(70273)" title="方刚">方刚</a> <a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(30208)" title="杨志红">杨志红</a></div>
+                                               		<div class="col-md-3 p-r-none"><span>出版日期：</span>2018年04月01日</div>    
+                                           		</div>
+                                           		<div class="book-brief">
+                                           			<span>简介：</span>
+                                           			在自我探索的过程中，除了以上提到的三个步骤外，实践性与性别少数肯定性咨询法还有很多重要的策略。这里提出三个可能的策略，包括勇于宣称自己是性与性别少数肯定性咨询法的咨询师，表明自己支持性与性别少数的立场，以及解构异性恋主义/顺性别主义对性与性别少数来访者以及对咨询过程的影响。为了能够成为一个性与性别少数肯定性咨询法的咨询师，很重要的一点是要意识到异性恋者是不可能彻底从其异性恋规范的假设中解脱出来的。作为异性恋主流社会中的既得利益者，如果异性恋咨询师装作他们从异性恋假设的影响中解脱出来了，那么他们可能会给性与性别少数来访者带去更多的伤害而非好处。（Wetchler, 2004）为了更好地说明这一点...
+		                               				
+                                           		</div>
+                                           		<div class="searcy-Key-word ">
+	                                             	<span>关键词：</span>
+	                                             	
+					                                     <a href="javascript:;" onclick="searchString(&quot;性别&quot;)" style="color: #D6880A;">性别</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;来访者&quot;)" style="color: #D6880A;">来访者</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;异性恋&quot;)" style="color: #D6880A;">异性恋</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;咨询师&quot;)" style="color: #D6880A;">咨询师</a>&nbsp;&nbsp;
+					                                
+					                                
+                                           		</div>
+                                       		</div>
+                                   		</div>
+                               		</div>
+                             	</div>
+                         		<div class="resource-list literlist condition-box">
+                               		<div class="row">
+                                   		<div class="col-md-12">                                  
+                                       		<h3><em>■</em>
+                                     			<a href="https://www.sklib.cn/booklib/databasedetail?SiteID=122&amp;ID=1963714&amp;fromSubID=328" target="_blank">
+                                           			肯定性疗法咨询师自我成长三过程
+                                        		</a>
+                                       		</h3>
+                                       		<div class="bookDet p-sm clearfix">
+                                       			<div class="row info">
+                                               		<div class="col-md-9">
+                                               			<span>来源图书：</span>
+                                               			<a href="https://www.sklib.cn/booklib/bookPreview?SiteID=122&amp;ID=1963558&amp;fromSubID=328" target="_blank">肯定性咨询法</a>
+                                           			</div> 
+                                       			</div>
+                                           		<div class="row info">
+                                               		<div class="col-md-9"><span>作者：</span><a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(70273)" title="方刚">方刚</a> <a style="color: #00A2C9;" href="javascript:void(0);" onclick="toAuthor(30208)" title="杨志红">杨志红</a></div>
+                                               		<div class="col-md-3 p-r-none"><span>出版日期：</span>2018年04月01日</div>    
+                                           		</div>
+                                           		<div class="book-brief">
+                                           			<span>简介：</span>
+                                           			成为一名性与性别少数肯定性咨询法的咨询师，需要探索异性恋主义是如何塑造其个人及职业生活的。我们可以通过三个步骤来自我探索异性恋假设、异性恋特权以及异性恋身份这三方面，是如何影响着一位异性恋咨询师对其性与性别少数来访者以及异性恋来访者的态度。咨询师要在咨询过程中持续不断地进行这一重要的自我探索过程，因为他们不可能一下子达到一个完全从异性恋假设以及异性恋特权中解放出来的境界。异性恋咨询师自我探索的第一步是探索异性恋假设。为了意识到异性恋假设，咨询师可以通过探索其在生活中接触到的关于性倾向的社会及家庭信息，以及所谓的“正常”与“健康”的夫妻实践模式；这一探索过程也涉及检验咨询师自我关于性倾向、性以及...
+		                               				
+                                           		</div>
+                                           		<div class="searcy-Key-word ">
+	                                             	<span>关键词：</span>
+	                                             	
+					                                     <a href="javascript:;" onclick="searchString(&quot;异性恋&quot;)" style="color: #D6880A;">异性恋</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;性别&quot;)" style="color: #D6880A;">性别</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;咨询师&quot;)" style="color: #D6880A;">咨询师</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;问题&quot;)" style="color: #D6880A;">问题</a>&nbsp;&nbsp;<a href="javascript:;" onclick="searchString(&quot;性倾向&quot;)" style="color: #D6880A;">性倾向</a>&nbsp;&nbsp;
+					                                
+					                                
+                                           		</div>
+                                       		</div>
+                                   		</div>
+                               		</div>
+                             	</div>
+                   			</div>
+                   			
+                   			
+                    	
+                    	
+                    	
+                    	
+                    	
+                    	
+                    	
+                    	
+                    	                                                
+                        <div class="page-bar page-bar-1 text-center clearfix m-b-md m-t-lg">
+                            <table width="100%" border="0" class="noBorder" align="center"><tbody><tr><td height="18" align="center" valign="middle" style="border-width: 0px;color:#525252"><a href="?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=272"><span class="fc_ch1">上一页</span></a>  <a class="z_num" href="?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=268">268</a><a class="z_num" href="?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=269">269</a><a class="z_num" href="?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=270">270</a><a class="z_num" href="?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=271">271</a><a class="z_num" href="?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=272">272</a><span class="current" style="color: #900"> 273 </span><a class="z_num" href="?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=274">274</a><a class="z_num" href="?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=275">275</a><a class="z_num" href="?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=276">276</a><a class="z_num" href="?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=277">277</a><a href="?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=274"><span class="fc_ch1">下一页</span></a><script>function _PageBar_1740052821655_Go(){	var ele=document.getElementById('_PageBar_1740052821655');if(/[^\d]/.test(ele.value)||ele.value>5421){alert('错误的页码');$('_PageBar_Index_1740052821655').focus();}else{var PageIndex = parseInt(ele.value,10);PageIndex=PageIndex>0?PageIndex:1;if(PageIndex==1){window.location='?SiteID=122&ID=328&ResType=literature&fromSubID=326';}else{window.location='?SiteID=122&ID=328&ResType=literature&fromSubID=326&PageIndex=${PageIndex}'.replace('${PageIndex}', PageIndex);}}}</script>&nbsp;&nbsp;第 <input class="z_num" id="_PageBar_1740052821655" type="text" size="3" value="273" style="" onkeyup="value=value.replace(/\D/g,'')"> /5421页&nbsp;&nbsp;<a href="javascript:void(0);" onclick="_PageBar_1740052821655_Go()" class="z_pret">跳转</a></td></tr></tbody></table>
+                        </div>       
+                    </div>
+<!-- col-md-9 end --> 
+					<div class="h15"></div>
+                </div>
+            </div>     
+        </div>
+    </div>
+
+	<!-- 底部 -->
+    
+<style>
+.foot .f-bg-black .col-sm-8 a{font-size:14px}
+</style>
+<!-- 底部 -->
+    <div class="foot">
+        <div class="p-t-lg p-b-lg f-bg-black">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 p-l-xs">
+                    	
+							
+							<img src="https://www.sklib.cn/">
+							
+                    	
+						                       
+                    </div>
+                    old_footer.template.html 第18行发生错误: 未指定栏目或指定的栏目不存在
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 底部 end-->
+<!-- 登录弹框开始 -->
+<div id="logindiv1" style="display: none;">
+		<div id="close" style="float: right;margin-bottom: 10px;margin-top: 5px; margin-right: 7px; cursor: pointer;"><img src="https://www.sklib.cn/images/btn-close.png"></div>
+	<div class="">
+		<div class="m-login" style="width: 320px;">
+			<div class="con tab-show register-items"> 
+	                    	<input name="QueryString" id="QueryString" type="hidden" value="SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=273">                
+	                        <form id="loginform" method="post" action="https://www.sklib.cn/template/checklogin?SiteID=122&amp;ID=328&amp;ResType=literature&amp;fromSubID=326&amp;PageIndex=273">
+	                        <input name="Referer" type="hidden" id="Referer" value="">
+	                        <input name="plat" type="hidden" id="plat" value="">
+	                        <input name="AppID" type="hidden" id="AppID" value="">
+								<!-- <div id="message">QQQ
+									<p class="error">${Message}QQQ</p>
+								</div> -->
+								<br>
+								<br>
+								<div id="message">
+									<p class="error"></p>
+								</div>
+	                            <div class="inp"><input type="text" placeholder="请输入用户名/邮箱/手机号 " class="g-inp" name="UserName" id="UserName" value=""></div>
+	                            <div class="inp"><input type="password" placeholder="请输入密码" id="Password"></div>
+	                            <div class="form-group" id="AuthCodeBox" style="display: none;">
+									<div class="code">
+										<input type="text" id="AuthCode" name="AuthCode" style="height: 40px;border: 1px solid #b9b9b9;border-radius: 4px;color: black;"><img id="AuthCodeImg" onclick="initAuthCode();return false;" style="vertical-align: middle; margin-left: 4px;">
+									</div>
+								</div>
+	                            <div class="pass">
+	                                <label><input id="KeepLive" type="checkbox" name="KeepLive" value="true">记住密码</label>
+	                                <div class="p-r">
+	                                    <a href="https://www.sklib.cn/sso/findpwd/index" class="blue">忘记密码？</a>|
+	                                    <a href="javascript:reg();">注册</a>
+	                                </div>
+	                            </div>
+	                            <button onclick="loginform_submit();return false;"><a style="color:#FFF" href="javascript:void(0);">登录</a></button>
+	                            <!-- <font size="3px"><a href="javascript:login();">更多登录方式请点击</a></font> -->
+	                            <h4><span>其它方式登录</span></h4>
+	                            <div id="SocialLogin" class="other"><a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxe9b0081cee602d9e&amp;redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fsso%2FSocial.redirect%3FReferer%3Dhttps%253A%252F%252Fwww.sklib.cn%252Fsso%252Foauth%252Fauthorize%253Fclient_id%253D2d56a12b31aa4033b3bff7fa9e784cf9%2526response_type%253Dcode%2526scope%253Duser_info%2526redirect_uri%253Dhttps%25253A%25252F%25252Fwww.sklib.cn%25252Fbooklib%25252Fmember%25252Flogin%25253Freferer%25253Dhttps%2525253A%2525252F%2525252Fwww.sklib.cn%2525252Fbooklib%2525252FhistoryResources%2525253FSiteID%2525253D122%25252526ID%2525253D328%25252526ResType%2525253Dliterature%25252526fromSubID%2525253D326%25252526PageIndex%2525253D273&amp;response_type=code&amp;scope=snsapi_login&amp;state=__Z_Wechat_ZAUser__1740052827357_e3b00af42e7cb82295f8e68625dd27a11b18b5345aa9db3b" title="微信平台"><img alt="微信平台" src="../../images/Wechat.gif"></a><a href="https://sso.ckrsc.com/oauth/authorize?client_id=980f281d872642028eaedf6f9fe30994&amp;response_type=code&amp;state=__Z_ZAS_ZAUser__1740052827357_86083724bc7893ef6f359a6864c412684a1af92867845719&amp;redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fsso%2FSocial.redirect%3FReferer%3Dhttps%253A%252F%252Fwww.sklib.cn%252Fsso%252Foauth%252Fauthorize%253Fclient_id%253D2d56a12b31aa4033b3bff7fa9e784cf9%2526response_type%253Dcode%2526scope%253Duser_info%2526redirect_uri%253Dhttps%25253A%25252F%25252Fwww.sklib.cn%25252Fbooklib%25252Fmember%25252Flogin%25253Freferer%25253Dhttps%2525253A%2525252F%2525252Fwww.sklib.cn%2525252Fbooklib%2525252FhistoryResources%2525253FSiteID%2525253D122%25252526ID%2525253D328%25252526ResType%2525253Dliterature%25252526fromSubID%2525253D326%25252526PageIndex%2525253D273&amp;scope=user_info" title="国家知识资源服务中心"><img alt="国家知识资源服务中心" src="../../images/Ckrsc.gif"></a><a href="javascript:void(0);" onclick="carsiLogin();return false;" title="通过CARSI登录"><img alt="通过CARSI登录" src="../../images/CARSI.png"></a><a href="javascript:void(0);" onclick="offCampusLogin();return false;" title="校外访问"><img alt="校外访问" src="../../assets/images/components/header-menu/off-campus-visits.png" style="width: 40px"></a></div>
+	                        </form>
+	                    </div>
+			
+			<div class="other" id="socialDiv"><a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxe9b0081cee602d9e&amp;redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fsso%2FSocial.redirect%3FReferer%3Dhttps%253A%252F%252Fwww.sklib.cn%252Fsso%252Foauth%252Fauthorize%253Fclient_id%253D2d56a12b31aa4033b3bff7fa9e784cf9%2526response_type%253Dcode%2526scope%253Duser_info%2526redirect_uri%253Dhttps%25253A%25252F%25252Fwww.sklib.cn%25252Fbooklib%25252Fmember%25252Flogin%25253Freferer%25253Dhttps%2525253A%2525252F%2525252Fwww.sklib.cn%2525252Fbooklib%2525252FhistoryResources%2525253FSiteID%2525253D122%25252526ID%2525253D328%25252526ResType%2525253Dliterature%25252526fromSubID%2525253D326%25252526PageIndex%2525253D273&amp;response_type=code&amp;scope=snsapi_login&amp;state=__Z_Wechat_ZAUser__1740052827357_e3b00af42e7cb82295f8e68625dd27a11b18b5345aa9db3b" title="微信平台"><img alt="微信平台" src="../../images/Wechat.gif"></a><a href="https://sso.ckrsc.com/oauth/authorize?client_id=980f281d872642028eaedf6f9fe30994&amp;response_type=code&amp;state=__Z_ZAS_ZAUser__1740052827357_86083724bc7893ef6f359a6864c412684a1af92867845719&amp;redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fsso%2FSocial.redirect%3FReferer%3Dhttps%253A%252F%252Fwww.sklib.cn%252Fsso%252Foauth%252Fauthorize%253Fclient_id%253D2d56a12b31aa4033b3bff7fa9e784cf9%2526response_type%253Dcode%2526scope%253Duser_info%2526redirect_uri%253Dhttps%25253A%25252F%25252Fwww.sklib.cn%25252Fbooklib%25252Fmember%25252Flogin%25253Freferer%25253Dhttps%2525253A%2525252F%2525252Fwww.sklib.cn%2525252Fbooklib%2525252FhistoryResources%2525253FSiteID%2525253D122%25252526ID%2525253D328%25252526ResType%2525253Dliterature%25252526fromSubID%2525253D326%25252526PageIndex%2525253D273&amp;scope=user_info" title="国家知识资源服务中心"><img alt="国家知识资源服务中心" src="../../images/Ckrsc.gif"></a><a href="javascript:void(0);" onclick="carsiLogin();return false;" title="通过CARSI登录"><img alt="通过CARSI登录" src="../../images/CARSI.png"></a><a href="javascript:void(0);" onclick="offCampusLogin();return false;" title="校外访问"><img alt="校外访问" src="../../assets/images/components/header-menu/off-campus-visits.png" style="width: 40px"></a></div>
+		</div>
+	</div>
+</div>
+<div id="zhezhao" style="display: none;"></div>
+<!-- 登录弹框结束 -->
+<!--  弹框js -->
+<script type="text/javascript">
+	function showLoginDialog(){
+		
+		var localURL = window.location.href;
+		localURL = encodeURIComponent(localURL);
+		var loginURL = AppURL + "member/login?SiteID=" + siteID + "&Referer=" + localURL;
+		loginURL = encodeURIComponent(loginURL);
+		
+		loadJsonp("https://www.sklib.cn/sso/getSocialURL?ContentType=json&client_id=2d56a12b31aa4033b3bff7fa9e784cf9&referer=" + loginURL,
+			function(data) {
+				var html = "";
+				html += "<a href='"+data.Wechat.LoginURL+"'><img alt='微信平台' src='https://www.sklib.cn/sso//theme/booklib/images/social/Wechat.gif?time="+new Date().getTime()+"'></a>"
+				$("#SocialLogin").html(html);
+			}
+		);
+		
+		$("#logindiv1").show();
+  		$('#zhezhao').show();
+  		$(window).on("scroll",function(){
+  		  $(this).scrollTop (0);
+  		});
+	}
+$("#close").click(function(){
+	  $("#logindiv1").hide();
+	  $('#zhezhao').hide();
+	  $(window).off("scroll");
+	});
+</script>	
+<script type="text/javascript">
+var authCodeTime=1;
+var errorTimes=0;
+  
+  $("#UserName").focus(function (){
+  	$('#message').removeClass("msg");
+    $('#message > p').html("&nbsp;");
+  });
+  
+  $("#Password").focus(function (){
+	  $('#message').removeClass("msg");
+    $('#message > p').html("&nbsp;");
+  });
+
+  
+  function getFocus(eleid){
+	  $('#' + eleid).focus();  
+  }
+  
+  function loginform_submit(){
+	  $('#message').hide();
+     if($('#UserName').val().length==0){
+    	login_error("用户名不能为空");
+    	setTimeout("getFocus('UserName')",1000);
+		return false;
+	 }
+     if($('#Password').val().length==0){
+ 		login_error("密码不能为空");
+ 		setTimeout("getFocus('Password')",1000);
+ 		return false;
+ 	 }
+     if($('#AuthCodeImg').attr("isInit")&&$('#AuthCode').val().length==0){
+    	login_error("请填写验证码");
+    	setTimeout("getFocus('AuthCode')",1000);
+		return false;
+	 }
+     
+	var ssoUrl=ZASUrl+"/ajax/invoke";
+	var loginParam={};
+	var requestParam = {
+		_ZVING_DATA_FORMAT : "json",
+		_ZVING_METHOD : "dologin"
+	}
+	loginParam.toJString = function(){
+		var resString = "{";
+		for(var i in this){
+			if("toJString"!=i){
+				resString += "'"+i + "':'" + this[i]+"',";
+			}
+			
+		}
+		resString += "}";
+		return resString;
+	}
+
+	$.extend(loginParam,Form.getData("loginform"));
+	requestParam._ZVING_DATA = loginParam.toJString();
+	//requestParam._ZVING_DATA = Form.getJsonString("loginform");
+	
+	$.post(ssoUrl,requestParam,function(response){
+		if(response._ZVING_STATUS==1){// 登陆成功
+			
+			var localURL = window.location.href;
+			localURL = encodeURIComponent(localURL);
+			$.get(AppURL + "member/login?SiteID=" + siteID + "&Referer=" + localURL, function(){
+				loadJsonp("https://www.sklib.cn/sso/doLogin?plat=IP&ContentType=jsonp&client_id=&response_type=code&scope=user_info&redirect_uri=" + referer, function(data) {
+					if (data.Success) {
+						try {
+							var redirectURL = data.RedirectURL;
+							$(document.body).append("<img height='0' width='0' style='overflow:hodden;' src='" + AppURL + "member/login?SiteID=" + siteID + "&Referer=" + localURL + "' onload='logined()' onerror='logined(event)'>");
+							window.location.reload();	
+						} catch (e) {}
+					}
+				});
+			});
+			
+			/* Ewin.confirm({"message": "登录成功!"}).on(function(){
+				window.location.reload();	
+			}); */
+		}else{//登陆失败
+			if(response.Report&&response.Report.state==31){
+				initAuthCode();
+			}
+			if(response.Report){
+				var state=response.Report.state;
+				switch(state){
+					case 30:
+					case 31:{
+						$('#AuthCode').focus();
+						break;
+					}
+					default:{
+						$('#Password').focus();
+					}
+				}
+			}
+			if(response.Report.message){
+				login_error(response.Report.message);
+			}
+		}
+	},
+	"json");
+	return true;
+  }
+  
+  
+  function login_error(msg){
+	  $('#message').show();
+	  $('#message').addClass("msg");
+	  $('#message').html(msg);
+	  
+  }
+  
+	function checkAutoLogin(){
+		if(document.getElementById("autoLogin").checked == true){
+			$("#autoLogin1").val("true");
+		}else{
+			$("#autoLogin1").val("false");
+		}
+		
+	}
+
+	function initAuthCode() {
+		$('#AuthCodeImg').attr('src','https://www.sklib.cn/sso/authCode.zhtml?'+new Date().getTime());
+		$('#AuthCodeImg').attr('isInit',true);
+		$('#AuthCode')[0].value="";
+		$("#AuthCodeBox").show();
+		$('#AuthCode').focus();
+	}
+</script>
+
+	<script type="text/javascript">
+	$(function(){
+		if(true){
+			$(".resource-type li:eq(2)").addClass("on");
+		}
+		else if(false){
+			$(".resource-type li:eq(3)").addClass("on");
+		}
+		else if(false){
+			$(".resource-type li:eq(4)").addClass("on");
+		}
+		else if(false){
+			$(".resource-type li:eq(5)").addClass("on");
+		}
+		else{
+			$(".resource-type li:eq(1)").addClass("on");
+		}
+	});
+	
+	</script>
+
+<script src="https://www.sklib.cn/booklib/stat/front/stat.js" type="text/javascript"></script>
+<script>
+if(window._zcms_stat)_zcms_stat("SiteID=122&Dest=https://www.sklib.cn/booklib/stat/dealer");
+</script>
+
+<!-- App=SBOOKLIB(中国社会科学出版社资源管理平台) 2.4.26582,CostTime=3435,PublishDate=2025-02-20 20:00:21 -->
+
+</body></html>

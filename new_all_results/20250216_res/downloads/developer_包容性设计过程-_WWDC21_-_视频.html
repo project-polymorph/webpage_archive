@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN"><head>
+
+	<meta charset="utf-8">
+<meta name="Author" content="Apple Inc.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" href="/favicon.ico">
+<link rel="mask-icon" href="/apple-logo.svg" color="#333333">
+
+<link rel="stylesheet" href="/assets/styles/global.dist.css?02002514015" type="text/css">
+
+<link rel="stylesheet" href="/assets/styles/localization.css?39172414191" type="text/css">
+
+<script src="/assets/scripts/lib/jquery/jquery-3.6.0.min.js?17182448067"></script>
+<script src="/assets/scripts/settings.js?17182448067"></script>
+<script src="/assets/scripts/language-locales.js?17182448067"></script>
+<script src="/assets/scripts/DeveloperBreadcrumbs.js?05182434080"></script>
+
+<script async="" src="/assets/scripts/lib/jquery/jquery.retinate.js?17182448067"></script>
+<script async="" src="/assets/scripts/global.js?17182448067"></script>
+<script async="" src="/assets/scripts/global-logout.js?17182448067"></script>
+
+
+
+	<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=SF+Pro+SC&amp;v=1" type="text/css">
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=SF+Pro&amp;v=2" type="text/css">
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=SF+Pro+Icons&amp;v=1" type="text/css">
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=SF+Mono&amp;v=2" type="text/css">
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=Apple+Icons&amp;v=1" type="text/css">
+
+
+	<title>包容性设计过程 - WWDC21 - 视频 - Apple Developer</title>
+	<meta name="omni_page" content="包容性设计过程 - WWDC21 - 视频">
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link type="text/css" rel="stylesheet" href="/videos/styles/videos.css?2">
+	<link type="text/css" rel="stylesheet" href="/videos/styles/video-overlay.css?2">
+	<meta name="description" content="探索如何提供包容性 app，从而为所有软件使用者带来令人惊喜的体验。我们将带领您了解建立和建设多元化团队的最佳实践，并探索包容性如何影响设计和开发过程的每个阶段。">
+
+	<meta property="og:url" content="https://developer.apple.com/cn/videos/play/wwdc2021/10304/">
+	<meta property="og:title" content="包容性设计过程 - WWDC21 - 视频 - Apple Developer">
+	<meta property="og:description" content="探索如何提供包容性 app，从而为所有软件使用者带来令人惊喜的体验。我们将带领您了解建立和建设多元化团队的最佳实践，并探索包容性如何影响设计和开发过程的每个阶段。">
+	<meta property="og:site_name" content="Apple Developer">
+	<meta property="og:type" content="website">
+	<meta property="og:video" content="https://devstreaming-cdn.apple.com/videos/wwdc/2021/10304/4/5F0C8CED-8F09-4528-BEFE-98A248B6088B/cmaf.m3u8"> 
+	<meta property="og:video_secure_url" content="https://devstreaming-cdn.apple.com/videos/wwdc/2021/10304/4/5F0C8CED-8F09-4528-BEFE-98A248B6088B/cmaf.m3u8"> 
+	<meta property="og:video:type" content="vnd.apple.mpegURL"> 
+	<meta property="og:video:width" content="1280">
+	<meta property="og:video:height" content="720">
+		<meta property="og:image" content="https://devimages-cdn.apple.com/wwdc-services/images/119/5247/5247_wide_250x141_2x.jpg">
+		<meta property="og:locale" content="en_US">
+	<meta itemprop="datePublished" content="2021-06-08">
+	<meta itemprop="uploadDate" content="2021-06-08">	
+
+	<link rel="alternate" href="https://developer.apple.com/videos/play/wwdc2021/10304/" hreflang="en">
+	<link rel="alternate" href="https://developer.apple.com/kr/videos/play/wwdc2021/10304/" hreflang="ko-KR">
+	<link rel="alternate" href="https://developer.apple.com/cn/videos/play/wwdc2021/10304/" hreflang="zh-CN">
+    <link rel="alternate" href="https://developer.apple.com/jp/videos/play/wwdc2021/10304/" hreflang="ja-JP">
+    <link rel="canonical" href="https://developer.apple.com/cn/videos/play/wwdc2021/10304/">
+
+</head>
+<body class="view-play theme-dark" data-color-scheme="light">
+	
+	<script>
+	const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+	if (window.Settings.preferredColorScheme) {
+		const colorTheme = (window.Settings.preferredColorScheme === 'auto') && !prefersDark ? 'light' : (window.Settings.preferredColorScheme === 'light') ? 'light' : 'dark'
+		document.body.setAttribute('data-color-scheme', colorTheme);
+	} else {
+		document.body.setAttribute('data-color-scheme', prefersDark ? 'dark' : 'light');
+	}
+</script>
+<style>
+	/* footer */
+	html body[data-color-scheme='dark'] #main section.section.section-resources.bg-alt {background-color:var(--fill-tertiary);color:var(--glyph-gray);}
+	html body[data-color-scheme='dark'] .developer-router-links {background-color:var(--fill-tertiary);color:var(--glyph-gray);}
+	html body[data-color-scheme='dark'] .footer {background-color:var(--fill-tertiary);color:var(--glyph-gray-tertiary);}
+	/* body backgrounds */
+	body[data-color-scheme='dark'].dmf {background-color: #000;}
+	html body[data-color-scheme='dark'].dmf .bg-alt {background-color:var(--fill-tertiary);}
+	html body[data-color-scheme='dark'].dmf .bg-blue {background-color:var(--fill-blue-secondary);}
+	html body[data-color-scheme='dark'].dmf .bg-green-blue {background:linear-gradient(135deg, #65976d 0%, #588ea4 100%)}
+	html body[data-color-scheme='dark'].dmf .bg-yellow {background: linear-gradient(to bottom, var(--fill-tertiary) 0%, var(--fill-tertiary-alt) 100%);}
+	html body[data-color-scheme='dark'].dmf .bg-light {background-color:var(--fill-secondary-alt);}
+	html body[data-color-scheme='dark'].dmf .bg-gradient, html body[data-color-scheme='dark'].dmf .bg-grad {background:linear-gradient(to bottom, var(--dark) 0%, var(--fill-gray-secondary-alt) 100%);}
+	html body[data-color-scheme='dark'].dmf .bg-grad-down {background:linear-gradient(to bottom, var(--dark) 0%, var(--fill-gray-secondary-alt) 100%);}
+	html body[data-color-scheme='dark'].dmf .bg-grad-up {background:linear-gradient(to bottom, var(--fill-gray-secondary-alt) 0%, var(--dark) 100%);}
+	html body[data-color-scheme='dark'].dmf .bg-blue-gradient, html body[data-color-scheme='dark'].dmf .bg-gradient-blue {background:linear-gradient(to bottom, var(--fill-blue-gradient-light) 0%, var(--fill-blue-gradient-dark) 100%);}
+	html body[data-color-scheme='dark'].dmf .bg-blue-gradient-alt {background: linear-gradient(90deg, #061830 0%, #102d48 100%);}
+	/* globalNav */
+	html body[data-color-scheme='dark'] #ac-globalnav {background: var(--fill-tertiary);}
+	/* localNav */
+	html body[data-color-scheme='dark'] .localnav.localnav-scrim .localnav-background,
+	html body[data-color-scheme='dark'] .localnav-scrim.localnav.localnav-background {
+		background-color: rgba(29, 29, 31, 0.9);
+	}
+	@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
+		html body[data-color-scheme='dark'] .localnav.localnav-scrim .localnav-background,
+		html body[data-color-scheme='dark'] .localnav-scrim.localnav.localnav-background {
+			background-color: rgba(29, 29, 31, 0.72);
+		}
+	}
+</style>
+<link rel="stylesheet" href="/assets/styles/globalnav.css?55202406207" type="text/css">
+
+<link rel="stylesheet" href="/assets/styles/suggest-lang.css?17182448067" type="text/css">
+<div id="suggest-lang" class="ribbon" lang="en">
+	<div class="ribbon-content-wrapper">
+		<div class="ribbon-content row">
+			<div class="column large-12 large-centered">
+				<p><a href="https://developer.apple.com/videos/play/wwdc2021/10304/" id="suggest-link" class="ribbon-link more">View in English</a></p>
+				<button id="suggest-closer" class="icon icon-after icon-reset" aria-label="Dismiss language suggestion" tabindex="0"></button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/assets/scripts/suggest-lang.js?17182448067"></script>
+<aside id="ac-gn-segmentbar" class="ac-gn-segmentbar" lang="zh-CN" dir="ltr">
+</aside>
+<input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate">
+<nav id="ac-globalnav" class="js no-touch no-windows" role="navigation" aria-label="全站导航" data-hires="false" data-analytics-region="global nav" lang="zh-CN" dir="ltr" data-store-locale="us" data-store-api="/[storefront]/shop/bag/status" data-search-locale="zh_CN" data-search-api="/search-services/suggestions/">
+	<div class="ac-gn-content">
+		<ul class="ac-gn-header">
+			<li class="ac-gn-item ac-gn-menuicon">
+				<label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true">
+					<span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top">
+						<span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span>
+					</span>
+					<span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom">
+						<span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span>
+					</span>
+				</label>
+				<a href="#ac-gn-menustate" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open">
+					<span class="ac-gn-menuanchor-label">打开菜单</span>
+				</a>
+				<a href="#" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close">
+					<span class="ac-gn-menuanchor-label">关闭菜单</span>
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-apple">
+				<a class="ac-gn-link ac-gn-link-apple-developer" href="/cn/" data-analytics-title="appledeveloper home" id="ac-gn-firstfocus-small">
+					<span class="ac-gn-link-text">Apple Developer</span>
+				</a>
+			</li>
+		</ul>
+		<div class="ac-gn-search-placeholder-container" role="search">
+			<div class="ac-gn-search ac-gn-search-small">
+				<a id="ac-gn-link-search-small" class="ac-gn-link" href="/cn/search/" data-analytics-title="search" data-analytics-click="search" data-analytics-intrapage-link="" aria-label="搜索" role="button" aria-haspopup="true">
+					<div class="ac-gn-search-placeholder-bar">
+						<div class="ac-gn-search-placeholder-input">
+							<div class="ac-gn-search-placeholder-input-text" aria-hidden="true">
+								<div class="ac-gn-link-search ac-gn-search-placeholder-input-icon"></div>
+								<span class="ac-gn-search-placeholder">搜索</span>
+							</div>
+						</div>
+						<div class="ac-gn-searchview-close ac-gn-searchview-close-small ac-gn-search-placeholder-searchview-close">
+							<span class="ac-gn-searchview-close-cancel" aria-hidden="true">关闭搜索</span>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<ul class="ac-gn-list">
+			<li class="ac-gn-item ac-gn-apple">
+				<a class="ac-gn-link ac-gn-link-apple-developer" href="/cn/" data-analytics-title="appledeveloper home" id="ac-gn-firstfocus">
+					<span class="ac-gn-link-text">Apple Developer</span>
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-news">
+				<a class="ac-gn-link ac-gn-link-news" href="/cn/news/" data-analytics-title="news">
+					<span class="ac-gn-link-text">新闻</span>
+					</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-discover">
+				<a class="ac-gn-link ac-gn-link-discover" href="/cn/discover/" data-analytics-title="discover">
+					<span class="ac-gn-link-text">探索</span>
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-design">
+				<a class="ac-gn-link ac-gn-link-design" href="/cn/design/" data-analytics-title="design">
+					<span class="ac-gn-link-text">设计</span>
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-develop">
+				<a class="ac-gn-link ac-gn-link-develop" href="/cn/develop/" data-analytics-title="develop">
+					<span class="ac-gn-link-text">开发</span>
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-distribute">
+				<a class="ac-gn-link ac-gn-link-distribute" href="/cn/distribute/" data-analytics-title="distribute">
+					<span class="ac-gn-link-text">分发</span>
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-dsupport">
+				<a class="ac-gn-link ac-gn-link-dsupport" href="/cn/support/" data-analytics-title="dsupport">
+					<span class="ac-gn-link-text">支持</span>
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-account">
+				<a class="ac-gn-link ac-gn-link-account" href="/account/" data-analytics-title="account">
+					<span class="ac-gn-link-text">账户</span>
+				</a>
+			</li>
+			<li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search">
+				<a id="ac-gn-link-search" class="ac-gn-link ac-gn-link-search" href="/cn/search/" data-analytics-title="search" data-analytics-click="search" data-analytics-intrapage-link="" aria-label="搜索" role="button" aria-haspopup="true"></a>
+			</li>
+		</ul>
+		<aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search">
+			<div class="ac-gn-searchview-content">
+				<div class="ac-gn-searchview-bar">
+					<div class="ac-gn-searchview-bar-wrapper">
+						<form id="ac-gn-searchform" class="ac-gn-searchform" action="/cn/search/" method="get">
+							<div class="ac-gn-searchform-wrapper">
+								<input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" name="q" aria-label="输入你想搜索的字词" placeholder="输入你想搜索的字词" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false">
+								<button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled="" aria-label="提交"></button>
+								<button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled="" aria-label="清除搜索">
+									<span class="ac-gn-searchform-reset-background"></span>
+								</button>
+							</div>
+						</form>
+						<button id="ac-gn-searchview-close-small" class="ac-gn-searchview-close ac-gn-searchview-close-small" aria-label="关闭搜索">
+							<span class="ac-gn-searchview-close-cancel" aria-hidden="true">
+								关闭搜索
+							</span>
+						</button>
+					</div>
+				</div>
+				<aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="快捷链接" data-string-suggestions="Suggested Searches" data-string-noresults="">
+                    <section class="ac-gn-searchresults-section ac-gn-searchresults-section-defaultlinks">
+                        <div class="ac-gn-searchresults-section-wrapper">
+							<div class="search-group-checkbox"><input id="group-input" type="checkbox" name="group-filter" value="Videos">在“<span id="group-search-label">视频</span>”范围内搜索。</div>
+                            <h3 class="ac-gn-searchresults-header ac-gn-searchresults-animated">快捷链接</h3>
+                            <ul class="ac-gn-searchresults-list" id="defaultlinks" role="listbox">
+                            <li class="ac-gn-searchresults-item ac-gn-searchresults-animated"><a href="https://developer.apple.com/cn/xcode/" id="search-group-link-0" class="ac-gn-searchresults-link ac-gn-searchresults-link-defaultlinks">Xcode</a></li><li class="ac-gn-searchresults-item ac-gn-searchresults-animated"><a href="https://developer.apple.com/cn/ios/" id="search-group-link-1" class="ac-gn-searchresults-link ac-gn-searchresults-link-defaultlinks">iOS 18</a></li><li class="ac-gn-searchresults-item ac-gn-searchresults-animated"><a href="https://developer.apple.com/cn/news/" id="search-group-link-2" class="ac-gn-searchresults-link ac-gn-searchresults-link-defaultlinks">最新动态</a></li><li class="ac-gn-searchresults-item ac-gn-searchresults-animated"><a href="https://developer.apple.com/cn/games/game-porting-toolkit/" id="search-group-link-3" class="ac-gn-searchresults-link ac-gn-searchresults-link-defaultlinks">游戏移植工具包 2 - 游戏</a></li><li class="ac-gn-searchresults-item ac-gn-searchresults-animated"><a href="https://developer.apple.com/documentation/security/certificates/" id="search-group-link-4" class="ac-gn-searchresults-link ac-gn-searchresults-link-defaultlinks">Certificates</a></li></ul>
+                            <span role="status" class="ac-gn-searchresults-count" aria-live="polite">5 快捷链接</span>
+                        </div>
+                    </section>
+                </aside>
+			</div>
+			<button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="关闭搜索">
+				<span class="ac-gn-searchview-close-wrapper">
+					<span class="ac-gn-searchview-close-left"></span>
+					<span class="ac-gn-searchview-close-right"></span>
+				</span>
+			</button>
+		</aside>
+	</div>
+</nav>
+<div class="ac-gn-blur"></div>
+<div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+<div id="ac-gn-placeholder" class="ac-nav-placeholder"></div>
+<script src="/assets/scripts/ac-globalnav.built.js"></script><div id="ac-gn-viewport-emitter"> </div>
+<link rel="stylesheet" href="/assets/styles/search.css?17182448067">
+<script src="/assets/scripts/search.js?17182448067"></script>
+	<!-- metrics -->
+<script>
+    /* RSID: */
+    var s_account="awdappledeveloper"
+</script>	
+<script src="/assets/metrics/scripts/analytics.js?072620243"></script>
+<script>
+    s.pageName= AC && AC.Tracking && AC.Tracking.pageName();
+    s.channel="www.en.developer"
+    s.channel="www.cn.developer";
+
+    
+    /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+    var s_code=s.t();if(s_code)document.write(s_code)
+</script>
+<!-- /metrics -->
+
+	<link rel="stylesheet" property="stylesheet" href="/assets/styles/localnav.css" type="text/css">
+<input type="checkbox" id="localnav-menustate" class="localnav-menustate">
+<div id="localnav-sticky-placeholder" class="css-sticky"></div><nav id="localnav" class="localnav localnav-scrim theme-dark css-sticky" data-sticky="" role="navigation">
+	<div class="localnav-wrapper">
+		<div class="localnav-background"></div>
+		<div class="localnav-content">
+			<h2 class="localnav-title">
+				<a href="/cn/videos/">视频</a>
+			</h2>
+
+			<div class="localnav-menu">
+				<a href="#localnav-menustate" class="localnav-menucta-anchor localnav-menucta-anchor-open" id="localnav-menustate-open">
+					<span class="localnav-menucta-anchor-label">打开菜单</span>
+				</a>
+				<a href="#" class="localnav-menucta-anchor localnav-menucta-anchor-close" id="localnav-menustate-close">
+					<span class="localnav-menucta-anchor-label">关闭菜单</span>
+				</a>
+				<div class="localnav-menu-tray">
+					<ul class="localnav-menu-items">
+						<li class="localnav-menu-item">
+							<a href="/cn/videos/" class="localnav-menu-link">专题</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/cn/videos/topics/" class="localnav-menu-link">相关主题</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/cn/videos/all-videos/" class="localnav-menu-link">所有视频</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/cn/videos/about/" class="localnav-menu-link">关于</a>
+						</li>
+					</ul>
+				</div>
+				<div class="localnav-actions localnav-actions-center">
+					<div class="localnav-action localnav-action-menucta" aria-hidden="true">
+						<label for="localnav-menustate" class="localnav-menucta">
+							<span class="localnav-menucta-chevron"></span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+<label id="localnav-curtain" for="localnav-menustate"></label>
+<script src="/assets/scripts/ac-localnav.built.js"></script><div id="localnav-viewport-emitter" data-viewport-emitter-dispatch="" data-viewport-emitter-state="{&quot;viewport&quot;:&quot;large&quot;,&quot;orientation&quot;:&quot;landscape&quot;,&quot;retina&quot;:false}"></div>
+<script type="text/javascript" src="/assets/scripts/localnav.js"></script>
+	<main id="main" class="main theme-dark" role="main">
+
+		<section class="bg-dark">
+
+			<section class="grid">
+
+				<section class="row">
+					<section class="column large-10 small-12  padding-top-small large-centered no-padding-bottom">
+						<!-- back link -->
+						<p class="back-link smaller">
+														<a class="icon icon-before icon-chevronleft" href="/cn/videos/">更多视频</a>
+													</p>
+					</section>
+				</section>
+
+				<!-- video player -->
+				<section class="video-wrapper row">
+					<section class="column large-10 small-12  padding-top-small padding-bottom-small large-centered">
+												<div class="developer-video-player">
+							<div id="video-status-overlay" class="developer-video-overlay" style="display: none">
+								<div class="video-status-content">
+									<div id="video-status-text"></div>
+									<img class="video-status-icon" id="icon-backward" src="/assets/elements/icons/symbols/gobackward5.svg" style="display: none">
+									<img class="video-status-icon" id="icon-forward" src="/assets/elements/icons/symbols/goforward5.svg" style="display: none">
+								</div>
+							</div>
+							<video id="video" class="video large-centered" controls="" src="blob:https://developer.apple.com/3ab748c9-b246-4c32-ab57-1a2d1a31f908" data-id="wwdc2021-10304" data-locale="cn" disableremoteplayback=""></video>
+						</div>
+						<div class="no-video-banner hidden">
+							<div class="no-video-copy">
+								<p>大多数浏览器和<br> Developer App 均支持流媒体播放。</p>
+							</div>
+							
+						</div>
+
+											</section>
+				</section>
+
+			</section>
+
+		</section>
+
+		<section class="grid">
+
+			<!-- tab menu -->
+			<section class="tab-menu row divider-bottom">
+
+				<section class="column large-10 small-12  padding-top-small padding-bottom-small large-centered">
+
+					<ul class="tabs">
+						<li class="tab active" data-supplement-id="details"><a href="#"><span class="smaller">概览</span></a></li>
+						
+												<li class="tab" data-supplement-id="transcript"><a href="#"><span class="smaller">转写文稿</span></a></li>
+						<li class="tab right" data-supplement-id="search">
+							<!-- mobile search -->
+							<a href="#"><span><!--icon--></span></a>
+							<!-- desktop search -->
+							<section class="searchbar-wrapper desktop" style="opacity: 1;">
+								<button class="search-icon"></button>
+								<input id="searchDesktop" class="active" type="text" autocomplete="off" placeholder="搜索此视频…">
+							</section>
+						</li>
+												
+												<section class="searchbar-wrapper mobile" style="opacity: 1;">
+							<input class="active" type="text" autocomplete="off" placeholder="搜索此视频…">
+						</section>
+						
+					</ul>
+				</section>
+
+			</section>
+
+			<!-- supplements -->
+			<section class="row">
+
+				<section class="column large-10 small-12  large-centered no-padding-top no-padding-bottom">
+
+					<ul class="supplements">
+
+						<!-- details -->
+						<li class="supplement details active" data-supplement-id="details">
+							
+														<h1>包容性设计过程</h1>
+							<p>探索如何提供包容性 app，从而为所有软件使用者带来令人惊喜的体验。我们将带领您了解建立和建设多元化团队的最佳实践，并探索包容性如何影响设计和开发过程的每个阶段。</p>
+
+							
+														<h2>资源</h2>
+
+							<ul class="links small">
+																																					<li class="document"><a href="https://developer.apple.com/design/human-interface-guidelines/inclusion/" target="_blank">Human Interface Guidelines: Inclusion</a></li>
+																											
+																	<li class="download">
+										<ul class="options">
+																						<li><a href="https://devstreaming-cdn.apple.com/videos/wwdc/2021/10304/4/5F0C8CED-8F09-4528-BEFE-98A248B6088B/downloads/wwdc2021-10304_hd.mp4?dl=1">高清视频</a></li>
+																																	<li><a href="https://devstreaming-cdn.apple.com/videos/wwdc/2021/10304/4/5F0C8CED-8F09-4528-BEFE-98A248B6088B/downloads/wwdc2021-10304_sd.mp4?dl=1">标清视频</a></li>
+																					</ul>
+									</li>
+																
+															</ul>
+							
+														<div class="divider-top margin-top-small padding-bottom-small"></div>
+							<h2>相关视频</h2>
+														<h4>WWDC21</h4>
+								<ul class="links small">
+																			<li class="video">
+											<a href="/videos/play/wwdc2021/10275">包容性设计实践</a>
+										</li>
+																			<li class="video">
+											<a href="/videos/play/wwdc2021/10322">WWDC21 的周二</a>
+										</li>
+																	</ul>
+														
+						</li>
+
+						<!-- transcript -->
+						<li class="supplement transcript" data-supplement-id="transcript" data-shortcut-base-url="/cn/videos/play/wwdc2021/10304/">
+							<section>
+								<div class="margin-bottom-small download-transcript"><span id="get-transcript" class="icon icon-before icon-downloadcircle">下载</span></div>
+								<p><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=0"> </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2">♪播放重低音音乐♪ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=5"> </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=7">♪ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=9">您好 我是卡罗琳克兰菲 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=11">Apple Design团队的设计师 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=13">晚点 我的同事们会加入我 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=15">辛西亚和萨布琳 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=17">人们既同等重要 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=19">又彼此相异 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=20">将每个人考虑在内可以扩大您的市场 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=23">带来更受欢迎的app </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=25">不只是一件对的事情 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=28">要达到这个雄心勃勃的目标需要您 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=31">从一开始就思考如何确保 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=34">您的app对每个人赋权 令他们欣然使用 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=37">而且不是一开始而已 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=39">就像其他项目一样 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=40">对于包容性的设计与开发 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=43">是个反复的过程 需要您检验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=46">您对其他人如何思考感受的预设立场 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=50">虽然每个人的观点都是特殊的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=53">包容性设计与开发能获得益处 从专注在 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=56">多样性的某些轴线 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=59">这能帮助我们更宽广地思考 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=60">比我们自身的经验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=63">多样性轴线包括阶级、文化 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=66">民族、语言、教育 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=68">政治、哲学和宗教信仰 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=71">种族、性别、性倾向 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=74">年龄、能力、身心障碍 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=77">惯用右手或左手 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=79">身体尺寸 例如身高 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=81">还有环境条件 例如地理位置 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=84">互联网连接程度 或使用科技设备的机会 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=88">这些每一项都提供了观点光谱 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=91">甚至更特殊的体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=93">当您考虑到 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=95">多个轴线的交叉 在任何时间点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=99">举例来说 您的app如何表现 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=101">如果没有高速互联网或数据被限制？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=105">或者 您的app将欢迎 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=107">横跨性别认同光谱 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=110">及LGBTQ+群体的人们吗？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=114">当您看您的app或游戏 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=115">通过许多不同观点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=117">包容性是让人感到受欢迎 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=120">与被考虑在内 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=122">使用的人应该感受 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=123">您的设计有考虑到他们的人生经验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=127">因为您的app能被全世界的人使用 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=130">对庆祝人性和差异是好的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=133">今天 我们将讨论 如何创造app或游戏 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=136">为了不同人群 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=138">需要将包容性注入在您工作的方式 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=142">与您选择创造什么一样重要 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=145">在进入细节以前 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=147">我会谈一些常有的误解 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=149">关于包容性设计与开发 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=152">及您如何能够不同地思考 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=154">一开始 包容也许感觉很难 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=157">但我想要重新架构这个为 “包容是段旅程” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=161">很多事都很难 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=162">但我们还是会做 当它们值得时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=165">改变是个反复的过程 需要时间 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=168">有意义的改变需要计划、坚持 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=171">与耐心 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=173">效益很高 因为您可以增进生活质量 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=176">让人们可以达到新目标或尝试新事物 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=181">另一个误解 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=182">是包容性设计限制了创意 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=185">事实上 包容性设计与开发 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=188">刺激新的创新解决方案 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=190">较宽广的语境和意识能推动进展 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=194">在您之前可能从未想过的领域 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=197">您可以为每个人做出经验上的突破 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=200">而这不会发生 如果您不考虑 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=202">人类经验的多样性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=204">包容性不表示拒绝创新想法 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=207">或要求所有人接受 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=209">最低常有的共同经验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=211">约束有助于您的进展 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=213">以帮助您做出一些早期决定的方式 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=216">这让您将大部分的精力 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=218">注入创造新的解决方案 在狭窄的问题空间中 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=221">让我分享一个例子 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=223">Apple的一个团队想出 他们如何能使用我们的Apple产品 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=226">以在我们的现实世界增加智慧 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=229">他们一开始想专注在 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=231">认出一些物品和文字 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=233">这本身就是一种约束 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=235">但他们没有止步于此 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=237">他们探索对按钮表面处理 以打电话、发信息 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=241">加入通讯簿 或复制知道的电话号码的方式 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=245">对我很有帮助 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=246">但对盲人或低视力者非常必要 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=249">以和印刷品 如标志符号 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=251">名片与信封互动 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=253">盲人不只可以读文字 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=256">也可以做出行动 以打电话和储存联络人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=260">这就提到关于团队的误解 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=263">您可能认为有一个多元的团队 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=265">表示您的app或游戏就是有包容性的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=268">事实上 有一个被赋权的多元团队 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=272">表示您的app或游戏可以是 具有包容性的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=275">我们都需要分担责任以创建 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=277">一个包容的环境 使包容的行动变得可能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=281">您将更投入 当您能够 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=283">说出您的想法和意见 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=285">当这些想法来自不同的人们 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=288">将促进更多创意与创新 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=292">在Apple 辅助功能工程师努力 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=295">与各种不同团队合作 帮助解决特殊问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=298">只影响特定族群的问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=301">举例来说 盲人或低视力者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=304">可能不知道什么时候在队伍中前进 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=307">独自一人时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=309">解决方案始自视频工程团队 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=311">使用叫做“激光雷达”的技术 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=314">它利用脉冲激光敲击附近物体 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=318">生成附近环境的立体模型 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=321">团队被赋权一起合作 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=324">以创建并推出“侦测人们”的功能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=327">在放大器app中 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=329">这让您知道您与 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=331">附近人们的距离 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=334">本是让生活更方便的原型 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=337">变成了必需品 当COVID-19疫情开始 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=339">我们团队与盲人群体的持续对话 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=343">带来更急切的问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=345">盲人或低视力者如何 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=347">实践社交距离？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=350">还有一个误解 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=351">是包容性可以最后再处理 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=355">考虑包容性以及 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=357">每个独立个体或群体的体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=360">对于您的app或游戏 一定要一开始就考虑在内 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=363">并且贯穿在设计与开发过程中 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=367">等到最后是保守的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=369">通常也没有足够时间改正 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=372">微小改变都变得有风险 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=375">这不是说你一开始就要弄对 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=378">但一开始就考虑进去 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=380">现在我们可以依靠重新架构之基础 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=383">赋予我们权力以创造更具包容性的 app或游戏 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=386">想要开始 您可以检查一下 您工作的方式 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=390">您比较容易达到包容性目标 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=393">如果先看您团队的多样性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=397">如何创造包容性的工作环境 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=401">在Apple 我们相信我们的团队 应该反映我们所服务的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=404">多元的、不断进化的世界 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=406">人们被类似想法 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=408">共识与一致意见所吸引 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=410">感觉舒服且花费较少精神能量 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=413">但不一定总会带来最佳结果 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=416">当您视差异为资产 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=418">而不是挑战 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=420">您开放自己面向新的可能性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=422">创意思考以及有生产力的新关系中 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=426">能帮您做出更好的决定 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=429">某些方面来说 小公司比较容易 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=431">建立更有包容性的团队 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=433">如果您早点致力于多样性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=436">人们倾向雇用他们认识的人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=438">那可能造成 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=439">他们有非常类似观点的风险 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=442">如果雇用和您不同的人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=444">您容易让多样性成为核心价值 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=448">从一开始 而不是最后才赶着修补 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=451">当您的团队成长 考虑“增长文化” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=454">而不是“适合文化” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=456">您缺乏什么观点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=458">找寻那观点能如何 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=460">将您的app变得更好？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=463">您的团队也许是多元的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=464">但多元观点常常 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=466">没有被有意义地整合 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=469">以影响决策过程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=472">您要确保积极地创造空间 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=474">并以不批评的方式征求观点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=478">要创造安全的空间 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=480">团队需要时间与空间以包容性思考 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=484">保护这段时间 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=485">设计与开发过程可能死板 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=488">僵硬 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=489">以致于您不觉得您有时间 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=492">反思且思考您在做的东西 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=495">快速开发也不让您 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=497">整合团队的多元观点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=501">我们来仔细看设计与开发过程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=504">我将分享诀窍和建议 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=507">在每个阶段需要考虑 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=508">如果您要展示流程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=511">可能会先想成一条线 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=513">从A点构思想法 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=515">到B点推出产品 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=518">中间是各个阶段 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=519">像是设计、开发与测试 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=523">就像安全或隐私 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=525">包容性不能被当作事后想法看待 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=528">因为您不想要推出app或游戏后 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=530">发现它不适合每个人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=533">您可以奉献与保留时间以暂停 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=535">思考并转向 在整个过程中 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=538">而不只是在最后 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=540">它真地变成一个再生、重复的过程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=544">在每个阶段花点时间反思 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=547">问重要的问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=549">能对评估您做的东西有所帮助 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=552">也许感觉像暂时在绕圈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=555">但新的更具包容性的道路最终将 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=557">使app或游戏与更多人产生共鸣 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=560">也会给您更多时间 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=561">处理复杂 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=563">需要更长时间解决的问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=567">现在我们来讨论您可以问自己 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=569">或做的事情 在每个阶段 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=572">首先 我们从您形成 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=574">想要做什么的想法开始 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=576">每个人做app或游戏 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=578">应该能够回答这个问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=580">您为什么要做这个？ 每个人都能和它产生共鸣吗？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=584">阐明您创造app或游戏的目的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=587">您想尝试对人类做出什么贡献？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=589">人们如何能过得更好？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=591">它能让人们怎么做、成为或感受？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=595">接下来还要问 您是为谁而做？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=598">别只想到目前在使用app或游戏的人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=601">通过不同多样性轴线的视角来思考 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=605">哪个特别的角度或交叉点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=607">是您考虑过的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=608">他们的经验会是什么？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=611">接着 挑战您的假设并聆听 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=614">主动聆听并学习经验与观点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=617">从和您非常不同的人以及那些 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=620">您设计与开发团队共同重视的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=623">您的教育旅程将揭开新的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=625">需专注的领域 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=627">下个设计与开发的阶段 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=630">是设计 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=631">当想法变得清晰 是时候明确地思考 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=635">人们会如何使用app或游戏的极端情况 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=639">不只是一般人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=641">没考虑到的交叉点有可能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=643">在阻止人们想要使用您的app或游戏 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=648">接着 考虑情绪、社会与实质影响 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=651">对您的app或游戏的使用者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=654">某些人口或群体 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=656">是否较有可能得到负面体验？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=659">这些人口是否也脆弱或处于劣势？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=663">若是如此 您是否了解原因 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=666">并对此采取什么行动？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=668">接下来 考虑地理位置和语境的影响 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=671">对于体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=673">语境与情势有关 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=675">对于您app的使用者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=678">它可以横跨几个多样性轴线 如文化 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=681">环境、地理位置及连接程度 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=685">您可以思考在某些文化中 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=687">家庭好几代人可能住在 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=689">同一个屋檐下 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=691">人们可能住在都市或农村 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=694">各有不同需求 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=696">您可以考虑环境也许嘈杂或安静 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=700">明亮或黑暗 小或大 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=703">举例来说 室友或朋友使用AppleTV </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=707">可能有不同的体验与需求 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=709">相较于有孩子的家庭使用AppleTV </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=713">下个设计与开发过程的阶段 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=716">是当您开始发展您的设计 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=719">有包容性的代表 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=722">或相关专业很重要 在整个发展过程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=725">在您评估原型或设计的时候 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=727">请确定明确地包容了多元化的群体 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=730">当讨论解决方案 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=732">和做出决定时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=734">多元的声音能提供语境 并强化 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=738">app或游戏走向某条道路的原因 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=743">接着 开始计划辅助功能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=745">与国际化 在发展的初期 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=748">Apple推出 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=749">有很多内建辅助功能的产品 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=751">为了身心障碍人士 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=753">他们占世界人口15％ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=756">身心障碍人士的数字 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=758">正在增加 因为人口老化 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=760">及慢性健康问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=763">您的app或游戏使用者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=764">需要您让它们易于使用 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=767">现在花点时间了解不同的无障碍组件 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=770">和本地化API </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=772">让一切就绪 当发展功能时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=776">标准UIKit、AppKit或SwiftUI 控件与视图 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=779">执行UIAccessibility方法 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=782">并默认可访问 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=784">但您需要准备更多时间 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=786">让您的app易于使用 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=788">如果您正使用定制控件或视图 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=791">在结束设计与开发阶段前 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=794">我将交给辛西亚来分享一个例子 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=796">在创新中考虑交叉性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=800">我是辛西亚贝奈特 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=802">我是一名研究员 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=803">在人工智能和机器学习团队 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=805">我们团队设计与开发一个包容性体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=809">由机器学习技术支持 基于一个观点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=813">来自两个多样性轴线的交叉点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=816">我将说明 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=817">向Apple外的组织学习如何 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=820">帮助我们发展更好的功能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=824">提供一些背景 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=825">盲人或低视力者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=827">使用Apple产品 用我们进阶的屏幕阅读器 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=831">旁白 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=832">有了旁白 人们使用我们的设备 可以浏览app </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=836">和朋友聊天 还有其他更多 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=839">我来示范听起来如何 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=841">当使用旁白时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=843">您可以将指尖拖过屏幕 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=845">听到您碰过的所有东西 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=847">旁白开启 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=848">日历 六月七日星期一 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=851">新闻、主页、相机、播客 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=856">您也可以左右轻点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=858">从一个元素移动到下一个 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=862">新闻 天气 照片 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=867">您可以双点击以开启项目 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=870">双点击开启 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=875">盲人或低视力者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=876">也许不能看到照片里有什么 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=879">但他们想和其他人一样享受它们 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=882">图像叙述或文字信息 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=885">关于照片里展示最重要的东西 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=887">可能会伴随照片 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=889">所以为了创造美好包容性照片体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=893">Apple致力于支持图像叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=896">在iOS 15 您可以使用 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=898">标记的叙述功能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=900">以编写您自己的照片叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=903">这些照片叙述会被发送 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=906">每当您通过Apple产品分享照片时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=909">这张照片人类编写的叙述是 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=913">“一只长颈鹿走在草原的侧面照” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=916">“远处有树” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=918">但还有很多照片 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=921">没有叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=924">机器学习是帮得上忙的工具 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=926">机器学习训练过的模型 可以产生图像叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=930">自动地、快速地、有规模地 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=933">我们的团队训练一个模型 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=935">以产生详细的、自然语言的图像叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=939">横跨iOS 我们称之为 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=942">旁白识别图像叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=945">我们来听这张照片的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=948">旁白识别图像叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=950">一只长颈鹿站在干草地上 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=954">但即使是最先进的机器学习并不够 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=958">包容性必须是有意的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=961">我们团队需要了解图像叙述模型如何 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=965">描述所有人 不只是一般人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=968">如果您正致力于 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=969">机器学习支持的功能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=972">一个开始的地方是 学习不同群体的人如何 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=975">被机器学习代表呈现 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=977">这是每个人都可以采取的步骤 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=980">无论您是自己工作 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=982">或是在大公司 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=984">请记得多样性轴线 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=986">当思考哪些群体你该优先考虑时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=989">机器学习呈现 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=992">我们团队学习到的一个方面是 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=994">人的性别如何被描述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=997">我们目前学习到 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=999">模型倾向呈现两个性别 女与男 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1005">但我们知道人们可能有其他性别 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1008">包括非二元性别或跨性别 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1012">在这情况下 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1013">呈现并没有与每个人的性别一致 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1017">您可能会问 这有什么关系？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1020">性别与让照片有包容性有何关系？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1023">对于一个群体 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1024">也就是盲人和低视力者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1027">盲人和低视力者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1029">有各种性别认同 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1032">也就是说 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1033">这些特征会一起 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1035">影响人们的体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1038">当阅读图像叙述时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1041">交叉性是被 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1042">法律和批判性种族理论学者 金伯莉克伦肖发展出来的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1046">它认知到有多种认同的人们的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1048">特殊经验与需求 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1051">系统性地处于劣势 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1054">在这个例子中 聆听交叉性的观点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1058">帮助我们发展美好体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1061">为在多样性轴线里 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1064">横跨不同认同的人们 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1066">具体来说 交叉性帮助我们聆听 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1069">人们告诉我们身为盲人或低视力者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1073">以及弱势性别 例如非二元性别和跨性别 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1077">同时影响了他们的体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1079">阅读图像叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1082">为了确定我们了解 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1084">生活在这特殊交叉点的人们的观点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1088">我们团队与公司外的机构合作 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1091">成员既是盲人或低视力者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1094">又属于LGBTQ+群体 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1098">那包容非二元性别及跨性别者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1102">我们团队了解你无法知道某人的性别 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1105">光靠看照片 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1107">我们也了解 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1108">性别中立的图像叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1110">仍能提供有帮助的细节 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1113">以聚焦在其他事物 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1115">例如人们的服装和发型 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1118">我们发展并使旁白识别图像叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1122">性别中立 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1124">作为范例 我们来听 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1126">这张照片的旁白识别图像叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1130">一个黑卷发的人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1131">穿着红白条纹衬衫 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1133">站在一栋建筑物前 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1136">然而 任何人都可以用叙述功能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1140">编写自己的图像叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1142">那可以包含人们的性别 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1145">当编写图像叙述的人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1147">知道这个信息 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1148">同一张照片 人类编写的叙述可能是 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1153">“珊站在一间餐厅外” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1155">“她有黑卷发” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1157">“穿着红白条纹西装外套” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1160">我们看过包容性发展的过程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1164">应用于利用机器学习 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1167">但我说过的重点 可以应用在任何app或游戏 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1171">首先 包容性是为了更广大的观众 所做的创新 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1176">举例来说 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1177">图像叙述增强每个人的凝聚力 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1181">通过让盲人或低视力者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1183">参与我们拥有的乐趣 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1186">与彼此分享照片 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1188">即使您没有资源 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1191">训练机器学习模型以增加辅助功能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1194">您还是可以创造美好体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1197">用让人们更包容的功能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1200">像是我们的叙述功能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1203">第二 包容生活在交叉点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1207">有着多种认同与经验的人们 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1210">帮助您一次不只为一个群体开发 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1214">也确保您的产品旨在满足特殊需求 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1218">例如盲人或低视力者的需求 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1221">也在多样性轴线中是尊重他人的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1225">我们做到了 通过发展 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1228">包容所有性别的图像叙述 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1230">我们团队学习到关于这重要的交叉性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1234">通过研究机器学习如何代表呈现人们 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1237">这是任何人都能做到的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1239">无论您自己工作或在大公司 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1244">最后 寻求专家意见 当我们对某事不了解时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1248">是我们包容性过程的重要成分 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1252">如辛西亚所说 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1253">聚焦在多样性轴线上的交叉点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1256">不只是创新 也是尊重的一个方式 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1261">要继续讨论包容性的诀窍 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1263">在设计与开发过程中 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1265">下个阶段是当您测试您的app或游戏 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1269">我们需要寻找并凝聚多元的群体 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1273">来用您的app或游戏 给真实的反馈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1276">最重要的是 您将发现您脑中的想法 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1279">是否在实践和时间中能继续 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1282">也能得到额外洞见 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1285">有多元背景的测试团队 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1287">能帮助找到那些边缘案例 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1289">多样性将带来范围更宽广的体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1292">和可用性模式 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1294">接下来 用辅助技术 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1297">和各种设施测试 将帮助您找出问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1300">在它们影响顾客以前 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1302">学习旁白的基本 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1304">将您的文字尺寸放到最大 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1307">或用键盘浏览您的app或游戏 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1309">能帮您快速识别潜在问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1312">且该被整合在测试计划中 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1315">接着 聆听、检阅 及区分反馈的优先次序 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1318">反馈对最终产品很重要 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1321">有了反馈 您可能需要用新的视角 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1323">重复设计与开发过程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1326">移除或增加功能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1329">在您的公司提倡将包容性测试目标 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1332">作为关键绩效指标 也就是KPI </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1335">如同其他度量 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1337">测量包容性作为重要商业目标 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1341">设计与开发过程的最后阶段 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1344">是决定您是否准备好推出产品 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1347">在某个时间点 如果有时间和资源 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1350">您将需要做出取舍 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1352">如果有硬性必须推出的日期 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1354">可能代表您需要做出艰难决定 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1356">减少推出一个功能 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1359">让您把较少的功能为每个人做得更好 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1363">一个特别群体的不良体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1365">可能有严重影响 如果它继续 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1368">一再发生 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1370">可能会导致他们离开您的app或游戏 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1373">接下来 如果得不到 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1375">多样性轴线或交叉点的最佳体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1378">您需要花时间了解原因、方法和时间 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1381">以计划做出最佳体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1384">有时候时间不足 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1386">问题太晚被找到或形成 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1389">没有规划到外加的复杂性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1391">或API可能很新而您已没有时间 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1395">但拥有信息充足和适切的计划 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1398">与目标时间以改善问题很重要 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1400">才能保持在轨道上 下次才能做出更好的计划 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1404">学习如何做得更好、更多 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1407">是包容性旅程的一部分 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1410">您也能记得继续重新评估 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1413">加强、与真实发展一起成长 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1416">或当您对于方法学习地更多 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1418">您可以为人们创造更好的体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1420">也表示不只是前进到下一件事 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1425">包容性让您采取行动进行巨大改变 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1428">要带我们看一个重复设计 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1432">以更具包容性的范例 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1433">我将交给萨布琳 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1436">您好 我是萨布琳瑞科克 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1438">相机与照片团队的包容性工程师 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1441">我的多元文化生长环境教导我同理心 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1444">与好奇心让世界变得更好 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1448">我将分享洞见与技巧 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1449">关于如何继续您的包容性旅程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1452">在产品推出后 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1454">我将用我参与过的功能作为例子 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1457">叫做照片回忆 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1460">万一您对它不熟悉 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1461">照片回忆聪明地将人们的照片与视频 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1465">串联成感动的电影 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1467">并帮他们重新回到忘却的时光 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1471">在iOS 15中 我们想要扩大照片回忆的体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1475">以对全球观众更具包容性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1478">要带领我们 我们非常注意 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1480">使用照片app的人们分享的反馈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1484">很多人说他们喜欢照片回忆 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1487">以及被提醒与亲友一起的美好时光 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1491">但其他人暗示回忆可以改进的方式 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1495">我会展示两则我们收到的反馈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1498">以及我们如何将他们转变成 包容性目标 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1502">第一个意见是 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1504">“我在女儿的空手道练习 拍了很多照片” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1508">“如果能把它们变成回忆就太棒了” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1512">我们把这反馈转变成以下目标 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1516">庆祝多样性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1518">怎么做？通过呈现人们在乎的回忆 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1521">用符合他们为人和兴趣的主题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1525">为了想出那些主题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1526">我们组织了头脑风暴时间 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1529">与全公司的团队伙伴 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1531">特别是不住在美国的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1534">头脑风暴 是我最喜欢的群体技巧 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1536">以快速自发地产生想法 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1539">并促进创意 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1542">我们搜集特殊想法 把回忆变得更个人化 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1546">很多想法我们自己想不到 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1550">我们被提醒 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1551">即使我们很多人喜欢拍照 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1554">我们照片图库的内容 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1556">对每个人来说是特殊的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1558">我们的照片和视频反映出 我们的认同和人生故事 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1562">包括爱好与文化遗产 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1566">为了帮人们重新回到他们在乎的时光 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1569">我们必须拥抱 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1570">人生经验和兴趣的广度 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1574">给您头脑风暴时间的小诀窍 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1577">找出与您非常不同的声音 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1580">若有可能 分小组执行多个场次 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1583">在不同时区 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1585">让更多人参与 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1587">大组通常令人紧张 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1589">您可能会错过很棒的建议 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1592">当我们搜集到新的想法 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1594">我们分析每一个 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1596">通过多样性轴线的视角 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1598">在我们的例子中 我们看新的回忆主题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1601">通过以下视角：农村与都市生活 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1605">青少年与祖父母、地区与全球 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1609">针对每一个回答以下问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1612">我们为了谁创造这个？ 谁被排除在外？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1615">人们会如何感受？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1617">这个练习帮我们选择 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1619">与区分新的回忆主题优先顺序 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1621">人们希望他们更多的爱好被包含 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1624">因此我们开始呈现更多爱好 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1626">例如武术、滑板与足球 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1631">我们选择将全世界的爱好优先化 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1633">而不是我们区域的爱好 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1637">但我们不止步于此 我们也扩大 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1640">国际节日目录 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1642">好让每个人都能重温 他们珍爱的节日活动 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1645">不管是圣诞节、排灯节 农历新年、开斋节 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1650">光明节 或是全部 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1653">因为我的团队没有必须的专业知识 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1656">我们与文化专家合作 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1658">以找出一组节日是住在那区域的人们 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1662">喜欢庆祝的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1664">我很高兴照片app </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1665">能帮我重温人生更多方面 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1669">包括我最喜欢的突尼西亚 法国和美国节日 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1674">现在来看我们听到的第二个反馈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1677">有人说“我不喜欢” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1679">“照片app提醒我过去的伴侣” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1684">我们将它转变成以下目标： </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1687">当心不舒服的人生经验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1689">并敏感地进行设计 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1692">为了达到这个目标 我们用了另一个技巧 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1696">头脑风暴会议能够很好地产生想法 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1699">并增进创意 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1701">某些主题需要额外的敏感度 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1704">以及您的全神贯注 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1707">我们倾向个人访谈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1709">以谈得更深入 并提供安全空间 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1712">让人们分享他们的故事 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1714">我鼓励您试试看 规划对话 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1717">与对您的app有顾虑 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1719">且觉得被排除在外的人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1721">为了回忆 我们聚行好几次对话 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1723">以分析我们初步研究时搜集的反馈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1728">一些人分享他们享受重温 他们的照片 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1731">除了当照片展出 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1734">他们不想被提醒的人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1736">在设计解决方案前 我们凿出空间以同理 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1739">聆听并理解他们的观点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1743">我们温柔地分析何事、如何、何时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1746">特别是为何 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1748">我们对什么让一个回忆令人享受 有兴趣 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1753">但这问题很难回答 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1755">为了避免模糊和普遍的回答 我们换个方式问 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1760">你最喜欢的回忆是什么？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1763">什么回忆你不喜欢？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1766">看到后你的感受是什么？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1769">我们如何能让你的体验更好？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1773">并接着问“为什么？” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1775">或“请多说一点” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1777">以把答案延伸得更远 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1779">问对问题可能很有挑战性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1782">但这是越练越好的技巧 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1785">如果可以 偏向开放性问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1788">提到过去的特定时刻 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1790">避免使用可能影响回答的语言 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1794">也先避免提出他们问题的解答 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1796">接收就好 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1798">通过一对一谈话 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1801">提醒了我们照片与视频有能力 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1804">影响某人的情绪 正负面都是 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1809">可能会很难过 不小心看到 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1812">过世亲人的照片 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1814">被提醒他们已经不在 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1817">对其他人来说 过去伴侣的照片 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1819">能引起无数情绪 从悲伤到愤怒 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1824">我们也学到 有时候 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1825">不是相框里的事物伤人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1828">而是隐形的语境 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1829">只有照片图库的所有人知道 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1833">聆听和吸收的他人经验的过程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1834">可以使人变得谦虚 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1838">对我和我的团队来说 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1840">沈浸在真实故事后 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1842">是时候用新的设计处理反馈了 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1846">在我们的例子中 帮助人们重温 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1849">带来喜悦的照片与视频 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1850">我们想给他们看到谁 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1853">或不看到谁的控制权 在回忆中 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1855">在第一次重新设计过程 我们增加好几个按钮 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1858">以让一个人从精选照片中移除 当浏览一段回忆时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1862">并重新设计app </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1863">这样他们立刻不再看到这些人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1866">在整个照片app中 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1869">为了一致性 我们观察app中其他地方 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1872">人们可能希望影响体验之处 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1875">我们增加了一个“移出精选照片”的 动作 从精选照片 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1878">从人物相簿 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1880">甚至从单一照片 在浏览时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1884">下一步是验证 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1886">一个问题的解决方案有效 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1889">身为设计者和开发者 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1890">我们的第一个设计是我们最初 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1893">对听到和吸收的故事的反响 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1896">然而 聆听某人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1899">不总表示我们了解他们 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1901">为了确定你在正轨上 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1903">并解决真正的问题 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1904">回头找您访谈过的人很重要 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1908">给他们看您的草稿 并寻求反馈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1910">您的设计是否处理他们的需求？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1912">如果没有 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1913">试着厘清你第一次错过的细微差异 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1917">当我们展示第一个解决方案给人们看 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1919">我们得到不同的反应 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1921">我们了解到大家的忍受程度不同 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1925">将一个人移出精选的动作 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1927">对某些人不够激进 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1930">我们将此洞见纳入考量 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1932">在接下来的重新设计过程中 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1934">让每个人决定他们想怎么做 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1938">移出精选 或不再看到 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1941">事后看来很明显 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1944">但可能会发生在每个人身上 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1947">当我们太靠近自己的产品 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1949">产生疏忽 无法满足人们的需求 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1953">但同理人们可以帮助我们校正航道 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1956">当第一次尝试没有成功 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1959">最后 即使细节像符号和图标 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1963">也对人有影响 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1965">在发展的最后阶段 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1968">我们观察到拇指向下的图标 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1970">可能投射不喜欢一个人的感觉 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1974">这可能在某些情况下成立 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1976">但其他情况不一定 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1977">像是当亲人过世时 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1980">因此我们决定使用更中立的符号 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1985">我们看完照片回忆的范例 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1988">推出产品不是终点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1991">是新的起点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1992">在您设计与开发的旅程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1996">注意包容性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=1997">您将继续为每个人创造更好的体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2001">记得先看评论及反馈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2005">使用您app或游戏的人 在互联网上留下的 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2008">并多走一步 寻求反馈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2010">向与您及亲友有不同经验的人 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2014">第二 同理 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2016">并从他人角度思考 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2018">通过使用许多技巧 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2021">像是脑力激荡、与专家合作 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2023">与个人访谈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2025">最后 处理反馈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2027">即使不是您自己对产品的体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2031">记得分享解决方案以进行验证 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2034">可以帮助确定 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2035">体验有实际的正面影响 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2039">现在交回给卡罗琳 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2041">我们希望多样性轴线 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2043">和今天展示的范例对您有用 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2046">当您订制具包容性的设计与开发过程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2049">符合您的公司和语境 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2052">总结来说 包容性是段旅程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2055">是的 旅程有时困难 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2057">但我们喜欢解决困难的问题 对吧？ </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2059">困难应该只驱使我们更努力尝试 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2062">让我们的app和游戏更具包容性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2065">包容的设计与开发 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2067">刺激新的、创意的解决方案 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2070">包容性并不带来不佳的体验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2073">反而打开机会 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2075">在我们可能没想过的领域 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2078">并提供有效果的约束以缩小范围 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2081">并更有意图地进行设计 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2084">被赋权的多元团队 能产生更具包容性的产品 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2089">多元的代表不保证 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2091">包容性会自然而来 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2093">相反地 当人们被邀请 分享他们的观点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2097">当观点一起影响决策 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2099">产品可以更具包容性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2102">最后 包容性必须被融入整个设计 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2107">与开发过程 融入同理、构思 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2111">设计、开发、测试、推出 以及更多 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2116">我们分享的范例显示包容性 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2118">是一个过程 如同设计与开发 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2122">最终结果的功能会更好 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2124">因为对包容性的注意 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2128">聆听人们的生活经验 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2131">会帮您了解您的app或游戏的影响 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2134">并推出既创新又尊重人的产品 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2137">作为响应 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2138">将多样性轴线及交叉点放在心上 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2142">当您选择要聚焦在谁身上 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2144">我们能练习同理 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2146">知道包容的设计是对的事 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2149">但这只能称为“好的设计” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2152">我们可以真实地与观众连结 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2154">并学习新的观点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2156">我们可以优雅的处理反馈 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2158">并用它们来设计 而不是为了它们设计 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2162">让今天成为第一天 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2163">如果您还没开始这段旅程 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2166">您只要从某处开始 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2168">每天尝试多做一点 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2170">让它变成习惯 然后是新的日常 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2174">请一定要看 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2175">“包容性设计的实践” </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2177">学习方法来设计内容 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2180">因而您的用户界面、语言、图像 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2182">和营销材料 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2184">支持最广范围的人们 </a><a class="sentence" href="/cn/videos/play/wwdc2021/10304/?time=2187">♪</a></p>
+							</section>
+						</li>
+
+						<!-- sample code -->
+						<li class="supplement sample-code" data-supplement-id="sample-code">
+							<section>
+								<ul class="no-bullet padding-top-small margin-bottom">
+																	</ul>
+							</section>
+						</li>
+
+						<!-- search -->
+						<li class="supplement search" data-supplement-id="search">
+
+							<section class="transcript-results-summary">
+								<p class="message smaller lighter"><!-- to be populated --></p>
+								<p class="instructions smaller lighter text-center">正在查找特定内容？在上方输入一个主题，就能直接跳转到相应的精彩内容。</p>
+								<p class="error smaller lighter italic text-center" style="display:none;">提交你查询的内容时出现错误。请检查互联网连接，然后再试一次。</p>
+							</section>
+
+							<!-- search results -->
+							<ul class="transcript-results row">
+															</ul>
+
+						</li>
+
+					</ul>
+
+				</section>
+
+			</section>
+
+		</section>
+
+		<input id="analytics-meta" type="hidden" data-event-name="WWDC21" data-event-id="wwdc2021-10304" data-session-id="10304" data-video-name="包容性设计过程" data-session-response-id="">
+	</main>
+
+	<link rel="stylesheet" href="/assets/styles/footer.dist.css">
+<footer id="footer" class="footer" role="contentinfo" aria-labelledby="footer-label">
+    <div class="footer-content">
+        <h2 class="footer-label" id="footer-label">Developer Footer</h2>
+		
+		<developer-breadcrumbs style="display: block;">
+			
+								
+			
+		<nav class="footer-breadcrumbs" aria-label="Breadcrumbs"><a href="https://www.apple.com.cn/" class="home footer-breadcrumbs-home"><span class="footer-breadcrumbs-home-icon" aria-hidden="true" data-hires-status="pending"></span><span class="footer-breadcrumbs-home-label">Apple</span></a><div class="footer-breadcrumbs-path"><ol class="footer-breadcrumbs-list"><li class="footer-breadcrumbs-item"><a href="/cn/">Developer</a></li><li class="footer-breadcrumbs-item"><a href="/videos/">视频</a></li><li class="footer-breadcrumbs-item"><a href="/videos/wwdc2021/">WWDC21</a></li><li class="footer-breadcrumbs-item">包容性设计过程</li></ol></div></nav></developer-breadcrumbs>
+	        <nav class="footer-directory" aria-label="Apple Developer 目录" role="navigation" lang="zh-CN">
+	<!--googleoff: all-->
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-platform">
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-platform">
+				<h3 class="footer-directory-column-section-title">平台</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-platform" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">打开菜单</span> </a> <a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">关闭菜单</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/ios/">iOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/ipados/">iPadOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/macos/">macOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/tvos/">Apple tvOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/visionos/">visionOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/watchos/">watchOS</a></li>
+			</ul>
+		</div>
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-tools">
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-tools">
+				<h3 class="footer-directory-column-section-title">工具</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-tools" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">打开菜单</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">关闭菜单</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/swift/">Swift</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/xcode/swiftui/">SwiftUI</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/swift-playground/">Swift Playground</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/testflight/">TestFlight</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/xcode/">Xcode</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/xcode-cloud/">Xcode Cloud</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/sf-symbols/">SF Symbols</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-topics">
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-topics">
+				<h3 class="footer-directory-column-section-title">主题和技术</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-topics" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">打开菜单</span> </a> <a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">关闭菜单</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/accessibility/">辅助功能</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/accessories/">配件</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/app-extensions/">App 扩展</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/app-store/">App Store</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/audio/">音频与视频 (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/augmented-reality/">增强现实</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/design/">设计</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/distribute/">分发</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/education/">教育</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/fonts/">字体 (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/games/">游戏</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/health-fitness/">健康与健身</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/in-app-purchase/">App 内购买项目</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/localization/">本地化</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/maps/">地图与位置</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/machine-learning/">机器学习</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://opensource.apple.com">开源资源 (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/security/">安全性</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/safari/">Safari 浏览器与网页 (英文)</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-resources">
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-resources">
+				<h3 class="footer-directory-column-section-title">资源和支持</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-resources" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">打开菜单</span> </a> <a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">关闭菜单</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/documentation/">完整文档 (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/documentation/">部分主题文档 (简体中文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/learn/">教程</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/download/">下载 (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/forums/">论坛 (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/videos/">视频</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-support">
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-support">
+				<h3 class="footer-directory-column-section-title">支持</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-support" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">打开菜单</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">关闭菜单</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/support/articles/">支持文档</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/contact/">联系我们</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/bug-reporting/">错误报告</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/system-status/">系统状态 (英文)</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-account">
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-account">
+				<h3 class="footer-directory-column-section-title">账户</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-account" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">打开菜单</span> </a> <a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">关闭菜单</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/account/">Apple Developer</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://appstoreconnect.apple.com/">App Store Connect</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/account/ios/certificate/">证书、标识符和描述文件 (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://feedbackassistant.apple.com/">反馈助理<span class="loc-en-only"></span></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-programs">
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-programs">
+				<h3 class="footer-directory-column-section-title">计划和活动</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-programs" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">打开菜单</span> </a> <a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">关闭菜单</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/programs/">Apple Developer Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/programs/enterprise/">Apple Developer Enterprise Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/app-store/small-business-program/">App&nbsp;Store Small Business Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://mfi.apple.com/">MFi Program (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/news-partner/">News Partner Program (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/video-partner/">Video Partner Program (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/security-bounty/">安全赏金计划 (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link nowrap" href="/programs/security-research-device/">Security Research Device Program (英文)</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-events">
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-events">
+				<h3 class="footer-directory-column-section-title">活动</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-events" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">打开菜单</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">关闭菜单</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/events/">与 Apple 会面交流</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/events/developer-centers/">Apple Developer Center</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/app-store-awards/">App Store 大奖 (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/design/awards/">Apple 设计大奖</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/academies/">Apple Developer Academies (英文)</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/cn/wwdc24/">WWDC</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--googleon: all-->
+</nav>
+        <section class="footer-mini" vocab="http://schema.org/" typeof="Organization" lang="zh-CN">
+	<div class="footer-mini-news">
+		<div class="copy">
+			获取 <a href="https://apps.apple.com/cn/app/apple-developer/id640199958">Apple Developer App</a>。
+		</div>
+		<div class="content">
+			<div class="color-scheme-toggle" role="radiogroup" tabindex="0" aria-label="Select a color scheme preference">
+
+				<label data-color-scheme-option="light">
+
+					<input type="radio" value="light" autocomplete="off" onchange="window.setPreferredColorScheme(event.target.value)">
+
+					<div class="text">浅色</div>
+
+				</label>
+
+				<label data-color-scheme-option="dark">
+
+					<input type="radio" value="dark" autocomplete="off" onchange="window.setPreferredColorScheme(event.target.value)">
+
+					<div class="text">深色</div>
+
+				</label>
+
+				<label data-color-scheme-option="auto">
+
+					<input type="radio" value="auto" autocomplete="off" onchange="window.setPreferredColorScheme(event.target.value)">
+
+					<div class="text">自动</div>
+
+				</label>
+
+			</div>
+			<script async="" src="/assets/scripts/color-scheme-toggle.js"></script>
+		</div>
+	</div>
+	<link rel="stylesheet" href="/assets/styles/language-dropdown.css?17182448067">
+	<div class="language-dropdown dropdown-container legacy-form" data-lang="complete">
+		<select class="dropdown" aria-label="Language Dropdown"><option value="https://developer.apple.com/cn/videos/play/wwdc2021/10304/">简体中文</option><option value="https://developer.apple.com/videos/play/wwdc2021/10304/">English</option><option value="https://developer.apple.com/jp/videos/play/wwdc2021/10304/">日本語</option><option value="https://developer.apple.com/kr/videos/play/wwdc2021/10304/">한국어</option></select>
+		<span class="dropdown-icon icon icon-chevrondown" aria-hidden="true"></span>
+	</div>
+	<script src="/assets/scripts/language-dropdown.js?17182448067"></script>
+	<link rel="stylesheet" href="/assets/styles/language-dropdown.css">
+	<div class="footer-mini-legal">
+		<div class="footer-mini-legal-copyright">版权所有 ©  2025 <a href="https://www.apple.com/cn/">Apple Inc.</a> 保留所有权利。</div>
+		<div class="footer-mini-legal-links">
+			<a class="footer-mini-legal-link" href="https://www.apple.com/cn/legal/internet-services/terms/site.html">使用条款</a>
+			<a class="footer-mini-legal-link" href="https://www.apple.com.cn/legal/privacy/">隐私政策</a>
+			<a class="footer-mini-legal-link" href="/cn/support/terms/">协议和准则</a>
+		</div>
+	</div>
+</section>
+    </div>
+</footer>
+
+	<script src="/assets/scripts/params.js"></script>
+	<script src="/assets/scripts/watchable.js"></script>
+	<script src="/assets/scripts/timeout.js"></script>
+	
+	<script src="/videos/scripts/play/play.js?38162550021"></script>
+	<script src="/videos/scripts/hls/rtc.min.js?59182451067"></script>
+	<script src="/videos/scripts/hls/hls.min.js?25152512021"></script>
+	
+
+
+</body></html>

@@ -1,0 +1,1523 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>国务院办公厅关于一些单位违反规定组织泰国“人妖”来华演出的通报</title>
+<script language="JavaScript">
+	<!--
+
+		//运行高亮显示检索词的逻辑
+		function runDaubLogic() {
+
+			//以下一块为从refer中获取searchWord的逻辑
+			//***********************************************
+			//检索结果页面的url
+			//var refer = document.referrer.toLowerCase();
+	
+			//if (isNull(refer)) {
+			//	return;
+			//}
+			//var searchWord = getSearchWord(refer);
+			//***********************************************
+			var finalUrl=window.location.href;
+			var re=/keywords=/;
+				re.exec(finalUrl);
+			var sTitle=RegExp.rightContext;
+
+			var searchWord = sTitle;
+			if (isNull(searchWord)) {
+				return;
+			}
+			var array = transStr2Array(searchWord);
+			if (array.length == 0) {
+				return;
+			}
+			var element = getElementToDaub();
+			if (element == null || typeof (element) == "undefined") {
+				return;
+			}
+			daubElementAll(element, array);
+		}
+		
+		
+		//array为检索词的数组，ele为存储正文内容的元素
+		function daubElementAll(ele, array) {
+			if (array == null || array.length == 0) {
+				return;
+			}
+			var colors = getColorArray();
+			for (var i = 0; i < array.length; i++) {
+				daubElement(ele, array[i], colors[i % 5]);
+			}
+			ele.innerHTML = replaceAll(replaceAll(ele.innerHTML, "<tianjige>", ""), "</tianjige>", "");
+		}
+
+
+		//获取存放文章正文的元素
+		function getElementToDaub() {
+			var elements = document.getElementsByTagName("*");
+			if (elements == null || elements.length == 0) {
+				return null;
+			}
+			for (var i = 0; i < elements.length; i++) {
+				if (elements[i] == null || typeof (elements[i]) != "object") {
+					continue;
+				}
+				if (isNull(elements[i].className)) {
+					continue;
+				}
+				if (elements[i].className.indexOf("content") != -1) {
+					return elements[i];
+				}
+			}
+			return null;
+		}
+
+
+		//获取高亮显示的颜色数组。检索词可能有多个，用不同颜色进行高亮显示。如：第一个词语全部用red颜色，第二个词语显示为orange……
+		function getColorArray() {
+			return ["red", "orange", "pink", "grey", "blue"];
+		}
+
+
+		//将文章正文中包含的某词语进行高亮显示。ele为存储正文内容的元素，word为要高亮显示的词语，color为高亮显示的颜色
+		function daubElement(ele, word, color) {
+			if (word == null || word == "") {
+				return;
+			}
+			var colorWord = "<font color=\"" + color + "\">" + word + "</font>";
+			var eles = ele.childNodes;
+			for (var i = 0; i < eles.length; i++) {
+				e = eles[i];
+				if (e.nodeType == 3) {
+					if (e.data.indexOf(word) == -1) {
+						continue;
+					}
+					var reg = new RegExp("(" + word + ")", "gi");
+					var objResult = document.createElement("tianjige");
+					objResult.innerHTML = e.data.replace(reg, "<font color='" + color + "'>$1</font>");
+					if (e.data == objResult.childNodes[0].innerHTML) {
+						continue;
+					}
+					ele.replaceChild(objResult, e);
+				} else {
+					if (e.nodeType == 1) {
+						daubElement(e, word, color);
+					}
+				}
+			}
+		}
+
+
+		//获取检索词
+		function getSearchWord(refer) {
+			domain = getDomainName(refer);
+			var searchWord = "";
+			if (domain.indexOf("google") > 0) {
+				refer = decodeURI(refer);
+				return getParameter(refer, "g");
+			} else {
+				if (domain.indexOf("baidu") > 0) {
+					searchWord = getParameter(refer, "word");
+					if (isNull(searchWord)) {
+						searchWord = getParameter(refer, "wd");
+					}
+					if (isNull(searchWord)) {
+						searchWord = getParameter(refer, "kw");
+					}
+					return searchWord;
+				} else {
+					if (domain.indexOf("home.news.cn") > 0 || domain.indexOf("xinhuanet.com")) {
+						if (domain.indexOf("forum") != -1 || domain.indexOf("view") != -1) {
+						} else {
+							refer = decodeURI(refer);
+							searchWord = getParameter(refer, "sw");
+							select = getParameter(refer, "select");
+							if (select == null || (select != "2" && select != "1" && select != "3")) {
+								searchWord = "";
+							}
+							if (isNull(searchWord)) {
+								searchWord = getParameter(refer, "content");
+							}
+						}
+						return searchWord;
+					}
+				}
+			}
+		}
+
+		//判断字符串是否为空
+		function isNull(str) {
+			if (str == null) {
+				return true;
+			}
+			if (str == "") {
+				return true;
+			}
+			return false;
+		}		
+
+		//定义获取元素的简易方法
+		if(!$) {
+			function $(id){
+				return document.getElementById(id);
+			}
+		}
+
+		
+		//将字符串变为数组
+		function transStr2Array(str) {
+			if (str == null || str == "") {
+				return [];
+			}
+			str = replaceAll(str, "++", "+");
+			while (str.indexOf(0) == "+") {
+				str = str.substring(1);
+			}
+			while (str.indexOf(str.length) == "+") {
+				str = str.substr(0, str.length - 1);
+			}
+			return str.split("+");
+		}
+
+		//获取URL上的参数,get方法
+		function getParameter(requestURL, parameterName) {
+			var index = requestURL.indexOf(parameterName + "=");
+			if (index <= 0) {
+				return "";
+			}
+			var begin = index + parameterName.length + 1;
+			var end = requestURL.indexOf("&", begin);
+			if (end < begin) {
+				return requestURL.substring(begin);
+			}
+			return requestURL.substr(begin, end - begin);
+		}
+
+		//获取引用此js的域名
+		function getDomainName(requestURL) {
+			if (requestURL.indexOf("http://") == 0) {
+				var end = requestURL.indexOf("/", 7);
+				return requestURL.substr(7, end - 7);
+			}
+			return "";
+		}
+
+		//获取引用该js的页面名
+		function getUriName(requestURL) {
+			var index = requestURL.lastIndexOf("/");
+			if (index > 0) {
+				var end = requestURL.indexOf("?", index);
+				if (end > index) {
+					return requestURL.substr(index + 1, end - index - 1);
+				}
+				return requestURL.substring(index + 1);
+			}
+			return "";
+		}
+
+		//将字符串中的s1字串全部换成s2
+		function replaceAll(str, s1, s2) {
+			if (s1.length > 0 && str.indexOf(s1) != -1) {
+				if (s1.length == 1) {
+					return str.replace(new RegExp(s1, "g"), s2);
+				}
+				return str.replace(new RegExp(s1, "gm"), s2);
+			}
+			return str;
+		}
+
+		//去掉字符串量边的空格
+		function trim(str) {
+			while (str.charAt(0) == " ") {
+				str = str.substring(1);
+			}
+			while (str.charAt(str.length - 1) == " ") {
+				str = str.substring(0, str.length - 1);
+			}
+			return str;
+		}
+
+
+	//-->
+	</script>
+<style>
+@font-face {
+	font-family: Times;
+}
+@font-face {
+	font-family: Helvetica;
+}
+@font-face {
+	font-family: Courier;
+}
+@font-face {
+	font-family: Geneva;
+}
+@font-face {
+	font-family: Tms Rmn;
+}
+@font-face {
+	font-family: Helv;
+}
+@font-face {
+	font-family: MS Serif;
+}
+@font-face {
+	font-family: MS Sans Serif;
+}
+@font-face {
+	font-family: New York;
+}
+@font-face {
+	font-family: System;
+}
+@font-face {
+	font-family: Wingdings;
+}
+@font-face {
+	font-family: Mincho;
+}
+@font-face {
+	font-family: Batang;
+}
+@font-face {
+	font-family: 宋体;
+}
+@font-face {
+	font-family: PMingLiU;
+}
+@font-face {
+	font-family: Gothic;
+}
+@font-face {
+	font-family: Dotum;
+}
+@font-face {
+	font-family: 黑体;
+}
+@font-face {
+	font-family: MingLiU;
+}
+@font-face {
+	font-family: MS Mincho;
+}
+@font-face {
+	font-family: Gulim;
+}
+@font-face {
+	font-family: MS Gothic;
+}
+@font-face {
+	font-family: Century;
+}
+@font-face {
+	font-family: 楷体_GB2312;
+}
+@font-face {
+	font-family: @宋体;
+}
+@font-face {
+	font-family: @楷体_GB2312;
+}
+@font-face {
+	font-family: 方正书宋简体;
+}
+@font-face {
+	font-family: 方正小标宋简体;
+}
+@font-face {
+	font-family: 方正仿宋简体;
+}
+@font-face {
+	font-family: @黑体;
+}
+@font-face {
+	font-family: @方正小标宋简体;
+}
+@font-face {
+	font-family: @方正书宋简体;
+}
+@font-face {
+	font-family: @方正仿宋简体;
+}
+@font-face {
+	font-family: @System;
+}
+@font-face {
+	font-family: Fixedsys;
+}
+@font-face {
+	font-family: @Fixedsys;
+}
+@font-face {
+	font-family: Terminal;
+}
+@font-face {
+	font-family: Small Fonts;
+}
+@font-face {
+	font-family: Marlett;
+}
+@font-face {
+	font-family: 仿宋_GB2312;
+}
+@font-face {
+	font-family: @仿宋_GB2312;
+}
+@font-face {
+	font-family: Lucida Console;
+}
+@font-face {
+	font-family: Tahoma;
+}
+@font-face {
+	font-family: Arial Black;
+}
+@font-face {
+	font-family: Comic Sans MS;
+}
+@font-face {
+	font-family: Impact;
+}
+@font-face {
+	font-family: Verdana;
+}
+@font-face {
+	font-family: Webdings;
+}
+@font-face {
+	font-family: 幼圆;
+}
+@font-face {
+	font-family: @幼圆;
+}
+@font-face {
+	font-family: @MingLiU;
+}
+@font-face {
+	font-family: @PMingLiU;
+}
+@font-face {
+	font-family: 方正舒体;
+}
+@font-face {
+	font-family: @方正舒体;
+}
+@font-face {
+	font-family: 方正姚体;
+}
+@font-face {
+	font-family: @方正姚体;
+}
+@font-face {
+	font-family: 隶书;
+}
+@font-face {
+	font-family: @隶书;
+}
+@font-face {
+	font-family: 华文彩云;
+}
+@font-face {
+	font-family: @华文彩云;
+}
+@font-face {
+	font-family: 华文细黑;
+}
+@font-face {
+	font-family: @华文细黑;
+}
+@font-face {
+	font-family: 华文行楷;
+}
+@font-face {
+	font-family: @华文行楷;
+}
+@font-face {
+	font-family: 华文新魏;
+}
+@font-face {
+	font-family: @华文新魏;
+}
+@font-face {
+	font-family: 华文中宋;
+}
+@font-face {
+	font-family: @华文中宋;
+}
+@font-face {
+	font-family: Arial Narrow;
+}
+@font-face {
+	font-family: Book Antiqua;
+}
+@font-face {
+	font-family: Bookman Old Style;
+}
+@font-face {
+	font-family: Century Gothic;
+}
+@font-face {
+	font-family: Garamond;
+}
+@font-face {
+	font-family: Haettenschweiler;
+}
+@font-face {
+	font-family: Monotype Corsiva;
+}
+@font-face {
+	font-family: MS Outlook;
+}
+@font-face {
+	font-family: Trebuchet MS;
+}
+@font-face {
+	font-family: Wingdings 2;
+}
+@font-face {
+	font-family: Wingdings 3;
+}
+@font-face {
+	font-family: News Gothic MT;
+}
+@font-face {
+	font-family: Lucida Handwriting;
+}
+@font-face {
+	font-family: Lucida Sans;
+}
+@font-face {
+	font-family: Lucida Sans Unicode;
+}
+@font-face {
+	font-family: OCR A Extended;
+}
+@font-face {
+	font-family: Calisto MT;
+}
+@font-face {
+	font-family: Abadi MT Condensed Light;
+}
+@font-face {
+	font-family: Copperplate Gothic Bold;
+}
+@font-face {
+	font-family: Copperplate Gothic Light;
+}
+@font-face {
+	font-family: Matisse ITC;
+}
+@font-face {
+	font-family: Tempus Sans ITC;
+}
+@font-face {
+	font-family: Westminster;
+}
+@font-face {
+	font-family: 方正楷体简体;
+}
+@font-face {
+	font-family: @方正楷体简体;
+}
+@font-face {
+	font-family: 方正报宋简体;
+}
+@font-face {
+	font-family: @方正报宋简体;
+}
+@font-face {
+	font-family: 方正宋三简体;
+}
+@font-face {
+	font-family: @方正宋三简体;
+}
+@font-face {
+	font-family: 方正细等线简体;
+}
+@font-face {
+	font-family: @方正细等线简体;
+}
+@font-face {
+	font-family: 方正中等线简体;
+}
+@font-face {
+	font-family: @方正中等线简体;
+}
+@font-face {
+	font-family: 方正细黑一简体;
+}
+@font-face {
+	font-family: @方正细黑一简体;
+}
+@font-face {
+	font-family: 方正新报宋简体;
+}
+@font-face {
+	font-family: @方正新报宋简体;
+}
+@font-face {
+	font-family: 方正宋一简体;
+}
+@font-face {
+	font-family: @方正宋一简体;
+}
+@font-face {
+	font-family: 方正黑体简体;
+}
+@font-face {
+	font-family: @方正黑体简体;
+}
+@font-face {
+	font-family: 方正大黑简体;
+}
+@font-face {
+	font-family: @方正大黑简体;
+}
+@font-face {
+	font-family: 方正大标宋简体;
+}
+@font-face {
+	font-family: @方正大标宋简体;
+}
+@font-face {
+	font-family: 方正宋黑简体;
+}
+@font-face {
+	font-family: @方正宋黑简体;
+}
+@font-face {
+	font-family: 方正粗宋简体;
+}
+@font-face {
+	font-family: @方正粗宋简体;
+}
+@font-face {
+	font-family: 方正细圆简体;
+}
+@font-face {
+	font-family: @方正细圆简体;
+}
+@font-face {
+	font-family: 方正准圆简体;
+}
+@font-face {
+	font-family: @方正准圆简体;
+}
+@font-face {
+	font-family: 方正粗圆简体;
+}
+@font-face {
+	font-family: @方正粗圆简体;
+}
+@font-face {
+	font-family: 方正琥珀简体;
+}
+@font-face {
+	font-family: @方正琥珀简体;
+}
+@font-face {
+	font-family: 方正综艺简体;
+}
+@font-face {
+	font-family: @方正综艺简体;
+}
+@font-face {
+	font-family: 方正姚体简体;
+}
+@font-face {
+	font-family: @方正姚体简体;
+}
+@font-face {
+	font-family: 方正美黑简体;
+}
+@font-face {
+	font-family: @方正美黑简体;
+}
+@font-face {
+	font-family: 方正水柱简体;
+}
+@font-face {
+	font-family: @方正水柱简体;
+}
+@font-face {
+	font-family: 方正彩云简体;
+}
+@font-face {
+	font-family: @方正彩云简体;
+}
+@font-face {
+	font-family: 方正超粗黑简体;
+}
+@font-face {
+	font-family: @方正超粗黑简体;
+}
+@font-face {
+	font-family: 方正少儿简体;
+}
+@font-face {
+	font-family: @方正少儿简体;
+}
+@font-face {
+	font-family: 方正稚艺简体;
+}
+@font-face {
+	font-family: @方正稚艺简体;
+}
+@font-face {
+	font-family: 方正细珊瑚简体;
+}
+@font-face {
+	font-family: @方正细珊瑚简体;
+}
+@font-face {
+	font-family: 方正华隶简体;
+}
+@font-face {
+	font-family: @方正华隶简体;
+}
+@font-face {
+	font-family: 方正细倩简体;
+}
+@font-face {
+	font-family: @方正细倩简体;
+}
+@font-face {
+	font-family: 方正中倩简体;
+}
+@font-face {
+	font-family: @方正中倩简体;
+}
+@font-face {
+	font-family: 方正粗倩简体;
+}
+@font-face {
+	font-family: @方正粗倩简体;
+}
+@font-face {
+	font-family: 方正胖娃简体;
+}
+@font-face {
+	font-family: @方正胖娃简体;
+}
+@font-face {
+	font-family: 方正隶书简体;
+}
+@font-face {
+	font-family: @方正隶书简体;
+}
+@font-face {
+	font-family: 方正隶变简体;
+}
+@font-face {
+	font-family: @方正隶变简体;
+}
+@font-face {
+	font-family: 方正魏碑简体;
+}
+@font-face {
+	font-family: @方正魏碑简体;
+}
+@font-face {
+	font-family: 方正行楷简体;
+}
+@font-face {
+	font-family: @方正行楷简体;
+}
+@font-face {
+	font-family: 方正舒体简体;
+}
+@font-face {
+	font-family: @方正舒体简体;
+}
+@font-face {
+	font-family: 方正隶二简体;
+}
+@font-face {
+	font-family: @方正隶二简体;
+}
+@font-face {
+	font-family: 方正康体简体;
+}
+@font-face {
+	font-family: @方正康体简体;
+}
+@font-face {
+	font-family: 方正新舒体简体;
+}
+@font-face {
+	font-family: @方正新舒体简体;
+}
+@font-face {
+	font-family: 方正黄草简体;
+}
+@font-face {
+	font-family: @方正黄草简体;
+}
+@font-face {
+	font-family: 方正瘦金书简体;
+}
+@font-face {
+	font-family: @方正瘦金书简体;
+}
+@font-face {
+	font-family: 方正平和简体;
+}
+@font-face {
+	font-family: @方正平和简体;
+}
+@font-face {
+	font-family: 方正幼线简体;
+}
+@font-face {
+	font-family: @方正幼线简体;
+}
+@font-face {
+	font-family: 方正卡通简体;
+}
+@font-face {
+	font-family: @方正卡通简体;
+}
+@font-face {
+	font-family: 方正艺黑简体;
+}
+@font-face {
+	font-family: @方正艺黑简体;
+}
+@font-face {
+	font-family: 方正水黑简体;
+}
+@font-face {
+	font-family: @方正水黑简体;
+}
+@font-face {
+	font-family: 方正毡笔黑简体;
+}
+@font-face {
+	font-family: @方正毡笔黑简体;
+}
+@font-face {
+	font-family: 方正古隶简体;
+}
+@font-face {
+	font-family: @方正古隶简体;
+}
+@font-face {
+	font-family: 方正启体简体;
+}
+@font-face {
+	font-family: @方正启体简体;
+}
+@font-face {
+	font-family: 方正硬笔楷书简体;
+}
+@font-face {
+	font-family: @方正硬笔楷书简体;
+}
+@font-face {
+	font-family: 方正硬笔行书简体;
+}
+@font-face {
+	font-family: @方正硬笔行书简体;
+}
+@font-face {
+	font-family: 方正铁筋隶书简体;
+}
+@font-face {
+	font-family: @方正铁筋隶书简体;
+}
+@font-face {
+	font-family: 方正北魏楷书简体;
+}
+@font-face {
+	font-family: @方正北魏楷书简体;
+}
+@font-face {
+	font-family: 方正剪纸简体;
+}
+@font-face {
+	font-family: @方正剪纸简体;
+}
+@font-face {
+	font-family: 方正胖头鱼简体;
+}
+@font-face {
+	font-family: @方正胖头鱼简体;
+}
+@font-face {
+	font-family: 方正粗活意简体;
+}
+@font-face {
+	font-family: @方正粗活意简体;
+}
+@font-face {
+	font-family: 方正流行体简体;
+}
+@font-face {
+	font-family: @方正流行体简体;
+}
+@font-face {
+	font-family: 方正祥隶简体;
+}
+@font-face {
+	font-family: @方正祥隶简体;
+}
+@font-face {
+	font-family: （使用中文字体）;
+}
+@page  {mso-page-border-surround-header: no; mso-page-border-surround-footer: no; }
+@page Section1 {size: 595.3pt 841.9pt; margin: 72.0pt 90.0pt 72.0pt 90.0pt; mso-header-margin: 42.55pt; mso-footer-margin: 49.6pt; mso-paper-source: 0; }
+.tit {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #ae1609; LINE-HEIGHT: 160%; TEXT-DECORATION: none
+}
+.txt12 {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 130%; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.txt12r {
+	FONT-SIZE: 12px; COLOR: #666666; LINE-HEIGHT: 130%; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.txt12:hover {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 130%; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.rdate {
+	FONT-SIZE: 14px; COLOR: #999999; LINE-HEIGHT: 14pt; FONT-FAMILY: "Arial"; TEXT-DECORATION: none
+}
+.txt18 {
+	FONT-WEIGHT: bold; FONT-SIZE: 24px; COLOR: #003cc8; LINE-HEIGHT: 26px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.wht12 {
+	FONT-SIZE: 12px; COLOR: #ffffff; LINE-HEIGHT: 16px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.blue12_:link {
+	FONT-SIZE: 12px; COLOR: #0000ff; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+.blue12_:visited {
+	FONT-SIZE: 12px; COLOR: #0000ff; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+.blue12_:hover {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.blue14_:link {
+	FONT-SIZE: 14px; COLOR: #0000ff; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+.blue14_:visited {
+	FONT-SIZE: 14px; COLOR: #0000ff; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+.blue14_:hover {
+	FONT-SIZE: 14px; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+.blue14:link {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.blue14:visited {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.blue14:hover {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.blue14_e:link {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.blue14_e:visited {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.blue14_e:hover {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.day {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #000000; LINE-HEIGHT: 120%; FONT-FAMILY: "Verdana"
+}
+.box {
+	BORDER-RIGHT: #000000 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #000000 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: #000000 1px solid; WIDTH: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: #000000 1px solid; HEIGHT: 0px
+}
+.p1 {
+	FONT-SIZE: 16px; COLOR: #000000; LINE-HEIGHT: 180%; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.navy {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; FONT-SIZE: 12px; BORDER-LEFT: medium none; COLOR: #003cc8; LINE-HEIGHT: 16px; BORDER-BOTTOM: medium none; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.formt {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #ffffff
+}
+.btn {
+	FONT-SIZE: 10px; COLOR: #000000; LINE-HEIGHT: 150%; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.blue12 {
+	FONT-SIZE: 12px; COLOR: #0033cc; LINE-HEIGHT: 16px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.copyright {
+	FONT-SIZE: 14px; COLOR: #1e1e1e; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.day {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.xg {
+	FONT-SIZE: 14px; COLOR: #023dc7; LINE-HEIGHT: 130%; TEXT-DECORATION: none
+}
+.link_css {
+	FONT-SIZE: 12px; LINE-HEIGHT: 15px; FONT-FAMILY: "宋体"; LETTER-SPACING: 1px
+}
+BODY {
+	BACKGROUND-COLOR: #e6edf9
+}
+A:hover {
+	COLOR: #ff0000
+}
+.YW {
+	font-face: 楷体_GB2312
+}
+.BRIEF {
+	
+}
+FONT.BOLD {
+	
+}
+FONT.ITALIC {
+	
+}
+P.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: 宋体; mso-style-parent: ""; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"
+}
+LI.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: 宋体; mso-style-parent: ""; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"
+}
+DIV.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: 宋体; mso-style-parent: ""; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"
+}
+P.tbclass {
+	FONT-SIZE: 12pt; BACKGROUND: white; MARGIN-LEFT: 0cm; MARGIN-RIGHT: 0cm; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: tbclass; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto
+}
+LI.tbclass {
+	FONT-SIZE: 12pt; BACKGROUND: white; MARGIN-LEFT: 0cm; MARGIN-RIGHT: 0cm; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: tbclass; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto
+}
+DIV.tbclass {
+	FONT-SIZE: 12pt; BACKGROUND: white; MARGIN-LEFT: 0cm; MARGIN-RIGHT: 0cm; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: tbclass; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto
+}
+P.kh {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: kh; mso-hansi-font-family: 宋体
+}
+LI.kh {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: kh; mso-hansi-font-family: 宋体
+}
+DIV.kh {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: kh; mso-hansi-font-family: 宋体
+}
+P.ytitle {
+	FONT-SIZE: 22pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ytitle; mso-hansi-font-family: 宋体
+}
+LI.ytitle {
+	FONT-SIZE: 22pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ytitle; mso-hansi-font-family: 宋体
+}
+DIV.ytitle {
+	FONT-SIZE: 22pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ytitle; mso-hansi-font-family: 宋体
+}
+P.mtitle {
+	FONT-SIZE: 22pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正小标宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: mtitle; mso-hansi-font-family: 宋体
+}
+LI.mtitle {
+	FONT-SIZE: 22pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正小标宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: mtitle; mso-hansi-font-family: 宋体
+}
+DIV.mtitle {
+	FONT-SIZE: 22pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正小标宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: mtitle; mso-hansi-font-family: 宋体
+}
+P.ftitle {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 黑体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ftitle; mso-hansi-font-family: 宋体
+}
+LI.ftitle {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 黑体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ftitle; mso-hansi-font-family: 宋体
+}
+DIV.ftitle {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 黑体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ftitle; mso-hansi-font-family: 宋体
+}
+P.area {
+	FONT-SIZE: 14pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: area; mso-hansi-font-family: 宋体
+}
+LI.area {
+	FONT-SIZE: 14pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: area; mso-hansi-font-family: 宋体
+}
+DIV.area {
+	FONT-SIZE: 14pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: area; mso-hansi-font-family: 宋体
+}
+P.rw {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: rw; mso-hansi-font-family: 宋体
+}
+LI.rw {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: rw; mso-hansi-font-family: 宋体
+}
+DIV.rw {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: rw; mso-hansi-font-family: 宋体
+}
+P.zw {
+	TEXT-JUSTIFY: inter-ideograph; FONT-SIZE: 10.5pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zw; mso-hansi-font-family: 宋体
+}
+LI.zw {
+	TEXT-JUSTIFY: inter-ideograph; FONT-SIZE: 10.5pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zw; mso-hansi-font-family: 宋体
+}
+DIV.zw {
+	TEXT-JUSTIFY: inter-ideograph; FONT-SIZE: 10.5pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zw; mso-hansi-font-family: 宋体
+}
+P.zz {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zz; mso-hansi-font-family: 宋体
+}
+LI.zz {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zz; mso-hansi-font-family: 宋体
+}
+DIV.zz {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zz; mso-hansi-font-family: 宋体
+}
+P.ly {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ly; mso-hansi-font-family: 宋体
+}
+LI.ly {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ly; mso-hansi-font-family: 宋体
+}
+DIV.ly {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ly; mso-hansi-font-family: 宋体
+}
+P.tc {
+	FONT-SIZE: 18pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 黑体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: tc; mso-hansi-font-family: 宋体
+}
+LI.tc {
+	FONT-SIZE: 18pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 黑体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: tc; mso-hansi-font-family: 宋体
+}
+DIV.tc {
+	FONT-SIZE: 18pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 黑体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: tc; mso-hansi-font-family: 宋体
+}
+P.zl {
+	FONT-SIZE: 14pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zl; mso-hansi-font-family: 宋体
+}
+LI.zl {
+	FONT-SIZE: 14pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zl; mso-hansi-font-family: 宋体
+}
+DIV.zl {
+	FONT-SIZE: 14pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zl; mso-hansi-font-family: 宋体
+}
+P.zk {
+	FONT-SIZE: 14pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zk; mso-hansi-font-family: 宋体
+}
+LI.zk {
+	FONT-SIZE: 14pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zk; mso-hansi-font-family: 宋体
+}
+DIV.zk {
+	FONT-SIZE: 14pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正仿宋简体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: zk; mso-hansi-font-family: 宋体
+}
+P.xb {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: xb; mso-hansi-font-family: 宋体
+}
+LI.xb {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: xb; mso-hansi-font-family: 宋体
+}
+DIV.xb {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: xb; mso-hansi-font-family: 宋体
+}
+P.xb1 {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: xb; mso-hansi-font-family: 宋体
+}
+LI.xb {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: xb; mso-hansi-font-family: 宋体
+}
+DIV.xb {
+	FONT-SIZE: 10.5pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正书宋简体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: xb; mso-hansi-font-family: 宋体
+}
+P.ht {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN-LEFT: 0cm; MARGIN-RIGHT: 0cm; FONT-FAMILY: 黑体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ht; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-hansi-font-family: 宋体
+}
+LI.ht {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN-LEFT: 0cm; MARGIN-RIGHT: 0cm; FONT-FAMILY: 黑体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ht; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-hansi-font-family: 宋体
+}
+DIV.ht {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN-LEFT: 0cm; MARGIN-RIGHT: 0cm; FONT-FAMILY: 黑体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: ht; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-hansi-font-family: 宋体
+}
+P.kt {
+	FONT-SIZE: 12pt; MARGIN-LEFT: 0cm; MARGIN-RIGHT: 0cm; FONT-FAMILY: 楷体_GB2312; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: kt; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-hansi-font-family: 宋体
+}
+LI.kt {
+	FONT-SIZE: 12pt; MARGIN-LEFT: 0cm; MARGIN-RIGHT: 0cm; FONT-FAMILY: 楷体_GB2312; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: kt; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-hansi-font-family: 宋体
+}
+DIV.kt {
+	FONT-SIZE: 12pt; MARGIN-LEFT: 0cm; MARGIN-RIGHT: 0cm; FONT-FAMILY: 楷体_GB2312; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: kt; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-hansi-font-family: 宋体
+}
+P.column {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #000066; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: column
+}
+LI.column {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #000066; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: column
+}
+DIV.column {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #000066; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: column
+}
+P.volume {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #000066; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: volume
+}
+LI.volume {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #000066; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: volume
+}
+DIV.volume {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #000066; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: volume
+}
+P.yw {
+	FONT-WEIGHT: bold; TEXT-JUSTIFY: inter-ideograph; FONT-SIZE: 11pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 楷体_GB2312; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: yw; mso-hansi-font-family: 宋体
+}
+LI.yw {
+	FONT-WEIGHT: bold; TEXT-JUSTIFY: inter-ideograph; FONT-SIZE: 11pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 楷体_GB2312; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: yw; mso-hansi-font-family: 宋体
+}
+DIV.yw {
+	FONT-WEIGHT: bold; TEXT-JUSTIFY: inter-ideograph; FONT-SIZE: 11pt; MARGIN: 1.5pt 5pt 0pt; COLOR: black; FONT-FAMILY: 楷体_GB2312; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: yw; mso-hansi-font-family: 宋体
+}
+P.img {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: img
+}
+LI.img {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: img
+}
+DIV.img {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: img
+}
+P.jj {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: blue; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jj
+}
+LI.jj {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: blue; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jj
+}
+DIV.jj {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: blue; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jj
+}
+P.pre {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #906700; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: pre
+}
+LI.pre {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #906700; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: pre
+}
+DIV.pre {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #906700; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: pre
+}
+P.brief {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #0080ff; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: brief
+}
+LI.brief {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #0080ff; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: brief
+}
+DIV.brief {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #0080ff; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: brief
+}
+P.jz {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #006fff; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jz
+}
+LI.jz {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #006fff; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jz
+}
+DIV.jz {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #006fff; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jz
+}
+P.jr {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 宋体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jr
+}
+LI.jr {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 宋体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jr
+}
+DIV.jr {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 宋体; TEXT-ALIGN: right; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jr
+}
+P.jl {
+	FONT-SIZE: 12pt; MARGIN-LEFT: 0cm; COLOR: #906700; MARGIN-RIGHT: 0cm; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jl; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto
+}
+LI.jl {
+	FONT-SIZE: 12pt; MARGIN-LEFT: 0cm; COLOR: #906700; MARGIN-RIGHT: 0cm; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jl; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto
+}
+DIV.jl {
+	FONT-SIZE: 12pt; MARGIN-LEFT: 0cm; COLOR: #906700; MARGIN-RIGHT: 0cm; FONT-FAMILY: 宋体; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: jl; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto
+}
+P.imgsm {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #006fff; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: imgsm
+}
+LI.imgsm {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #006fff; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: imgsm
+}
+DIV.imgsm {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #006fff; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: imgsm
+}
+P.imgaut {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #006fff; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: imgaut
+}
+LI.imgaut {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #006fff; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: imgaut
+}
+DIV.imgaut {
+	FONT-SIZE: 12pt; MARGIN: 1.5pt 0cm 0pt; COLOR: #006fff; FONT-FAMILY: 宋体; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: imgaut
+}
+SPAN.ht1 {
+	FONT-WEIGHT: bold; mso-style-name: ht1; mso-ascii-font-family: 黑体; mso-fareast-font-family: 黑体
+}
+P.a {
+	FONT-SIZE: 22pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正小标宋简体; LETTER-SPACING: 16.95pt; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: 普通; mso-hansi-font-family: 宋体
+}
+LI.a {
+	FONT-SIZE: 22pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正小标宋简体; LETTER-SPACING: 16.95pt; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: 普通; mso-hansi-font-family: 宋体
+}
+DIV.a {
+	FONT-SIZE: 22pt; MARGIN: 1.5pt 0cm 0pt; COLOR: black; FONT-FAMILY: 方正小标宋简体; LETTER-SPACING: 16.95pt; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-bidi-font-family: "Times New Roman"; mso-style-name: 普通; mso-hansi-font-family: 宋体
+}
+SPAN.msoIns {
+	COLOR: teal; TEXT-DECORATION: underline; mso-style-name: ""; mso-style-type: export-only; text-underline: single
+}
+SPAN.msoDel {
+	COLOR: red; TEXT-DECORATION: line-through; mso-style-name: ""; mso-style-type: export-only
+}
+SPAN.msoChangeProp {
+	COLOR: black; mso-style-name: ""; mso-style-type: export-only
+}
+DIV.Section1 {
+	page: Section1
+}
+.tit {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #ae1609; LINE-HEIGHT: 160%; TEXT-DECORATION: none
+}
+.txt12 {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 130%; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.txt12r {
+	FONT-SIZE: 12px; COLOR: #666666; LINE-HEIGHT: 130%; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.txt12:hover {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 130%; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.rdate {
+	FONT-SIZE: 14px; COLOR: #999999; LINE-HEIGHT: 14pt; FONT-FAMILY: "Arial"; TEXT-DECORATION: none
+}
+.txt18 {
+	FONT-WEIGHT: bold; FONT-SIZE: 24px; COLOR: #003cc8; LINE-HEIGHT: 26px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.wht12 {
+	FONT-SIZE: 12px; COLOR: #ffffff; LINE-HEIGHT: 16px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.blue12_:link {
+	FONT-SIZE: 12px; COLOR: #0000ff; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+.blue12_:visited {
+	FONT-SIZE: 12px; COLOR: #0000ff; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+.blue12_:hover {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.blue14_:link {
+	FONT-SIZE: 14px; COLOR: #0000ff; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+.blue14_:visited {
+	FONT-SIZE: 14px; COLOR: #0000ff; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+.blue14_:hover {
+	FONT-SIZE: 14px; FONT-FAMILY: "宋体"; TEXT-DECORATION: underline
+}
+.blue14:link {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.blue14:visited {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.blue14:hover {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.blue14_e:link {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.blue14_e:visited {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.blue14_e:hover {
+	FONT-SIZE: 14px; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.day {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #000000; LINE-HEIGHT: 120%; FONT-FAMILY: "Verdana"
+}
+.box {
+	BORDER-RIGHT: #000000 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #000000 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: #000000 1px solid; WIDTH: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: #000000 1px solid; HEIGHT: 0px
+}
+.p1 {
+	FONT-SIZE: 16px; COLOR: #000000; LINE-HEIGHT: 180%; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.navy {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; FONT-SIZE: 12px; BORDER-LEFT: medium none; COLOR: #003cc8; LINE-HEIGHT: 16px; BORDER-BOTTOM: medium none; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.formt {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #ffffff
+}
+.btn {
+	FONT-SIZE: 10px; COLOR: #000000; LINE-HEIGHT: 150%; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.blue12 {
+	FONT-SIZE: 12px; COLOR: #0033cc; LINE-HEIGHT: 16px; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.copyright {
+	FONT-SIZE: 14px; COLOR: #1e1e1e; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.day {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "Verdana", "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.xg {
+	FONT-SIZE: 14px; COLOR: #023dc7; LINE-HEIGHT: 130%; TEXT-DECORATION: none
+}
+.redframe {
+	BORDER-RIGHT: #ff0000 2px solid; BORDER-TOP: black 0px solid; BORDER-LEFT: black 0px solid; BORDER-BOTTOM: black 0px solid; BACKGROUND-COLOR: #ffffff
+}
+.link_css {
+	FONT-SIZE: 12px; LINE-HEIGHT: 15px; FONT-FAMILY: "宋体"; LETTER-SPACING: 1px
+}
+.sred{
+	float:left;
+}
+</style>
+<style id="MyStyle">
+.content P, .content Table, .content TD{
+	TEXT-DECORATION: none
+}
+</style>
+<link href="../../css/detail1.css" rel="stylesheet" media="screen" type="text/css">
+<link href="../../css/print.css" rel="stylesheet" media="print" type="text/css">
+</head>
+
+<body>
+<div class="container" id="gkml">
+    <div class="header"><img src="../../images/detaillogo.jpg" width="784"></div>
+    <div class="main">
+        <!--div class="rowOfCurrentPosition">
+            当前位置：文体综合类 &gt; 通知公告公示123
+        </div-->
+		<div class="headInfo" style="position:relative;">
+		<table border="0" cellspacing="0" cellpadding="0" style="width:90%;" id="headContainer">
+		<tbody>
+			<tr>
+				<td colspan="2">
+					<table border="0" cellspacing="0" cellpadding="0">
+						<tbody><tr>
+							<td width="50%"><b>索 引 号:</b>000014349/1993-00041</td>
+							<td>
+								<b>主题分类:</b> 
+								<span id="lSubcat">对外事务\其他</span>
+							</td>
+						</tr>
+					</tbody></table>				
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table border="0" cellspacing="0" cellpadding="0">
+						<tbody><tr>
+							<td width="50%">
+								<b>发布机构:</b> 
+								<span>国务院办公厅</span>							
+							</td>
+							<td>
+								<b>发文日期:</b>
+								<span>1993年12月31日</span>								
+							</td>
+						</tr>
+					</tbody></table>				
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+<!--------------------							
+<div>
+								<div class=sred><B><B>名　　称:</B></div>
+								<div>国务院办公厅关于一些单位违反规定组织泰国“人妖”来华演出的通报</div>
+							</div>
+----->
+				           <table border="0" cellspacing="0" cellpadding="0">
+						<tbody><tr>
+							<td width="100%">
+                                                               <b>名　　称:</b> 
+								<span>国务院办公厅关于一些单位违反规定组织泰国“人妖”来华演出的通报</span>
+                                                        </td>
+					       </tr>
+					 </tbody></table>	
+                                </td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table border="0" cellspacing="0" cellpadding="0">
+						<tbody><tr>
+							<td width="50%">
+								<b>文　　号:</b> 
+								<span>国办发〔1993〕92号</span>					           
+							</td>
+							<td>
+								<b>主 题 词:</b> 
+								<span>涉外　通报</span>								
+							</td>
+						</tr>
+					</tbody></table>				
+				</td>
+			</tr>
+		</tbody>
+		</table>
+		</div>        
+		<object id="WebBrowser" classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2" height="0" width="0"></object> 
+        <div class="mainContainer">
+			
+			<div class="content" id="ContentRegion">				
+				<div class="govdata">
+				 <p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 22pt"><font style="FONT-SIZE: 12pt">　　　　　　　　　 </font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 22pt"><font style="FONT-SIZE: 12pt">　　　　　&nbsp;<font style="FONT-SIZE: 18pt">国务院办公厅关于一些单位违反规定</font></font></span></p>
+<p align="center"><span style="FONT-SIZE: 22pt"><font style="FONT-SIZE: 18pt">组织泰国“人妖”来华演出的通报</font></span></p>
+<p align="center"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt"></font></span>&nbsp;</p>
+<p align="center"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt" face="楷体_GB2312">国办发〔<span style="FONT-SIZE: 12pt">1993〕</span><span style="FONT-SIZE: 12pt">92</span>号</font></span></p>
+<p>&nbsp;</p>
+<p align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">各省、自治区、直辖市人民政府，国务院各有关部门：</font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">一九九二年十二月至一九九三年八月，广西壮族自治区和黑龙江、吉林等省的一些单位违反国家规定，邀请泰国“人妖”来华演出，借以牟利，造成很坏的社会影响。为严禁此类事情再次发生，经国务院领导同志同意，现通报如下：</font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">一、一九九二年十二月二十六日，柳州市对外友好服务处和桂林刘三姐艺术团邀请泰国“人妖”到柳州市演出。对此，柳州市文化局曾在十二月二十六日前经请示自治区文化厅通知该服务处，不能邀请泰国“人妖”来华；柳州市演出公司亦明确表示，不办好有关手续，不准以任何方式进行演出。该服务处置有关规定于不顾，仍然在一九九三年一月四日至七日连续安排“人妖”到柳州市的四个企业表演。同时，桂林刘三姐艺术团要求自治区文化厅准许“人妖”在柳州、桂林、南宁、北海等地演出。文化厅在请示自治区党委、政府和文化部后答复，泰国“人妖”表演格调低下，不同意以任何形式在广西演出。但是，柳州市对外友好服务处和桂林刘三姐艺术团继续于一九九三年一月十三日至十五日组织“人妖”在柳州宾馆歌舞厅表演。直到有关部门采取果断措施后，“人妖”才被带离广西。</font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">根据自治区人民政府的指示，柳州市、桂林市人民政府已对此作出处理：在进行通报批评的同时，免去林惠江的柳州市对外友好服务处外联部经理职务，责令其作深刻检查；没收组织“人妖”演出的全部非法收入上缴国库；对刘三姐艺术团的领导批评教育，责成其作出书面检查并没收该团的非法所得。文化部为此给刘三姐艺术团停止一年对外交流的处罚。</font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">二、一九九三年七月十日，大庆市中泰合资企业泰国皇家大酒店邀请泰国“人妖”来华。当地公安部门根据公安部的通报向该酒店经理明确指出，不允许“人妖”从事任何演出活动，也不准其在酒店谋职。但是，在酒店泰方董事长的安排下“人妖”仍然进行了表演，公安部门当即决定“人妖”限期离境。</font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><font style="FONT-SIZE: 12pt"><font style="FONT-SIZE: 12pt"><span style="FONT-SIZE: 12pt">七月二十一日</span><span style="FONT-SIZE: 12pt">，哈尔滨市中港合资企业丰泽园美食娱乐城邀请泰国“人妖”来华并进行了表演。公安部门责令停止其表演，限期离境。但这些“人妖”由长春市华港娱乐城接到长春市，于七月二十九日至八月五日安排演出七场，后经公安部门监视出境。</span></font></font></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">大庆、哈尔滨、长春市人民政府有关部门已对上述问题分别作了处理：给予大庆市泰国皇家大酒店及其主管部门通报批评，吊销酒店文化经营许可证，对酒店总经理、中方法人代表王秀清给予行政处分；责令哈尔滨市丰泽园美食娱乐城停业整顿并处以罚款，在全省范围内通报批评，其总经理、中方法人代表韩乃成作公开检查；没收长春市华港娱乐城的全部非法演出收入，给予总经理滕云、董事长任桂荣行政治安处罚，对长春市文化局市场管理处制止非法演出不力问题给予通报批评。</font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">“人妖”表演扭曲人性，格调低下，不属于文化交流项目，因而国家明确规定禁止邀请“人妖”来华演出。上述省区对邀请泰国“人妖”来华演出问题，已认真作了处理。今后，各地区、各部门对此类违反国家有关规定的活动，对有令不行、有禁不止的单位和个人都要及时严肃查处。为此，特提出以下要求：</font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">一、各地区、各部门都要教育干部和群众提高认识。组织“人妖”演出和其他这一类的不健康活动，与加强社会主义精神文明建设的原则是格格不入的，必须坚决制止并严格管理，不能允许以发展市场经济为名，为获取经济利益，做出违反有关规定，有损我国改革开放形象和人民利益的事情。各级领导和有关部门要严格把关，坚决防止这类问题再次发生。</font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">二、一切单位和个人不得以任何名义邀请、接待、组织“人妖”来华演出，不得为“人妖”表演提供场所。对违反者，一经发现，有关地区和部门要依照法律法规和党纪政纪及时严肃查处。</font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">三、我驻外使（领）馆要加强对签证的审批工作，及时掌握有关情况，不允许“人妖”以任何名义入境。</font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><font style="FONT-SIZE: 12pt">&nbsp;</font></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">　　　　　　　　　　　　　　　　　　　　　　　　国务院办公厅</font></span></p>
+<p style="TEXT-INDENT: 31.5pt" align="justify"><span style="FONT-SIZE: 16pt"><font style="FONT-SIZE: 12pt">　　　　　　　　　　　　　　　　　　　　　一九九三年十二月三十一日</font></span></p>
+				</div>
+				<div class="govdata">
+				 
+				</div>
+			</div>
+			
+			<div class="noprint" style="width:100%;overflow:hidden;border-bottom:1px solid gray;margin:8px 40px"></div>
+
+			<div class="noprint" style="text-align:center;margin:8px 0px">
+				<table style="font-size:12px">
+				 <!--<td>
+				  【字体：<a href="#" onclick="setSize('24px');" class="navy">大</a> <a href="#" onclick="setSize('16px');" class="navy">中</a> <a href="#" onclick="setSize('12px');" class="navy">小</a>】</td>
+				<td align="right" width="10"></td>-->
+				<tbody><tr><td width="60"><iframe name="vv" id="vv" src="/xxgk/pub/govpublic/sendMail.htm?title=国务院办公厅关于一些单位违反规定组织泰国“人妖”来华演出的通报&amp;url=https://www.gov.cn/xxgk/pub/govpublic/mrlm/201012/t20101213_63125.html" frameborder="0" height="50" width="60" scrolling="no"></iframe></td>
+				<td width="80"><a href="#" onclick="document.all.WebBrowser.ExecWB(4,1)"><img src="../../images/save.gif" border="0"></a></td>
+				<td width="80"><a href="#" onclick="javascript:window.print()"><img src="../../images/openpage.gif" border="0"></a></td>
+				<td width="80"><a href="#" onclick="window.close()"><img src="../../images/close.gif" border="0"></a></td>
+				</tr>
+				</tbody></table>
+			</div>
+		</div>
+        <div class="bottomLine"></div>
+    </div>
+    <div class="footer"></div>
+</div>
+<script>runDaubLogic();</script>
+<div style="display:none"><script type="text/javascript">document.write(unescape("%3Cscript src='//stat.www.gov.cn/webdig.js?z=1' type='text/javascript'%3E%3C/script%3E"));</script><script src="//stat.www.gov.cn/webdig.js?z=1" type="text/javascript"></script><script type="text/javascript">wd_paramtracker("_wdxid=000000000000000000000000000000000000000000")</script></div>
+</body></html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8"><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="content-language" content="utf-8">
+<meta name="robots" content="all">
+<meta name="author" content="">
+<meta name="copyright" content="">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta http-equiv="X-Ua-Compatible" content="IE=EmulateIE7">
+<link href="../../../tplimg/mulu.css" type="text/css" rel="stylesheet" rev="stylesheet" media="all">
+<title>环球人物</title>
+<!--[if !IE]><!-->
+<link href="../../../tplimg/hack.css" type="text/css" rel="stylesheet" rev="stylesheet" media="all">
+<!--<![endif]-->
+<!--[if IE 7]>
+<link href="../../../tplimg/hackie7.css" type="text/css" rel="stylesheet" rev="stylesheet" media="all" />
+<![endif]-->
+<script language="Javascript" src="../../../tplimg/prototype.js"></script>
+<script language="Javascript" src="../../../tplimg/mp.js"></script>
+<script language="Javascript" src="../../../tplimg/calendar2.js"></script>
+<script language="Javascript" src="../../../tplimg/new.js"></script>
+<script language="Javascript" src="../../../tplimg/range.js"></script>
+<script type="text/javascript">
+function nTabs(tabObj,obj){
+	var tabList = document.getElementById(tabObj).getElementsByTagName("li");
+	for(i=0; i <tabList.length; i++)
+	{
+		if (tabList[i].id == obj.id)
+		{
+			document.getElementById(tabObj+"_Title"+i).className = "active";
+    		document.getElementById(tabObj+"_Content"+i).style.display = "block";
+		}else{
+			document.getElementById(tabObj+"_Title"+i).className = "normal";
+			document.getElementById(tabObj+"_Content"+i).style.display = "none";
+		}
+	}
+}
+function CopyAll()
+
+{
+
+         var obj = document.getElementById("articleContent");
+
+         if(obj!=null){
+
+                   var content = obj.innerText;
+
+                   window.clipboardData.setData("Text",content);
+
+                   alert("复制成功");
+
+         }
+
+}
+
+function zoomIn() {
+ newZoom= parseInt(ozoom.style.zoom)+10+'%'
+ ozoom.style.zoom =newZoom;
+ }
+function zoomOut() {
+ newZoom= parseInt(ozoom.style.zoom)-10+'%'
+ ozoom.style.zoom =newZoom;
+ }
+
+</script>
+<script type="text/javascript">
+ var focus_width=260;
+ var focus_height=180;
+ var text_height=20;
+ var swf_height = focus_height+text_height;
+ var pics ="";
+ var links ="";
+ var texts ="";
+ var resCount=0;
+ function showArtPics()
+ {
+ if(resCount>0)
+ {
+ pics = pics.substring(0, pics.length-1);
+ links = links.substring(0, links.length-1);
+ texts = texts.substring(0, texts.length-1);
+ var content = "";
+ content += '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ focus_width +'" height="'+ swf_height +'">';
+ content += '<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="../../../tplimg/picflash.swf"><param name="quality" value="high"><param name="bgcolor" value="#ffffff">';
+ content += '<param name="menu" value="false"/><param name="wmode" value="opaque"/>';
+ content += '<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'">';
+ content += '<embed src="../../../tplimg/picflash.swf" wmode="opaque" FlashVars="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'" menu="false" bgcolor="#ffffff" quality="high" width="'+ focus_width +'" height="'+ focus_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />';
+ content += '<\/object>';
+ document.getElementById("showArtPicsDiv").innerHTML = content;
+ }
+}
+</script>
+</head>
+<body onload="initialize();initMPPage();showArtPics();"><span id="leveldiv" title="点击查看内容" style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; Z-INDEX: 100; LEFT: 233px; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 210px; CURSOR: hand; POSITION: absolute; TOP: 123px; HEIGHT: 34px; BORDER-RIGHT-WIDTH: 0px"></span>
+
+<!--头部-->
+<div class="head"> </div>
+<!--菜单-->
+<div class="menu"> </div>
+<!--内容部分-->
+<div class="content">
+  <!--左侧版面图部分-->
+  <div class="left_c">
+    <div class="ban">
+      <div>
+        <map name="PagePicMap"></map><img width="400" height="575" src="../../../page/2015-12/06/16/page_b.jpg" border="0" usemap="#PagePicMap">
+      </div>
+    </div>
+     <div class="tool">
+      <input onclick="viewOL_RMP()" type="image" src="../../../tplimg/button1.gif" name="">&nbsp;<input onclick="openRMP()" type="image" src="../../../tplimg/button2.gif" name="">
+    </div>
+    <div class="title">
+      <div>友情链接</div>
+    </div>
+    <div class="pai f_link"></div>
+  </div>
+  <!--右侧目录部分-->
+  <div class="right_c">
+    <div class="head_c"> <span onmouseover="document.getElementById('rmrbbx').style.display = 'block';" onmouseout="document.getElementById('rmrbbx').style.display = 'none';">日&nbsp;报<img src="../../../tplimg/ico10.gif" border="0" alt=""></span><span onmouseover="document.getElementById('rmrbbx1').style.display = 'block';" onmouseout="document.getElementById('rmrbbx1').style.display = 'none';">周&nbsp;报<img src="../../../tplimg/ico10.gif" border="0" alt=""></span><span onmouseover="document.getElementById('rmrbbx2').style.display = 'block';" onmouseout="document.getElementById('rmrbbx2').style.display = 'none';">杂&nbsp;志<img src="../../../tplimg/ico10.gif" border="0" alt=""></span> <a href="http://www.people.com.cn" target="_blank"><img src="../../../tplimg/logo.jpg" style="float:right;margin:-12px 15px 0 0;" border="0" alt="人民网"></a></div>
+    <div style="margin:-30px 0 8px 0;height:18px;">
+      </div>
+    <div class="menu_c">往期回顾 <a onclick="autoShowDate();" style="cursor:hand;" title="鼠标点击，显示日历牌"><img src="../../../tplimg/ico1.gif" border="0" alt=""></a>&nbsp;
+  &nbsp;<img src="../../../tplimg/ico2.gif" border="0" alt=""><a href="http://search.people.com.cn/rmw/GB/bkzzsearch/index.jsp" target="_blank">分类检索</a>&nbsp;<span style="float:right;"><a href="node_1137.htm">返回目录</a></span></div>
+    <!--目录与标题-->
+    <div class="list_t">
+      <div class="text_c">
+        
+<h3>母亲精明，继父变性，女儿个个引关注</h3>
+<h1>卡戴珊家族，生活就是一部戏</h1>
+<h2></h2>
+
+        <div class="lai">
+          □ 本刊记者  余驰疆
+          《
+          环球人物
+          》（<span style="font-weight:400;color:#2E9BC6;float:none;" id="periodName">2015年第32期</span>）</div>
+        <div class="c_c">
+          
+          <div id="ozoom" style="zoom:100%;">
+            <div id="showArtPicsDiv" align="center"></div>
+            <script language="javascript">
+							/*	if(picResCount>0){
+									document.getElementById("picres").style.display="block";
+									document.write("<br />");
+								}*/
+ 			  				</script>
+            <!--enpcontent--><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;感恩节已过，圣诞节未至，12月初对美国人来说，是一段略显无聊的时光。往年此时，人们会把目光聚集在卡戴珊家族一年一度的年历拍摄上。卡戴珊家族年历每年都有不同主题，比如2013年是复古游戏厅场景，2012年是全家身穿白色套装，举香槟庆祝。但今年，人们显然要大失所望了。前不久，卡戴珊家族唯一的男丁小罗伯特?卡戴珊说，除非家族给他25万美元“出场费”，否则就缺席今年的年历拍摄。人们猜测，小罗伯特大概是眼红家族人纷纷登上大牌杂志，赚得盆满钵满，唯独他只能寄居在姐姐科勒家里，渐渐发胖。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;作为全美最著名的“名媛家族”，卡戴珊一家的成员不仅自个儿赚钱、组团赚钱，还能按照不同的排列组合来赚钱。据统计，卡戴珊家族8名成员，总年收入可达2亿美元。这个数字虽然和商业大佬们没法比，但这家人赚钱从来不需要成本，他们唯一要做的就是展现自己的日常生活，而美国民众则会甘之如饴，为这个奇葩家族掏钱。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;父亲曾是辛普森的律师</p><p>&nbsp;&nbsp;&nbsp;&nbsp;卡戴珊家族是典型的阴盛阳衰，5个女儿都颇有能耐，在时尚圈、体育圈、娱乐圈备受关注，这要归功于母亲，也是家族的大家长——克丽丝。克丽丝曾是一名演员，今年60岁的她风韵犹存。虽然从小经历了父母离异、家族破产，但克丽丝深谙：“好皮囊可以改变命运，比如嫁个好男人。”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;1978年，23岁的克丽丝嫁给了美国名律师兼商人罗伯特?卡戴珊。两人一起生活了13年，共同抚育了3个女儿和1个儿子，即便是1991年离婚后他们的关系一直都不错。罗伯特可谓全才，当律师、开音乐公司，还有一堆体育界铁哥们，其中就包括了上世纪70年代最具价值的橄榄球员O?J?辛普森。1994年，辛普森被指控杀死妻子妮克尔?布朗，在相对充足的证据面前，罗伯特和其团队竟扭转了局势，最终让辛普森无罪释放。这场判决争议巨大，超过一半的美国人收看了电视直播。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;眼看前夫一战成名，克丽丝决定抓住这个露脸的机会，她开始有意培养3个女儿：大女儿考特尼长得甜美，就送去学表演；二女儿金喜欢音乐，就让她去罗伯特的音乐公司打工，找知名制作人给她写歌；三女儿科勒能说会道，就让她从主持家庭聚会开始，培养社交特长。渐渐地，卡戴珊家的女儿在洛杉矶闯出名气，她们小小年纪就和体育明星传绯闻，还时不时组织球队的欢迎会、庆功宴等等。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;克丽丝和她女儿们的名字都是K打头的，K代表国王，或许她是希望女儿们在娱乐圈闪耀不败如女王吧。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;除了培养女儿，克丽丝也不忘给自己找个伴。与罗伯特离婚后，克丽丝很快和前美国十项全能奥运冠军布鲁斯?詹纳结婚。婚后，克丽丝一面清算着与前夫的财产，一面开始了新一轮赚钱的打算。&nbsp;“我此前就帮罗伯特投资，所以我们的经济蒸蒸日上。离婚后，我更学会了如何靠自己赚钱。所以，嫁得好还得做得好。”</p><p>&nbsp;&nbsp;&nbsp;&nbsp;事实上，在克丽丝的经营下，卡戴珊家族的任何东西都能转化成金钱，比如考特尼孩子的照片和科勒婚礼的独家报道，都以30万美元的价格卖给了《通俗小报》。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;高情商姐妹团</p><p>&nbsp;&nbsp;&nbsp;&nbsp;2003年，罗伯特因癌症去世，克丽丝全权接管卡戴珊家族的话语权，将女儿们打造成大明星的节奏也更快了。2004年，她安排25岁的考特尼参加了一档名为《肮脏富人》的真人秀节目。节目里，10名“富二代”被拖拉机拉到一个农场，终日与牛为伴，以清理牛粪为己任。在节目里，考特尼表现得聪慧、勤勉，一扫人们对大小姐的刻板印象，受到观众喜爱。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;大女儿试水成功后，克丽丝开始动员全家上真人秀。2007年，一档名为《与卡戴珊们同行》的真人秀节目开播，讲得就是卡戴珊姐弟四人和克丽丝、布鲁斯?詹纳以及他们的两个女儿的故事，由克丽丝担任制片人。卡戴珊家的真人秀没有嘉宾，没有剧本，更没有做任务，纯粹就是一部日常生活记录：一家人去拉斯维加斯玩，考特尼和母亲闹矛盾；金和前来探班的男友、NBA球星克里斯?亨弗里斯秀恩爱；考特尼和科勒联合“排挤”金，指责她太高调……这种婆妈的剧情一播就是8年，每周的平均观看人次高达350万，成为近年来美国最受欢迎的真人秀节目。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;另一个让卡戴珊姐妹大火的，是她们迥异的性格。大姐考特尼聪明隐忍，控制欲极强，被称为“腹黑大姐”；二姐金靠着凹凸有致的身材迷倒好莱坞众多型男，且颇具商业头脑，有自己的服装和香水品牌；三妹科勒是脾气火爆的直肠子，和NBA明星奥多姆、哈登的三角恋吸睛无数。每到真人秀播出时，美国网上到处都有“你是哪一个卡戴珊姐妹”的性格测试题。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;都说明星名气越大，架子越大，但卡戴珊姐妹却截然相反，她们是出了名的“好说话”，尤其是金?卡戴珊，高情商让她成为近年来最受关注的名媛。在金成名以前，名媛的第一把交椅非帕丽斯?希尔顿莫属，当时，金还只是希尔顿身边的小跟班，2007年，金与前男友的私密视频流出，瞬间被推上风口浪尖。聪明的金反而利用这个机会增加曝光，和媒体、狗仔打交道，很快就超过了希尔顿，成为最受关注的富家千金。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;与希尔顿一样，金备受争议困扰。她被批评生活不检点，甚至有网站统计了2000年后她的10位男友，还绘声绘色地描述他们的亲密往事；圈内人则讽刺她的身材和长相，美剧《破产姐妹》数次称她为“大屁股的肯尼迪家族”。不过，金表现得非常淡定，甚至用自黑来反击：她和网友一起嘲笑自己的臀部太大，还主动请缨客串《破产姐妹》，当面被女主角“骂”个够。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;2014年，金和著名说唱歌手坎耶?韦斯特完婚，“世纪婚礼”羡煞无数好莱坞女星。不久，新婚的两人就登上了美国版《Vogue》封面，难怪网友评价身高1.58米的金?卡戴珊是“小个子，大心机”。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;最近，考特尼一心经营时尚公司，金怀孕要生第二胎，科勒忙着照顾生重病的前夫奥多姆。于是，卡戴珊家族攻占版面的重任，就到了两个小妹妹肯达尔?詹纳和凯莉?詹纳身上。她们虽然是克丽丝与布鲁斯的女儿，但通过《与卡戴珊们同行》，也与卡戴珊这个姓氏紧紧地绑定在了一起，可算是当今美国最红的青年偶像。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;肯达尔今年20岁，她还在读高中时，就对克丽丝表达了自己要做模特的想法，克丽丝立马送她去培训、面试——这一切都展现在真人秀节目里。2012年，17岁的肯达尔登上《Vogue》少女版封面，进军时尚圈；去年，她开始在时装周露面，立马走上了香奈儿、纪梵希的T台；今年，她成为内衣品牌“维多利亚的秘密”特约模特，蹿红速度当仁不让。而凯莉更是话题不断，17岁不到就去做丰唇手术，引发热议。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;继父一直有一颗“少女心”</p><p>&nbsp;&nbsp;&nbsp;&nbsp;抛开精彩纷呈的女儿们不说，其实，今年卡戴珊家族的最大新闻，来自于布鲁斯?詹纳。身为前奥运冠军，布鲁斯一直有一颗“少女心”，从5岁起就知道自己想做个女人。今年4月，布鲁斯完成了变性手术，更名为凯瑟琳（昵称凯特），成为一个完全的女性。知名杂志《名利场》为其做了一篇长达20页的封面文章，讲述他的变性之路，阅读人数高达2700万。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;在这个阴盛阳衰的家庭中，布鲁斯很少会吐露心事，因此当家人得知他想变性时都难以接受，克丽丝在去年与他协议离婚。“全家大概只有金是最支持我的。有一次，我穿着女装被她看见了，她什么也没说就默默退出去，回来也没有提一句。”</p><p>&nbsp;&nbsp;&nbsp;&nbsp;前不久，布鲁斯宣布独立完成8集纪录片《变性之路》的制作，还将推出真人秀《我是凯特》，而布鲁斯的身价也将高达3000万，超过原本家族最值钱的金。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;虽然继父变成了女性，但这并不影响卡戴珊家族团结一致，继续疯狂圈钱。现在，《与卡戴珊们同行》第十一季正在热播，而金怀孕生子、肯达尔走维秘、布鲁斯变性这些噱头更让收视一路长红，据说他们家的故事连总统奥巴马都一清二楚。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;这部现实版“楚门的世界”，就这样长期以来一直在刺激着美国人的神经，攻占了八卦周刊，仿佛永远不会落幕……</p><p></p><!--/enpcontent-->
+<input type="checkbox" value="0" name="titlecheckbox" sourceid="<Source>SourcePh</Source>" style="display:none">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--工具条-->
+    <div class="tool_t">
+      <a href="node_1137.htm">返回目录</a>
+&nbsp;&nbsp;&nbsp;<a href="#" onclick="zoomIn();"><img src="../../../tplimg/ico5.gif" border="0" alt="">放大</a><a href="#" onclick="zoomOut();"><img src="../../../tplimg/ico6.gif" border="0" alt="">缩小</a><a href="#" onclick="CopyAll();"><img src="../../../tplimg/ico7.gif" border="0" alt="">全文复制</a>&nbsp;&nbsp;&nbsp;
+      <a class="preart" href="content_1667672.htm"><img src="../../../tplimg/ico8.gif" border="0"> 上一篇</a>&nbsp;&nbsp;<a class="preart" href="content_1667676.htm">下一篇 <img src="../../../tplimg/ico9.gif" border="0"></a>
+    </div>
+    <!-- 以下是供复制全文用 -->
+    <div style="display:none" id="articleContent">
+      
+			<!--enpcontent--><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;感恩节已过，圣诞节未至，12月初对美国人来说，是一段略显无聊的时光。往年此时，人们会把目光聚集在卡戴珊家族一年一度的年历拍摄上。卡戴珊家族年历每年都有不同主题，比如2013年是复古游戏厅场景，2012年是全家身穿白色套装，举香槟庆祝。但今年，人们显然要大失所望了。前不久，卡戴珊家族唯一的男丁小罗伯特?卡戴珊说，除非家族给他25万美元“出场费”，否则就缺席今年的年历拍摄。人们猜测，小罗伯特大概是眼红家族人纷纷登上大牌杂志，赚得盆满钵满，唯独他只能寄居在姐姐科勒家里，渐渐发胖。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;作为全美最著名的“名媛家族”，卡戴珊一家的成员不仅自个儿赚钱、组团赚钱，还能按照不同的排列组合来赚钱。据统计，卡戴珊家族8名成员，总年收入可达2亿美元。这个数字虽然和商业大佬们没法比，但这家人赚钱从来不需要成本，他们唯一要做的就是展现自己的日常生活，而美国民众则会甘之如饴，为这个奇葩家族掏钱。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;父亲曾是辛普森的律师</p><p>&nbsp;&nbsp;&nbsp;&nbsp;卡戴珊家族是典型的阴盛阳衰，5个女儿都颇有能耐，在时尚圈、体育圈、娱乐圈备受关注，这要归功于母亲，也是家族的大家长——克丽丝。克丽丝曾是一名演员，今年60岁的她风韵犹存。虽然从小经历了父母离异、家族破产，但克丽丝深谙：“好皮囊可以改变命运，比如嫁个好男人。”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;1978年，23岁的克丽丝嫁给了美国名律师兼商人罗伯特?卡戴珊。两人一起生活了13年，共同抚育了3个女儿和1个儿子，即便是1991年离婚后他们的关系一直都不错。罗伯特可谓全才，当律师、开音乐公司，还有一堆体育界铁哥们，其中就包括了上世纪70年代最具价值的橄榄球员O?J?辛普森。1994年，辛普森被指控杀死妻子妮克尔?布朗，在相对充足的证据面前，罗伯特和其团队竟扭转了局势，最终让辛普森无罪释放。这场判决争议巨大，超过一半的美国人收看了电视直播。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;眼看前夫一战成名，克丽丝决定抓住这个露脸的机会，她开始有意培养3个女儿：大女儿考特尼长得甜美，就送去学表演；二女儿金喜欢音乐，就让她去罗伯特的音乐公司打工，找知名制作人给她写歌；三女儿科勒能说会道，就让她从主持家庭聚会开始，培养社交特长。渐渐地，卡戴珊家的女儿在洛杉矶闯出名气，她们小小年纪就和体育明星传绯闻，还时不时组织球队的欢迎会、庆功宴等等。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;克丽丝和她女儿们的名字都是K打头的，K代表国王，或许她是希望女儿们在娱乐圈闪耀不败如女王吧。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;除了培养女儿，克丽丝也不忘给自己找个伴。与罗伯特离婚后，克丽丝很快和前美国十项全能奥运冠军布鲁斯?詹纳结婚。婚后，克丽丝一面清算着与前夫的财产，一面开始了新一轮赚钱的打算。&nbsp;“我此前就帮罗伯特投资，所以我们的经济蒸蒸日上。离婚后，我更学会了如何靠自己赚钱。所以，嫁得好还得做得好。”</p><p>&nbsp;&nbsp;&nbsp;&nbsp;事实上，在克丽丝的经营下，卡戴珊家族的任何东西都能转化成金钱，比如考特尼孩子的照片和科勒婚礼的独家报道，都以30万美元的价格卖给了《通俗小报》。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;高情商姐妹团</p><p>&nbsp;&nbsp;&nbsp;&nbsp;2003年，罗伯特因癌症去世，克丽丝全权接管卡戴珊家族的话语权，将女儿们打造成大明星的节奏也更快了。2004年，她安排25岁的考特尼参加了一档名为《肮脏富人》的真人秀节目。节目里，10名“富二代”被拖拉机拉到一个农场，终日与牛为伴，以清理牛粪为己任。在节目里，考特尼表现得聪慧、勤勉，一扫人们对大小姐的刻板印象，受到观众喜爱。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;大女儿试水成功后，克丽丝开始动员全家上真人秀。2007年，一档名为《与卡戴珊们同行》的真人秀节目开播，讲得就是卡戴珊姐弟四人和克丽丝、布鲁斯?詹纳以及他们的两个女儿的故事，由克丽丝担任制片人。卡戴珊家的真人秀没有嘉宾，没有剧本，更没有做任务，纯粹就是一部日常生活记录：一家人去拉斯维加斯玩，考特尼和母亲闹矛盾；金和前来探班的男友、NBA球星克里斯?亨弗里斯秀恩爱；考特尼和科勒联合“排挤”金，指责她太高调……这种婆妈的剧情一播就是8年，每周的平均观看人次高达350万，成为近年来美国最受欢迎的真人秀节目。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;另一个让卡戴珊姐妹大火的，是她们迥异的性格。大姐考特尼聪明隐忍，控制欲极强，被称为“腹黑大姐”；二姐金靠着凹凸有致的身材迷倒好莱坞众多型男，且颇具商业头脑，有自己的服装和香水品牌；三妹科勒是脾气火爆的直肠子，和NBA明星奥多姆、哈登的三角恋吸睛无数。每到真人秀播出时，美国网上到处都有“你是哪一个卡戴珊姐妹”的性格测试题。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;都说明星名气越大，架子越大，但卡戴珊姐妹却截然相反，她们是出了名的“好说话”，尤其是金?卡戴珊，高情商让她成为近年来最受关注的名媛。在金成名以前，名媛的第一把交椅非帕丽斯?希尔顿莫属，当时，金还只是希尔顿身边的小跟班，2007年，金与前男友的私密视频流出，瞬间被推上风口浪尖。聪明的金反而利用这个机会增加曝光，和媒体、狗仔打交道，很快就超过了希尔顿，成为最受关注的富家千金。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;与希尔顿一样，金备受争议困扰。她被批评生活不检点，甚至有网站统计了2000年后她的10位男友，还绘声绘色地描述他们的亲密往事；圈内人则讽刺她的身材和长相，美剧《破产姐妹》数次称她为“大屁股的肯尼迪家族”。不过，金表现得非常淡定，甚至用自黑来反击：她和网友一起嘲笑自己的臀部太大，还主动请缨客串《破产姐妹》，当面被女主角“骂”个够。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;2014年，金和著名说唱歌手坎耶?韦斯特完婚，“世纪婚礼”羡煞无数好莱坞女星。不久，新婚的两人就登上了美国版《Vogue》封面，难怪网友评价身高1.58米的金?卡戴珊是“小个子，大心机”。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;最近，考特尼一心经营时尚公司，金怀孕要生第二胎，科勒忙着照顾生重病的前夫奥多姆。于是，卡戴珊家族攻占版面的重任，就到了两个小妹妹肯达尔?詹纳和凯莉?詹纳身上。她们虽然是克丽丝与布鲁斯的女儿，但通过《与卡戴珊们同行》，也与卡戴珊这个姓氏紧紧地绑定在了一起，可算是当今美国最红的青年偶像。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;肯达尔今年20岁，她还在读高中时，就对克丽丝表达了自己要做模特的想法，克丽丝立马送她去培训、面试——这一切都展现在真人秀节目里。2012年，17岁的肯达尔登上《Vogue》少女版封面，进军时尚圈；去年，她开始在时装周露面，立马走上了香奈儿、纪梵希的T台；今年，她成为内衣品牌“维多利亚的秘密”特约模特，蹿红速度当仁不让。而凯莉更是话题不断，17岁不到就去做丰唇手术，引发热议。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;继父一直有一颗“少女心”</p><p>&nbsp;&nbsp;&nbsp;&nbsp;抛开精彩纷呈的女儿们不说，其实，今年卡戴珊家族的最大新闻，来自于布鲁斯?詹纳。身为前奥运冠军，布鲁斯一直有一颗“少女心”，从5岁起就知道自己想做个女人。今年4月，布鲁斯完成了变性手术，更名为凯瑟琳（昵称凯特），成为一个完全的女性。知名杂志《名利场》为其做了一篇长达20页的封面文章，讲述他的变性之路，阅读人数高达2700万。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;在这个阴盛阳衰的家庭中，布鲁斯很少会吐露心事，因此当家人得知他想变性时都难以接受，克丽丝在去年与他协议离婚。“全家大概只有金是最支持我的。有一次，我穿着女装被她看见了，她什么也没说就默默退出去，回来也没有提一句。”</p><p>&nbsp;&nbsp;&nbsp;&nbsp;前不久，布鲁斯宣布独立完成8集纪录片《变性之路》的制作，还将推出真人秀《我是凯特》，而布鲁斯的身价也将高达3000万，超过原本家族最值钱的金。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;虽然继父变成了女性，但这并不影响卡戴珊家族团结一致，继续疯狂圈钱。现在，《与卡戴珊们同行》第十一季正在热播，而金怀孕生子、肯达尔走维秘、布鲁斯变性这些噱头更让收视一路长红，据说他们家的故事连总统奥巴马都一清二楚。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;这部现实版“楚门的世界”，就这样长期以来一直在刺激着美国人的神经，攻占了八卦周刊，仿佛永远不会落幕……</p><p></p><!--/enpcontent-->
+			
+    </div>
+    <!--结束工具条-->
+  </div>
+</div>
+<!--结束内容部分-->
+<!--版权部分-->
+<div class="copyright">	<p class="p1"><span class="red">人 民 网 版 权 所 有 ，未 经 书 面 授 权 禁 止 使 用</span><br>
+        <span class="black">Copyright © 1997-2008 by www.people.com.cn.
+        all rights reserved</span><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=0102000101300040" target="_blank"><img src="../../../tplimg/gongshang.gif" width="40" style="float:right;margin:-45px 0px 0 10px;" height="48" alt="" align="middle" border="0"></a></p>
+        </div>
+    <!--日报-->
+<div id="rmrbbx" style="display:none;position:absolute;top:50px;left:50%;margin-left:-40px;" onmouseover="document.getElementById('rmrbbx').style.display = 'block';" onmouseout="document.getElementById('rmrbbx').style.display = 'none';">
+  <table width="100" border="0" cellpadding="0" cellspacing="1" bordercolor="#007CD2" bgcolor="#007CD2">
+    <tbody><tr>
+      <td bgcolor="#D8EFFF" style="padding: 3px;"><table width="100" border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td bgcolor="#FFFFFF" style="padding: 1px;" valign="top"><table width="100" border="0" cellpadding="0" cellspacing="0" height="23">
+            <tbody><tr>
+              <td width="99" bgcolor="#ffffff" align="center" valign="top"><table width="85" border="0" cellpadding="0" cellspacing="0" style="margin: 5px 0;">
+                <tbody><tr>
+                 <td height="20" align="left" class="fontstyle"><a href="../../../../rmrb/paperindex.htm" target="_blank">人民日报</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+                <tr>
+                  <td height="20" align="left" class="fontstyle"><a href="../../../../rmrbhwb/paperindex.htm" target="_blank">人民日报海外版</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+                <tr>
+                  <td height="20" align="left" class="fontstyle"><a href="http://www.huanqiu.com/" target="_blank">环球时报</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+                <tr>
+                  <td height="20" align="left" class="fontstyle"><a href="http://epaper.stcn.com/" target="_blank">证券时报</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+              </tbody></table></td>
+            </tr>
+          </tbody></table></td>
+        </tr>
+      </tbody></table></td>
+    </tr>
+  </tbody></table>
+</div>
+<!--结束日报-->
+<!--周报-->
+<div id="rmrbbx1" style="display:none;position:absolute;top:50px;left:50%;margin-left:75px;" onmouseover="document.getElementById('rmrbbx1').style.display = 'block';" onmouseout="document.getElementById('rmrbbx1').style.display = 'none';">
+  <table width="100" border="0" cellpadding="0" cellspacing="1" bordercolor="#007CD2" bgcolor="#007CD2">
+    <tbody><tr>
+      <td bgcolor="#D8EFFF" style="padding: 3px;"><table width="100" border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td bgcolor="#FFFFFF" style="padding: 1px;" valign="top"><table width="100" border="0" cellpadding="0" cellspacing="0" height="23">
+            <tbody><tr>
+              <td width="99" bgcolor="#ffffff" align="center" valign="top"><table width="85" border="0" cellpadding="0" cellspacing="0" style="margin: 5px 0;">
+                <tbody><tr>
+                  <td height="20" align="left" class="fontstyle"><a href="../../../../gjjrb/paperindex.htm" target="_blank">国际金融报</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+                <tr>
+          <td height="20" align="left" class="fontstyle"><a href="../../../../zgnyb/paperindex.htm" target="_blank">中国能源报</a></td>
+        </tr>             
+                <tr>
+          <td height="1"></td>
+                </tr>
+        <tr>
+                    <td height="20" align="left" class="fontstyle"><a href="../../../../smsb/paperindex.htm" target="_blank">生命时报</a></td>
+                </tr>
+                <tr>
+                    <td height="1"></td>
+                </tr>
+                <tr>
+                    <td height="20" align="left" class="fontstyle"><a href="../../../../jksb/paperindex.htm" target="_blank">健康时报</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+                <tr>
+                  <td height="20" align="left" class="fontstyle"><a href="../../../../fcyym/paperindex.htm" target="_blank">讽刺与幽默</a></td>
+                </tr>
+                <tr>
+          <td height="1"></td>
+                </tr>
+                <tr>
+                  <td height="20" align="left" class="fontstyle"><a href="../../../../zgcsb/paperindex.htm" target="_blank">中国城市报</a></td>
+                </tr>
+                <tr>
+          <td height="1"></td>
+                </tr>
+
+              </tbody></table></td>
+            </tr>
+          </tbody></table></td>
+        </tr>
+      </tbody></table></td>
+    </tr>
+  </tbody></table>
+</div>
+<!--结束周报-->
+<div id="rmrbbx2" style="display:none;position:absolute;top:50px;left:50%;margin-left:190px;" onmouseover="document.getElementById('rmrbbx2').style.display = 'block';" onmouseout="document.getElementById('rmrbbx2').style.display = 'none';">
+  <table width="110" border="0" cellpadding="0" cellspacing="1" bordercolor="#007CD2" bgcolor="#007CD2">
+    <tbody><tr>
+      <td bgcolor="#D8EFFF" style="padding: 3px;"><table width="110" border="0" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+          <td bgcolor="#FFFFFF" style="padding: 1px;" valign="top"><table width="115" border="0" cellpadding="0" cellspacing="0" height="23">
+            <tbody><tr>
+              <td width="115" bgcolor="#ffffff" align="center" valign="top"><table width="115" border="0" cellpadding="0" cellspacing="0" style="margin: 5px 0 0 3px;">
+                <tbody><tr>
+                  <td height="20" align="left" class="fontstyle"><a href="../../../../xwzx/paperindex.htm" target="_blank">新闻战线</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+                <tr>
+                  <td height="20" align="left" class="fontstyle"><a href="../../../../hqrw/paperindex.htm" target="_blank">环球人物</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+                <tr>
+                  <td height="20" align="left" class="fontstyle"><a href="../../../../rmlt/paperindex.htm" target="_blank">人民论坛</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+                <tr>
+                  <td height="20" align="left" class="fontstyle"><a href="../../../../rmzk/paperindex.htm" target="_blank">人民周刊</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+                <tr>
+                  <td height="20" align="left" class="fontstyle"><a href="../../../../zgjjzk/paperindex.htm" target="_blank">中国经济周刊</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+                <tr>
+                  <td height="20" align="left" class="fontstyle"><a href="../../../../xaq/paperindex.htm" target="_blank">新安全</a></td>
+                </tr>
+                <tr>
+                  <td height="1"></td>
+                </tr>
+                <tr>
+                   <td height="20" align="left" class="fontstyle"><a href="../../../../mszk/paperindex.htm" target="_blank">民生周刊</a></td>
+                </tr>
+                <tr>
+                   <td height="1"></td>
+                </tr>
+                <tr>
+                   <td height="20" align="left" class="fontstyle"><a href="http://history.people.com.cn/GB/198819/index.html" target="_blank">国家人文历史</a></td>
+                </tr>
+                <tr>
+                   <td height="1"></td>
+                </tr>
+                <tr>
+                   <td height="20" align="left" class="fontstyle"><a href="../../../../zgby/paperindex.htm" target="_blank">中国报业</a></td>
+                </tr>
+                <tr>
+                   <td height="1"></td>
+                </tr>
+              </tbody></table></td>
+            </tr>
+          </tbody></table></td>
+        </tr>
+      </tbody></table></td>
+    </tr>
+  </tbody></table>
+</div>
+<!--结束杂志-->
+<script language="JavaScript">
+<!--
+document.write("<div id=detail style=position:absolute;width:300px;></div>");
+//-->
+</script><div id="detail" style="position:absolute;width:300px;"></div>
+  <!-------rqdh版面导航------>
+    <div id="daydh" style="display:none; position:absolute; left:50%;margin-left:-100px; top:110px; filter:alpha(opacity=90);" onmouseover="document.getElementById('daydh').style.display='block';">
+      <form name="CLD" style="padding:0px;margin:0px;">
+        <table width="210" border="0" cellpadding="0" cellspacing="1" bordercolor="#007CD2" bgcolor="#007CD2">
+          <tbody><tr>
+            <td bgcolor="#D8EFFF" style="padding: 3px;"><table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" bgcolor="#D8EFFF">
+              <tbody><tr>
+                <td><table width="100%" align="center" border="0" cellpadding="1" cellspacing="1">
+                  <tbody><tr class="default" align="center">
+                    <td height="15" colspan="7" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="2" cellspacing="0">
+                      <tbody><tr align="center">
+                        <td align="left" nowrap=""><img src="../../../tplimg/d1.gif" width="7" height="11" style="cursor:hand;" onclick="turnpage(SY,0)"></td>
+                        <td><select class="jumpmenu" onchange="changeMPCld()" name="SY">
+                          <script language="JavaScript">
+					for(i=2006;i<2051;i++)
+					document.write('<option>'+i+'</option>')
+        			</script><option>2006</option><option>2007</option><option>2008</option><option>2009</option><option>2010</option><option>2011</option><option>2012</option><option>2013</option><option>2014</option><option>2015</option><option>2016</option><option>2017</option><option>2018</option><option>2019</option><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option><option>2030</option><option>2031</option><option>2032</option><option>2033</option><option>2034</option><option>2035</option><option>2036</option><option>2037</option><option>2038</option><option>2039</option><option>2040</option><option>2041</option><option>2042</option><option>2043</option><option>2044</option><option>2045</option><option>2046</option><option>2047</option><option>2048</option><option>2049</option><option>2050</option>
+                        </select>
+                        </td>
+                        <td><img src="../../../tplimg/d.gif" width="7" height="11" style="cursor:hand;" onclick="turnpage(SY,1)"></td>
+                        <td align="center" nowrap=""><img src="../../../tplimg/d1.gif" width="7" height="11" style="cursor:hand;" onclick="turnpage(SM,0)"></td>
+                        <td><select class="jumpmenu" onchange="changeMPCld()" name="SM">
+                          <script language="JavaScript">
+				<!--
+					for(i=1;i<13;i++) document.write('<option>'+i+'</option>')
+				//-->
+        			</script><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+                        </select>
+                        </td>
+                        <td><img src="../../../tplimg/d.gif" width="7" height="11" style="cursor:hand;" onclick="turnpage(SM,1)"></td>
+                        <td align="right" nowrap=""><strong><font id="GZ" fface="Arial, Helvetica, sans-serif"></font></strong></td>
+                      </tr>
+                    </tbody></table></td>
+                  </tr>
+                  <tr align="middle" bgcolor="#FFFFFF" class="default">
+                    <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">日</font></b></td>
+                    <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">一</font></b></td>
+                    <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">二</font></b></td>
+                    <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">三</font></b></td>
+                    <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">四</font></b></td>
+                    <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">五</font></b></td>
+                    <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">六</font></b> </td>
+                  </tr>
+                  <script language="JavaScript">
+		<!--
+			var gNum;
+			for(i=0;i<6;i++)
+			{
+				document.write('<tr align=center>');
+				for(j=0;j<7;j++)
+				{
+					gNum = i*7+j;
+					document.write('<td  bgcolor="#FFFFFF" class="default" align=center id="GD' + gNum +'" style="cursor: default;" width="14%"><a href="" id="CD' + gNum + '"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onMouseOver="mOvr(' + gNum +')" onMouseOut="mOut()" id="SD' + gNum +'"');
+					document.write('></font></span></a><br><font id="LD' + gNum + '" size=2 class=pt9 style=display:none></font></td>');
+				}
+				document.write('</tr>');
+			}
+		//-->
+        	</script><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD0" style="cursor: default;" width="14%"><a href="" id="CD0"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(0)" onmouseout="mOut()" id="SD0" class=""></font></span></a><br><font id="LD0" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD1" style="cursor: default;" width="14%"><a href="" id="CD1"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(1)" onmouseout="mOut()" id="SD1" class=""></font></span></a><br><font id="LD1" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD2" style="cursor: default;" width="14%"><a href="#" id="CD2"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(2)" onmouseout="mOut()" id="SD2" class="" color="#DFDEDB">1</font></span></a><br><font id="LD2" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD3" style="cursor: default;" width="14%"><a href="#" id="CD3"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(3)" onmouseout="mOut()" id="SD3" class="" color="#DFDEDB">2</font></span></a><br><font id="LD3" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD4" style="cursor: default;" width="14%"><a href="#" id="CD4"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(4)" onmouseout="mOut()" id="SD4" class="" color="#DFDEDB">3</font></span></a><br><font id="LD4" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD5" style="cursor: default;" width="14%"><a href="#" id="CD5"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(5)" onmouseout="mOut()" id="SD5" class="" color="#DFDEDB">4</font></span></a><br><font id="LD5" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD6" style="cursor: default;" width="14%"><a href="#" id="CD6"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(6)" onmouseout="mOut()" id="SD6" class="" color="#DFDEDB">5</font></span></a><br><font id="LD6" size="2" class="pt9" style="display:none"></font></td></tr><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD7" style="cursor: default;" width="14%"><a href="http://paper.people.com.cn/hqrw/html/2015-12/06/node_1122.htm" id="CD7"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(7)" onmouseout="mOut()" id="SD7" class="todaycolor" color="red">6</font></span></a><br><font id="LD7" size="2" class="pt9" style="display:none">廿四</font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD8" style="cursor: default;" width="14%"><a href="#" id="CD8"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(8)" onmouseout="mOut()" id="SD8" class="" color="#DFDEDB">7</font></span></a><br><font id="LD8" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD9" style="cursor: default;" width="14%"><a href="#" id="CD9"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(9)" onmouseout="mOut()" id="SD9" class="" color="#DFDEDB">8</font></span></a><br><font id="LD9" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD10" style="cursor: default;" width="14%"><a href="#" id="CD10"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(10)" onmouseout="mOut()" id="SD10" class="" color="#DFDEDB">9</font></span></a><br><font id="LD10" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD11" style="cursor: default;" width="14%"><a href="#" id="CD11"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(11)" onmouseout="mOut()" id="SD11" class="" color="#DFDEDB">10</font></span></a><br><font id="LD11" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD12" style="cursor: default;" width="14%"><a href="#" id="CD12"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(12)" onmouseout="mOut()" id="SD12" class="" color="#DFDEDB">11</font></span></a><br><font id="LD12" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD13" style="cursor: default;" width="14%"><a href="#" id="CD13"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(13)" onmouseout="mOut()" id="SD13" class="" color="#DFDEDB">12</font></span></a><br><font id="LD13" size="2" class="pt9" style="display:none"></font></td></tr><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD14" style="cursor: default;" width="14%"><a href="#" id="CD14"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(14)" onmouseout="mOut()" id="SD14" class="" color="#DFDEDB">13</font></span></a><br><font id="LD14" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD15" style="cursor: default;" width="14%"><a href="#" id="CD15"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(15)" onmouseout="mOut()" id="SD15" class="" color="#DFDEDB">14</font></span></a><br><font id="LD15" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD16" style="cursor: default;" width="14%"><a href="#" id="CD16"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(16)" onmouseout="mOut()" id="SD16" class="" color="#DFDEDB">15</font></span></a><br><font id="LD16" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD17" style="cursor: default;" width="14%"><a href="http://paper.people.com.cn/hqrw/html/2015-12/16/node_1122.htm" id="CD17"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(17)" onmouseout="mOut()" id="SD17" class="" color="">16</font></span></a><br><font id="LD17" size="2" class="pt9" style="display:none">初四</font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD18" style="cursor: default;" width="14%"><a href="#" id="CD18"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(18)" onmouseout="mOut()" id="SD18" class="" color="#DFDEDB">17</font></span></a><br><font id="LD18" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD19" style="cursor: default;" width="14%"><a href="#" id="CD19"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(19)" onmouseout="mOut()" id="SD19" class="" color="#DFDEDB">18</font></span></a><br><font id="LD19" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD20" style="cursor: default;" width="14%"><a href="#" id="CD20"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(20)" onmouseout="mOut()" id="SD20" class="" color="#DFDEDB">19</font></span></a><br><font id="LD20" size="2" class="pt9" style="display:none"></font></td></tr><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD21" style="cursor: default;" width="14%"><a href="#" id="CD21"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(21)" onmouseout="mOut()" id="SD21" class="" color="#DFDEDB">20</font></span></a><br><font id="LD21" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD22" style="cursor: default;" width="14%"><a href="#" id="CD22"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(22)" onmouseout="mOut()" id="SD22" class="" color="#DFDEDB">21</font></span></a><br><font id="LD22" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD23" style="cursor: default;" width="14%"><a href="#" id="CD23"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(23)" onmouseout="mOut()" id="SD23" class="" color="#DFDEDB">22</font></span></a><br><font id="LD23" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD24" style="cursor: default;" width="14%"><a href="#" id="CD24"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(24)" onmouseout="mOut()" id="SD24" class="" color="#DFDEDB">23</font></span></a><br><font id="LD24" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD25" style="cursor: default;" width="14%"><a href="#" id="CD25"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(25)" onmouseout="mOut()" id="SD25" class="" color="#DFDEDB">24</font></span></a><br><font id="LD25" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD26" style="cursor: default;" width="14%"><a href="#" id="CD26"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(26)" onmouseout="mOut()" id="SD26" class="" color="#DFDEDB">25</font></span></a><br><font id="LD26" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD27" style="cursor: default;" width="14%"><a href="http://paper.people.com.cn/hqrw/html/2015-12/26/node_1122.htm" id="CD27"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(27)" onmouseout="mOut()" id="SD27" class="" color="">26</font></span></a><br><font id="LD27" size="2" class="pt9" style="display:none">十四</font></td></tr><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD28" style="cursor: default;" width="14%"><a href="#" id="CD28"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(28)" onmouseout="mOut()" id="SD28" class="" color="#DFDEDB">27</font></span></a><br><font id="LD28" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD29" style="cursor: default;" width="14%"><a href="#" id="CD29"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(29)" onmouseout="mOut()" id="SD29" class="" color="#DFDEDB">28</font></span></a><br><font id="LD29" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD30" style="cursor: default;" width="14%"><a href="#" id="CD30"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(30)" onmouseout="mOut()" id="SD30" class="" color="#DFDEDB">29</font></span></a><br><font id="LD30" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD31" style="cursor: default;" width="14%"><a href="#" id="CD31"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(31)" onmouseout="mOut()" id="SD31" class="" color="#DFDEDB">30</font></span></a><br><font id="LD31" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD32" style="cursor: default;" width="14%"><a href="#" id="CD32"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(32)" onmouseout="mOut()" id="SD32" class="" color="#DFDEDB">31</font></span></a><br><font id="LD32" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD33" style="cursor: default;" width="14%"><a href="" id="CD33"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(33)" onmouseout="mOut()" id="SD33" class=""></font></span></a><br><font id="LD33" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD34" style="cursor: default;" width="14%"><a href="" id="CD34"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(34)" onmouseout="mOut()" id="SD34" class=""></font></span></a><br><font id="LD34" size="2" class="pt9" style="display:none"></font></td></tr><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD35" style="cursor: default;" width="14%"><a href="" id="CD35"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(35)" onmouseout="mOut()" id="SD35" class=""></font></span></a><br><font id="LD35" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD36" style="cursor: default;" width="14%"><a href="" id="CD36"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(36)" onmouseout="mOut()" id="SD36" class=""></font></span></a><br><font id="LD36" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD37" style="cursor: default;" width="14%"><a href="" id="CD37"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(37)" onmouseout="mOut()" id="SD37" class=""></font></span></a><br><font id="LD37" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD38" style="cursor: default;" width="14%"><a href="" id="CD38"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(38)" onmouseout="mOut()" id="SD38" class=""></font></span></a><br><font id="LD38" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD39" style="cursor: default;" width="14%"><a href="" id="CD39"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(39)" onmouseout="mOut()" id="SD39" class=""></font></span></a><br><font id="LD39" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD40" style="cursor: default;" width="14%"><a href="" id="CD40"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(40)" onmouseout="mOut()" id="SD40" class=""></font></span></a><br><font id="LD40" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD41" style="cursor: default;" width="14%"><a href="" id="CD41"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(41)" onmouseout="mOut()" id="SD41" class=""></font></span></a><br><font id="LD41" size="2" class="pt9" style="display:none"></font></td></tr>
+                </tbody></table></td>
+              </tr>
+            </tbody></table></td>
+          </tr>
+		  <tr><td align="center" height="22"><a href="#" onclick="autoShowDate();">关闭</a></td></tr>
+        </tbody></table>
+      </form>
+    </div>
+    <!-------rqdh版面导航END------>
+<!-------文章显示标题开始------>
+<div style="display:none">
+  <table width="265" border="0" cellspacing="0" cellpadding="0" style="margin-top:3px;">
+
+  <tbody><tr>
+	<td width="16" align="left"><img src="3.files/icon07.jpg"></td>
+	<td width="271" align="left" class="fontstyle" height="22">
+<a href="content_1667669.htm"><div style="display:inline" id="mp1667669">李小龙，叛逆时代的不死英雄</div></a>
+	</td>
+  </tr>
+  <tr><td background="3.files/dian01.jpg" colspan="2" height="1"></td></tr>
+  <tr>
+	<td width="16" align="left" bgcolor="#D8EFFF"><img src="3.files/icon07.jpg"></td>
+	<td width="271" align="left" class="fontstyle" height="22" bgcolor="#D8EFFF">
+<a href="content_1667672.htm"><div style="display:inline" id="mp1667672">“做公益，就要装上大喇叭”</div></a>
+	</td>
+  </tr>
+  <tr><td background="3.files/dian01.jpg" colspan="2" height="1"></td></tr>
+  <tr>
+	<td width="16" align="left"><img src="3.files/icon07.jpg"></td>
+	<td width="271" align="left" class="fontstyle" height="22">
+<a href="./content_1667674.htm"><div style="display:inline" id="mp1667674">卡戴珊家族，生活就是一部戏</div></a>
+	</td>
+  </tr>
+  <tr><td background="3.files/dian01.jpg" colspan="2" height="1"></td></tr>
+  <tr>
+	<td width="16" align="left" bgcolor="#D8EFFF"><img src="3.files/icon07.jpg"></td>
+	<td width="271" align="left" class="fontstyle" height="22" bgcolor="#D8EFFF">
+<a href="content_1667676.htm"><div style="display:inline" id="mp1667676">苏格拉底的忧虑</div></a>
+	</td>
+  </tr>
+  <tr><td background="3.files/dian01.jpg" colspan="2" height="1"></td></tr>
+
+</tbody></table>
+</div>
+<!-------文章显示标题结束------>
+<img src="../../../tplimg/left_ico.gif" style="display:none;"> <img src="../../../tplimg/right_ico.gif" style="display:none;"> <img src="../../../tplimg/ico10.gif" style="display:none;"> <img src="../../../tplimg/ico8.gif" style="display:none;"> <img src="../../../tplimg/ico9.gif" style="display:none;"> <img src="../../../tplimg/ti.gif" style="display:none;"> <img src="../../../tplimg/fb.gif" style="display:none;"><img src="../../../tplimg/nav_bg.gif" style="display:none;"><img src="../../../tplimg/line_bg1.gif" style="display:none;"><img src="../../../tplimg/line_bg.gif" style="display:none;"><img src="../../../tplimg/top_bg.gif" style="display:none;">
+
+
+<script language="javascript">
+if(document.getElementById('ozoom')!=null&&document.getElementById('ozoom').offsetHeight<=357)
+	document.getElementById('ozoom').style.height = '357px';
+</script>
+
+<!--mpproperty <founder-date>
+2015-12-06
+</founder-date>
+<founder-author>
+□ 本刊记者  余驰疆
+</founder-author>
+<founder-title>卡戴珊家族，生活就是一部戏
+</founder-title>
+<founder-nodename></founder-nodename>
+<founder-keyword>
+
+</founder-keyword><founder-ChannelID>
+1,121
+</founder-ChannelID><founder-imp>0</founder-imp>
+<founder-subtitle></founder-subtitle>
+<founder-type>1</founder-type>
+<founder-introtitle>母亲精明，继父变性，女儿个个引关注</founder-introtitle>
+<founder-pagepicurl>../../../page/2015-12/06/16/page_b.jpg</founder-pagepicurl>
+<founder-pagenum>16</founder-pagenum>
+<founder-papername>环球人物</founder-papername>
+<founder-nodeid>1,137</founder-nodeid> /mpproperty-->
+
+
+</body></html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><style type="text/css" data-tag-name="trix-toolbar">trix-toolbar {
+  display: block;
+}
+
+trix-toolbar {
+  white-space: nowrap;
+}
+
+trix-toolbar [data-trix-dialog] {
+  display: none;
+}
+
+trix-toolbar [data-trix-dialog][data-trix-active] {
+  display: block;
+}
+
+trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
+  background-color: #ffdddd;
+}</style><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style><style type="text/css" data-tag-name="trix-editor">trix-editor {
+    display: block;
+}
+
+trix-editor:empty:not(:focus)::before {
+    content: attr(placeholder);
+    color: graytext;
+    cursor: text;
+    pointer-events: none;
+    white-space: pre-line;
+}
+
+trix-editor a[contenteditable=false] {
+    cursor: text;
+}
+
+trix-editor img {
+    max-width: 100%;
+    height: auto;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea {
+    resize: none;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea.trix-autoresize-clone {
+    position: absolute;
+    left: -9999px;
+    max-height: 0px;
+}
+
+trix-editor [data-trix-attachment] figcaption[data-trix-placeholder]:empty::before {
+    content: attr(data-trix-placeholder);
+    color: graytext;
+}
+
+trix-editor [data-trix-cursor-target] {
+    display: inline-block !important;
+    width: 1px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+trix-editor [data-trix-cursor-target=left] {
+    vertical-align: top !important;
+    margin-left: -1px !important;
+}
+
+trix-editor [data-trix-cursor-target=right] {
+    vertical-align: bottom !important;
+    margin-right: -1px !important;
+}</style><style type="text/css" data-tag-name="trix-toolbar">trix-toolbar {
+  display: block;
+}
+
+trix-toolbar {
+  white-space: nowrap;
+}
+
+trix-toolbar [data-trix-dialog] {
+  display: none;
+}
+
+trix-toolbar [data-trix-dialog][data-trix-active] {
+  display: block;
+}
+
+trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
+  background-color: #ffdddd;
+}</style>
+  <meta charset="UTF-8">
+  <meta property="og:title" content="跨性別追悼日—丹麥女孩The Danish Girl">
+<meta property="og:url" content="https://www.mujieliving.com/posts/60">
+<meta property="og:image" content="https://www.mujieliving.com/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhObkYxZGpNeFlUbHVPSEUxTkRkM04yWXhZbkZzYTJkNU4yWXliQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVTJsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWlVelJqQXpKVFF3TTNndE5UQXVhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnljbFJUY2xPVUlsUWpRd015VTBNRE40TFRVd0xtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyNS0wMi0xOVQxODo0MjoyOC41MTZaIiwicHVyIjoiYmxvYl9rZXkifX0=--6e2c349c96663ae0001460c05b8efca3f506dea8/%E7%9B%B403@3x-50.jpg">
+  <title>mujie living</title>
+
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="QQECIBtv6uxaAynpthJsMSoruKA_WGhuRJReEzGbFeoVpXFb1UIWLlOi_wTfYhEbG1jL19P5eTjiKihzc45n0Q">
+  
+  <meta property="og:image" content="https://www.mujieliving.com/assets/logo-6327a17b4709405e55f7bdc3aaac38e6c229086d995611d14e763fd5cf623e0b.png">
+
+  <link rel="stylesheet" href="/assets/application-827f95626a8846c7eaf91c51a4fb457a7f1b5d39ac9322490edb97ba2b99673e.css" data-turbo-track="reload">
+  <link rel="stylesheet" href="/assets/style-c572173c3cfdce3ccbdaa76ca7e3b4d9a29aaa1c3d9659b1aeb8ebc5431fc3c9.css" data-turbo-track="reload">
+  <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-d098913f8f384c1bd09fdbf3e995a01835ca223211fc8c7db422cd8ad9e40698.js",
+    "moment": "https://ga.jspm.io/npm:moment@2.29.4/moment.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-d098913f8f384c1bd09fdbf3e995a01835ca223211fc8c7db422cd8ad9e40698.js">
+<script src="/assets/es-module-shims.min-b8099fffdbd758070d4801321d43b389c5b6174a50782f9f4cb57061533b7ac2.js" async="async" data-turbo-track="reload"></script>
+<script type="module">import "application"</script>
+
+  <!------- Fonts ------->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.2/dist/css/splide-core.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.2/dist/css/splide.min.css" /> -->
+
+  <!------- Favicon ------->
+  <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon-16-30608a728c5451c97505eb944a38fce16b4ffc9941c5cac184c6f6a0bc880a5c.svg" size="16x16">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon-32-b29d1fd969275475b4c53b70441e29686bcefa5814f1fbba4969b633a86d9d0b.svg" size="32x32">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon-64-d69e23b9bf2fdc0ae45bd4b6e1fa3b6ca9573b930923d952739c1d409077bdc0.svg" size="64x64">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon-128-dd45664d1b6c7229d23d0d833ae2c8c393d9d71dc1e6c3e055dec88b002679f0.svg" size="128x128">
+  <!------- CSS ------->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollToPlugin.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+
+  <script src="/assets/application-d098913f8f384c1bd09fdbf3e995a01835ca223211fc8c7db422cd8ad9e40698.js" data-turbo-track="reload" defer="defer"></script>
+</head>
+
+<body data-controller="post-highlight">
+  <header class="layout-1  ">
+  <div class="container-xl">
+    <a class="logo" href="https://www.mujieliving.com/"><img alt="Mujie sign" src="/assets/logo-349b24277c15f52a434f64827b84b9c2c8a227a69ebf220f023169cb0b2d5680.svg"></a>
+    <a href="#" class="menu-toggle" data-controller="header-menu" data-header-menu-target-value="popup-overlay" data-action="header-menu#open">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+    <div id="popup-overlay" class="popup-area" data-controller="header-menu">
+      <div class="u-clearfix">
+        <a class="popup-menu__close">
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+      <div class="innr">
+        <a class="logo" href="https://www.mujieliving.com/"><img alt="Mujie sign" src="/assets/logo-349b24277c15f52a434f64827b84b9c2c8a227a69ebf220f023169cb0b2d5680.svg"></a>
+        <div class="main-menu">
+          <a class="link" href="https://www.mujieliving.com/editorial">Editorial</a>
+          <a class="link" href="https://www.mujieliving.com/lifestyle">Lifestyle</a>
+          <a class="link" href="https://www.mujieliving.com/design">Design</a>
+          <a class="link" href="https://www.mujieliving.com/home">Home</a>
+          <a class="link" href="https://www.mujieliving.com/art">Art</a>
+          <a class="link mr-0" href="https://www.mujieliving.com/event">Event</a>
+          <a class="search" href="#" data-bs-toggle="modal" data-bs-target="#searchModal">
+            <img src="/assets/search-3fffb05db81762fdee0e0095d215e257e61bf5d119e880bf7e4c49275454dde9.svg">
+          </a>
+        </div>
+        <div class="menu-buttom">
+          <div class="search-form order-md-0 order-1">
+            <form class="post_search" id="post_search" action="https://www.mujieliving.com/posts/search" accept-charset="UTF-8" method="get">
+              <input class="form-control form-control-lg" placeholder="找找設計、找找生活靈感..." type="search" name="q[title_cont]" id="q_title_cont">
+              <button type="submit" class="btn btn-light btn-search">
+                <img src="/assets/search-3fffb05db81762fdee0e0095d215e257e61bf5d119e880bf7e4c49275454dde9.svg">
+              </button>
+</form>          </div>
+          <div class="info-link order-md-1 order-0">
+            <div class="link">
+              <a href="https://www.mujieliving.com/about">About &amp; Contact</a>
+              <a href="https://www.mujieliving.com/tos">Terms of use</a>
+            </div>
+            <div class="social-media">
+              <a target="_blank" href="https://www.facebook.com/mujieliving"><img src="/assets/media-fb-bea5a41bd012bdbe83286b1f63b404b9c4eeae1e54fed016683e89b08727cdbf.svg"></a>
+<a target="_blank" href="https://www.instagram.com/mujie_living/"><img src="/assets/media-ig-15980b028ea0607dadea48f3cb7857774680b42d0f7a4249c6a864843def6c79.svg"></a>
+<a target="_blank" class="d-none" href="#"><img src="/assets/media-spotify-55c6c2c4472485b535415e4cb2877ee31e41ad4d0f56af428230c8d4c11e93a4.svg"></a>
+            </div>
+          </div>
+        </div>
+        <div class="current-time-area" data-controller="current-time">
+          <div class="year" data-current-time-target="year">2025</div>
+          <div class="date">
+            <div class="month" data-current-time-target="month">02</div>
+            <div class="day" data-current-time-target="day">19</div>
+          </div>
+          <div class="time">
+            <span class="minute"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="cookie" data-controller="gdpr-notifier" data-gdpr-notifier-target="notifier">
+  <div class="text">本網站使用cookie作為與網站互動時識別瀏覽器之用，瀏覽本網站即表示您同意本網站對cookie的使用及相關隱私權政策 </div>
+  <div class="btn btn-outline-dark" data-action="click->gdpr-notifier#dismiss">確認</div>
+</div>
+
+  <header class="layout-2" id="header-fix">
+  <div class="container-xl">
+    <a class="logo" href="https://www.mujieliving.com/"><img alt="Mujie sign" src="/assets/logo-349b24277c15f52a434f64827b84b9c2c8a227a69ebf220f023169cb0b2d5680.svg"></a>
+    <a class="menu-toggle" data-controller="header-menu" data-header-menu-target-value="popup-overlay2" data-action="header-menu#open">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+    <div id="popup-overlay2" class="popup-area" data-controller="header-menu">
+      <div class="u-clearfix">
+        <a class="popup-menu__close" data-action="header-menu#dismiss">
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+      <div class="innr">
+        <a class="logo" href="https://www.mujieliving.com/"><img alt="Mujie sign" src="/assets/logo-349b24277c15f52a434f64827b84b9c2c8a227a69ebf220f023169cb0b2d5680.svg"></a>
+        <div class="main-menu">
+          <a class="link" href="https://www.mujieliving.com/editorial">Editorial</a>
+          <a class="link" href="https://www.mujieliving.com/lifestyle">Lifestyle</a>
+          <a class="link" href="https://www.mujieliving.com/design">Design</a>
+          <a class="link" href="https://www.mujieliving.com/home">Home</a>
+          <a class="link" href="https://www.mujieliving.com/art">Art</a>
+          <a class="link mr-0" href="https://www.mujieliving.com/event">Event</a>
+          <a class="search" data-bs-toggle="modal" data-target="#searchModal">
+            <img src="/assets/search-3fffb05db81762fdee0e0095d215e257e61bf5d119e880bf7e4c49275454dde9.svg">
+          </a>
+        </div>
+        <div class="menu-buttom">
+          <div class="search-form order-1">
+            <input class="form-control form-control-lg" type="text" placeholder="找找設計、找找生活靈感...">
+            <button type="submit" class="btn btn-light btn-search">
+              <img src="/assets/search-3fffb05db81762fdee0e0095d215e257e61bf5d119e880bf7e4c49275454dde9.svg">
+            </button>
+          </div>
+          <div class="info-link order-0">
+            <div class="link">
+              <a href="https://www.mujieliving.com/about">About &amp; Contact</a>
+              <a href="https://www.mujieliving.com/tos">Terms of use</a>
+            </div>
+            <div class="social-media">
+              <a target="_blank" href="https://www.facebook.com/mujieliving"><img src="/assets/media-fb-bea5a41bd012bdbe83286b1f63b404b9c4eeae1e54fed016683e89b08727cdbf.svg"></a>
+<a target="_blank" href="https://www.instagram.com/mujie_living/"><img src="/assets/media-ig-15980b028ea0607dadea48f3cb7857774680b42d0f7a4249c6a864843def6c79.svg"></a>
+<a target="_blank" class="d-none" href="#"><img src="/assets/media-spotify-55c6c2c4472485b535415e4cb2877ee31e41ad4d0f56af428230c8d4c11e93a4.svg"></a>
+            </div>
+          </div>
+        </div>
+        <div class="current-time-area" data-controller="current-time">
+          <div class="year" data-current-time-target="year">2025</div>
+          <div class="date">
+            <div class="month" data-current-time-target="month">02</div>
+            <div class="day" data-current-time-target="day">19</div>
+          </div>
+          <div class="time">
+            <span class="minute"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reading-status">
+      <!-- <p>正在閱讀</p> -->
+      <p><a href="https://www.mujieliving.com/lifestyle">Lifestyle</a></p>
+      <p class="article-title">跨性別追悼日—丹麥女孩The Danish Girl</p>
+      <div class="highlight-checkbox">
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" data-action="post-highlight#toggleHighlight">
+          <label class="form-check-label" for="exampleCheck1">highlight</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="coverage top-distance">
+  <div class="cover">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="date col-12">2020.11</div>
+        <div class="place col-12">Netflix之夜 <span class="distance"></span></div>
+        <div class="title col-lg-10 col-12">跨性別追悼日—丹麥女孩The Danish Girl</div>
+        <div class="image col-lg-6 col-10">
+          <img src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbGNDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ba91ef1128649c17321702fd152a833afa950628/%E7%9B%B403@3x-50.jpg">
+        </div>
+        <div class="article-briefly col-lg-8 col-12">你可知道11月20日是跨性別追悼日，這天是為了致敬那些被遺忘的、曾經活在這世上的跨性別人士；並喚起大眾對於跨性別群體所承受暴力的認知。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="image-col-1-center-edge">
+  <div class="container-lg">
+    <div class="row justify-content-center">
+      
+<div class="col-lg-10 col-12">
+    <img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdmNGIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--fcd3ca6ea7d903238a539953e0b5b00c679d0370/%E6%A9%AB5@3x-50.jpg">
+</div>
+    </div>
+  </div>
+</div><div class="text-content-center-subtitle-top">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="subtitle col-lg-6 col-12">
+  《丹麥女孩》改編自Lily與Gerda之間的傳奇愛情故事
+</div>
+<div class="text col-lg-8 col-10">
+  <div class="trix-content">
+  <div>Lily是有記錄以來首位接受性別重置手術的人。1926年的哥本哈根，畫家Gerda因模特兒失約，而說服她的丈夫Einar穿上女裝來充當女模以完成畫作，就在這男伴女裝的過程，Einar產生一種難以言喻的化學反應，他覺得自己就是女性、認為有個女孩住在其內心，甚至他再也無法用男性的外型來面對自己。</div>
+</div>
+
+</div>
+    </div>
+  </div>
+</div><div class="image-col-1-center-edge">
+  <div class="container-lg">
+    <div class="row justify-content-center">
+      
+<div class="col-lg-10 col-12">
+    <img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdmdGIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b6f15522bf854aa45f9f5b65067c186a08bd1b21/%E6%A9%AB1@3x-50.jpg">
+</div>
+    </div>
+  </div>
+</div><div class="text-content-center-subtitle-top">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="subtitle col-lg-6 col-12">
+  將那時代跨性別女性的堅毅與勇氣表現的淋漓盡致
+</div>
+<div class="text col-lg-8 col-10">
+  <div class="trix-content">
+  <div>艾迪•瑞德曼真不虧是影帝，詮釋Lily時一舉手一投足都像極了女性，而且還比女人更女人，內心的轉變都能在肢體、語調、眼神中表現出來，也將那時代跨性別女性的堅毅與勇氣表現的淋漓盡致。而艾莉西亞•薇坎德也因本劇獲得奧斯卡最佳女配角，他詮釋的Gerda一點都不比Lily來的輕鬆，從拒絕接受事實，到後來幫助Lily對外界隱藏「她」是個男人，最後更成為了Lily的堅強靠山，一路走來情緒的轉折，也再再牽引著觀影者的心情。</div>
+</div>
+
+</div>
+    </div>
+  </div>
+</div><div class="image-col-1-center-edge">
+  <div class="container-lg">
+    <div class="row justify-content-center">
+      
+<div class="col-lg-10 col-12">
+    <img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdmtGIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d75029d6ed4d233e92536ba6752e56acb45e3b06/%E6%A9%AB2@3x-50.jpg">
+</div>
+    </div>
+  </div>
+</div><div class="text-content-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-10">
+  <div class="trix-content">
+  <div>雖然電影或多或少都美化了真實故事，但那種為性別、性向努力的過程，令人同情又感動，或許透過媒體的渲染力能讓我們更加重視這個族群的人。身處於2020的台灣，我們難以想像在上個世紀對於同性戀或是跨性別者的歧視有多激烈，人們在對於未知的人事物總是以反抗來面對，但更需要的是認識以及尊重。</div>
+</div>
+
+</div>
+    </div>
+  </div>
+</div><div class="image-col-1-center-edge">
+  <div class="container-lg">
+    <div class="row justify-content-center">
+      
+<div class="col-lg-10 col-12">
+    <img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbHdDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d0704277f458ecbf1636f9e7458df37f1850f828/%E6%A9%AB7@3x-50.jpg">
+</div>
+    </div>
+  </div>
+</div><div class="text-content-center-subtitle-top">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="subtitle col-lg-6 col-12">
+  追劇酒單推薦－Blood and Sand血與沙
+</div>
+<div class="text col-lg-8 col-10">
+  <div class="trix-content">
+  <div>劇裡丹麥的場景幾乎都是在首都哥本哈根拍攝的，例如：市集旁的彩色住宅，就是哥本哈根最有名的景點－「新港運河」。這次所推薦的調酒「Blood and Sand」，裡頭會用到一隻櫻桃香甜酒Cherry Heering，也是誕生於哥本哈根喔！而Cherry Heering，也是全球最具代表性的櫻桃香甜酒，使用野生的丹麥櫻桃、頂級白蘭地與香料，成就甜蜜、濃郁且帶有紅寶石色澤的經典酒。</div>
+</div>
+
+</div>
+    </div>
+  </div>
+</div><div class="image-col-2-full">
+  <div class="container-lg">
+    <div class="row justify-content-center">
+      
+<div class="col-lg-6 col-12 mb-3">
+    <img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbDBDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7569762d03ece170ded1c33f909c088b1c030888/%E7%9B%B405@3x-50.jpg">
+</div>
+
+  <div class="col-lg-6 col-12 col-9">
+    <img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbDRDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--59968e92377ea21b4bbc7dd523859fe44506b714/%E7%9B%B406@3x-50.jpg">
+  </div>
+
+    </div>
+  </div>
+</div><div class="text-content-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-10">
+  <div class="trix-content">
+  <div>Blood and Sand血與沙的製作方式：蘇格蘭威士忌、櫻桃香甜酒、義式甜香艾酒、柳橙汁皆以1：1：1：1的比例下去調和。<br><br>步驟：<br>1.將玻璃杯放入冰箱中冰鎮備用。<br>2.將雪克杯裝入六分滿的冰塊，依序倒入威士忌、櫻桃酒、香艾酒、柳橙汁，蓋上杯蓋後，來回搖盪三十下。<br>3.取出冰鎮好的玻璃杯，倒入酒液，最後擺上柳橙皮或柳橙乾。</div>
+</div>
+
+</div>
+    </div>
+  </div>
+</div><div class="image-col-2-full">
+  <div class="container-lg">
+    <div class="row justify-content-center">
+      
+<div class="col-lg-6 col-12 mb-3">
+    <img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbDhDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--509af9350106365df96c9a9621ab897023acfd75/%E7%9B%B404@3x-50.jpg">
+</div>
+
+
+    </div>
+  </div>
+</div><div class="text-content-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-10">
+  <div class="trix-content">
+  <div>這款調酒的製作難度不高，蠻適合在家操作，當威士忌的苦、辣遇到櫻桃酒就被破解了，轉而是偏柔和的酸甜味，並散發著淡淡的果香，不過於tough的口感，是款較適合女性的調酒，也許這酸甜的口感就像Einar轉變成Lily一樣，苦痛中帶著些許快樂。</div>
+</div>
+
+</div>
+    </div>
+  </div>
+</div><div class="text-content-center-subtitle-top">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="subtitle col-lg-6 col-12">
+  追劇香氛推薦－Diptyque  CHOISYA墨西哥橙花香氛蠟燭
+</div>
+<div class="text col-lg-8 col-10">
+  <div class="trix-content">
+  <div>整部片的畫面唯美、故事浪漫、服裝精緻，在討論跨性別這種艱難的議題卻是用美與愛的方式呈現，傳遞出來的氛圍雖然悲傷但又充滿了希望。觀影時推薦搭配Diptyque的墨西哥橙花香氛蠟燭，這款苦中又帶點甜的味道，散發出一種溫和且平靜的感受，能調和過於悲傷的情緒，有種被療癒到的安全感。</div>
+</div>
+
+</div>
+    </div>
+  </div>
+</div><div class="image-col-2-full">
+  <div class="container-lg">
+    <div class="row justify-content-center">
+      
+<div class="col-lg-6 col-12 mb-3">
+    <img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbUFDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--44cd3d0efbcf21bfeb0744e7eb43199ce7cd0236/%E7%9B%B408@3x-50.jpg">
+</div>
+
+  <div class="col-lg-6 col-12 col-9">
+    <img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbUVDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c50ede0d268b35ba4661261639d8f01af27c6e8/%E7%9B%B407@3x-50.jpg">
+  </div>
+
+    </div>
+  </div>
+</div><div class="text-content-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-10">
+  <div class="trix-content">
+  <div>跨性別與同性戀常常被他人混淆，兩者在心理的本質上是不相同的，跨性別用美麗的說法來描述，就是靈魂裝錯了軀殼。LGBT，這個縮寫其實是L－Lesbian(女同性戀)、G－Gay(男同性戀)、B－Bisexual(雙性戀者)、T－Transgender(跨性別者)，跨性別者指的其實並非性向，而是生理性別與心理性別不一致，很多跨性別人士天生是異性戀者，因為他們是想以異性的身體去與對方建立關係，但他人就會誤認為他們是同性戀，性別與性向本來就不是絕對的關係。</div>
+</div>
+
+</div>
+    </div>
+  </div>
+</div><div class="image-col-2-full">
+  <div class="container-lg">
+    <div class="row justify-content-center">
+      
+<div class="col-lg-6 col-12 mb-3">
+    <img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdnNGIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1bbcc3e82534e3e889cd25f40540d83ce14a8a24/%E7%9B%B409@3x-50.jpg">
+</div>
+
+
+    </div>
+  </div>
+</div><div class="text-content-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-10">
+  <div class="trix-content">
+  <div>Diptyque家的香氛蠟燭不會讓人失望的，一點起來香味很快就會揮散出來，儀式感馬上油然而生，聞起來感覺清新優雅。這個味道除了適合看影片，也很適合日常使用，十分悠閒放鬆。</div>
+</div>
+
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-coverage">
+  <div class="container text-center">
+    <div class="trix-content">
+  <div>圖片來源：《丹麥女孩》劇照 / <a href="https://www.instagram.com/eddie_this_is_my_life/">eddie_this_is_my_life</a> / <a href="https://www.instagram.com/bennysphuket/">bennysphuket</a> / <a href="https://www.instagram.com/piyohikooooo/">piyohikooooo</a> / <a href="https://www.instagram.com/diptyque/">diptyque</a> / <a href="https://www.instagram.com/paul_rousteau/">paul_rousteau</a> / <a href="https://www.instagram.com/1010apothecary/">1010apothecary</a>
+</div>
+</div>
+
+  </div>
+</div>
+
+<div class="continue continue-article-list">
+  <div class="container">
+    <div class="title text-center">Continue reading...</div>
+    <div class="article-list-small mt-100">
+      <div class="row">
+          <a class="item col-xl-2 col-lg-4 col-6 mb-xl-0 mb-5" href="https://www.mujieliving.com/posts/159">
+            <div class="img"><img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBazBJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ebba4d4820d3d05309adff25ea7d529e5db05361/%E6%9C%A8%E4%BB%8B%E7%94%9F%E6%B4%BBMujieLiving_event_07_2020%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%2011@3x.jpg"></div>
+            <div class="article-category">Lifestyle</div>
+            <div class="article-date">2021.07</div>
+            <div class="article-title">有感日記一週計畫—最動人的美景藏在日常生活裡！</div>
+</a>          <a class="item col-xl-2 col-lg-4 col-6 mb-xl-0 mb-5" href="https://www.mujieliving.com/posts/192">
+            <div class="img"><img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdFVKIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7cf96c807325ade363b42560b58f41e4f347aa91/%E6%9C%A8%E4%BB%8B%E7%94%9F%E6%B4%BBMujieLiving_event_%E3%80%8A%E4%BA%AB%E5%8F%97%E4%B8%80%E9%A0%93%E6%AD%90%E5%BC%8F%E6%84%9F%E6%81%A9%E7%AF%80%E5%A4%A7%E9%A4%90%EF%BC%8C%E6%9A%96%E5%91%BC%E5%91%BC%E7%87%89%E8%8F%9C%E6%96%99%E7%90%86%E4%B8%80%E9%8D%8B%E6%90%9E%E5%AE%9A_2021%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%209@3x.jpg"></div>
+            <div class="article-category">Lifestyle</div>
+            <div class="article-date">2021.11</div>
+            <div class="article-title">享受一頓歐式感恩節大餐，暖呼呼燉菜料理一鍋搞定</div>
+</a>          <a class="item col-xl-2 col-lg-4 col-6 mb-xl-0 mb-5" href="https://www.mujieliving.com/posts/269">
+            <div class="img"><img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa1VQIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b1998e19570262dc7c3f2d664fce426d867e9b53/%E6%9C%A8%E4%BB%8B%E7%94%9F%E6%B4%BBMujieLiving_event_%E5%9C%A8%E5%AE%B6%E4%BA%AB%E5%8F%97%E5%BE%AE%E9%86%BA%E7%9A%84%E6%B5%AA%E6%BC%AB%EF%BC%9A%E4%B8%8B%E7%8F%AD%E5%8C%96%E8%BA%AB%E8%AA%BF%E9%85%92%E5%B8%AB%EF%BC%8C3%E6%AC%BE%E5%A4%8F%E6%97%A5%E6%B0%B4%E6%9E%9C%E7%89%B9%E8%AA%BF%E7%B0%A1%E5%96%AE%E4%B8%8A%E6%89%8B_2022%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%209@3x.jpg"></div>
+            <div class="article-category">Lifestyle</div>
+            <div class="article-date">2022.06</div>
+            <div class="article-title">在家享受微醺的浪漫—下班化身調酒師，3款夏日水果特調簡單上手</div>
+</a>          <a class="item col-xl-2 col-lg-4 col-6 mb-xl-0 mb-5" href="https://www.mujieliving.com/posts/311">
+            <div class="img"><img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc2tSIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--25d736a0f0bf69ce0e071cfbbe8d0b4166b017aa/Top@3x-50.jpg"></div>
+            <div class="article-category">Design</div>
+            <div class="article-date">2022.04</div>
+            <div class="article-title">老工廠塞進一座綠洲，搖身蛻變靜謐治癒的居家工作室</div>
+</a>          <a class="item col-xl-2 col-lg-4 col-6 mb-xl-0 mb-5" href="https://www.mujieliving.com/posts/924">
+            <div class="img"><img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdVV1IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--12c03c66068fc3df586e48afa5a33150081ca74d/%E6%9C%A8%E4%BB%8B%E7%94%9F%E6%B4%BBMujieLiving_event_%E7%91%9E%E6%AD%90_2024%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%2023@3x.jpg"></div>
+            <div class="article-category">Event</div>
+            <div class="article-date">2024.04</div>
+            <div class="article-title">當傢俱不再只是家居用品，而是生活中的藝術品</div>
+</a>          <a class="item col-xl-2 col-lg-4 col-6 mb-xl-0 mb-5" href="https://www.mujieliving.com/posts/1006">
+            <div class="img"><img class="w-100" src="https://www.mujieliving.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbnd5IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c032fd7e43d392bf8c0addf1ad67a56abd1ceb30/%E6%9C%A8%E4%BB%8B%E7%94%9F%E6%B4%BBMujieLiving_event_%E8%A8%AD%E8%A8%88_2024%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F%2011@3x.jpg"></div>
+            <div class="article-category">Design</div>
+            <div class="article-date">2024.07</div>
+            <div class="article-title">百年建築復刻復古風華，貫徹地中海的寧靜美學</div>
+</a>      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="subscription" data-controller="subscription-form" data-subscription-form-register-url-value="/subscribers">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h6>訂閱我們的美好生活提案 — <span class="d-block d-md-inline-block">每月編輯部的精選文章 let’s chat! chat!</span></h6>
+      </div>
+      <div class="col-xl-4 col-lg-6 col-sm-10 col-11">
+        <div class="form-row">
+          <div class="col-9">
+            <input type="email" class="form-control" placeholder="請輸入您的 E-mail" data-subscription-form-target="email">
+          </div>
+          <div class="col-3">
+            <button type="submit" class="btn btn-block" data-action="subscription-form#submit">訂閱</button>
+          </div>
+          <div class="complete" data-subscription-form-target="greeting">Nice to meet you!</div>
+        </div>
+        <small class="d-block text-end">按下訂閱鍵即代表同意<a href="https://www.mujieliving.com/tos">使用者條款與隱私宣告</a>。</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer>
+  <div class="container align-content-lg-between">
+    <div class="row">
+      <div class="col-xl-3 d-flex justify-content-xl-start justify-content-between link pl-0 pr-0">
+        <a href="https://www.mujieliving.com/about">About &amp; Contact</a>
+        <a href="https://www.mujieliving.com/tos">Terms of use</a>
+      </div>
+      <div class="col-xl-6 col-sm-8 col-7 copyright text-lg-center">
+        Copyright © 2020 - 2022 Mujie Living Co. All rights reserved.
+      </div>
+      <div class="col-xl-3 col-sm-4 col-5 social-media">
+        <a target="_blank" href="https://www.facebook.com/mujieliving"><img src="/assets/media-fb-bea5a41bd012bdbe83286b1f63b404b9c4eeae1e54fed016683e89b08727cdbf.svg"></a>
+<a target="_blank" href="https://www.instagram.com/mujie_living/"><img src="/assets/media-ig-15980b028ea0607dadea48f3cb7857774680b42d0f7a4249c6a864843def6c79.svg"></a>
+<a target="_blank" class="d-none" href="#"><img src="/assets/media-spotify-55c6c2c4472485b535415e4cb2877ee31e41ad4d0f56af428230c8d4c11e93a4.svg"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal Search -->
+<div class="modal fade search-form" id="searchModal" data-bs-backdrop="false" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="post_search" id="post_search" action="https://www.mujieliving.com/posts/search" accept-charset="UTF-8" method="get">
+        <div class="modal-header">
+          <input class="form-control form-control-lg" placeholder="找找設計、找找生活靈感..." type="search" name="q[title_cont]" id="q_title_cont">
+          <button type="submit" class="btn btn-light btn-search">
+            <img src="/assets/search-3fffb05db81762fdee0e0095d215e257e61bf5d119e880bf7e4c49275454dde9.svg">
+          </button>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+</form>    </div>
+  </div>
+</div>
+
+
+</body></html>

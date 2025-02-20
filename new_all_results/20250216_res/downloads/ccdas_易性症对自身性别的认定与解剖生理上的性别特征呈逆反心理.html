@@ -1,0 +1,3135 @@
+<html lang="en"><head><script src="/jeesitede/static/layer-v3.1.1/layer/layer.js" type="text/javascript"></script>
+<link href="/jeesitede/static/layer-v3.1.1/layer/mobile/need/layer.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.pmphai.com/resource/file/59259774792192001650527936296/fcc4723109514f47b98626c53141da25.css">
+<script src="/jeesitede/static/common/mobile-detect.min.js" type="text/javascript"></script>
+<style>
+    .rw_img {
+        width: 100%;
+    }
+</style>
+<script type="text/javascript">
+var basePath = '/jeesitede';
+var latitude="",longitude="";
+if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(onSuccess , onError);
+}
+//å®ä½æ°æ®è·åæåååº
+function  onSuccess(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+}
+//å®ä½æ°æ®è·åå¤±è´¥ååº
+function onError(error) {
+
+}
+//$(".s_write_comment").attr("style", "display:none;");
+/**
+ * æµè§ãæ¶èãè¯è®ºãè½¬å
+ */
+function addUserOperation(id,title,type,category,operType){
+    // if(!user){ //æªç»å½
+    //     return;
+    // }
+    var deviceInfo = navigator.userAgent;
+    var md = new MobileDetect(deviceInfo);
+    var split = deviceInfo.split(";");
+    var systemInfo = "";
+    var mobile_model = "";
+    for(var i=0;i<split.length;i++){
+        if(split[i].indexOf("Android") != -1){
+            systemInfo = split[i];
+            var sss = deviceInfo.split(";");
+            var i = sss.contains("Build/");
+            if (i > -1) {
+                mobile_model = sss[i].substring(0, sss[i].indexOf("Build/"));
+            }
+        }
+    }
+    if(deviceInfo.indexOf("iPhone") > 0){
+        var reg = /os [\d._]*/gi ;
+        var verinfo = deviceInfo.match(reg) ;
+        var version = (verinfo+"").replace(/[^0-9|_.]/ig,"").replace(/_/ig,".");
+        systemInfo = "iOS "+version;
+        mobile_model = md.mobile();
+    }
+
+    $.ajax({
+        url:basePath + "/behavior/addUserOperation",
+        type:"post",
+        dataType: "json",
+        data:{
+            // "staffCode":user.username,
+            "app":"H5",
+            "deviceInfo":mobile_model,
+            "systemInfo":systemInfo,
+            // "appVer":appEdition,
+            "position":latitude+","+longitude,
+            "operType":operType,
+            "id":id,
+            "title":title,
+            "type":type,
+            "category":category,
+            "userId":""
+        },
+        success:function(res){
+            console.log(res);
+        }
+    });
+
+}
+
+function getAtype() {
+    return 0;
+}
+
+function Post(URL, PARAMTERS) {
+    //åå»ºformè¡¨å
+    var temp_form = document.createElement("form");
+    temp_form.action = URL;
+    //å¦éæå¼æ°çªå£ï¼formçtargetå±æ§è¦è®¾ç½®ä¸º'_blank'
+    temp_form.target = "_self";
+    temp_form.method = "post";
+    temp_form.style.display = "none";
+    //æ·»å åæ°
+    for (var item in PARAMTERS) {
+        var opt = document.createElement("textarea");
+        opt.name = PARAMTERS[item].name;
+        opt.value = PARAMTERS[item].value;
+        temp_form.appendChild(opt);
+    }
+    document.body.appendChild(temp_form);
+    //æäº¤æ°æ®
+    temp_form.submit();
+}
+//éæ³å­ç¬¦æ ¡éª
+function illegalCalibration(text){
+    var flag = true;
+    var patrn=/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+    if(patrn.test(text)){
+        mui.toast('æ¨è¾å¥çæ°æ®å­å¨éæ³å­ç¬¦!');
+        flag = false;
+    }
+    return flag;
+}
+
+var detail_map = {
+    "mq_disease":{
+        "knowledgeLibPrefix": "disease",
+        "detailPath": "/appdisease/toPcDetail",
+        "h5_detail_path": "/appdisease/detail"
+    },
+    "mq_case":{
+        "knowledgeLibPrefix": "case",
+        "detailPath": "/appcase/toPcDetail",
+        "h5_detail_path": "/appcase/detail"
+    },
+    "mq_yhgt":{
+        "knowledgeLibPrefix": "yhgt",
+        "detailPath": "/appyhgt/toPcDetail",
+        "h5_detail_path": "/appyhgt/detail"
+    },
+    "mq_ylsh":{
+        "knowledgeLibPrefix": "ylsh",
+        "detailPath": "/appylsh/toPcDetail",
+        "h5_detail_path": "/appylsh/detail"
+    },
+    "mq_law":{
+        "knowledgeLibPrefix": "law",
+        "detailPath": "/applaw/toPcDetail",
+        "h5_detail_path": "/applaw/detail"
+    },
+    "mq_llsw":{
+        "knowledgeLibPrefix": "llsw",
+        "detailPath": "/appllsw/toPcDetail",
+        "h5_detail_path": "/appllsw/detail"
+    },
+    "mq_clinical_path":{
+        "knowledgeLibPrefix": "path",
+        "detailPath": "/apppath/toPcDetail",
+        "h5_detail_path": "/apppath/detail"
+    },
+    "mq_ecg":{
+        "knowledgeLibPrefix": "ecg",
+        "detailPath": "/appecg/toPcDetail",
+        "h5_detail_path": "/appecg/detail"
+    },
+    "mq_symptom":{
+        "knowledgeLibPrefix": "symptom",
+        "detailPath": "/appsymptom/toPcDetail",
+        "h5_detail_path": "/appsymptom/detail"
+    },
+    "mq_operation":{
+        "knowledgeLibPrefix": "operation",
+        "detailPath": "/appoperation/toPcDetail",
+        "h5_detail_path": "/appoperation/detail"
+    },
+    "mq_guide":{
+        "knowledgeLibPrefix": "guide",
+        "detailPath": "/appguide/toPcDetail",
+        "h5_detail_path": "/appguide/detail"
+    },
+    "mq_yx":{
+        "knowledgeLibPrefix": "yx",
+        "detailPath": "/appsx/toPcDetail",
+        "h5_detail_path": "/appsx/detail"
+    },
+    "mq_mz":{
+        "knowledgeLibPrefix": "mz",
+        "detailPath": "/appmz/toPcDetail",
+        "h5_detail_path": "/appmz/detail"
+    },
+    "mq_jc":{
+        "knowledgeLibPrefix": "jc",
+        "detailPath": "/appjc/toPcDetail",
+        "h5_detail_path": "/appjc/detail"
+    },
+    "mq_lccz":{
+        "knowledgeLibPrefix": "lccz",
+        "detailPath": "/applccz/toPcDetail",
+        "h5_detail_path": "/applccz/detail"
+    },
+    "mq_hlcz":{
+        "knowledgeLibPrefix": "hlcz",
+        "detailPath": "/apphlcz/toPcDetail",
+        "h5_detail_path": "/apphlcz/detail"
+    },
+    "mq_jyx":{
+        "knowledgeLibPrefix": "jy",
+        "detailPath": "/appjy/toPcDetail",
+        "h5_detail_path": "/appjy/detail"
+
+    },
+    "mq_hyd":{
+        "knowledgeLibPrefix": "hyd",
+        "detailPath": "/apphyd/toPcDetail",
+        "h5_detail_path": "/apphyd/detail"
+
+    },
+    "mq_zkct":{
+        "knowledgeLibPrefix": "zkct",
+        "detailPath": "/appzkct/toPcDetail",
+        "h5_detail_path": "/appzkct/detail"
+
+    },
+    "mq_img":{
+        "knowledgeLibPrefix": "picture",
+        "detailPath": "/apppicture/toPcDetailHtml",
+        "h5_detail_path": "/apppicture/detail"
+
+    },
+    "disease":{
+        "knowledgeLibPrefix": "disease",
+        "detailPath": "/appdisease/toPcDetail",
+        "h5_detail_path": "/appdisease/detail"
+    },
+    "cases":{
+        "knowledgeLibPrefix": "case",
+        "detailPath": "/appcase/toPcDetail",
+        "h5_detail_path": "/appcase/detail"
+    },
+    "yhgt":{
+        "knowledgeLibPrefix": "yhgt",
+        "detailPath": "/appyhgt/toPcDetail",
+        "h5_detail_path": "/appyhgt/detail"
+    },
+    "ylsh":{
+        "knowledgeLibPrefix": "ylsh",
+        "detailPath": "/appylsh/toPcDetail",
+        "h5_detail_path": "/appylsh/detail"
+
+    },
+    "law":{
+        "knowledgeLibPrefix": "law",
+        "detailPath": "/applaw/toPcDetail",
+        "h5_detail_path": "/applaw/detail"
+
+    },
+    "llsw":{
+        "knowledgeLibPrefix": "llsw",
+        "detailPath": "/appllsw/toPcDetail",
+        "h5_detail_path": "/appllsw/detail"
+
+    },
+    "path":{
+        "knowledgeLibPrefix": "path",
+        "detailPath": "/apppath/toPcDetail",
+        "h5_detail_path": "/apppath/detail"
+
+    },
+    "ecg":{
+        "knowledgeLibPrefix": "ecg",
+        "detailPath": "/appecg/toPcDetail",
+        "h5_detail_path": "/appecg/detail"
+
+    },
+    "symptom":{
+        "knowledgeLibPrefix": "symptom",
+        "detailPath": "/appsymptom/toPcDetail",
+        "h5_detail_path": "/appsymptom/detail"
+
+    },
+    "operation":{
+        "knowledgeLibPrefix": "operation",
+        "detailPath": "/appoperation/toPcDetail",
+        "h5_detail_path": "/appoperation/detail"
+
+    },
+    "guide":{
+        "knowledgeLibPrefix": "guide",
+        "detailPath": "/appguide/toPcDetail",
+        "h5_detail_path": "/appguide/detail"
+
+    },
+    "yx":{
+        "knowledgeLibPrefix": "yx",
+        "detailPath": "/appsx/toPcDetail",
+        "h5_detail_path": "/appyx/detail"
+
+    },
+    "mz":{
+        "knowledgeLibPrefix": "mz",
+        "detailPath": "/appmz/toPcDetail",
+        "h5_detail_path": "/appmz/detail"
+
+    },
+    "jc":{
+        "knowledgeLibPrefix": "jc",
+        "detailPath": "/appjc/toPcDetail",
+        "h5_detail_path": "/appjc/detail"
+
+    },
+    "lccz":{
+        "knowledgeLibPrefix": "lccz",
+        "detailPath": "/applccz/toPcDetail",
+        "h5_detail_path": "/applccz/detail"
+
+    },
+    "hlcz":{
+        "knowledgeLibPrefix": "hlcz",
+        "detailPath": "/apphlcz/toPcDetail",
+        "h5_detail_path": "/apphlcz/detail"
+
+    },
+    "jy":{
+        "knowledgeLibPrefix": "jy",
+        "detailPath": "/appjy/toPcDetail",
+        "h5_detail_path": "/appjy/detail"
+
+    },
+    "hyd":{
+        "knowledgeLibPrefix": "hyd",
+        "detailPath": "/apphyd/toPcDetail",
+        "h5_detail_path": "/apphyd/detail"
+
+    },
+    "zkct":{
+        "knowledgeLibPrefix": "zkct",
+        "detailPath": "/appzkct/toPcDetail",
+        "h5_detail_path": "/appzkct/detail"
+
+    },
+    "picture":{
+        "knowledgeLibPrefix": "picture",
+        "detailPath": "apppicture/toPcDetailHtml",
+        "h5_detail_path": "/apppicture/detail"
+    }
+}
+</script>
+<link rel="stylesheet" href="https://ccdas.pmphai.com/jeesitede/static/layer-v3.1.1/layer/theme/default/layer.css?v=3.1.1" id="layuicss-layer"></head><body oncontextmenu="return false" onselectstart="return false" oncopy="return false"><input type="hidden" id="basePath" value="/jeesitede">
+<input type="hidden" id="dataId" value="">
+<input type="hidden" id="detailPath" value="">
+<input type="hidden" id="knowledgeLibPrefix" value="">
+<input type="hidden" id="ctxStatic" value="/jeesitede/static">
+<link rel="icon" href="/jeesitede/favicon.ico">
+
+
+  
+
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>病例详情-病例-人卫临床助手-人民卫生出版社</title>
+<link href="/jeesitede/static/pc/css/public.css" rel="stylesheet" type="text/css">
+<link href="/jeesitede/static/pc/css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/jeesitede/static/bootstrap/css/bootstrap.min.css">
+<script type="text/javascript" src="/jeesitede/static/jquery/jquery-1.8.3.min.js"></script>
+<style type="text/css">
+	.login_title{padding: 30px 0 20px;}
+    h1,
+    h2,
+    h3,
+    h8,
+    h9,
+    h10,
+    h11,h12,h13,h14,h7,h6 {
+        font-size: 15px;
+        font-weight: normal;
+    }
+    .h1,
+    .h2,
+    .h3,
+    .h8,
+    .h9,
+    .h10,
+    .h11,.h12,.h13,.h14,.h7,.h6 {
+        font-size: 15px;
+        font-weight: normal;
+    }
+</style>
+
+
+
+
+     <input type="hidden" value="/jeesitede" id="basePath">
+     <input type="hidden" value="/jeesitede/static" id="imgPath">
+     <input type="hidden" value="12719" id="diseaseId">
+     <input type="hidden" value="12719" id="articleId">
+     <input type="hidden" value="" id="articleType">
+
+
+
+
+
+
+<link rel="stylesheet" href="/jeesitede/static/pc/resources/css/base.css">
+<link rel="stylesheet" href="/jeesitede/static/pc/resources/lib/swiper/swiper-4.4.2/dist/css/swiper.min.css">
+<link rel="stylesheet" href="/jeesitede/static/pc/resources/lib/layer/mobile/need/layer.css">
+<link rel="stylesheet" href="/jeesitede/static/pc/resources/lib/animate/animate.css">
+<link rel="stylesheet" href="/jeesitede/static/pc/resources/css/s_index.css?t=123">
+<link rel="stylesheet" href="/jeesitede/static/verify/verify.css">
+<link rel="stylesheet" href="https://cdn.pmphai.com/resource/file/59259774792192001650527936296/fcc4723109514f47b98626c53141da25.css">
+  <script src="/jeesitede/static/qqFace/js/jquery.min.js" type="text/javascript"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style>
+.gestures {
+	cursor: pointer
+}
+
+#LoginBox {
+	margin: -194px 0 0 -213px;
+	width: 426px;
+	height: 427px;
+}
+
+.geetest_radar_tip {
+	box-sizing: border-box;
+	padding: 0 0 0 100px;
+	height: 42px;
+	width: 100%;
+	line-height: 42px;
+	font-size: 14px;
+	color: #666;
+	white-space: nowrap;
+	text-align: left !important;
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	background-image: linear-gradient(180deg, #ffffff 0%, rgba(0, 0, 0, .3)
+		100%);
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	margin-bottom: 18px !important;
+	cursor: pointer;
+}
+
+.geetest_radar_tip_success {
+	border-color: #26C267;
+	background: #EEFFF5 !important;
+}
+</style>
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/jeesitede/static/layer-v3.1.1/layer/layer.js" type="text/javascript"></script>
+<link href="/jeesitede/static/layer-v3.1.1/layer/mobile/need/layer.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.pmphai.com/resource/file/59259774792192001650527936296/fcc4723109514f47b98626c53141da25.css">
+<script src="/jeesitede/static/common/mobile-detect.min.js" type="text/javascript"></script>
+<style>
+    .rw_img {
+        width: 100%;
+    }
+</style>
+<script type="text/javascript">
+var basePath = '/jeesitede';
+var latitude="",longitude="";
+if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(onSuccess , onError);
+}
+//å®ä½æ°æ®è·åæåååº
+function  onSuccess(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+}
+//å®ä½æ°æ®è·åå¤±è´¥ååº
+function onError(error) {
+
+}
+//$(".s_write_comment").attr("style", "display:none;");
+/**
+ * æµè§ãæ¶èãè¯è®ºãè½¬å
+ */
+function addUserOperation(id,title,type,category,operType){
+    // if(!user){ //æªç»å½
+    //     return;
+    // }
+    var deviceInfo = navigator.userAgent;
+    var md = new MobileDetect(deviceInfo);
+    var split = deviceInfo.split(";");
+    var systemInfo = "";
+    var mobile_model = "";
+    for(var i=0;i<split.length;i++){
+        if(split[i].indexOf("Android") != -1){
+            systemInfo = split[i];
+            var sss = deviceInfo.split(";");
+            var i = sss.contains("Build/");
+            if (i > -1) {
+                mobile_model = sss[i].substring(0, sss[i].indexOf("Build/"));
+            }
+        }
+    }
+    if(deviceInfo.indexOf("iPhone") > 0){
+        var reg = /os [\d._]*/gi ;
+        var verinfo = deviceInfo.match(reg) ;
+        var version = (verinfo+"").replace(/[^0-9|_.]/ig,"").replace(/_/ig,".");
+        systemInfo = "iOS "+version;
+        mobile_model = md.mobile();
+    }
+
+    $.ajax({
+        url:basePath + "/behavior/addUserOperation",
+        type:"post",
+        dataType: "json",
+        data:{
+            // "staffCode":user.username,
+            "app":"H5",
+            "deviceInfo":mobile_model,
+            "systemInfo":systemInfo,
+            // "appVer":appEdition,
+            "position":latitude+","+longitude,
+            "operType":operType,
+            "id":id,
+            "title":title,
+            "type":type,
+            "category":category,
+            "userId":""
+        },
+        success:function(res){
+            console.log(res);
+        }
+    });
+
+}
+
+function getAtype() {
+    return 0;
+}
+
+function Post(URL, PARAMTERS) {
+    //åå»ºformè¡¨å
+    var temp_form = document.createElement("form");
+    temp_form.action = URL;
+    //å¦éæå¼æ°çªå£ï¼formçtargetå±æ§è¦è®¾ç½®ä¸º'_blank'
+    temp_form.target = "_self";
+    temp_form.method = "post";
+    temp_form.style.display = "none";
+    //æ·»å åæ°
+    for (var item in PARAMTERS) {
+        var opt = document.createElement("textarea");
+        opt.name = PARAMTERS[item].name;
+        opt.value = PARAMTERS[item].value;
+        temp_form.appendChild(opt);
+    }
+    document.body.appendChild(temp_form);
+    //æäº¤æ°æ®
+    temp_form.submit();
+}
+//éæ³å­ç¬¦æ ¡éª
+function illegalCalibration(text){
+    var flag = true;
+    var patrn=/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+    if(patrn.test(text)){
+        mui.toast('æ¨è¾å¥çæ°æ®å­å¨éæ³å­ç¬¦!');
+        flag = false;
+    }
+    return flag;
+}
+
+var detail_map = {
+    "mq_disease":{
+        "knowledgeLibPrefix": "disease",
+        "detailPath": "/appdisease/toPcDetail",
+        "h5_detail_path": "/appdisease/detail"
+    },
+    "mq_case":{
+        "knowledgeLibPrefix": "case",
+        "detailPath": "/appcase/toPcDetail",
+        "h5_detail_path": "/appcase/detail"
+    },
+    "mq_yhgt":{
+        "knowledgeLibPrefix": "yhgt",
+        "detailPath": "/appyhgt/toPcDetail",
+        "h5_detail_path": "/appyhgt/detail"
+    },
+    "mq_ylsh":{
+        "knowledgeLibPrefix": "ylsh",
+        "detailPath": "/appylsh/toPcDetail",
+        "h5_detail_path": "/appylsh/detail"
+    },
+    "mq_law":{
+        "knowledgeLibPrefix": "law",
+        "detailPath": "/applaw/toPcDetail",
+        "h5_detail_path": "/applaw/detail"
+    },
+    "mq_llsw":{
+        "knowledgeLibPrefix": "llsw",
+        "detailPath": "/appllsw/toPcDetail",
+        "h5_detail_path": "/appllsw/detail"
+    },
+    "mq_clinical_path":{
+        "knowledgeLibPrefix": "path",
+        "detailPath": "/apppath/toPcDetail",
+        "h5_detail_path": "/apppath/detail"
+    },
+    "mq_ecg":{
+        "knowledgeLibPrefix": "ecg",
+        "detailPath": "/appecg/toPcDetail",
+        "h5_detail_path": "/appecg/detail"
+    },
+    "mq_symptom":{
+        "knowledgeLibPrefix": "symptom",
+        "detailPath": "/appsymptom/toPcDetail",
+        "h5_detail_path": "/appsymptom/detail"
+    },
+    "mq_operation":{
+        "knowledgeLibPrefix": "operation",
+        "detailPath": "/appoperation/toPcDetail",
+        "h5_detail_path": "/appoperation/detail"
+    },
+    "mq_guide":{
+        "knowledgeLibPrefix": "guide",
+        "detailPath": "/appguide/toPcDetail",
+        "h5_detail_path": "/appguide/detail"
+    },
+    "mq_yx":{
+        "knowledgeLibPrefix": "yx",
+        "detailPath": "/appsx/toPcDetail",
+        "h5_detail_path": "/appsx/detail"
+    },
+    "mq_mz":{
+        "knowledgeLibPrefix": "mz",
+        "detailPath": "/appmz/toPcDetail",
+        "h5_detail_path": "/appmz/detail"
+    },
+    "mq_jc":{
+        "knowledgeLibPrefix": "jc",
+        "detailPath": "/appjc/toPcDetail",
+        "h5_detail_path": "/appjc/detail"
+    },
+    "mq_lccz":{
+        "knowledgeLibPrefix": "lccz",
+        "detailPath": "/applccz/toPcDetail",
+        "h5_detail_path": "/applccz/detail"
+    },
+    "mq_hlcz":{
+        "knowledgeLibPrefix": "hlcz",
+        "detailPath": "/apphlcz/toPcDetail",
+        "h5_detail_path": "/apphlcz/detail"
+    },
+    "mq_jyx":{
+        "knowledgeLibPrefix": "jy",
+        "detailPath": "/appjy/toPcDetail",
+        "h5_detail_path": "/appjy/detail"
+
+    },
+    "mq_hyd":{
+        "knowledgeLibPrefix": "hyd",
+        "detailPath": "/apphyd/toPcDetail",
+        "h5_detail_path": "/apphyd/detail"
+
+    },
+    "mq_zkct":{
+        "knowledgeLibPrefix": "zkct",
+        "detailPath": "/appzkct/toPcDetail",
+        "h5_detail_path": "/appzkct/detail"
+
+    },
+    "mq_img":{
+        "knowledgeLibPrefix": "picture",
+        "detailPath": "/apppicture/toPcDetailHtml",
+        "h5_detail_path": "/apppicture/detail"
+
+    },
+    "disease":{
+        "knowledgeLibPrefix": "disease",
+        "detailPath": "/appdisease/toPcDetail",
+        "h5_detail_path": "/appdisease/detail"
+    },
+    "cases":{
+        "knowledgeLibPrefix": "case",
+        "detailPath": "/appcase/toPcDetail",
+        "h5_detail_path": "/appcase/detail"
+    },
+    "yhgt":{
+        "knowledgeLibPrefix": "yhgt",
+        "detailPath": "/appyhgt/toPcDetail",
+        "h5_detail_path": "/appyhgt/detail"
+    },
+    "ylsh":{
+        "knowledgeLibPrefix": "ylsh",
+        "detailPath": "/appylsh/toPcDetail",
+        "h5_detail_path": "/appylsh/detail"
+
+    },
+    "law":{
+        "knowledgeLibPrefix": "law",
+        "detailPath": "/applaw/toPcDetail",
+        "h5_detail_path": "/applaw/detail"
+
+    },
+    "llsw":{
+        "knowledgeLibPrefix": "llsw",
+        "detailPath": "/appllsw/toPcDetail",
+        "h5_detail_path": "/appllsw/detail"
+
+    },
+    "path":{
+        "knowledgeLibPrefix": "path",
+        "detailPath": "/apppath/toPcDetail",
+        "h5_detail_path": "/apppath/detail"
+
+    },
+    "ecg":{
+        "knowledgeLibPrefix": "ecg",
+        "detailPath": "/appecg/toPcDetail",
+        "h5_detail_path": "/appecg/detail"
+
+    },
+    "symptom":{
+        "knowledgeLibPrefix": "symptom",
+        "detailPath": "/appsymptom/toPcDetail",
+        "h5_detail_path": "/appsymptom/detail"
+
+    },
+    "operation":{
+        "knowledgeLibPrefix": "operation",
+        "detailPath": "/appoperation/toPcDetail",
+        "h5_detail_path": "/appoperation/detail"
+
+    },
+    "guide":{
+        "knowledgeLibPrefix": "guide",
+        "detailPath": "/appguide/toPcDetail",
+        "h5_detail_path": "/appguide/detail"
+
+    },
+    "yx":{
+        "knowledgeLibPrefix": "yx",
+        "detailPath": "/appsx/toPcDetail",
+        "h5_detail_path": "/appyx/detail"
+
+    },
+    "mz":{
+        "knowledgeLibPrefix": "mz",
+        "detailPath": "/appmz/toPcDetail",
+        "h5_detail_path": "/appmz/detail"
+
+    },
+    "jc":{
+        "knowledgeLibPrefix": "jc",
+        "detailPath": "/appjc/toPcDetail",
+        "h5_detail_path": "/appjc/detail"
+
+    },
+    "lccz":{
+        "knowledgeLibPrefix": "lccz",
+        "detailPath": "/applccz/toPcDetail",
+        "h5_detail_path": "/applccz/detail"
+
+    },
+    "hlcz":{
+        "knowledgeLibPrefix": "hlcz",
+        "detailPath": "/apphlcz/toPcDetail",
+        "h5_detail_path": "/apphlcz/detail"
+
+    },
+    "jy":{
+        "knowledgeLibPrefix": "jy",
+        "detailPath": "/appjy/toPcDetail",
+        "h5_detail_path": "/appjy/detail"
+
+    },
+    "hyd":{
+        "knowledgeLibPrefix": "hyd",
+        "detailPath": "/apphyd/toPcDetail",
+        "h5_detail_path": "/apphyd/detail"
+
+    },
+    "zkct":{
+        "knowledgeLibPrefix": "zkct",
+        "detailPath": "/appzkct/toPcDetail",
+        "h5_detail_path": "/appzkct/detail"
+
+    },
+    "picture":{
+        "knowledgeLibPrefix": "picture",
+        "detailPath": "apppicture/toPcDetailHtml",
+        "h5_detail_path": "/apppicture/detail"
+    }
+}
+</script>
+<input type="hidden" id="basePath" value="/jeesitede">
+<input type="hidden" id="dataId" value="">
+<input type="hidden" id="detailPath" value="">
+<input type="hidden" id="knowledgeLibPrefix" value="">
+<input type="hidden" id="ctxStatic" value="/jeesitede/static">
+<link rel="icon" href="/jeesitede/favicon.ico">
+
+
+
+
+
+<title>Insert title here</title>
+<style>
+.procloud_mask {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, .5);
+	display: none;
+	z-index:10000;
+}
+
+.procloud_tips {
+	width: 578px;
+	min-height: 465px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -232px;
+	margin-left: -290px;
+	z-index:10001;
+}
+
+.procloud_tips>span {
+	display: inline-block;
+	width: 49px;
+	height: 49px;
+	position: absolute;
+	top: -55px;
+	right: 0px;
+	background: url(/jeesitede/static/pc/images/procloud_bigClose.png) no-repeat;
+	background-size: 100%;
+	cursor: pointer;
+}
+
+.procloud_tips>a.procloud_tipa {
+	display: block;
+	width: 197px;
+	height: 44px;
+	background: #f35047;
+	color: #ffffff;
+	text-decoration: none;
+	text-align: center;
+	line-height: 44px;
+	border-radius: 6px;
+	margin: 15px auto;
+}
+
+.procloud_tips img {
+	width: 100%;
+}
+
+.procloud_leftimg {
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	top: 60%;
+	right: 20px;
+}
+
+.procloud_leftimg span {
+	float: right;
+	cursor: pointer;
+}
+</style>
+
+
+	<div class="procloud_mask js-mask" style="display: none;"></div>
+	<div class="procloud_tips js-tips" style="display: none;">
+		<span class="js-close"></span> <a href="/jeesitede/medicalStandard/jump"><img src="/jeesitede/static/pc/images/procloud_big.png" alt=""></a> <a href="/jeesitede/medicalStandard/jump" class="procloud_tipa">去看看</a>
+	</div>
+	<script type="text/javascript">
+		/* var ew = window.localStorage.getItem('yywelcome2');
+		var ews = window.localStorage.getItem('yywelcome3');
+
+		if (ews) {
+			$(".js-tips").hide();
+			$('.js-mask').hide();
+		} else {
+			if (!ew) {
+				window.localStorage.setItem('yywelcome2', true);
+				// 显示引导页
+				$('.js-mask').show();
+				$('.js-tips').show();
+			} else {
+				tipsxg();
+			}
+		}
+
+		// //引导页关闭
+		$(document).on("click", ".js-close", function() {
+			tipsxg();
+		});
+		$(document).on("click", ".js_closes", function() {
+
+			window.localStorage.setItem('yywelcome3', true);
+			$(".js-tips").hide();
+		});
+		function tipsxg() {
+			$('.js-mask').hide();
+			$('.js-tips')
+					.attr(
+							'style',
+							'top: 40%; left: 92%; width: 107px; height: 145px; margin-left: 0px; margin-top: 0px; position: fixed; transition: left .5s, transform .5s;')
+			$('.js-close').attr('style',
+					'top: -15px;right: -12px; width: 20px;')
+			$('.js-close').addClass('js_closes');
+			$('.js-tips a img').attr('src',
+					'/jeesitede/static/pc/images/procloud_leftimg.png')
+			$('.js-tips .procloud_tipa').attr('style', 'display:none')
+		} */
+	</script>
+
+
+	<div class="header" style="padding: 0 0;">
+		<div class="header_one">
+			<div class="s_container">
+				<a class="toHome" style="cursor: pointer;" onclick="window.open('/jeesitede/','_self')" target="_blank">人卫临床助手首页</a>
+				<div class="header_one_right">
+					<input id="userId" value="" style="display:none">
+					<a href="http://www.ipmph.com" target="_blank"><i class="icon wisdom"></i>人卫智网</a><i>|</i> <a href="http://www.pmph.com" target="_blank"><i class="icon official"></i>人卫官网</a><i>|</i> <a id="shopRW" href="http://www.pmphmall.com" target="_blank"><i class="icon shop"></i>人卫智慧商城</a><i>|</i>
+					
+
+						<a id="loginA" href="javascript:;">登录</a>
+						<i id="no_login_i">|</i>
+
+
+						<a id="ssoUrl" style="display: inline-block;width: 35px;height: 35px;vertical-align: middle;" href="javascript:toCkrscLogin();"><img style="width: 28px;position: absolute;margin-top: 2px;" src="/jeesitede/static/pc/images/login_img.png"></a>
+
+
+						<span id="user_span" style="display: none;">欢迎您！&nbsp;&nbsp;<a id="theSet" href="javascript:void(0)" onclick="toPersonCenter()"></a></span>
+						<input type="hidden" id="loginId_curr" value="">
+						<i id="user_i" style="display: none;">|</i>
+						<a id="logout" class="gestures" onclick="logout()" style="display: none;">退出</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/jeesitede/static/jdld/sso/api.js"></script>
+	<script type="text/javascript" src="/jeesitede/static/verify/verify.js"></script>
+	<script>
+		$(function(){
+
+			onlineValidata(function (isLogin) {
+				if (isLogin) {//已登录
+
+
+					initLoginBtn();
+				}else {
+					cookie("taken_curr", "" , {path:'/',expires:-1});
+					cookie("user_curr", "", {path:'/',expires:-1});
+					cookie("user_curr_id", "", {path:'/',expires:-1});
+					initLoginBtn();
+				}
+			})
+		})
+
+		loginLog();
+		$("#theSet,#shopRW").hover(function() {
+			//$("#qrCodeA").removeClass("shouji_block");
+			$(".shouji_box").hide();
+		}, function() {
+		});
+		$(".shouji_box").hide();
+		$("#qrCodeA").hover(function() {
+			$(".shouji_box").show();
+			//$("#qrCodeA").addClass("shouji_block");
+		}, function() {
+			$(".shouji_box").hover(function() {
+				$(".shouji_box").show();
+			}, function() {
+				//$("#qrCodeA").removeClass("shouji_block");
+				$(".shouji_box").hide();
+			})
+		});
+		$("#qrCodeA").click(function() {
+			//$("#qrCodeA").removeClass("shouji_block");
+			$(".shouji_box").hide();
+			window.location.href = "/jeesitede/pc/login/qrCode";
+		})
+		//验证是否在线
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		function loginLog() {
+			$.ajax({
+				type : "get",
+				url : "/jeesitede" + "/count/login/log",
+				data : {
+					"userId" : "",
+					"type" : "PC"
+				},
+				dataType : "json",
+				// async : false,
+				success : function(data) {
+				},
+				error : function(xhr, status, error) {
+
+				}
+			});
+		}
+
+		function toPersonCenter() {
+			var user_curr = cookie("user_curr");
+			if(user_curr != null && user_curr != 'null' && user_curr != '') {
+				window.location.href = "/jeesitede/pcPersonCenter/toIndex";
+			} else {
+				cookie("from_url", window.location.href, {path:'/',expires:1});
+				window.location.href = "/jeesitede/pclogin/toLoginHtml";
+			}
+		}
+		var detail_map = {
+                    "mq_disease":{
+                        "knowledgeLibPrefix": "disease",
+                        "detailPath": "/appdisease/toPcDetail"
+                    },
+                    "mq_case":{
+                        "knowledgeLibPrefix": "case",
+                        "detailPath": "/appcase/toPcDetail"
+                    },
+                    "mq_yhgt":{
+                        "knowledgeLibPrefix": "yhgt",
+                        "detailPath": "/appyhgt/toPcDetail"
+                    },
+                    "mq_ylsh":{
+                        "knowledgeLibPrefix": "ylsh",
+                        "detailPath": "/appylsh/toPcDetail"
+
+                    },
+                    "mq_law":{
+                        "knowledgeLibPrefix": "law",
+                        "detailPath": "/applaw/toPcDetail"
+
+                    },
+                    "mq_llsw":{
+                        "knowledgeLibPrefix": "llsw",
+                        "detailPath": "/appllsw/toPcDetail"
+
+                    },
+                    "mq_clinical_path":{
+                        "knowledgeLibPrefix": "path",
+                        "detailPath": "/apppath/toPcDetail"
+
+                    },
+                    "mq_ecg":{
+                        "knowledgeLibPrefix": "ecg",
+                        "detailPath": "/appecg/toPcDetail"
+
+                    },
+                    "mq_symptom":{
+                        "knowledgeLibPrefix": "symptom",
+                        "detailPath": "/appsymptom/toPcDetail"
+
+                    },
+                    "mq_operation":{
+                        "knowledgeLibPrefix": "operation",
+                        "detailPath": "/appoperation/toPcDetail"
+
+                    },
+                    "mq_guide":{
+                        "knowledgeLibPrefix": "guide",
+                        "detailPath": "/appguide/toPcDetail"
+
+                    },
+                    "mq_yx":{
+                        "knowledgeLibPrefix": "yx",
+                        "detailPath": "/appsx/toPcDetail"
+
+                    },
+                    "mq_mz":{
+                        "knowledgeLibPrefix": "mz",
+                        "detailPath": "/appmz/toPcDetail"
+
+                    },
+                    "mq_jc":{
+                        "knowledgeLibPrefix": "jc",
+                        "detailPath": "/appjc/toPcDetail"
+
+                    },
+                    "mq_lccz":{
+                        "knowledgeLibPrefix": "lccz",
+                        "detailPath": "/applccz/toPcDetail"
+
+                    },
+                    "mq_hlcz":{
+                        "knowledgeLibPrefix": "hlcz",
+                        "detailPath": "/apphlcz/toPcDetail"
+
+                    },
+                    "mq_jyx":{
+                        "knowledgeLibPrefix": "jy",
+                        "detailPath": "/appjy/toPcDetail"
+
+                    },
+                    "mq_hyd":{
+                        "knowledgeLibPrefix": "hyd",
+                        "detailPath": "/apphyd/toPcDetail"
+
+                    },
+                    "mq_zkct":{
+                        "knowledgeLibPrefix": "zkct",
+                        "detailPath": "/appzkct/toPcDetail"
+
+                    },
+                    "disease":{
+                        "knowledgeLibPrefix": "disease",
+                        "detailPath": "/appdisease/toPcDetail"
+                    },
+                    "cases":{
+                        "knowledgeLibPrefix": "case",
+                        "detailPath": "/appcase/toPcDetail"
+                    },
+                    "yhgt":{
+                        "knowledgeLibPrefix": "yhgt",
+                        "detailPath": "/appyhgt/toPcDetail"
+                    },
+                    "ylsh":{
+                        "knowledgeLibPrefix": "ylsh",
+                        "detailPath": "/appylsh/toPcDetail"
+
+                    },
+                    "law":{
+                        "knowledgeLibPrefix": "law",
+                        "detailPath": "/applaw/toPcDetail"
+
+                    },
+                    "llsw":{
+                        "knowledgeLibPrefix": "llsw",
+                        "detailPath": "/appllsw/toPcDetail"
+
+                    },
+                    "path":{
+                        "knowledgeLibPrefix": "path",
+                        "detailPath": "/apppath/toPcDetail"
+
+                    },
+                    "ecg":{
+                        "knowledgeLibPrefix": "ecg",
+                        "detailPath": "/appecg/toPcDetail"
+
+                    },
+                    "symptom":{
+                        "knowledgeLibPrefix": "symptom",
+                        "detailPath": "/appsymptom/toPcDetail"
+
+                    },
+                    "operation":{
+                        "knowledgeLibPrefix": "operation",
+                        "detailPath": "/appoperation/toPcDetail"
+
+                    },
+                    "guide":{
+                        "knowledgeLibPrefix": "guide",
+                        "detailPath": "/appguide/toPcDetail"
+
+                    },
+                    "yx":{
+                        "knowledgeLibPrefix": "yx",
+                        "detailPath": "/appsx/toPcDetail"
+
+                    },
+                    "mz":{
+                        "knowledgeLibPrefix": "mz",
+                        "detailPath": "/appmz/toPcDetail"
+
+                    },
+                    "jc":{
+                        "knowledgeLibPrefix": "jc",
+                        "detailPath": "/appjc/toPcDetail"
+
+                    },
+                    "lccz":{
+                        "knowledgeLibPrefix": "lccz",
+                        "detailPath": "/applccz/toPcDetail"
+
+                    },
+                    "hlcz":{
+                        "knowledgeLibPrefix": "hlcz",
+                        "detailPath": "/apphlcz/toPcDetail"
+
+                    },
+                    "jy":{
+                        "knowledgeLibPrefix": "jy",
+                        "detailPath": "/appjy/toPcDetail"
+
+                    },
+                    "hyd":{
+                        "knowledgeLibPrefix": "hyd",
+                        "detailPath": "/apphyd/toPcDetail"
+
+                    },
+                    "zkct":{
+                        "knowledgeLibPrefix": "zkct",
+                        "detailPath": "/appzkct/toPcDetail"
+
+                    },
+                    "picture":{
+                        "knowledgeLibPrefix": "picture",
+                        "detailPath": "apppicture/toPcDetailHtml"
+                    }
+                }
+	</script>
+
+	<!--登录-->
+	<div class="BombBox" id="LoginBox">
+		<div class="login">
+			<div class="strip"></div>
+			<div class="close">
+				<span onclick="closeF();"><img src="/jeesitede/static/pc/images/close.png"></span>
+			</div>
+			<div class="login_con">
+				<div class="login_title">登录</div>
+				<form action="/jeesitede/pc/login/doLogin" method="post">
+					<div class="">
+						<input type="text" placeholder="用户名 /手机号/邮箱/人卫账号" id="account" name="connection" autocomplete="off"> <input type="password" placeholder="请输入密码" id="password" autocomplete="off"> <input type="hidden" name="username" id="username"> <input type="hidden" name="rwAccount" id="rwAccount"> <input type="hidden" name="email" id="email">
+
+						<input type="hidden" name="realName" id="realName"> <input type="hidden" name="sex" id="sex"> <input type="hidden" name="telephone" id="telephone">
+
+						<div class="geetest_radar_tip" status="false">
+							<span class="geetest_radar_tip_content">点击按钮进入验证</span>
+						</div>
+
+						<span style="color: red; display: none" id="warning">用户名或密码错误</span>
+						<div class="entrance">
+							<span class="forget"><a target="_blank" href="/jeesitede/login/goForgetPwd">忘记密码？</a></span><span class="register"><a href="/jeesitede/login/goPhoneRegist">快捷注册</a></span>
+						</div>
+						<input type="button" onclick="checkForm()" class="btn login_btn" value="登录"> <a id="ssoUrl" href=""><img style="width: 50px; display: block; margin: 0 auto;" src="/jeesitede/static/pc/images/login_img.png"></a>
+					</div>
+				</form>
+				<div class="geetestModal" style="display: none; position: absolute; top: 115px; z-index: 10; left: 3%;">
+					<div class="geetestTop">
+						<i class="icon icon_close"></i>
+					</div>
+					<div id="mpanel4" class="mpanel"><div class="verify-img-panel" style="width: 400px; height: 200px; background: url(&quot;/static/img/2.jpg&quot;) 0% 0% / 400px 200px; margin-bottom: 7px;"><div class="verify-refresh"><i class="iconfont icon-refresh"></i></div><div class="verify-gap" style="width: 40px; height: 40px; top: 100px; left: 280px;"></div></div><div class="verify-bar-area" style="width: 400px; height: 26px; line-height: 26px;"><span class="verify-msg">向右滑动完成验证</span><div class="verify-left-bar" style="width: 40px; height: 40px;"><span class="verify-msg"></span><div class="verify-move-block" style="width: 40px; height: 40px;"><div class="verify-sub-block" style="width: 40px; height: 40px; top: -102px; background-image: url(&quot;/static/img/2.jpg&quot;); background-size: 400px 200px; background-position: -280px -100px;"></div></div></div></div></div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/jeesitede/static/jsencrypt/aes.min.js"></script>
+	<script src="/jeesitede/static/common/jeesite.js"></script>
+	<script type="text/javascript" src="https://s13.cnzz.com/z_stat.php?id=1268665702&amp;web_id=1268665702"></script><script src="https://c.cnzz.com/c.js?web_id=1268665702&amp;t=z" charset="utf-8" type="text/javascript"></script><a href="https://www.cnzz.com/stat/website.php?web_id=1268665702" target="_blank" title="站长统计" style="display: none;">站长统计</a>
+	<script type="text/javascript">
+
+		var alist = $("a");
+		alist.each(function(){
+			if($(this).attr("title") == "站长统计"){
+				$(this).hide();
+			}
+		})
+
+
+		function toCkrscLogin(){
+			var sessionId = getGUID()
+			cookie("taken_curr", getGUID() + "~" + sessionId + "~0", {path:'/',expires:6});
+			cookie("lczs_login_type","ckrsc",{path:'/',expires:6})
+			var ssoUrl=encodeURI(window.location.toString()).replace("?","%3F").replace(/&/g,"%26");
+			window.location.replace("/jeesitede/login/toCkrscLogin?sessionId="+sessionId+"&rw_referer="+ssoUrl);
+		}
+		function initLoginBtn(){
+			var user_curr = cookie("user_curr");
+			if(user_curr != null && user_curr != 'null' && user_curr != '') {
+				var user = JSON.parse(user_curr);
+				$("#theSet").text(user.nikename);
+				$("#loginId_curr").val(user.username);
+				$("#user_span").show();
+				$("#user_i").show();
+				$("#logout").show();
+				$("#loginA").hide();
+				$("#no_login_i").hide();
+				$("#ssoUrl").hide();
+			} else {
+				$("#theSet").text("");
+				$("#loginId_curr").val("");
+				$("#user_span").hide();
+				$("#user_i").hide();
+				$("#logout").hide();
+				$("#loginA").show();
+				$("#no_login_i").show();
+				$("#ssoUrl").show();
+			}
+			//var ssoUrl = "http://sso.ckrsc.com/oauth/authorize?client_id=334245cc44ac43d1af57c1acb7e7a152&response_type=code&scope=user_info&redirect_uri=https://ccdas.pmphai.com/login/SsoLogin";
+
+				$("#ssoUrl").attr("href", "javascript:toCkrscLogin();");
+
+
+			//弹出登录
+			$("#loginA,#h_loginBtn").hover(function() {
+				$(this).stop().animate({
+					opacity : '1'
+				}, 600);
+			}, function() {
+				$(this).stop().animate({
+					opacity : '0.6'
+				}, 1000);
+			}).on('click', function() {
+				/* $("body").append("<div id='mask'></div>");
+				$("#mask").addClass("mask").fadeIn("slow");
+				$("#LoginBox").fadeIn("slow"); */
+				
+				cookie("from_url", window.location.href, {path:'/',expires:1});
+				window.location.href = "/jeesitede/pclogin/toLoginHtml"
+			});
+		}
+		var geetest = false;
+		$(function() {
+			addBehavior();		//用户行为添加
+			initLoginBtn();
+		});
+
+		//滑动验证
+		$('.geetest_radar_tip').click(function() {
+			if ($(this).attr('status') == 'true') {
+
+			} else {
+				var mpanel = $('.geetestModal');
+				if (mpanel.css('display') == 'block') {
+					mpanel.fadeOut();
+				} else {
+					mpanel.fadeIn();
+				}
+			}
+		})
+
+		$('#mpanel4').slideVerify({
+			type : 2, //类型
+			vOffset : 5, //误差量，根据需求自行调整
+			vSpace : 5, //间隔
+			imgName : [ '1.jpg', '2.jpg' ],
+			imgSize : {
+				width : '400px',
+				height : '200px',
+			},
+			blockSize : {
+				width : '40px',
+				height : '40px',
+			},
+			barSize : {
+				width : '400px',
+				height : '26px',
+			},
+			ready : function() {
+			},
+			success : function() {
+				$('.geetestModal').fadeOut();
+				$('.geetest_radar_tip').addClass('geetest_radar_tip_success');
+				$('.geetest_radar_tip').css('background', '#ccc');
+				$('.geetest_radar_tip_content').html('验证成功');
+				$('.geetest_radar_tip').attr('status', 'true')
+				geetest = true;
+				//......后续操作
+			},
+			error : function() {
+				console.log('验证失败！');
+			}
+
+		});
+
+		function closeF() {
+			$("#mask").remove();
+			$("#LoginBox").hide();
+		}
+
+		function checkForm() {
+			var account = $("#account").val().trim();
+			var password = $("#password").val().trim();
+			if (account == "" || password == "") {
+				alert("用户名密码不能为空！");
+				return;
+			}
+			
+			if(geetest){
+				logOnSSO(account, password);
+			}else{
+				alert("请完成滑动验证");
+			}
+
+		}
+		function aesMinEncrypt(word){
+            var _word = CryptoJS.enc.Utf8.parse(word),
+                _key = CryptoJS.enc.Utf8.parse("ihaierForTodoKey"),
+                _iv = CryptoJS.enc.Utf8.parse("ihaierForTodo_Iv");
+            var encrypted = CryptoJS.AES.encrypt(_word, _key, {
+                        iv: _iv,
+                        mode: CryptoJS.mode.CBC,
+                        padding: CryptoJS.pad.Pkcs7
+                });
+            return encrypted.toString();
+        }
+
+		function logOnSSO(phoneNum, password) {
+			
+			phoneNum = aesMinEncrypt(phoneNum);
+			password = aesMinEncrypt(password);
+			/* var passwordurl = encodeURI('pmph@)!^2016');
+			var url = 'http://sso.ipmph.com/api/json?username=interfaceuser&password='
+					+ passwordurl
+					+ '&language=zh-cn&method=ZAS.UserInfo&params=%7B%22LoginID%22:%22'
+					+ phoneNum + '%22,%22Password%22:%22' + password + '%22%7D';
+			; */
+			$.ajax({
+				type : "post",
+				url : "/jeesitede/user/PcSsoLogin",
+				dataType : "json",
+				async : false,
+				data : {
+					"loginId":phoneNum,
+					"password":password
+				},
+				success : function(data) {
+					json = data;
+					if (data.success != true) {
+						$("#warning").css("display", "block");
+						return;
+					}
+					var loginAuth = "http://sso.ipmph.com/doLogin";
+					getLoginAuth(loginAuth, phoneNum, password, data);
+				},
+				error : function(xhr, status, error) {
+				}
+			});
+
+		}
+		function getLoginAuth(url, username, password, data) {
+			/* 	$.ajax({
+					type : "get",
+					url : url,
+					dataType : "jsonp",
+					data:{
+						"UserName":username,
+						"Password":password,
+						"ContentType":"json"
+					},
+					success : function(result){ */
+			//alert(JSON.stringify(result))
+			var username = data.UserData.UserName;
+			var rwAccount = data.UserData.ID;
+			var telephone = data.UserData.Mobile;
+			var ssoRealName = data.UserData.RealName;
+			var ssoGender = data.UserData.Gender;
+			var ssoEmail = data.UserData.Email;
+			$("#username").val(username);
+			$("#rwAccount").val(rwAccount);
+			$("#telephone").val(telephone);
+			$("#realName").val(ssoRealName);
+			$("#sex").val(ssoGender);
+			$("#email").val(ssoEmail);
+			$("form").submit();
+			/* },error:function(e){
+				
+			}
+			}) */
+		}
+
+		function onlineCallback(data) {
+			if ("" == "") {
+				if (data.Login) {
+					$("#account").val(data.AccessName);
+					$("form").submit();
+				}
+			} else {
+				if (!data.Login) {
+					$.ajax({
+						type : "post",
+						url : "/jeesitede/pc/login/logout",
+						dataType : "text",
+						async : false,
+						success : function(data) {
+							window.location.reload();
+						},
+						error : function(xhr, status, error) {
+						}
+					});
+				}
+			}
+		}
+	</script>
+	<!-- <script type="text/javascript"
+		src="http://sso.ipmph.com/online?callback=onlineCallback"></script> -->
+	<script src="/jeesitede/static/pc/resources/lib/layer/layer.js"></script>
+	<script src="/jeesitede/static/pc/scripts/common.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$("input").blur(function(){
+				var inputStr = $(this).val();
+				var newStr = delHtmlTag(inputStr);
+
+
+
+				$(this).val(newStr);
+			});
+			$("textarea").blur(function(){
+				var inputStr = $(this).val();
+				var newStr = delHtmlTag(inputStr);
+
+
+
+				$(this).val(newStr);
+			});
+			$("#gogogo").blur(function(){
+				var inputStr = $(this).val();
+				var newStr = delCharTag(inputStr);
+
+
+
+				$(this).val(newStr);
+			});
+			function delHtmlTag(str){
+				str = str.replace(/<[^>]+>/g,"");//去除所有html标签
+				str = str.replace(/&nbsp;/ig,'');//去除所有&nbsp空格
+				str = str.replace(/\s+/g,"");
+				str = str.replace("&ldquo;","");
+				str = str.replace("&rdquo;","");
+			    return str;
+			}
+			function delCharTag(str) {
+				str = str.replace(/[^0-9]/ig,"");
+				return str;
+			}
+		});
+		
+	</script>
+	
+	<!-- 添加用户行为数据收集部分js代码 -->
+	<script>
+	
+	/*
+	 *	用户操作（浏览、收藏、评论、转发）
+	 */
+	function addUserOperation(id, title, type, category, operType) {
+		
+		var userId = $("#userId").val();		//用户id
+		
+		if (userId != null && userId != undefined && userId != "") {		//如果用户不为空则添加用户行为
+			
+		} else {
+			return;
+		}
+		
+		var app = "PC";		//应用:PC、IOS、Android、小程序、H5、其他
+		var staffCode = $("#theSet").html();		//用户名
+		var deviceInfo = navigator.userAgent;
+		var systemInfo = navigator.platform;
+		
+		$.ajax({
+			type : "get",
+			url : "/jeesitede/behavior/addUserOperation",
+			dataType : "json",
+			async : false,
+			data : {
+				"userId":userId,
+				"app":app,
+				"deviceInfo":deviceInfo,
+				"systemInfo":systemInfo,
+				"id":id,
+				"title":title,
+				"type":type,
+				"category":category,
+				"staffCode":staffCode,
+				"operType":operType
+			},
+			success : function(data) {
+				if (data.status == "success") {
+					console.log(data.msg);
+				}
+			},
+			error : function(xhr, status, error) {
+			}
+		});
+
+	}
+	
+	/*
+	 *	搜索
+	 */
+	function addUserSearch(title, operType) {
+		
+		var userId = $("#userId").val();		//用户id
+		
+		if (userId != null && userId != undefined && userId != "") {		//如果用户不为空则添加用户行为
+			
+		} else {
+			return;
+		}
+		
+		var staffCode = $("#theSet").html();		//用户名
+		var app = "PC";		//应用:PC、IOS、Android、小程序、H5、其他
+		var deviceInfo = navigator.userAgent;
+		var systemInfo = navigator.platform;
+		
+		$.ajax({
+			type : "get",
+			url : "/jeesitede/behavior/addUserSearch",
+			dataType : "json",
+			async : false,
+			data : {
+				"app":app,
+				"deviceInfo":deviceInfo,
+				"systemInfo":systemInfo,
+				"title":title,
+				"operType":operType,
+				"staffCode":staffCode
+			},
+			success : function(data) {
+				if (data.status == "success") {
+					console.log(data.msg);
+				}
+			},
+			error : function(xhr, status, error) {
+			}
+		});
+
+	}
+	
+	/**
+	 *	添加用户行为
+	 */
+	function addBehavior() {
+		
+		var userId = $("#userId").val();		//用户id
+		
+		if (userId != null && userId != undefined && userId != "") {		//如果用户不为空则添加用户行为
+			var url = window.location.href; /* 获取完整URL */
+			
+			if (url.indexOf("detail?") != -1 || url.indexOf("Detail?") != -1 || url.indexOf("details?") != -1 || url.indexOf("Details?") != -1 || 
+					url.indexOf("onlineRead?") != -1 || url.indexOf("/threeDModelPage?") != -1) {
+				//详情页面不在此处添加记录，需在详情页面中进行操作
+			} else {
+				var title = document.title;
+				addUserOperation("", title, "page", "", "browse");
+			}
+		}
+	}
+	</script>
+
+
+  
+
+<div class="s_container header_two">
+   <div class="logo" style="cursor:pointer;" onclick="window.open('/jeesitede/','_self')">
+       <img src="/jeesitede/static/pc/resources/img/logo.png" style="width:250px;" alt="">
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/jeesitede/static/layer-v3.1.1/layer/layer.js" type="text/javascript"></script>
+<link href="/jeesitede/static/layer-v3.1.1/layer/mobile/need/layer.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.pmphai.com/resource/file/59259774792192001650527936296/fcc4723109514f47b98626c53141da25.css">
+<script src="/jeesitede/static/common/mobile-detect.min.js" type="text/javascript"></script>
+<style>
+    .rw_img {
+        width: 100%;
+    }
+</style>
+<script type="text/javascript">
+var basePath = '/jeesitede';
+var latitude="",longitude="";
+if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(onSuccess , onError);
+}
+//å®ä½æ°æ®è·åæåååº
+function  onSuccess(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+}
+//å®ä½æ°æ®è·åå¤±è´¥ååº
+function onError(error) {
+
+}
+//$(".s_write_comment").attr("style", "display:none;");
+/**
+ * æµè§ãæ¶èãè¯è®ºãè½¬å
+ */
+function addUserOperation(id,title,type,category,operType){
+    // if(!user){ //æªç»å½
+    //     return;
+    // }
+    var deviceInfo = navigator.userAgent;
+    var md = new MobileDetect(deviceInfo);
+    var split = deviceInfo.split(";");
+    var systemInfo = "";
+    var mobile_model = "";
+    for(var i=0;i<split.length;i++){
+        if(split[i].indexOf("Android") != -1){
+            systemInfo = split[i];
+            var sss = deviceInfo.split(";");
+            var i = sss.contains("Build/");
+            if (i > -1) {
+                mobile_model = sss[i].substring(0, sss[i].indexOf("Build/"));
+            }
+        }
+    }
+    if(deviceInfo.indexOf("iPhone") > 0){
+        var reg = /os [\d._]*/gi ;
+        var verinfo = deviceInfo.match(reg) ;
+        var version = (verinfo+"").replace(/[^0-9|_.]/ig,"").replace(/_/ig,".");
+        systemInfo = "iOS "+version;
+        mobile_model = md.mobile();
+    }
+
+    $.ajax({
+        url:basePath + "/behavior/addUserOperation",
+        type:"post",
+        dataType: "json",
+        data:{
+            // "staffCode":user.username,
+            "app":"H5",
+            "deviceInfo":mobile_model,
+            "systemInfo":systemInfo,
+            // "appVer":appEdition,
+            "position":latitude+","+longitude,
+            "operType":operType,
+            "id":id,
+            "title":title,
+            "type":type,
+            "category":category,
+            "userId":""
+        },
+        success:function(res){
+            console.log(res);
+        }
+    });
+
+}
+
+function getAtype() {
+    return 0;
+}
+
+function Post(URL, PARAMTERS) {
+    //åå»ºformè¡¨å
+    var temp_form = document.createElement("form");
+    temp_form.action = URL;
+    //å¦éæå¼æ°çªå£ï¼formçtargetå±æ§è¦è®¾ç½®ä¸º'_blank'
+    temp_form.target = "_self";
+    temp_form.method = "post";
+    temp_form.style.display = "none";
+    //æ·»å åæ°
+    for (var item in PARAMTERS) {
+        var opt = document.createElement("textarea");
+        opt.name = PARAMTERS[item].name;
+        opt.value = PARAMTERS[item].value;
+        temp_form.appendChild(opt);
+    }
+    document.body.appendChild(temp_form);
+    //æäº¤æ°æ®
+    temp_form.submit();
+}
+//éæ³å­ç¬¦æ ¡éª
+function illegalCalibration(text){
+    var flag = true;
+    var patrn=/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+    if(patrn.test(text)){
+        mui.toast('æ¨è¾å¥çæ°æ®å­å¨éæ³å­ç¬¦!');
+        flag = false;
+    }
+    return flag;
+}
+
+var detail_map = {
+    "mq_disease":{
+        "knowledgeLibPrefix": "disease",
+        "detailPath": "/appdisease/toPcDetail",
+        "h5_detail_path": "/appdisease/detail"
+    },
+    "mq_case":{
+        "knowledgeLibPrefix": "case",
+        "detailPath": "/appcase/toPcDetail",
+        "h5_detail_path": "/appcase/detail"
+    },
+    "mq_yhgt":{
+        "knowledgeLibPrefix": "yhgt",
+        "detailPath": "/appyhgt/toPcDetail",
+        "h5_detail_path": "/appyhgt/detail"
+    },
+    "mq_ylsh":{
+        "knowledgeLibPrefix": "ylsh",
+        "detailPath": "/appylsh/toPcDetail",
+        "h5_detail_path": "/appylsh/detail"
+    },
+    "mq_law":{
+        "knowledgeLibPrefix": "law",
+        "detailPath": "/applaw/toPcDetail",
+        "h5_detail_path": "/applaw/detail"
+    },
+    "mq_llsw":{
+        "knowledgeLibPrefix": "llsw",
+        "detailPath": "/appllsw/toPcDetail",
+        "h5_detail_path": "/appllsw/detail"
+    },
+    "mq_clinical_path":{
+        "knowledgeLibPrefix": "path",
+        "detailPath": "/apppath/toPcDetail",
+        "h5_detail_path": "/apppath/detail"
+    },
+    "mq_ecg":{
+        "knowledgeLibPrefix": "ecg",
+        "detailPath": "/appecg/toPcDetail",
+        "h5_detail_path": "/appecg/detail"
+    },
+    "mq_symptom":{
+        "knowledgeLibPrefix": "symptom",
+        "detailPath": "/appsymptom/toPcDetail",
+        "h5_detail_path": "/appsymptom/detail"
+    },
+    "mq_operation":{
+        "knowledgeLibPrefix": "operation",
+        "detailPath": "/appoperation/toPcDetail",
+        "h5_detail_path": "/appoperation/detail"
+    },
+    "mq_guide":{
+        "knowledgeLibPrefix": "guide",
+        "detailPath": "/appguide/toPcDetail",
+        "h5_detail_path": "/appguide/detail"
+    },
+    "mq_yx":{
+        "knowledgeLibPrefix": "yx",
+        "detailPath": "/appsx/toPcDetail",
+        "h5_detail_path": "/appsx/detail"
+    },
+    "mq_mz":{
+        "knowledgeLibPrefix": "mz",
+        "detailPath": "/appmz/toPcDetail",
+        "h5_detail_path": "/appmz/detail"
+    },
+    "mq_jc":{
+        "knowledgeLibPrefix": "jc",
+        "detailPath": "/appjc/toPcDetail",
+        "h5_detail_path": "/appjc/detail"
+    },
+    "mq_lccz":{
+        "knowledgeLibPrefix": "lccz",
+        "detailPath": "/applccz/toPcDetail",
+        "h5_detail_path": "/applccz/detail"
+    },
+    "mq_hlcz":{
+        "knowledgeLibPrefix": "hlcz",
+        "detailPath": "/apphlcz/toPcDetail",
+        "h5_detail_path": "/apphlcz/detail"
+    },
+    "mq_jyx":{
+        "knowledgeLibPrefix": "jy",
+        "detailPath": "/appjy/toPcDetail",
+        "h5_detail_path": "/appjy/detail"
+
+    },
+    "mq_hyd":{
+        "knowledgeLibPrefix": "hyd",
+        "detailPath": "/apphyd/toPcDetail",
+        "h5_detail_path": "/apphyd/detail"
+
+    },
+    "mq_zkct":{
+        "knowledgeLibPrefix": "zkct",
+        "detailPath": "/appzkct/toPcDetail",
+        "h5_detail_path": "/appzkct/detail"
+
+    },
+    "mq_img":{
+        "knowledgeLibPrefix": "picture",
+        "detailPath": "/apppicture/toPcDetailHtml",
+        "h5_detail_path": "/apppicture/detail"
+
+    },
+    "disease":{
+        "knowledgeLibPrefix": "disease",
+        "detailPath": "/appdisease/toPcDetail",
+        "h5_detail_path": "/appdisease/detail"
+    },
+    "cases":{
+        "knowledgeLibPrefix": "case",
+        "detailPath": "/appcase/toPcDetail",
+        "h5_detail_path": "/appcase/detail"
+    },
+    "yhgt":{
+        "knowledgeLibPrefix": "yhgt",
+        "detailPath": "/appyhgt/toPcDetail",
+        "h5_detail_path": "/appyhgt/detail"
+    },
+    "ylsh":{
+        "knowledgeLibPrefix": "ylsh",
+        "detailPath": "/appylsh/toPcDetail",
+        "h5_detail_path": "/appylsh/detail"
+
+    },
+    "law":{
+        "knowledgeLibPrefix": "law",
+        "detailPath": "/applaw/toPcDetail",
+        "h5_detail_path": "/applaw/detail"
+
+    },
+    "llsw":{
+        "knowledgeLibPrefix": "llsw",
+        "detailPath": "/appllsw/toPcDetail",
+        "h5_detail_path": "/appllsw/detail"
+
+    },
+    "path":{
+        "knowledgeLibPrefix": "path",
+        "detailPath": "/apppath/toPcDetail",
+        "h5_detail_path": "/apppath/detail"
+
+    },
+    "ecg":{
+        "knowledgeLibPrefix": "ecg",
+        "detailPath": "/appecg/toPcDetail",
+        "h5_detail_path": "/appecg/detail"
+
+    },
+    "symptom":{
+        "knowledgeLibPrefix": "symptom",
+        "detailPath": "/appsymptom/toPcDetail",
+        "h5_detail_path": "/appsymptom/detail"
+
+    },
+    "operation":{
+        "knowledgeLibPrefix": "operation",
+        "detailPath": "/appoperation/toPcDetail",
+        "h5_detail_path": "/appoperation/detail"
+
+    },
+    "guide":{
+        "knowledgeLibPrefix": "guide",
+        "detailPath": "/appguide/toPcDetail",
+        "h5_detail_path": "/appguide/detail"
+
+    },
+    "yx":{
+        "knowledgeLibPrefix": "yx",
+        "detailPath": "/appsx/toPcDetail",
+        "h5_detail_path": "/appyx/detail"
+
+    },
+    "mz":{
+        "knowledgeLibPrefix": "mz",
+        "detailPath": "/appmz/toPcDetail",
+        "h5_detail_path": "/appmz/detail"
+
+    },
+    "jc":{
+        "knowledgeLibPrefix": "jc",
+        "detailPath": "/appjc/toPcDetail",
+        "h5_detail_path": "/appjc/detail"
+
+    },
+    "lccz":{
+        "knowledgeLibPrefix": "lccz",
+        "detailPath": "/applccz/toPcDetail",
+        "h5_detail_path": "/applccz/detail"
+
+    },
+    "hlcz":{
+        "knowledgeLibPrefix": "hlcz",
+        "detailPath": "/apphlcz/toPcDetail",
+        "h5_detail_path": "/apphlcz/detail"
+
+    },
+    "jy":{
+        "knowledgeLibPrefix": "jy",
+        "detailPath": "/appjy/toPcDetail",
+        "h5_detail_path": "/appjy/detail"
+
+    },
+    "hyd":{
+        "knowledgeLibPrefix": "hyd",
+        "detailPath": "/apphyd/toPcDetail",
+        "h5_detail_path": "/apphyd/detail"
+
+    },
+    "zkct":{
+        "knowledgeLibPrefix": "zkct",
+        "detailPath": "/appzkct/toPcDetail",
+        "h5_detail_path": "/appzkct/detail"
+
+    },
+    "picture":{
+        "knowledgeLibPrefix": "picture",
+        "detailPath": "apppicture/toPcDetailHtml",
+        "h5_detail_path": "/apppicture/detail"
+    }
+}
+</script>
+<input type="hidden" id="basePath" value="/jeesitede">
+<input type="hidden" id="dataId" value="">
+<input type="hidden" id="detailPath" value="">
+<input type="hidden" id="knowledgeLibPrefix" value="">
+<input type="hidden" id="ctxStatic" value="/jeesitede/static">
+<link rel="icon" href="/jeesitede/favicon.ico">
+
+
+   
+
+
+<link rel="stylesheet" href="/jeesitede/static/pc/resources/css/base.css">
+<link rel="stylesheet" href="/jeesitede/static/pc/resources/css/s_index.css?t=123">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+
+    <div class="navNew">
+        <div class="s_container">
+            <ul class="navNew-list clearfix">
+                <li><a href="/jeesitede/"><i class="icon-nav1"></i>首页</a></li>
+                <li id="disease"><a href="/jeesitede/rwDisease/rwDiseaseList"><i class="icon-nav2"></i>疾病</a></li>
+                <li id="case" class="cur"><a href="/jeesitede/typicalCase/goTypicalCase"><i class="icon-nav3"></i>病例</a></li>
+                <li id="symptom"><a href="/jeesitede/pc/RwPCSymptom/symptomListIndex"><i class="icon-nav4"></i>症状体征</a></li>
+                <li id="operation"><a href="/jeesitede/Pc/Operation/index"><i class="icon-nav5"></i>手术操作</a></li>
+                <li id="clinicalExam"><a href="/jeesitede/appjy/toPcIndexHtml"><i class="icon-nav6"></i>检验</a></li>
+                <li id="medicine"><a href="/jeesitede/pcphmeddata/goMedicineDirection"><i class="icon-nav7"></i>药物</a></li>
+                <li id="jc"><a href="/jeesitede/appjc/toPcIndexHtml"><i class="icon-nav8"></i>检查</a></li>
+                <li id="ecg"><a href="/jeesitede/pc/ecg/list"><i class="icon-nav9"></i>心电图</a></li>
+                <li id="yx"><a href="/jeesitede/appsx/toPcIndexHtml"><i class="icon-nav10"></i>用血</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+	<div class="s_container main">
+        <div class="crumbs" id="crumbsDiv"><a href="/jeesitede/">首页</a>&nbsp;&gt;&nbsp; <a href="/jeesitede/typicalCase/goTypicalCase">病例</a>&nbsp;&gt;&nbsp; 病例　性身份障碍</div>
+        <div class="gu_det clearfix">
+            <div class="gu_det_left">
+                <div class="gu_det_left_info">
+                    <div class="gu_det_left_top">
+                    	病例　性身份障碍
+                    </div>
+                     	<div class="gu_det_left_top_right">
+                            <a id="shoucang" href="javascript:void(0);" onclick="collectDis('','12719','cases','', 'cases')"><img src="/jeesitede/static/pc/resources/img/gu_det_left_top_right_icon2.png" alt="">收藏</a>
+                            <a id="yishoucang" href="javascript:void(0);" onclick="collectDis('','12719','cases','', 'cases')" style="display: none;"><img src="/jeesitede/static/pc/resources/img/gu_det_left_top_right_icon2-1.png" alt="">已收藏</a>
+                        </div>
+                    <div class="gu_det_left_con" id="content">
+                        
+                        	
+                        	
+                        		<div class="gu_det_left_con_h1">案例诊断
+                                    
+                                </div>
+                        		<div class="gu_det_left_con_main">性身份障碍</div>
+                        	
+       	 				
+                        	
+                        	
+                        		<div class="gu_det_left_con_h1">病例相关理论知识
+                                    
+                                </div>
+                        		<div class="gu_det_left_con_main"><p>性身份障碍是指长期对自己的生理性别有强烈的厌恶和排斥感，同时具有强烈的转变性别的心理要求和实际行为，其主要类型为易性症。</p><p>易性症对自身性别的认定与解剖生理上的性别特征呈逆反心理，持续存在厌恶和改变本身性别的解剖生理特征以达到转换性别的强烈愿望，并要求变换为异性的解剖生理特征（如使用手术或异性激素），其性爱倾向为纯粹同性恋。该病的发病率男性多于女性，在就诊者中，男女比率为3∶1～4∶1。</p><p class="h1">1.病因与发病机制</p><p>病因至今尚未明确。从遗传学角度来说，易性症的染色体正常，没有证据支持遗传学病因。有学者提出内分泌异常假说，认为怀孕时母体内的雄激素或雌激素水平过高会对胎儿的发育造成影响，使女性胎儿雄性化或男性胎儿雌性化。也有证据显示易性症患者中存在大脑结构的差异，对6名由男转女易性症患者死后脑结构的研究表明，其终纹床核的中央部大小与女性相似。社会环境因素对易性症的发生也具有一定的影响作用，研究发现出生序列较晚且家庭中有更多的哥哥的孩子容易罹患易性症。家庭的教养方式同样是一个重要的影响因素，如果父母对孩子的角色期望及抚养方式与孩子的生理性别相矛盾，就容易导致孩子生理上的性别与后天习得的性别认同之间的冲突。</p><p class="h1">2.临床表现</p><p>患者通常在青春期前强烈地深信其与别人所认可的性别相反。有父母报道，患者在童年时更喜欢与解剖学性别相反的孩子在一起。当易性症患者需要求助于医生时，通常已经开始穿异性服装，但不同于异装恋物者，他们穿异性服装是为了自我感觉更像一个异性，而非是为了获得性兴奋。许多易性症患者都对其性别困境感到痛苦，在他们当中，抑郁情绪很普遍，甚至有些人试图自杀。大约有1/3的易性症患者结婚，但其中1/2的人会离异。</p><p>男性易性症患者会进行化妆，把发型做成女性样式，再用剃刀剃去面部及身上的体毛，使他们的姿势、外表、声音更像女性；并寻求社会角色的改变，喜欢从事女性所从事的工作。男性易性症患者常因要求改变乳房和外生殖器的外形而就诊。患者通常先要求使用雌激素促进乳房发育，然后要求隆胸手术，并通过手术切除睾丸和阴茎，以及人造阴道。如果不能实施手术，他们会很痛苦，一些人会以自行阉割或者自杀相威胁。</p><p>女性易性症患者在服装、嗓音、姿势、社会行为等方面都适应男性角色。她们希望以男性身份与真正的女性发生异性间的性交（不是与女性同性恋者）。有些人要求实施乳房切除术或者子宫切除术，极少数患者要求进行人造阴茎矫形手术。</p><p>未进行治疗的易性症患者其自然病程如何，目前尚无可靠的资料。临床经验表明，经过许多年后他们的病情没有明显进展，其发生自伤、自杀的风险是否增高不能肯定。对318名男转女易性症患者和117名女转男易性症患者的随访研究表明，其自杀率并没有上升。</p><p class="h1">3.诊断</p><p>易性症患者的核心特征是对自身性别的认同障碍，掌握这一特征，要做出正确的临床诊断并不困难。ICD-10、DSM-Ⅳ及CCMD-3对于易性症的诊断各有其标准。其中CCMD-3的诊断标准为：①患者期望成为异性并被别人接受，常希望通过外科手术或激素治疗而使自己的躯体尽可能与自己所偏爱的性别一致；②转换性别的认同至少已持续2年；③不是其他精神障碍（如精神分裂症）的症状，或与染色体异常有关的症状。</p><p class="h1">4.治疗</p><p>易性症的治疗是一个棘手的临床问题，临床治疗较为困难，目前常采用的治疗方法有心理治疗、药物治疗与手术治疗。</p><p class="h2">（1）心理治疗</p><p>虽最为常用，但其治疗效果并不确定。易性症患者一般不会为消除其对性身份的确信而去就诊，同时也没有任何证据表明心理治疗能使患者消除其对性身份的怀疑。心理治疗更多是针对那些愿意接受治疗者，治疗的目的是倾听患者内心痛苦，帮助他们寻求应付的方法。</p><p class="h2">（2）药物治疗</p><p>最为常用的是激素治疗，男性患者可使用雌激素，促成乳房女性化。对于不同的男性，雌激素对乳房发育的影响效果有差别，正如对不同的女性其作用也有差别。但是雌激素能使大多数男性髋骨部和臂部的脂肪增多，外表更像女性。雌激素治疗时间过长，可能有形成深静脉血栓和发生乳腺恶性肿瘤的危险。女性患者常使用雄激素进行治疗，治疗后可使嗓音变粗和身体的毛发增多，月经停止，阴蒂长大，以及性欲增强。同服用雌激素的男转女易性症相比，他们的变化通常更明显。但服用雄激素时间过长，可导致肝脏损害。目前，国外亦有采用“性别拮抗剂”类药物来暂时抑制易性症者的青春期性激素分泌与性器官发育的报道。</p><p class="h2">（3）手术治疗</p><p>有学者认为，目前治疗易性症的最有效的方法是通过外科手术改变解剖结构，称为“性别再造术”，且手术治疗的前后要结合心理治疗。但也有学者持不同观点，认为手术治疗的长期疗效尚不肯定，治疗前应由有丰富的临床专业经验的精神科医生和外科医生共同商讨决定。一项针对变性手术患者连续20年以上的追踪调查显示，2%术后伴发自杀，10%～15%术后不满意。</p><p class="h2">（4）家庭治疗</p><p>易性症患者通常要承担一定的家庭角色，患者的改变对其家人的生活可造成影响，因此需要对家庭给予帮助，使其能接受这样的影响。</p></div>
+                        	
+       	 				
+                        	
+                        	
+                        		<div class="gu_det_left_con_h1">病例摘要
+                                    
+                                </div>
+                        		<div class="gu_det_left_con_main"><p>患者田某，男，27岁，未婚。上有3个哥哥，自幼被父母当“女儿”对待，穿花衣服梳小辫。从小能歌善舞，演戏时常饰女角，高中时与男同学亲近时常有恋爱的感觉。身材如女性般小巧玲珑，平时穿着花枝招展，且不顾周围师生议论与批评，父母、老师等曾多次对他进行批评，毫无作用。曾向一位学习成绩优秀的男同学表达爱慕之心，被拒绝后伤心欲绝。高中毕业进入工厂，依然穿戴女性服装，不久爱上男性同事，并开始筹划做变性手术。数年来不顾单位领导批评和父母的压力，坚持不懈地要求变更户口本上的姓名和性别。3年前辞职去南方打工以挣钱做变性手术，已经积蓄数万元，因急于筹钱而偷窃同事5千元钱而被公安机关抓捕。精神检查时见其外表、语气、姿态完全女性化，未发现精神病症状。自诉改变性别的愿望极端强烈，担心年龄大了手术效果不好，想急于筹集手术费而偷窃。</p><p>提问1：针对该患者，还需要收集哪些病史资料？</p><p>1.家族史；</p><p>2.生长发育史；</p><p>3.既往重大躯体疾病及精神障碍史；</p><p>4.性格史；</p><p>5.工作情况；</p><p>6.婚恋史；</p><p>7.既往治疗情况。</p><p>提问2：还需要完善哪些临床检查？</p><p>1.一般情况检查；</p><p>2.体格检查（尤其是外生殖器检查）；</p><p>3.生殖系统超声检查；</p><p>4.性染色体核型检查；</p><p>5.精神状况检查；</p><p>6.MMPI；</p><p>7.SAS、SDS；</p><p>8.贝姆性别角色量表（BSRI）；</p><p>9.简明精神症状评定量表（BPRS）。</p><p class="h1">提示：</p><div class="borderone"><p>提示：一般情况检查：身高、体型中等，皮肤白皙，穿女性服装，化妆；说话语气与走路姿势均呈女性化。体格检查：有喉结，乳房未见明显发育，外生殖器检查见阴茎与睾丸发育正常。</p></div><p>提问3：此患者最可能的诊断是什么？</p><p>1.精神分裂症；</p><p>2.人格障碍；</p><p>3.器质性精神障碍；</p><p>4.抑郁症；</p><p>5.真/假两性形；</p><p>6.同性恋；</p><p>7.异装症；</p><p>8.易性症。</p><p>提问4：易性症的治疗原则是？</p><p>1.心理治疗；</p><p>2.性激素治疗；</p><p>3.手术治疗；</p><p>4.家庭帮助；</p><p>5.抗精神病药物治疗；</p><p>6.电休克治疗；</p><p>7.感觉集中训练。</p><p class="h1">提示：</p><div class="borderone"><p>提示：该患者诊断为易性症。</p></div></div>
+                        	
+       	 				
+                        	
+                        		<div class="gu_det_left_con_h1">诊疗及解题思路<a class="vipContent" href="javascript:void(0);"><img src="/jeesitede/static/pc/resources/img/xx_img10.png" alt="" width="24"></a></div>
+                        		 <div class="gu_det_left_con_main">此内容为收费内容</div>
+                        	
+                        	
+       	 				
+                        
+                	</div>
+                	<div style="text-align: right; margin: 10px 0 10px 0; width: 100%; padding-right:25px; display: inline-block;">
+						
+							<span style="float: left;margin-left: 20px;">上一篇：<a href="/jeesitede/appcase/toPcDetail?sessionId=&amp;knowledgeLibPrefix=case&amp;id=12718" title="病例　强迫型人格障碍">病例　强迫型人格障碍</a></span>
+						
+						
+							<span style="">下一篇：<a href="/jeesitede/appcase/toPcDetail?sessionId=&amp;knowledgeLibPrefix=case&amp;id=12720" title="病例　性身份障碍临床相关误诊病例1">病例　性身份障碍临床相关误诊病例1</a></span>
+						
+					</div>
+            </div>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/jeesitede/static/layer-v3.1.1/layer/layer.js" type="text/javascript"></script>
+<link href="/jeesitede/static/layer-v3.1.1/layer/mobile/need/layer.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.pmphai.com/resource/file/59259774792192001650527936296/fcc4723109514f47b98626c53141da25.css">
+<script src="/jeesitede/static/common/mobile-detect.min.js" type="text/javascript"></script>
+<style>
+    .rw_img {
+        width: 100%;
+    }
+</style>
+<script type="text/javascript">
+var basePath = '/jeesitede';
+var latitude="",longitude="";
+if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(onSuccess , onError);
+}
+//å®ä½æ°æ®è·åæåååº
+function  onSuccess(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+}
+//å®ä½æ°æ®è·åå¤±è´¥ååº
+function onError(error) {
+
+}
+//$(".s_write_comment").attr("style", "display:none;");
+/**
+ * æµè§ãæ¶èãè¯è®ºãè½¬å
+ */
+function addUserOperation(id,title,type,category,operType){
+    // if(!user){ //æªç»å½
+    //     return;
+    // }
+    var deviceInfo = navigator.userAgent;
+    var md = new MobileDetect(deviceInfo);
+    var split = deviceInfo.split(";");
+    var systemInfo = "";
+    var mobile_model = "";
+    for(var i=0;i<split.length;i++){
+        if(split[i].indexOf("Android") != -1){
+            systemInfo = split[i];
+            var sss = deviceInfo.split(";");
+            var i = sss.contains("Build/");
+            if (i > -1) {
+                mobile_model = sss[i].substring(0, sss[i].indexOf("Build/"));
+            }
+        }
+    }
+    if(deviceInfo.indexOf("iPhone") > 0){
+        var reg = /os [\d._]*/gi ;
+        var verinfo = deviceInfo.match(reg) ;
+        var version = (verinfo+"").replace(/[^0-9|_.]/ig,"").replace(/_/ig,".");
+        systemInfo = "iOS "+version;
+        mobile_model = md.mobile();
+    }
+
+    $.ajax({
+        url:basePath + "/behavior/addUserOperation",
+        type:"post",
+        dataType: "json",
+        data:{
+            // "staffCode":user.username,
+            "app":"H5",
+            "deviceInfo":mobile_model,
+            "systemInfo":systemInfo,
+            // "appVer":appEdition,
+            "position":latitude+","+longitude,
+            "operType":operType,
+            "id":id,
+            "title":title,
+            "type":type,
+            "category":category,
+            "userId":""
+        },
+        success:function(res){
+            console.log(res);
+        }
+    });
+
+}
+
+function getAtype() {
+    return 0;
+}
+
+function Post(URL, PARAMTERS) {
+    //åå»ºformè¡¨å
+    var temp_form = document.createElement("form");
+    temp_form.action = URL;
+    //å¦éæå¼æ°çªå£ï¼formçtargetå±æ§è¦è®¾ç½®ä¸º'_blank'
+    temp_form.target = "_self";
+    temp_form.method = "post";
+    temp_form.style.display = "none";
+    //æ·»å åæ°
+    for (var item in PARAMTERS) {
+        var opt = document.createElement("textarea");
+        opt.name = PARAMTERS[item].name;
+        opt.value = PARAMTERS[item].value;
+        temp_form.appendChild(opt);
+    }
+    document.body.appendChild(temp_form);
+    //æäº¤æ°æ®
+    temp_form.submit();
+}
+//éæ³å­ç¬¦æ ¡éª
+function illegalCalibration(text){
+    var flag = true;
+    var patrn=/[`~!@#$%^&*()_+<>?:"{},.\/;'[\]]/im;
+    if(patrn.test(text)){
+        mui.toast('æ¨è¾å¥çæ°æ®å­å¨éæ³å­ç¬¦!');
+        flag = false;
+    }
+    return flag;
+}
+
+var detail_map = {
+    "mq_disease":{
+        "knowledgeLibPrefix": "disease",
+        "detailPath": "/appdisease/toPcDetail",
+        "h5_detail_path": "/appdisease/detail"
+    },
+    "mq_case":{
+        "knowledgeLibPrefix": "case",
+        "detailPath": "/appcase/toPcDetail",
+        "h5_detail_path": "/appcase/detail"
+    },
+    "mq_yhgt":{
+        "knowledgeLibPrefix": "yhgt",
+        "detailPath": "/appyhgt/toPcDetail",
+        "h5_detail_path": "/appyhgt/detail"
+    },
+    "mq_ylsh":{
+        "knowledgeLibPrefix": "ylsh",
+        "detailPath": "/appylsh/toPcDetail",
+        "h5_detail_path": "/appylsh/detail"
+    },
+    "mq_law":{
+        "knowledgeLibPrefix": "law",
+        "detailPath": "/applaw/toPcDetail",
+        "h5_detail_path": "/applaw/detail"
+    },
+    "mq_llsw":{
+        "knowledgeLibPrefix": "llsw",
+        "detailPath": "/appllsw/toPcDetail",
+        "h5_detail_path": "/appllsw/detail"
+    },
+    "mq_clinical_path":{
+        "knowledgeLibPrefix": "path",
+        "detailPath": "/apppath/toPcDetail",
+        "h5_detail_path": "/apppath/detail"
+    },
+    "mq_ecg":{
+        "knowledgeLibPrefix": "ecg",
+        "detailPath": "/appecg/toPcDetail",
+        "h5_detail_path": "/appecg/detail"
+    },
+    "mq_symptom":{
+        "knowledgeLibPrefix": "symptom",
+        "detailPath": "/appsymptom/toPcDetail",
+        "h5_detail_path": "/appsymptom/detail"
+    },
+    "mq_operation":{
+        "knowledgeLibPrefix": "operation",
+        "detailPath": "/appoperation/toPcDetail",
+        "h5_detail_path": "/appoperation/detail"
+    },
+    "mq_guide":{
+        "knowledgeLibPrefix": "guide",
+        "detailPath": "/appguide/toPcDetail",
+        "h5_detail_path": "/appguide/detail"
+    },
+    "mq_yx":{
+        "knowledgeLibPrefix": "yx",
+        "detailPath": "/appsx/toPcDetail",
+        "h5_detail_path": "/appsx/detail"
+    },
+    "mq_mz":{
+        "knowledgeLibPrefix": "mz",
+        "detailPath": "/appmz/toPcDetail",
+        "h5_detail_path": "/appmz/detail"
+    },
+    "mq_jc":{
+        "knowledgeLibPrefix": "jc",
+        "detailPath": "/appjc/toPcDetail",
+        "h5_detail_path": "/appjc/detail"
+    },
+    "mq_lccz":{
+        "knowledgeLibPrefix": "lccz",
+        "detailPath": "/applccz/toPcDetail",
+        "h5_detail_path": "/applccz/detail"
+    },
+    "mq_hlcz":{
+        "knowledgeLibPrefix": "hlcz",
+        "detailPath": "/apphlcz/toPcDetail",
+        "h5_detail_path": "/apphlcz/detail"
+    },
+    "mq_jyx":{
+        "knowledgeLibPrefix": "jy",
+        "detailPath": "/appjy/toPcDetail",
+        "h5_detail_path": "/appjy/detail"
+
+    },
+    "mq_hyd":{
+        "knowledgeLibPrefix": "hyd",
+        "detailPath": "/apphyd/toPcDetail",
+        "h5_detail_path": "/apphyd/detail"
+
+    },
+    "mq_zkct":{
+        "knowledgeLibPrefix": "zkct",
+        "detailPath": "/appzkct/toPcDetail",
+        "h5_detail_path": "/appzkct/detail"
+
+    },
+    "mq_img":{
+        "knowledgeLibPrefix": "picture",
+        "detailPath": "/apppicture/toPcDetailHtml",
+        "h5_detail_path": "/apppicture/detail"
+
+    },
+    "disease":{
+        "knowledgeLibPrefix": "disease",
+        "detailPath": "/appdisease/toPcDetail",
+        "h5_detail_path": "/appdisease/detail"
+    },
+    "cases":{
+        "knowledgeLibPrefix": "case",
+        "detailPath": "/appcase/toPcDetail",
+        "h5_detail_path": "/appcase/detail"
+    },
+    "yhgt":{
+        "knowledgeLibPrefix": "yhgt",
+        "detailPath": "/appyhgt/toPcDetail",
+        "h5_detail_path": "/appyhgt/detail"
+    },
+    "ylsh":{
+        "knowledgeLibPrefix": "ylsh",
+        "detailPath": "/appylsh/toPcDetail",
+        "h5_detail_path": "/appylsh/detail"
+
+    },
+    "law":{
+        "knowledgeLibPrefix": "law",
+        "detailPath": "/applaw/toPcDetail",
+        "h5_detail_path": "/applaw/detail"
+
+    },
+    "llsw":{
+        "knowledgeLibPrefix": "llsw",
+        "detailPath": "/appllsw/toPcDetail",
+        "h5_detail_path": "/appllsw/detail"
+
+    },
+    "path":{
+        "knowledgeLibPrefix": "path",
+        "detailPath": "/apppath/toPcDetail",
+        "h5_detail_path": "/apppath/detail"
+
+    },
+    "ecg":{
+        "knowledgeLibPrefix": "ecg",
+        "detailPath": "/appecg/toPcDetail",
+        "h5_detail_path": "/appecg/detail"
+
+    },
+    "symptom":{
+        "knowledgeLibPrefix": "symptom",
+        "detailPath": "/appsymptom/toPcDetail",
+        "h5_detail_path": "/appsymptom/detail"
+
+    },
+    "operation":{
+        "knowledgeLibPrefix": "operation",
+        "detailPath": "/appoperation/toPcDetail",
+        "h5_detail_path": "/appoperation/detail"
+
+    },
+    "guide":{
+        "knowledgeLibPrefix": "guide",
+        "detailPath": "/appguide/toPcDetail",
+        "h5_detail_path": "/appguide/detail"
+
+    },
+    "yx":{
+        "knowledgeLibPrefix": "yx",
+        "detailPath": "/appsx/toPcDetail",
+        "h5_detail_path": "/appyx/detail"
+
+    },
+    "mz":{
+        "knowledgeLibPrefix": "mz",
+        "detailPath": "/appmz/toPcDetail",
+        "h5_detail_path": "/appmz/detail"
+
+    },
+    "jc":{
+        "knowledgeLibPrefix": "jc",
+        "detailPath": "/appjc/toPcDetail",
+        "h5_detail_path": "/appjc/detail"
+
+    },
+    "lccz":{
+        "knowledgeLibPrefix": "lccz",
+        "detailPath": "/applccz/toPcDetail",
+        "h5_detail_path": "/applccz/detail"
+
+    },
+    "hlcz":{
+        "knowledgeLibPrefix": "hlcz",
+        "detailPath": "/apphlcz/toPcDetail",
+        "h5_detail_path": "/apphlcz/detail"
+
+    },
+    "jy":{
+        "knowledgeLibPrefix": "jy",
+        "detailPath": "/appjy/toPcDetail",
+        "h5_detail_path": "/appjy/detail"
+
+    },
+    "hyd":{
+        "knowledgeLibPrefix": "hyd",
+        "detailPath": "/apphyd/toPcDetail",
+        "h5_detail_path": "/apphyd/detail"
+
+    },
+    "zkct":{
+        "knowledgeLibPrefix": "zkct",
+        "detailPath": "/appzkct/toPcDetail",
+        "h5_detail_path": "/appzkct/detail"
+
+    },
+    "picture":{
+        "knowledgeLibPrefix": "picture",
+        "detailPath": "apppicture/toPcDetailHtml",
+        "h5_detail_path": "/apppicture/detail"
+    }
+}
+</script>
+<input type="hidden" id="basePath" value="/jeesitede">
+<input type="hidden" id="dataId" value="">
+<input type="hidden" id="detailPath" value="">
+<input type="hidden" id="knowledgeLibPrefix" value="">
+<input type="hidden" id="ctxStatic" value="/jeesitede/static">
+<link rel="icon" href="/jeesitede/favicon.ico">
+
+
+   
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>评论</title>
+    <link rel="stylesheet" href="/jeesitede/static/pc/resources/css/base.css">
+    <link rel="stylesheet" href="/jeesitede/static/pc/resources/lib/swiper/swiper-4.4.2/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="/jeesitede/static/pc/resources/css/s_index.css">
+    <script src="/jeesitede/static/pc/resources/lib/jquery/jquery-1.9.1.min.js"></script>
+    <script src="/jeesitede/static/layer-v3.1.1/layer/layer.js" type="text/javascript"></script>
+	<link href="/jeesitede/static/layer-v3.1.1/layer/mobile/need/layer.css" type="text/css" rel="stylesheet">
+
+
+    <div class="videodet_comment s_bookdet_ping">
+        <div class="videodet_comment_top">
+            发表评论
+            <!-- <span>3563条评论</span> -->
+        </div>
+        <div class="videodet_comment_con">
+            <div class="videodet_comment_user"><img src="/jeesitede/static/wap/imageLibrary/resources/images/modular/xx_img13.png" onerror="nofind()" alt=""></div>
+            <textarea id="plcountext" cols="30" rows="10"></textarea>
+            <div class="videodet_comment_publish">
+                <!-- <input type="checkbox" name="" id="">本人可见 --><button onclick="sendComment();">发表</button>
+            </div>
+        </div>
+        <div class="videodet_comment_list" id="pl_list">
+            
+        </div>
+        <div id="more" style="margin-top: -10px; margin-bottom: 20px; text-align: center; display: none;"><a href="javascript:moreComment();">查看更多</a></div>
+    </div>
+
+
+<script src="/jeesitede/static/pc/resources/lib/swiper/swiper-4.4.2/dist/js/swiper.min.js"></script>
+<script>
+    $(function(){
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+       /*  $('.videodet_comment_li_right').on('click','.huifu',function(){
+            $(this).parent().next().show();
+        }) */
+      /*   $('.videodet_comment_list').on('click','.Reply_btn',function(){
+            var comment_html = '<div class="open_block" style="display: block;"><div class="name_hui">何裕隆回复刘周婷:</div><div class="open_block_txt">双胍类如二甲双胍，抑制肝脏葡萄糖输出，增加组织对葡萄糖的利用从而降低血糖。α葡萄糖苷酶抑制剂如阿卡波糖，降低小肠粘膜对糖的吸收。这两类不需要胰岛B细胞的存在，不依赖胰岛素。</div></div>'
+            $(this).parent().parent().append(comment_html);
+        }) */
+        
+        $('.videodet_comment_li_right').on('click','.dianzan',function(){
+            $(this).find('i').toggleClass('yidian');
+        })
+    });
+    function nofind() {
+		var img = event.srcElement;
+		img.src = "/jeesitede/static/wap/imageLibrary/resources/images/modular/xx_img13.png"; //img1.png
+		img.onerror = null; //控制不要一直跳动
+	}
+    /**
+     * id:数据id
+     * title:数据标题
+     * type:模块类型（英文）
+     * library:模块类型（中文）
+     * typetype:埋点类型
+     */
+    function inieComment(id,type,library,ltypetype){
+    	postId = id;
+    	rType = type;
+    	rLibrary = library;
+    	typetype = ltypetype;
+    	getCommentsList(1);
+    }
+    
+	var curr = 1;
+	var postId,rTitle,rType,rLibrary,typetype;
+	//查询评论列表
+	function getCommentsList(pageNo){
+		curr = pageNo;
+		var url = "/jeesitede/community/getComments";
+		$.ajax({
+			url: url,
+			data: {
+				"postId": postId,
+				"userId": userId,
+				"pageNo": pageNo,
+				"pageSize": 10,
+				"type": 1
+			},
+			dataType: 'json',
+			type: 'post',
+			success: function(res) {
+				var status = res.message;
+				if(status == 'success'){
+					var data = res.result;
+					if(data && data.length > 0){
+						$("#more").css("display","block");
+						var html = '';
+						for(var i=0;i<data.length;i++){
+							var row = data[i];
+							var user_head = row.user.head;
+							var user_name = row.user.username;
+							var createDate = row.createDate;
+							var comment = row.comment;
+							var clickCount = row.clickCount;
+							html += '<div class="videodet_comment_li"><div class="videodet_comment_user"><img src="/jeesitede/'+user_head+'" onerror="nofind()" alt=""></div>'
+								+ '<div class="videodet_comment_li_con"><div class="videodet_comment_li_top"><a>'+user_name+'</a>'+createDate+'</div>'
+								+ '<div class="videodet_comment_li_p">'+comment+'</div></div><div class="videodet_comment_li_right">'
+								+ '<a href="javascript:;" data-id="'+row.id+'" class="huifu"><i></i>回复';
+							if(row.isReplay == 'Y'){
+								html += row.replayCount;
+							}
+							html += '</a><a id="'+row.id+'" href="javascript:dianzan(\''+row.id+'\');" class="dianzan">';
+							if(row.isClick == 'Y'){
+								html += '<i class="yidian"></i>';
+							}else{
+								html += '<i></i>';
+							}
+							if(clickCount && clickCount > 0){
+								html += clickCount;
+							}else{
+								html += '0';
+							}
+							html +=	'</a></div></div>';
+						}
+						$('#pl_list').append(html);
+					}else{
+						if(pageNo != 1){
+							layer.msg("没有更多了...");
+						}else{
+							$("#more").css("display","none");
+						}
+					}
+				}
+			}
+		});
+	}
+	
+	var userId = cookie("user_curr_id");
+
+
+	//发送评论内容
+	function sendComment() {
+		if(!userId || userId == '' || userId == null){
+			layer.msg("请登录");
+            setTimeout(function() {
+                $('#loginA').click();
+            }, 1000);
+			return;
+		}
+		var content = $('#plcountext').val();
+		if(content.trim().length < 1){
+			layer.msg("内容不能为空！");
+			return;
+		}
+
+		/**添加用户行为--评论--START--**/
+		var onetype = "text";
+		if ("ebook" == typetype) {
+			onetype = "ebook";
+		} else if ("video" == typetype) {
+			onetype = "video";
+		}
+
+		addUserOperation(postId, "", "text", typetype, "comment");		//添加用户行为
+		/**添加用户行为--评论--END--**/
+		var dataJson = {
+			"userId": userId,
+			"postId": postId,
+			"comment": content,
+			"source": "PC",
+			"type": rType,
+			"library": rLibrary,
+			"flag": "1",
+			"commentType": 0
+		};
+		$.ajax({
+			url: "/jeesitede/community/commentPost",
+			data: JSON.stringify(dataJson),
+			dataType: 'json', //服务器返回json格式数据   
+			type: 'post', //HTTP请求类型
+			contentType: "application/json",
+			success: function(data) {
+				$('#plcountext').val('');
+				layer.msg("您的评论已提交,耐心等待审核");
+			}
+		});
+	}
+	
+	//点赞
+	function dianzan(commentId){
+		if(!userId || userId == '' || userId == null){
+			layer.msg("请登录");
+            setTimeout(function() {
+                $('#loginA').click();
+            }, 1000);
+			return;
+		}
+		var url = "/jeesitede/community/praise";
+		$.ajax({
+			url: url,
+			data: {
+				"commentId": commentId,
+				"userId": userId,
+			},
+			dataType: 'json',
+			type: 'post',
+			success: function(data) {
+				var text = $('#'+commentId).text();
+				if(data.result == "点赞成功") {
+					if(text == '赞'){
+						$('#'+commentId).html('<i class="yidian"></i>1');
+					}else{
+						text = parseInt(text);
+						$('#'+commentId).html('<i class="yidian"></i>'+(text+1));
+					}
+				} else {
+					if(parseInt(text) == 1){
+						$('#'+commentId).html('<i></i>0');
+					}else{
+						$('#'+commentId).html('<i></i>'+(parseInt(text)-1));
+					}
+				}
+			}
+		});
+	}
+	
+	//保存回复内容
+	function saveHuifu(commentId){
+		if(!userId || userId == '' || userId == null){
+			layer.msg("请登录");
+            setTimeout(function() {
+                $('#loginA').click();
+            }, 1000);
+			return;
+		}
+		var content = $('#huifu').val();
+		if(content.trim().length < 1){
+			layer.msg('评论内容不能为空！');
+			return;
+		}
+		var dataJson = {
+			"userId": userId,
+			"postId": commentId,
+			"comment": content,
+			"source": "PC",
+			"type": rType,
+			"library": rLibrary,
+			"flag": "1",
+			"commentType": 1
+		};
+		$.ajax({
+			url: "/jeesitede/community/commentPost",
+			data: JSON.stringify(dataJson),
+			dataType: 'json', //服务器返回json格式数据   
+			type: 'post', //HTTP请求类型
+			contentType: "application/json",
+			success: function(data) {
+				$('#huifu').val('');
+				layer.msg("您的评论已提交,耐心等待审核");
+			}
+		});
+	}
+	
+	$('#pl_list').on('click','.huifu',function(){
+		var commentId = $(this).attr('data-id');
+		$('#huifu_list').remove();
+	    var html = '<div id="huifu_list"><div class="open_block"><div class="Reply_block">'
+	    	+ '<textarea id="huifu" class="Reply_input"></textarea>'
+	    	+ '</div><div class="Reply_btn" style=""><a href="javascript:saveHuifu(\''+commentId+'\');">评论</a></div></div></div>';
+		$(this).parent().parent().append(html);
+		var url = "/jeesitede/community/getComments";
+		$.ajax({
+			url: url,
+			data: {
+				"postId": commentId,
+				"userId": userId,
+				"pageNo": 1,
+				"pageSize": 2100000000,
+				"type": 2
+			},
+			dataType: 'json',
+			type: 'post',
+			success: function(res) {
+				console.log(res);
+				var status = res.message;
+				if(status == 'success'){
+					var data = res.result;
+					var html2 = '';
+					if(data && data.length > 0){
+						for(var i=0;i<data.length;i++){
+							var row = data[i];
+							var userName = row.user.username;
+							var comment = row.comment;
+							html2 += '<div class="open_block"><div class="name_hui">'+userName+':</div>'
+								+ '<div class="open_block_txt">'+comment+'</div></div>';
+						}
+						$('#huifu_list').append(html2);
+					}
+				}
+			}
+		});
+	});
+	
+	//加载更多
+	function moreComment(){
+		getCommentsList(curr+1,postId);
+	}
+</script>
+        </div>
+        <div class="gu_det_right">
+                <div class="gu_det_right_li">
+                    <div class="pic_det_top_Relevant_li_top">
+                        	典型病例
+                    </div>
+                    <div class="pic_det_top_Relevant_li_con" id="xg_case"><ul><li><a title="分离性身份障碍" href="/jeesitede/appcase/toPcDetail?sessionId=&amp;knowledgeLibPrefix=case&amp;id=1724680176316448770">分离性身份障碍</a></li><li><a title="病例　性身份障碍临床相关误诊病例1" href="/jeesitede/appcase/toPcDetail?sessionId=&amp;knowledgeLibPrefix=case&amp;id=12720">病例　性身份障碍临床相关误诊病例1</a></li><li><a title="病例 性身份障碍临床相关误诊病例2" href="/jeesitede/appcase/toPcDetail?sessionId=&amp;knowledgeLibPrefix=case&amp;id=12721">病例 性身份障碍临床相关误诊病例2</a></li><li><a title="病例　性指向障碍" href="/jeesitede/appcase/toPcDetail?sessionId=&amp;knowledgeLibPrefix=case&amp;id=12724">病例　性指向障碍</a></li><li><a title="病例 性偏好障碍———露阴症" href="/jeesitede/appcase/toPcDetail?sessionId=&amp;knowledgeLibPrefix=case&amp;id=12723">病例 性偏好障碍———露阴症</a></li></ul></div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/jeesitede/static/pc/resources/css/base.css">
+<link rel="stylesheet" href="/jeesitede/static/pc/resources/lib/swiper/swiper-4.4.2/dist/css/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="/jeesitede/static/pc/revision/css/public.css">
+<link rel="stylesheet" href="/jeesitede/static/pc/resources/css/s_index.css">
+<script src="/jeesitede/static/pc/revision/scripts/swiper.min.js"></script>
+<script type="text/javascript" src="/jeesitede/static/pc/revision/scripts/index.js"></script>
+<style>
+	.go_top{
+		opacity: 0;
+        filter: alpha(opacity=0);
+	}
+</style>
+<div class="footer">
+    <div class="s_container">
+        <div class="footerLeft">
+            <ul>
+                <li><a target="_blank" href="/jeesitede/pc/login/goAbout?type=1">关于我们</a></li>
+             
+                <li><a target="_blank" href="/jeesitede/pc/login/goAbout?type=3">免责声明</a></li>
+                <li><a target="_blank" href="/jeesitede/pc/login/goAbout?type=4">人才招聘</a></li>
+                <li><a target="_blank" href="/jeesitede/pc/login/goAbout?type=5">联系我们</a></li>
+                <li><a target="_blank" href="/jeesitede/pc/login/goAbout?type=6">隐私政策</a></li>
+            </ul>
+            <p>北京市朝阳区潘家园南里19号人卫大厦</p>
+			<p>© 2021 人民卫生出版集团 北京人卫智数科技有限公司 　<a href="https://beian.miit.gov.cn/" target="_blank">京ICP备：19054460号</a><img class="bhh" width="20px" height="20px" src="/jeesitede/static/images/备案图标.png" alt=""><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502039674" target="_blank" style="font-size:12px;">京公网安备 11010502039674号</a></p>
+        </div>
+        <div class="footerRight">
+            <div>
+                <img src="/jeesitede/static/pc/resources/img/footer-ewm.png">
+                <p>下载APP</p>
+            </div>
+            <div>
+                <img src="/jeesitede/static/pc/resources/img/footer-gzh.png">
+                <p>公众号</p>
+            </div>
+			<div>
+				<img src="/jeesitede/static/pc/resources/img/yyzz.png" style="width: 92px;">
+				<p>营业执照</p>
+			</div>
+			<div>
+				<img src="/jeesitede/static/pc/resources/img/jyxkz.png" style="width: 91px;">
+				<p>出版物经营许可证</p>
+			</div>
+        </div>
+    </div>
+</div> 
+    <div class="rightControl">
+    	<ul>
+    		<li class="js-conthover con">
+    			<a href="http://ccdas.pmphai.com/downloadu.html" target="_blank" class="con">
+		    		<i class="rightIcon rightSJ">
+		    			<img src="/jeesitede/static/pc/revision/images/right_sj.png">
+		    		</i>
+		    		<span>APP下载</span>
+		    	</a>
+		    	<div class="js-SJblock rightSJBlock">
+    			<div class="phoneBox">
+			  			<img src="/jeesitede/static/pc/revision/images/QR_code.png">
+			  			<div class="phoneTxt">
+			  				<div class="phoneTxtT">人卫临床助手APP</div>
+			  				<div class="phoneTxtColor">推广期免费下载</div>
+			  				<div class="phoneIcon">
+			  					<div class="phoneIconD"><a href="https://ccdas.pmphai.com/downloadu.html" target="_blank"><i class="icon_pp_i"></i><p>iphone</p></a></div>
+			  					<div class="phoneIconD"><a href="https://ccdas.pmphai.com/downloadu.html" target="_blank"><i class="icon_pp_a"></i><p>Andrord</p></a></div>
+			  				</div>
+			  			</div>
+			  		</div>
+			  	<div class="phoneBox">
+			  			<img src="/jeesitede/static/pc/revision/images/QR_code2.png">
+			  			<div class="phoneTxt">
+			  				<div class="phoneTxtT">微信公众号</div>
+			  				<div class="phoneTxtColor wxTxt">微信 扫一扫，关注人卫临床助手微信公众号</div>
+			  			</div>
+			  	</div>
+    		</div>
+    		</li>
+    		<li>
+    			<a href="/jeesitede/commonSys/index">
+		    		<i class="rightIcon right_sj">
+		    			<img src="/jeesitede/static/pc/revision/images/right_fk.png">
+		    		</i>
+		    		<span>意见反馈</span>
+		    	</a>
+    		</li>
+    		<li class="go_top">
+    			<a id="goTopBtn">
+		    		<i class="rightIcon right_sj">
+		    			<img src="/jeesitede/static/pc/revision/images/right_db.png">
+		    		</i>
+		    		<span>返回顶部</span>
+		    	</a>
+    		</li>
+    	</ul>
+    </div>
+	<script type="text/javascript">
+
+		$(function(){
+			//隐藏页面底部的站长统计字样
+			$("body").find("a[title='站长统计']").hide();
+		})
+
+		$("#goTopBtn").click(function(){
+			var sc=$(window).scrollTop();
+			$('body,html').animate({scrollTop:0},500);
+		});
+		var timer;
+		var timers;
+		$(window).scroll(function () {
+		    clearTimeout(timers);
+		    timers = setTimeout(function () {
+		        if ($(document).scrollTop() + $(window).height() > 1100) {
+		            $('.go_top').animate({
+		                opacity: 1,
+		                filter: 'alpha(opacity = 100)'
+		            }, 500, 'swing');
+		        }else{
+		        	$('.go_top').animate({
+		                opacity: 0,
+		                filter: 'alpha(opacity = 0)'
+		            }, 500, 'swing');
+		        }
+		    },30);
+		});
+	</script>
+
+ 
+
+		<script type="text/javascript" src="/jeesitede/static/jquery/jquery-ui-1.9.2.custom.js"></script>
+		<script type="text/javascript" src="/jeesitede/static/bootstrap/2.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/jeesitede/static/pc/scripts/common.js"></script>
+		<script type="text/javascript">
+		
+		$(function() {
+            
+            $("#case").addClass("cur").siblings().removeClass("cur");
+            inieComment('12719','cases',"病例", "cases");
+            _ajax_commend_resource();
+            collectStateDis('','12719','cases','');
+            // getGoodsList();
+			addUserOperation("12719", "病例　性身份障碍", "text", "cases", "browse");		//添加用户行为
+		});
+		
+		var basePath = $("#basePath").val();
+		var imgPath = $("#imgPath").val();
+		$(".searchBtn")
+				.click(
+						function() {
+							var keyWords = $("#keyWords").val();
+
+							var url = encodeURI(encodeURI("/jeesitede/search/resultJsp?keyWord="
+									+ keyWords));
+							window.location.href = url;
+						});
+		function toComment() {
+			var caseId = $("#caseId").val();
+			var content = $("#commentArea").val();
+			alert(content);
+			comment("1", caseId, "cases", "", "pc", content);
+		}
+
+		function _ajax_commend_resource() {
+			$.ajax({
+				url : "/jeesitede/appcase/list",
+				data : {
+					'type' : "cases",
+					'searchText' : "病例　性身份障碍",
+					'flag' : "1",
+					"pageSize" : 6,
+					"pageNo" : 1,
+					"userId" : "",
+					"clientSource" : "PC",
+					"relateFlag" : "relate",
+                    "knowledgeLibPrefix":"case"
+				},
+				type : "get",
+				success : function(data) {
+					var indexHtml = '<ul>';
+					for(var i=1;i<data.result.datas.length;i++){
+						indexHtml+='<li><a title="'+data.result.datas[i].ming_cheng.replace(/<[^>]+>/g,"")+'" href="/jeesitede/appcase/toPcDetail?sessionId=&knowledgeLibPrefix=case&id='+data.result.datas[i].id+'">'+data.result.datas[i].ming_cheng.replace(/<[^>]+>/g,"")+'</a></li>';
+					}
+					indexHtml += '</ul>';
+					$("#xg_case").html(indexHtml);
+					
+				},
+				error : function(e) {
+
+				}
+			})
+		}
+		var inputclearFlag = false;
+		setInterval(function() {
+			if (inputclearFlag) {
+				if ($("#keyWords").val() != "") {
+					$("#inputclear").show();
+				}
+			}
+		}, 1000);
+
+		$("#keyWords").focus(function() {
+			inputclearFlag = true;
+		}).blur(function() {
+			inputclearFlag = false;
+		});
+
+		$("#inputclear").click(function() {
+			$("#inputclear").hide();
+			$("#keyWords").val("")
+		})
+
+		$('.info_title a').click(
+				function() {
+					if ('' != ""
+							&& '' != null) {
+						$('.consulting_mask').css({
+							'display' : 'block'
+						});
+						center($('.consulting_box'));
+						check($(this).parent(), $('.btn1'), $('.btn2'));
+						$("html,body").css({
+							overflow : "hidden"
+						})
+					} else {
+						if (confirm("您还未登录，请先登录")) {
+							$("#loginA").click();
+						}
+					}
+
+				});
+		$('.consulting_title a').click(function() {
+			$('.consulting_mask').css({
+				'display' : 'none'
+			});
+			$('.consulting_box').css({
+				'display' : 'none'
+			});
+			$("html,body").css({
+				overflow : "auto"
+			})
+		})
+		// 居中
+		function center(obj) {
+			var screenWidth = $(window).width(), screenHeight = $(window)
+					.height(); //当前浏览器窗口的 宽高
+			var scrolltop = $(document).scrollTop(); //获取当前窗口距离页面顶部高度
+			var objLeft = (screenWidth - obj.width()) / 2;
+			var objTop = (760 - obj.height()) / 2 + scrolltop;
+			obj.css({
+				left : objLeft + 'px',
+				top : objTop + 'px',
+				'display' : 'block'
+			});
+		}
+
+	</script>
+
+
+</body></html>

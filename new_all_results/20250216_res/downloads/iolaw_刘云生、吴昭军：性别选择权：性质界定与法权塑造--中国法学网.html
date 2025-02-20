@@ -1,0 +1,847 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <base target="_blank">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=375, initial-scale=2.1333333333333333, maximum-scale=2.1333333333333333, minimum-scale=2.1333333333333333">
+    <link href="../../images/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="../../images/info.css" rel="stylesheet" type="text/css">
+    <link href="../../images/common5.css" rel="stylesheet" type="text/css">
+    <title>..::刘云生、吴昭军：性别选择权：性质界定与法权塑造--中国法学网::..</title>
+    <style>
+        body{background: #fff;}
+	.ftitle{text-align: center;font-size: 22px;margin: 0px auto;}
+	.main_img{margin:0 auto;width:1400px;}
+	.main_img img{width:1400px;}
+	.notice_left{margin-top:0px;}
+	.article_mian .title{margin:110px 0 50px;}
+        .cons img {width:700px;}
+	@media (max-width:1799px){}
+	/*设计可视宽度*/
+	@media (max-width:1379px){}
+	/*笔记本*/
+	@media (max-width:1199px){
+	body{background: #f2f1ed;}
+
+	.article_mian{ background:#FFF;padding:0 0; margin:0 2px; padding-top:2px; margin-top:2px;}
+	.article_top{ margin:0 16px;}
+	.article_mian .title{ margin:26px 0 10px 0; font-size:16px; font-weight:bold; padding:0 20px;}
+	.article_mian .article_content   table{ width:100% !important} 
+	.article_mian .article_content   table tr{width:100% !important}
+	.article_mian  table td,.article_mian  table td{ font-size:12px !important}
+	.article_mian  table td p{ font-size:12px !important}
+	.article_mian  table td p font{ font-size:12px !important}
+	.article_content img{ width:100% !important; }
+	.article_content{ margin-bottom:20px; background: #FFF;box-shadow: 0 0 0 rgb(0 0 0 / 10%); padding:10px;}
+
+	.footer_content{ padding:16px 0;}
+	.footer_content img{ display:block; margin:0 auto 10px auto }
+	.footer_content p{ font-size:14px}
+	.copyright{ padding:10px 0}
+	.copyright p{ color:#5e5e5e;}
+	.copyright p a{ border-bottom:1px #cacaca solid; color:#5e5e5e}
+
+	}
+	/*比较小的上网本，投影仪*/
+	@media (max-width:993px){
+
+	}
+	/*平板*/
+	@media (max-width:767px){
+
+		
+	}
+	/*手机*/
+    </style>
+	 <script>
+	 function showlist(item){
+	  var i = 0;
+	  for (i=0; i<5; i++)
+	  {
+		if (i == item)
+		{
+			$(".content ul li:eq("+i+")").addClass("active");
+            $(".notice_right ").eq(i).removeClass("hd");
+		} else {
+			$(".content ul li:eq("+i+")").removeClass("active");
+            $(".notice_right ").eq(i).addClass("hd");
+		}
+	  }
+	 }
+        $(function(){
+            $(".notice_left li").on("click",function(){
+                $(this).addClass("active");
+                $(this).siblings().removeClass("active");
+                var num=$(this).index();
+                $(".notice_right ").addClass("hd");
+                $(".notice_right ").eq(num).removeClass("hd");
+            });
+            $(".size p").on("click",function(){
+                $(this).addClass("active");
+                $(this).siblings().removeClass("active");
+            });
+            $(".small").click(function(){
+                $(".article_content p").css({"font-size":"16px","line-height": "22px"})
+                $(".article_top .time , .article_top .author").css({"font-size":"16px"})
+            })
+            $(".medium").click(function(){
+                $(".article_content p").css({"font-size":"19px","line-height": "32px"})
+                $(".article_top .time , .article_top .author").css({"font-size":"19px"})
+            })
+            $(".big").click(function(){
+                $(".article_content p").css({"font-size":"22px","line-height": "38px"})
+                $(".article_top .time , .article_top .author").css({"font-size":"22px"})
+            })
+		$(".scholar").hide();
+		var author = $(".author").text();
+		if (author.length == 2)
+		{
+			author = author.substr(0,1) + "　" + author.substr(1,1);
+		}
+		getaus(author);
+        })
+	function getaus(author){
+	    var length = author.length;
+	    var authors =new Array();
+	    var i = 0;
+	    var l = 0;
+	    var author1 = "";
+	    var cons = $(".cons").html();
+	    var pre = $(".pretitle").html();
+	    if (author.length == 3)
+	    {
+		var href = $(".scholars a:contains('"+author+"')").attr("href");
+		if (typeof(href) == "undefined")
+		{
+			$(".author").html("作者："+author);
+		} else {
+			$(".author").html("作者：<a href='"+href+"' target='_blank' style='color:#D2972F;'>"+author+"</a>");		
+			if ($(".cla a").text() == "最新作品" || $(".cla a").text() == "最新作品隐藏" || $(".cla a").text() == "本网首发" || $(".cla a").text() == "理论文章")
+			{
+				$(".scholarimg").append("<div class='author"+i.toString()+"'></div>");
+				getls(i,author,href);
+			}
+		}
+	    } else if (author.length > 3)
+	    {
+		authors = author.split("、");
+		var aus = "作者：";
+		var astr = "";
+		for (i=0; i<authors.length; i++)
+		{
+			author = authors[i];
+			$(".scholarimg").append("<div class='author"+i.toString()+"'></div>");
+			if (author.length == 2)
+			{
+				author = author.substr(0,1) + "　" + author.substr(1,1);
+			}
+			var href = $(".scholars a:contains('"+author+"')").attr("href");
+			if (typeof(href) == "undefined")
+			{
+				aus = aus + author + "、";
+			} else {
+				aus = aus + "<a href='"+href+"' target='_blank'>"+author+"</a>、";
+				getls(i,author,href);
+			}
+		}
+		$(".author").html(aus.substr(0,aus.length-1));
+	    }
+	    authors = $(".isbn").text().split("、");
+	    if (authors != "")
+	    {
+		var aus = "相关学者：";
+		for (i=0; i<authors.length; i++)
+		{
+			author = authors[i];
+			author1 = author;
+			if (author.length == 2)
+			{
+				author = author.substr(0,1) + "　" + author.substr(1,1);
+				l = 2;
+			} else {
+				l = 3;
+			}
+			var href = $(".scholars a:contains('"+author+"')").attr("href");
+			if (typeof(href) == "undefined")
+			{
+				aus = aus + author + "、";
+			} else {
+				aus = aus + "<a href='"+href+"' target='_blank'>"+author+"</a>、";
+				if ($(".cla a").text() == "学术会议" || $(".cla a").text() == "对外交流" || $(".cla a").text() == "学者行踪" || $(".cla a").text() == "建言献策" || $(".cla a").text() == "学术讲座" || $(".cla a").text() == "法学教育" || $(".cla a").text() == "学界动态" || $(".cla a").text() == "热点视频" || $(".cla a").text() == "本网首发" || $(".cla a").text() == "信息" || $(".cla a").text() == "成果推荐" || $(".cla a").text() == "优秀成果" || $(".cla a").text() == "荣誉奖项" || $(".cla a").text() == "法学研究所" || $(".cla a").text() == "国际法研究所")
+				{
+					if (l == 2)
+					{
+						cons = updatescholar(author1, href, cons);
+						pre = updatescholar(author1, href, pre);
+					} else {
+						cons = updatescholar(author, href, cons);
+						pre = updatescholar(author, href, pre);
+					}
+				}
+			}
+		}
+		$(".cons").html(cons);
+		$(".pretitle").html(pre);
+	    }
+	}
+	function getls(i,author,url){
+		if (typeof(url) != "undefined")
+		{
+			$.get(url,function(data){
+				var str = data;
+				var indexstart = str.indexOf("<ul id=\"01\">");
+				if (indexstart != -1 && i == 0)
+				{
+					var indexend = str.indexOf("<ul id=\"02\">",indexstart);
+					var indexend = str.indexOf("</ul>",indexend);
+					var list = str.substring(indexstart,indexend);
+					var title = $(".toptitle").text();
+					if (getversion())
+					{
+						$(".contnew .right").css("width","100%");
+					}else{
+						$(".newscon5").css("width","880px");
+					}
+					$(".disline").html(list);
+					if ($(".rel").html() == "" && $(".rel1").html() == "")
+					{
+						if ($(".yaowen ul li a:contains('" + title + "')").parent().prev().html() == null)
+						{
+							if ($(".yaowen ul li a:contains('" + title + "')").parent().next().html() != null)
+							{
+								$(".zuo").html("下一篇：" + $(".yaowen ul li a:contains('" + title + "')").parent().next().html());
+							}
+						} else if ($(".yaowen ul li a:contains('" + title + "')").parent().next().html() == null)
+						{
+							$(".zuo").html("上一篇：" + $(".yaowen ul li a:contains('" + title + "')").parent().prev().html());
+						} else 
+						{
+							$(".zuo").html("上一篇：" + $(".yaowen ul li a:contains('" + title + "')").parent().prev().html() + "<br>下一篇：" + $(".yaowen ul li a:contains('" + title + "')").parent().next().html());
+						}
+					}
+					$(".yaowen ul li a:contains('" + title + "')").parent().hide();
+					$(".yaowen ul li:gt(30)").hide();
+					$(".right").show();
+					$(".contnew .jitit a, .back").attr("href",url);
+				}
+				indexstart = str.indexOf("<div class=\"img6\" style=\"display:none;\">");
+				indexend = str.indexOf("</div>",indexstart);
+				var scholarimg = $(".scholarimg").html();
+				$(".author"+i.toString()).html("<a href='"+url+"' target='_blank'>"+str.substring(indexstart+40,indexend)+"<br>"+author+"</a>");
+			});
+		}
+	}
+	function getversion(){
+		var u = navigator.userAgent;
+		return u.match(/AppleWebKit.*Mobile.*/);
+	}
+	function updatescholar(substr, url, str){
+		var reg = new RegExp(substr, "g");
+		var regstr = "<a href='"+url+"' style='color:#c89a3e;'>"+substr+"</a>";
+		var result = str.replace(reg, regstr);
+		return result;
+	}
+	function setrel(){
+		if ($(".rel").html() != "")
+		{
+			$(".zuo").html($(".rel").html());
+		} else if ($(".rel1").html() != "")
+		{
+			$(".zuo").html($(".rel1").html());
+		} else {
+			$(".shang").hide();
+		}
+	}
+    </script>
+
+    <script type="text/javascript" src="../../images/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../../images/index1.js"></script>
+
+</head>
+<body>
+    <!-- 头部 -->
+
+    <style>
+.header{height:154px;width:100%;background:url("http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220920341276811855.jpg") no-repeat center center;}
+.nav_bg {top:150px;}
+</style>
+<div class="index_top">
+        <div class="header_top">
+            <img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020230118841950066524.png" alt="中国法学网" class="top_logo">
+            <div class="time fl"></div>
+            <div class="right fr">
+                <p><a href="http://iolawen.cssn.cn/">English</a></p>
+                <p><a href="/ywb/">日本語</a></p>
+                <p><a href="/hwz/ind_pichw/">한국어</a></p>
+                <img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220824560917909620.png" class="icon topSerBtn">
+                <div class="mOpenBtn"><i></i><i></i><i></i><i></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="mMenuLayBg"></div>
+    <div class="mCloseBtn"></div>
+    <div class="mMmenuLay">
+        <dl>
+            <dt><a href="/" class="mMenu_a1 on">首页</a><i class="mToggle"></i></dt>
+        </dl>
+        
+        <dl>
+            <dt><a href="/zwsy/org/fxs/" class="mMenu_a1">法学研究所概况</a><i class="mToggle"></i></dt>
+        </dl>
+        
+        <dl>
+            <dt><a href="/zwsy/org/gjfs/" class="mMenu_a1">国际法研究所概况</a><i class="mToggle"></i></dt>
+        </dl>
+        
+        <dl>
+            <dt><a href="../../scholar/keyan/" class="mMenu_a1">研究人员</a><i class="mToggle"></i></dt>
+            
+        </dl>
+        <dl>
+            <dt><a href="../../zzwx/" class="mMenu_a1">科研成果</a><i class="mToggle"></i></dt>
+        </dl>
+        
+        <dl>
+            <dt><a href="../../xshd/" class="mMenu_a1">学术活动</a><i class="mToggle"></i></dt>
+        </dl>
+        
+        <dl>
+            <dt><a href="../../journal/" class="mMenu_a1">法学刊物</a><i class="mToggle"></i></dt>
+        </dl>
+
+        <dl>
+            <dt><a href="../../fxjy/fxx/" class="mMenu_a1">法学教育</a><i class="mToggle"></i></dt>
+        </dl>
+
+        <dl>
+            <dt><a href="/tsg/" class="mMenu_a1">图书馆</a><i class="mToggle"></i></dt>
+        </dl>
+
+        <dl>
+            <dt><a href="" class="mMenu_a1">工作平台</a><i class="mToggle"></i></dt>
+        </dl>
+        
+    </div>
+    <!--搜索弹出层-->
+    <script type="text/javascript">
+        function toSearch(keyword) {
+            var key = document.getElementById(keyword).value;
+            var searchscope="DocTitle";
+            var keyword = "";   
+            if(key.match(/[~!@#$%\^\+\*&\/\?\|{}()\'-;=\"]/g) != null){
+                keyword = "'" + key +"'";
+            }else{
+                keyword=key;
+            }
+            if (key.length == '') { alert('请输入关键词'); return; }
+            $('.J_keyword').val("");
+            
+            // window.open('/was5/web/search/was5/web/search?channelid=213031&searchword=' + encodeURIComponent(keyword.replace(/[$]/g,"\\$")) + '&page=1&catetype=search&searchscope='+searchscope, '_blank');
+        }
+
+
+        function getHeaderKey(){
+            $(document).keydown(function(event) { //键盘响应函数
+                event = event || window.event; //兼容多浏览器
+                if (event.keyCode == 13) { //监听回车键
+                    var keyword = $('#SearchKeyword_pc').val()
+                    if(keyword==''){
+                        keyword = $('#SearchKeyword_mobile').val()
+                    }
+                    $('.J_keyword').val("");
+                    //if (keyword == '') { alert('请输入关键词'); return; }
+                    // window.open('/was5/web/search/was5/web/search?channelid=213031&searchword=' + encodeURIComponent(keyword.replace(/[$]/g,"\\$")) + '&page=1&catetype=search&searchscope=DocTitle', '_blank');
+                }
+            }); //键盘相应结束
+        }
+    </script>
+    <!--搜索弹出层-->
+
+<div class="serBg dsNone"></div>
+    <div class="serLayer dsNone">
+        <a href="javascript:;" class="serClose" target="_self"></a>
+        <div class="serBox">
+            <h6>搜索</h6>
+            <div class="serIntBox">
+	        <form action="/was5/web/search?" method="" target="_blank">
+                <input name="searchword" type="text" placeholder="输入内容" class="ip1 J_keyword" id="SearchKeyword_mobile">
+		<input name="channelid" id="channelid" type="hidden" value="213031">
+                <input name="" value="搜 索" type="button" class="ip2" onkeypress="getHeaderKey();" onclick="toSearch('SearchKeyword_mobile')" style="cursor: pointer;">
+		</form>
+            </div>
+            
+        </div>
+    </div>
+    <div class="header">
+        <div class="language_main">
+                        <p class="tblank">　</p>
+			<p><a href="http://iolawen.cssn.cn/">English</a></p>
+			<p><a href="/ywb/">日本語</a></p>
+			<p><a href="/hwz/ind_pichw/">한국어</a></p>
+        </div>
+	<div class="header_content">
+		<a href="/"><img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020230118841950066524.png" alt="中国法学网" class="top_logo"></a>
+		<!-- <div class="fr"> -->
+	   
+			<!-- <div class="icon_box">
+				<img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220824596761413798.png" class="icon" />
+				<img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220824596836973123.png" class="icon" />
+			</div> -->
+			
+		<!-- </div> -->
+		<div class="frt">		
+			<img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220824596761413798.png" width="100" height="100" class="footer_logo">
+			<img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220824596836973123.png" width="100" height="100" class="footer_logo">
+		</div>
+        </div>
+            <div class="nav_bg">
+            <nav>
+                <div class="nav_content">
+                    <div class="item_nav shade_nav">
+                        <div class="nav_title" style="height: 62px; line-height: 62px;"><a href="/zwsy/org/fxs/" target="_blank" style="color:#fff">法学研究所概况</a></div>
+                        <div class="bsgkBox" style="display: none; top: 62px;">
+                            <div class="bsgkBoxLeft">
+                                <div class="bsgkBoxTop"><p class="spLine">法学研究所简介</p></div>
+                                <div class="bsgkBoxLeftTu clearfix">
+                                    <a href="./bsgk/zxsjs/"><img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220824452533075856.jpg" width="220" height="150"></a>
+                                    <div class="bsgkBoxLeftText"><p>中国社会科学院法学研究所（Institute of Law, Chinese Academy of Social Sciences）是国家级法学研究机构，座落于北京故宫东北角，景山东麓，所在地址是1919年“五四”新文化运动旧址的一部分。首任所长为张友渔。历任所长张友渔、王仲方、孙亚明、王叔文、王家福、刘海年、夏勇、李林、陈甦。现任所长：莫纪宏……<a href="/zwsy/org/fxs/">&lt;详情&gt;</a></p></div>
+                                </div>
+                                <div class="mChangeTag">
+                                    <div class="bsgkBoxTop"><p class="spLine">现任领导</p></div>
+                                    <div class="mCon_conTxt">
+                                        <div class="bsgkBoxLeftList">
+                                            <!-- <a href="./bsgk/xrld/" class="moreBtn">详情</a> -->
+                                            <ul class="clearfix">
+                                                <li>
+                                                    <a target="_blank" oldsrc="W020210308299506339227.jpg" href="/scholar/fzs/201908/t20190823_4961651.shtml">
+                                                        <img width="190" alt="" border="0" photodocid="5107680" fromphoto="1" src="../../images/W020200330623088582873.jpg">
+                                                        <div class="bottom">
+                                                            <h2>陈国平</h2>
+                                                            <p>联合党委书记</p>
+                                                            <p>副所长</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" oldsrc="W020210716344185268645.jpg" href="/scholar/xfxzf/201908/t20190823_4961063.shtml">
+                                                        <img width="190" alt="" border="0" photodocid="5347855" fromphoto="1" src="../../images/W020210716343855289681.jpg">
+                                                        <div class="bottom">
+                                                            <h2>莫纪宏</h2>
+                                                            <p>所长</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" oldsrc="W020210308395295553116.jpg" href="/scholar/xfxzf/201908/t20190823_4961061.shtml">
+                                                        <img width="190" alt="" border="0" photodocid="5316161" fromphoto="1" src="../../images/W020210308394872841210.jpg">
+                                                        <div class="bottom">
+                                                            <h2>周汉华</h2>
+                                                            <p>副所长</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" oldsrc="W020210804817710951264.jpg" href="/images/W020221008555961681155.jpg">
+                                                        <img width="190" alt="" border="0" photodocid="5351919" fromphoto="1" src="../../images/W020221008555961681155.jpg">
+                                                        <div class="bottom">
+                                                            <h2>王莹</h2>
+                                                            <p>副所长</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" oldsrc="W020210929563007383460.jpg" uploadpic="U020210929562568514883.jpg" href="/scholar/shf/201908/t20190823_4961349.shtml">
+                                                        <img width="190" title="微信图片_20210929150545" alt="" border="0" src="../../images/W020210929563007383460.jpg">
+                                                        <div class="bottom">
+                                                            <h2>谢增毅</h2>
+                                                            <p>副所长</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                          
+                                </div>
+                            </div>
+                            <div class="bsgkBoxRight">
+                                <div class="bsgkBoxTop bsgkBoxTop1"><p class="spLine">组织机构</p>
+                                    <!-- <a href="./bsgk/zzjg/" class="btnLinke">详情</a> -->
+                                </div>
+                                <div class="bsgkBoxRight_1 clearfix">
+                                    <div class="bsgkBoxRight_2">
+                                        <h2><span><a href="./bsgk/zzjg/yjs/">研究室</a></span></h2>
+                                        <ul>
+						<li><a href="/xxsz/201807/t20180706_4660640.shtml" title="法理研究室">法理研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660670.shtml" title="法制史研究室">法制史研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660674.shtml" title="宪法与行政法研究室">宪法与行政法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660683.shtml" title="民法研究室">民法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660654.shtml" title="商法研究室">商法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660643.shtml" title="经济法研究室">经济法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660641.shtml" title="知识产权研究室">知识产权研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660646.shtml" title="刑法研究室">刑法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660682.shtml" title="诉讼法研究室">诉讼法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660638.shtml" title="网络与信息法研究室">网络与信息法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660650.shtml" title="社会法研究室">社会法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660669.shtml" title="法治国情调查研究室">法治国情调查研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660673.shtml" title="生态法研究室">生态法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660681.shtml" title="法治战略研究部">法治战略研究部</a></li>
+                                        </ul>
+                                        <h2><span><a href="">编辑部</a></span></h2>
+                                        <ul>
+						<li><a href="/xxsz/201807/t20180723_4660964.shtml" title="《法学研究》编辑部">《法学研究》编辑部</a></li>
+						<li><a href="/xxsz/201807/t20180723_4660960.shtml" title="《环球法律评论》编辑部">《环球法律评论》编辑部</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bsgkBoxRight_2 bsgkBoxRight_3">
+                                        <h2><span><a href="">研究中心</a></span></h2>
+                                        <ul>
+						<li><a href="">习近平法治思想研究中心</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660678.shtml" title="人权研究中心">人权研究中心</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660668.shtml" title="台港澳法研究中心">台港澳法研究中心</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660671.shtml" title="知识产权中心">知识产权中心</a></li>
+						<li><a href="/xxsz/201807/t20180723_4660963.shtml" title="文化法制研究中心">文化法制研究中心</a></li>
+						<li><a href="/zt/gfzx/" title="法治宣传教育与公法研究中心">法治宣传教育研究中心</a></li>
+						<li><a href="/xxsz/fzzs/" title="国家法治指数研究中心">国家法治指数研究中心</a></li>
+						<li><a href="/xxsz/sfzx/" title="私法研究中心">私法研究中心</a></li>
+						<li><a href="/xxsz/201807/t20180723_4660924.shtml" title="性别与法律研究中心">性别与法律研研究中心</a></li>
+						<li><a href="/xxsz/202010/t20201022_5198629.shtml" title="科技与法研究中心">科技与法研究中心</a></li>
+                                        </ul>
+						<h2><span><a href="">全面依法治国智库</a></span></h2>
+                                        <h2><span><a href="./bsgk/zzjg/zncs/">职能处室</a></span></h2>
+                                        <ul>
+						<li><a href="/xxsz/201807/t20180716_4660799.shtml" title="人事党办">人事党办</a></li>
+						<li><a href="">科研处</a></li>
+						<li><a href="/xxsz/201807/t20180713_4660789.shtml" title="办公室">办公室</a></li>
+                                        </ul>
+                                        <h2><span><a href="">博士后流动站</a></span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="item_nav shade_nav">
+                        <div class="nav_title" style="height: 62px; line-height: 62px;"><a href="/zwsy/org/gjfs/" target="_blank" style="color:#fff">国际法研究所概况</a></div>
+                        <div class="bsgkBox gj_bsgkBox" style="display: none; top: 62px;">
+                            <div class="bsgkBoxLeft">
+                                <div class="bsgkBoxTop"><p class="spLine">国际法研究所简介</p></div>
+                                <div class="bsgkBoxLeftTu clearfix">
+                                    <a href="./bsgk/zxsjs/"><img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220824452533075856.jpg" width="220" height="150"></a>
+                                    <div class="bsgkBoxLeftText">
+                                        <p>中国社会科学院国际法研究所是中国国际法学的研究重镇。她的前身是中国社会科学院国际法研究中心、中国社会科学院法学研究所国际法研究室和最早时的中国社会科学院法学研究所国际法组。</p>
+                                        <p>1959年，中国科学院哲学社会科学部建立法学研究所之后的第二年，法学研究所成立了国际法组。 <a href="/zwsy/org/gjfs/">&lt;详情&gt;</a></p> 
+                                    </div>
+                                </div>
+                                <div class="mChangeTag">
+                                    <div class="bsgkBoxTop"><p class="spLine">现任领导</p></div>
+                                    <div class="mCon_conTxt">
+                                        <div class="bsgkBoxLeftList">
+                                            <!-- <a href="./bsgk/xrld/" class="moreBtn">详情</a> -->
+                                            <ul class="clearfix">
+                                                <li>
+                                                    <a target="_blank" oldsrc="W020210716518802370835.jpg" href="/scholar/fzs/201908/t20190823_4961651.shtml">
+                                                        <img width="240" alt="" border="0" complete="complete" fromphoto="1" photodocid="5107680" src="../../images/W020200330623088582873.jpg">
+                                                        <div class="bottom">
+                                                            <h2>陈国平</h2>
+                                                            <p>联合党委书记</p>
+                                                            <p>主持所务工作</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" oldsrc="W020210716519855636230.jpg" href="/scholar/gjfyj/201908/t20190823_4961029.shtml">
+                                                        <img width="240" alt="" border="0" complete="complete" fromphoto="1" photodocid="5348006" src="../../images/W020210716519585683492.jpg">
+                                                        <div class="bottom">
+                                                            <h2>柳华文</h2>
+                                                            <p>副所长</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" oldsrc="W020210804817710951264.jpg" href="/images/W020221008555961681155.jpg">
+                                                        <img width="240" alt="" border="0" complete="complete" fromphoto="1" photodocid="5351919" src="../../images/W020221008555961681155.jpg">
+                                                        <div class="bottom">
+                                                            <h2>王莹</h2>
+                                                            <p>副所长</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a target="_blank" oldsrc="W020211102413562711495.jpg" uploadpic="U020211102412936003595.jpg" href="/scholar/wlxx/201908/t20190823_4961069.shtml">
+                                                        <img width="240" title="微信图片_20211102112649" alt="" complete="complete" src="../../images/W020211102413562711495.jpg">
+                                                        <div class="bottom">
+                                                            <h2>翟国强</h2>
+                                                            <p>副所长</p>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                         
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bsgkBoxRight">
+                                <div class="bsgkBoxTop bsgkBoxTop1"><p class="spLine">组织机构</p>
+                                    <!-- <a href="./bsgk/zzjg/" class="btnLinke">详情</a> -->
+                                </div>
+                                <div class="bsgkBoxRight_1 clearfix">
+                                    <div class="bsgkBoxRight_2">
+                                        <h2><span><a href="./bsgk/zzjg/yjs/">研究室</a></span></h2>
+                                        <ul>
+						<li><a href="/xxsz/201807/t20180706_4660686.shtml" title="国际私法研究室">国际私法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660645.shtml" title="国际公法研究室">国际公法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660651.shtml" title="国际经济法研究室">国际经济法研究室</a></li>
+						<li><a href="/xxsz/201807/t20180706_4660672.shtml" title="国际人权法研究室">国际人权法研究室</a></li>
+						<li><a href="/xxsz/202109/t20210928_5363607.shtml" title="国别法研究室">国别法研究室</a></li>
+					</ul>
+                                        <h2><span><a href="">编辑部</a></span></h2>
+                                        <ul>
+                                            <li><a href="/xxsz/201807/t20180723_4660962.shtml" title="《国际法研究》编辑部">《国际法研究》</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bsgkBoxRight_2 bsgkBoxRight_3">
+                                        <h2><span><a href="">研究中心</a></span></h2>
+                                        <ul>
+						<li><a href="/xxsz/201908/t20190823_4961209.shtml" title="海洋法治研究中心">海洋法治研究中心</a></li>
+						<li><a href="/xxsz/201807/t20180723_4660961.shtml" title="竞争法研究中心">竞争法研究中心</a></li>
+						<li><a href="/xxsz/202109/t20210928_5363620.shtml" title="涉外法治研究中心">涉外法治研究中心</a></li>
+                                        </ul>
+						<h2><span><a href="">全面依法治国智库</a></span></h2>
+                                        <h2><span><a href="./bsgk/zzjg/zncs/">职能处室</a></span></h2>
+                                        <ul>
+                                            <li><a href="">科研处</a></li>
+                                        </ul>
+                                        <h2><span><a href="">博士后流动站</a></span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item_nav"><a href="../../scholar/keyan/"><div class="nav_title" style="height: 62px; line-height: 62px;">研究人员</div></a></div>
+                    <div class="item_nav"><a href="../../zzwx/"><div class="nav_title" style="height: 62px; line-height: 62px;">科研成果</div></a></div>
+                    <div class="item_nav"><a href="../../xshd/"><div class="nav_title" style="height: 62px; line-height: 62px;">学术活动</div></a></div>
+                    <div class="item_nav"><a href="../../journal/"><div class="nav_title" style="height: 62px; line-height: 62px;">学术刊物</div></a></div>
+                    <div class="item_nav"><a href="../../fxjy/fxx/"><div class="nav_title" style="height: 62px; line-height: 62px;">法学教育</div></a></div>
+                    <div class="item_nav"><a href="/tsg/"><div class="nav_title" style="height: 62px; line-height: 62px;">图书馆</div></a></div>
+                    <div class="item_nav"><a href="/"><div class="nav_title" style="height: 62px; line-height: 62px;">工作平台</div></a></div>
+					<div class="item_nav">
+						<div class="input_box">
+						<form action="/was5/web/search?" method="" target="_blank">
+						<input type="text" name="searchword" id="keywords" placeholder="请输入搜索关键词">
+						<input name="channelid" id="channelid" type="hidden" value="213031">
+						<input type="image" src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220824560917909620.png" class="icon">
+						</form>
+						</div>
+					</div>
+                </div>
+            </nav>
+	    </div>
+    </div>
+
+    <!-- end -->
+        
+    <div class="info_main gjinfo_box1">
+        <div class="nav border">
+	<a href="/"><span>首页</span></a> &gt; <span class="cla"><a href="../">学界动态</a></span>
+        </div>
+        <div class="main article_mian">
+            <div class="article_top">
+                <div class="title">性别选择权：性质界定与法权塑造</div>
+                <div class="ftitle"></div>
+                <div class="time">
+                    <div class="disauthor"><span class="author">刘云生、吴昭军</span></div>
+                    <div class="disauthor" style="display:none;"></div>
+                </div>
+                <div class="clearfix">
+                    <div class="size fr">
+                        <div class="icon"><img src="../../images/font.png">字号:</div>
+                        <p class="active small">小</p>
+                        <p class="medium">中</p>
+                        <p class="big">大</p>
+                    </div>
+                </div>
+            </div>
+            <div class="article_content">
+                <div class="pretitle"></div>
+                <div class="cons"><div class="TRS_Editor"><p align="justify">【中文关键词】 性别选择权；性别变更；变性；人格权</p>
+<p align="justify">【摘要】 性别选择权，系指行为人因生理差异或性别焦虑原因依法自主变更为另一目标性别的权利。承认性别选择权，有利于主体资格建构与确证；有利于身份关系认证；有利于婚姻关系缔结和角色定位；有利于社会角色识别。性别选择权有其自然法、宪法和民法基础。性别选择权系人格权、身份权和身体权。性别选择权的行使应具备法定要件，并须履行告知义务、注意义务，遵循类型限定和次数法定的原则。</p>
+<p align="justify">【全文】</p>
+<p align="justify">阴阳消长、对立互生，是传统自然之道，亦是区分人类性别的最重要依据。但杂然流形，“阴阳人”、“变性人”等客观现象的存在却诠释了生命质态和形态的多样性。如何认知该类生命样态并进行法律规制，不仅关乎此类特殊个体民事主体地位之界定，还关乎其行为指向及其法律效力。</p>
+<p align="justify">依照不同标准，“性别”具有多重的意义指称，如染色体性别、解剖性别、社会性别、心理性别等。时光轴轮转向二十一世纪，传统之生理性别决定论遭遇了社会建构论的强大冲击。纵观域外立法，传统“男！女”二元区分已渐次归于沉寂，隐入历史尘影。无论是生理层面双性人之自决权，抑或是心理层面性别认同障碍者的选择权，无不彰显着性别多元化选择的时代潮流，传统性别区分、区隔面临世纪性跨越。2013年，德国修正《民事身份登记法》(Personenstandsgesetz)，就性别选项在男性和女性之外增加空白选项，意味着德国立法对性别选择权的肯认和尊重；《魁北克民法典》《土耳其民法典》及国内徐国栋教授《绿色民法典草案》则以民法文本或建议稿形式规定了性别选择权。</p>
+<p align="justify">值此民法典编纂之际，如何界定性别选择权之基本概念及权利内涵，其权利属性如何定位定性，类型如何区分，权利之行使应当设定何种限制条件及以何种模式入典，不仅会影响到民法典的时代性、科学性，还检验着民法典的人文内蕴和文化包容力。</p>
+<p align="justify">一、类型区分与概念界定</p>
+<p align="justify">法权意义的性别是一种社会角色的强制赋予而非生理学意义的客观认知。所谓社会角色，系指特定社会结构中人们与自己所处特定社会地位和特定身份相一致的一整套权利、义务体系和行为模式，是社会成员对处于特定社会地位，具有特定社会身份人的行为期待{1}2。在对个体社会角色的注塑过程中，法律多采用普遍性原则，以“男！女”二性进行角色区分，借此确定个体的身份地位标识及权利义务关系，体现了强制赋予色彩。该强制赋予机制通过强大的政治权力与道德渲染对个体的自我识别产生强力引导，借此维系身份定性定位、男女二元区隔等系列制度的长期性、持续性、强制性。</p>
+<p align="justify">性别选择权，学界或称“性别变更权”。有学者认为性别变更权是自然人根据自己的意愿选择并依法通过变性手术改变性别的权利，如同更改姓名、整容改变肖像一样，属于对身体权的处分{2}61。或径采“性别变更”(gender transition/sex change)之描述性概念，主要包括两个方面：其一是指身体结构和生活角色的性别变更，其二是法律上的性别变更，即法律身份的转变{3}8。</p>
+<p align="justify">广义的性别选择至少涉及如下四类：</p>
+<p align="justify">第一类，通过基因序列筛选决定胚胎的男女性别。</p>
+<p align="justify">第二类，通过自主选择使雌雄间性(intersex)归于一性，本文称之为“医学变性”。目前，西班牙已将此类医学变性所需费用列入社保福利范畴。</p>
+<p align="justify">第三类，基于生理畸变或异形呈现二元性别而依法自主选择目标性别，本文称之为“法律变性”。此类性别选择不改变生理性别，而直接申请更改法律上性别身份，借此获得目标性别。2006年6月2日西班牙政府通过一项新提案，允许性倒错者(变性欲症者)不必接受变性手术的情况下获得法律认可的变性身份。</p>
+<p align="justify">第四类，基于性别焦虑而依法自主变更为另一目标性别。</p>
+<p align="justify">为保证命题和逻辑的一致性，本文不涉及第一类。</p>
+<p align="justify">“参照群体”理论可用于解析变性诉求者的基本行为选择。当宗教、法律、道德的强力约束渐次松缓，变性诉求者无论是从人权层面，还是从私权层面都赢得了独立的话语权并形成了特定的群落，最终撕裂数千年的“男女”二分藩篱。</p>
+<p align="justify">“参照群体”(reference group)，亦称为“参考群体”或“标准群体”，系指影响个人行为的群体。该一概念系由穆扎弗·谢里夫(Muzafer Sherif)于其《社会心理学大纲》(An Outline of Social Psychology)中提出。按照穆扎弗·谢里夫的观点，参照群体系指于地位、作用方面具有明确关联并相互影响的个体组合体，组合体内部拥有自身的价值理念与规范并能对组织体个体成员的行为产生影响{4}504-553。</p>
+<p align="justify">参照群体的后续性研究集中于如下三个核心命题：</p>
+<p align="justify">影响力。所谓影响力系指一个人或一个群体对他人反映预期的行为变量(changes in behavior of a person or group due to anticipation of the responses of others){5}332。</p>
+<p align="justify">支配力。所谓支配力，或译为“权力”，系指在对抗他人影响与控制时影响与控制他人的能力，主要表现为决定、支配贵重资源的能力(the ability to influence and control others while resisting their influence and control){6}403。</p>
+<p align="justify">团结力。所谓团结力系指于群体内部对于持守共同目标、利益与规范的信念(a belief in the collective sharing of aims, interests, and norms){7}503。</p>
+<p align="justify">正是基于这种影响力、支配力、团结力，性别选择权最终凸显于公法和私法两大界域，不仅催生了世界性的《日惹原则》(Yogyakarta Principles)，还引致德国、西班牙、土耳其等国家的民事立法中“人法”的世纪性转型。</p>
+<p align="justify">本文置重于辨析性别选择权之相关私法问题，故对性别选择权之定义理应属于私法层域。所谓性别选择权，系指行为人因生理差异或性别焦虑原因依法自主变更为另一目标性别的权利。</p>
+<p align="justify">二、性别选择权构建的法律意义</p>
+<p align="justify">承认性别选择权，不仅有利于回应并保障基本人权，对私法体系之构造、完善、转型亦具有极为重要的意义。</p>
+<p align="justify">(一)有利于主体资格建构与确证</p>
+<p align="justify">法律中以特定性别作为适用对象的规定并不罕见，例如刑法中以特定性别为犯罪构成的强奸罪、拐卖妇女儿童罪、强制猥亵侮辱妇女罪等，《劳动法》中以女性作为适用对象的产假、解雇和劳动保障制度等，以及《妇女权益保障法》《反家庭暴力法》等以保障女性权益的倾斜性法律。适用这些法律规定的前提是主体资格的确证，即主体在法律上是否属于女性，主体的性别构成是否对法律适用构成影响。我国目前已在户口登记、身份证更换等方面出台了相应规范，如《公安部治安管理局关于公民手术变性后变更户口登记性别项目有关问题的批复》(公治[2008]478号)，但尚无高位阶立法做出统一明确之规定。</p>
+<p align="justify">性别变更和性别模糊者与这些规范相遇时便发生逻辑上的交错，如何认定性别成为正确适用法律的首要问题。例如我国目前出现的以双性人为侵权对象的魏某某等强奸案{8}80、变性人卖淫问题、双性人卖淫问题、“强奸”变性人问题等，是否构成法律上的强奸、卖淫不无疑问。以强奸罪为例，该罪以妇女的性自由为保护法益，犯罪对象为女性，犯罪主体是年满十四周岁的具有刑事责任能力的男子[1]。在魏某某等强奸案中，被害人为双性人，基因检测显示为男性，同时具有女性生理特征，并长期以女性身份生活。一种审理意见认为被害人不是女性，不是强奸罪保护的对象，因此被告行为构成强奸未遂。另一种审理意见则认为基于被害人长期以女性身份生活并具有女性生理特征，应认定构成刑法上的女性，被告行为构成强奸既遂。</p>
+<p align="justify">(二)有利于身份关系认证</p>
+<p align="justify">特定的身份关系认证与识别需以性别区分为前提。以亲属关系中的称谓为例，“妈妈”、“姐姐”、“妹妹”、“姑姑”、“小姨”、“表妹”等等女性称谓均特指女性，借此塑造家庭、社会关系。如性别模糊或变动不止，势必造成识别困难甚或出现人伦障碍。典型者如变性人一般不具备生养能力，如果缔结婚姻、收养等关系，如何于传统称谓体系中定性定位，不仅影响家庭角色识别，还直接影响所长养后代之性别认知与情感认知。</p>
+<p align="justify">以社会治理为例，性别统计为人口统计之大端，如无视性别选择权，不仅可能导致统计数据失实，还会诱发家庭关系、社会关系混乱。</p>
+<p align="justify">(三)有利于婚姻关系缔结与角色定位</p>
+<p align="justify">婚姻关系乃两性的结合，我国目前尚未立法承认同性婚姻，根据《婚姻法》，仅得男性与女性缔结婚姻关系。这为变性人或性别跨越者带来法律适用难题。如双性人仅得以身份证明和户籍证明上的性别为准，和异性缔结婚姻关系；变性人即便生理性别已经通过变性手术进行改变，若未变更法律登记，仍仅得依据原性别和异性缔结婚姻关系，这就造成事实上(生理上)的同性婚姻。</p>
+<p align="justify">缔结婚姻关系是性领域中重要的内容，也是主体进行性别变更的主要原因之一。因此围绕变性人婚姻问题的立法与判例不仅数量较多，而且分歧较大。就立法层面，泰国和美国的部分州(如堪萨斯州)在立法中禁止公民变性后结婚。而英国、日本等国出台变性法案，并未在立法中禁止变性人结婚，美国大部分州(如佛罗里达州、新泽西州)也在法律上承认变性之权利。就司法层面，欧洲人权法院在Goodwin v. United Kingdom案中支持变性人的结婚权，美国新泽西州的M. T.v. J.T.案也通过判决予以认可{3}138-142。</p>
+<p align="justify">我国在立法上就变性人结婚问题尚未明确回应，但是司法和执法实践已走在前面进行了探</p>
+<p align="justify">索。例如民政部发布的《关于婚姻当事人一方变性后如何解除婚姻关系问题的答复》，兰州出台文件允许变性人进行婚姻登记，以行政方式认可婚姻权。又如进入司法程序的以变性人为当事人的“吴某诉王甲离婚纠纷”[2]、以变性人登记为诉争标的我国香港地区“W诉婚姻登记机关变性人婚姻登记纠纷案”{9}99等。</p>
+<p align="justify">可见，变性后婚姻权利是一个客观存在的与现行两性婚姻立法相错位的问题，问题的解决唯有承认性别选择权，否则立法逻辑问题难以化解。实际上我国部分地区的实践探索也是在事实上对此法权予以承认。</p>
+<p align="justify">(四)有利于社会角色识别</p>
+<p align="justify">角色(role)是与社会组织或机构中某一位置与地位相适应的行为表现，是分析社会结构的重要概念，角色集成了主体在社会中的一套权利义务{10}3。不同的性别决定了主体具有不同的社会角色，分化为不同的社会分工，社会权利义务体系也因此而有所差异。人是社会性的动物，主体性别的选择与变更必然外化为与其他主体权利义务关系的转变，继而影响社会角色和公共行为的迁移。</p>
+<p align="justify">性别选择权之法权塑造有助于主体恪守特定道德义务。浴室、厕所等私密性场所不仅关涉隐私权，而且与性别紧密挂钩，具有极强的性别标识，彰显了身份识别并外化为公共道德。但传统的性别二元区分在面临跨性别者时便产生尴尬。例如双性人同时具备男女两性表征，不管去男厕所还是女厕所均面临道德危机，甚至冲击法律秩序。</p>
+<p align="justify">性别选择权之法权塑造有助于明晰主体承担特定社会责任。性别不同决定主体社会责任和分工的不同，所以明确主体性别，实现性别认同和法律性别的同一性具有重要意义。例如兵役是世界上绝大多数国家立法明确规定的公民义务。韩国实行普遍义务兵役制，依据韩国兵役法，适龄男性公民必须服兵役，若男性进行变性手术成为女性则可豁免兵役。泰国实行征兵制，适龄男子也必须服兵役，即便是“人妖”、变性人等跨性别者同样要服兵役，除非取得心理学或医学上的认证，通过心理检测和生理检查证明性别认同不同于身份证明上的性别。</p>
+<p align="justify">三、权利来源·性质界定·权利边界</p>
+<p align="justify">(一)性别选择的权利基础</p>
+<p align="justify">1.自然法基础——自然权利</p>
+<p align="justify">亨利·梅因曾指出，自然法决定了人类历史的走向{11}43。古希腊哲学家在守望星空时将物质世界和道德世界融合于“自然”这一概念之中。他们倡导遵循自然，合乎自然的就是好的，就是正义的，探寻发现自然的秩序与比例、等级，并依此来构建人间的生活{12}37。自然被认为是不可违抗的，是具有神性的。西塞罗在《法律篇》中谈到，“法律是植根于自然的、指挥应然行为并禁止相反行为的最高理性”{13}158。自然法乃“真正的法律”，“是与本性(nature)相合的正确的理性：它是普遍适用的、不变的和永恒的。”{13}104</p>
+<p align="justify">自然法源于对自然规律的认知与尊崇。性别多元既然合于自然，性别选择亦当归属于自然性权利。徵诸典籍，性别多元既非臆想之虚像，亦非一时特异之个案，而是时常出现在各大文明的历史文化影像之中，也跃然呈现于当下实践需求之中。</p>
+<p align="justify">佛教经律《十诵律》规定了“五不男”或“五种不能男”，并把社会性别为男性的人却又不能或难以为男子的五种人称为“五种黄门”{14}34。</p>
+<p align="justify">在《塔木德经》及其他多部犹太典籍之中，就曾讨论双性人(Androgynos、Hermaphrodite)的法律地位，如将之归于某一确定性别(男或女)，抑或单列一类性别，并就不同地区的规定模式予以阐述{15}11。</p>
+<p align="justify">在我国古史典籍中，有关变性人的描述也到处可寻。历史上关于变性人最为活跃的形象便是太监，中国殷商时期和西方希腊文明时期均已出现相关记载。典型者如《圣经》马太福音第十九章中记载：“他是天生的阉人，有被人阉的，也有为天国而自阉的”；《史记》中记载，魏襄王十三年，“魏有女子化为丈夫”；在《汉书·卷二十七·五行志下之上》《后汉书·卷八十二下·徐登传》《清史稿·卷四十·灾异一》等史籍中亦不乏其例{16}38。</p>
+<p align="justify">据现代医学统计，双性人或性别模糊者的数量达世界总人口的1%—4%{15}10。亦有学者指出，根据统计数据，目前德国每年约有三百到四百个性别模糊的婴儿出生，例如同时具有男女性腺{17}26。由此可见，双性人或性别模糊者、性别焦虑者等并非罕见、天生有罪的，更非有悖人伦、违背天理，而是人类繁衍、种群发展中由自然法则导引下的必然现象。古今中外的文化影像中都存在这类活生生的形象，立法不应将其拒之门外、视而不见，更不应视为病态怪胎，而是应合于自然，正视主体的多样性。</p>
+<p align="justify">另据统计，1931年世界首例变性手术后，全球已超过1万多人变性，全世界每10万人中有4个易性症患者，目前我国大约有40万人要求进行变性手术，已有1千余人做变性手术{18}8。</p>
+<p align="justify">2.宪法基础——基本人权</p>
+<p align="justify">宪法作为写满权利的纸，是自然权利的实定化，是自然法落地生根的产物。国际性、区域性人权文本和各国国内宪法几乎都将人权作为至关重要的内容进行规定，这为性别选择权提供了宪法依据和法理栖息地。</p>
+<p align="justify">1996年《性别权利国际法案》(The International Bill of Gender Right)专门就性别领域的人权进行了规定，其指出，个体对于自身性别的认知不是由生物性别或最初的社会性别决定的，每个人都有权(The Right to Define Gender Identity)重新确定自己的性别，不论是生物性别还是社会性别{3}25。</p>
+<p align="justify">2007年《日惹原则——关于将国际人权法应用于性倾向和性别认同相关事务的原则》中指出，“所有人权是普遍、相互依存、不可分割和相互联系的”，“性倾向和性别认同是每个人的尊严和人性中不可或缺的组成部分”。</p>
+<p align="justify">欧洲人权公约虽未在条文内容上明确列明公民具有性别选择的权利，但是欧洲人权法院在数十年的判例中已经承认了这一人权。典型者如1980年“Van Oosterwijck v. Belgium”案，Van Oosterwijck进行变性手术改变生理性别，并因此向比利时相关部门申请变更性别登记，但遭到拒绝。欧洲人权委员会认为政府的行为违反了公民私生活受尊重权{3}16-23。这一案件之后，欧洲人权法院相继处理了Ree v. United Kingdom案、Goodwin v. United Kingdom案等一系列案件。德国联邦宪法法院援引宪法(基本法)之人权裁判变性人案件亦有之。如联邦宪法法院第一庭1978年裁判的案号1BvL16/72之案件，当事人的生理性别为男性表征但心理认同为女性，经变性手术后申请更改出生登记薄的性别，被驳回后提起宪法诉讼。德国联邦宪法法院认为基本法保障人性尊严，其中包括个人得以自我负责的方式自由处置自己，决定自己的命运；基本法保障人格自由，个人的身份状态应当具有符合其心理和生理状态的性别{19}58。这些判例主要援引国际或地区性人权文本，以及国内宪法为依据进行裁判，以基本人权作为法理依据，论证性别变更之合理性。这些裁判推动了德国、英国等国家的变性法案立法工作。</p>
+<p align="justify">性别选择和变更直接关系人的尊严和自由，是人权的应有之义，这也是美国、日本、澳大利亚等国推进性别变更法案的直接法律动力。</p>
+<p align="justify">我国《宪法》明确规定“国家尊重和保障人权”，虽于第二章未明确表述性别选择之人权，但文本中规定的人身自由(第37条)、人格尊严(第38条)应当自然延伸出性别选择的权利。如前引判例中所指出的，个人享有负责任地处分自己、决定自己命运的自由，不能因此而受强制和歧视。这为我国建立性别选择权法权制度提供了宪法依据。</p>
+<p align="justify">3.民法基础——自主性权利</p>
+<p align="justify">传统性别之二元区分模式存在性别角色的僵化性、歧视性和压迫性。性别的多元化、可选择性能够弥合性别差异的传统断裂，有助于实现性别自我认同。安东尼·吉登斯指出，自我是不断变化的，个人总是在所处历史情境中根据某种描述识别自己的行为，进行自我认同，主体性表现便是具体社会环境中的自主选择{20}35。性别的主体建构在哲学上具有重要意义，彰显人摆脱性别的规定性，代之以主体性、能动性，这正是人格的内涵体现。黑格尔指出，抽象的自由在于否定性，“消除一切特殊性和规定性”{21}15。“人”(Person)，能够“在有限性中知道自己是某种无限的、普遍的、自由的东西”，“纯自我相关系”{21}45。能够摆脱自然规律束缚的纯粹自我相关性是主体的本质所在，这种主体性是民法的哲学根基{22}100。性别的自我选择与变更体现了人为自然界立法，为自己立法，这种跨越有助于真正实现性别解放和性别平等。</p>
+<p align="justify">民法既以主体性作为理论支柱，同时在具体制度上以民事权利的方式保障主体实现自由。民法以人身关系作为自身极为重要的调整对象，《民法通则》第5章第4节详细规定自然人的人身权，《侵权责任法》第2条明确列出生命权、健康权、姓名权等权利，并以“等人身、财产权益”作兜底，以适应社会之变化发展，为新生的人身利益提供法律依据。</p>
+<p align="justify">(二)性别选择权的法权性质</p>
+<p align="justify">1.人格权</p>
+<p align="justify">性别选择权系人格权。人格权系“人之为人”所具有的伦理价值的外化，以权利的技术手段保障“人所固有的东西”。在人格权制度框架中，人的伦理价值由内在的“主体性要素”转化为“权利客体”，人格权便具备了民法上支配权、绝对权的属性{23}56。基于不可剥夺、与生俱来的价值，人格权不可转让、不可剥夺、不容侵害，主体对生命、身体、自由、姓名、肖像等要素享有支配性地位{24}507。性别既是自然人与生俱来的生理属性，也是社会文化塑造的区隔，自降生便天然享有，系人格之重要内容。性别不仅内在于人，关系人之尊严和自由价值，也外在于人，关系社会角色和主体认同，是人格的内生特质与外在标识的统一。性别选择权以性别之人格要素为客体，系主体对性别的自主决定和支配。2007年《日惹原则》在序言中指出，“性别认同是每个人的尊严和人性中不可或缺的组成部分”，“是自决、尊严和自由最基本的方面之一”。</p>
+<p align="justify">2.身体权</p>
+<p align="justify">性别选择权同时也是身体权。身体权指向身体及其利益，主体依此与生俱来的权利保障其身体的完整性，得有限度地支配其身体组织。性别选择权直接关涉与生理属性和身体器官相关的性别，决定了其具有身体权性质。《公安部治安管理局关于公民手术变性后变更户口登记性别项目有关问题的批复》(公治[2008]478号)明确我国实施变性手术的公民申请变更户口登记性别项目须“提供国内三级医院出具的性别鉴定证明和公证部门出具的公证书，或司法鉴定部门出具的证明”，实施变性手术，根据《变性手术技术管理规范(试行)》，患者需“有精神科医师开具的易性癖病诊断证明，同时证明未见其他精神状态异常；经心理学专家测试，证明其心理上性取向的指向为异性，无其他心理变态”。可见我国公民进行性别项目之登记变更，须存在医学鉴定的易性癖病并实施变性手术，变性手术“是指通过整形外科手段(组织移植和器官再造)使易性癖病患者的生理性别与其心理性别相符，即切除其原有的性器官并重建新性别的体表性器官和第二性征”。意即性别之法律变更的前提是通过手术改变身体器官，从而使生理性别发生转变，是主体对自己身体的支配。性别选择权的身体权属性为变性手术提供了更为坚实的法权基础。</p>
+<p align="justify">《性别权利国际法案》强调每个人都享有“控制和改变自己身体的权利”(The Right to Control and Change Ones Own Body)，有权为表达所选择的性别而改变身体。日本《性同一性障碍者性别特例法案》(《性同一性障害者の性别の取扱いの特例に関する法律》)第三条规定性同一性障碍者申请性别变更“其身体需具备与其相异性别身体的性器相关部分有着近似的外观”，并提交医师诊断书，可见日本立法就变更性别也需要申请人对身体性器官进行改变。英国《性别识别法案》(Gender Recognition Act)第一条规定在法律核准的国家和地区实施变性手术的自然人可以申请性别识别证书。德国《特殊情形下姓名与性别变更法》(TSG)历经多次修正，1981年版本第八条第一款规定申请人须“持续无生育能力”及“实施变性手术”，但是2011年德国联邦宪法法院推翻了这一要件，认为这种规定违宪，生育能力和身体处分受《基本法》保护，变性手术具有风险并可能长期损害健康，如果没有医学上的必然要求，法律不能强行要求自然人为改变法律地位而实施变性手术，手术超出了申请人证明以另一性别生活的程度{17}27。故而在英国和德国立法中，实施变性手术而改变身体器官不是必备要件，仅是可选择的申请条件之一。在此要指出的是，相关国际人权文件中也认可了这一主张，表明已经逐渐取得了国际的普遍认同，例如2007年《日惹原则》指出“任何人都不应为了使其性别认同得到法律承认这一需要而被迫接受医疗程序，包括性别再造术、绝育术或荷尔蒙治疗。”法律意义上的性别变更已逐渐脱离变性手术，似乎性别选择权与身体权逐渐剥离，但是也应同时看到，变性手术等生理性变更性别的法权基础依然是具有身体权属性的性别选择权，性别的生理和社会双重属性决定了性别选择权天然具有身体权性质。</p>
+<p align="justify">3.身份权</p>
+<p align="justify">性别不仅仅内在于人而具有消极属性，其同时外化产生社会角色，与其他主体发生特定权利义务关系，故而性别选择权不是单一的权利，其行使会衍射出相关权利，从而导致相关主体之间权利义务的变动。</p>
+<p align="justify">身份权乃基于特定身份而产生的权利，身份是自然人在亲属关系等社会关系中处于的稳定地位，具有特定性、稳定性、利益性，例如夫妻之身份须存在夫妻之特定社会关系，夫与妻不可或缺，否则便不存在夫或妻之身份，也无由此产生的人身财产利益{25}34。性别选择权引发性别之变更，而性别与婚姻家庭及其他社会关系息息相关，从而导致一系列身份上的变动，例如夫妻关系、亲子关系、社保身份、特殊群体身份等。详细而言，民事关系层面上如性别变更后夫妻身份、亲子关系之变动，譬如性别选择权主体对子女而言究为父或母；行政法权关系上如特定性别所享有的特别立法待遇，譬如性别选择权主体是否享有劳动法、反家庭暴力法、社会保障制度等对女性的特殊保护；刑事法律层面如性别变更后是否构成特定犯罪主体或对象，譬如性别选择权主体能够成为强奸罪的实施主体或对象。</p>
+<p align="justify">就性别选择权立法的国家普遍对由此引发的身份权进行了明确。如日本《性同一性障碍者性别特例法案》第四条规定：“关于接受性别变更者在民法以及其他法律规定的适用，除了法律中有特殊规定，在性别问题上视其为其相异性别。关于前项的规定，除了在法律中有特殊规定外，在性别变更裁判做出前已产生的身份关系和权利义务并不受性别变更裁判的影响。”英国《性别识别法案》(Gender Recognition Act)第十二条关于亲子关系之条文规定：“依据本法变更为获得的性别，不影响自然人作为子女父亲或母亲的地位。”德国《特殊情形下姓名与性别变更法》(TSG)第十条第一款规定：“从决定具有法律效力起，申请人属于另一性别，若法律无其他规定，其所适用的视性别而定的法律和义务取决于其性别。”第十一条关于亲子关系规定：“认可申请人属于另一性别的决定不改变申请人与其父母子女的法律关系，只要其收养的子女是在决定生效前被收养的。这同样适用于与其子女的子孙后辈的关系”。此外，针对刑事犯罪领域，英国《性别识别法案》第二十条就“特定性别的犯罪”进行了明确。《性别权利国际法案》申明性别变更的人拥有“建立伴侣关系和结婚的权利”和“孕育或收养子女、抚养监护子女等作为父母的权利”，对婚姻、亲子身份关系予以保障。</p>
+<p align="justify">(三)性别选择权行使的必要条件</p>
+<p align="justify">就目前各国立法来看，性别选择权的行使不是无条件和任意的，而是设置有不同的限制，仅允许特定的情形才能适用。</p>
+<p align="justify">日本《性同一性障碍者性别特例法案》仅适用于“性同一性障碍者”，指“虽然在生物学上有着很明确的性别，但是在心理上却持续性的相信自己有着与自身相异的性别(以下称为相异性别)，并且有意使自己在身体上以及社会表现上都呈现为相异性别的人。”其申请变更性别之裁判，需具备以下条件：“一、年龄为二十岁以上；二、目前处于未婚状态；三、目前无未成年子女；四、没有生殖腺或生殖腺的功能永久性的处于欠缺状态；五、其身体需具备与其相异性别身体的性器相关部分有着近似的外观。”</p>
+<p align="justify">英国《性别识别法案》(Gender Recognition Act)规定申请主体应年满十八周岁，须：a以其他性别生活，或者b已经在法律的前提下改变生理性别。在a情形中，申请人应满足：(1)患有或曾经患有性别认同障碍；(2)至申请日已经持续以获得的性别生活满两年；(3)打算以获得的性别持续生活直至死亡；(4)提供注册医师或注册心理学家开具的性别认同障碍疾病报告。</p>
+<p align="justify">德国《特殊情形下姓名与性别变更法》(TSG2009)第一条就姓名变更的条件规定：“第一，由于性别变更导致其与出生登记所载之性别不再相同，进而造成较大压力，且饱受异议之苦至少3年之久；第二，存在较大之可能性，其对性别之归属感不会再发生变化”。申请变更法律上性别尚需申请人具备“持续无生育能力”及“实施变性手术”之条件。另外一种情形，2013年德国修正《民事身份登记法》(Personenstandsgesetz)，就性别选项在男性和女性之外增加了空白选项，这一空白选项既可以是暂时的，之后在男性和女性之间选择，也可以是长期的，保持空白状态。</p>
+<p align="justify">《魁北克民法典》第71条规定申请变更出生证书上的性别需：(1)已成功通过药物治疗和接受了引起性器官的结构改变以改变第二性征的外科手术；(2)住所设在魁北克至少一年的未婚加拿大成年公民；(3)提交主治医生的证明和另一名在魁北克执业的医生关于治疗和手术已成功的证明。</p>
+<p align="justify">我国民事性别变更登记适用于进行变性手术之后的自然人，依据2009年《变性手术技术管理规范(试行)》，变性手术的实施需要非常复杂的程序和严格的条件，例如患者必须提交无在案犯罪记录证明、有精神科医师开具的易性癖病诊断证明、心理学专家测试报告等，同时需满足“(1)对变性的要求至少持续5年以上，且无反复过程；(2)术前接受心理、精神治疗1年以上且无效；(3)未在婚姻状态；(4)年龄大于20岁，是完全民事行为能力人；(5)无手术禁忌证”。实施变性手术的医院和医疗人员必须符合相应的要求和标准，开展手术尚需经医院和伦理委员会同意，并将手术相关资料报送主管部门。</p>
+<p align="justify">笔者主张，我国未来进行性别选择权制度设计时，应遵循人权保障基本原则和人格权基本特征，尊重性别多元化和私权自治，参考国外立法和我国实践探索，性别选择权的行使应具备如下要件。</p>
+<p align="justify">第一，设立变更性别登记的两种情形。我国现行规范过于严格，将法律意义上的性别变更仅适用于实施变性手术的主体，实质上是将实施变性手术作为变更法律意义上性别的必要条件。这种模式有诸多弊端：其一，在一定程度上强迫申请人实施具有危险性的身体处分行为，背离身体权不容侵犯之原则，同时限制了性别变更。其二，变性手术带有生理上的痛苦和危险，基于目前的医疗技术，性别矫正手术存在较大的风险，并发症、医疗事故等均不可预料，并且会导致性功能丧失和肉体疼痛。其三，变性手术会导致患者产生精神后遗症，具体影响仍有待明确，也正因为如此，我国2009年《变性手术技术管理规范(试行)》规定医疗机构需将有关信息报送主管部门，并将切除性腺送病理检查，建立健全术后随访制度。故而宜借鉴英国立法模式，将实施变性手术作为可以申请变更性别的情形之一，而非唯一情形。增设“以其他性别生活”为变更法律意义上性别登记的申请情形。</p>
+<p align="justify">第二，完全民事行为能力人。法律上具有完全民事行为能力人能够充分辨认、控制自己的行为，可以自主行使权利并承担相应的义务与责任。2009年《变性手术技术管理规范(试行)》针对实施变性手术而要求20岁以上，但这一年龄要求不能适用于所有的性别变更情形。</p>
+<p align="justify">第三，“以其他性别生活”者须为性别焦虑者，持续无反复地以其他性别生活满两年。性别焦虑(Gender Dysphoria)是指心理上的性别不同于生理上的性别特征，从而产生的一系列不安和焦虑等状态。其旧称为性别认同障碍、易性癖等，美国精神医学学会(APA)出版的《精神障碍诊断与统计手册》第五版(DSM-5)采用“性别焦虑症”取代性别认同障碍，进一步尊重和承认性别少数群体的性别观念，而非以传统疾病对待。权利主体应提供医学或精神心理学的专业鉴定报告。</p>
+<p align="justify">第四，未在婚姻状态。多数国家立法中对性别变更设置有无婚姻存续的条件，例如日本《性同一性障碍者性别特例法案》、加拿大《魁北克民法典》等。英国虽然未限制婚姻状态，但是存在婚姻关系或者同性伴侣关系的申请人仅能够获得临时性别识别证书，婚姻关系或同性伴侣关系解除或宣判无效后才可以申请获得正式性别识别证书。我国《变性手术技术管理规范(试行)》也有未处于婚姻关系的要求。概因我国尚未在立法层面承认同性伴侣关系，婚姻关系也尚停留在男性与女性结合的层面，故而在婚姻关系存续期间，一方进行性别变更势必造成婚姻关系的内在法律矛盾，不符合法律要求。即使未来我国立法承认同性伴侣关系，从各国立法模式来看，其也非“婚姻”所能容纳，更可能由单独的同性伴侣法予以调整。所以性别变更需以不存在婚姻关系为要件。</p>
+<p align="justify">但司法实务中，尚存在诸多婚内变性个案，民政部《关于婚姻当事人一方变性后如何解除婚姻关系问题的答复》承认了婚内变性的权利，可能诱发诸多家庭问题和社会问题。有鉴于此，未来高位阶立法可借鉴域外立法，将“未婚”作为变性之限制性条件。一来稳定现实家庭关系，二来无妨于子女教育，三则有利于维护基本人伦。</p>
+<p align="justify">(四)性别选择权行使的具体限制</p>
+<p align="justify">1.告知义务</p>
+<p align="justify">性别选择权系人格权、身体权，具有绝对的排他性，任何人不得干涉和侵害，其行使自然不需经其他民事主体的同意。但性别选择权衍射至身份体系，关系他人身份或财产权益，自不得任意变更，如性别选择权之行使需不存在婚姻关系，防止夫妻身份之受损。既无婚姻关系，与权利主体联系最为紧密的便是直系亲属关系，性别变更带来生活上身份关系之变动，如父子关系转变为父女关系，虽不涉法律上亲子关系之变动，也不会影响权利义务关系。2009年《变性手术技术管理规范(试行)》“患者提供已告知直系亲属拟行变性手术的相关证明”，深值赞同。盖我国传统文化中族群意识较强，人不仅关乎自身，尚处于家族体系之中，性别变更虽一方面系自身事务，但另一方面亦关乎家族事务，例如祭祀、子嗣传承等。故而在法权基础上虽不能强求性别选择权之行使经他人同意，但可要求对直系亲属的告知义务。</p>
+<p align="justify">2.注意义务</p>
+<p align="justify">性别选择权行使后，权利人获得法律上的目标性别。权利人取得新性别后，如果法律没有特殊规定，根据性别而设置有不同权利义务的法律将适用于新的性别。个人应就新获得的性别而转换性别角色，承担相应的社会分工和社会权利义务。</p>
+<p align="justify">其一，以获得的性别重新定位社会角色，遵循该角色的社会公共道德。譬如在以性别为区分的公共设施使用上，须以获得的性别使用相应的特定设施。女性变性为男性后，仅得去男性厕所、浴室，不得使用女性厕所、浴室。概因性别区分不仅是身份标识和隐私保障的重要的方式，而且是维持社会治安和秩序稳定的重要方式。</p>
+<p align="justify">其二，以新获得的性别承担相应的社会责任，承受新的性别角色所添加的行为规范。基于性别的不同，性别角色所负担的行为规则亦有所差异。例如男性多为社会赋以坚韧、负责、包容之特性，承担保护家国、扶养家庭成员、担负危险作业之社会分工，女性多为社会赋以温柔、细心、婉约之形象，承担救死扶伤、抚育后代之社会分工。主体获得新的性别后，其行为方式应符合相应的性别角色，遵循行为规则，否则会产生扭曲的社会行为导向，扰乱行为模式。同时尚须承担应尽的社会责任，例如适龄男性服兵役，适龄女性参加相应的生殖保健工作等。</p>
+<p align="justify">3.选择限制</p>
+<p align="justify">性别选择的具体实施需要解决选择什么性别和可以选择几次性别的现实问题。对此笔者认为宜采取类型限定和次数法定的模式。</p>
+<p align="justify">罗马法以来，对性别之分类及社会治理，无非于法律预设及制度构建两方面承认“男”、“女”二性[3]；但绝不否认经验世界确乎存在所谓双性人(俗谓“阴阳人”或“双身观音”)，即生物学所谓“两性畸形”(hermaphroditism)，医学所谓雌雄间性(intersex)。至若双性人选择何种社会角色，则取决于其自身意愿或占主导地位之性特征，或男或女，法律调整无由亦无须于男女两性外新增所谓“中性”，[4]诚如罗马法谚所谓“人们不为那些可能只在某个偶然情况下出现的事物制定法律”(Ex his, quae forte uno aliquot casu acciderepossunt, iura non constituuntur.)。法律无须为“中性”设立新生性别，现有性别制度足以解决相关问题，倘若新增，徒增繁琐和体系冲突。所以性别选择权应限制主体的目标性别选择，不论是生理矫正方面还是法律认证方面，仅能在女性和男性之间选择。</p>
+<p align="justify">性别选择的次数应是受法定限制的，以一次为宜，自然人仅得变更性别一次，而非多次。性别选择权的现实基础是生理性别与心理认同存在差异的性别焦虑，行使一次性别选择权本就是为了达致主体的性别认同统一，实现了制度目的和法权价值。若允许多次变更性别，无异于主体对自身的多次否定，与性别焦虑的医学和心理学认证也存有矛盾。此外，多次变更性别会引发社会秩序的混乱，相关权利义务和身份体系迷乱。</p>
+<p align="justify">四、体系化位置</p>
+<p align="justify">性别选择权系主体之基本身份标识，关涉人之尊严，虽以宪法之基本人权为权利源泉，但《宪法》终归国家根本大法，在我国现阶段难以有效作为执法司法依据予以操作，加之性别选择权之制度建构较为复杂，需要诸多条文予以配套，显然与《宪法》中关于公民权利的规定体例不符，故而以《宪法》规定并不合适。《刑法》《妇女权益保障法》《劳动法》等法律虽在内容上与性别发生牵连关系，但是《妇女权益保障法》仅着眼于女性，而性别选择权具有双向转变，二者逻辑不合；亦不可能由《刑法》或《劳动法》等法律规定，既超出这些部门法的调整范围，也与立法功能和宗旨不相适应。最佳的方式是交由民法处理，民法作为民事基本法，调整着主体最为基本的人身关系。其他部门法以民法规范为基础较为常见，例如民事诉讼法、刑法、保险法等部门法中有关近亲属的界定均以民法为基准。</p>
+<p align="justify">民法以财产关系和人身关系为调整对象，对人的调整在潘德克吞体系中并不明显，而与之并立的法学阶梯式却更为明朗。古罗马法中，人一直是市民法重要的调整内容，往往占据大量篇幅，盖尤斯和优士丁尼的《法学阶梯》均在逻辑上遵循“人法—物法—诉讼法”的三段式结构，并为中世纪注释法学派和《拿破仑法典》所承继，由法国法系延续至今。盖尤斯《法学阶梯》将四卷中的第一卷用来论述人法，以人的身份为主要线索进行分类阐述{26}4。人法最为重要的内容乃自由人与奴隶的区分，自由人又区分为生来自由人和解放自由人，另一种重要的分类便是自权人和他权人。贯穿人法，不管是自由之身份取得，还是他权人之归类，抑或是继承权，都仅仅围绕性别展开，可以说性别的不同决定了个人在罗马法中身份和地位的不同。近代民法涤除了身份钳制和压迫的内容，以平等人格重塑民法，但人法仍然是重要组成部分，尤其在以法国民法典为代表的法学阶梯式体系中，彰显着在主体—客体对立中主体是第一性的{27}38。尽管潘德克吞体系打散了人法—物法的体系结构，但不可磨灭人法乃民法的重要内容这一事实。性别选择权直接关系人法的重要标识——性别，是人法的重要逻辑环节。《魁北克民法典》《土耳其民法典》和《绿色民法典草案》以民法文本或草案形式规定了性别选择权。故而，在民法典编纂之际，宜趁此良机入典。</p>
+<p align="justify">随之而出现的问题是，在民法典编纂或未来修订之时，如何确定性别选择权之体系化位置。本文提供三种路径：</p>
+<p align="justify">第一种方案，民法典采法学阶梯体例，区分编排人法和物法，在人法中规定性别选择权；</p>
+<p align="justify">第二种方案，人格权法独立成编，在人格权项下规定性别选择权；</p>
+<p align="justify">第三种方案，在民法典总则中“自然人”章下规定性别选择权，并于侵权法部分明确列出性别选择权系侵权法保护对象。</p>
+<p align="justify">第一种方案在逻辑体系和性别选择权归属上最为合理，但我国移植潘德克吞体系已久，间隙日深，转型至法学阶梯体系已无可能。最新通过之《民法总则》采法学阶梯体系，故第一种方案已不可行。</p>
+<p align="justify">第二种方案以人格权独立成编为前提，人格权独立成编，彰显人格尊严和人之为人，性别选择权乃人之尊严的应有之义，乃人格和身份的重要标识，自可将其归入其中。不仅在逻辑上周延圆满，而且可为侵权法及其他单行法进行保障提供依据。但目前最新通过之《民法总则》已放弃人格权法独立成编，遂此方案亦难以实现。</p>
+<p align="justify">根据民法典编纂体例安排，第三种方案尚属可行。性别选择权系人格权、身份权、身体权，是主体人格的自然衍生，民法总则设自然人专章，可在此章中规定性别选择权，在逻辑上亦较为通顺。同时宜在侵权法部分中，规定侵权法保护客体时将性别选择权和生命权、健康权等权益一同明确列举。目前《民法总则》虽于第109条与110条采取“列举＋兜底”的方式规定人格权受保护，但并未明确规定性别选择权，实属可惜，惟待未来修订之际予以补充。</p>
+<p align="justify">[责任编辑：秦卫波]</p>
+<p align="justify">【注释】 [基金项目]国家社会科学基金中华学术外译项目(16WFX008)。</p>
+<p align="justify">[作者简介]刘云生，男，广州大学法学院教授，博士生导师；吴昭军，男，西南政法大学博士研究生，中国不动产研究中心研究员。</p>
+<p align="justify">[1]在共同犯罪情形中，妇女也可以成为强奸罪共犯。</p>
+<p align="justify">[2]湖南省长沙市中级人民法院(2012)长中民一终字第1114号民事判决书。</p>
+<p align="justify">[3]如盖尤斯认为：“毫无疑问，‘人’这个词涵盖女人和男人。”盖尤斯：《论尤利和巴比法》第10编，桑德罗·斯契巴尼，选编：《民法大全选译·人法》，黄风，译，中国政法大学出版社1995年版，第2页。</p>
+<p align="justify">[4]罗马法以类推方式解决双性人问题。如乌尔比安认为：“人们问我们把两性人(hermaphroditum)类推如何？我比较倾向于：把在他身上占主导地位的性视为他的性别。”乌尔比安：《论萨宾》第1编，桑德罗·斯契巴尼，选编：《民法大全选译·人法》，黄风，译，中国政法大学出版社1995年版，第22页。</p>
+<p align="justify">【参考文献】 {1}李强，王进.社会失范与心理障碍[J].医学与哲学，2005(4).</p>
+<p align="justify">{2}吴国平.变性人婚后变性及其婚姻家庭关系问题探析[J].西南政法大学学报，2011(3).</p>
+<p align="justify">{3}李燕.性别变更法律问题研究[M].北京：中国法制出版社，2014.</p>
+<p align="justify">{4}J. Crocker, et al.，Social Stigma[A].in D. T. Gilbert, et al.，eds.，The Handbook of Social Psychology, vol.2 [C]. Boston, MA.：McGraw-Hill, 1998.</p>
+<p align="justify">{5}G. Julius, &amp;William L. Kolb, Eds. A Dictionary of the Social Sciences[M]. New York: Free Press of Glencoe, 1964.</p>
+<p align="justify">{6}Johnson, David W.，&amp;Frank P. Johnson. Joining Together: Group Theory and Group Skills[M]. Boston, Mass: Allyn &amp;Bacon, 1996.</p>
+<p align="justify">{7}Marshall, Gordon, (Ed.)Concise Oxford dictionary of Sociology[M]. Oxford, England: Oxford University Press, 1994.</p>
+<p align="justify">{8}梅贤明，张太洲，李炳南.强奸双性人可构成强奸既遂[J].人民司法·案例，2014(22).</p>
+<p align="justify">{9}桑志祥. W诉婚姻登记机关变性人婚姻登记纠纷案[J].人民司法·案例，2015(2).</p>
+<p align="justify">{10}简资美.现代父母角色之探讨[M].台北：五南图书，1982.</p>
+<p align="justify">{11}[英]梅因.古代法[M].沈景一，译.北京：商务印书馆，1959.</p>
+<p align="justify">{12}张文显.二十世纪西方法哲学思潮研究[M].北京：法律出版社，1996.</p>
+<p align="justify">{13}[古罗马]西塞罗.国家篇法律篇[M].沈叔平，苏力，译.北京：商务印书馆，1999.</p>
+<p align="justify">{14}张杰.中国古代的两性人[J].中国性科学，2004(6).</p>
+<p align="justify">{15}李岩.法律中性别二元范式的批判及重构[J].法制与社会发展，2013(3).</p>
+<p align="justify">{16}梁明玉.论中国古代文学中的变性人现象与文化[J].内江师范学院学报，2012(3).</p>
+<p align="justify">{17}张慰.第三性别的法律地位——德国民事身份登记立法之变[J].德国研究，2013(4).</p>
+<p align="justify">{18}刘国生.变性人的发展历史及其现状[J].中国性科学，2006(9).</p>
+<p align="justify">{19}张永明.德国变性人法案与著名宪法裁判简介[J].台湾法学杂志，2008(118).</p>
+<p align="justify">{20}安东尼·吉登斯.现代性自我认同[M].赵旭东，方文，译.北京：生活·读书·新知三联书店，1998.</p>
+<p align="justify">{21}[德]黑格尔.法哲学原理[M].范扬，张企泰，译.北京：商务印书馆，1961.</p>
+<p align="justify">{22}周清林.主体性的缺失与重构——权利能力研究[M].北京：法律出版社，2009.</p>
+<p align="justify">{23}马俊驹，张翔.人格权的理论基础及其立法体例[J].法学研究，2004(6).</p>
+<p align="justify">{24}王利明.民法[M].北京：中国人民大学出版社，2002.</p>
+<p align="justify">{25}史浩明.论身份权[J].苏州大学学报：哲学社会科学版，2001(4).</p>
+<p align="justify">{26}[古罗马]盖尤斯.法学阶梯[M].黄风，译.北京：中国政法大学出版社，1996.</p>
+<p align="justify">{27}徐国栋.民法典草案的基本结构——以民法的调整对象理论为中心[J].法学研究，2000(1).</p>
+<p align="justify">【期刊名称】《东北师大报（哲学社会科学报）》【期刊年份】 2018年 【期号】 2</p></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    
+    <footer style="width:100%;background:#D2972F;">
+        <div class="footer_content clearfix">
+	    <!--<div class="footer_left fl">		
+                <img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220824596761413798.png" width="100" height="100" class="footer_logo" />
+	        <img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220824596836973123.png" width="100" height="100" class="footer_logo" />
+	    </div>-->
+            <div class="footer_center fl">
+                <p><img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220825343401904093.png" class="footer_logo2"></p>
+                <p>主办：中国社会科学院法学研究所、国际法研究所 </p>
+                <p>地址：北京市东城区沙滩北街15号 </p>
+            </div>
+            <div class="footer_right fr">
+                <ul class="fl">
+                    <li>法学所概况</li>
+                    <li>国际法所概况</li>
+                    <li>研究人员</li>
+                    <li>科研成果</li>
+                    <li>学术活动</li>
+                </ul>
+                <ul class="fl">
+                    <li>学术刊物</li>
+                    <li>法学教育</li>
+                    <li>图书馆</li>
+                    <li>工作平台</li>
+                </ul>
+                <div class="footer_code fl">
+                    <img src="http://iolaw.cssn.cn/zwsy/resource/2022/images/P020220825343453679385.png" style="width:100%;">
+                    <p>[官方微信]</p>
+                </div>
+            </div>
+        </div>
+    </footer>    
+<div class="scholars" style="display:none;"><a href="/scholar/tp1/201908/t20190826_4961954.shtml">常纪文</a><a href="/scholar/sfs/201905/t20190505_4874336.shtml">陈　洁</a><a href="/scholar/xbwy/201905/t20190517_4897560.shtml">陈　甦</a><a href="/scholar/txo/201908/t20190824_4961669.shtml">陈春龙</a><a href="/scholar/fzzl/201908/t20190823_4961368.shtml">陈根发</a><a href="/scholar/fzs/201908/t20190823_4961651.shtml">陈国平</a><a href="/scholar/txo/201908/t20190824_4961670.shtml">陈明侠</a><a href="/scholar/fzzl/201908/t20190823_4961367.shtml">陈欣新</a><a href="/scholar/xfxzf/201908/t20190823_4961074.shtml">陈云生</a><a href="/scholar/txo/201906/t20190603_4912503.shtml">陈泽宪</a><a href="/scholar/sfs/201905/t20190517_4897588.shtml">崔勤之</a><a href="/scholar/gjrqf/201905/t20190521_4900217.shtml">戴瑞君</a><a href="/scholar/shf/201908/t20190823_4961351.shtml">邓　丽</a><a href="/scholar/xf/201908/t20190823_4961283.shtml">邓子滨</a><a href="/scholar/shf/201908/t20190823_4961350.shtml">董文勇</a><a href="/scholar/mfs/201908/t20190823_4961158.shtml">窦海阳</a><a href="/scholar/xf/201908/t20190823_4961274.shtml">樊　文</a><a href="/scholar/fxyj/201908/t20190823_4961654.shtml">冯　珏</a><a href="/scholar/qt/201908/t20190824_4961659.shtml">冯　军</a><a href="/scholar/txo/201908/t20190824_4961671.shtml">冯　锐</a><a href="/scholar/gjsf/201908/t20190822_4961001.shtml">傅攀峰</a><a href="/scholar/ryxb/201908/t20190823_4961642.shtml">高　恒</a><a href="/scholar/fzs/201908/t20190820_4959811.shtml">高汉成</a><a href="/scholar/fzs/201908/t20190822_4960996.shtml">高旭晨</a><a href="/scholar/zscq/201908/t20190823_4961237.shtml">管育鹰</a><a href="/scholar/ryxb/201908/t20190823_4961643.shtml">韩延龙</a><a href="/scholar/jjfs/201908/t20190820_4959781.shtml">郝俊淇</a><a href="/scholar/gjgf/201908/t20190820_4959284.shtml">郝鲁怡</a><a href="/scholar/gjjjf/201908/t20190823_4961024.shtml">何晶晶</a><a href="/scholar/gjfyj/201908/t20190823_4961033.shtml">何田田</a><a href="/scholar/fls/201908/t20190820_4959795.shtml">贺海仁</a><a href="/scholar/fzgq/201908/t20190823_4961364.shtml">胡昌明</a><a href="/scholar/fls/201908/t20190820_4959794.shtml">胡水君</a><a href="/scholar/xf/201908/t20190823_4961282.shtml">黄　芳</a><a href="/scholar/fzs/201911/t20191127_5049665.shtml">黄　海</a><a href="/scholar/gjjjf/201908/t20190823_4961022.shtml">黄　晋</a><a href="/scholar/tp1/201908/t20190826_4961972.shtml">冀祥德</a><a href="/scholar/fls/201908/t20190820_4959798.shtml">黄金荣</a><a href="/scholar/txo/201908/t20190824_4961672.shtml">黄　列</a><a href="/scholar/fzzl/201908/t20190823_4961371.shtml">贾　茵</a><a href="/scholar/huanqiu/202006/t20200619_5145301.shtml">贾　元</a><a href="/scholar/qt/201908/t20190824_4961661.shtml">蒋　隽</a><a href="/scholar/gjgf/201908/t20190819_4959272.shtml">蒋小红</a><a href="/scholar/xf/201908/t20190823_4961284.shtml">焦旭鹏</a><a href="/scholar/jjfs/201908/t20190820_4959287.shtml">金善明</a><a href="/scholar/ryxb/201908/t20190823_4961644.shtml">李步云</a><a href="/scholar/xfxzf/201908/t20190823_4961067.shtml">李洪雷</a><a href="/scholar/zscq/201908/t20190823_4961249.shtml">李菊丹</a><a href="/scholar/xbwy/201908/t20190820_4959796.shtml">李　林</a><a href="/scholar/zscq/201908/t20190823_4961238.shtml">李明德</a><a href="/scholar/fxyj/201908/t20190823_4961655.shtml">李　强</a><a href="/scholar/gjsf/201908/t20190822_4961000.shtml">李庆明</a><a href="/scholar/zscq/201908/t20190824_4961656.shtml">李顺德</a><a href="/scholar/gjfyj/201908/t20190823_4961030.shtml">李西霞</a><a href="/scholar/xfxzf/201908/t20190823_4961084.shtml">李　霞</a><a href="/scholar/gjgf/201908/t20190820_4959283.shtml">李　赞</a><a href="/scholar/fzzl/201908/t20190823_4961366.shtml">李　忠</a><a href="/scholar/fzgq/201908/t20190823_4961362.shtml">栗燕杰</a><a href="/scholar/xbwy/201908/t20190823_4961639.shtml">梁慧星</a><a href="/scholar/gjfkyc/201908/t20190819_4959264.shtml">廖　凡</a><a href="/scholar/qt/201908/t20190824_4961663.shtml">林　青</a><a href="/scholar/gjsf/201908/t20190822_4960999.shtml">林　欣</a><a href="/scholar/stf/201908/t20190823_4961358.shtml">林潇潇</a><a href="/scholar/wlxx/201908/t20190823_4961345.shtml">刘灿华</a><a href="/scholar/ssf/201908/t20190824_4961665.shtml">刘晨琦</a><a href="/scholar/txo/201908/t20190824_4961674.shtml">刘翠霄</a><a href="/scholar/xfxzf/201908/t20190823_4961081.shtml">刘海波</a><a href="/scholar/ryxb/201908/t20190823_4961645.shtml">刘海年</a><a href="/scholar/txo/201908/t20190824_4961673.shtml">刘　瀚</a><a href="/scholar/stf/201908/t20190823_4961355.shtml">刘洪岩</a><a href="/scholar/gjjjf/201908/t20190823_4961020.shtml">刘敬东</a><a href="/scholar/ryxb/201908/t20190823_4961646.shtml">刘楠来</a><a href="/scholar/xf/201908/t20190823_4961272.shtml">刘仁文</a><a href="/scholar/gjrqf/201906/t20190603_4912509.shtml">刘小妹</a><a href="/scholar/fzgq/201908/t20190823_4961363.shtml">刘雁鹏</a><a href="/scholar/txo/201908/t20190824_4961675.shtml">刘兆兴</a><a href="/scholar/xfxzf/202001/t20200116_5079333.shtml">刘志鑫</a><a href="/scholar/gjfyj/201908/t20190823_4961029.shtml">柳华文</a><a href="/scholar/xfxzf/201908/t20190823_4961086.shtml">卢　超</a><a href="/scholar/fzgq/201908/t20190823_4961359.shtml">吕艳滨</a><a href="/scholar/gjfyj/201908/t20190823_4961032.shtml">罗欢欣</a><a href="/scholar/gjgf/201910/t20191012_5013409.shtml">马金星</a><a href="/scholar/ssf/201908/t20190823_4961301.shtml">马　可</a><a href="/scholar/ryxb/201908/t20190823_4961647.shtml">马骧聪</a><a href="/scholar/gjjjf/201908/t20190823_4961026.shtml">毛晓飞</a><a href="/scholar/xfxzf/201908/t20190823_4961063.shtml">莫纪宏</a><a href="/scholar/ssf/201908/t20190823_4961300.shtml">祁建建</a><a href="/scholar/fzs/201908/t20190822_4960995.shtml">齐　钧</a><a href="/scholar/gjrqf/201906/t20190603_4912508.shtml">曲相霏</a><a href="/scholar/xf/201908/t20190823_4961275.shtml">屈学武</a><a href="/scholar/mfs/201908/t20190823_4961143.shtml">渠　涛</a><a href="/scholar/shf/201908/t20190823_4961348.shtml">冉　昊</a><a href="/scholar/fls/201908/t20190820_4959800.shtml">冉井富</a><a href="/scholar/gjfkyc/201908/t20190819_4959271.shtml">任宏达</a><a href="/scholar/qt/201908/t20190824_4961664.shtml">邵　波</a><a href="/scholar/gjsf/201908/t20190822_4960998.shtml">沈　涓</a><a href="/scholar/txt/201908/t20190824_4961678.shtml">沈卫利</a><a href="/scholar/txt/201908/t20190824_4961679.shtml">史探径</a><a href="/scholar/fzs/201908/t20190822_4960992.shtml">孙家红</a><a href="/scholar/gjjjf/202009/t20200911_5181993.shtml">孙南翔</a><a href="/scholar/gjrqf/201906/t20190603_4912507.shtml">孙世彦</a><a href="/scholar/xbwy/201908/t20190823_4961640.shtml">孙宪忠</a><a href="/scholar/txo/201908/t20190824_4961676.shtml">陶正华</a><a href="/scholar/huanqiu/201908/t20190824_4961688.shtml">田　夫</a><a href="/scholar/fzgq/201908/t20190823_4961360.shtml">田　禾</a><a href="/scholar/qt/201908/t20190824_4961666.shtml">田建设</a><a href="/scholar/gjgf/201908/t20190820_4959282.shtml">王翰灵</a><a href="/scholar/xbwy/201905/t20190517_4897507.shtml">王家福</a><a href="/scholar/txt/201908/t20190824_4961680.shtml">王可菊</a><a href="/scholar/tp2/201908/t20190826_4962001.shtml">王敏远</a><a href="/scholar/xbwy/201908/t20190823_4961641.shtml">王叔文</a><a href="/scholar/fzs/201908/t20190822_4960997.shtml">王帅一</a><a href="/scholar/shf/201908/t20190823_4961352.shtml">王天玉</a><a href="/scholar/fzgq/201908/t20190823_4961361.shtml">王小梅</a><a href="/scholar/jjfs/201908/t20190820_4959286.shtml">王晓晔</a><a href="/scholar/huanqiu/201908/t20190824_4961689.shtml">王雪梅</a><a href="/scholar/fls/201908/t20190820_4959801.shtml">王耀海</a><a href="/scholar/fzgq/201908/t20190823_4961365.shtml">王祎茗</a><a href="/scholar/txt/201908/t20190824_4961681.shtml">文伯屏</a><a href="/scholar/ryxb/201908/t20190823_4961648.shtml">吴建璠</a><a href="/scholar/wlxx/201908/t20190823_4961339.shtml">吴　峻</a><a href="/scholar/xfxzf/201908/t20190823_4961077.shtml">吴新平</a><a href="/scholar/txo/201908/t20190824_4961703.shtml">吴玉章</a><a href="/scholar/jjfs/201906/t20190604_4912531.shtml">席月民</a><a href="/scholar/sfs/201905/t20190517_4897586.shtml">夏小雄</a><a href="/scholar/jjfs/201908/t20190820_4959780.shtml">肖　京</a><a href="/scholar/txo/201908/t20190824_4961677.shtml">肖贤富</a><a href="/scholar/fxyj/201908/t20190823_4961653.shtml">谢海定</a><a href="/scholar/mfs/201908/t20190823_4961138.shtml">谢鸿飞</a><a href="/scholar/ryxb/201908/t20190823_4961649.shtml">谢怀栻</a><a href="/scholar/shf/201908/t20190823_4961349.shtml">谢增毅</a><a href="/scholar/fzzl/201908/t20190823_4961369.shtml">熊秋红</a><a href="/scholar/wlxx/201908/t20190823_4961343.shtml">徐　斌</a><a href="/scholar/txt/201908/t20190824_4961682.shtml">徐　炳</a><a href="/scholar/ssf/201908/t20190823_4961295.shtml">徐　卉</a><a href="/scholar/qt/202006/t20200612_5142682.shtml">徐　持</a><a href="/scholar/fzs/201908/t20190820_4959814.shtml">徐立志</a><a href="/scholar/shf/201908/t20190823_4961347.shtml">薛宁兰</a><a href="/scholar/qt/201908/t20190824_4961667.shtml">杨力军</a><a href="/scholar/zscq/201908/t20190823_4961246.shtml">杨延超</a><a href="/scholar/ryxb/201908/t20190823_4961650.shtml">杨一凡</a><a href="/scholar/huanqiu/201908/t20190824_4961687.shtml">姚　佳</a><a href="/scholar/fzzl/201908/t20190823_4961370.shtml">叶远涛</a><a href="/scholar/ssf/201908/t20190823_4961299.shtml">叶自强</a><a href="/scholar/fzs/201908/t20190822_4960994.shtml">尤韶华</a><a href="/scholar/txt/201908/t20190824_4961683.shtml">于　敏</a><a href="/scholar/huanqiu/202011/t20201106_5212502.shtml">余佳楠</a><a href="/scholar/stf/201908/t20190823_4961357.shtml">岳小花</a><a href="/scholar/wlxx/201908/t20190823_4961069.shtml">翟国强</a><a href="/scholar/fxyj/201908/t20190823_4961652.shtml">张广兴</a><a href="/scholar/zscq/202111/t20211126_5377308.shtml">张浩然</a><a href="/scholar/fxyj/201908/t20190824_4961706.shtml">张　辉</a><a href="/scholar/zscq/201908/t20190823_4961253.shtml">张　鹏</a><a href="/scholar/xfxzf/201908/t20190823_4961072.shtml">张庆福</a><a href="/scholar/xf/201908/t20190823_4961278.shtml">张绍彦</a><a href="/scholar/txt/201908/t20190824_4961684.shtml">张少瑜</a><a href="/scholar/fzs/201908/t20190820_4959810.shtml">张　生</a><a href="/scholar/gjgf/201908/t20190820_4959285.shtml">张卫华</a><a href="/scholar/gjjjf/201908/t20190823_4961023.shtml">张文广</a><a href="/scholar/zscq/201908/t20190824_4961657.shtml">张玉瑞</a><a href="/scholar/xf/201908/t20190823_4961285.shtml">张志钢</a><a href="/scholar/stf/201908/t20190823_4961356.shtml">张忠利</a><a href="/scholar/gjrqf/201906/t20190603_4912506.shtml">赵建文</a><a href="/scholar/qt/201908/t20190824_4961668.shtml">赵九燕</a><a href="/scholar/sfs/201905/t20190513_4885730.shtml">赵　磊</a><a href="/scholar/txt/201908/t20190824_4961685.shtml">赵维田</a><a href="/scholar/xbwy/201908/t20190824_4961708.shtml">郑成思</a><a href="/scholar/huanqiu/201908/t20190824_4961686.shtml">支振锋</a><a href="/scholar/gjrqf/201906/t20190604_4912518.shtml">钟瑞华</a><a href="/scholar/wlxx/201908/t20190823_4961342.shtml">周　辉</a><a href="/scholar/zscq/201908/t20190823_4961243.shtml">周　林</a><a href="/scholar/xfxzf/201908/t20190823_4961061.shtml">周汉华</a><a href="/scholar/mfs/201908/t20190823_4961142.shtml">朱广新</a><a href="/scholar/gjgf/201908/t20190824_4961658.shtml">朱晓青</a><a href="/scholar/xfxzf/202011/t20201123_5220390.shtml">朱学磊</a><a href="/scholar/sfs/201905/t20190517_4897511.shtml">邹海林</a><a href="/scholar/mfs/202101/t20210115_5245192.shtml">蔡　睿</a><a href="/scholar/gjfyj/202101/t20210115_5245213.shtml">谭观福</a><a href="/scholar/ssf/202102/t20210207_5310852.shtml">董　坤</a><a href="/scholar/fxyj/202102/t20210218_5312091.shtml">王　怡</a><a href="/scholar/fls/202104/t20210412_5325834.shtml">李广德</a><a href="/scholar/sfs/202111/t20211104_5371734.shtml">唐林垚</a><a href="/scholar/xfxzf/202207/t20220723_5419231.shtml">戴杕</a><a href="/scholar/gangwei/xingsu/202105/t20210526_5336267.shtml">程　捷</a><a href="/scholar/gangwei/guojifa/202106/t20210603_5338172.shtml">陈晓华</a><a href="/scholar/gangwei/xianmin/202106/t20210603_5338143.shtml">陈　鑫</a><a href="/scholar/gangwei/xingsu/202105/t20210518_5334353.shtml">方　军</a><a href="/scholar/gangwei/xianmin/202106/t20210603_5338108.shtml">伏创宇</a><a href="/scholar/gangwei/xianmin/202106/t20210603_5338146.shtml">龚赛红</a><a href="/scholar/gangwei/xianmin/202106/t20210603_5338148.shtml">关淑芳</a><a href="/scholar/gangwei/shangjing/202106/t20210603_5338222.shtml">韩　伟</a><a href="/scholar/gangwei/xingsu/202105/t20210518_5334335.shtml">何庆仁</a><a href="/scholar/gangwei/xianmin/202106/t20210603_5338101.shtml">黄钰洲</a><a href="/scholar/gangwei/xianmin/202106/t20210603_5338123.shtml">江　辉</a><a href="/scholar/gangwei/xingsu/202105/t20210526_5336292.shtml">姜丽萍</a><a href="/scholar/gangwei/xingsu/202105/t20210518_5334343.shtml">姜文秀</a><a href="/scholar/gangwei/xingsu/202106/t20210601_5337519.shtml">孔金萍</a><a href="/scholar/gangwei/xingsu/202105/t20210526_5336295.shtml">李　静</a><a href="/scholar/gangwei/xingsu/202105/t20210518_5334204.shtml">李卫红</a><a href="/scholar/gangwei/guojifa/202106/t20210603_5338210.shtml">李晓玲</a><a href="/scholar/gangwei/shangjing/202106/t20210604_5338350.shtml">梁　鹏</a><a href="/scholar/gangwei/guojifa/202106/t20210603_5338216.shtml">梁文琼</a><a href="/scholar/gangwei/xianmin/202106/t20210603_5338106.shtml">柳建龙</a><a href="/scholar/gangwei/shangjing/202106/t20210604_5338368.shtml">刘晓春</a><a href="/scholar/gangwei/xingsu/202105/t20210526_5336261.shtml">门金玲</a><a href="/scholar/gangwei/xianmin/202106/t20210603_5338103.shtml">苗鸣宇</a><a href="/scholar/gangwei/guojifa/202106/t20210603_5338170.shtml">秦一禾</a><a href="/scholar/gangwei/xingsu/202105/t20210526_5336252.shtml">孙　远</a><a href="/scholar/gangwei/shangjing/202106/t20210603_5338226.shtml">谭　袁</a><a href="/scholar/gangwei/shangjing/202106/t20210603_5338219.shtml">汤洁茵</a><a href="/scholar/gangwei/xianmin/202106/t20210603_5338099.shtml">王莉君</a><a href="/scholar/gangwei/xingsu/202105/t20210518_5334356.shtml">王新清</a><a href="/scholar/gangwei/guojifa/202106/t20210603_5338184.shtml">王　艺</a><a href="/scholar/gangwei/guojifa/202106/t20210603_5338174.shtml">吴　用</a><a href="/scholar/gangwei/shangjing/202106/t20210604_5338359.shtml">于　晶</a><a href="/scholar/gangwei/xianmin/202106/t20210603_5338147.shtml">张初霞</a><a href="/scholar/gangwei/guojifa/202106/t20210603_5338178.shtml">张美榕</a><a href="/scholar/gangwei/shangjing/202106/t20210604_5338365.shtml">张小勇</a><a href="/scholar/gangwei/guojifa/202106/t20210603_5338208.shtml">张新娟</a><a href="/scholar/gangwei/shangjing/202106/t20210604_5338354.shtml">周宝妹</a><a href="/scholar/wlxx/202201/t20220110_5387702.shtml">徐玖玖</a></div>
+
+</body></html>

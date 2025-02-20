@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-bs-theme="light" style="transform: none;"><head><style>@keyframes pulsate{0%,to{opacity:1}50%{opacity:.2}}#spotlight{position:fixed;top:-1px;bottom:-1px;width:100%;z-index:99999;color:#fff;background-color:#000;opacity:0;overflow:hidden;-webkit-user-select:none;-ms-user-select:none;user-select:none;transition:opacity .2s ease-out;font-family:Arial,sans-serif;font-size:16px;font-weight:400;contain:strict;touch-action:none;pointer-events:none}#spotlight.show{opacity:1;transition:none;pointer-events:auto}#spotlight.white{color:#212529;background-color:#fff}#spotlight.white .spl-next,#spotlight.white .spl-page~*,#spotlight.white .spl-prev,#spotlight.white .spl-spinner{filter:invert(1)}#spotlight.white .spl-progress{background-color:rgba(0,0,0,.35)}#spotlight.white .spl-footer,#spotlight.white .spl-header{background-color:rgba(255,255,255,.65)}#spotlight.white .spl-button{background:#212529;color:#fff}.spl-footer,.spl-header{background-color:rgba(0,0,0,.45)}#spotlight .contain,#spotlight .cover{object-fit:cover;height:100%;width:100%}#spotlight .contain{object-fit:contain}#spotlight .autofit{object-fit:none;width:auto;height:auto;max-height:none;max-width:none;transition:none}.spl-scene,.spl-spinner,.spl-track{width:100%;height:100%;position:absolute}.spl-track{contain:strict}.spl-spinner{background-position:center;background-repeat:no-repeat;background-size:42px;opacity:0}.spl-spinner.spin{background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzgiIGhlaWdodD0iMzgiIHZpZXdCb3g9IjAgMCAzOCAzOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmYiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMSAxKSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2Utb3BhY2l0eT0iLjY1Ij48Y2lyY2xlIHN0cm9rZS1vcGFjaXR5PSIuMTUiIGN4PSIxOCIgY3k9IjE4IiByPSIxOCIvPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOCI+PGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIGZyb209IjAgMTggMTgiIHRvPSIzNjAgMTggMTgiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIi8+PC9wYXRoPjwvZz48L2c+PC9zdmc+);transition:opacity .2s linear .25s;opacity:1}.spl-spinner.error{background-image:url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMyIiB3aWR0aD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTYsMUExNSwxNSwwLDEsMCwzMSwxNiwxNSwxNSwwLDAsMCwxNiwxWm0wLDJhMTMsMTMsMCwwLDEsOC40NSwzLjE0TDYuMTQsMjQuNDVBMTMsMTMsMCwwLDEsMTYsM1ptMCwyNmExMywxMywwLDAsMS04LjQ1LTMuMTRMMjUuODYsNy41NUExMywxMywwLDAsMSwxNiwyOVoiIGlkPSJiYW5fc2lnbl9jcm9zc2VkX2NpcmNsZSIvPjwvc3ZnPg==);background-size:128px;transition:none;opacity:.5}.spl-scene{transition:transform .65s cubic-bezier(.1,1,.1,1);contain:layout size;will-change:transform}.spl-pane>*{position:absolute;width:auto;height:auto;max-width:100%;max-height:100%;left:50%;top:50%;margin:0;padding:0;border:0;transform:translate(-50%,-50%) scale(1);transition:transform .65s cubic-bezier(.3,1,.3,1),opacity .65s ease;contain:layout style;will-change:transform,opacity;visibility:hidden}.spl-header,.spl-pane,.spl-progress{position:absolute;top:0}.spl-pane{width:100%;height:100%;transition:transform .65s cubic-bezier(.3,1,.3,1);contain:layout size;will-change:transform,contents}.spl-header{width:100%;height:50px;text-align:right;transform:translateY(-100px);transition:transform .35s ease;overflow:hidden;will-change:transform}#spotlight.menu .spl-footer,#spotlight.menu .spl-header,.spl-footer:hover,.spl-header:hover{transform:translateY(0)}.spl-header div{display:inline-block;vertical-align:middle;white-space:nowrap;width:50px;height:50px;opacity:.5}.spl-progress{width:100%;height:3px;background-color:rgba(255,255,255,.45);transform:translateX(-100%);transition:transform linear}.spl-footer,.spl-next,.spl-prev{position:absolute;transition:transform .35s ease;will-change:transform}.spl-footer{left:0;right:0;bottom:0;line-height:20px;padding:20px 20px 0;padding-bottom:env(safe-area-inset-bottom,0);text-align:left;font-size:15px;font-weight:400;transform:translateY(100%)}.spl-title{font-size:22px}.spl-button,.spl-description,.spl-title{margin-bottom:20px}.spl-button{display:inline-block;background:#fff;color:#000;border-radius:5px;padding:10px 20px;cursor:pointer}.spl-next,.spl-page~*,.spl-prev{background-position:center;background-repeat:no-repeat}.spl-page{float:left;width:auto;line-height:50px}.spl-page~*{background-size:21px;float:right}.spl-fullscreen{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHZpZXdCb3g9Ii0xIC0xIDI2IDI2IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTggM0g1YTIgMiAwIDAgMC0yIDJ2M20xOCAwVjVhMiAyIDAgMCAwLTItMmgtM20wIDE4aDNhMiAyIDAgMCAwIDItMnYtM00zIDE2djNhMiAyIDAgMCAwIDIgMmgzIi8+PC9zdmc+)}.spl-fullscreen.on{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik04IDN2M2EyIDIgMCAwIDEtMiAySDNtMTggMGgtM2EyIDIgMCAwIDEtMi0yVjNtMCAxOHYtM2EyIDIgMCAwIDEgMi0yaDNNMyAxNmgzYTIgMiAwIDAgMSAyIDJ2MyIvPjwvc3ZnPg==)}.spl-autofit{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBoZWlnaHQ9Ijk2cHgiIHZpZXdCb3g9IjAgMCA5NiA5NiIgd2lkdGg9Ijk2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggdHJhbnNmb3JtPSJyb3RhdGUoOTAgNTAgNTApIiBmaWxsPSIjZmZmIiBkPSJNNzEuMzExLDgwQzY5LjY3LDg0LjY2LDY1LjIzLDg4LDYwLDg4SDIwYy02LjYzLDAtMTItNS4zNy0xMi0xMlYzNmMwLTUuMjMsMy4zNC05LjY3LDgtMTEuMzExVjc2YzAsMi4yMSwxLjc5LDQsNCw0SDcxLjMxMSAgeiIvPjxwYXRoIHRyYW5zZm9ybT0icm90YXRlKDkwIDUwIDUwKSIgZmlsbD0iI2ZmZiIgZD0iTTc2LDhIMzZjLTYuNjMsMC0xMiw1LjM3LTEyLDEydjQwYzAsNi42Myw1LjM3LDEyLDEyLDEyaDQwYzYuNjMsMCwxMi01LjM3LDEyLTEyVjIwQzg4LDEzLjM3LDgyLjYzLDgsNzYsOHogTTgwLDYwICBjMCwyLjIxLTEuNzksNC00LDRIMzZjLTIuMjEsMC00LTEuNzktNC00VjIwYzAtMi4yMSwxLjc5LTQsNC00aDQwYzIuMjEsMCw0LDEuNzksNCw0VjYweiIvPjwvc3ZnPg==)}.spl-zoom-in,.spl-zoom-out{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMSIgY3k9IjExIiByPSI4Ii8+PGxpbmUgeDE9IjIxIiB4Mj0iMTYuNjUiIHkxPSIyMSIgeTI9IjE2LjY1Ii8+PGxpbmUgeDE9IjgiIHgyPSIxNCIgeTE9IjExIiB5Mj0iMTEiLz48L3N2Zz4=);background-size:22px}.spl-zoom-in{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMSIgY3k9IjExIiByPSI4Ii8+PGxpbmUgeDE9IjIxIiB4Mj0iMTYuNjUiIHkxPSIyMSIgeTI9IjE2LjY1Ii8+PGxpbmUgeDE9IjExIiB4Mj0iMTEiIHkxPSI4IiB5Mj0iMTQiLz48bGluZSB4MT0iOCIgeDI9IjE0IiB5MT0iMTEiIHkyPSIxMSIvPjwvc3ZnPg==)}.spl-download{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNDEuNzMycHgiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDE0MS43MzIgMTQxLjczMiIgd2lkdGg9IjE0MS43MzJweCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTIwLjY3NCwxMjUuMTM4SDIwLjc5M3YxNi41OTRoOTkuODgxVjEyNS4xMzh6IE0xMTkuMDE5LDU4Ljc3NmMtMi41NjEtMi41NjItNi43MTYtMi41NjItOS4yNzUsMEw3Ny4yMSw5MS4zMTJWNi41NjIgICBDNzcuMjEsMi45MzYsNzQuMjY5LDAsNzAuNjQ4LDBjLTMuNjI0LDAtNi41NiwyLjkzNy02LjU2LDYuNTYzdjg0Ljc1TDMxLjk5Miw1OS4yMThjLTIuNTYyLTIuNTY0LTYuNzE1LTIuNTY0LTkuMjc3LDAgICBjLTIuNTY1LDIuNTYyLTIuNTY1LDYuNzE2LDAsOS4yNzlsNDMuMjk0LDQzLjI5M2MwLjE1LDAuMTU0LDAuMzE0LDAuMjk5LDAuNDgxLDAuNDM4YzAuMDc2LDAuMDYyLDAuMTU1LDAuMTEzLDAuMjM0LDAuMTc2ICAgYzAuMDk0LDAuMDY1LDAuMTg2LDAuMTQyLDAuMjc5LDAuMjA2YzAuMDk3LDAuMDYzLDAuMTkyLDAuMTE0LDAuMjg2LDAuMTc0YzAuMDg4LDAuMDU0LDAuMTc0LDAuMTA1LDAuMjY1LDAuMTUzICAgYzAuMSwwLjA1NiwwLjE5OSwwLjEsMC4yOTgsMC4xNDdjMC4wOTcsMC4wNDUsMC4xOSwwLjA5MSwwLjI4MywwLjEzMmMwLjA5OCwwLjA0LDAuMTk2LDAuMDcyLDAuMjk1LDAuMTA1ICAgYzAuMTA0LDAuMDM4LDAuMjA3LDAuMDc4LDAuMzEyLDAuMTA5YzAuMTAxLDAuMDMsMC4xOTcsMC4wNTIsMC4yOTcsMC4wNzdjMC4xMDgsMC4wMjMsMC4yMTQsMC4wNTgsMC4zMjQsMC4wNzggICBjMC4xMTUsMC4wMjEsMC4yMzEsMC4wMzMsMC4zNDYsMC4wNTRjMC4wOTcsMC4wMTUsMC4xOTIsMC4wMzIsMC4yODksMC4wNDJjMC40MywwLjA0MiwwLjg2NSwwLjA0MiwxLjI5NSwwICAgYzAuMS0wLjAxLDAuMTkxLTAuMDI3LDAuMjg5LTAuMDQyYzAuMTE0LTAuMDIxLDAuMjMzLTAuMDI5LDAuMzQ0LTAuMDU0YzAuMTA5LTAuMDIxLDAuMjE3LTAuMDU1LDAuMzI0LTAuMDc4ICAgYzAuMTAyLTAuMDI1LDAuMTk5LTAuMDQ3LDAuMjk5LTAuMDc3YzAuMTA1LTAuMDMxLDAuMjA3LTAuMDcxLDAuMzEyLTAuMTA5YzAuMTAyLTAuMDMsMC4xOTUtMC4wNjIsMC4yOTUtMC4xMDUgICBjMC4wOTYtMC4wNDEsMC4xOTEtMC4wODcsMC4yODMtMC4xMzJjMC4xLTAuMDQ4LDAuMTk5LTAuMDkyLDAuMjk3LTAuMTQ3YzAuMDkxLTAuMDQ4LDAuMTc3LTAuMTA0LDAuMjY0LTAuMTUzICAgYzAuMDk4LTAuMDYsMC4xOTMtMC4xMSwwLjI4Ny0wLjE3NGMwLjA5Ni0wLjA2NCwwLjE4OS0wLjE0MSwwLjI4MS0wLjIwNmMwLjA3Ni0wLjA2MiwwLjE1Ni0wLjExMywwLjIzMy0wLjE3NiAgIGMwLjI0OS0wLjIwNCwwLjQ3OS0wLjQzNywwLjY5NC0wLjY3YzAuMDc2LTAuMDY3LDAuMTU0LTAuMTMxLDAuMjI5LTAuMjAzbDQzLjI5NC00My4yOTYgICBDMTIxLjU4MSw2NS40OTEsMTIxLjU4MSw2MS4zMzcsMTE5LjAxOSw1OC43NzYiLz48L2c+PC9zdmc+);background-size:20px}.spl-theme{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBoZWlnaHQ9IjI0cHgiIHZlcnNpb249IjEuMiIgdmlld0JveD0iMiAyIDIwIDIwIiB3aWR0aD0iMjRweCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTIsNGMtNC40MTgsMC04LDMuNTgyLTgsOHMzLjU4Miw4LDgsOHM4LTMuNTgyLDgtOFMxNi40MTgsNCwxMiw0eiBNMTIsMThjLTMuMzE0LDAtNi0yLjY4Ni02LTZzMi42ODYtNiw2LTZzNiwyLjY4Niw2LDYgUzE1LjMxNCwxOCwxMiwxOHoiLz48cGF0aCBkPSJNMTIsN3YxMGMyLjc1NywwLDUtMi4yNDMsNS01UzE0Ljc1Nyw3LDEyLDd6Ii8+PC9nPjwvc3ZnPg==)}.spl-play{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSItMC41IC0wLjUgMjUgMjUiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwb2x5Z29uIGZpbGw9IiNmZmYiIHBvaW50cz0iMTAgOCAxNiAxMiAxMCAxNiAxMCA4Ii8+PC9zdmc+)}.spl-play.on{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSItMC41IC0wLjUgMjUgMjUiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxsaW5lIHgxPSIxMCIgeDI9IjEwIiB5MT0iMTUiIHkyPSI5Ii8+PGxpbmUgeDE9IjE0IiB4Mj0iMTQiIHkxPSIxNSIgeTI9IjkiLz48L3N2Zz4=);animation:pulsate 1s ease infinite}.spl-close{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSIyIDIgMjAgMjAiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48bGluZSB4MT0iMTgiIHgyPSI2IiB5MT0iNiIgeTI9IjE4Ii8+PGxpbmUgeDE9IjYiIHgyPSIxOCIgeTE9IjYiIHkyPSIxOCIvPjwvc3ZnPg==)}.spl-next,.spl-prev{top:50%;width:50px;height:50px;opacity:.65;background-color:rgba(0,0,0,.45);border-radius:100%;cursor:pointer;margin-top:-25px;transform:translateX(-100px);background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cG9seWxpbmUgcG9pbnRzPSIxNSAxOCA5IDEyIDE1IDYiLz48L3N2Zz4=);background-size:30px}.spl-prev{left:20px}.spl-next{left:auto;right:20px;transform:translateX(100px) scaleX(-1)}#spotlight.menu .spl-prev{transform:translateX(0)}#spotlight.menu .spl-next{transform:translateX(0) scaleX(-1)}@media (hover:hover){.spl-page~div{cursor:pointer;transition:opacity .2s ease}.spl-next:hover,.spl-page~div:hover,.spl-prev:hover{opacity:1}}@media (max-width:500px){.spl-header div{width:44px}.spl-footer .spl-title{font-size:20px}.spl-footer{font-size:14px}.spl-next,.spl-prev{width:35px;height:35px;margin-top:-17.5px;background-size:15px 15px}.spl-spinner{background-size:30px 30px}}.hide-scrollbars{overflow:hidden!important}</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>跨性别女性幻想-传承 ～附录～V2.03 AI汉化版[新汉化/3.9G]-营养快线</title>
+<meta name="robots" content="max-image-preview:large">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<meta name="keywords" content="电脑游戏,">
+<meta name="description" content="跨性别女性幻想-传承 ～附录～V2.03 AI汉化版 新汉化 (トランス フィメール ファンタジー レガシー ～アペンド～) 游戏介绍： 这次的主角是三个人。 贵族公子的霞、渔夫的里特，和见习士兵的埃里克。 他们各自被卷入了意想不到的事件，">
+<link href="/wp-content/uploads/2024/02/微信图片_20240226150938.jpg" rel="icon">
+<link rel="stylesheet" id="csf-fa5-css" href="/wp-content/themes/ripro-v5/assets/css/font-awesome/css/all.min.css?ver=5.15.4" media="all">
+<link rel="stylesheet" id="csf-fa5-v4-shims-css" href="/wp-content/themes/ripro-v5/assets/css/font-awesome/css/v4-shims.min.css?ver=5.15.4" media="all">
+<link rel="stylesheet" id="main-css" href="/wp-content/themes/ripro-v5/assets/css/main.min.css?ver=8.8" media="all">
+<script src="/wp-content/themes/ripro-v5/assets/js/jquery.min.js?ver=3.6.0" id="jquery-js"></script>
+<link rel="canonical" href="https://www.yykx.cc/archives/152949.html">
+<link rel="shortlink" href="https://www.yykx.cc/?p=152949">
+<style type="text/css">
+@media (min-width: 1200px){ .container-xl, .container-lg, .container-md, .container-sm, .container { max-width: 1440px; } }.site-header{background-color:rgba(0,0,0,0.18);}
+.navbar .nav-list .sub-menu:before{border-bottom-color:;}
+.site-header,.navbar .nav-list a,.navbar .actions .action-btn{color:#000000;}
+.navbar .nav-list a:hover,.navbar .nav-list > .menu-item.current-menu-item > a {color:#000000;}
+.post-item .entry-desc, .post-item .entry-title {
+-webkit-line-clamp: 2;
+}
+</style><style type="text/css">.heading{width:10金币;}.heading{width:0.N折;}.heading{width:0个;}</style><link rel="icon" href="/wp-content/uploads/2024/09/cropped-QQ截图20240926223040-32x32.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/2024/09/cropped-QQ截图20240926223040-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/2024/09/cropped-QQ截图20240926223040-180x180.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/2024/09/cropped-QQ截图20240926223040-270x270.png">
+<style id="theia-sticky-sidebar-stylesheet-TSS">.theiaStickySidebar:after {content: ""; display: table; clear: both;}</style></head>
+
+<body class="post-template-default single single-post postid-152949 single-format-standard ri-popup-open" style="transform: none;">
+
+
+<header class="site-header">
+
+    <div class="container"> <!-- container-fluid px-lg-5 -->
+	    <div class="navbar">
+	      <!-- logo -->
+	      <div class="logo-wrapper">
+<a rel="nofollow noopener noreferrer" href="https://www.yykx.cc/"><img class="logo regular" data-light="https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/06/QQ截图20240615115740_美图抠图20240615.png" data-dark="" src="https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/06/QQ截图20240615115740_美图抠图20240615.png" alt="营养快线"></a></div>
+
+	      <div class="sep"></div>
+	      
+	      <nav class="main-menu d-none d-lg-block">
+	        <ul id="header-navbar" class="nav-list"><li class="menu-item"><a href="https://www.yykx.cc/">首页</a></li>
+<li class="menu-item"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e7%94%b5%e8%84%91%e6%b8%b8%e6%88%8f">电脑游戏</a></li>
+<li class="menu-item"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e6%89%8b%e6%9c%ba%e6%b8%b8%e6%88%8f">手机游戏</a></li>
+<li class="menu-item"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e5%85%8d%e8%b4%b9%e6%b8%b8%e6%88%8f">游戏攻略</a></li>
+<li class="menu-item"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98">常见问题</a></li>
+<li class="menu-item"><a href="https://www.uzhika.com/links/D3D5EFB2">购买卡密</a></li>
+<li class="menu-item"><a href="https://www.yykx.cc/user/vip/">个人中心</a></li>
+</ul>	      </nav>
+	      
+	      <div class="actions">
+	        
+
+	<span class="action-btn toggle-color" rel="nofollow noopener noreferrer">
+		<span title="亮色模式" data-mod="light" class=" show"><i class="fas fa-sun"></i></span>
+		<span title="深色模式" data-mod="dark" class=""><i class="fas fa-moon"></i></span>
+	</span>
+
+	<span class="action-btn toggle-search" rel="nofollow noopener noreferrer" title="站内搜索"><i class="fas fa-search"></i></span>
+
+	<span class="action-btn toggle-notify" rel="nofollow noopener noreferrer" title="网站公告"><i class="fa fa-bell-o"></i></span>
+
+
+
+	<a class="action-btn login-btn btn-sm btn" rel="nofollow noopener noreferrer" href="https://www.yykx.cc/login?redirect_to=https%3A%2F%2Fwww.yykx.cc%2Farchives%2F152949.html"><i class="far fa-user me-1"></i>登录</a>
+
+
+	        <div class="burger d-flex d-lg-none"><i class="fas fa-bars"></i></div>
+	      </div>
+
+	      	      <div class="navbar-search">
+<div class="search-form">
+    <form method="get" action="https://www.yykx.cc/">
+                    <div class="search-select">
+                <select name="cat" id="cat-search-select-3" class="form-select">
+	<option value="">全站</option>
+	<option class="level-0" value="149">游戏资源</option>
+</select>
+            </div>
+        
+        <div class="search-fields">
+          <input type="text" class="" placeholder="输入关键词 回车..." autocomplete="off" value="" name="s" required="required">
+          <button title="点击搜索" type="submit"><i class="fas fa-search"></i></button>
+      </div>
+  </form>
+</div>
+</div>
+		  	      
+	    </div>
+    </div>
+
+</header>
+
+<div class="header-gap"></div>
+
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main style="transform: none;">
+	
+
+
+<div class="archive-hero post-hero text-center">
+    <div class="archive-hero-bg lazy entered loaded" data-bg="https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/08/1K19JXW2QVZR@8Z8G0.jpg" data-ll-status="loaded" style="background-image: url(&quot;https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/08/1K19JXW2QVZR@8Z8G0.jpg&quot;);"></div>
+    <div class="container py-3 py-md-4">
+    	<div class="article-header mb-0">
+			<h1 class="post-title mb-2 mb-lg-3">跨性别女性幻想-传承 ～附录～V2.03 AI汉化版[新汉化/3.9G]</h1>			<div class="article-meta">
+					<span class="meta-date"><i class="far fa-clock me-1"></i>2024-08-27</span>
+
+	<span class="meta-cat-dot"><i class="far fa-folder me-1"></i><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e7%94%b5%e8%84%91%e6%b8%b8%e6%88%8f">电脑游戏</a></span>
+
+
+
+
+
+
+	<span class="meta-edit"></span>
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="container mt-2 mt-sm-4" style="transform: none;">
+	<div class="row g-2 g-md-3 g-lg-4" style="transform: none;">
+
+		<div class="content-wrapper col-md-12 col-lg-9" data-sticky-content="">
+			<div class="card">
+
+				
+				
+				
+				
+
+<div class="single-content-nav">
+  <ul class="nav nav-pills" id="pills-tab" role="tablist">
+
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="pills-details-tab" data-toggle="pill" href="#pills-details" role="tab" aria-controls="pills-details" aria-selected="true"><i class="far fa-file-alt me-1"></i>详情介绍</a>
+    </li>
+
+        <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-faq-tab" data-toggle="pill" href="#pills-faq" role="tab" aria-controls="pills-faq" aria-selected="false"><i class="far fa-question-circle me-1"></i>常见问题</a>
+    </li>
+    
+        
+  </ul>
+</div>
+
+
+<div class="tab-content" id="pills-tabContent">
+	<div class="tab-pane fade show active" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
+		
+		<article class="post-content post-152949 post type-post status-publish format-standard hentry category-2">
+			<p><img fetchpriority="high" decoding="async" src="https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/08/1K19JXW2QVZR@8Z8G0.jpg" alt="" width="960" height="557"> <img decoding="async" src="https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/08/Z212JNHE85GV9M.jpg" alt="" width="960" height="562"></p>
+<p>跨性别女性幻想-传承 ～附录～V2.03 AI汉化版 新汉化<br>
+(トランス フィメール ファンタジー レガシー ～アペンド～)</p>
+<p>游戏介绍：<br>
+这次的主角是三个人。<br>
+贵族公子的霞、渔夫的里特，和见习士兵的埃里克。<br>
+他们各自被卷入了意想不到的事件，不得不使用魔法，<br>
+在这种状况下，身体逐渐发生变化。接着，连心灵也开始改变…<br>
+然后，曾是男性的少女们的故事与命运交织，在战斗中变得更加“女性化”。<br>
+主角三人配有语音，奉上这部终极幻想性转换RPG！</p>
+
+			<div class="entry-copyright">
+	<i class="fas fa-info-circle me-1"></i>声明：
+1.本站内容转载自其它媒体，但并不代表本站赞同其观点和对其真实性负责。 
+2.若您需要商业运营或用于其他商业活动，请您购买正版授权并合法使用。
+3.如果本站有侵犯、不妥之处的资源，请联系我们。邮箱：3806097872@qq.com 将会第一时间解决！
+4.本站内容均由互联网收集整理，仅供大家参考、学习，不存在任何商业目的与商业用途。 
+5.本站提供的所有资源仅供参考学习使用，版权归原著所有，禁止下载本站资源参与任何商业和非法行为，请于24小时之内删除!</div>
+		</article>
+
+		
+		
+		
+<div class="entry-social">
+
+	<div class="row mt-2 mt-lg-3">
+		
+		<div class="col">
+					</div>
+
+		<div class="col-auto">
+			
+						<a class="btn btn-sm btn-info-soft post-share-btn" href="javascript:void(0);"><i class="fas fa-share-alt me-1"></i>分享</a>
+			
+						<a class="btn btn-sm btn-success-soft post-fav-btn" href="javascript:void(0);" data-is="1"><i class="far fa-star me-1"></i>收藏</a>
+			
+			
+		</div>
+	</div>
+
+</div>	</div>
+
+
+		<div class="tab-pane fade" id="pills-faq" role="tabpanel" aria-labelledby="pills-faq-tab">
+	
+	    <ol class="list-group list-group-numbered">
+		  		  	<li class="list-group-item list-group-item-info d-flex justify-content-between align-items-start">
+			    <div class="ms-2 me-auto">
+			      <div class="fw-bold">购买该资源后，可以退款吗？</div>
+			      <div class="text-muted">虚拟商品，具有可复制性，可传播性，，不接受任何形式的退款。请您在购买获取之前确认好 是您所需要的资源
+</div>
+			    </div>
+			</li>
+	    		  	<li class="list-group-item list-group-item-info d-flex justify-content-between align-items-start">
+			    <div class="ms-2 me-auto">
+			      <div class="fw-bold">解压失败密码错误</div>
+			      <div class="text-muted">手机解压软件用ZAR
+
+电脑解压软件用Win RAR
+</div>
+			    </div>
+			</li>
+	    		  	<li class="list-group-item list-group-item-info d-flex justify-content-between align-items-start">
+			    <div class="ms-2 me-auto">
+			      <div class="fw-bold">购买失败</div>
+			      <div class="text-muted">浏览器用夸克，谷歌，edge。国产浏览器拦截部分功能。</div>
+			    </div>
+			</li>
+	    		  	<li class="list-group-item list-group-item-info d-flex justify-content-between align-items-start">
+			    <div class="ms-2 me-auto">
+			      <div class="fw-bold">链接失效</div>
+			      <div class="text-muted">链接失效发游戏名称。QQ客服：3806097872。补好通知你</div>
+			    </div>
+			</li>
+	    		  	<li class="list-group-item list-group-item-info d-flex justify-content-between align-items-start">
+			    <div class="ms-2 me-auto">
+			      <div class="fw-bold">卡密失效</div>
+			      <div class="text-muted">卡密失效提供购买信息跟用户名，QQ客服：3806097872</div>
+			    </div>
+			</li>
+	    		</ol>
+
+	</div>
+	
+	
+</div>
+
+
+			</div>
+			
+			
+
+<div class="entry-navigation">
+    <div class="row g-3">
+                <div class="col-lg-6 col-12">
+            <a class="entry-page-prev" href="https://www.yykx.cc/archives/152946.html" title="我自己的专用弱小的阴部奶牛Vtuber的扼杀深挖禁锢和训练! 官中版+尊严毁灭包">
+                <div class="entry-page-icon"><i class="fas fa-arrow-left"></i></div>
+                <div class="entry-page-info">
+                    <span class="d-block rnav">上一篇</span>
+                    <div class="title">我自己的专用弱小的阴部奶牛Vtuber的扼杀深挖禁锢和训练! 官中版+尊严毁灭包</div>
+                </div>
+            </a>
+        </div>
+                        <div class="col-lg-6 col-12">
+            <a class="entry-page-next" href="https://www.yykx.cc/archives/152953.html" title="沉迷病娇后宫！AI汉化版+全CG存档+特典★全CV[新汉化/1.7G]">
+                <div class="entry-page-info">
+                    <span class="d-block rnav">下一篇</span>
+                    <div class="title">沉迷病娇后宫！AI汉化版+全CG存档+特典★全CV[新汉化/1.7G]</div>
+                </div>
+                <div class="entry-page-icon"><i class="fas fa-arrow-right"></i></div>
+            </a>
+        </div>
+            </div>
+</div>			
+			
+<div class="related-posts">
+   <h2 class="related-posts-title"><i class="fab fa-hive me-1"></i>相关文章</h2>
+   <div class="row g-2 g-md-3 row-cols-2 row-cols-md-3 row-cols-lg-4">
+    
+
+	<div class="col">
+		<article class="post-item item-grid">
+
+			<div class="tips-badge position-absolute top-0 start-0 z-1 m-2">
+				
+				
+			</div>
+			
+
+<div class="entry-media ratio ratio-3x2">
+	<a target="_blank" class="media-img lazy bg-cover bg-center" href="https://www.yykx.cc/archives/168714.html" title="深夜露出：我沉迷暴露1.0七宝版 PC+安卓" data-bg="https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/12/QQ截图20241206142203.png">
+
+		
+		<!-- 音视频缩略图 -->
+		
+	</a>
+</div>			<div class="entry-wrapper">
+									<div class="entry-cat-dot"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e6%89%8b%e6%9c%ba%e6%b8%b8%e6%88%8f">手机游戏</a> <a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e7%94%b5%e8%84%91%e6%b8%b8%e6%88%8f">电脑游戏</a></div>
+				
+				<h2 class="entry-title">
+					<a target="_blank" href="https://www.yykx.cc/archives/168714.html" title="深夜露出：我沉迷暴露1.0七宝版 PC+安卓">深夜露出：我沉迷暴露1.0七宝版 PC+安卓</a>
+				</h2>
+
+									<div class="entry-desc">【爆款RPG/AI汉化】深夜露出：我沉迷暴露1.0七宝版【PC+安卓/4.05G...</div>
+				
+				
+<div class="entry-meta">
+
+		<span class="meta-date"><i class="far fa-clock me-1"></i><time class="pub-date" datetime="2024-12-06T14:22:27+08:00">3 月前</time></span>
+	
+	
+	
+	
+		<span class="meta-price"><i class="fas fa-coins me-1"></i>10</span>
+	
+</div>			</div>
+		</article>
+	</div>
+
+
+
+	<div class="col">
+		<article class="post-item item-grid">
+
+			<div class="tips-badge position-absolute top-0 start-0 z-1 m-2">
+				
+				
+			</div>
+			
+
+<div class="entry-media ratio ratio-3x2">
+	<a target="_blank" class="media-img lazy bg-cover bg-center" href="https://www.yykx.cc/archives/156493.html" title="十字军之王3-王国风云3/Crusader Kings III（更新v1.13.0.3）" data-bg="https://media.st.dl.eccdnx.com/steam/apps/1158310/header.jpg?t=1683820745">
+
+		
+		<!-- 音视频缩略图 -->
+		
+	</a>
+</div>			<div class="entry-wrapper">
+									<div class="entry-cat-dot"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e7%94%b5%e8%84%91%e6%b8%b8%e6%88%8f">电脑游戏</a></div>
+				
+				<h2 class="entry-title">
+					<a target="_blank" href="https://www.yykx.cc/archives/156493.html" title="十字军之王3-王国风云3/Crusader Kings III（更新v1.13.0.3）">十字军之王3-王国风云3/Crusader Kings III（更新v1.13.0.3）</a>
+				</h2>
+
+									<div class="entry-desc">游戏介绍: 关于这款游戏 您的地位正等着您。选择您的贵族家族，在跨越世代的中世纪...</div>
+				
+				
+<div class="entry-meta">
+
+		<span class="meta-date"><i class="far fa-clock me-1"></i><time class="pub-date" datetime="2024-09-29T21:35:18+08:00">5 月前</time></span>
+	
+	
+	
+	
+		<span class="meta-price"><i class="fas fa-coins me-1"></i>10</span>
+	
+</div>			</div>
+		</article>
+	</div>
+
+
+
+	<div class="col">
+		<article class="post-item item-grid">
+
+			<div class="tips-badge position-absolute top-0 start-0 z-1 m-2">
+				
+				
+			</div>
+			
+
+<div class="entry-media ratio ratio-3x2">
+	<a target="_blank" class="media-img lazy bg-cover bg-center" href="https://www.yykx.cc/archives/171505.html" title="直到成为我的女朋友为止~用尽各种手段[精翻汉化版+回想]" data-bg="https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/12/20241019135715-6713babb0e706.jpg">
+
+		
+		<!-- 音视频缩略图 -->
+		
+	</a>
+</div>			<div class="entry-wrapper">
+									<div class="entry-cat-dot"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e7%94%b5%e8%84%91%e6%b8%b8%e6%88%8f">电脑游戏</a></div>
+				
+				<h2 class="entry-title">
+					<a target="_blank" href="https://www.yykx.cc/archives/171505.html" title="直到成为我的女朋友为止~用尽各种手段[精翻汉化版+回想]">直到成为我的女朋友为止~用尽各种手段[精翻汉化版+回想]</a>
+				</h2>
+
+									<div class="entry-desc">游戏概述： 这是一款由[レトロラボ]制作组出品的邪恶T教SLG游戏 玩法鬼畜，画...</div>
+				
+				
+<div class="entry-meta">
+
+		<span class="meta-date"><i class="far fa-clock me-1"></i><time class="pub-date" datetime="2024-12-15T15:59:48+08:00">2 月前</time></span>
+	
+	
+	
+	
+		<span class="meta-price"><i class="fas fa-coins me-1"></i>10</span>
+	
+</div>			</div>
+		</article>
+	</div>
+
+
+
+	<div class="col">
+		<article class="post-item item-grid">
+
+			<div class="tips-badge position-absolute top-0 start-0 z-1 m-2">
+				
+				
+			</div>
+			
+
+<div class="entry-media ratio ratio-3x2">
+	<a target="_blank" class="media-img lazy bg-cover bg-center" href="https://www.yykx.cc/archives/77644.html" title="41号的冒险 ver0.9 云翻汉化版 RPG游戏+CG包" data-bg="http://heistbeer.com/d%2Ffile%2Fp%2F2023-02-08%2F16758260831.jpg">
+
+		
+		<!-- 音视频缩略图 -->
+		
+	</a>
+</div>			<div class="entry-wrapper">
+									<div class="entry-cat-dot"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e7%94%b5%e8%84%91%e6%b8%b8%e6%88%8f">电脑游戏</a></div>
+				
+				<h2 class="entry-title">
+					<a target="_blank" href="https://www.yykx.cc/archives/77644.html" title="41号的冒险 ver0.9 云翻汉化版 RPG游戏+CG包">41号的冒险 ver0.9 云翻汉化版 RPG游戏+CG包</a>
+				</h2>
+
+									<div class="entry-desc">分享一款RPG遊戲新作： 41号的冒險 ver0.9 雲翻漢化版 RPG遊戲+C...</div>
+				
+				
+<div class="entry-meta">
+
+		<span class="meta-date"><i class="far fa-clock me-1"></i><time class="pub-date" datetime="2023-02-16T11:37:05+08:00">2 年前</time></span>
+	
+	
+	
+	
+		<span class="meta-price"><i class="fas fa-coins me-1"></i>10</span>
+	
+</div>			</div>
+		</article>
+	</div>
+
+    </div>
+</div>
+
+			
+		</div>
+
+		<div class="sidebar-wrapper col-md-12 col-lg-3 h-100" data-sticky="" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+			
+		<div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;"><div class="sidebar">
+				<div id="text-2" class="widget widget_text"><h5 class="widget-title">重要提示！！！</h5>			<div class="textwidget"><p>请不要在线解压文件！下载到本地在本地解压</p>
+<p>如某资源已失效，请联系客服QQ：3806097872，重新上传补档。</p>
+<p>部分游戏下载完成后，需手动更改文件扩展名（7Z删）改为7Z方可解压</p>
+<p>Q群3群群号：581256498</p>
+</div>
+		</div><div id="ri_post_pay_widget-2" class="widget post-buy-widget">
+
+<div class="ri-down-warp" data-resize="bottom">
+    <span class="down-msg">下载</span>
+            <div class="down-buy-warp">
+                    <div class="buy-title"><i class="fas fa-lock me-1"></i>本资源需权限下载</div>
+
+            <div class="buy-desc">
+                
+                <div class="prices-desc">
+                    <div class="prices-default">
+                        <i class="fas fas fa-coins me-1"></i>
+                        <span>10</span>金币                    </div>
+                </div> 
+
+                <div class="prices-rate">
+
+                    
+                    <ul class="prices-info">
+                        <a class="vip-rete-tips" href="https://www.yykx.cc/vip-prices" rel="nofollow noopener noreferrer" target="_blank"><i class="far fa-gem me-1"></i>VIP折扣</a>
+                    <li class="price-item no">普通用户: <span><i class="fas fas fa-coins me-1"></i>10金币</span></li><li class="price-item vip">VIP会员: <span>免费</span></li><li class="price-item boosvip">永久会员: <span>免费</span></li>                    </ul>
+                </div> 
+            </div>
+
+
+            <div class="buy-btns">
+                            <a rel="nofollow noopener noreferrer" href="https://www.yykx.cc/login?redirect_to=https%3A%2F%2Fwww.yykx.cc%2Farchives%2F152949.html" class="login-btn btn btn-info w-100 rounded-pill"><i class="far fa-user me-1"></i>登录后购买</a>
+                        </div>
+
+
+                    
+        </div>
+
+    
+
+    <div class="down-buy-info">
+
+        
+        
+                    <ul class="list-group list-group-flush mt-3">
+                            <li class="small text-muted list-group-item bg-white"><span>解压密码: </span> <span>神月</span></li>
+                        </ul>
+        
+                <p class="text-muted mb-0 mt-3 small">下载遇到问题？可联系客服或反馈</p>
+            </div> 
+
+</div>
+
+
+
+</div><div id="media_image-2" class="widget widget_media_image"><h5 class="widget-title">关注微信公众号，不迷路</h5><img width="258" height="258" src="/wp-content/uploads/2024/09/qrcode_for_gh_ec2f8361a50a_258.jpg" class="image wp-image-155459  attachment-full size-full" alt="" style="max-width: 100%; height: auto;" decoding="async" srcset="/wp-content/uploads/2024/09/qrcode_for_gh_ec2f8361a50a_258.jpg 258w, /wp-content/uploads/2024/09/qrcode_for_gh_ec2f8361a50a_258-150x150.jpg 150w" sizes="(max-width: 258px) 100vw, 258px"></div><div id="ri_sidebar_ranking_widget-2" class="widget sidebar-ranking-list">
+<h5 class="widget-title">排行榜展示</h5>
+
+<div class="row g-3 row-cols-1">
+        <div class="col">
+        <article class="ranking-item">
+          <span class="ranking-num badge bg-primary bg-opacity-50">1</span>
+          <h3 class="ranking-title">
+            <a target="_blank" href="https://www.yykx.cc/archives/7819.html" title="多娜多娜:一起来干坏事吧（V1.1豪华版-集成MOD）补">多娜多娜:一起来干坏事吧（V1.1豪华版-集成MOD）补</a>
+          </h3>
+        </article>
+      </div>
+          <div class="col">
+        <article class="ranking-item">
+          <span class="ranking-num badge bg-success bg-opacity-50">2</span>
+          <h3 class="ranking-title">
+            <a target="_blank" href="https://www.yykx.cc/archives/6218.html" title="魔镜（Mirror）官方豪华中文终极版+全DLC BGM+COSPLAY写真">魔镜（Mirror）官方豪华中文终极版+全DLC BGM+COSPLAY写真</a>
+          </h3>
+        </article>
+      </div>
+          <div class="col">
+        <article class="ranking-item">
+          <span class="ranking-num badge bg-warning bg-opacity-50">3</span>
+          <h3 class="ranking-title">
+            <a target="_blank" href="https://www.yykx.cc/archives/42764.html" title="火影：被诅咒的忍术 0.5.1PC+安卓 精翻汉化版 补">火影：被诅咒的忍术 0.5.1PC+安卓 精翻汉化版 补</a>
+          </h3>
+        </article>
+      </div>
+          <div class="col">
+        <article class="ranking-item">
+          <span class="ranking-num badge bg-info bg-opacity-50">4</span>
+          <h3 class="ranking-title">
+            <a target="_blank" href="https://www.yykx.cc/archives/27467.html" title="恋活2代：Sunshine幸福阳光！汉化中文解码全DLC版[九月新汉化/步兵][20G]">恋活2代：Sunshine幸福阳光！汉化中文解码全DLC版[九月新汉化/步兵][20G]</a>
+          </h3>
+        </article>
+      </div>
+          <div class="col">
+        <article class="ranking-item">
+          <span class="ranking-num badge bg-secondary bg-opacity-50">5</span>
+          <h3 class="ranking-title">
+            <a target="_blank" href="https://www.yykx.cc/archives/6229.html" title="堕落玩偶-爱欲行动V0.34中文步兵版[增加安雅新换装] 补">堕落玩偶-爱欲行动V0.34中文步兵版[增加安雅新换装] 补</a>
+          </h3>
+        </article>
+      </div>
+          <div class="col">
+        <article class="ranking-item">
+          <span class="ranking-num badge bg-secondary bg-opacity-50">6</span>
+          <h3 class="ranking-title">
+            <a target="_blank" href="https://www.yykx.cc/archives/16610.html" title="家族崩坏：Playhome Ver13.0] [新整合优化中文版 PH正式版k-13]【新整合/90G】">家族崩坏：Playhome Ver13.0] [新整合优化中文版 PH正式版k-13]【新整合/90G】</a>
+          </h3>
+        </article>
+      </div>
+          <div class="col">
+        <article class="ranking-item">
+          <span class="ranking-num badge bg-secondary bg-opacity-50">7</span>
+          <h3 class="ranking-title">
+            <a target="_blank" href="https://www.yykx.cc/archives/28628.html" title="塞尔达传说：荒野之息/The Legend of Zelda: Breath of the Wild（更新v1.6.0-yuzu模拟器+WIIU模拟器）">塞尔达传说：荒野之息/The Legend of Zelda: Breath of the Wild（更新v1.6.0-yuzu模拟器+WIIU模拟器）</a>
+          </h3>
+        </article>
+      </div>
+          <div class="col">
+        <article class="ranking-item">
+          <span class="ranking-num badge bg-secondary bg-opacity-50">8</span>
+          <h3 class="ranking-title">
+            <a target="_blank" href="https://www.yykx.cc/archives/18234.html" title="【3D/中文/全动态】雯雅婷：全系列19部！最全4K新版大合集【高跟丝袜/珍藏】【9G】">【3D/中文/全动态】雯雅婷：全系列19部！最全4K新版大合集【高跟丝袜/珍藏】【9G】</a>
+          </h3>
+        </article>
+      </div>
+          <div class="col">
+        <article class="ranking-item">
+          <span class="ranking-num badge bg-secondary bg-opacity-50">9</span>
+          <h3 class="ranking-title">
+            <a target="_blank" href="https://www.yykx.cc/archives/111056.html" title="赛博朋克2077/Cyberpunk 2077（更新v2.12HF全DLC）">赛博朋克2077/Cyberpunk 2077（更新v2.12HF全DLC）</a>
+          </h3>
+        </article>
+      </div>
+          <div class="col">
+        <article class="ranking-item">
+          <span class="ranking-num badge bg-secondary bg-opacity-50">10</span>
+          <h3 class="ranking-title">
+            <a target="_blank" href="https://www.yykx.cc/archives/50948.html" title="艾尔登法环/Elden Ring（更新v1.09.1+数字豪华版+全DLC）">艾尔登法环/Elden Ring（更新v1.09.1+数字豪华版+全DLC）</a>
+          </h3>
+        </article>
+      </div>
+    </div>
+
+</div>			</div></div></div>
+
+	</div>
+</div>
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="site-footer py-md-4 py-2 mt-2 mt-md-4">
+	<div class="container">
+
+		
+
+<div class="row d-none d-lg-flex mb-3">
+  <div class="col-md-4">
+    <div class="logo-wrapper">
+          </div>
+    <div class="logo-wrapper">
+<a rel="nofollow noopener noreferrer" href="https://www.yykx.cc/"><img class="logo regular" data-light="https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/06/QQ截图20240615115740_美图抠图20240615.png" data-dark="" src="https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/06/QQ截图20240615115740_美图抠图20240615.png" alt="营养快线"></a></div>
+    <p class="small mb-0"></p>
+  </div>
+
+  <div class="col-md-2">
+    <h4 class="widget-title">快速导航</h4>
+    <ul class="list-unstyled widget-links">
+      <li><a href="https://store.steampowered.com/">STEAM</a></li>    </ul>
+  </div>
+
+  <div class="col-md-2">
+    <h4 class="widget-title">关于本站</h4>
+    <ul class="list-unstyled widget-links">
+      <li><a href="">QQ：3806097872</a></li>    </ul>
+  </div>
+
+  <div class="col-md-4">
+    <h4 class="widget-title">联系我们</h4>
+    <div class="">QQ叁群：581256498</div>
+  </div>
+</div>
+
+
+		<div class="text-center small w-100">
+			<div>Copyright © 2019 营养快线 - All rights reserved
+</div>
+			<div class="">声明:本站所有游戏来源于互联网!若侵犯到您的权益,请联系站长,我们将及时处理。 若您需要使用非免费的软件或服务,请购买正版授权并合法使用。 www.yykx.cc / Hong Kong, China.</div>
+		</div>
+
+		
+		
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+
+<!-- Back to top rollbar-->
+	<div class="rollbar">
+		<ul class="actions">
+			<li><a target="" href="http://www.yingyangkuaixian.com/" rel="nofollow noopener noreferrer"><i class="fas fa-home"></i><span>首页</span></a></li><li><a target="" href="http://www.yingyangkuaixian.com/user" rel="nofollow noopener noreferrer"><i class="far fa-user"></i><span>用户中心</span></a></li>		</ul>
+	</div>
+<div class="back-top"><i class="fas fa-caret-up"></i></div>
+
+<!-- m-navbar -->
+	<div class="m-navbar">
+		<ul>
+			<li><a target="" href="https://www.yykx.cc/" rel="nofollow noopener noreferrer"><i class="fas fa-home"></i><span>首页</span></a></li><li><a target="" href="https://www.yykx.cc/archives/category/%e7%94%b5%e8%84%91%e6%b8%b8%e6%88%8f" rel="nofollow noopener noreferrer"><i class="far fa-keyboard"></i><span>电脑游戏</span></a></li><li><a target="" href="https://www.yykx.cc/archives/category/%e7%94%b5%e8%84%91%e6%b8%b8%e6%88%8f/%e6%89%8b%e6%9c%ba%e6%b8%b8%e6%88%8f" rel="nofollow noopener noreferrer"><i class="fas fa-mobile-alt"></i><span>手机游戏</span></a></li><li><a target="" href="https://www.yykx.cc/user/vip/" rel="nofollow noopener noreferrer"><i class="fas fa-user"></i><span>个人中心</span></a></li>		</ul>
+	</div>
+
+<!-- dimmer-->
+<div class="dimmer" style="display: block; opacity: 0;"></div>
+
+<div class="off-canvas">
+  <div class="canvas-close"><i class="fas fa-times"></i></div>
+  
+  <!-- logo -->
+  <div class="logo-wrapper">
+<a rel="nofollow noopener noreferrer" href="https://www.yykx.cc/"><img class="logo regular" data-light="https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/06/QQ截图20240615115740_美图抠图20240615.png" data-dark="" src="https://yingyangkuaixian.oss-cn-beijing.aliyuncs.com/wp-content/uploads/2024/06/QQ截图20240615115740_美图抠图20240615.png" alt="营养快线"></a></div>
+
+  
+  <div class="mobile-menu d-block d-lg-none"><div class="slicknav_menu"><a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed"><span class="slicknav_menutxt"></span><span class="slicknav_icon slicknav_no-text"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><ul class="slicknav_nav slicknav_hidden" style="display: none;" aria-hidden="true" role="menu"><li class="menu-item"><a href="https://www.yykx.cc/" role="menuitem" tabindex="-1">首页</a></li>
+<li class="menu-item"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e7%94%b5%e8%84%91%e6%b8%b8%e6%88%8f" role="menuitem" tabindex="-1">电脑游戏</a></li>
+<li class="menu-item"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e6%89%8b%e6%9c%ba%e6%b8%b8%e6%88%8f" role="menuitem" tabindex="-1">手机游戏</a></li>
+<li class="menu-item"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e5%85%8d%e8%b4%b9%e6%b8%b8%e6%88%8f" role="menuitem" tabindex="-1">游戏攻略</a></li>
+<li class="menu-item"><a href="https://www.yykx.cc/archives/category/%e6%b8%b8%e6%88%8f%e8%b5%84%e6%ba%90/%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" role="menuitem" tabindex="-1">常见问题</a></li>
+<li class="menu-item"><a href="https://www.uzhika.com/links/D3D5EFB2" role="menuitem" tabindex="-1">购买卡密</a></li>
+<li class="menu-item"><a href="https://www.yykx.cc/user/vip/" role="menuitem" tabindex="-1">个人中心</a></li>
+</ul></div></div>
+
+</div>
+
+
+
+<script src="/wp-content/themes/ripro-v5/assets/js/highlight.min.js?ver=11.7.0" id="highlight-js"></script>
+<script src="/wp-content/themes/ripro-v5/assets/js/vendor.min.js?ver=8.8" id="vendor-js"></script>
+<script id="main-js-extra">
+var zb = {"home_url":"https:\/\/www.yykx.cc","ajax_url":"https:\/\/www.yykx.cc\/wp-admin\/admin-ajax.php","theme_url":"\/wp-content\/themes\/ripro-v5","singular_id":"152949","post_content_nav":"0","site_popup_login":"1","site_notify_auto":"1","current_user_id":"0","ajax_nonce":"ef84184927","gettext":{"__copypwd":"\u5bc6\u7801\u5df2\u590d\u5236\u526a\u8d34\u677f","__copybtn":"\u590d\u5236","__copy_succes":"\u590d\u5236\u6210\u529f","__comment_be":"\u63d0\u4ea4\u4e2d...","__comment_succes":"\u8bc4\u8bba\u6210\u529f","__comment_succes_n":"\u8bc4\u8bba\u6210\u529f\uff0c\u5373\u5c06\u5237\u65b0\u9875\u9762","__buy_be_n":"\u8bf7\u6c42\u652f\u4ed8\u4e2d\u00b7\u00b7\u00b7","__buy_no_n":"\u652f\u4ed8\u5df2\u53d6\u6d88","__is_delete_n":"\u786e\u5b9a\u5220\u9664\u6b64\u8bb0\u5f55\uff1f"}};
+</script>
+<script src="/wp-content/themes/ripro-v5/assets/js/main.min.js?ver=8.8" id="main-js"></script>
+<script src="https://www.yykx.cc/wp-includes/js/comment-reply.min.js?ver=6.7.2" id="comment-reply-js" async="" data-wp-strategy="async"></script>
+
+<!-- 自定义js代码 统计代码 -->
+<!-- 自定义js代码 统计代码 END -->
+
+
+
+
+
+
+
+
+<div class="ri-popup"><div class="ri-popup-body" style="width:380px"><div class="ri-popup-close"><span class="svg-close"></span></div><div class="ri-popup-content"><div class="site-notify-body"><h1 class="notify-title"><i class="fa fa-bell-o me-1"></i>本站最新公告通知</h1><div class="notify-desc">如遇卡密失效联系QQ客服:3806097872，提供购买记录跟站内用户名。
+如遇连接失效请联系QQ客服：3806097872，发送游戏名称。一般当天晚上会补好链接。补好会通知。
+其他问题点击首页常见问题查看
+喜迎新春，限时优惠。</div></div></div></div></div></body></html>
