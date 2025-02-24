@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html style="font-size: 512px;"><head>
+<script type="text/javascript">
+window.__start_time = new Date().getTime();
+window.__server_time = new Date(1736933181341);
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+<title>金东尼人妖秀</title>
+    <meta name="keywords" content="机票,飞机票,酒店,酒店查询,火车票,车票预订,在线旅游">
+    <meta name="description" content="去哪儿网(Qunar.com)，覆盖国内外机票、酒店、度假、门票、租车、接送机、火车票、汽车票和团购等多个领域，帮助旅行者聪明地安排旅行。">
+
+<script type="text/javascript">
+// wx的特殊处理
+if(isWx(navigator.userAgent)) {
+    (function () {
+        if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+            handleFontSize();
+        } else {
+            if (document.addEventListener) {
+                document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
+            } else if (document.attachEvent) {
+                document.attachEvent("WeixinJSBridgeReady", handleFontSize);
+                document.attachEvent("onWeixinJSBridgeReady", handleFontSize);
+            }
+        }
+        function handleFontSize () {
+            // 设置网页字体为默认大小
+            WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize': 0 });
+            // 重写设置网页字体大小的事件
+            WeixinJSBridge.on('menu:setfont', function () {
+                WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize': 0 });
+            });
+        }
+    })();
+    
+}
+// 加载微信渠道的sdk
+if (isWx(navigator.userAgent) && typeof window.wx === 'undefined') {
+    document.write('<script src="//res.wx.qq.com/open/js/jweixin-1.6.0.js"><\/script>');
+}
+
+// 加载头条渠道的sdk
+if (isTt(navigator.userAgent) && typeof window.tt === 'undefined') {
+    document.write('<script src="//lf1-cdn-tos.bytegoofy.com/goofy/developer/jssdk/jssdk-1.0.3.js"><\/script>');
+}
+
+// 加载百度的sdk
+if (isQunarBuApp(navigator.userAgent) && typeof window.swan === 'undefined') {
+    document.write('<script src="//b.bdstatic.com/searchbox/icms/searchbox/js/swan-2.0.22.js"><\/script>');
+}
+
+// 加载qq的sdk
+if (isQqMiniH5(navigator.userAgent) && typeof window.qq === 'undefined') {
+    document.write('<script src="//qqq.gtimg.cn/miniprogram/webview_jssdk/qqjssdk-1.0.0.js"><\/script>');
+}
+
+// 加载支付宝渠道的sdk
+if (isAli(navigator.userAgent) && typeof window.my === 'undefined') {
+    document.write('<script src="//appx/web-view.min.js"><\/script>');
+}
+
+// 适配老的设备
+if(![].find) {
+    document.write('<script src="//q.qunarzz.com/shark-client/prd/polyfill@1.0.14.js"><\/script>')
+}
+
+// Hook String.prototype.match，临时修复老shark-client版本问题
+(function() {
+    var tempMatch = String.prototype.match;
+    String.prototype.match = function(rule) {
+        var argsArray = [].slice.call(arguments);
+        if(typeof rule === 'object' && rule.source === (/\/active\/(\d{1,})/).source) {
+            argsArray[0] = /\/active\/(.{1,})/;
+        }
+        return tempMatch.apply(this, argsArray);
+    };
+})();
+
+function setBaseFontSize() {
+    var docEl = document.documentElement || {};
+    var clientWidth = getClientWidth(docEl);
+    if (!clientWidth) {
+        return;
+    }
+
+    docEl.style.fontSize = location.href.indexOf('_pc=yes') > -1 ? '130px' : 100 * (clientWidth / 375) + 'px';
+}
+
+function getQueryParam (name, url) {
+    var uri = url || window.location.search;
+    var reg = new RegExp('[?&]' + name + '=([^&?#]*)', 'i');
+    var re = uri.match(reg) || [];
+    return re[1] || '';
+}
+
+function getClientWidth (docEl) {
+    docEl = docEl || document.documentElement || {};
+    return docEl.clientWidth || docEl.getBoundingClientRect().width || window.innerWidth || screen.width;
+}
+
+(function () {
+    setBaseFontSize();
+    var resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize';
+    if (window.addEventListener) {
+        window.addEventListener(resizeEvent, setBaseFontSize, false);
+        window.addEventListener('load', setBaseFontSize, false);
+    }
+})();
+
+function preRequest(options, success, fail, method, timeout) {
+    var xhr = new XMLHttpRequest();
+
+    var timer = setTimeout(function() {
+        xhr && xhr.abort();
+        xhr = null;
+        fail(new Error('timeout_error'));
+    }, timeout || 10000);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            var status = xhr.status;
+            if (status === 200) {
+                success(JSON.parse(xhr.response));
+            } else {
+                fail(new Error(status + '_error'));
+            }
+
+            clearTimeout(timer);
+        }
+    };
+
+    xhr.open(method || 'POST', options.url, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(options.data && options.data.join('&'));
+}
+
+function buildRequest(url, data) {
+    return {
+        success: function() {},
+        fail: function() {},
+        then: function(resolve) {
+            this.data ? resolve(this.data) : this.success = resolve;
+            return this;
+        },
+        catch: function(reject) {
+            this.error ? reject(this.error) : this.fail = reject;
+            return this;
+        },
+        request: function(newData) {
+            var requestInstance = this;
+            requestInstance.data = null;
+            requestInstance.error = null;
+            preRequest({
+                url: url,
+                data: newData || data
+            }, function(res) {
+                requestInstance.data = res;
+                requestInstance.success(res);
+            }, function(err) {
+                requestInstance.error = err;
+                requestInstance.fail(err);
+            });
+        }
+    };
+}
+
+// 去哪app大客户端
+function isQunarApp(userAgent) {
+    userAgent = userAgent || ''
+    return userAgent.toLowerCase().indexOf('qunar') > -1;
+}
+
+function isWx (userAgent) {
+    userAgent = userAgent || ''
+    return userAgent.toLowerCase().indexOf('micromessenger') > -1;
+}
+
+//支付宝
+function isAli (userAgent) {
+    userAgent = userAgent || ''
+    return userAgent.toLowerCase().indexOf('alipay') > -1
+}
+
+// 字节小程序
+function isTt(userAgent) {
+    userAgent = userAgent || ''
+    return userAgent.toLowerCase().indexOf('toutiaomicroapp') > -1;
+}
+
+// qq小程序内嵌h5
+function isQqMiniH5(userAgent) {
+    userAgent = userAgent || ''
+    return (userAgent.toLowerCase().indexOf('qq') > -1 && userAgent.toLowerCase().indexOf('miniprogram') > -1) || window.__qqjs_environment === 'miniprogram';
+}
+
+// 去哪儿公共百度小程序 （目前机票的百度小程序集成在了公共小程序内）
+function isQunarBuApp(userAgent) {
+    userAgent = userAgent ||  ''
+    return userAgent.toLowerCase().indexOf('baiduboxapp') > -1;
+}
+
+function getClientType(userAgent) {
+    userAgent = userAgent || ''
+    var clientType = '';
+    if (isQunarApp(userAgent)) {
+        clientType = 'app';
+    } else if (isWx(userAgent)) {
+        clientType = 'wx';
+    } else if (isAli(userAgent)) {
+        clientType = 'ali';
+    } else if (isTt(userAgent)) {
+        clientType = 'tt';
+    } else if (isQqMiniH5(userAgent)) {
+        clientType = 'qqMiniH5';
+    } else if (isQunarBuApp(userAgent)) {
+        clientType = 'baidu';
+    } else {
+        clientType = 'touch';
+    }
+    return clientType;
+}
+</script>
+
+
+<script type="text/javascript">
+/**
+ * version: https://qzz.beta.qunar.com/hysdk/prd/hysdk@0.9.10.js
+ */
+(function(e){function n(r){if(t[r])return t[r].exports;var i=t[r]={exports:{},id:r,loaded:false};e[r].call(i.exports,i,i.exports,n);i.loaded=true;return i.exports}var t={};n.m=e;n.c=t;n.p="";return n(0)})([function(e,t,n){e.exports=n(71)},,,,,,,,,,function(e,t){"use strict";var n=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(e){return typeof e}:function(e){return e&&typeof Symbol==="function"&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};var r=Object.prototype.hasOwnProperty;var i=Object.prototype.toString;var s=function(t){if(typeof Array.isArray==="function"){return Array.isArray(t)}return i.call(t)==="[object Array]"};var o=function(t){if(!t||i.call(t)!=="[object Object]"){return false}var n=r.call(t,"constructor"),s=t.constructor&&t.constructor.prototype&&r.call(t.constructor.prototype,"isPrototypeOf");if(t.constructor&&!n&&!s){return false}return typeof key==="undefined"||r.call(t,key)};e.exports=function u(){var e=void 0,t=void 0,r=void 0,i=void 0,a=void 0,f=void 0,l=arguments[0],c=1,h=arguments.length,p=false;if(typeof l==="boolean"){p=l;l=arguments[1]||{};c=2}else if((typeof l==="undefined"?"undefined":n(l))!=="object"&&typeof l!=="function"||l==null){l={}}for(;c<h;++c){e=arguments[c];if(e!=null){for(t in e){if(e.hasOwnProperty(t)){r=l[t];i=e[t];if(l!==i){if(p&&i&&(o(i)||(a=s(i)))){if(a){a=false;f=r&&s(r)?r:[]}else{f=r&&o(r)?r:{}}l[t]=u(p,f,i)}else if(typeof i!=="undefined"){l[t]=i}}}}}}return l}},,function(e,t,n){"use strict";var r=n(13);var i=n(14);var s=n(10);var o=n(26);var u=n(37);var a=n(38);var f=n(42);var l=function(t){return typeof t==="function"};var c="scheme://";var h=["success","fail","complete"];var p=s(true,{},n(43)),d={apis:n(19),events:n(33)},v=[],m=[];var g=function(){var t=i.android,n=i.ios,r=i.appVersion,s=i.harmony;var o="80011288",u="60001522";var a=n&&r>=o;var f=t&&r>=u;var l=f||a||s;return l};var y=e.exports={version:f&&f.version||"1.1.0",isReady:false,isInit:false,env:"h5",sniff:i,bridge:null,hy:{},wechat:{},h5:{},plugin:function(t){return l(t)&&v.push(t)},fns:u.fns,config:function(t){p=s(true,{},p,t);if(!y.isInit){y.isInit=true;v.forEach(function(e){return e.call(y,p,d)});if(p.hytiveReg){y.sniff.hy=(new RegExp(p.hytiveReg)).test(navigator.userAgent.toLowerCase())}r.call(y,p,m)}},ready:function(t){if(l(t)){if(y.isReady){t(y.env)}else{m.push(t)}}},register:function(t,n){var r=arguments.length>2&&arguments[2]!==undefined?arguments[2]:"hy";var i=arguments.length>3&&arguments[3]!==undefined?arguments[3]:false;if(!t||!n){console.error("参数name、key必传");return}if(t.indexOf("once")===0){t=t.substring(4).replace(/\w/,function(e){return e.toLowerCase()});i=true}else if(t.indexOf("on")===0){t=t.substring(2).replace(/\w/,function(e){return e.toLowerCase()});i=true}var s={namespace:r,bridge:n};s[r]=true;y[r]=y[r]||{};if(i){a.initNameSpaceFns(y,r);a.initNameSpaceEventFns(y,t,r,n);return}u.setUpFunction(y,t,s,p.debug,p.apiTimeout);y[r][t]=u.bind(y,t,r)},registerScheme:function(t,n){if(i.scheme){var r=i.scheme+"://";if(n.indexOf(c)===0){n=n.replace(c,r)}if(n.indexOf("//")===0){n=n.replace("//",r)}}y[t]=function(e){e=e||{};var t=[];Object.keys(e).forEach(function(n){if(h.indexOf(n)===-1){t.push(n+"="+e[n])}});e.scheme=n+"?"+t.join("&");return y.schemeForResult(e)}},launchMiniProgram:function(t){if(!t||!t.userName){console.error("userName 参数必传");return}var n=i.scheme+"://miniprogram/launchMiniProgram";var r=[];Object.keys(t).forEach(function(e){if(h.indexOf(e)===-1){var n=t[e];if(e==="path"){n=encodeURIComponent(n)}r.push(e+"="+n)}});t.scheme=n+"?"+r.join("&");y.schemeForResult(t)},Pay:{middlePay:function(t){var n=arguments.length>1&&arguments[1]!==undefined?arguments[1]:function(){};var r=arguments.length>2&&arguments[2]!==undefined?arguments[2]:function(){};var s=(i.android?"qunaraphone":i.scheme||"qunariphone")+("://pay/middlePay?payUrl="+encodeURIComponent(t));var o=function(t){if(i.android){n(t.data)}else{n(t)}};var u={scheme:s,success:o,fail:r};if(i.android){u["useAction"]=true}y.schemeForResult(u)},openQuickPay:function(t){var n=arguments.length>1&&arguments[1]!==undefined?arguments[1]:function(){};var r=arguments.length>2&&arguments[2]!==undefined?arguments[2]:function(){};var s=(i.android?"qunaraphone":i.scheme||"qunariphone")+("://tripPay/openQuickPay?payUrl="+encodeURIComponent(t));var o=function(t){if(i.android){n(t.data)}else{n(t)}};var u={scheme:s,success:o,fail:r};if(i.android){u["useAction"]=true}y.schemeForResult(u)}},newGetLocation:function(t){var n=g();if(n){y.getLocationV2(t)}else{y.getCurrentPosition(t)}},getLocation:function(t){var n=g();if(n){y.requestCacheLocation(t)}else{y.getCurrentPosition(t)}},newRequestCacheLocation:function(t){var n=g();if(n){y.requestCacheLocation(t)}else{var r=t.forceLocation,i=r===undefined?false:r,s=t.success,o=s===undefined?function(){}:s;if(!i){o({})}else{y.getCurrentPosition(t)}}},util:{extend:s,protocol:o,script:n(18).script,register:u}};Object.defineProperty(y,"systemInfo",{get:function(){try{if(y.sniff.ios){if(typeof __getSystemInfo!=="undefined"){return __getSystemInfo}}else if(y.sniff.android||y.sniff.harmony){if(typeof WebViewJavascriptBridgeNative!=="undefined"&&WebViewJavascriptBridgeNative.__getSystemInfo){return WebViewJavascriptBridgeNative.__getSystemInfo()}}}catch(t){}return null}});Object.defineProperty(y,"systemInfoObj",{get:function(){try{if(i.ios){if(typeof __getSystemInfo!=="undefined"){var t=__getSystemInfo;try{var n=JSON.parse(t);return n}catch(r){console.error("Json格式错误，native返回信息："+t);return null}}}else if(i.android||i.harmony){if(typeof WebViewJavascriptBridgeNative!=="undefined"&&WebViewJavascriptBridgeNative.__getSystemInfo){var s=WebViewJavascriptBridgeNative.__getSystemInfo();try{var o=JSON.parse(s);return o}catch(r){console.error("Json格式错误，native返回信息："+s);return null}}}}catch(r){}return null}});if(typeof window!=="undefined"){window.hysdk=y}},function(e,t,n){"use strict";var r=n(14);var i=n(15);var s=n(10);var o=n(16);var u=n(17);var a=n(19);var f=n(33);var l=n(37);var c=n(38);var h=n(39);var p=n(40);var d=n(41);var v=function(){return location.href.split("#")[0]};var m=["hy","wechat","h5"];var g=void 0;e.exports=function(e,t){var n=this;var y=function(){n.isReady=true;t.forEach(function(e){return e(n.env)});t=[]};var b=[];this._apis=a;var w=function(r){l.setUpFunction(n,r,a[r],e.debug,e.apiTimeout);n[r]=l.common(n,r,e.debug);m.forEach(function(e){if(a[r][e]){if(e==="wechat"){b.push(a[r][e].key||r)}n[e][r]=l.bind(n,r,e)}})};for(var E in a){w(E)}for(var S in p){var x=p[S];this[S]=this[S]||{};var T=function(r){var i=S+"."+r;var o=x[r];l.setUpFunction(n,i,o,e.debug,e.apiTimeout);if(i==="event.removeEventListener"){var u=n.fns[i].hy;n.fns[i].hy=function(e){var t=e.name,r=e.handler;var i=l.getCallback.call(n,s({},e));var o=function(t){return typeof t==="function"};if(typeof t==="undefined"||t===""){u(e);return}if(window.__receiveEvent&&window.__receiveEvent[t]){if(r){var a=window.__receiveEvent[t];var f=[];for(var c=0,h=a.length;c<h;c++){if(a[c]!==r){f.push(a[c])}}window.__receiveEvent[t]=f;if(!f.length){u(e)}else{i({ret:true})}}else{window.__receiveEvent[t]=[];u(e)}}else{u(e)}}}n[i]=l.common(n,i,e.debug);m.forEach(function(e){if(o[e]){if(e==="wechat"){b.push(o[e].key||i)}n[e][i]=l.bind(n,i,e)}});n[S][r]=n[i]};for(var E in x){T(E)}}c.initCommonFns(this);m.forEach(function(t){c["init"+t.replace(/\w/,function(e){return e.toUpperCase()})+"Fns"](n,f,e.debug)});var N=function(t){if(f.hasOwnProperty(t)){c.initEventFns(n,t);m.forEach(function(e){return c.initEventFns(n,t,e)})}};for(var E in f){N(E)}for(var C in d){var k=d[C];for(var E in k){var L=k[E]["hy"]["key"];this.register(E,L,C,true)}}h.init(this,e.debug);b=b.concat(h.wechatApis);i(function(){if(e.wechatSupport&&r.browsers.wechat){u(e,b,function(t){if(t){n.bridge=t;n.env="wechat";if(r.android){g=v();window.addEventListener("popstate",function(){var t=v();if(g!==t){g=t;n.isReady=false;u(e,b,y)}},false)}}y()})}else if(!e.hytiveReg||r.hy){o(e,function(e){if(e){r.hy=true;n.bridge=e;n.env="hy";var t=n;var i=n.uploadImage;var s=n.selectImage;var o=[];var u=0;n.uploadImage=n.hy.uploadImage=function(e){var t=e.localIds,n=e.success,r=e.fail;if(t&&Array.isArray(t)){var s=function a(s){if(s===t.length){n({data:o});o=[];return}e.localId=t[s];e.success=function(e){o.push(e);s++;a(s)};e.fail=function(e){o=[];r(e)};i(e)};s(u)}else{i(e)}};n.selectImage=n.hy.selectImage=function(e){t.checkJsApi({jsApiList:["selectImage"],success:function(r){var i=r&&r.selectImage;if(!!i){s(e)}else{e.resType="remote";e.fromSelectImage=true;t.chooseImage(e)}},fail:function(){console.error("checkJsApi 异常，请联系平台移动架构组")}})}}y()})}else{y()}})}},function(e,t){"use strict";var n={browsers:{},info:{}};var r=navigator.userAgent,i=navigator.platform,s=r.match(/(Android);?[\s\/]+([\d.]+)?/),o=r.match(/(iPad).*OS\s([\d_]+)/),u=r.match(/(iPod)(.*OS\s([\d_]+))?/),a=r.match(/(iPhone\sOS)\s([\d_]+)/),f=r.indexOf("Safari")===-1,l=r.match(/OpenHarmony(?:;?\s*([\d.]+))?/);var c={wechat:r.match(/(MicroMessenger)\/([\d\.]+)/),alipay:r.match(/(AlipayClient)\/([\d\.]+)/),qq:r.match(/(MQQBrowser)\/([\d\.]+)/),weibo:r.match(/(weibo__)([\d\.]+)/),uc:r.match(/(UCBrower)\/([\d\.]+)/),opera:r.match(/(Opera)\/([\d\.]+)/)};var h=r.match(/(iPhone\sOS).*m\/(\d+\.\d+)/);var p=["10.3","10.6","11.8","11.2","11.4","11.6"];n.ios=n.android=n.iphone=n.ipad=n.ipod=n.harmony=false;if(s){n.os="android";n.osVersion=s[2];n.android=true}if(o||a||u){n.os="ios";n.ios=true}if(a){n.osVersion=a[2].replace(/_/g,".");n.iphone=true;n.imobile=true;n.model=h&&h[2];var d=[{width:375,height:812},{width:414,height:896}];var v=window.screen||{},m=v.width,g=v.height;n.iphoneX=p.indexOf(n.model)>-1||d.some(function(e){return m===e.width&&g===e.height||m===e.height&&g===e.width})}if(o){n.osVersion=o[2].replace(/_/g,".");n.ipad=true}if(u){n.osVersion=u[3]?u[3].replace(/_/g,"."):null;n.ipod=true;n.imobile=true}if(l){n.os="harmony";n.osVersion=l[2];n.harmony=true}if(n.ios&&n.osVersion&&r.indexOf("Version/")>=0){if(n.osVersion.split(".")[0]==="10"){n.osVersion=r.toLowerCase().split("version/")[1].split(" ")[0]}}if(n.osVersion){n.osVersionN=parseInt(n.osVersion.match(/\d+\.?\d*/)[0])}n.pixelRatio=window.devicePixelRatio||1;n.retina=n.pixelRatio>=2;for(var y in c){if(c[y]){f=false;n.browsers[y]=c[y][2]}else{n.browsers[y]=false}}n.webApp=n.os==="ios"&&f;r.split(" ").forEach(function(e){var t=e.split("/");if(t.length===2){n.info[t[0]]=t[1]}});n.pc=i.indexOf("Mac")===0||i.indexOf("Win")===0||i.indexOf("linux")===0&&!n.android;e.exports=n},function(e,t){"use strict";e.exports=function(e){var t=/complete|loaded|interactive/;if(t.test(document.readyState)&&document.body){e()}else{document.addEventListener("DOMContentLoaded",function(){e()},false)}}},function(e,t,n){"use strict";var r=n(15);e.exports=function(e,t){var n=function(n){clearTimeout(r);t(n.bridge)},r=void 0;document.addEventListener(e.bridgeReadyEvent,n,false);r=setTimeout(function(){document.removeEventListener(e.bridgeReadyEvent,n);t(null)},e.bridgeReadyTimeout)}},function(e,t,n){"use strict";var r=n(18);var i=n(10);var s=function(t,n){var r=new XMLHttpRequest,i=location.href.split("#")[0];r.onreadystatechange=function(){if(r.readyState===4){var e=r.status,t=void 0,i=void 0;try{t=JSON.parse(r.responseText)}catch(s){i=s}if(!t||e<200&&e>=300){i={type:"Request Error"}}n(t,i)}};r.open("POST",t,true);r.setRequestHeader("Content-Type","application/x-www-form-urlencoded");r.send("url="+encodeURIComponent(encodeURIComponent(i)))};e.exports=function(e,t,n){s(e.wechatSignatureUrl,function(s,o){if(o||!s.ret){console.error("WeChat Signature 获取失败. msg: "+(o.type||s.errmsg));n();return}var u=s.data;var a=function(s){if(s||!wx){console.error("加载 JSSDK 失败. url: "+(location.protocol+"//"+e.wechatScriptUrl));n();return}var o=false;wx.config(i({debug:e.debug,jsApiList:t,openTagList:e.openTagList},u));wx.ready(function(){if(!o){n(wx)}});wx.error(function(e){o=true;n(e)})};if(typeof window.define==="function"&&typeof window.require==="function"&&(window.define.amd||window.define.cmd)){window.require([e.wechatScriptUrl],function(e){window.wx=e;a()})}else{r.script(e.wechatScriptUrl,a)}})}},function(e,t,n){"use strict";var r=n(10);var i=0;var s=e.exports={script:function o(e,t){var n=document.getElementsByTagName("head")[0],o=document.createElement("script"),r=function(){if(i){clearTimeout(i)}n.removeChild(o)},i=setTimeout(o.onerror=function(){r();t&&t(true)},3e4);o.setAttribute("src",e);n.appendChild(o);o.onload=function(){r();t&&t()}}}},function(e,t,n){"use strict";var r=n(10);e.exports=r({},n(20),n(21),n(22),n(23),n(24),n(25),n(27),n(28),n(29),n(30),n(31),n(32))},function(e,t){"use strict";e.exports={checkJsApi:{hy:function(){var e={},t={};return{optHandle:function(r){var i=this;r.jsApiList=r.jsApiList.map(function(n){if(!e[n]){var r=i._apis[n]&&i._apis[n].hy;e[n]=r&&r.key||n;t[e[n]]=n}return e[n]});return r},resHandle:function(r){var i=r.data||{},s={};for(var o in i){if(o==="webview.back"){var u=i[o];if(e.closeWebView){s.closeWebView=u}if(e.closeWindow){s.closeWindow=u}}else{s[t[o]]=i[o]}}e=t={};return s}}}(),wechat:{successHandle:function(t){Object.keys(t.checkResult).forEach(function(e){if(e==="selectImage"){t.checkResult[e]=true}if(e.indexOf("share")===0){t.checkResult[e]=false}if(e==="onMenuShare"){t.checkResult[e]=true}if(e==="log"){t.checkResult[e]=false}});return t.checkResult}},h5:{handle:function(){var t=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};var n=arguments[1];var r={};var i=t.jsApiList||[];i.forEach(function(e){if(/^on[^Menu]|off/.test(e)){r[e]=false}else{r[e]=!!n.h5[e]}return r[e]});t.success(r)}}}}},function(e,t){"use strict";e.exports={syncLoginFromTouch:{hy:{key:"syncLoginFromTouch"}}}},function(e,t){"use strict";e.exports={showShareItems:{hy:{key:"doShare"}},shareTimeline:{hy:{key:"shareTimeline"}},shareAppMessage:{hy:{key:"sendAppMessage"}},shareWeiboApp:{hy:{key:"shareWeiboApp"}},shareSMS:{hy:{key:"shareSMS"}},shareEmail:{hy:{key:"shareEmail"}},shareQunarIM:{hy:{key:"shareQunarIM"}},registerScreenshotShare:{hy:{key:"registerScreenshotShare"}},registerShareWithPreview:{hy:{key:"registerShareWithPreview"}},unregisterScreenshotShare:{hy:{key:"unregisterScreenshotShare"}},screenshotAndShare:{hy:{key:"screenshotAndShare"}},longPicShare:{hy:{key:"longPic.share"}}}},function(e,t){"use strict";e.exports={getCurrentPosition:{hy:{key:"geolocation.getCurrentPosition"},wechat:{key:"getLocation",successHandle:function(t){return{type:"wechat",coords:{latitude:t.latitude,longitude:t.longitude}}}},h5:{handle:function(){var t=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};if(navigator.geolocation){navigator.geolocation.getCurrentPosition(function(e){t.success({type:"h5",coords:e.coords})},t.fail,{enableHighAccuracy:!!t.enableHighAccuracy,timeout:t.timeout||5e3})}else{t.fail({ret:false,errcode:-1,errmsg:"Geolocation is not supported!"})}}}},getLocationV2:{hy:{key:"geolocation.newGetCurrentPosition"}},requestCacheLocation:{hy:{key:"geolocation.newGetCacheLocation"}},openLocation:{hy:{key:"openLocation"},wechat:{key:"openLocation"}},getDeviceInfo:{hy:{key:"native.getDeviceInfo"}},getNetworkType:{hy:{key:"network.getType"},wechat:{successHandle:function(t){return{networkType:t.networkType}}}},registerScreenshot:{hy:{key:"registerScreenshot"}},unregisterScreenshot:{hy:{key:"unregisterScreenshot"}},setClipboard:{hy:{key:"tool.setClipboard"}},getClipboard:{hy:{key:"tool.getClipboard"}},checkPermission:{hy:{key:"tool.checkPermission"}},openPrefs:{hy:{key:"tool.openPrefs"}},checkPhonePermission:{hy:{key:"checkPhonePermission"}},jumpAppSettings:{hy:{key:"jumpAppSettings"}},signature:{hy:{key:"app.uti"}},pushGuideView:{hy:{key:"pushGuideView"}},multiPicDownloadAndSaveAlbum:{hy:{key:"multiPicDownloadAndSaveAlbum"}},videoDownloadAndSaveAlbum:{hy:{key:"videoDownloadAndSaveAlbum"}},requestAudioPermission:{hy:{key:"requestAudioPermission"}},startRecordWithParam:{hy:{key:"startRecordWithParam"}},deleteFilePath:{hy:{key:"deleteFilePath"}},cancelRecorder:{hy:{key:"cancelRecorder"}},stopRecorder:{hy:{key:"stopRecorder"}}}},function(e,t){"use strict";e.exports={scanQRCode:{hy:{key:"scanQRCode"},wechat:{successHandle:function(t){return{result:t.resultStr}}}}}},function(e,t,n){"use strict";var r=n(26);e.exports={chooseImage:{hy:function(){var e=false;return{key:"chooseImage",optHandle:function(n){e=!!n.fromSelectImage;delete n.fromSelectImage;return n},resHandle:function(n){if(e){var r=n.data||{};r.localImgs=[];if(Array.isArray(r.localIds)){r.localIds.forEach(function(e){r.localImgs.push({angle:0,id:e})})}if(Array.isArray(r.thumbnails)){var i=[];r.thumbnails.forEach(function(e){i.push({angle:0,id:e})});r.thumbnails=i}delete r.localIds;if(n.ret)n.data=r}return n}}}(),wechat:{successHandle:function(t){return{localIds:t.localIds}}}},selectImage:{hy:{key:"chooseImage.v1"},wechat:{key:"chooseImage",successHandle:function(t){return{localIds:t.localIds}}}},uploadImage:{hy:{key:"uploadImage.v1",optHandle:function(t){if(t&&t.serverAddress){t.serverAddress=r(t.serverAddress)}return t}},wechat:{successHandle:function(t){return{serverId:t.serverId}}}},previewImage:{hy:{key:"previewImage"},wechat:{key:"previewImage"}},downloadImage:{hy:{key:"downloadImage"},wechat:{successHandle:function(t){return{localId:t.localId}}}},convertPath:{hy:{key:"image.convertPath"}}}},function(e,t){"use strict";e.exports=function(){var e=arguments.length>0&&arguments[0]!==undefined?arguments[0]:"";var t=location&&location.protocol||"https";var n="";if(/^(\/){2}/.test(e)){n=t+e}else{n=e}return n}},function(e,t){"use strict";var n=function(t){return Object.prototype.toString.call(t)==="[object String]"};e.exports={log:{hy:{key:"debug.log",optHandle:function(t){if(n(t)){var r={message:t};return r}return t}}},uelog:{hy:{key:"hy.uelog"}},abTest:{hy:{key:"abTest"}},qav:{hy:function(){var e=navigator.userAgent;var t=e.match(/(iPhone\sOS)\s([\d_]+)/);var r=e.match(/(Android);?[\s\/]+([\d.]+)?/);var i=e.match(/(OpenHarmony);?[\s\/]+([\d.]+)?/);var s=0;try{if(r){s=e.match(/600\d+/g)[0]}if(t){s=e.match(/800\d+/g)[0]}}catch(o){}if(r&&parseInt(s,10)>=60001311||t&&parseInt(s,10)>=80011205||i){return{key:"hy.qav",optHandle:function(t){var n=t.content,r=t.start,i=t.end;var s="";if(typeof n==="string"){s=n}else{try{s=JSON.stringify(n)}catch(o){}}return{content:s,start:r||"",end:i||""}}}}else{return{key:"hy.uelog",optHandle:function(t){var r=t.content;if(n(r)){var i={message:r};return i}return r}}}}()}}},function(e,t,n){"use strict";var r=n(26);e.exports={openWebView:{hy:{key:"webview.open",optHandle:function(t){t.url=r(t.url);return t},hooks:function(){var t=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};var n=arguments.length>1&&arguments[1]!==undefined?arguments[1]:{};var r=function(t){return typeof t==="function"};n.isOff&&r(t.offReceiveData)&&t.offReceiveData();r(t.onceReceiveData)&&t.onceReceiveData({success:r(n.onViewBack)?n.onViewBack:function(){}})}},h5:{handle:function(t){var n=t.url,r=t.name,i=t.features;window.open(n,r,i)}}},closeTargetWebView:{hy:{key:"webview.close"}},closeWebView:{hy:{key:"webview.back"}},setWebViewAttr:{hy:{key:"webview.attribute"}},getInitData:{hy:{key:"webview.getInitData"}},setStatus:{hy:{key:"qunarnative.status"}},enableBackGesture:{hy:{key:"qunarnative.gesturesView"}},hideLoadView:{hy:{key:"webview.hideLoadView"}},getHistory:{hy:{key:"view.list"}},getCookie:{hy:{key:"getRecentCookie"}},businessEndLog:{hy:{key:"webview.businessEndLog"}},getHeaderStatus:{hy:{key:"webview.headerStatus"}}}},function(e,t){"use strict";e.exports={navRefresh:{hy:{key:"navigation.refresh"}},getNavDisplayStatus:{hy:{key:"navigation.displayStatus"}},setNavDisplayStatus:{hy:{key:"navigation.display"}}}},function(e,t){"use strict";e.exports={closeWindow:{hy:{key:"webview.back"},wechat:{key:"closeWindow"}},hideOptionMenu:{hy:{key:"hideOptionMenu"},wechat:{key:"hideOptionMenu"}},showOptionMenu:{hy:{key:"showOptionMenu"},wechat:{key:"showOptionMenu"}},hideMenuItems:{hy:{key:"hideMenuItems"},wechat:{key:"hideMenuItems"}},showMenuItems:{hy:{key:"showMenuItems"},wechat:{key:"showMenuItems"}},hideAllNonBaseMenuItem:{hy:{key:"hideAllNonBaseMenuItem"},wechat:{key:"hideAllNonBaseMenuItem"}},showAllNonBaseMenuItem:{hy:{key:"showAllNonBaseMenuItem"},wechat:{key:"showAllNonBaseMenuItem"}}}},function(e,t){"use strict";e.exports={schemeForResult:{hy:{key:"schemeForResult"}}}},function(e,t){"use strict";e.exports={setPersonalConfig:{hy:{key:"commonConfig.setPersonalConfig"}},getPersonalConfig:{hy:{key:"commonConfig.getPersonalConfig"}},getConfigByKey:{hy:{key:"commonConfig.getConfigByKey"}}}},function(e,t,n){"use strict";var r=n(10);e.exports=r({},n(34),n(35),n(36))},function(e,t){"use strict";e.exports={receiveScreenshot:{hy:{key:"onReceiveScreenshot"}}}},function(e,t){"use strict";e.exports={show:{hy:{key:"webview.onShow"}},hide:{hy:{key:"webview.onHide"}},receiveData:{hy:{key:"webview.onReceiveData"}},closeWebView:{hy:{key:"webview.targetClosed"}},loadingClose:{hy:{key:"loadingview.close"}},resize:{hy:{key:"webview.resize"}}}},function(e,t){"use strict";e.exports={navClick:{hy:{key:"navigation.click"}}}},function(e,t){"use strict";function d(e){if(!e){return false}if(e.sniff.android===true||e.sniff.harmony===true){return window.WebViewJavascriptBridgeNative&&window.WebViewJavascriptBridgeNative._js2androidSync&&typeof window.WebViewJavascriptBridgeNative._js2androidSync==="function"}else if(e.sniff.ios===true){return e.sniff.info.QunariPhone>="80011306"}else{return false}}var n=function(t){return t};var r=function(){};var i=function(t){return typeof t==="function"};var s=["success","fail","complete"];var o=["wechat","h5"];var u=/\:(ok|cancel)$/;var a=function(t,n){t=t||{};var r=t.success,s=t.fail,o=t.complete,u=t.hooks,a=this;delete t.success;delete t.fail;delete t.complete;delete t.hooks;return function(e){if(a&&a.sniff&&a.sniff.android===true&&t&&t.USE_SYNC===true){if(e&&e.responseData){e=e.responseData}}n&&console.info("[HySDK] Hy Callback Data:",e);if(!e||typeof e.ret==="undefined"){i(r)&&r(e);i(u)&&u(a,t,e)}else if(e.ret){i(r)&&r(e.data);i(u)&&u(a,t,e.data)}else{i(s)&&s(e)}i(o)&&o(e);if(!a||!a.sniff){return null}if(a.sniff.ios===true){return e}else if((a.sniff.android===true||a.sniff.harmony===true)&&e&&e.responseData){return e.responseData.data}else{return null}}};var f=function(t,r,i){t=t||{};s.forEach(function(e){if(t[e]){var s=t[e],o=r[e+"Handle"]||n;t[e]=function(t){i&&console.info("[HySDK] Wechat "+e+" Data:",t);if(!u.test(t.errMsg)){t.message=t.errMsg}delete t.errMsg;return s(o(t))}}})};var l=function(t){t=t||{};var n=t.success||r,i=t.fail||r,s=t.complete||r;t.success=function(e){n(e);s(e)};t.fail=function(e){i(e);s(e)};return t};var c=function(t,r,i,s,u){var l=v[r]=v[r]||{};if(i.wechat){var c=i.wechat,h=c.key||r,p=c.optHandle||n,m=c.handle||null;l.wechat=function(e){if(m){return m(e,t)}var n=p.call(t,e);f(e,c);s&&console.log("[HySDK] ENV => wechat, Key => "+r+", BridgeName => "+h+", options => ",n);return t.bridge[h](n)}}if(i.h5){var g=i.h5,y=g.handle;l.h5=function(e){s&&console.log("[HySDK] ENV => h5, Key => "+r,e);return y(e,t)}}if(i.hy||i.namespace&&o.indexOf(i.namespace)===-1){var b={},w=null,E=null;if(i.hy&&typeof i.hy!=="boolean"){b=i.hy;w="hy";E=b.key||r}if(i.namespace){b=i;w=i.namespace;E=i.bridge||r}var S=b.optHandle||n,x=b.resHandle||n,T=b.hooks||null;l[w]=function(e){if(T){e.hooks=T}var n=a.call(t,e),i=S.call(t,e)||{},o=true,f=void 0;s&&console.log("[HySDK] ENV => hy, Key => "+r+", BridgeName => "+E+", options => ",i);if(i.timeout&&E!=="geolocation.getCurrentPosition"&&i.USE_SYNC!==true){if(typeof i.timeout==="number"){u=i.timeout}f=setTimeout(function(){o=false;f=null;n({ret:false,errmsg:"Api Timeout",errcode:10010})},u)}else if(i.timeout===0&&E!=="geolocation.getCurrentPosition"){delete i.timeout}if(d(t)&&i.USE_SYNC===true&&(t.sniff.android===true||t.sniff.harmony===true)){var l=JSON.stringify({handlerName:E,data:i});return n(JSON.parse(window.WebViewJavascriptBridgeNative._js2androidSync(l)))}else if(d(t)&&i.USE_SYNC===true&&t.sniff.ios===true){var c=JSON.stringify(i);var h=prompt("hy_ymfe_syncplugin_"+E,c);return n(JSON.parse(h))}else{return t.bridge.invoke(E,function(e){if(o){if(f){clearTimeout(f);f=null}return n(x(e))}},i)}}}};var h=function(t,n,r){var i=function(i){var s=v[n][r];return s.call(t,i)};if(o.indexOf(r)===-1){return function(e){return t.isReady?t.env==="hy"&&i(e):t.ready(function(){return t.env==="hy"&&i(e)})}}return function(e){return t.isReady?t.env===r&&i(e):t.ready(function(){return t.env===r&&i(e)})}};var p=function(t,n,r){var i=function(i){i=i||{};if(d(t)&&i.USE_SYNC===true){t.env="hy"}var s=v[n][t.env];if(s){return s.call(t,i)}else{a(i)({ret:false,errcode:10001,errmsg:"API not support"});r&&console.warn("[HySDK] "+t.env+' not support "'+n+'"!')}};return function(e){e=e||{};if(d(t)&&e.USE_SYNC===true){return i(e)}else{return t.isReady?i(e):t.ready(function(){return i(e)})}}};var v={};e.exports={setUpFunction:c,bind:h,common:p,fns:v,getCallback:a}},function(e,t){"use strict";var n=["on","off","once"];var r=function(t){return typeof t==="function"};var i=function(t){n.forEach(function(e){t[e]=function(n,r,i){var s=function(){if(t[t.env][e]){return t[t.env][e](n,r,i)}};return t.isReady?s():t.ready(s)}})};var s=function(t,r,i){n.forEach(function(e){t.hy[e]=function(n,s,o){if(r[n]&&r[n].hy){var u=r[n].hy.key||n,a=function(){if(t.env==="hy"){i&&console.info("[HySDK] Hy bind event，name: "+u);var r=e==="off"?t.bridge[e](u,o):t.bridge[e](u,s,o);return r}};return t.isReady?a():t.ready(a)}}})};var o=function(t){n.forEach(function(e){t.wechat[e]=function(){}})};var u=function(t){n.forEach(function(e){t.h5[e]=function(){}})};var a=function(t,r){n.forEach(function(e){if(!t[r]){t[r]={}}if(!t[r][e]){t[r][e]=function(n,r,i,s){if(n&&r){var o=r,u=function(){if(t.env==="hy"){var r=e==="off"?t.bridge[e](o,s):t.bridge[e](o,i,s);return r}};return t.isReady?u():t.ready(u)}}}})};var f=function(t,i,s){var o=i.replace(/\w/,function(e){return e.toUpperCase()}),u=s?t[s]:t;n.forEach(function(e){u[e+o]=function(){var t=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};var n=arguments[1];var s=t.success||t;if(r(s)){u[e](i,s,n)}else if(e==="off"){u[e](i,n)}}})};var l=function(t,i,s,o){var u=i.replace(/\w/,function(e){return e.toUpperCase()}),a=s?t[s]:t;n.forEach(function(e){a[e+u]=function(){var t=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};var n=arguments[1];var s=t.success||t;if(r(s)){a[e](i,o,s,n)}else if(e==="off"){a[e](i,o,null,n)}}})};e.exports={initCommonFns:i,initHyFns:s,initWechatFns:o,initH5Fns:u,initNameSpaceFns:a,initNameSpaceEventFns:l,initEventFns:f}},function(e,t){"use strict";var n=function(){};var r=function(t){return typeof t==="function"};var i={onMenuShareTimeline:true,onMenuShareAppMessage:true,onMenuShareWeiboApp:{hy:true},onMenuShareWeibo:{wechat:true,hy:"onMenuShareWeibo"},onMenuShareQQ:{wechat:true},onMenuShareQZone:{wechat:true},onMenuShareSMS:{hy:true},onMenuShareEmail:{hy:true},onMenuShareQunarIM:{hy:true},onMenuShare:{hy:true}};var s=function(t,n){t=t||{};var i=t.success,s=t.fail,o=t.complete;delete t.success;delete t.fail;delete t.complete;return function(e){n&&console.info("[HySDK] Hy Callback Data:",e);if(!e||typeof e.ret==="undefined"){r(i)&&i(e)}else if(e.ret){r(i)&&i(e.data)}else{r(s)&&s(e)}r(o)&&o(e)}};var o=[];e.exports={init:function(t,r){var u=function(u){if(i.hasOwnProperty(u)){var a=i[u];t[u]=function(e){return t.ready(function(n){if(t[n][u]){t[n][u](e)}else{r&&console.warn("[HySDK] "+n+' not support "'+u+'"!')}})};if(a===true||a.wechat){o.push(u);t.wechat[u]=function(e){return t.ready(function(n){return n==="wechat"&&t.bridge[u]&&t.bridge[u](e)})}}if(a===true||a.hy){t.hy[u]=function(e){return t.ready(function(r){if(r==="hy"){t.bridge.invoke(u,s(e),e);t.hy.on("show",function(){return t.bridge.invoke(u,n,e)})}})}}}};for(var a in i){u(a)}t.wechat.onMenuShare=function(e){o.forEach(function(n){return t.wechat[n](e)})}},wechatApis:o}},function(e,t){"use strict";e.exports={app:{setStatusBarStyle:{hy:{key:"app.setStatusBarStyle"}},getNetworkType:{hy:{key:"app.getNetworkType"}},getDeviceInfo:{hy:{key:"app.getDeviceInfo"}},getAppInfo:{hy:{key:"app.getAppInfo"}},getRiskControlInfo:{hy:{key:"app.riskControlInfo"}},cacheRiskControl:{hy:{key:"app.cacheRiskControl"}},isTouristMode:{hy:{key:"app.isTouristMode"}},currentMode:{hy:{key:"app.currentMode"}}},business:{scanQRCode:{hy:{key:"business.scanQRCode"}},openScheme:{hy:{key:"business.openScheme"}}},event:{addEventListener:{hy:{key:"event.addEventListener",hooks:function(){var t=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};var n=arguments.length>1&&arguments[1]!==undefined?arguments[1]:{};var r=function(t){return typeof t==="function"};var i=n.name,s=n.callback;if(!window.__receiveEvent){window.__receiveEvent={};window.__receiveEventCallback=function(e){var t=e.name;var n=window.__receiveEvent[t]||[];for(var i=0,s=n.length;i<s;i++){if(n[i]&&r(n[i])){n[i](e)}}};r(t.event.onReceiveEvent)&&t.event.onReceiveEvent(window.__receiveEventCallback)}window.__receiveEvent[i]=window.__receiveEvent[i]||[];if(s&&r(s)){window.__receiveEvent[i].push(s)}}}},removeEventListener:{hy:{key:"event.removeEventListener"}},sendEvent:{hy:{key:"event.sendEvent"}}},geolocation:{getCurrentPosition:{hy:{key:"geolocation.getCurrentPosition"}}},navigator:{refresh:{hy:{key:"navigator.refresh"}}},share:{shareToPlatform:{hy:{key:"share.shareToPlatform"}},share:{hy:{key:"share.share"}}},tool:{chooseContact:{hy:{key:"tool.chooseContact"}},checkInstalledApp:{hy:{key:"tool.checkInstalledApp"}}},webview:{push:{hy:{key:"webview.push"}},pop:{hy:{key:"webview.pop"}},remove:{hy:{key:"webview.close"}},showLoading:{hy:{key:"webview.showLoading"}},enableBackGuesture:{hy:{key:"webview.enableBackGuesture"}},setName:{hy:{key:"webview.setName"}}},qp:{dangerReplaceFromCache:{hy:{key:"qp.dangerReplaceFromCache"}}},urs:{getUrs:{hy:{key:"userSurvey.getUrs"}},onUrsShow:{hy:{key:"userSurvey.onUrsShow"}},getBizUrsData:{hy:{key:"userSurvey.getBizUrsData"}},tryShowFloatUrs:{hy:{key:"userSurvey.tryShowFloatUrs"}},closeFloatUrs:{hy:{key:"userSurvey.closeFloatUrs"}},canShowFloatUrsView:{hy:{key:"userSurvey.canShowFloatUrsView"}},submit:{hy:{key:"userSurvey.submit"}},close:{hy:{key:"userSurvey.close"}},registerModule:{hy:{key:"userSurvey.registerModule"}},unRegisterModule:{hy:{key:"userSurvey.unRegisterModule"}},showFloatUrsImmediately:{hy:{key:"userSurvey.showFloatUrsImmediately"}},publishAction:{hy:{key:"userSurvey.publishAction"}}}}},function(e,t){"use strict";e.exports={webview:{onShow:{hy:{key:"webview.onShow"}},onHide:{hy:{key:"webview.onHide"}},onReceiveData:{hy:{key:"webview.onReceiveData"}}},event:{onReceiveEvent:{hy:{key:"event.onReceiveEvent"}}},navigator:{onClick:{hy:{key:"navigator.onClick"}}},qp:{onUpdate:{hy:{key:"qp.onUpdate"}}}}},function(e,t){e.exports={name:"hysdk",version:"0.9.10",description:"Hy SDK",author:["adwon.lin","yudong.shao"],scripts:{build:"ykit pack && ykit pack -m -c false && ykit title && ykit pkg && ykit doc",onlinePublish:"ykit publish"},email:"adwon.lin@qunar.com",repository:{type:"git",url:"git@gitlab.corp.qunar.com:mfe/hysdk.git"},license:"MIT",dependencies:{"babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-preset-env":"^1.6.0",cpr:"^2.0.0","css-loader":"^0.26.0","style-loader":"^0.13.1",ydoc:"^3.2.4"}}},function(e,t){"use strict";e.exports={debug:false,bridgeReadyEvent:"WebViewJavascriptBridgeReady",bridgeReadyTimeout:600,apiTimeout:1e3,hytiveReg:"",wechatSupport:false,wechatScriptUrl:"//res.wx.qq.com/open/js/jweixin-1.0.0.js",wechatSignatureUrl:"",openTagList:[]}},,,,,,,,,,,,,,,,,,,,,,,,,,,,function(e,t,n){"use strict";e.exports=n(12)}]);
+
+/**
+ * version: https://qzz.beta.qunar.com/hysdk/prd/plugins/hysdk.qunar@0.9.10.js
+ */
+(function(e){function n(r){if(t[r])return t[r].exports;var i=t[r]={exports:{},id:r,loaded:false};e[r].call(i.exports,i,i.exports,n);i.loaded=true;return i.exports}var t={};n.m=e;n.c=t;n.p="";return n(0)})({0:function(e,t,n){e.exports=n(72)},9:function(e,t){"use strict";var n=/(\w+):\/\/\/?([^\:|\/]+)(\:\d*)?(.*\/)([^#|\?|\n]+)?(\?[^#]*)?(#.*)?/i;var r=["url","protocol","hostname","port","path","name","query","hash"];var i=function(t){return typeof t==="function"};var s=function(t){return t===void 0||t===null};var o=function(t,n){t=(t===null?"":t).toString().trim();return n?encodeURIComponent(t):t};var u=function(t,n){return s(t)?t:n?decodeURIComponent(t):t};var a=function(t,n){var r=[],u=void 0,a=void 0,f=void 0;for(u in t){if(s(t[u])){r=r.concat(u)}else if(Array.isArray(t[u])){for(a=0,f=t[u].length;a<f;a++){if(!i(t[u][a])){r.push(u+"="+o(t[u][a],n))}}}else if(!i(t[u])&&!s(t[u])){r.push(u+"="+o(t[u],n))}}return r.join("&")};var f=function(t,n){var r=t.trim().split("&"),i={},s=0,o=r.length;for(;s<o;s++){if(r[s]){var a=r[s].split("="),f=a[0],l=a[1];if(!(f in i)){i[f]=u(l,n)}else{i[f]=[].concat(i[f],u(l,n))}}}return i};e.exports=function(e,t){var i={},s=n.exec(e)||[];r.forEach(function(e,t){return i[e]=s[t]});i.query=i.query?f(i.query.substring(1),t):{};i.hash=i.hash?f(i.hash.substring(1),t):{};i.getQuery=function(e){return i.query[e]};i.getHash=function(e){return i.hash[e]};i.setQuery=function(e,t){if(t===UNDEFINED){i.query[e]=NULL}else{i.query[e]=t}return i};i.setHash=function(e,t){if(t===UNDEFINED){i.hash[e]=NULL}else{i.hash[e]=t}return i};i.toUrl=function(e){var t=i.protocol+"://",n=a(i.query,e),r=a(i.hash,e);if(i.protocol&&i.protocol.toLowerCase()==="file"){t+="/"}return t+i.hostname+(i.port||"")+i.path+(i.name||"")+(n?"?"+n:"")+(r?"#"+r:"")};return i}},46:function(e,t,n){"use strict";var r=function(){function e(e,t){var n=[];var r=true;var i=false;var s=undefined;try{for(var o=e[Symbol.iterator](),u;!(r=(u=o.next()).done);r=true){n.push(u.value);if(t&&n.length===t)break}}catch(a){i=true;s=a}finally{try{if(!r&&o["return"])o["return"]()}finally{if(i)throw s}}return n}return function(t,n){if(Array.isArray(t)){return t}else if(Symbol.iterator in Object(t)){return e(t,n)}else{throw new TypeError("Invalid attempt to destructure non-iterable instance")}}}();var i=n(47);var s=n(52);e.exports=[function(e){var t=this.sniff,n=void 0;e.hytiveReg="(^|\\s)(qunar[^\\/]+)\\/([\\d\\.]+)";e.wechatSupport=true;e.wechatSignatureUrl="//ccweixin.qunar.com/chat/getJsConfig.do";e.ucAPIScriptUrl=e.ucAPIScriptUrl!==false?"//common.qunarzz.com/buri/prd/scripts/api/api@e5cd651c72c25357f174a1d5b99614d0.js":"";var i=navigator.userAgent.toLowerCase().match(e.hytiveReg)||[];var s=r(i,4);t.qunar=s[0];n=s[1];t.scheme=s[2];t.appVersion=s[3];t.qunar=!!t.qunar},i,s]},47:function(e,t,n){"use strict";var r=n(48);var i=n(49);var s=n(50);var o=n(51);var u="https://user.qunar.com/mobile/login.jsp";var a="https://user.qunar.com/webApi/getLoginState.jsp?format=js";var f=function(t){return typeof t==="function"};var l=function(t){return Object.prototype.toString.call(t)==="[object Object]"};var c=function(){};e.exports=function(e){var t=this,n=t.sniff,h=t.util.extend,p=document,d=location.protocol.toLowerCase().indexOf("file")===-1,v=false,m=[],g=null;if(d){t.util.script(e.ucAPIScriptUrl,function(){v=true;m.forEach(function(e){return e()})})}var y=function(t){if(!d||v){t()}else{m.push(t)}};var b=function(t){return p.getElementsByClassName(t)[0]};var w=function(){var t=p.body;var n=p.createElement("div");n.className="hysdk-ucapi-dialog";n.innerHTML=s;t.appendChild(n);var r=p.getElementsByTagName("head")[0];var i=p.createElement("style");i.innerHTML=o;r.appendChild(i)};var E=function(t){t.preventDefault();t.stopPropagation()};var S=function(){var t=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};i(a,{extend:h,jsonp:"callback",callback:5e3},function(e,n){if(f(t.success)){t.success(n?{ret:false}:{ret:true,login:e.ret&&e.data&&e.data.loginState===2,state:e.data&&e.data.loginState||0})}})};var x=function(r){var i=true;if(r.useDefault===false){i=r.useDefault}if(!b("hysdk-ucapi-dialog")&&i){w()}var s=h({ucapiDialog:b("hysdk-ucapi-dialog"),mobileInput:b("hysdk-mobile"),codeInput:b("hysdk-code"),codeBtn:b("hysdk-code-btn"),captchaArea:b("hysdk-captcha-area"),captchaInput:b("hysdk-captcha"),captchaBtn:null,errArea:b("hysdk-err-area"),loginBtn:b("hysdk-login-btn"),cancelBtn:b("hysdk-cancel-btn")},r.instanceElement);var o=h({origin:r.origin||"test",mobileInput:s.mobileInput,weixinAuth:true},r.instanceConfig,{debug:e.debug});var u=i?s.ucapiDialog.style:{};var a=i?s.captchaArea.style:{};var l=s&&s.errArea&&s.errArea.style;var d=function(n){e.debug&&console.log("自定义模板登录时"+n+"默认为空函数")};var v=function(){var t=new Image;t.className="hysdk-captcha-btn captcha-img";t.alt="验证码";return t};if(!s.captchaBtn&&i){s.captchaBtn=v()}var m=h({readyFunc:c,showDialog:function(){if(!i){return}if(n.ios){u.position="absolute";var t=b("ucapi-content");t.className+=" hack";p.body.addEventListener("touchmove",E,false)}u.display="block";l.display="none";s.mobileInput.value="";s.codeInput.value="";s.captchaInput.value=""},hideDialog:function(){if(!i){return}if(n.ios){u.position="fixed";var t=b("ucapi-content");t.className=t.className.replace(/\s*hack/g,"");p.body.removeEventListener("touchmove",E)}u.display="none"},getCodeSuccess:function(){if(!i){d("getCodeSuccess");return}l.display="none";S()},getCodeFail:function(t){if(!i){d("getCodeFail");return}s.errArea.innerHTML="*"+t.errmsg;l.display="block"},loginSuccess:function(){if(!i){d("loginSuccess");return}m.hideDialog();l.display="none";if(f(r.success)){r.success()}},loginFail:function(t){if(!i){d("loginFail");return}s.errArea.innerHTML="*"+t.errmsg;l.display="block";if(f(r.fail)){r.fail(t)}},changeCaptcha:function(){if(!i){d("changeCaptcha");return}b("hysdk-captcha-btn").src=g.getCaptchaUrl()},showCaptcha:function(){if(!i){d("showCaptcha");return}var t=b("hysdk-captcha-btn");a.display="block";s.captchaInput.value="";s.captchaBtn.src=g.getCaptchaUrl();if(!t){s.captchaArea.appendChild(s.captchaBtn)}},hideCaptcha:function(){if(!i){d("hideCaptcha");return}a.display="none";var t=b("hysdk-captcha-btn");if(t){s.captchaArea.removeChild(t)}}},r.instanceFunc);var g=ucAPI.quickLogin.create(o);g.instanceFunc=m;var y=60;var S=function x(){var e=s.codeBtn.style;if(y===0){s.codeBtn.removeAttribute("disabled");s.codeBtn.innerHTML="获取动态码";e.color="#19a9ba";y=60;return}s.codeBtn.setAttribute("disabled","disabled");s.codeBtn.innerHTML=y+"秒后获取";e.color="#d7dce0";y--;setTimeout(function(){x()},1e3)};s.codeBtn.addEventListener("click",function(){g.sendSMSCode({mobile:s.mobileInput.value,captcha:s.captchaInput.value,onsuccess:m.getCodeSuccess,onfail:m.getCodeFail})},false);s.loginBtn.addEventListener("click",function(){g.login({mobile:s.mobileInput.value,smscode:s.codeInput.value,captcha:s.captchaInput.value,onsuccess:m.loginSuccess,onfail:m.loginFail})},false);if(s.captchaArea){s.captchaArea.addEventListener("click",function(e){var t=e.target.className;if(/hysdk-captcha-btn/.test(t)){m.changeCaptcha()}},false)}else if(s.captchaBtn&&!i){s.captchaBtn.addEventListener("click",function(e){m.changeCaptcha()},false)}if(s.cancelBtn){s.cancelBtn.addEventListener("click",function(){m.hideDialog()},false)}g.getCaptchaUrl();g.on("ready",m.readyFunc);g.on("needShowCaptcha",m.showCaptcha);g.on("needHideCaptcha",m.hideCaptcha);return g};var T=function(t){var n="";if(l(t)){Object.keys(t).forEach(function(e){n+=encodeURIComponent(e)+"="+encodeURIComponent(t[e])+"&"})}location.href=l(t)?u+"?"+n.replace(/&$/g,""):u};var N=function(){var n=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};var r=n.useUcApi,i=n.useDefault,s=n.data;if(r===false){T(s);return}else{y(function(){if(!window.ucAPI){e.debug&&console.log("缺少ucAPI脚本文件，检查是否正常引入该文件！");T(s)}else{var t=n&&n.instanceConfig?n.instanceConfig.weixinAuth!==false:true;if(!g){g=x(n)}if(i!==false){g.ready(function(){var e=function(){var r=arguments.length>0&&arguments[0]!==undefined?arguments[0]:false;if(r){if(f(n.success)){n.success()}}else{if(!t||!hysdk.sniff.browsers.wechat||location.href.indexOf("bindToken=")>-1){g.instanceFunc.showDialog()}}};if(f(g.isLoginAsync)){g.isLoginAsync(function(t){e(t)})}else{S({success:function(n){var r=n||{},i=r.login;e(i)}})}})}}})}};var C={login:{hy:{key:"login.start"},wechat:{handle:N},h5:{handle:N}},starLogin:{hy:{key:"star.login"}},showVerifyDialog:{hy:{key:"verifyDialog.show"}}};h(t,{checkLogin:S,logout:function(){var t=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};y(function(){if(window.ucAPI){if(!g){g=x({})}g.logout(t.success)}else{if(f(t.fail)){t.fail()}}})},getCaptchaUrl:function(){var t=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};if(window.ucAPI){if(!g){g=x({})}var n=g.getCaptchaUrl();if(n&&f(t.success)){t.success(n)}return n}else{if(f(t.fail)){t.fail()}}},getUserInfo:function(){var t=arguments.length>0&&arguments[0]!==undefined?arguments[0]:{};y(function(){if(window.ucAPI){if(!g){g=x({})}g.getUserInfo(t.success)}else{if(f(t.fail)){t.fail()}}})}});r(t,C,e)}},48:function(e,t){"use strict";var n=["hy","wechat","h5"];e.exports=function(e,t,r){var i=e.util.register;var s=function(o){if(t.hasOwnProperty(o)){i.setUpFunction(e,o,t[o],r.debug);e[o]=i.common(e,o,r.debug);n.forEach(function(n){if(t[o][n]){e[n][o]=i.bind(e,o,n)}})}};for(var o in t){s(o)}}},49:function(e,t,n){"use strict";var r=n(9);var i=0;e.exports=function(e,t,n){var s={},o=false,u="",a,f=false,l=document.getElementsByTagName("head")[0],c=document.createElement("script"),h=function(){if(f){window[u]=a}else{delete window[u]}l.removeChild(c)},p=t.extend,d;c.src=e;var v=r(c.src);v.query=p(v.query,t.data);if(t.jsonpCallback){f=true;a=window[t.jsonpCallback]}else{t.jsonpCallback="HySDK_"+ +(new Date)+i++}u=t.jsonpCallback;v.query[t.jsonp||"callback"]=u;s.abort=function(){o=true;n(null,{error:true,type:"Abort"});h()};window[u]=function(e){if(d){clearTimeout(d)}if(o){return}n(e);h()};d=setTimeout(function(){n(null,{error:true,type:"Timeout"});h()},t.timeout||3e4);c.async=true;c.charset=t.charset||"UTF-8";c.src=v.toUrl();c.onerror=function(){if(d){clearTimeout(d)}n(null,{error:true,type:"Fail"});h()};l.appendChild(c);return s}},50:function(e,t){e.exports='<div class="container">\n    <div class="ucapi-content">\n        <div class="item login-hd">手机动态码登录</div>\n        <div class="item login-bd">\n            <div class="login-tel">\n                <input class="hysdk-mobile" type="text" placeholder="请输入您的手机号">\n            </div>\n            <div class="login-code">\n                <input class="hysdk-code" type="text" placeholder="请输入动态码">\n                <button class="hysdk-code-btn get-code">获取动态码</button>\n            </div>\n            <div class="hysdk-captcha-area login-captcha" style="display: none;">\n                <input class="hysdk-captcha" type="text" placeholder="请输入验证码">\n            </div>\n            <div class="hysdk-err-area err-tip" style="display: none;"></div>\n            <div class="login-op">\n                <button class="hysdk-cancel-btn cancel-btn">取消</button>\n                <button class="hysdk-login-btn login-btn">登录</button>\n            </div>\n        </div>\n    </div>\n</div>\n'},51:function(e,t){e.exports="html, body, div, input, button {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    outline: 0;\n    box-sizing: border-box;\n    -webkit-box-sizing: border-box;\n    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue,Helvetica,STHeiTi,sans-serif;\n    font-weight: normal;\n    -webkit-tap-highlight-color: transparent;\n}\n.hysdk-ucapi-dialog {\n    font-size: 14px;\n    height: 100%;\n    width: 100%;\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    background-color: rgba(0, 0, 0, .2);\n    z-index: 9999;\n    display: none;\n}\n\n.hysdk-ucapi-dialog .container {\n    width: 90%;\n    height: 100%;\n    margin: auto;\n    display: table;\n}\n\n.ucapi-content {\n    max-width: 90%;\n    min-width: 280px;\n    margin: auto;\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    -webkit-transform: translate(-50%, -50%);\n    transform: translate(-50%, -50%);\n    border-radius: 6px;\n    z-index: 1000;\n}\n\n.ucapi-content.hack {\n    position: static;\n    top: auto;\n    left: auto;\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n    display: table-cell;\n    vertical-align: middle;\n}\n\n.hysdk-ucapi-dialog input {\n    outline: 0;\n    -webkit-appearance: none;\n    -webkit-box-shadow: 0;\n    line-height: normal;\n    box-sizing: border-box;\n    -webkit-box-sizing: border-box;\n    -webkit-tap-highlight-color: transparent;\n}\n\n.hysdk-ucapi-dialog .login-hd {\n    height: 44px;\n    line-height: 44px;\n    padding: 0 10px;\n    background-color: #00bcd4;\n    border-bottom: 1px solid #d9d9d9;\n    border-radius: 6px 6px 0 0;\n    font-size: 16px;\n    color: #fff;\n}\n\n.hysdk-ucapi-dialog .login-bd {\n    padding: 15px 25px;\n    background-color: #fff;\n}\n\n.hysdk-ucapi-dialog .login-bd>div {\n    margin-bottom: 15px;\n    height: 30px;\n    -webkit-box-sizing: border-box;\n    box-sizing: border-box;\n    text-align: center;\n}\n\n.hysdk-ucapi-dialog .item input {\n    height: 30px;\n    padding: 0 10px;\n    border: 1px solid #ddd;\n    border-radius: 4px;\n    font-size: 14px;\n}\n\n.hysdk-ucapi-dialog .login-tel input {\n    width: 100%;\n}\n\n.hysdk-ucapi-dialog .login-code input {\n    width: 50%;\n    float: left;\n}\n\n.hysdk-ucapi-dialog .get-code {\n    width: 42%;\n    margin-left: 8%;\n    height: 30px;\n    line-height: 30px;\n    padding: 0;\n    float: left;\n    border: 1px solid #ddd;\n    border-radius: 4px;\n    background-color: #fff;\n    color: #00bcd4;\n    font-size: 14px;\n    outline: 0;\n}\n\n.hysdk-ucapi-dialog .ucapi-content .login-captcha {\n    display: none;\n}\n\n.hysdk-ucapi-dialog .login-captcha input {\n    width: 50%;\n    float: left;\n}\n\n.hysdk-ucapi-dialog .login-captcha .captcha-img {\n    width: 42%;\n    height: 30px;\n    margin-left: 8%;\n    float: left;\n    display: block;\n    border-radius: 4px;\n}\n\n.hysdk-ucapi-dialog .ucapi-content .err-tip {\n    padding-left: 10px;\n    display: none;\n    color: #f00;\n    text-align: left;\n}\n\n.hysdk-ucapi-dialog .login-op button {\n    width: 40%;\n    height: 30px;\n    line-height: 30px;\n    margin: 0 4%;\n    padding: 0;\n    border: 1px solid #ddd;\n    border-radius: 4px;\n    background-color: #fff;\n    font-size: 14px;\n    outline: 0;\n}\n\n.hysdk-ucapi-dialog .login-op .login-btn {\n    background-color: #00bcd4;\n    border-color: #00bcd4;\n    color: #fff;\n}\n"},52:function(e,t,n){"use strict";var r=n(48);var i="https://tp.qunar.com/touch/touchCashier?";e.exports=function(e){var t=this;var n=function(t){var n=t.url?t.url+"?":i;Object.keys(t).forEach(function(e){if(["success","fail","url"].indexOf(e)===-1){n+=e+"="+t[e]+"&"}});location.href=n.replace(/&$/g,"")};var s={openCashier:{hy:{key:"hbCashier"},wechat:{handle:n},h5:{handle:n}}};r(t,s,e)}},72:function(e,t,n){"use strict";var r=n(46);r.forEach(function(e){hysdk.plugin(e)})}});
+
+hysdk.config({
+    "debug": false, /* 调试开关 */
+    "bridgeReadyEvent": "WebViewJavascriptBridgeReady", /* Hytive 桥 Ready 事件 */
+    "bridgeReadyTimeout": 1000, /* 桥 Ready 最大延迟 */
+    "hytiveReg": "", /* Hytive UA 判断正则 */
+    "wechatSupport": true, /* 是否支持微信 */ /* qunar/fusion 版本默认为 true，使用去哪儿网公共号 */
+    "wechatScriptUrl": "//res.wx.qq.com/open/js/jweixin-1.6.0.js", /* 微信 JSSDK 地址 */
+    "wechatSignatureUrl": "//ccweixin.qunar.com/chat/getJsConfig.do", /* 微信签名服务地址 */ /* qunar/fusion 版本默认配置 */
+        "ucAPIScriptUrl": "//common.qunarzz.com/ucapi/prd/scripts/1.0.3/api@d20c312aba29a7178996dd57abcca695.js", /* ucAPI 脚本地址 */ /* qunar/fusion 版本默认配置 */
+    "openTagList": ["wx-open-launch-app"]
+});
+hysdk.ready(function (){
+    hysdk.hideLoadView({});
+
+    function __getQueryParam (name, url) {
+        var __uri = url || '';
+        var __reg = new RegExp('[?&]' + name + '=([^&?#]*)', 'i');
+        var __re = __uri.match(__reg);
+        return __re && __re[1] || '';
+    }
+
+    function __notInWhiteList(url) {
+        var __domainWhiteList =  ["qunar.com", "qunarzz.com", "qua.com", "ctrip.com", "ctripcorp.com", "tujia.com", "qpay.cn", "opsai.cn", "qnr.io", "treapmoo.com"];
+        for (var __i = 0; __i < __domainWhiteList.length; __i++) {
+            if (url.indexOf(__domainWhiteList[__i])>-1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    hysdk._schemeForResult = hysdk.schemeForResult;
+
+    hysdk.schemeForResult = function (schemeConfig) {
+        schemeConfig.scheme = schemeConfig.scheme || '';
+        var _hy_type = __getQueryParam('type', schemeConfig.scheme);
+        var _hy_url = decodeURIComponent(__getQueryParam('url', schemeConfig.scheme));
+
+        if (_hy_url && schemeConfig.scheme.indexOf('//hy?') > -1 && __notInWhiteList(_hy_url)) {
+            hysdk.openWebView({
+                url: _hy_url,
+                type: _hy_type,
+                onViewBack: schemeConfig.success
+            });
+        } else {
+            hysdk._schemeForResult(schemeConfig);
+        }
+    };
+});
+</script>
+
+<script type="text/javascript">
+window.Shark = {    instanceMap: {},    classMap: {},    printedScriptMap: {},    printedStyleMap: {}};Shark.register = function(key, componentClass) {    this.classMap[key] = componentClass;};Shark.registerChild = function() {};Shark.getClass = function(type) {    return this.classMap[type];};Shark.getInstance = function(id) {    return this.instanceMap[id];};Shark.setInstance = function(id, component) {    this.instanceMap[id] = component;};Shark.clearInstance = function(id) {    delete this.instanceMap[id];};Shark.completer = function(components) {    return components;};Shark.receive = function(data) {    var key = data.type;    var ComponentClass = this.classMap[key];    if (!ComponentClass) {        Shark.watcher && Shark.watcher.addCount({            cid: window.__config_id,            name: 'comp_missing',            msg: 'comp is: ' + key,            stack: 'url is: ' + location.href        });        return;    }    if (ComponentClass.isReactComponent) {        var root = ReactDOM.createRoot(document.getElementById(data._id));        root.render(React.createElement(ComponentClass, data));        return null;    }    var component = new ComponentClass(data);    if (ComponentClass.isStateComponent) {        component.execute();    } else {        var renderType = component.getRenderType();        if (renderType === 'shark') {            var receiver = {                eventDelegated: false            };            component.mount(receiver);            if (!receiver.eventDelegated) {                component.delegateEvents();            }        } else {            component.render();            component.bindEvents();            component.componentDidMount();        }    }};Shark.getAppRoot = function () {    if (!this.appContainer) {        this.appContainer = document.getElementById('app');    }    return this.appContainer;};Shark.replaceText = function (content) {    if (!content) {        return '';    }    content = content.replace(/&#x3D;/g, '=').replace(/&#x27;/g, '\'');    content = content.replace(/\[span.*?\]/ig, function(text) {        return text.replace('[', '<').replace(']', '>');    }).replace(/\[\/span\]/ig, '</span>');    content = content.replace(/\[br.*?\]/ig, function(text) {        return text.replace('[', '<').replace(']', '>');    });    content = content.replace(/\[img.*?\]/ig, function(text) {        return text.replace('[', '<').replace(']', '>');    });    return content;};Shark.startLoader = function(realtimeData) {    if (realtimeData) {        if (!this.loader) {            this.loader = new Shark.FishLoader();        }        if (this.loader.loadImmediately) {            this.loader.loadImmediately(realtimeData);        } else {            this.loader.load(null, realtimeData);        }    } else {        var self = this;        window.pageConfigRequest && window.pageConfigRequest.then(function(data) {            self.load(data);        }).catch(function() {            var storageData = self.getStorage(window.__config_id + '-pageData') || {};            self.load(storageData);        });    }};Shark.load = function(data) {    window.__page_root = data;    window.__page_data = data.config;    window.__log_custom = data.config.page.logCustom;    this.loadComponentsNext(data);    if (data.isPureNext) {        return;    }    this.loadComponents(data);};Shark.renderHtml = function (component, handleItWithDOM) {    var appRoot = this.getAppRoot();    if (handleItWithDOM) {        var dom = document.createElement('div');        dom.innerHTML = this.replaceText(component._html);        appRoot.appendChild(dom.firstElementChild);        dom = null;    } else {        appRoot.innerHTML += this.replaceText(component._html);    }};Shark.loadComponents = function (data) {    if (!data.sharkVersion) {        alert('类库版本获取失败，请稍后重试');        return;    }    if (window.Shark.isPreviewEditor) {        if (Shark.FishLoader) {            if (!this.loader) {                this.loader = new Shark.FishLoader();            }            if (this.loader.loadImmediately) {                this.loader.loadImmediately(data, true);            } else {                this.loader.load(window.pageConfigRequest);            }        }        return;    }    var sharkVersion = window.hysdk ? data.sharkNextVersion : data.sharkVersion;    var script = document.createElement('script');    script.type = 'text/javascript';    script.src = '//q.qunarzz.com/shark-client/prd/index@' + sharkVersion + '.js';    script.crossOrigin = 'anonymous';    document.body.appendChild(script);    script.onload = function() {        if (Shark.FishLoader) {            if (!this.loader) {                this.loader = new Shark.FishLoader();            }            if (this.loader.loadImmediately) {                this.loader.loadImmediately(data, true);            } else {                this.loader.load(window.pageConfigRequest);            }        } else {            alert('页面类库加载失败，请稍后重试');        }    };};Shark.loadComponentsNext = function (data) {    this.fishLoaderNext.initQueue(data.config.components);    var self = this;    var appRoot = this.getAppRoot();    var components = data.config.components;    components.forEach(function (component) {        var isSelfRender = self.fishLoaderNext.isSelfRender(component);        if (!self.printedStyleMap[component.type] && isSelfRender) {            self.printedStyleMap[component.type] = true;            if (component._style) {                appRoot.innerHTML += component._style;            }        }        if (component._renderOn) {            switch (component._renderOn) {                case 'web':                    self.renderHtml(component);                    break;                case 'www':                    self.isPC() && self.renderHtml(component);                    break;                case 'mob':                    self.isMob() && self.renderHtml(component);                    break;                case 'pad':                    self.isPad() && self.renderHtml(component);                    break;            }        } else {            self.renderHtml(component);        }        Shark.handleQueue(component._id, 'htmlAppended', 'id');        if (!self.printedScriptMap[component.type] && isSelfRender) {            self.printedScriptMap[component.type] = true;            if (component._script) {                var script = document.createElement('script');                script.src = component._script;                script.crossOrigin = 'anonymous';                script.onload = function () {                    Shark.handleQueue(component.type, 'jsLoaded', 'type');                };                script.onerror = function () {                    Shark.handleQueue(component.type, 'jsFailed', 'type');                };                appRoot.appendChild(script);            }        }    });};Shark.injectPage = function(pageData) {    if (!pageData && !pageData.page && !pageData.body) {        return;    }    if (pageData.page.title) {        document.title = pageData.page.title;    }    var scrollContainer;    var effectContainer;    if (this.isPC()) {        scrollContainer = document.body;        effectContainer = document.getElementById('app');        pageData.body.padding = 0;    } else {        scrollContainer = pageData.body.scrollFor === 'body' ? document.body : document.getElementById('app');        effectContainer = pageData.body.effectFor === 'app' ? document.getElementById('app') : document.body;    }    scrollContainer.style.height = '100%';    scrollContainer.style.overflowY = 'auto';    if (pageData.body.padding) {        effectContainer.style.padding = pageData.body.padding;    }    if (pageData.body.background) {        effectContainer.style.background = pageData.body.background;    }    if (pageData.body.backgroundColor) {        effectContainer.style.backgroundColor = pageData.body.backgroundColor;    }    if (pageData.body.backgroundImage) {        effectContainer.style.backgroundImage = 'url(' + pageData.body.backgroundImage + ')';    }};Shark.isPC = function() {    return location.href.indexOf('_pc=yes') > -1;};Shark.isMob = function() {    var lowerNavigator = window.navigator.userAgent.toLowerCase();    return lowerNavigator.indexOf('iphone') > -1 || lowerNavigator.indexOf('android') > -1;};Shark.isPad = function() {    return location.href.indexOf('_pad=yes') > -1;};Shark.isPreview = function() {    return location.href.indexOf('/shark/preview') > -1;};Shark.getStorage = function(key) {    if (typeof localStorage === 'undefined') {        return false;    }    var value = localStorage.getItem('Q_' + key);    if (value === null) {        return false;    }    value = JSON.parse(value);    if (value.expires > Date.now()) {        return value.value;    }    return false;};Shark.render = function(component, container) {    var receiver = {        eventDelegated: false    };    component.mount(receiver);    if (!receiver.eventDelegated) {        component.delegateEvents();    }    var domElement = component.getElement();    container.appendChild(domElement);};Shark.handleQueue = function (componentId, attribute, idType) {    this.fishLoaderNext.updateQueue(componentId, attribute, idType);    this.fishLoaderNext.callQueue();};/*** @Fish Loader Next*/Shark.fishLoaderNext = {};Shark.fishLoaderNext.scriptOnLoadQueue = [];Shark.fishLoaderNext.initQueue = function (components) {    var self = this;    components.forEach(function (data) {        if (data._script) {            if (data._renderOn) {                switch (data._renderOn) {                    case 'web':                        self.loadQueue(data);                        break;                    case 'www':                        Shark.isPC() && self.loadQueue(data);                        break;                    case 'mob':                        Shark.isMob() && self.loadQueue(data);                        break;                    case 'pad':                        Shark.isPad() && self.loadQueue(data);                        break;                }            } else {                self.loadQueue(data);            }        }    });};Shark.fishLoaderNext.loadQueue = function (data) {    this.scriptOnLoadQueue.push({        type: data.type,        id: data._id,        callBack: function () {            Shark.receive(data);        },        htmlAppended: false,        jsLoaded: false,        jsFailed: false,        errMsg: '',        done: false    });};Shark.fishLoaderNext.callQueue = function () {    for (var i = 0; i < this.scriptOnLoadQueue.length; i++) {        var queueItem = this.scriptOnLoadQueue[i];        if (!queueItem.htmlAppended || !(queueItem.jsLoaded || queueItem.jsFailed)) {            return;        }        if (!queueItem.done) {            try {                Shark.watcher && Shark.watcher.addCount({                    cid: window.__config_id,                    comp: queueItem.type,                    name: 'shark_call_queue_total_' + queueItem.type,                    data: 'url is: ' + location.href + ',id is:' + queueItem.id                });                queueItem.callBack();            } catch (e) {                console.error('shark_call_queue_error_' + JSON.stringify(queueItem) + '_error::' + e);                queueItem.errMsg = e.message;                Shark.watcher && Shark.watcher.addCount({                    cid: window.__config_id,                    name: 'shark_call_queue_error_' + queueItem.type,                    msg: e.message,                    stack: 'url is: ' + location.href,                    data: queueItem                });            } finally {                queueItem.done = true;            }        }    }};Shark.fishLoaderNext.updateQueue = function (componentId, attribute, idType) {    for (var i = 0; i < this.scriptOnLoadQueue.length; i++) {        var queueItem = this.scriptOnLoadQueue[i];        idType = idType || 'type';        if (queueItem[idType] === componentId && attribute) {            queueItem[attribute] = true;        }    }};Shark.fishLoaderNext.isSelfRender = function(component) {    var buildVer = component._buildMap && component._buildMap[0] && component._buildMap[0].buildVer;    return (buildVer && buildVer.split('.')[0] >= 4) || component._isSelfRender === 'yes';};
+</script>
+
+
+
+<script type="text/javascript">
+
+</script>
+
+<script type="text/javascript">
+var pathnameArr = location.pathname.split('/') || [];
+var action = pathnameArr[2];
+var pageId = 'normal_active_' + '28140';
+var collectDuration = 4000;
+switch (action){
+    case 'apollo':
+        pageId = 'apollo_' + '28140';
+        break;
+    case 'bargain':
+        pageId = getQueryParam('bargainType') + '_web';
+        break;
+    case 'preview':
+        pageId = 'normal_preview_' + '28140'
+        break;
+}
+window.__page_id = pageId;
+window.__config_id = '28140';
+window.__origin_id = 'cc16868c594f193f4d7f198d810db018';
+window.__is_oversea = false;
+window.requestCollector = {
+    collectDeadline: Date.now() + collectDuration
+};
+</script>
+
+<script>
+    var clientType = getClientType(navigator.userAgent)
+    window.piccoloT = 'cms_active_' + clientType;
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    var day = ~(-new Date()/36e5);
+    script.type = 'text/javascript';
+        script.src = 'https://qimgs.qunarzz.com/pf_piccolo_defense_fe_0001/qlogj.js?t='+ day;
+    head.appendChild(script);
+</script><script type="text/javascript" src="https://qimgs.qunarzz.com/pf_piccolo_defense_fe_0001/qlogj.js?t=483436"></script>
+
+<script>
+    window.nShirley = 'var a_b_c_d_f = "313a1723da0a40a09b62fc6a2e91b563"; (function(a_b_c_d_f){ window.shirley = a_b_c_d_f })(a_b_c_d_f)'
+    eval(window.nShirley);
+</script>
+
+
+<style type="text/css">
+    @font-face {
+        font-family: 'iconfont';
+        src: url('//s.qunarzz.com/flight_shark/fonts/0.0.99/flight_shark.eot'); /* IE9*/
+        src: url('//s.qunarzz.com/flight_shark/fonts/0.0.99/flight_shark.woff') format('woff'), /* chrome、firefox */
+        url('//s.qunarzz.com/flight_shark/fonts/0.0.99/flight_shark.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('//s.qunarzz.com/flight_shark/fonts/0.0.99/flight_shark.svg#iconfont') format('svg'); /* iOS 4.1- */
+    }
+    .iconfont {
+        font-family:"iconfont";
+        font-size:16px;
+        font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+/******基础样式******/
+* {
+	margin:0;
+	padding:0;
+	-webkit-tap-highlight-color: transparent;
+}
+html, body, div, input, button, pre{
+	font-family: PingFangSC-Regular,arial,helvetica,STHeitiSC-Light,Heiti SC,droidsansfallback,dengxian,microsoft yahei;
+}
+html {
+	height: 100%;
+	overflow: hidden;
+}
+body { background: #fff;
+	height: 100%;
+	color: #333;
+	font-size: 0.14rem;
+	line-height: 0.2rem;
+    overflow: auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+	-webkit-overflow-scrolling : touch;
+    /* ios系统字体被手动调大优化 */
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img {
+	border:0 none;
+}
+address,caption,cite,code,dfn,em,strong,th,var{
+	font-style:normal;font-weight:normal;
+}
+strong {
+	font-weight:800;
+}
+ol,ul,li {
+	list-style:none outside none;
+}
+caption,th {
+	text-align:left;
+}
+button {
+	border:0;
+	margin: 0;
+	padding: 0;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}
+a, .lnk {
+	text-decoration: none;
+    color: #3b73af;
+}
+.hide{
+    display: none;
+}
+.visible {
+    visibility: visible;
+}
+input, button, textarea {
+	outline: none;
+}
+
+/******页面样式******/
+.m-page {
+    box-sizing: border-box;
+    padding: 0 calc(50% - 512px);
+	width: 100%;
+	min-height: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    -webkit-overflow-scrolling : touch;
+}
+
+/******Toast样式******/
+.m-toast {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 999;
+    width: 212px;
+    min-width: 212px;
+    max-width: 80%;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 4px;
+    opacity: 0;
+    -webkit-transition: all 1s ease 0s;
+    transition: all 1s ease 0s;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.m-toast.up {
+    -webkit-transform: translate(-50%, 400%);
+    -ms-transform: translate(-50%, 400%);
+    transform: translate(-50%, 400%);
+}
+
+
+.m-toast.showUp {
+    -webkit-transform: translate(-50%, 85%);
+    -ms-transform: translate(-50%, 85%);
+    transform: translate(-50%, 85%);
+    opacity: 1;
+}
+
+@keyframes pulseText {
+    from {
+        font-size: 100%;
+        opacity: 0;
+    }
+
+    50% {
+        font-size: 150%;
+        opacity: 1;
+    }
+
+    to {
+        font-size: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes pulseBox {
+    from {
+        transform: translate(-50%, -50%);
+        width: 212px;
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(-50%, -50%);
+        width: 300px;
+        opacity: 1;
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+        width: 212px;
+        opacity: 0;
+    }
+}
+
+.m-toast-text.showBig {
+    animation: pulseText 1.5s;
+}
+
+.m-toast.showBig {
+    animation: pulseBox 1.5s;
+}
+
+.m-toast.show {
+    -webkit-transform: translate(-50%, 400%);
+    -ms-transform: translate(-50%, 400%);
+    transform: translate(-50%, 400%);
+    opacity: 1;
+}
+
+.m-toast.hide {
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.m-toast .m-toast-text {
+    display: block;
+    padding: 10px 15px;
+}
+
+/******Dialog样式******/
+.m-dialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.65);
+}
+
+.m-dialog-header {
+    width: 2.8rem;
+    display: flex;
+    line-height: 0.4rem;
+    padding: 0.04rem;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    justify-content: space-between;
+    border-radius: 0.06rem 0.06rem 0 0;
+    position: relative;
+    border-bottom: 1px #ccc dashed;
+}
+
+.m-dialog-title {
+    flex: 1;
+    text-align: center;
+    font-size: 0.18rem;
+}
+
+.m-dialog-close {
+    width: 0.3rem;
+    height: 0.3rem;
+    font-size: 0.25rem;
+    position: absolute;
+    right: 0.04rem;
+    top: 0.04rem;
+}
+
+.m-dialog-content {
+    width: 2.8rem;
+    max-height: 60%;
+    overflow-y: auto;
+    background: #FFFFFF;
+    line-height: 0.25rem;
+    min-height: 0.5rem;
+    padding: 0.08rem 0.15rem;
+    box-sizing: border-box;
+    border-radius: 0 0 0.06rem 0.06rem;
+}
+
+/******缩放动画******/
+@-webkit-keyframes scale-action {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes scale-action {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/******Confirm样式******/
+.m-confirm-dialog {
+	position:fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index:16;
+	background:rgba(09,09,09,0.6);
+}
+.m-confirm-dialog-main {
+	background:#FFFFFF;
+	border-radius:0.1rem;
+	width:2.8rem;
+	font-family:PingFangSC-Regular;
+	font-size:0.2rem;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	position:relative;
+    padding-top: 0.24rem;
+}
+.m-confirm-dialog-content {
+    /*min-height: 0.55rem;*/
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #333333;
+    font-weight: 400;
+    line-height: 0.21rem;
+    padding: 0.1rem 0.16rem 0.24rem;
+}
+.m-confirm-dialog-footer {
+	display:flex;
+    justify-content: center;
+    height: 0.56rem;
+    box-sizing: border-box;
+    padding-left: 0.16rem;
+    padding-right: 0.16rem;
+}
+.m-confirm-dialog-footer-btn {
+	width:1.18rem;
+	height:0.4rem;
+	line-height:0.4rem;
+	box-sizing:border-box;
+}
+.m-confirm-dialog-cancel {
+    background: #FFFFFF;
+    border: 0.01rem solid #03cde9;
+    border-radius: 0.2rem;
+    font-family: PingFangSC-Medium;
+    font-size: 0.16rem;
+    color: #03cde9;
+    text-align: center;
+    font-weight: 500;
+    margin-right: 0.1rem;
+}
+.m-confirm-dialog-ok {
+    background: #03cde9;
+    border-radius: 0.2rem;
+    font-family: PingFangSC-Medium;
+    font-size: 0.16rem;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 500;
+    margin-left: 0.1rem;
+}
+.m-confirm-dialog-title {
+    font-family: PingFangSC-Medium;
+    font-size: 0.18rem;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+</style>
+<style type="text/css">
+    
+</style>
+
+
+<script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"true","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"SJ-905bb8da-2ede-4155-b484-24792b608807","rua.cook":"false","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false","rua.isuxp":"false","rua.texp":"norulematch","rua.ceh":"false","rua.ueh":"false","rua.ieh.st":"0"}]);</script>
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="8GPBB-52DMQ-6E77Z-23B9F-XRPZB",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"8GPBB-52DMQ-6E77Z-23B9F-XRPZB";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n="true"=="true"?1:0,t="",a="io2khuixydsemz54bfra-f-f3c4ceb02-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"39","ak.cp":"1423680","ak.ai":parseInt("871759",10),"ak.ol":"0","ak.cr":23,"ak.ipv":4,"ak.proto":"h2","ak.rid":"399e597","ak.r":43302,"ak.a2":n,"ak.m":"dscr","ak.n":"ff","ak.bpcip":"67.180.163.0","ak.cport":51712,"ak.gh":"23.48.163.85","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"","ak.t":"1740376418","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==l9HTjuwiKgNvjDx7lMh9LTwW4E2M9zxnQzeKSMche90cp4iqEQ1Kggjjk8IDPR6aeOgEvxpSGPEs9toxwsKKDCTKIroUKxtfYQXwg4Me13pYMQniwQw2Z8tnXK8SWxfGYHJ/ytgt2Y3VAdFeGeaIRpmwffBw1OPkUUQ+IAjMq1AN6iB278378e/0hcrFvIiJZazI5K5StSkevLC988yioSJ1Rj6FjlvmcRDESex6CSpBUlQ80Ptxoc6J/pP3IPs1CbAh32cpJxsRlJlwUsRDY+tj185cNd9tF7WsDR5BoU9FkthznYeZuEAGN5JfTqcL5vLirq/j3B0RxMbsGJvDkuRlUeoNG7w2Fidvu2zSoJveIfYpZoV518tWOFXiBpWYbwHhzzwUtQDDFSMl2BUGfRM8YN3v+/qAVgMbMpiveZQ=","ak.pv":"10","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script><link href="https://s.go-mpulse.net/boomerang/8GPBB-52DMQ-6E77Z-23B9F-XRPZB" rel="preload" as="script"><script id="boomr-scr-as" src="https://s.go-mpulse.net/boomerang/8GPBB-52DMQ-6E77Z-23B9F-XRPZB" async=""></script></head>
+<body style="padding: 0px 0px 10px;">
+
+<div id="app" class="m-page" style="height: 100%; overflow-y: auto;">
+    <div class="m-loading"></div>
+	<script type="text/javascript">
+        (function () {
+    var emptyFunction = function() {};
+    var PAGE_HEIGHT_PERCENTAGE = 0.5;
+    var PAGE_PER_HEIGHT_BASE = 300;
+    var WHITE_LIST = ['1aa006ab40ceb0252183b60409b830ab', 'afba5bff02fe672fca2a079ff713ee79', '2521de8cca4ceb7c8fe578080814511f'];
+    var TEXT_LEN = 5;
+    var firstScreenRenderComplete = false;
+    var pageContentHeight = 0;
+    var compList = [];
+    var hasReport = false;
+    var hasExit = false;
+    var observer = null;
+    var isWhiteList = inWhiteList();
+
+    var pageElement = document.getElementsByTagName('body') && document.getElementsByTagName('body')[0];
+    var clientHeight = document.documentElement.clientHeight;
+
+    var enterPageTime = new Date().getTime();
+
+    function getComponentList () {
+        var pageData = window.__page_data || {};
+        var components = pageData.components || [];
+        var compLen = components.length;
+
+        return compLen ? components : [];
+    }
+
+    function inWhiteList() {
+        var lowerCaseUrl = location.href.toLowerCase();
+
+        for (var i = 0; i < WHITE_LIST.length; i++) {
+            if (lowerCaseUrl.indexOf(WHITE_LIST[i]) !== -1) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    function clearListener () {
+        if (observer) {
+            observer.disconnect();
+            observer = null;
+        }
+    }
+
+    function addMetricsRequest (item) {
+        var formatData = [
+            'type=' + item.type,
+            'cid=' + window.__config_id,
+            'name=' + item.name,
+            'msg=' + item.msg,
+            'stack=' + item.stack,
+            'time=' + item.time
+        ];
+
+        preRequest({url: '/shark/watcher', data: formatData}, emptyFunction, emptyFunction);
+
+    }
+
+    function addCount (info) {
+        var {name, msg} = info || {};
+        var item = {
+            cid: window.__config_id,
+            name,
+            msg,
+            type: 'addCount',
+            stack: 'url is: ' + location.href
+        };
+        addMetricsRequest(item);
+    }
+
+    function addTime (name, time, curTime) {
+        var item = {
+            cid: window.__config_id,
+            name,
+            time: Number(curTime - window.__start_time),
+            curTime,
+            type: 'addTime',
+            stack: 'url is: ' + location.href
+        };
+
+        addMetricsRequest(item);
+    }
+
+    function reportRenderMetrics (triggerByLoad, currentHeight, isWhiteList) {
+        if (!hasReport) {
+            reportPageHeight(triggerByLoad, currentHeight, isWhiteList);
+
+            var ttiName = triggerByLoad ? 'page_tti_time_load' : 'page_tti_time';
+            addTime(ttiName, 0, new Date().getTime());
+            addTime('page_tti_time_truly', 0, new Date().getTime());
+            hasReport = true;
+            clearListener();
+        }
+    }
+
+    function reportPageHeight(triggerByLoad, currentHeight, isWhiteList) {
+        if (currentHeight) {
+            pageContentHeight = currentHeight;
+        }
+
+        var time = Number(new Date().getTime() - window.__start_time);
+        if ((pageContentHeight >= clientHeight * PAGE_HEIGHT_PERCENTAGE) || isWhiteList) {
+            addCount({
+                name: 'first_screen_render_success',
+                msg: 'clientHeight: ' + pageContentHeight + ', load:' + triggerByLoad + ', time: ' + time
+            });
+        } else if (pageContentHeight === 0) {
+            if (document.documentElement.innerText.length >= TEXT_LEN) {
+                addCount({
+                    name: 'first_screen_render_empty_text_full',
+                    msg: 'load:' + triggerByLoad + ', time: ' + time
+                });
+            } else {
+                addCount({
+                    name: 'first_screen_render_empty',
+                    msg: 'load:' + triggerByLoad + ', time: ' + time
+                });
+            }
+
+        } else {
+            addCount({
+                name: 'first_screen_render_failed',
+                msg: 'pageHeight: ' + pageContentHeight + ', clientHeight:' + clientHeight + ', load:' + triggerByLoad + ', time: ' + time
+            });
+        }
+    }
+
+
+    function calculatePageContentHeight (triggerByLoad) {
+        var compLen = compList.length;
+        pageContentHeight = 0;
+
+        for (var i = 0; i < compLen; i++) {
+            var component = compList[i];
+            var id = component._id;
+            var elementById = document.getElementById(id);
+            if (elementById) {
+                var elementHeight = elementById.clientHeight || 0;
+                pageContentHeight = pageContentHeight + elementHeight;
+
+                if (!triggerByLoad && pageContentHeight >= clientHeight * PAGE_HEIGHT_PERCENTAGE) {
+                    reportRenderMetrics(triggerByLoad, pageContentHeight);
+                    firstScreenRenderComplete = true;
+                    break;
+                }
+
+            }
+        }
+        if (!triggerByLoad && !firstScreenRenderComplete) {
+            if ((compLen === 1 && pageContentHeight > PAGE_PER_HEIGHT_BASE) ||
+                (pageContentHeight === 0 && document.documentElement.innerText.length >= TEXT_LEN) ||
+                isWhiteList) {
+                reportRenderMetrics(triggerByLoad, pageContentHeight, isWhiteList);
+                firstScreenRenderComplete = true;
+            }
+        }
+        if (triggerByLoad) {
+            reportRenderMetrics(triggerByLoad, pageContentHeight);
+        }
+    }
+
+    function entry (triggerByLoad) {
+        if (!hasReport) {
+            compList = getComponentList();
+            calculatePageContentHeight(triggerByLoad);
+        } else {
+            clearListener();
+        }
+    }
+    function observerCallback(mutationsList) {
+        entry(false);
+    }
+
+    function exitCb (timer, type) {
+        if (!hasExit) {
+            addCount({
+                name: 'page_metrics_count_leave_total'
+            });
+            hasExit = true;
+            clearListener();
+            clearTimeout(timer);
+            // 用户visible = hidden 则认为退出，所有打点都不记录
+            var beforeTime = new Date().getTime() - window.__start_time;
+            if (beforeTime >= 500) {
+                addCount({
+                    name: 'page_metrics_count_truly',
+                    msg: 'msg'
+                });
+                if (!hasReport) {
+                    entry(type);
+                    addCount({
+                        name: 'leave_before_report',
+                        msg: 'beforeTime is' + beforeTime
+                    });
+                    addTime('leave_before_report_time', 0, new Date().getTime());
+                }
+            } else {
+                if (hasReport) {
+                    addCount({
+                        name: 'page_metrics_count_truly'
+                    });
+                }
+            }
+        }
+    }
+
+    function recordStayTime () {
+        try {
+            if (document.hidden) {
+                var leavePageTime = new Date().getTime();
+                var stayTimeInMillis = leavePageTime - enterPageTime;
+                var stayTimeInSeconds = Math.floor(stayTimeInMillis / 1000); // 单位s
+                if (Shark && Shark.logger && Shark.logger.log) {
+                    Shark.logger.log({
+                        r: 'page_stay_time',
+                        operType: 'monitor',
+                        stayTimeInSeconds: stayTimeInSeconds,
+                        key: `cms/${window.pageId}/default/monitor/page_stay_time`,
+                        page: window.pageId,
+                        id: 'page_stay_time',
+                        time: stayTimeInMillis
+                    });
+                    addCount({
+                        name: 'page_stay_time_count'
+                    });
+                } else {
+                    addCount({
+                        name: 'page_stay_time_error',
+                        msg: 'no_shark_logger'
+                    });
+                }
+            } else {
+                enterPageTime = new Date().getTime();
+            }
+        } catch (e) {
+            var msg = (e && e.message) || 'no message';
+            var stack = (e && e.stack) || 'no stack';
+            addCount({
+                name: 'page_stay_time_error',
+                msg: msg,
+                stack: stack
+            });
+        }
+    }
+
+    function startRecord() {
+        if (location.href.indexOf('proxyWebIDEDomain') > -1) {
+            return;
+        }
+        if (window.navigator.userAgent.toLowerCase().indexOf('miniprogram') > -1) {
+            return;
+        }
+        try {
+            addCount({
+                name: 'page_metrics_count'
+            });
+
+            var observer = new MutationObserver(observerCallback);
+            observer.observe(pageElement, { attributes: false, childList: true, subtree: true });
+
+            var timer = setTimeout(function () {
+                clearListener();
+                clearTimeout(timer);
+                if (!hasExit && !hasReport) {
+                    entry('timeout');
+                }
+            }, 8000);
+
+            window.hysdk && window.hysdk.ready(function() {
+                hysdk.webview.onHide(function() {
+                    exitCb(timer, 'onHide');
+                });
+            });
+
+
+            window.addEventListener('visibilitychange', function (e) {
+                if (document.visibilityState === 'hidden') {
+                    exitCb(timer, 'visibilitychange');
+                }
+            });
+
+
+        } catch (e) {
+            var msg = (e && e.message) || 'no message';
+            var stack = (e && e.stack) || 'no stack';
+            addCount({
+                name: 'page_metrics_error',
+                msg: msg,
+                stack: stack
+            });
+        }
+
+
+        window.addEventListener('visibilitychange', function (e) {
+            recordStayTime();
+        });
+
+    }
+
+    startRecord();
+})();
+
+        </script>
+<script>
+window.__page_root = {"id":28140,"description":"门票景点简介","state":1,"is_online":1,"hdtype":"ticket","config":{"page":{"type":"body","title":"门票景点简介","cat":"","logCustom":"godeye","share":{"title":"","desc":"","link":"","imgUrl":"","shareTypes":"WechatFriends","miniProgramUserName":"gh_7ffb9c5d761","miniProgramPath":"","miniProgramType":"release"},"nav":{"refreshNav":false,"title":"","color":"#212121","bgColor":"#FFF","leftIcon":"","rightIcon":""},"bizType":"cms_ticket"},"body":{"type":"page","background":"","backgroundPc":"https://s.qunarzz.com/hotel_rn_source/images/sight/sight_ease_detail_back@2x.png","padding":"0 0 10px 0","backgroundImage":""},"components":[{"type":"cmsTicketNav","_version":"0.0.58","isOutsideComponent":true,"_dir":"preview","hasOutlineScript":true,"hasOutlineStyle":true,"_buildMap":[{"gitName":"shark-one-build","buildType":"shark","buildVer":"4.0.0","buildJob":"http://portal.corp.qunar.com/apptask/build.html?id=71082"}],"_buildInfo":{"domain":"qfe.qunarzz.com/cm_portal_compile_fe","type":"shark-1"},"_image":"","_serverConfig":[],"mId":"msTicketNav_db1b55_1717138117251","_id":"cmsTicketNav-0","_componentName":"门票景点简介标题导航组件","_style":"<link rel=\"stylesheet\" href=\"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketNav-shark@0.0.58.css\" />","_script":"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketNav-shark@0.0.58.js","_html":"<div id=\"cmsTicketNav-0\" class=\"m-cmsTicketNav m-cms-ticket-nav\" style=\"\" shark-root=\"1736933181354\"></div>","_innerStyle":null,"autoStyle":{}},{"type":"cmsTicketAdmission","_version":"0.0.57","_dir":"preview","hasOutlineScript":true,"hasOutlineStyle":true,"_buildMap":[{"gitName":"shark-one-build","buildType":"shark","buildVer":"4.0.0","buildJob":"http://portal.corp.qunar.com/apptask/build.html?id=71082"}],"_buildInfo":{"domain":"qfe.qunarzz.com/cm_portal_compile_fe","type":"shark-1"},"_image":"","_serverConfig":[],"mId":"etAdmission_5c369c_1717138117254","_id":"cmsTicketAdmission-1","_componentName":"门票景点简介入园信息组件","_style":"<link rel=\"stylesheet\" href=\"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketAdmission-shark@0.0.57.css\" />","_script":"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketAdmission-shark@0.0.57.js","_html":"<div id=\"cmsTicketAdmission-1\" class=\"m-cmsTicketAdmission m-cms-ticket-admission\" style=\"\" shark-root=\"1736933181354\"></div>","_innerStyle":null,"autoStyle":{}},{"type":"cmsTicketIntroduction","_version":"0.0.45","_dir":"preview","hasOutlineScript":true,"hasOutlineStyle":true,"_buildMap":[{"gitName":"shark-one-build","buildType":"shark","buildVer":"4.0.0","buildJob":"http://portal.corp.qunar.com/apptask/build.html?id=71082"}],"_buildInfo":{"domain":"qfe.qunarzz.com/cm_portal_compile_fe","type":"shark-1"},"_image":"","_serverConfig":[],"mId":"ntroduction_df88a0_1717138117256","_id":"cmsTicketIntroduction-2","_componentName":"门票景点简介景区介绍组件","_style":"<link rel=\"stylesheet\" href=\"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketIntroduction-shark@0.0.45.css\" />","_script":"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketIntroduction-shark@0.0.45.js","_html":"<div id=\"cmsTicketIntroduction-2\" class=\"m-cmsTicketIntroduction m-cms-ticket-introduction\" style=\"\" shark-root=\"1736933181354\"></div>","_innerStyle":null,"autoStyle":{}},{"type":"cmsTicketVisitGuide","_version":"0.0.45","paddingBottom":68,"_dir":"preview","hasOutlineScript":true,"hasOutlineStyle":true,"_buildMap":[{"gitName":"shark-one-build","buildType":"shark","buildVer":"4.0.0","buildJob":"http://portal.corp.qunar.com/apptask/build.html?id=71082"}],"_buildInfo":{"domain":"qfe.qunarzz.com/cm_portal_compile_fe","type":"shark-1"},"_image":"","_serverConfig":[],"mId":"tVisitGuide_240b5c_1717138117258","_id":"cmsTicketVisitGuide-3","_componentName":"门票景点简介游玩指南组件","_style":"<link rel=\"stylesheet\" href=\"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketVisitGuide-shark@0.0.45.css\" />","_script":"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketVisitGuide-shark@0.0.45.js","_html":"<div id=\"cmsTicketVisitGuide-3\" class=\"m-cmsTicketVisitGuide m-cms-ticket-visit-guide\" style=\"\" shark-root=\"1736933181354\"></div>","_innerStyle":null,"autoStyle":{}},{"type":"cmsTicketLoadingError","_version":"0.0.45","_dir":"preview","hasOutlineScript":true,"hasOutlineStyle":true,"_buildMap":[{"gitName":"shark-one-build","buildType":"shark","buildVer":"4.0.0","buildJob":"http://portal.corp.qunar.com/apptask/build.html?id=71082"}],"_buildInfo":{"domain":"qfe.qunarzz.com/cm_portal_compile_fe","type":"shark-1"},"_image":"","_serverConfig":[],"mId":"oadingError_67426a_1717138117260","_id":"cmsTicketLoadingError-4","_componentName":"门票景点简介网络失败重试组件","_style":"<link rel=\"stylesheet\" href=\"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketLoadingError-shark@0.0.45.css\" />","_script":"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketLoadingError-shark@0.0.45.js","_html":"<div id=\"cmsTicketLoadingError-4\" class=\"m-cmsTicketLoadingError m-cms-ticket-loading-error\" style=\"\" shark-root=\"1736933181354\"></div>","_innerStyle":null,"autoStyle":{}},{"type":"cmsTicketOrder","_version":"0.0.59","isOutsideComponent":true,"_dir":"preview","hasOutlineScript":true,"hasOutlineStyle":true,"_buildMap":[{"gitName":"shark-one-build","buildType":"shark","buildVer":"4.0.0","buildJob":"http://portal.corp.qunar.com/apptask/build.html?id=71082"}],"_buildInfo":{"domain":"qfe.qunarzz.com/cm_portal_compile_fe","type":"shark-1"},"_image":"","_serverConfig":[],"mId":"TicketOrder_0e674c_1717138117262","_id":"cmsTicketOrder-5","_componentName":"门票景点简介立即预定组件","_style":"<link rel=\"stylesheet\" href=\"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketOrder-shark@0.0.59.css\" />","_script":"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketOrder-shark@0.0.59.js","_html":"<div id=\"cmsTicketOrder-5\" class=\"m-cmsTicketOrder m-cms-ticket-order\" style=\"\" shark-root=\"1736933181354\"></div>","_innerStyle":null,"autoStyle":{}},{"type":"cmsTelephoneModal","_version":"0.0.45","isOutsideComponent":true,"_dir":"preview","hasOutlineScript":true,"hasOutlineStyle":true,"_buildMap":[{"gitName":"shark-one-build","buildType":"shark","buildVer":"4.0.0","buildJob":"http://portal.corp.qunar.com/apptask/build.html?id=71082"}],"_buildInfo":{"domain":"qfe.qunarzz.com/cm_portal_compile_fe","type":"shark-1"},"_image":"","_serverConfig":[],"mId":"ephoneModal_e69181_1717138117265","_id":"cmsTelephoneModal-6","_componentName":"门票景点简介联系电话弹窗组件","_style":"<link rel=\"stylesheet\" href=\"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTelephoneModal-shark@0.0.45.css\" />","_script":"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTelephoneModal-shark@0.0.45.js","_html":"<div id=\"cmsTelephoneModal-6\" class=\"m-cmsTelephoneModal m-cms-telephone-modal\" style=\"\" shark-root=\"1736933181354\"></div>","_innerStyle":null,"autoStyle":{}},{"type":"cmsAnnouncePopView","_version":"0.0.45","_dir":"preview","hasOutlineScript":true,"hasOutlineStyle":true,"_buildMap":[{"gitName":"shark-one-build","buildType":"shark","buildVer":"4.0.0","buildJob":"http://portal.corp.qunar.com/apptask/build.html?id=71082"}],"_buildInfo":{"domain":"qfe.qunarzz.com/cm_portal_compile_fe","type":"shark-1"},"_image":"","_serverConfig":[],"mId":"uncePopView_b3fc1e_1717138117267","_id":"cmsAnnouncePopView-7","_componentName":"cmsAnnouncePopView","_style":"<link rel=\"stylesheet\" href=\"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsAnnouncePopView-shark@0.0.45.css\" />","_script":"//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsAnnouncePopView-shark@0.0.45.js","_html":"<div id=\"cmsAnnouncePopView-7\" class=\"m-cmsAnnouncePopView m-cms-announce-pop-view\" style=\"\" shark-root=\"1736933181354\"></div>","_innerStyle":null,"autoStyle":{}}],"mergedStyles":"","preloadStyles":[],"serverTime":1740376419421},"style":"","script":"","html":"","last_online_time":"2024-10-12T12:45:48.000Z","isPureNext":true,"sharkVersion":"","sharkNextVersion":""};
+window.__page_data = window.__page_root.config;
+window.__log_custom = "godeye";
+Shark.injectPage(window.__page_data);
+</script>
+
+
+<script>Shark.fishLoaderNext.initQueue(window.__page_data.components);</script>
+
+<link rel="stylesheet" href="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketNav-shark@0.0.58.css">
+<div id="cmsTicketNav-0" class="m-cmsTicketNav m-cms-ticket-nav" style="" shark-root="1736933181354"><div fishbone-root="1740376421419" style="top:0rpx" class="m-navTitleItem-container navTitleItem-container-touchHeight" id="CmsTicketNavId"><div class="m-container-shadow"></div><div class="m-touch-backgroundView"><div bindtap="this.anonymousFunc0"><span class="iconfont m-back-view"></span></div><span class="m-title-view">金东尼人妖秀</span></div><div class="m-titleItemBackgroundView"><div bindtap="this.anonymousFunc1" data-e-tap-so="this" data-e-tap-a-a="azzzz0"><span class="m-titleFontItemSelect">入园信息</span></div><div bindtap="this.anonymousFunc1" data-e-tap-so="this" data-e-tap-a-a="azzzz1"><span class="m-titleFontItemNormal">景区介绍</span></div><div bindtap="this.anonymousFunc1" data-e-tap-so="this" data-e-tap-a-a="azzzz2"><span class="m-titleFontItemNormal">游玩指南</span></div></div><div id="cmsTicketNav-0-id-CmsTicketNavId-animatedview" compid="1740376421418-undefined$compid__0-7981"><div style="position:absolute;background-color:#00CAD8;height:3px;width:24px;left:121.33333333333334px;bottom:4px;border-top-left-radius:1.5px;border-top-right-radius:1.5px;border-bottom-right-radius:1.5px;border-bottom-left-radius:1.5px;transition:0.2s all linear" fishbone-root="1740376421420"></div></div></div></div>
+<script>Shark.handleQueue('cmsTicketNav-0', 'htmlAppended','id')</script>
+<script crossorigin="anonymous" src="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketNav-shark@0.0.58.js" onload="Shark.handleQueue('cmsTicketNav','jsLoaded', 'type')" onerror="Shark.handleQueue('cmsTicketNav','jsFailed', 'type')"></script>
+
+<link rel="stylesheet" href="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketAdmission-shark@0.0.57.css">
+<div id="cmsTicketAdmission-1" class="m-cmsTicketAdmission m-cms-ticket-admission" style="" shark-root="1736933181354"><div fishbone-root="1740376421415" style="" class="m-admissionInformation-container m-admissionInformation-touch-container-height" bindlayout="this.anonymousFunc0" id="CmsTicketAdmissionId"><div id="cmsTicketAdmission-1-id-CmsTicketAdmissionId-weatherforecast" compid="1740376421413-undefined$compid__0-8296"></div><div id="cmsTicketAdmission-1-id-CmsTicketAdmissionId-autoscrollannounce" compid="1740376421413-undefined$compid__1-3843"><div fishbone-root="1740376421416"></div></div><div class="m-tab-title-container"><div class="m-tab-title-background"></div><span class="m-tab-title">入园信息</span></div><div id="cmsTicketAdmission-1-id-CmsTicketAdmissionId-opentime" compid="1740376421413-undefined$compid__2-6097"><div class="m-openTime-container" fishbone-root="1740376421416"><span class="m-secondleveltitle">开放时间</span><div><div class="m-tableView-container"><div><div class="m-titelSupView m-titelSupView-first"><span class="m-title">1月1日-12月31日</span></div><div class="m-timeSupView"><div class="m-time"><span class="m-time">17:00-22:00（20:00停止入园）</span></div></div></div></div><div><div class="m-titelSupView m-timeSupView-last"><span class="m-title-supplement">补充说明：人妖秀节目每日第一场演出时间为17:00，最后一场为20:00</span></div></div></div><span class="m-annotation">* 以上信息仅供参考，具体以景区当日公示信息为准</span></div></div><div id="cmsTicketAdmission-1-id-CmsTicketAdmissionId-titledescview" compid="1740376421413-undefined$compid__3-913"><div class="m-titleDescView-container" fishbone-root="1740376421418"><span class="m-title">门市参考价</span><div class="m-subtitle">门市参考价 0 泰铢</div><span class="m-tips">* 以上信息仅供参考，具体以景区当日公示信息为准</span></div></div><div id="cmsTicketAdmission-1-id-CmsTicketAdmissionId-preferentialtreatmentpolicy" compid="1740376421413-undefined$compid__4-1269"><div id="cmsTicketAdmission-1-id-CmsTicketAdmissionId-preferentialtreatmentpolicy-root-preferentialtreatmentpolicyshark" compid="1740376421417-undefined$compid__1-6822" fishbone-root="1740376421417"><div class="m-preferentialTreatmentPolicy-container-shark" fishbone-root="1740376421418"><span class="m-secondleveltitle">优待政策</span><div class="m-tableView-container"><div class="m-titelSupView m-view-first"><span class="m-title m-width-leftRight">人群</span><span class="m-title m-width-center">适用条件</span><span class="m-title m-width-leftRight">优待政策</span></div><div class="m-level1tabSuperView-borderbottom"><div><div class="m-level2tabSuperView"><div class="m-people-text-superView m-border-width-right"><span class="m-people-text">婴幼儿</span></div><div class="m-view-column m-width-centerright"><div class="m-view-row m-width-centerright"><div class="m-condition-text-superView m-border-width-right"><span class="m-condition-text">3周岁(含)以下婴幼儿可在父母陪同下免费入场</span></div><div class="m-people-text-superView m-width-leftRight"><span class="m-policy-text">免费</span></div></div></div></div></div></div><div></div></div><div class="m-annotation"><span>* 以上信息仅供参考，具体以景区当日公示信息为准</span></div></div></div></div><div class="m-telephones-container"><span class="m-telephones-title">景区官方联系电话</span><div bindtap="this.anonymousFunc1"><div class="m-telephones-content"><div class="m-telephones-flex"><span class="m-telephones-text">+66 81-4905557、</span><span class="m-telephones-text">+66 99-4268877</span></div><span class="iconfont m-telephones-icon"></span></div></div></div><div id="cmsTicketAdmission-1-id-CmsTicketAdmissionId-titledescview" compid="1740376421413-undefined$compid__5-5937"></div></div></div>
+<script>Shark.handleQueue('cmsTicketAdmission-1', 'htmlAppended','id')</script>
+<script crossorigin="anonymous" src="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketAdmission-shark@0.0.57.js" onload="Shark.handleQueue('cmsTicketAdmission','jsLoaded', 'type')" onerror="Shark.handleQueue('cmsTicketAdmission','jsFailed', 'type')"></script>
+
+<link rel="stylesheet" href="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketIntroduction-shark@0.0.45.css">
+<div id="cmsTicketIntroduction-2" class="m-cmsTicketIntroduction m-cms-ticket-introduction" style="" shark-root="1736933181354"><div fishbone-root="1740376421449" class="m-ticketIntroduction-container" bindlayout="this.anonymousFunc0" id="CmsTicketIntroductionId"><div class="m-ticketScrollView-divider"></div><div class="m-tab-title-container"><div class="m-tab-title-background"></div><span class="m-tab-title">景区介绍</span></div><div class="m-introduction-container"><span class="m-tab-subtitle">图文详情</span><div><div id="introductionContent" class="m-introduction-content" style="max-height:600rpx" bindcontentsizechange="this.anonymousFunc1"> <ul>  <li>尽情感受表演者华丽的服装、精致的场景和壮观的灯光。</li>  <li>壮观的剧院和曼谷黄金地段相结合，成为曼谷大部分游客选择的人妖音乐表演。</li>  <li>金顶歌舞表演曾荣获泰国旅游局颁发的2017年泰国十大民众选择奖。</li> </ul> <p></p> <p><img src="http://piao-qsight-webcp.qunarzz.com/piao_qsight_web_piao_qsight_web/mp_ctrip_gateway/2023_10/69a3596621c1b9be8f3c719b5e275c4f.jpg"></p> <p>△ 别具一格的舞台表演</p> <p><img src="http://piao-qsight-webcp.qunarzz.com/piao_qsight_web_piao_qsight_web/mp_ctrip_gateway/2023_10/3003c3c868c3bb53f190223c7cfac995.jpg"></p> <p>△ 表演阵容强大</p> <p></p> <p>剧院位于曼谷市中心，驾车和乘坐公共交通工具即可轻松抵达。整个剧院能坐下差不多1千人，演出在45分钟左右，配备了先进的灯光和音响系统，带来真正身临其境的表演体验。在大门入口右手墙上，就可看到2005年泰国人妖大赛，此秀场拔得头筹，荣获前茅。整个表演可看性非常高，节目结束后你还可支付一些小费与佳丽们合影留念。</p></div><div class="m-introduction-gradient-container"></div><div id="toggleIntroductionId" class="m-introduction-toggle-container" bindtap="this.anonymousFunc2"><span class="m-introduction-toggle-title">查看全部</span><span class="iconfont m-introduction-toggle-icon"></span></div></div></div><div class="m-facility-container"><span class="m-tab-subtitle">服务设施</span><div class="m-facility-icon-container"><div class="m-facility-icon-content"><img class="m-facility-icon" src="https://piao-qsight-webcp.qunarzz.com/piao_qsight_web_piao_qsight_web/tooools/卫生间.png"><span class="m-facility-icon-text">卫生间</span></div><div id="toggleFacilityId" class="m-introduction-toggle-container" bindtap="this.anonymousFunc3"><span class="m-introduction-toggle-title">查看全部</span><span class="iconfont m-introduction-toggle-icon"></span></div></div></div></div></div>
+<script>Shark.handleQueue('cmsTicketIntroduction-2', 'htmlAppended','id')</script>
+<script crossorigin="anonymous" src="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketIntroduction-shark@0.0.45.js" onload="Shark.handleQueue('cmsTicketIntroduction','jsLoaded', 'type')" onerror="Shark.handleQueue('cmsTicketIntroduction','jsFailed', 'type')"></script>
+
+<link rel="stylesheet" href="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketVisitGuide-shark@0.0.45.css">
+<div id="cmsTicketVisitGuide-3" class="m-cmsTicketVisitGuide m-cms-ticket-visit-guide" style="" shark-root="1736933181354"><div fishbone-root="1740376421452" class="m-ticketVisitGuide-container" bindlayout="this.anonymousFunc0" id="CmsTicketVisitGuideId"><div class="m-ticketScrollView-divider"></div><div class="m-tab-title-container"><div class="m-tab-title-background"></div><span class="m-tab-title">游玩指南</span></div><div class="m-visitGuide-container" style="margin-top:.2rem"><span class="m-tab-subtitle">必玩贴士</span><div id="playTipsContent" class="m-visitGuide-content" style="max-height:220px" bindcontentsizechange="this.anonymousFunc3"><p>【高端服务信息】金东尼人妖秀可选VIP座</p><p></p></div><div class="m-visitGuide-gradient-container"></div><div id="togglePlayTipsId" class="m-visitGuide-toggle-container" bindtap="this.anonymousFunc4"><span class="m-visitGuide-toggle-title">查看全部</span><span class="iconfont m-visitGuide-toggle-icon"></span></div></div><div class="m-visitGuide-touch-bottom"></div></div></div>
+<script>Shark.handleQueue('cmsTicketVisitGuide-3', 'htmlAppended','id')</script>
+<script crossorigin="anonymous" src="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketVisitGuide-shark@0.0.45.js" onload="Shark.handleQueue('cmsTicketVisitGuide','jsLoaded', 'type')" onerror="Shark.handleQueue('cmsTicketVisitGuide','jsFailed', 'type')"></script>
+
+<link rel="stylesheet" href="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketLoadingError-shark@0.0.45.css">
+<div id="cmsTicketLoadingError-4" class="m-cmsTicketLoadingError m-cms-ticket-loading-error" style="" shark-root="1736933181354"><div fishbone-root="1740376421452"></div></div>
+<script>Shark.handleQueue('cmsTicketLoadingError-4', 'htmlAppended','id')</script>
+<script crossorigin="anonymous" src="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketLoadingError-shark@0.0.45.js" onload="Shark.handleQueue('cmsTicketLoadingError','jsLoaded', 'type')" onerror="Shark.handleQueue('cmsTicketLoadingError','jsFailed', 'type')"></script>
+
+<link rel="stylesheet" href="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketOrder-shark@0.0.59.css">
+<div id="cmsTicketOrder-5" class="m-cmsTicketOrder m-cms-ticket-order" style="" shark-root="1736933181354"></div>
+<script>Shark.handleQueue('cmsTicketOrder-5', 'htmlAppended','id')</script>
+<script crossorigin="anonymous" src="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTicketOrder-shark@0.0.59.js" onload="Shark.handleQueue('cmsTicketOrder','jsLoaded', 'type')" onerror="Shark.handleQueue('cmsTicketOrder','jsFailed', 'type')"></script>
+
+<link rel="stylesheet" href="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTelephoneModal-shark@0.0.45.css">
+<div id="cmsTelephoneModal-6" class="m-cmsTelephoneModal m-cms-telephone-modal" style="" shark-root="1736933181354"><div fishbone-root="1740376421080"></div></div>
+<script>Shark.handleQueue('cmsTelephoneModal-6', 'htmlAppended','id')</script>
+<script crossorigin="anonymous" src="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsTelephoneModal-shark@0.0.45.js" onload="Shark.handleQueue('cmsTelephoneModal','jsLoaded', 'type')" onerror="Shark.handleQueue('cmsTelephoneModal','jsFailed', 'type')"></script>
+
+<link rel="stylesheet" href="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsAnnouncePopView-shark@0.0.45.css">
+<div id="cmsAnnouncePopView-7" class="m-cmsAnnouncePopView m-cms-announce-pop-view" style="" shark-root="1736933181354"><div fishbone-root="1740376421082"></div></div>
+<script>Shark.handleQueue('cmsAnnouncePopView-7', 'htmlAppended','id')</script>
+<script crossorigin="anonymous" src="//qfe.qunarzz.com/cm_portal_compile_fe/shark-one-build/prd/qnpm/cmsAnnouncePopView-shark@0.0.45.js" onload="Shark.handleQueue('cmsAnnouncePopView','jsLoaded', 'type')" onerror="Shark.handleQueue('cmsAnnouncePopView','jsFailed', 'type')"></script>
+</div>
+
+
+<script>
+    var performanceTiming = window.performance && window.performance.timing;
+    if(performanceTiming && window.addEventListener) {
+        window.addEventListener('load', function () {
+            var docEndTime = performanceTiming.domContentLoadedEventEnd - performanceTiming.connectStart;
+            var domCompleteTime = performanceTiming.domComplete - performanceTiming.connectStart;
+            var emptyFunction = function(){};
+            var endData = ['cid=' + window.__config_id, 'name=doc_end_time', 'type=addTime', 'time=' + docEndTime];
+            preRequest({url: '/shark/watcher', data: endData}, emptyFunction, emptyFunction)
+
+            var completeData = ['cid=' + window.__config_id, 'name=dom_complete_time', 'type=addTime', 'time=' + domCompleteTime];
+            preRequest({url: '/shark/watcher', data: completeData}, emptyFunction, emptyFunction)
+        })
+    }
+</script>
+
+
+<script type="text/javascript" src="https://rmcsdf.qunar.com/js/device.js?orgId=ucenter.login&amp;sessionId=40ae65b6-35be-4272-9683-1d2b090beab0&amp;auto=false"></script><script type="text/javascript" src="https://rmcsdf.qunar.com/js/df.js?org_id=ucenter.login&amp;js_type=0"></script></body></html>
