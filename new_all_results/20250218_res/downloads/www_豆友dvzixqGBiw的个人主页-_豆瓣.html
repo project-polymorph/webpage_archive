@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  
+  <title>登录豆瓣</title>
+  <style type="text/css">
+    #db-nav-sns{position:relative;zoom:1;background:#edf4ed}
+    #db-nav-sns .nav-primary{width:1040px;margin:0 auto;overflow:hidden;padding:22px 0 20px;zoom:1}
+    .account-wrap{width:1040px;margin:20px auto 0;overflow:hidden}
+    .account-main{float:left;width:590px}
+    .account-side{float:right;width:310px;color:#666}
+    
+  </style>
+  
+  <link type="text/css" rel="stylesheet" href="https://img1.doubanio.com/f/accounts/b5d5b419bb3a1c210637f8fe0adf20f33f7a5c43/dist/passport/login/index.css">
+
+</head>
+<body>
+  
+  <div id="account">
+    
+    
+<div id="db-nav-sns" class="nav">
+  <div class="nav-wrap">
+    <div class="nav-primary">
+      <a href="/">
+        <img src="https://img1.doubanio.com/f/accounts/4fd84763a74089b20eb02ba0225d6e7739d2c432/pics/passport/douban_logo@2x.png" width="142" alt="豆瓣">
+      </a>
+    </div>
+  </div>
+</div>
+
+
+    
+  <div class="login-wrap">
+    <div class="login-left">
+      <div class="login-left-box">
+        <div class="login-slide">
+        </div>
+      </div>
+      <div class="app-download">
+        <a href="https://www.douban.com/doubanapp/app?channel=nimingye" class="lnk-app">下载豆瓣 App</a>
+        <div class="app-qr">
+          <a href="javascript: ;" class="lnk-qr" id="expand-qr"><img src="https://img1.doubanio.com/f/accounts/34000ef2d09d439fc2e683b8a7c39754ae8137ab/pics/passport/ic_qr_mini_login.png" width="37" height="37"></a>
+          <div class="app-qr-expand">
+            <p>iOS / Android 扫码直接下载</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login-right">
+      
+
+
+
+
+<link type="text/css" rel="stylesheet" href="https://img1.doubanio.com/f/accounts/6661003cbdba2584562c8e03184982b4f1fb71c3/dist/passport/login/base.css">
+
+<div class="account-main account-body login-wrap login-start  ">
+  <div class="account-body-tabs">
+    <ul class="tab-start">
+      <li class="account-tab-phone on">短信登录／注册</li>
+      <li class="account-tab-account">密码登录</li>
+    </ul>
+    <ul class="tab-quick">
+      <li class="account-tab-scan">二维码登录</li>
+    </ul>
+    <div class="account-tab-switch">
+      <div class="account-tab-switch-icon">
+        <a class="quick icon-switch "></a>
+        <a class="start icon-switch "></a>
+      </div>
+      <div class="account-tab-switch-text">
+        <span class="quick">扫码登录</span>
+        <span class="start">短信登录／注册</span>
+      </div>
+    </div>
+  </div>
+  <div class="account-tabcon-start">
+    <div class="account-form">
+    <div class="account-form-tips">请仔细阅读 <a target="_blank" href="https://accounts.douban.com/passport/agreement?hide_accept=1">豆瓣使用协议、豆瓣个人信息保护政策</a></div>
+  <div class="account-form-error"><span class="hide"></span></div>
+  
+  <div class="account-form-raw">
+    <label class="account-form-label">手机号：</label>
+    <div class="account-form-field account-form-field-phone ">
+      <span class="icon clear-input hide"></span>
+      <input type="phone" name="phone" maxlength="13" class="account-form-input" placeholder="手机号" tabindex="1">
+        <div class="account-form-field-area-code">
+          <div class="account-form-field-area-code-label js-choose-district">+86</div>
+        </div>
+    </div>
+  </div>
+
+  
+  <div class="account-form-raw">
+    <label class="account-form-label">验证码：</label>
+    <div class="account-form-field account-form-codes">
+      <input id="code" type="text" name="code" maxlength="6" class="account-form-input" placeholder="验证码" tabindex="2" autocomplete="off">
+      <div class="account-form-field-code ">
+        <a href="javascript:;" class="get-code">获取验证码</a>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="account-form-field-submit ">
+    <a class="btn btn-phone ">登录豆瓣</a>
+  </div>
+
+</div>
+    <div class="account-form-ft">
+      <p class="account-form-link "><a class="help-link" target="_blank" data-action="login_phone_nocode" href="https://help.douban.com/account?app=1#t1-q5">收不到验证码</a></p>
+      <!-- 账号安全改进 2020-09-23 -->
+      <!-- <p class="account-form-remember">
+        <input name="remember" type="checkbox" id="account-form-remember" tabindex="4"><label for="account-form-remember">下次自动登录</label>
+      </p> -->
+    </div>
+    <div class="captcha-error hide">登录出现问题，<a href="javascript:window.location.reload()" data-action="captch_error">反馈并刷新</a></div>
+    <div class="account-form-3rd ">
+      <div class="account-form-3rd-hd">第三方登录: </div>
+      <div class="account-form-3rd-bd">
+        
+        <a href="https://www.douban.com/accounts/connect/wechat/?from=None&amp;redir=https%3A//www.douban.com/people/269143108/" class="link-3rd-wx link-3rd-wx-on" target="_top" title="用微信登录">wechat</a>
+          <a href="https://www.douban.com/accounts/connect/sina_weibo/?from=None&amp;redir=https%3A//www.douban.com/people/269143108/&amp;fallback=" class="link-3rd-wb link-3rd-wb-on" target="_top" title="用微博登录">weibo</a>
+      </div>
+    </div>
+  </div>
+  <div class="account-tabcon-quick account-quick">
+    <div class="account-qr-code ">
+      <div class="account-qr-tips">
+        你的账号存在安全隐患，为保证账号安全，请在常用设备上使用 <strong>豆瓣 App App 扫码登录</strong>
+      </div>
+      <div class="account-qr-scan">
+        加载中...
+      </div>
+      <div class="account-qr-text ark_cls">
+            打开 <a href="https://www.douban.com/mobile/">豆瓣 App</a><br>
+          扫一扫登录
+      </div>
+      <div class="account-qr-fail hide">
+        <span>登录失败</span>
+        <a href="javascript:;" class="btn btn-refresh account-qr-refresh ">点击刷新</a>
+      </div>
+    </div>
+    <div class="account-qr-success hide">
+      <div class="account-qr-success-hd">扫描成功！</div>
+      <div class="account-qr-success-bd">
+        <div class="account-qr-success-bd-text">请在手机上确认登录</div>
+        <div class="account-qr-success-bd-pic "></div>
+        <div class="account-qr-success-bd-link ">
+          <a href="javascript:;">返回二维码登录</a>
+        </div>
+      </div>
+    </div>
+    <div class="account-qr-link ">
+      <a href="javascript:;" class="link-phone">短信验证登录</a>
+    </div>
+  </div>
+</div>
+
+  <script type="text/javascript" defer="" async="" src="https://img3.doubanio.com/dae/fundin/piwik.js"></script><script type="text/html" id="template-global-phone">
+    <ul class="GlobalPhoneList">
+        <li class="is-active">
+          <span class="GlobalPhoneItem-district">
+            中国大陆
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=CN>+86</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            中国香港
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=HK>+852</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            中国澳门
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=MO>+853</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            中国台湾
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=TW>+886</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            日本
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=JP>+81</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            韩国
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=KR>+82</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            新加坡
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=SG>+65</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            泰国
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=TH>+66</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            马来西亚
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=MY>+60</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            美国
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=US>+1</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            加拿大
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=CA>+1</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            澳大利亚
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=AU>+61</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            英国
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=GB>+44</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            德国
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=DE>+49</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            法国
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=FR>+33</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            俄罗斯
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=RU>+7</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            印度
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=IN>+91</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            新西兰
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=NZ>+64</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            意大利
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=IT>+39</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            荷兰
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=NL>+31</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            西班牙
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=ES>+34</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            瑞典
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=SE>+46</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            奥地利
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=AT>+43</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            瑞士
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=CH>+41</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            立陶宛
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=LT>+370</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            菲律宾
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=PH>+63</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            印度尼西亚
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=ID>+62</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            越南
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=VN>+84</span>
+        </li>
+        <li class="">
+          <span class="GlobalPhoneItem-district">
+            阿联酋
+          </span>
+          <span class="GlobalPhoneItem-number" data-abbr=AE>+971</span>
+        </li>
+    </ul>
+  </script>
+
+
+
+<script type="text/template" id="tmpl_phone">
+    <div class="account-form-tips">请仔细阅读 <a target="_blank" href="https://accounts.douban.com/passport/agreement?hide_accept=1">豆瓣使用协议、豆瓣个人信息保护政策</a></div>
+  <div class="account-form-error"><span class="hide"></span></div>
+  
+  <div class="account-form-raw">
+    <label class="account-form-label">手机号：</label>
+    <div class="account-form-field account-form-field-phone ">
+      <span class="icon clear-input hide"></span>
+      <input type="phone" name="phone" maxlength="13" class="account-form-input" placeholder="手机号" tabindex="1">
+        <div class="account-form-field-area-code">
+          <div class="account-form-field-area-code-label js-choose-district">+86</div>
+        </div>
+    </div>
+  </div>
+
+  
+  <div class="account-form-raw">
+    <label class="account-form-label">验证码：</label>
+    <div class="account-form-field account-form-codes">
+      <input id="code" type="text" name="code" maxlength="6" class="account-form-input" placeholder="验证码" tabindex="2" autocomplete="off">
+      <div class="account-form-field-code ">
+        <a href="javascript:;" class="get-code">获取验证码</a>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="account-form-field-submit ">
+    <a class="btn btn-phone ">登录豆瓣</a>
+  </div>
+
+</script>
+
+<script type="text/template" id="tmpl_account">
+  <div class="account-form-error"><span class="hide"> </span></div>
+  
+  <div class="account-form-raw">
+    <label class="account-form-label">用户名：</label>
+    <div class="account-form-field">
+      <input id="username" name="username" type="text" class="account-form-input" placeholder="手机号 / 邮箱" tabindex="1">
+      <span class="icon clear-input hide"></span>
+    </div>
+  </div>
+
+  
+  <div class="account-form-raw">
+    <label class="account-form-label">密 码：</label>
+    <div class="account-form-field">
+      <input id="password" type="password" name="password" class="account-form-input password" placeholder="密码" tabindex="3">
+      <span class="icon openpwd hide"></span>
+        <a target="_blank" href="https://accounts.douban.com/passport/get_password" class="fwd-link">找回密码</a>
+    </div>
+  </div>
+
+  
+  <div class="account-form-field-submit ">
+    <a class="btn btn-account ">登录豆瓣</a>
+  </div>
+
+</script>
+
+<script type="text/template" id="tmpl_abroad">
+  <div class="account-form-error"><span class="hide"> </span></div>
+  
+  <div class="account-form-raw">
+    <label class="account-form-label">手机号：</label>
+    <div class="account-form-field account-form-field-phone ">
+      <span class="icon clear-input hide"></span>
+      <input type="phone" name="phone" maxlength="13" class="account-form-input" placeholder="手机号" tabindex="1">
+        <div class="account-form-field-area-code">
+          <div class="account-form-field-area-code-label js-choose-district">+86</div>
+        </div>
+    </div>
+  </div>
+
+  
+  <div class="account-form-raw">
+    <label class="account-form-label">密 码：</label>
+    <div class="account-form-field">
+      <input id="password" type="password" name="password" class="account-form-input password" placeholder="密码" tabindex="3">
+      <span class="icon openpwd hide"></span>
+    </div>
+  </div>
+
+  
+  <div class="account-form-field-submit ">
+    <a class="btn btn-account ">登录豆瓣</a>
+  </div>
+
+</script>
+
+<script src="https://img1.doubanio.com/f/accounts/47d0af5038f4f733a9e167c6784d8adf37cbc138/dist/passport/polyfill.js"></script>
+<script type="text/javascript">
+  var _REDIR = 'https://www.douban.com/people/269143108/';
+  var _TMPL_ACCOUNT = document.getElementById('tmpl_account').innerHTML;
+  var _TMPL_PHONE = document.getElementById('tmpl_phone').innerHTML;
+  var _TMPL_ABROAD = document.getElementById('tmpl_abroad').innerHTML;
+  var isAnony = false;
+</script>
+<script src="https://img1.doubanio.com/f/accounts/dc08d02c0dbc742401abc8026fd22dd59f7d70b3/dist/passport/login/base.js"></script>
+
+      <!-- <iframe style="height: 450px; width: 340px;" frameborder='0' src="/passport/login_base"></iframe> -->
+    </div>
+  </div>
+
+  </div><div></div><div class="ui-dialog-mountnode " style="display: none;">
+  <div class="ui-dialog-mask">
+    <div class="ui-dialog-container">
+      <div class="ui-dialog-panel">
+        <div class="ui-dialog-title-wrapper"></div>
+        <div class="ui-dialog-body-wrapper"></div>
+        
+  <a href="javascript:;" class="ui-dialog-lnk-close">
+    ×
+  </a>
+
+      </div>
+    </div>
+  </div>
+  </div><div class="ui-dialog-mountnode phone-dialog-pc " style="display: none;">
+  <div class="ui-dialog-mask">
+    <div class="ui-dialog-container">
+      <div class="ui-dialog-panel">
+        <div class="ui-dialog-title-wrapper"></div>
+        <div class="ui-dialog-body-wrapper"></div>
+        
+  <a href="javascript:;" class="ui-dialog-lnk-close">
+    ×
+  </a>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  
+  
+
+  <script type="text/javascript">
+    var _DATA = {
+      pics: []
+    };
+  </script>
+
+  <script type="text/javascript" src="https://img1.doubanio.com/f/accounts/7dc1e207f14f167b27e5ce5adbd6642499bd11d1/dist/passport/login/index.js"></script>
+  <script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var p=(('https:' == document.location.protocol) ? 'https' : 'http'), u=p+'://fundin.douban.com/';
+        _paq.push(['setTrackerUrl', u+'piwik']);
+        _paq.push(['setSiteId', '100001']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript';
+        g.defer=true;
+        g.async=true;
+        g.src=p+'://img3.doubanio.com/dae/fundin/piwik.js';
+        s.parentNode.insertBefore(g,s);
+    })();
+</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
