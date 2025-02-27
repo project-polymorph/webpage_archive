@@ -1,0 +1,654 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Referrer" content="origin">
+<title>查看论文信息</title><!--查看论文信息  -->
+<link rel="stylesheet" type="text/css" href="style/public.css">
+<link rel="stylesheet" type="text/css" href="style/daoshi.css">
+<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+     var $win_w=$(window).width();
+     if($win_w>1000)
+     {
+		var $nav_meun_r=($win_w-840)/2-70;
+		$(".nav_meun").css("right",$nav_meun_r);
+	 }else
+	 {
+		$(".nav_meun").css("right",0);
+	 }
+ });
+$(function(){
+
+	$(window).scroll(function(e) {
+        var win_top=$(window).scrollTop();
+		if(win_top>0){
+			$(".return_top").show();
+			}else{
+			$(".return_top").hide();
+			}
+    });
+	$(".return_top").click(function(){
+		$("body,html").animate({scrollTop:0},300);
+		return false;
+		})
+		
+	$("div.consult p").last().css("border","none");
+	$("div.consult").each(function(){ 
+	  var conhieght=$(this).height();
+	  if(conhieght>250){
+		$(this).addClass("H250");
+		}
+		else{
+		$(this).siblings("a.unfold_btn_2").hide();
+		}
+
+	})
+
+	$(".unfold_btn_2").click(function() {
+       if($(this).siblings("div.consult").hasClass("H250")){
+		   	$(this).siblings("div.consult").removeClass("H250");
+		   	$(this).html("︿"); //收起
+			$(this).siblings(".unfold_btn_1").show();
+		   }else{
+			$(this).siblings("div.consult").addClass("H250");
+		   	$(this).html("﹀"); //展开
+			$(".unfold_btn_1").hide();
+			}
+    }); 
+	$(".unfold_btn_1").click(function() {
+			$(this).siblings("div.consult").addClass("H250");
+			$(this).hide();
+			$(".unfold_btn_2").html("﹀"); //展开
+    });
+		
+		
+		
+})
+
+
+function docinfo(id1, id2){
+	$("#id1").val(id1);	
+	$("#id2").val(id2);	
+	$("#docinfo_form").submit();
+}
+</script>
+</head>
+<body>
+-<!---------header-------->
+
+
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="style/public.css">
+<link rel="stylesheet" type="text/css" href="style/subject.css">
+<script type="text/javascript" src="js/search.js"></script>
+<script type="text/javascript" src="js/changelg.js"></script>
+
+
+
+ 
+
+<!---------header-------->
+<input type="hidden" value="chi" id="languagetype">
+<div class="header">
+	<div class="nav">
+    	<a href="index.action">
+    	<div class="logo">
+    	<img src="images/logo.jpg">
+    	<div class="name">北京师范大学图书馆学位论文服务系统</div>
+    	
+    	</div>
+    	</a>
+        
+    	  
+   	      
+   	    
+        
+    	
+    	<ul>
+  	        
+    	    
+    	    
+    	    
+    	    
+    	    
+   	        
+    	    
+    	      
+    	    
+    	    
+    	    
+    	    
+     	    
+     	    
+     	    
+     	    
+     
+         	<li class="on"><a href="index.action">首页</a></li>
+            <li class=""><a href="classbrowse.action?curtaxid=2">学科导航</a></li> <!--学科导航  -->
+             
+            <li class=""><a href="yxds_browse.action">分类浏览</a></li>  <!--分类浏览  -->
+         <!--    <li class=""><a href="hotdoclist.action">点击排行</a></li>  --><!-- 点击排行 -->
+           <li class=""><a href="etdlogin.jsp">论文提交</a></li> <!-- 论文提交 -->
+		   <li class=""><a href="hjlw.jsp">优秀论文</a></li>    			      	    
+           <li class=""><a href="faqlist.action">常见问题</a></li>
+		   <li class=""><a href="download.jsp">常用下载</a></li>		 
+		   <li class=""><a href="contact.jsp">联系我们</a></li>
+            
+	            
+	               <li class=""><a onclick="changelg('eng')">English</a></li>
+	            
+	            
+            
+           
+            
+    	    
+        </ul>
+         
+    </div>
+</div>
+
+
+
+
+ 
+
+
+
+<div style="height:100px;"></div>
+<div class="context">
+	<div class="nav_meun" style="right: 462.5px;">
+        
+        
+        
+        
+        
+        
+        
+        
+         <!-- 只有论文开放才能查看全文 -->
+          <!-- 允许查看全文或下载 -->
+         <div class="look btn">
+             
+               
+               
+                  <a href="onlinePDF?dbid=72&amp;objid=49_48_49_50&amp;flag=online" style="padding-right:10px;" target="_blank">查看全文</a> <!-- 福新的文件保护 -->
+                   <!-- 我们自己的文件保护 -->
+               
+             
+         </div>
+        
+        
+         
+        
+        <div class="return_top btn" style="display:none;">
+        	<a href="#">返回顶部</a>
+        </div>
+    </div>
+
+
+
+    <div class="thesis_context"><!------院系----->
+     	<div class="right_top">
+          	<span style="float:left;">查看论文信息</span>
+          
+            
+            
+              <!-- <div class="pdf_down"><a href="https://etdlib.bnu.edu.cn/read/pdfReader/FoxitReader_chs_Setup.exe">阅读器下载</a></div> --><!-- 阅读器下载 -->
+            
+          
+          	
+            
+        </div>
+        <div class="con">
+        	<h2></h2>
+            <table cellpadding="0" cellspacing="0" border="0">
+                
+                
+            	<tbody><tr>
+                	<td class="left">中文题名：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;网络媒介环境下的跨性别身份建构研究&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">姓名：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;<a href="simpsearch.action?keyword=%25E4%25BD%2595%25E8%258C%259C%25E8%258C%25B9&amp;sfield=author">何茜茹</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+                
+                
+                
+                
+            	<tr>
+                	<td class="left">学科代码：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;050302&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">学科专业：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;<a href="simpsearch.action?keyword=%25E4%25BC%25A0%25E6%2592%25AD%25E5%25AD%25A6&amp;sfield=xkname">传播学</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">学生类型：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;硕士&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">学位：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;文学硕士&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+                
+                
+            	<tr>
+                	<td class="left">学位年度：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;2015&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+                
+                
+            	<tr>
+                	<td class="left">校区：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;<a href="simpsearch.action?keyword=%25E5%258C%2597%25E4%25BA%25AC%25E6%25A0%25A1%25E5%258C%25BA%25E5%259F%25B9%25E5%2585%25BB&amp;sfield=department">北京校区培养</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">学院：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;<a href="simpsearch.action?keyword=%25E6%2596%2587%25E5%25AD%25A6%25E9%2599%25A2&amp;sfield=specialty">文学院</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">研究方向：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;媒介与文化传播&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">第一导师姓名：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;<a href="simpsearch.action?keyword=%25E6%25AF%259B%25E5%25B3%25B0&amp;sfield=teacher_name">毛峰</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">第一导师单位：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;<a href="simpsearch.action?keyword=%25E5%258C%2597%25E4%25BA%25AC%25E5%25B8%2588%25E8%258C%2583%25E5%25A4%25A7%25E5%25AD%25A6%25E6%2596%2587%25E5%25AD%25A6%25E9%2599%25A2&amp;sfield=teacher_school">北京师范大学文学院</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+                
+                
+            	<tr>
+                	<td class="left">提交日期：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;2015-06-03&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">答辩日期：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;2015-05-23&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">外文题名：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;The research of network media transgender identity construction&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+                
+                
+                
+                
+            	<tr>
+                	<td class="left">中文摘要：</td>
+                	
+                	    <!-- 参考文献 或 目录 或文摘-->
+             	         
+             	         
+						 
+             	         
+             	         <td class="right">
+                	        <a class="unfold_btn_1" style="display:none;">︿</a><!-- 收起 -->
+                    	    <div class="consult H250" style="clear:both;word-break:break-all;">
+               	      
+                	         网络时代的来临改变了传统媒介的单向传播方式，新媒体技术打破了地域、国家以及传统界限的种种藩篱，创造出了一个无所不在的互联网世界。在网络媒介环境下，个体的存在、认知与互动也发生了改变，对身份的解构与重构在此过程中得以实现。而曾经隐身于大众传媒的主流话语之外的跨性别主体，也在各种社交媒体、自媒体和社群网站中主动现身，通过主体经验的多样化表达、网络社群内的讨论与交流，主动参与到了对自身身份的建构过程之中。而这种身份建构的目的并不仅止于网络空间，更是为了获得在现实社会空间内生存的合法地位，以及自由发声的权力。   本文从巴特勒的性别“操演”理论出发对跨性别进行文化角度的阐释与说明，总结跨性别身份的特点，在此基础上提出跨性别身份建构的重要意义。通过案例与文本分析，将跨性别作为研究对象放置于网络媒介环境之中，关注跨性别主体在该空间内的种种表现，概括在网络媒介环境中跨性别的身份建构过程。与案例相结合，从主流网络新闻媒体、社群网站及自媒体三个角度进行总结与描述。通过跨性别身份建构过程对社会性别议题的影响，与当代性别平权运动组织与实践的结合，表现跨性别身份研究对于促进社会性别多元表达的意义。   对跨性别身份建构的关注，是一种对社会现象的观察，本文将跨性别与网络媒介相结合进行讨论，是在跨性别文化理论研究的基础上，提出一种新的研究路径，反思隐藏在社会生活与媒介环境背后性别二元的僵化逻辑，提倡用更加宽容的性别视角关注性少数群体，丰富社会性别的多元图景。
+                	       </div>
+                	       <a class="unfold_btn_2">﹀</a><!-- 展开 -->
+                	      </td>
+                 	   
+                 	   
+                	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">外文摘要：</td>
+                	
+                	   
+                 	   
+                 	   		<td class="right">
+                	        <a class="unfold_btn_1" style="display:none;">︿</a><!-- 收起 -->
+                    	    <div class="consult H250" style="clear:both;word-break:keep-all;">
+               	      
+                	         The advent of the Internet era has changed the traditional media’s one-way transmission, the new media technology has break the regional, national and traditional boundaries of all sorts of barriers, and created a ubiquitous Internet world. In the network media environment, the existence of the individual, the cognition and interaction have also been changed, and during the process of deconstruction and reconstruction to the status have been implemented. The transgender body, which used to stealth to the traditional mess media mainstream discourse, is appearing in all kinds of social networks actively. Through the expression of diversification experience, the discussion and communication in the network communities, the transgender body involved in the construction of their own identity actively, This kind of identity construction is not only in cyberspace, but also in the real social space. Based on this, the transgender body could get the legal status to survive, and the power of speak free.    This article embarks from the “performatitivity” theory of gender perspective in the cultural interpretation and explanation, and summarized the characteristics of transgender identity. This article based on this process, advances across the significance of gender identity construction. Through the research of participatory observation method, placing the transgender as the research object in the network media space, focusing on the transgender subject within the space of variety of performance, then summarizing the construction process of gender identity in the network media space. Combined with the cases, from the mainstream media, social network and twitter three angles to summary and description. Through the influence of transgender identity construction process to the social gender issues, and the combination of the contemporary gender equality movement and practice, the transgender identity research show the meaning of promoting social gender diversity.    Focusing on the transgender identity construction, it is like an observation of the social phenomenon. In this paper, based on the discuss between the transgender and the network media, put forward a new method, reflection on the social life and the binary gender division of media rigid logic. So we advocate more inclusive view of gender angle on sexual minorities, to rich the blueprint of social gender diversity.
+                	       </div>
+                	       <a class="unfold_btn_2">﹀</a><!-- 展开 -->
+                	      </td>
+                 	   
+                	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">参考文献总数：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;25&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            	<tr>
+                	<td class="left">馆藏号：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;硕050302/1501&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+                
+            	<tr>
+                	<td class="left">开放日期：</td>
+                	
+                	   
+                 	   
+                	   
+                 	      <td class="right"><p>&nbsp;2015-06-03&nbsp;&nbsp;&nbsp;&nbsp;
+						   </p><div style="clear:both;"></div><p></p> </td>
+                   	   
+                	
+                   
+                </tr>
+                
+                
+             </tbody></table>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<div style="height:30px;"></div>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+.footerGroup{
+	width:100%;position:fixed;bottom:0;left:0;min-wdith:1200px;margin:0 auto;
+	height: 60px;
+padding-bottom:12px;
+	position: relative;
+	background: url(../images/footer_bg.jpg) center no-repeat;
+background-size:cover;
+}
+.footer1{
+	width: 100%;
+	
+}
+.footer1 .footer_con {
+    width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #FFF;
+}
+.bot_main {
+	color:#fff;
+margin-bottom:8px;
+}
+.bot_main a{
+	color:#fff;
+}
+.bot_main img{
+	position:relative;
+	vertical-align:middle;
+}
+</style>
+
+
+
+<div class="footerGroup">
+<div class="bot_main">
+  <div align="center"><br>
+&nbsp;&nbsp; 建议浏览器：
+
+<a class="google_pic" target="_blank" href="https://www.google.cn/intl/zh-CN/chrome/"><img src="../images/Google.png" width="20" height="20" border="0">谷歌</a>
+<!--<a class="firefox_pic" target="_blank" href="http://www.firefox.com.cn/download/"><img src="../images/Firefox.png" width="22" height="22" border="0" />火狐</a> -->
+<a href="https://browser.360.cn/" target="_blank"><img src="../images/360safe.jpg" width="20" height="20" border="0"></a>
+<a href="https://browser.360.cn/ee/" target="_blank"><img src="../images/360fast.jpg" width="20" height="20" border="0"></a>360请用极速模式，双核浏览器请用极速模式　
+</div>
+
+</div>
+<div class="footer1">
+	<div class="footer_con">
+	  <p>All Rights Reserved Powered By 北京师范大学图书馆 技术支持 杭州麦达电子有限公司</p>
+	</div>
+</div>
+</div>
+
+
+ 
+
+ 
+
+<div class="ba" id="fjdiv" style="display:none">
+	<table cellpadding="0" cellspacing="0" height="100%" width="100%">
+    <tbody><tr>
+    	<td>
+			<div class="down_box senior_box">
+            	<a class="senior_close" onclick="javascript:$('#fjdiv').hide()"><img src="images/senior_close.jpg"></a>
+                <div class="box_con">
+                    	<h2>附件下载</h2><!-- 附件下载 -->
+                        <div class="link">
+                            
+                        </div>
+                        <div class="year" style="color:#838383;">
+                        	点击附件名称下载您需要的附件<!--点击附件名称下载您需要的附件-->
+                        </div>
+                    </div>
+            </div>
+        </td>
+    </tr>
+    </tbody></table>
+</div>
+
+<form action="docinfo.action" method="post" target="_self" id="docinfo_form">
+ 	<input type="hidden" name="id1" id="id1">
+ 	<input type="hidden" name="id2" id="id2">
+ </form>
+
+
+</body></html>
