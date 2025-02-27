@@ -1,0 +1,981 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="phpwind,bbs,board,php,mysql,forums">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="//bbs.level-plus.net/">
+<title>喜欢男娘的是基佬吗茶馆 南+ South Plus - powered by Pu!mdHd</title>
+<script language="JavaScript" src="data/bbscache/face.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/5.8.1/css/all.min.css" type="text/css" rel="stylesheet">
+
+<!-- jQuery library -->
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js" type="application/javascript"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/4.3.1/js/bootstrap.min.js" type="application/javascript"></script>
+<!--css--><style type="text/css">
+body {font-family: Verdana;FONT-SIZE: 12px;MARGIN: 0;color: #000000;background: #ffffff;}
+img {border:0;}
+td {FONT-SIZE: 12px;}
+textarea,input,select{
+	font-family: Verdana;
+	font-size: 12px;
+	background-color: #ffffff;
+}
+div.quote{
+	margin:5px 5px;
+	border:1px dashed #dddddd;
+	padding:5px;
+	background:#FFFFFF;
+	line-height:normal;
+}
+a { TEXT-DECORATION: none;}
+a:hover{ color:#ff0000;text-decoration:none;}
+.smalltxt {font-family: Tahoma, Verdana; font-size: 12px;}
+.tpc_content { font-size: 13px;}
+.i_table {BORDER: #E7E3E7 1px solid;}
+.head{background-color: #E7E3E7;}
+@supports (-webkit-overflow-scrolling: touch) {
+    .pagination li input{
+      font-size: 11px !important;
+    }
+}
+/*Back to top start*/
+.cd-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-top-btn {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    bottom: 40px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    /* image replacement properties */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: rgba(255,120,120,0.8) url(/images/cd-top-arrow.svg) no-repeat center 50%;
+    border-radius: 100%;
+}
+.cd-top.cd-is-visible,
+.cd-top.cd-fade-out,
+.no-touch .cd-top:hover {
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+    -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+    /* the button becomes visible */
+    
+    visibility: visible;
+    opacity: 1;
+}
+.cd-top.cd-fade-out {
+    /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+    
+    opacity: 1;
+}
+.no-touch .cd-top:hover {
+    background-color: #888888;
+    opacity: 1;
+}
+@media only screen and (min-width: 768px) {
+    .cd-top-btn {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .cd-top-btn {
+        height: 60px;
+        width: 60px;
+        right: 30px;
+        bottom: 30px;
+    }
+}
+
+/* .modal-fullscreen */
+.modal-fullscreen {
+  background: transparent;
+}
+.modal-fullscreen .modal-content {
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.modal-backdrop.modal-backdrop-fullscreen {
+  background: rgb(237, 241, 242);
+}
+.modal-backdrop.modal-backdrop-fullscreen.in {
+  opacity: .97;
+  filter: alpha(opacity=97);
+}
+/* .modal-fullscreen size: we use Bootstrap media query breakpoints */
+
+.modal-fullscreen .modal-dialog {
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  overflow-y:hidden;
+}
+@media (min-width: 768px) {
+  .modal-fullscreen .modal-dialog {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-fullscreen .modal-dialog {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-fullscreen .modal-dialog {
+     width: 1170px;
+  }
+}
+.m-tool {
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: relative;
+    background-color: rgb(237, 241, 242);
+}
+
+.m-tool > .m-close {
+    position: absolute;
+    left: 2rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    color: #888888;
+}
+
+.m-tool > .m-tool-toolbar {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.m-tool-list > ul {
+    list-style: none;
+    padding: 0 2rem;
+    font-size: 1rem;
+    background-color: rgb(237, 241, 242);
+}
+
+.m-tool-list > ul > li {
+    height: 4rem;
+    line-height: 4rem;
+    border-bottom: 1px solid #E2E2E2;
+}
+.m-tool-title {
+    padding-top: 0.75rem;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #343a40;
+}
+/*Back to top end*/
+</style><!--css-->
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KYN9Z1NWGY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KYN9Z1NWGY');
+</script>
+<script>
+function showfaces(){
+	$('#showface').toggle(300);
+	path = 'smallface';
+	picpath = "images/post/smile/";
+	if($('#showface').html().trim() == ""){
+		for(var i in faces[path]){
+			var sid = faces[path][i];
+			var pic = document.createElement("img");
+			pic.style.margin = "3px";
+			pic.style.cursor = "pointer";
+			pic.id = sid;
+			pic.onclick = function(){addsmile(this.id);};
+			pic.src = picpath+face[sid][0];
+			pic.title = face[sid][1];
+			$('#showface').append(pic);
+		}
+	}
+	
+	return false;
+}
+
+function addsmile(NewCode){  
+	document.FORM.atc_content.value += ' [s:'+NewCode+'] ';
+}
+function setCookie(name,value,hours) {
+    var expires = "";
+    if (hours) {
+        var date = new Date();
+        date.setTime(date.getTime() + (hours*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {   
+    document.cookie = name+'=; Max-Age=-99999999;';  
+}
+$(function() {
+  if(getCookie('mobilever') == null){
+    setCookie('mobilever',1,6);
+  }
+});
+</script>
+<script>
+jQuery(function() {
+    if(getCookie('peacemaker') == null){
+        ajax.send('pw_ajax.php','action=getblocklist',function(){
+            var parser = new DOMParser;
+            if(ajax.request.responseText != ''){
+                var dom = parser.parseFromString(ajax.request.responseText,'text/html');
+                config = JSON.parse(dom.body.textContent);
+                SP_setValue('config', config);
+                SP_peacemaker();
+                setCookie('peacemaker',1,24);
+            } else {
+                SP_peacemaker();
+                setCookie('peacemaker',1,24);
+            }
+        });
+    }
+    else{
+        SP_peacemaker();
+    }
+});
+
+function SP_setValue(key, value){
+    var existingConfig = window.localStorage.getItem(key);
+    if(existingConfig != JSON.stringify(value)){
+        window.localStorage.setItem(key, JSON.stringify(value));
+        ajax.send('pw_ajax.php?action=updateblocklist','blocklistconfig='+JSON.stringify(value));
+    }
+}
+
+function SP_getValue(key){
+    return JSON.parse(window.localStorage.getItem(key));
+}
+
+function SP_peacemaker(){
+    var config = SP_getValue("config");
+
+    jQuery.each( config.blist, function( i, val ) {
+      //alert(i);
+      //alert(val.level.includes("topic"));
+      
+      if(val.level.includes("topic")){
+        $('.author_'+i).hide();
+        $('.author_'+i).next('br').remove();
+      }
+    });
+}
+</script>
+</head>
+<body vlink="#333333" link="#333333">
+<nav class="navbar navbar-light" style="height: 3rem; background: #FEFFFE; box-shadow: inset 0 -1px 0 0 #E2E2E2;">
+    <div class="container" style="width: 100%; padding-left: 0; padding-right: 0">
+        <div class="row" style="width: 100%; margin-right: 0; margin-left: 0;">
+            <div class="col-4" style="padding-left: 0"><div class="clickable" data-toggle="modal" data-target="#modal-nav">
+            <img src="/images/nav.png" style="height: 2rem;">
+        </div></div>
+            <div class="col-4" style="padding: 0;text-align: center;"><a href="simple/index.php?" class="navbar-brand" style="text-align: center;height:2.5rem;flex:1;margin-top: -0.25rem;cursor: pointer;"><img src="/images/m-logo-south-high.png" style="height: 100%;"></a></div>
+            <div class="col-4" style="padding-right: 0; text-align: right;padding-top: 0.3rem;"><span style="overflow: hidden;text-overflow: ellipsis;color: #FF7878 !important;font-size: 14px;">
+
+<a href="login.php" style="color: #FF7878 !important;">登录</a> | <a href="register.php" style="color: #FF7878 !important;">注册</a>
+
+            </span></div>
+        </div>
+    </div>
+</nav>
+<div class="modal modal-fullscreen fade" id="modal-nav" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:rgb(237, 241, 242);">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" style="margin: auto;width:100%;">
+                <div class="m-tool">
+                    <span class="m-close clickable"><i class="fa fa-times" aria-hidden="true" data-toggle="modal" data-target="#modal-nav"></i></span>
+                    <div class="m-tool-title">
+                        桌面版导航
+                    </div>
+                    <div class="m-tool-list">
+                        <ul>
+                            <li><a href="/search.php" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">搜索</a></li>
+                            <li><a href="/plugin.php?H_name-tasks.html" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">社区论坛任务</a></li>
+                            <li><a href="javascript:setCookie('mobilever',1,720);alert('设置成功！30天内不会自动跳转移动版。');" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">停止自动跳转移动版</a></li>
+                            <li><a href="/" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">桌面版首页</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script language="JavaScript">
+function CopyCode(obj){
+	var js = document.body.createTextRange();
+	js.moveToElementText(obj);
+	js.select(); 
+	js.execCommand("Copy");
+}
+function postreply(txt) {
+	if (typeof document.FORM != "undefined") {
+		document.FORM.atc_title.value = txt;
+		document.FORM.atc_content.focus();
+	} else {
+		window.location = 'post.php?action=reply&fid='+fid+'&tid='+tid;
+	}
+}
+</script>
+<style type="text/css">
+.card img{
+	max-width: 100%;
+    height: auto;
+}
+.blockquote {
+    font-size: 12px;
+    border: 1px solid #eeeeee;
+    background: #f8f8f8;
+    border-left-width: 3px;
+    margin: 0 0 1%;
+    color: #736933;
+}
+.pagination a{
+  color: #888;
+}
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #FF7878;
+    border-color: #FF7878;
+}
+.jumbotron select {
+    padding: 5px;
+    margin: 10px 0;
+}
+.jumbotron {
+    padding: 1rem 1rem; 
+}
+.nopadding-right {
+   padding-right: 0 !important;
+   margin-right: 0 !important;
+}
+.nopadding-left {
+   padding-left: 0 !important;
+   margin-left: 0 !important;
+}
+@media (min-width: 576px){
+.jumbotron {
+    padding: 1rem 1rem; 
+}
+}
+</style>
+
+<nav class="navbar navbar-light bg-light" style="font-size: 14px; display: block;box-shadow: inset 0 -1px 0 0 #E2E2E2;">
+  <a href="simple/index.php?" style="color: #FF7878">南+ South Plus </a> <i class="fas fa-chevron-right" style="color: #999999; font-size: 12px;"></i> <a href="simple/index.php?f9.html" style="color: #FF7878">茶馆</a> <i class="fas fa-chevron-right" style="color: #999999; font-size: 12px;"></i> <span style="color: #444444">喜欢男娘的是基佬吗</span>
+</nav>
+<div class="container">
+<div class="text-center"><br><a href="https://segucrwj.taobao.com/" onclick="ga('send', 'event', 'mobile', 'clicked', 'ad');"><img src="/images/mobileads020.jpg" class="img-fluid" alt="Responsive image"></a></div>
+<p></p><center><ul class="pagination" style="justify-content: center;"><li class="page-item"><a href="simple/index.php?t2358030_1.html" class="page-link"><span aria-hidden="true">«</span></a></li><li class="page-item active"><b class="page-link">1</b></li><li class="page-item"><a class="page-link" href="simple/index.php?t2358030_2.html">2</a></li><li class="page-item"><a class="page-link" href="simple/index.php?t2358030_3.html">3</a></li><li class="page-item"><input type="text" size="2" placeholder="跳转" class="page-link " style="border-radius:0;width:3.25rem;-webkit-appearance: none;
+" onkeydown="javascript: if(window.event.keyCode==13) window.location='/simple/index.php?t2358030_'+this.value+'.html';"></li><li class="page-item"><a class="page-link" href="simple/index.php?t2358030_3.html"><span aria-hidden="true">»</span></a></li></ul></center><p></p>
+
+
+<div class="card author_737204">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=737204" target="_blank"><strong>神秘动物</strong></a> - 2024-11-03 20:45
+			<span class="float-right">[GF]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+
+
+<img src="images/post/smile/smallface/face040.jpg" loading="lazy">本质上是两个男的呀
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 楼主(神秘动物) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1457293">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1457293" target="_blank"><strong>4c9c2ceb</strong></a> - 2024-11-03 20:47
+			<span class="float-right">[B1F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+喜欢男娘<br><br>是200%的GYA<br><br>你不止要应付作为女性的各种GAY到不行狗屁倒灶的破事<br><br>你还早艹一个男人<br><br>不如假小子一根
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 1楼(4c9c2ceb) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1690096">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1690096" target="_blank"><strong>姐控</strong></a> - 2024-11-03 20:50
+			<span class="float-right">[B2F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+你只要喜欢有鸡巴的，不管对方多像女人，你都是GAY
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 2楼(姐控) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_2121956">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=2121956" target="_blank"><strong>奇迹行者</strong></a> - 2024-11-03 20:50
+			<span class="float-right">[B3F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face056.jpg" loading="lazy"> 不是吧
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 3楼(奇迹行者) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_689149">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=689149" target="_blank"><strong>朔夜</strong></a> - 2024-11-03 20:51
+			<span class="float-right">[B4F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face070.gif" loading="lazy"> 三次元那就是基佬 二次元就不一定了毕竟画男说女 画女说男都看怎么扯 <img src="images/post/smile/smallface/face084.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 4楼(朔夜) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_345149">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=345149" target="_blank"><strong>ashdjes</strong></a> - 2024-11-03 20:51
+			<span class="float-right">[B5F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+你就是喜欢漂亮的 <img src="images/post/smile/smallface/face113.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 5楼(ashdjes) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_121311">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=121311" target="_blank"><strong>30岁没牵过女孩手</strong></a> - 2024-11-03 20:52
+			<span class="float-right">[B6F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+就是白袜石楠花臭通讯录
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 6楼(30岁没牵过女孩手) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_365873">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=365873" target="_blank"><strong>臀爹</strong></a> - 2024-11-03 20:52
+			<span class="float-right">[B7F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+当然是的
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 7楼(臀爹) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1672157">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1672157" target="_blank"><strong>一个过路强迫症</strong></a> - 2024-11-03 21:08
+			<span class="float-right">[B8F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+我个人觉得喜欢好看的男娘是单纯的颜狗比如我，喜欢那种有腿毛的喉结明显的，肌肉大块的当我没说
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 8楼(一个过路强迫症) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_264141">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=264141" target="_blank"><strong>崩坏杰</strong></a> - 2024-11-03 21:09
+			<span class="float-right">[B9F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+是的 <img src="images/post/smile/smallface/face077.gif" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 9楼(崩坏杰) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_2134883">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=2134883" target="_blank"><strong>绫弥一条</strong></a> - 2024-11-03 21:09
+			<span class="float-right">[B10F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+你说是就是<br>本质上喜欢的是扶她，可惜现实基本很难遇到，男娘算代餐<br>如果是南通的话都喜欢肌肉男吧
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 10楼(绫弥一条) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1873122">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1873122" target="_blank"><strong>坚毅持久奶鸽鸽</strong></a> - 2024-11-03 21:12
+			<span class="float-right">[B11F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face043.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 11楼(坚毅持久奶鸽鸽) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_151770">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=151770" target="_blank"><strong>兎月りりむ</strong></a> - 2024-11-03 21:13
+			<span class="float-right">[B12F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+我觉得喜欢男娘还是喜欢女性的一面，还是属于喜欢女性。gay的话还得是四川那种
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 12楼(兎月りりむ) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_172361">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=172361" target="_blank"><strong>Abc123sm</strong></a> - 2024-11-03 21:15
+			<span class="float-right">[B13F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+男娘除了屌全身还有哪里有男性符号？
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 13楼(Abc123sm) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_539756">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=539756" target="_blank"><strong>姆兹多诺</strong></a> - 2024-11-03 21:21
+			<span class="float-right">[B14F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+只能说很多人是颜性恋 或者双
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 14楼(姆兹多诺) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_539756">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=539756" target="_blank"><strong>姆兹多诺</strong></a> - 2024-11-03 21:23
+			<span class="float-right">[B15F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+而且性癖或者性取向，只要你不犯法 干涉到其他人，爱怎么玩 是你的自由，别太在意别人的想法 <img src="images/post/smile/smallface/face077.gif" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 15楼(姆兹多诺) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1828081">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1828081" target="_blank"><strong>3cb21053</strong></a> - 2024-11-03 22:16
+			<span class="float-right">[B16F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+不一定
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 16楼(3cb21053) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_2209017">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=2209017" target="_blank"><strong>yan</strong></a> - 2024-11-03 22:18
+			<span class="float-right">[B17F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+是 <img src="images/post/smile/smallface/face084.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 17楼(yan) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_482533">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=482533" target="_blank"><strong>ef964595</strong></a> - 2024-11-03 22:40
+			<span class="float-right">[B18F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+都差不多吧
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 18楼(ef964595) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1843937">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1843937" target="_blank"><strong>AGUI</strong></a> - 2024-11-03 22:42
+			<span class="float-right">[B19F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+我只喜欢长相和体态呈现女性特征的，有没有几把不是考虑的点
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 19楼(AGUI) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_52787">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=52787" target="_blank"><strong>CDG</strong></a> - 2024-11-03 22:52
+			<span class="float-right">[B20F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+让我们用数学思维来看待这个问题——<br>一、如果男娘没有了JB，那么你还会艹他吗？<br>如果你还愿意艹没有JB的男娘，那么你就只是馋他的身子。<br>二、这个男娘的身子是什么样子的，粉嫩软糯的、前凸后翘的？<br>如果是，那么你只不过是馋一个粉嫩软糯前凸后翘的身子，只不过这个身子碰巧有一个JB而已。<br> <br>相反，喜欢假小子的XP才十分可疑……
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 20楼(CDG) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_686800">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=686800" target="_blank"><strong>不二弥生</strong></a> - 2024-11-03 23:01
+			<span class="float-right">[B21F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+也不一定，我就想用鸡吧狠狠地操她们的前列腺，然后让她们那软趴趴的小鸡鸡流水，但是你像成都那种多胖多瘦的只要有男性体征，操得时候鸡吧能直起来，我都整不了，受不了，但是我知道我肯定不是Gay，你说我是M，是四爱我都能接受，但是我肯定不会草正常的男人
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 21楼(不二弥生) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1476940">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1476940" target="_blank"><strong>7785258</strong></a> - 2024-11-03 23:26
+			<span class="float-right">[B22F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+喜欢二次元男娘那可以说是炼铜，喜欢看三次元男娘可以说是色痞，喜欢三次元男娘还上手那就是比基佬更基，毕竟基佬单纯喜欢男而不是男娘
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 22楼(7785258) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1711264">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1711264" target="_blank"><strong>帧舔王</strong></a> - 2024-11-03 23:45
+			<span class="float-right">[B23F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face002.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 23楼(帧舔王) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_720043">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=720043" target="_blank"><strong>低调做人</strong></a> - 2024-11-04 00:05
+			<span class="float-right">[B24F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+废话这不是
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 24楼(低调做人) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_360596">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=360596" target="_blank"><strong>jiangjiashu624</strong></a> - 2024-11-04 00:09
+			<span class="float-right">[B25F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+喜欢被操就不好说了
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 25楼(jiangjiashu624) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1331186">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1331186" target="_blank"><strong>你很对劲</strong></a> - 2024-11-04 00:28
+			<span class="float-right">[B26F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+我觉得能看得下去gay片的才是基佬，否则都不算
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 26楼(你很对劲) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1019987">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1019987" target="_blank"><strong>芜湖大司马</strong></a> - 2024-11-04 00:30
+			<span class="float-right">[B27F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+完全100%是 既然你喜欢外表是女的为什么不直接喜欢女的 要找个男的
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 27楼(芜湖大司马) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_2042373">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=2042373" target="_blank"><strong>小小罗辑</strong></a> - 2024-11-04 00:31
+			<span class="float-right">[B28F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face059.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 28楼(小小罗辑) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1976548">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1976548" target="_blank"><strong>cztqaq</strong></a> - 2024-11-04 00:33
+			<span class="float-right">[B29F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+就是基佬
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 29楼(cztqaq) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_29601">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=29601" target="_blank"><strong>c09b995a</strong></a> - 2024-11-04 00:33
+			<span class="float-right">[B30F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face070.gif" loading="lazy"> 反正我都草不到，还不给我看看吗？<br>合我XP的，我看看而已。<br> <img src="images/post/smile/smallface/face093.jpg" loading="lazy"> 反正我草不到，只能看看阿！！看看阿！
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 30楼(c09b995a) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<p></p><center><ul class="pagination" style="justify-content: center;"><li class="page-item"><a href="simple/index.php?t2358030_1.html" class="page-link"><span aria-hidden="true">«</span></a></li><li class="page-item active"><b class="page-link">1</b></li><li class="page-item"><a class="page-link" href="simple/index.php?t2358030_2.html">2</a></li><li class="page-item"><a class="page-link" href="simple/index.php?t2358030_3.html">3</a></li><li class="page-item"><input type="text" size="2" placeholder="跳转" class="page-link " style="border-radius:0;width:3.25rem;-webkit-appearance: none;
+" onkeydown="javascript: if(window.event.keyCode==13) window.location='/simple/index.php?t2358030_'+this.value+'.html';"></li><li class="page-item"><a class="page-link" href="simple/index.php?t2358030_3.html"><span aria-hidden="true">»</span></a></li></ul></center><p></p>
+<form name="FORM" method="post" action="post.php?" enctype="multipart/form-data">
+<div class="form-group">
+<label style="font-size: 16px">回复</label>
+<input type="text" class="form-control" name="atc_title" value="Re:喜欢男娘的是基佬吗" size="65">
+<br>
+<textarea name="atc_content" rows="4" class="form-control" required=""></textarea> 
+<br>
+<input class="btn btn-danger" type="submit" name="Submit" value=" 提 交 ">
+<button class="btn btn-info" onclick="return showfaces();">&nbsp;表&nbsp;情&nbsp;</button><br><br>
+<div id="showface" style="background: rgb(255, 255, 255);overflow-y: auto; height: 200px; display: none">
+</div>
+</div>
+<input type="hidden" value="9" name="fid"> 
+<input type="hidden" value="2358030" name="tid"> 
+<input type="hidden" name="verify" value="0199e425">
+
+<input type="hidden" name="atc_autourl" value="1">
+<input type="hidden" name="atc_usesign" value="1">
+<input type="hidden" name="atc_convert" value="1">
+<input type="hidden" name="atc_money" value="0">
+<input type="hidden" name="atc_credittype" value="money">
+<input type="hidden" name="atc_rvrc" value="0">
+<input type="hidden" name="atc_enhidetype" value="rvrc">
+<input type="hidden" value="2" name="step"> 
+<input type="hidden" value="reply" name="action">
+<input type="hidden" value="" name="atc_desc1">
+<input type="hidden" name="att_special1" value="0">
+<input type="hidden" name="att_ctype1" value="money">
+<input type="hidden" name="atc_needrvrc1" value="0">
+<input type="hidden" name="simplepost" value="1">
+</form>
+<center><a href="read.php?tid=2358030" target="_blank" style="padding: 1rem;font-size: 16px;color: #555;"><i class="fas fa-desktop"></i> 桌面版</a></center>
+</div>
+
+
+<br><br>
+<center><small><font color="#999999">Powered by <a href="/" target="_blank"><b>SP Project</b></a> <b style="color:#FF9900">v1.0</b> © 2010-2019  <br>
+Time 0.005856 second(s),query:3 Gzip enabled<br><br></font></small>
+</center><br><a href="#0" class="cd-top cd-top-btn">Top</a>
+<script>
+$(function () {
+    InitBackToTop();
+});
+function InitBackToTop() {
+    if ($('.cd-top').length > 0) {
+        // browser window scroll (in pixels) after which the "back to top" link is shown
+        var offset = 300,
+        //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+        offset_opacity = 700,
+        //duration of the top scrolling animation (in ms)
+        scroll_top_duration = 700,
+        //grab the "back to top" link
+        back_to_top = $('.cd-top');
+        back_to_top_btn = $('.cd-top-btn');
+
+        //hide or show the "back to top" link
+        $(window).scroll(function () {
+            ($(this).scrollTop() > offset) ? back_to_top.addClass('cd-is-visible') : back_to_top.removeClass('cd-is-visible cd-fade-out');
+            if ($(this).scrollTop() > offset_opacity) {
+                back_to_top.addClass('cd-fade-out');
+            }
+        });
+
+        //smooth scroll to top
+        back_to_top_btn.on('click', function (event) {
+            event.preventDefault();
+            $('body,html').animate({
+                scrollTop: 0,
+            }, scroll_top_duration
+            );
+        });
+    }
+}
+;(function(f){"use strict";"function"===typeof define&&define.amd?define(["jquery"],f):"undefined"!==typeof module&&module.exports?module.exports=f(require("jquery")):f(jQuery)})(function($){"use strict";function n(a){return!a.nodeName||-1!==$.inArray(a.nodeName.toLowerCase(),["iframe","#document","html","body"])}function h(a){return $.isFunction(a)||$.isPlainObject(a)?a:{top:a,left:a}}var p=$.scrollTo=function(a,d,b){return $(window).scrollTo(a,d,b)};p.defaults={axis:"xy",duration:0,limit:!0};$.fn.scrollTo=function(a,d,b){"object"=== typeof d&&(b=d,d=0);"function"===typeof b&&(b={onAfter:b});"max"===a&&(a=9E9);b=$.extend({},p.defaults,b);d=d||b.duration;var u=b.queue&&1<b.axis.length;u&&(d/=2);b.offset=h(b.offset);b.over=h(b.over);return this.each(function(){function k(a){var k=$.extend({},b,{queue:!0,duration:d,complete:a&&function(){a.call(q,e,b)}});r.animate(f,k)}if(null!==a){var l=n(this),q=l?this.contentWindow||window:this,r=$(q),e=a,f={},t;switch(typeof e){case "number":case "string":if(/^([+-]=?)?\d+(\.\d+)?(px|%)?$/.test(e)){e= h(e);break}e=l?$(e):$(e,q);case "object":if(e.length===0)return;if(e.is||e.style)t=(e=$(e)).offset()}var v=$.isFunction(b.offset)&&b.offset(q,e)||b.offset;$.each(b.axis.split(""),function(a,c){var d="x"===c?"Left":"Top",m=d.toLowerCase(),g="scroll"+d,h=r[g](),n=p.max(q,c);t?(f[g]=t[m]+(l?0:h-r.offset()[m]),b.margin&&(f[g]-=parseInt(e.css("margin"+d),10)||0,f[g]-=parseInt(e.css("border"+d+"Width"),10)||0),f[g]+=v[m]||0,b.over[m]&&(f[g]+=e["x"===c?"width":"height"]()*b.over[m])):(d=e[m],f[g]=d.slice&& "%"===d.slice(-1)?parseFloat(d)/100*n:d);b.limit&&/^\d+$/.test(f[g])&&(f[g]=0>=f[g]?0:Math.min(f[g],n));!a&&1<b.axis.length&&(h===f[g]?f={}:u&&(k(b.onAfterFirst),f={}))});k(b.onAfter)}})};p.max=function(a,d){var b="x"===d?"Width":"Height",h="scroll"+b;if(!n(a))return a[h]-$(a)[b.toLowerCase()]();var b="client"+b,k=a.ownerDocument||a.document,l=k.documentElement,k=k.body;return Math.max(l[h],k[h])-Math.min(l[b],k[b])};$.Tween.propHooks.scrollLeft=$.Tween.propHooks.scrollTop={get:function(a){return $(a.elem)[a.prop]()}, set:function(a){var d=this.get(a);if(a.options.interrupt&&a._last&&a._last!==d)return $(a.elem).stop();var b=Math.round(a.now);d!==b&&($(a.elem)[a.prop](b),a._last=this.get(a))}};return p});
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'918732c01dc57c41',t:'MTc0MDY0OTA2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+</body></html>

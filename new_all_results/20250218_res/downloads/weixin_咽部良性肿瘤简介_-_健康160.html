@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html data-dpr="1" style="font-size: 54px;"><head>	
+<style type="text/css" class="AMap.Geolocation">.amap-geolocation-con .amap-geo{background:#fff url(https://webapi.amap.com/theme/v1.3/markers/b/loc_gray.png) 50% 50% no-repeat;width:35px;height:35px;border:1px solid #ccc;border-radius:3px;right:4px}.amap-locate-loading .amap-geo{background-image:url(https://webapi.amap.com/theme/v1.3/loading.gif)}.amap-locate{position:absolute;width:18px;height:18px;background:url(https://webapi.amap.com/theme/v1.3/map_view.png);_background:url(https://webapi.amap.com/theme/v1.3/map_view.gif);background-position:-130px -185px;cursor:pointer}</style><style type="text/css">.amap-logo{display:block!important;pointer-events:none;}</style><style type="text/css" class="AMap.style">.vml{behavior:url(#default#VML);display:inline-block;position:absolute}.amap-custom{top:0;left:0;position:absolute}.amap-container img{max-width:none!important;max-height:none!important}.amap-container{touch-action:none;position:relative;overflow:hidden;background:#fcf9f2 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0AgMAAAC2uDcZAAAADFBMVEX////////////////1pQ5zAAAABHRSTlMAgP/AWuZC2AAAAVhJREFUeAFiYGAQYGDEQjAB2rcDC4BiGIqiU7abdKlO2QkeIClyPsDHweMKtOPHIJ1Op6/w7Y4fdqfT6VpndzqdrnV2p9PpWmd3Oj3qWndSoKp+2J1Op7vr7E6n07XO7nQ6XevsTqfTtc7udPo4/f787E6n0911dqfT6VpndzqdrnV2p9PpWmd3Ot27Ce8m6HS6u85dR6fTtU7r6HS61mkdnU7XOrvT6XTvJuxOp9PddXan0+laZ3c6na51dDpd67SOTqd7N+HdBJ1Od9e56+h0utZpHZ1O1zq70+l0rbM7nU73bsLudDrdXWd3Ol3rtI5Op2ud1tHpdK3TOjqd7t2EdxN0Ot1dZ3c6na51dqfT6VpndzqdrnV2p9Pp3k3Q6XR3nbuOTqdrndbR6XSt0zo6na51Wken072bsDudTnfX2Z1Op2ud3el0utbZnU7XOq2j0+t0uncTD1gO4zoT5doZAAAAAElFTkSuQmCC);-ms-touch-action:none}.amap-drags,.amap-layers{width:100%;height:100%;position:absolute;overflow:hidden}.amap-layers canvas{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.amap-layer img{pointer-events:none}.amap-e,.amap-maps{width:100%;height:100%}.amap-maps,.amap-e,.amap-layers,.amap-tile,.amap-tile-container{position:absolute;left:0;top:0;overflow:hidden}.amap-context{position:absolute;left:0;top:0}.amap-overlays,.amap-markers,.amap-marker{position:absolute;left:0;top:0}.amap-layers{z-index:0}.amap-overlays{z-index:110;cursor:default}.amap-markers{z-index:120}.amap-controls{z-index:150}.amap-copyright{position:absolute;display:block!important;left:85px;height:16px;bottom:.1px;padding-bottom:3px;font-size:11px;font-family:Arial,sans-serif;z-index:160}.amap-logo{position:absolute;bottom:1.5px;left:4px;z-index:160;height:20px}.amap-logo img{width:73px!important;height:20px!important;border:0;vertical-align:baseline!important}.amap-icon{position:relative;z-index:1}.amap-icon img{position:absolute;z-index:-1}.amap-marker-label{position:absolute;z-index:2;border:1px solid blue;background-color:white;white-space:nowrap;cursor:default;padding:3px;font-size:12px;line-height:14px}.amap-info{position:absolute;left:0;z-index:140;width:320px}.amap-menu{position:absolute;z-index:140;_width:100px}.amap-info-close{position:absolute;right:5px;_right:12px;+right:11px;top:5px;_top:2px;+top:2px;color:#c3c3c3;text-decoration:none;font:bold 16px/14px Tahoma,Verdana,sans-serif;width:14px;height:14px}.amap-info-outer,.amap-menu-outer{box-shadow:0 1px 2px rgba(0,0,0,0.1);background:none repeat scroll 0 0 white;border-radius:2px;padding:1px;text-align:left}.amap-menu-outer:hover{box-shadow:0 1px 2px rgba(0,0,0,0.3)}.amap-info-contentContainer:hover .amap-info-outer{box-shadow:0 1px 2px rgba(0,0,0,0.3)}.amap-info-content{position:relative;background:#fff;padding:10px 18px 10px 10px;line-height:1.4;overflow:auto}.amap-marker-content{position:relative}.amap-info{_width:320px}.amap-menu{_width:100px}.amap-info-sharp-old{overflow:hidden;position:absolute;background-image:url(http://webapi.amap.com/images/arrows.png)}.bottom-center .amap-info-sharp-old{height:12px;margin:0 auto;width:20px;background-position:center 12px;top:100%;margin-top:-9px;left:50%;margin-left:-10px}.bottom-left .amap-info-sharp-old{height:12px;width:13px;background-position:-16px -46px;top:100%;margin-top:-9px}.bottom-right .amap-info-sharp-old{height:12px;width:13px;top:-1px;background-position:-56px -46px;left:100%;margin-left:-13px;top:100%;margin-top:-9px}.middle-left .amap-info-sharp-old{height:20px;width:12px;background-position:left;top:50%;margin-top:-10px;margin-left:-11px}.center .amap-info-sharp-old{display:none}.middle-right .amap-info-sharp-old{height:20px;margin-right:0;width:12px;background-position:right;left:100%;margin-left:-9px;top:50%;margin-top:-10px}.top-center .amap-info-sharp-old{height:12px;margin:0 auto;width:20px;background-position:top;top:0;margin-top:-3px;left:50%;margin-left:-10px}.top-left .amap-info-sharp-old{height:12px;width:13px;background-position:-16px -3px;top:0;margin-top:-3px}.top-right .amap-info-sharp-old{height:12px;width:13px;background-position:-56px -3px;left:100%;margin-left:-13px;top:0;margin-top:-3px}.amap-info-sharp{position:absolute}.bottom-center .amap-info-sharp{bottom:0;left:50%;margin-left:-8px;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #fff}.bottom-center .amap-info-sharp:after{position:absolute;content:"";margin-left:-8px;margin-top:-7px;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid rgba(0,0,0,0.3);filter:blur(2px);z-index:-1}.amap-info-contentContainer:hover.bottom-center .amap-info-sharp:after{border-top:8px solid rgba(0,0,0,0.5)}.bottom-left .amap-info-sharp{border-color:transparent #fff;border-width:0 0 10px 10px;border-style:solid}.bottom-left .amap-info-sharp:after{position:absolute;content:"";margin-left:-10px;border-color:transparent rgba(0,0,0,0.3);border-width:0 0 10px 10px;border-style:solid;filter:blur(1px);z-index:-1}.amap-info-contentContainer:hover.bottom-left .amap-info-sharp:after{border-color:transparent rgba(0,0,0,0.5)}.bottom-left .amap-info-content{border-radius:2px 2px 2px 0}.bottom-right .amap-info-sharp{right:0;border-top:10px solid #fff;border-left:10px solid transparent}.bottom-right .amap-info-sharp:after{position:absolute;margin-top:-9px;margin-left:-10px;content:"";border-top:10px solid rgba(0,0,0,0.3);border-left:10px solid transparent;filter:blur(1px);z-index:-1}.amap-info-contentContainer:hover.bottom-right .amap-info-sharp:after{border-top:10px solid rgba(0,0,0,0.5)}.bottom-right .amap-info-content{border-radius:2px 2px 0 2px}.top-center .amap-info-sharp{top:0;left:50%;margin-left:-8px;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid #fff}.top-center .amap-info-sharp:after{position:absolute;content:"";margin-top:0;margin-left:-8px;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid rgba(0,0,0,0.3);filter:blur(1px);z-index:-1}.top-left .amap-info-sharp{left:0;top:0;border-bottom:10px solid #fff;border-right:10px solid transparent}.top-left .amap-info-sharp:after{position:absolute;content:"";margin-top:0;margin-left:0;border-bottom:10px solid rgba(0,0,0,0.3);border-right:10px solid transparent;filter:blur(1px);z-index:-1}.top-right .amap-info-sharp{right:0;top:0;border-bottom:10px solid #fff;border-left:10px solid transparent}.top-right .amap-info-sharp:after{position:absolute;content:"";margin-top:0;margin-left:-10px;border-bottom:10px solid rgba(0,0,0,0.3);border-left:10px solid transparent;filter:blur(1px);z-index:-1}.middle-right .amap-info-sharp{right:0;top:50%;margin-top:-8px;border-top:8px solid transparent;border-left:8px solid #fff;border-bottom:8px solid transparent}.middle-right .amap-info-sharp:after{position:absolute;content:"";margin-top:-8px;margin-left:-8px;border-top:8px solid transparent;border-left:8px solid rgba(0,0,0,0.3);border-bottom:8px solid transparent;filter:blur(1px);z-index:-1}.amap-info-contentContainer:hover.middle-right .amap-info-sharp:after{border-left:8px solid rgba(0,0,0,0.5)}.middle-left .amap-info-sharp{left:0;top:50%;margin-top:-8px;border-top:8px solid transparent;border-right:8px solid #fff;border-bottom:8px solid transparent}.middle-left .amap-info-sharp:after{position:absolute;content:"";margin-top:-8px;margin-left:0;border-top:8px solid transparent;border-right:8px solid rgba(0,0,0,0.3);border-bottom:8px solid transparent;filter:blur(1px);z-index:-1}.amap-info-contentContainer:hover.middle-left .amap-info-sharp:after{border-right:8px solid rgba(0,0,0,0.5)}.amap-info-contentContainer.top-left,.amap-info-contentContainer.top-center,.amap-info-contentContainer.top-right{padding-top:8px}.amap-info-contentContainer.bottom-left,.amap-info-contentContainer.bottom-center,.amap-info-contentContainer.bottom-right{padding-bottom:8px}.amap-info-contentContainer.middle-right{padding-right:8px}.amap-info-contentContainer.middle-left{padding-left:8px}.amap-menu-outer{margin:0;padding:0;list-style-type:none}ul.amap-menu-outer li{cursor:pointer;height:35px;line-height:35px;word-break:break-all;padding:0 10px;font-size:12px;white-space:nowrap}ul.amap-menu-outer li a{text-decoration:none;font-size:13px;margin:0 5px;color:#000;padding:5px 5px}ul.amap-menu-outer li:hover{background-color:#f3f3ee}.amap-overlay-text-container{display:block;width:auto;word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:#fff;padding:2px 3px;border:1px solid #ccc;border-radius:3px}.amap-overlay-text-container.amap-overlay-text-empty{display:none}.amap-info-content-ie8{border:1px solid #9c9c9c}</style><meta charset="utf-8">
+<title>健康160</title>
+<meta name="Keywords" content="健康160-预约挂号咨询平台">
+<meta name="Description" content="预约挂号，免费咨询。健康160力求为您提供最好的移动医疗服务。">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui, viewport-fit=cover">
+<meta http-equiv="cleartype" content="on">
+<meta name="format-detection" content="telephone=no">
+<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-9L5D3R20XE&amp;cx=c&amp;_slc=1"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://ssl.captcha.qq.com/TCaptcha.js"></script><script async="" src="//wximg.91160.com/wechat/js/sensors/sa-sdk1.26.7/sensorsdata@1.26.7.min.js" charset="UTF-8"></script><script src="https://s4.cnzz.com/z_stat.php?id=1279197911&amp;web_id=1279197911"></script><script src="https://hm.baidu.com/hm.js?2e7d40bfa5ae51733e63c04f3d028dd1"></script><script src="https://wximg.91160.com/wechat/js/flexcss-14.js"></script><style>@charset "utf-8";html{overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}html *{outline:0;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}</style>
+
+
+<link rel="stylesheet" href="https://wximg.91160.com/wechat/css/custom.plugin.css?v=1740277949">
+<link rel="stylesheet" href="https://wximg.91160.com/wechat/css/custom.main.css?v=1740277949">
+<link rel="stylesheet" href="https://wximg.91160.com/wechat/css/app-ad.css?v=1740277949">
+<link rel="apple-touch-icon" href="https://wximg.91160.com/wechat/img/common/icon.png">
+<!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script> -->
+<script src="https://wximg.91160.com/wechat/js/qq/jweixin-1.6.0.js"></script>
+<script type="text/javascript" src="https://appx/web-view.min.js"></script>
+<script>
+    function nothumb(src, obj){
+	var img = obj;
+	img.src = src;
+	img.onerror = null;
+    }
+var setunshare; 
+</script><link rel="stylesheet" href="https://wximg.91160.com/wechat/css/disease/style.css?v=1740277949">
+<style>
+	body {
+		height: auto;
+		min-height: 100%;
+	}
+	.rem .elli {
+		padding-bottom: 1px;
+	}
+	.pb1 {
+		padding-bottom: 1px;
+	}
+	.xxing {
+    margin-top: -2px;
+    display: inline-block;
+    vertical-align: top;
+	}
+</style>
+<style type="text/css">.amap-container{cursor:url(https://webapi.amap.com/theme/v1.3/openhand.cur),default;}.amap-drag{cursor:url(https://webapi.amap.com/theme/v1.3/closedhand.cur),default;}</style><style type="text/css"></style></head>
+<body class="rem" style="font-size: 14px;">
+	<div class="fullwidth fullheight">
+		<style>
+	.consuling-img {
+		height: 29px;
+    	width: 20px;
+		display: inline-block;
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-image: url('https://wximg.91160.com/wechat/img/common/consulting.png')
+	}
+	.no-consuling-img {
+		height: 29px;
+    	width: 20px;
+		display: inline-block;
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-image: url('https://wximg.91160.com/wechat/img/common/no_consulting.png')
+	}
+  .fixed-layout {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    max-width: 750px;
+  }
+</style>
+<div class="nav clearfix fixed-layout fullwidth">
+    	<div class="nav-nav">
+                	        	              <!-- 非咨询外放 -->
+                    											<!-- 兼容建行app渠道顶部的关闭按钮 -->
+																							<a class="nav-inav typo_white typo_middle iconfont fright pr5 pl10" href="javascript:void(0);"></a>
+																						<!--收藏-->
+																									<a class="nav-coll coll typo_white typo_middle iconfont abso pr5 pl10 hide js_collect_icon" href="javascript:void(0);"></a>
+													<a class="nav-coll notcoll typo_white typo_middle iconfont abso pr5 pl10 hide js_collect_icon" href="javascript:void(0);"></a>
+																								
+                    
+	        		                        		<!--咨询模块用-->
+					<h1 id="page_title" class="nav-title textc typo_white typo_large typo_normal elli">预约挂号</h1>
+			</div>
+</div>
+            <!-- 非咨询外放 -->
+        <div class="fixed nav-menu textc fright hidden" style="right:0;top:43px;z-index:100">
+	<a class="block typo_white typo_middle nav-menu-item" href="https://weixin.91160.com/main/index" ga-statistics-click="Tab-预约挂号">
+		<span class="iconfont typo_large mr5">&nbsp;</span>预约挂号
+	</a>
+			<a class="block typo_white typo_middle nav-menu-item" href="https://weixin.91160.com/vue/ask/index.html" ga-statistics-click="Tab-咨询医生">
+			<span class="iconfont typo_large mr5">&nbsp;</span>咨询医生		</a>
+				<a class="block typo_white typo_middle nav-menu-item" href="/news/" ga-statistics-click="Tab-健康资讯">
+			<span class="iconfont typo_large mr5">&nbsp;</span>健康资讯
+		</a>
+		<a class="block typo_white typo_middle nav-menu-item" href="https://weixin.91160.com/account/index.html" ga-statistics-click="Tab-个人中心">
+		<span class="iconfont typo_large mr5">&nbsp;</span>个人中心
+	</a>
+</div>    <style>
+    .abcNav {
+        position: relative;
+        width: 100%;
+        height:64px;
+        z-index: 10000;
+    }
+    .placeholder{
+        height:64px;
+    }
+    .abcNav .iconfont {
+        display: block;
+        width: 28px;
+        height: 28px;
+        font-size: 18px;
+        line-height: 28px;
+        padding:4px;
+        color:#999;
+        text-align: center;
+    }
+    .abcNav .container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height:43px;
+      padding-top:21px;
+      z-index: 135;
+      background-color: #FAFAFA;
+      border-bottom: 1px solid #F5F5F5;
+    }
+    .abcNav .center {
+      position: absolute;
+      left:50%;
+      transform: translate(-50%,0);
+      max-width: 200px;
+    }
+    .abcNav .text {
+      font-size: 18px;
+      color: #333;
+    }
+</style>
+
+
+
+
+		<div class="wrap bg_gray hasNav ad-paddbot" id="pageWrap" style="padding-bottom: 84px;">
+			<!-- 疾病简介 -->
+			<div class="disease_desc bg_white lh1 mb10 clearfix relative" id="diseaseBox">
+				<h2 class="fs18rem c_333 w-70 elli">咽部良性肿瘤简介</h2>
+				<div class="elli mt10">
+					<span class="typo_white">推荐科室：</span>
+										<a href="/vue/departlist/index.html?cat_id=10751" class="mytag">耳鼻喉科 </a>
+									</div>
+				<a class="overthree typo_white lh20 mt10 block" href="./detail.html?ill_id=8607"></a>
+				<a class="disease_desc_btn" href="./detail.html?ill_id=8607">疾病主页</a>
+			</div>
+			<!-- 疾病简介 -->
+			<div class="bg_white tab_container pb10">
+				<div class="tab_bar">
+					<div class="tab_bar_item active" data-id="doctors">找医生</div>
+					<div class="tab_bar_item " data-id="hospitals">找医院</div>
+				</div>
+				<div class="tab_bar_content">
+					<div class=" lh1 pt15 " id="doctors">
+						<a href="/vue/doctor/detail.html?unit_id=100015578&amp;dep_id=200093042&amp;doc_id=200414405&amp;type=guahao" class="pagn pb30 block relative">
+			<div class="doctor_avatar_40 mr10 fl backgroundimg" style="background-image: url(https://imagesbasicinfo.91160.com/upload/doctor/1/doctor_5_17000206844459.png?x-oss-process=image/resize,mfit,h_100,w_100),url('https://wximg.91160.com/wechat/img/common/avatar_.jpg')"></div>
+			<div class="clearfix pb1">
+				<div class="fs18rem c_333 pt1">王路 （咽喉、嗓音疾病） 
+					<span class="ml5 fs16rem c_999">副主任医师</span>
+					
+				</div>
+				<div class="mt5">
+					
+					<span class="fr c_999 lh20"></span>
+				</div>
+				<div class="c_999 elli mt8">坐诊医院：深圳大学总医院</div>
+				<div class="c_999 elli mt5">擅长：临床咽喉及嗓音疾病的诊断及内、外科治疗，尤其是发声行为性嗓音疾病、嗓音疲劳、声带麻痹、老年喉、声门闭合不良、儿童嗓音、跨性别嗓音、艺术嗓音等疾病嗓音训练。提出“嗓音微整形”理念，以最小、最快捷的调整，获取最大化的嗓音获益，达到“嗓音美容”效果。在省内率先开展艺术嗓音声部评估，研发“美好嗓音，从心出发”、“美好嗓音进校园”系列训练课程，为更多职业用声者提供专业支持和指导。</div>
+				<div class="mt5 fs0">
+                    
+					<span class="mr10 c_999 fs14rem">评分 
+                        <i class="c-ffb937">9.9</i>
+                    
+                    </span>
+
+					<span class="mr10 c_999 fs14rem">预约量
+                    
+                        <i class="c-ffb937">13701</i>
+                    
+                    </span>
+
+                    <span class="mr10 c_999 fs14rem">咨询量
+                    
+                        <i class="c-ffb937">10</i>
+                    
+                    </span>
+                    
+
+				</div>
+				<div class="fs0 mt8">
+					
+						<span class="doctor_service">图文</span>
+					
+						<span class="doctor_service">电话</span>
+					
+						<span class="doctor_service">视频</span>
+					
+				</div>
+			</div>
+		</a>
+	
+		<a href="/vue/doctor/detail.html?unit_id=100015578&amp;dep_id=200093042&amp;doc_id=200371822&amp;type=guahao" class="pagn pb30 block relative">
+			<div class="doctor_avatar_40 mr10 fl backgroundimg" style="background-image: url(https://imagesbasicinfo.91160.com/upload/doctor/1/doctor_5_17000208397732.png?x-oss-process=image/resize,mfit,h_100,w_100),url('https://wximg.91160.com/wechat/img/common/avatar_.jpg')"></div>
+			<div class="clearfix pb1">
+				<div class="fs18rem c_333 pt1">谢慧芬 
+					<span class="ml5 fs16rem c_999">主治医师</span>
+					
+				</div>
+				<div class="mt5">
+					
+					<span class="fr c_999 lh20"></span>
+				</div>
+				<div class="c_999 elli mt8">坐诊医院：深圳大学总医院</div>
+				<div class="c_999 elli mt5">擅长：耳鼻咽喉头颈外科常见病、多发病的综合诊治。尤其急慢性咽喉炎、急慢性扁桃体炎、鼻中隔偏曲、鼻窦炎、变应性鼻炎、中耳炎、外耳炎、突发性耳聋、小儿鼾症（腺样体肥大、扁桃体肥大）、咽喉部良性肿物（口咽乳头状瘤、会厌囊肿、声带息肉）、耳廓或外耳道良性肿物、头颈浅表良性肿物等疾病。</div>
+				<div class="mt5 fs0">
+                    
+					<span class="mr10 c_999 fs14rem">评分 
+                        <i class="c-ffb937">10</i>
+                    
+                    </span>
+
+					<span class="mr10 c_999 fs14rem">预约量
+                    
+                        <i class="c-ffb937">608</i>
+                    
+                    </span>
+
+                    <span class="mr10 c_999 fs14rem">咨询量
+                    
+                        <i class="c-ffb937">20</i>
+                    
+                    </span>
+                    
+
+				</div>
+				<div class="fs0 mt8">
+					
+						<span class="doctor_service">电话</span>
+					
+						<span class="doctor_service">视频</span>
+					
+						<span class="doctor_service">私人</span>
+					
+				</div>
+			</div>
+		</a>
+	
+		<a href="/vue/doctor/detail.html?unit_id=131&amp;dep_id=1803&amp;doc_id=200551594&amp;type=guahao" class="pagn pb30 block relative">
+			<div class="doctor_avatar_40 mr10 fl backgroundimg" style="background-image: url(https://imagesbasicinfo.91160.com/upload/doctor/1/doctor_5_17237718545538.jpeg?x-oss-process=image/resize,mfit,h_100,w_100),url('https://wximg.91160.com/wechat/img/common/avatar_.jpg')"></div>
+			<div class="clearfix pb1">
+				<div class="fs18rem c_333 pt1">鲁慧 
+					<span class="ml5 fs16rem c_999">主治医师</span>
+					
+				</div>
+				<div class="mt5">
+					
+					<span class="fr c_999 lh20"></span>
+				</div>
+				<div class="c_999 elli mt8">坐诊医院：深圳市南山区人民医院</div>
+				<div class="c_999 elli mt5">擅长：耳鼻咽喉科常见病、多发病规范化诊疗。</div>
+				<div class="mt5 fs0">
+                    
+					<span class="mr10 c_999 fs14rem">评分 
+                        <i class="c-ffb937">9.7</i>
+                    
+                    </span>
+
+					<span class="mr10 c_999 fs14rem">预约量
+                    
+                        <i class="c-ffb937">4099</i>
+                    
+                    </span>
+
+                    <span class="mr10 c_999 fs14rem">咨询量
+                    
+                        <i class="c-ffb937">1</i>
+                    
+                    </span>
+                    
+
+				</div>
+				<div class="fs0 mt8">
+					
+				</div>
+			</div>
+		</a>
+	
+		<a href="/vue/doctor/detail.html?unit_id=200025359&amp;dep_id=200107929&amp;doc_id=200576175&amp;type=guahao" class="pagn pb30 block relative">
+			<div class="doctor_avatar_40 mr10 fl backgroundimg" style="background-image: url(https://imagesbasicinfo.91160.com/upload/doctor/1/doctor_5_16970974435274.jpeg?x-oss-process=image/resize,mfit,h_100,w_100),url('https://wximg.91160.com/wechat/img/common/avatar_.jpg')"></div>
+			<div class="clearfix pb1">
+				<div class="fs18rem c_333 pt1">刘海燕 
+					<span class="ml5 fs16rem c_999">主治医师</span>
+					
+				</div>
+				<div class="mt5">
+					
+					<span class="fr c_999 lh20"></span>
+				</div>
+				<div class="c_999 elli mt8">坐诊医院：中山大学附属第七医院</div>
+				<div class="c_999 elli mt5">擅长：咽喉疾病（鼾症、反流性咽炎、咽部良性肿瘤)；嗓音疾病（声带息肉、声带小结、声带麻痹、声带沟、声带良性肿瘤)，针对声带疾病的微创手术治疗及嗓音训练，成人及小)儿鼾症微创手术治疗。</div>
+				<div class="mt5 fs0">
+                    
+					<span class="mr10 c_999 fs14rem">评分 
+                        <i class="c-ffb937">9.9</i>
+                    
+                    </span>
+
+					<span class="mr10 c_999 fs14rem">预约量
+                    
+                        <i class="c-ffb937">1454</i>
+                    
+                    </span>
+
+                    <span class="mr10 c_999 fs14rem">咨询量
+                    
+                        <i class="">暂无</i></span>
+                    
+                    
+                    
+
+				</div>
+				<div class="fs0 mt8">
+					
+				</div>
+			</div>
+		</a><div class="ajax_loading bg_white">没有更多啦~</div>
+					</div>
+					<div class="lh1 hidden" id="hospitals">
+						<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/2023/9/unit_200064405_16939130315953.jpeg?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=200064405&amp;dep_id=200223134">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">深圳仁树眼耳鼻喉科（福田院区)
+						
+							<span>| 耳鼻喉专科</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>9.9分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>综合门诊部</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					 
+						<div class=" elli c_999">深圳市福田区福田街道岗夏社区深南大道2003号华嵘大厦5A楼</div>
+					
+				</a>
+				
+			</div>
+		</div>
+	
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/1/unit_5_16811070917386.jpeg?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=21&amp;dep_id=681">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">北京大学深圳医院
+						
+							<span>| 耳鼻喉科</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>9.4分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>三级甲等</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					
+						<div class="pb1">
+							
+								<div class="support_service_item">门诊交费</div>
+							
+								<div class="support_service_item">手机取号</div>
+							
+						</div>
+					
+				</a>
+				
+			</div>
+		</div>
+	
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/1/unit_22_16402638977072.png?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=22&amp;dep_id=113">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">深圳市第二人民医院
+						
+							<span>| 耳鼻咽喉科</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>9.4分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>三级甲等</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					
+						<div class="pb1">
+							
+								<div class="support_service_item">检验检查报告</div>
+							
+								<div class="support_service_item">门诊交费</div>
+							
+						</div>
+					
+				</a>
+				
+			</div>
+		</div>
+	
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/1/unit_5_15531387914575.jpg?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=200032951&amp;dep_id=200376879">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">固生堂中医深圳香竹分院
+						
+							<span>| 耳鼻喉科</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>9.2分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>中医门诊部</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					 
+						<div class=" elli c_999">紫竹六道64号越海家园2栋102</div>
+					
+				</a>
+				
+			</div>
+		</div>
+	
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/2024/12/unit_200120447_17334774855054.jpeg?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=200120447&amp;dep_id=200484521">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">深圳维世达胜凯门诊部
+						
+							<span>| 耳鼻喉科</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>10.0分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>综合门诊部</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					 
+						<div class=" elli c_999">深圳市南山区粤海街道科技园路软件产业基地4栋C座裙楼413-415</div>
+					
+				</a>
+				
+			</div>
+		</div>
+	
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/1/unit_5_16460217854296.png?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=200081653&amp;dep_id=200267263">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">深圳大学附属华南医院 
+						
+							<span>| 耳鼻喉科</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>9.6分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>综合医院</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					 
+						<div class=" elli c_999">深圳市龙岗区平湖街道福新路1号</div>
+					
+				</a>
+				
+			</div>
+		</div>
+	
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/1/unit_5_15902086149296.jpg?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=200020102&amp;dep_id=200090289">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">深圳市第四人民医院（深圳市萨米医疗中心）
+						
+							<span>| 耳鼻咽喉科门诊</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>9.5分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>综合医院</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					
+						<div class="pb1">
+							
+								<div class="support_service_item">网上医院</div>
+							
+						</div>
+					
+				</a>
+				
+			</div>
+		</div>
+	
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/5/unit/1/unit_105.jpg?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=105&amp;dep_id=5206">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">深圳市妇幼保健院
+						
+							<span>| 耳鼻喉科(福强)</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>9.4分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>三级甲等</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					 
+						<div class=" elli c_999">福田区红荔路2004号</div>
+					
+				</a>
+				
+			</div>
+		</div>
+	
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/5/201010/12870382336129.jpg?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=130&amp;dep_id=100086119">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">南方科技大学医院
+						
+							<span>| 耳鼻咽喉门诊</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>9.3分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>综合医院</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					 
+						<div class=" elli c_999">西丽街道留仙大道6019号</div>
+					
+				</a>
+				
+			</div>
+		</div>
+	
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/1/unit_118_201412251613.jpg?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=118&amp;dep_id=3832">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">广州中医药大学深圳医院
+						
+							<span>| 耳鼻喉科门诊</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>9.5分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>三级甲等</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					 
+						<div class=" elli c_999">深圳市福田区北环大道6001号</div>
+					
+				</a>
+				
+			</div>
+		</div>
+	
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/1/unit_4_16402637125386.png?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=4&amp;dep_id=206">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">中山大学附属第八医院(深圳福田)
+						
+							<span>| 耳鼻咽喉头颈外科门诊</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>9.5分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>三级甲等</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					 
+						<div class=" elli c_999">深圳市深南中路3025号</div>
+					
+				</a>
+				
+			</div>
+		</div>
+	
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url(https://imagesbasicinfo.91160.com/upload/unit/1/unit_5_16563839859423.jpg?x-oss-process=image/resize,mfit,h_100,w_100),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id=143&amp;dep_id=1607">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">深圳市龙华区中心医院
+						
+							<span>| 耳鼻咽喉科门诊</span>
+						
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5"></i>9.4分</span>
+						
+							<span class="c_666 middle"><i class="iconfont v_top mr5"></i>三级甲等</span>
+						
+						<span class="fr c_999 ">&gt;99km</span>
+					</div>
+					
+						<div class="pb1">
+							
+								<div class="support_service_item">检验检查报告</div>
+							
+								<div class="support_service_item">门诊交费</div>
+							
+								<div class="support_service_item">手机取号</div>
+							
+								<div class="support_service_item">网上医院</div>
+							
+						</div>
+					
+				</a>
+				
+			</div>
+		</div><div class="ajax_loading bg_white">
+		        	<span style="width:100px;" class="alignc layout block"><img src="https://wximg.91160.com/wechat/img/healthmall/loading.gif" class="fl" style="width:16px;">数据加载中</span>
+				    </div>
+					</div>
+				</div>
+				
+			</div>
+	</div>
+<div class="pshade prompt fullheight fullwidth">
+	<div class="prompt-box bg_white textc rsquare clearfix">
+		<div class="prompt-main pdf">
+			<div class="prompt-title typo_middle c333"></div>
+			<div class="prompt-msg typo_small c666"></div>
+		</div>
+		<div class="prompt-bbox clearfix fullwidth">
+			<a class="prompt-btn prompt-cancel block typo_middle" href="javascript:void(0);"></a>
+			<a class="prompt-btn prompt-sure block typo_green typo_middle" href="javascript:void(0);"></a>
+		</div>
+	</div>
+</div>
+<div class="loading tshade hidden">
+	<div class="loadingicon loadingimg"><div class="spinner" aria-role="progressbar" style="position: relative; width: 0px; z-index: 2000000000; left: 40px; top: 40px;"><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-0-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(0deg) translate(10px, 0px); border-radius: 2px;"></div></div><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-1-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(30deg) translate(10px, 0px); border-radius: 2px;"></div></div><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-2-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(60deg) translate(10px, 0px); border-radius: 2px;"></div></div><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-3-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(90deg) translate(10px, 0px); border-radius: 2px;"></div></div><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-4-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(120deg) translate(10px, 0px); border-radius: 2px;"></div></div><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-5-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(150deg) translate(10px, 0px); border-radius: 2px;"></div></div><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-6-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(180deg) translate(10px, 0px); border-radius: 2px;"></div></div><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-7-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(210deg) translate(10px, 0px); border-radius: 2px;"></div></div><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-8-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(240deg) translate(10px, 0px); border-radius: 2px;"></div></div><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-9-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(270deg) translate(10px, 0px); border-radius: 2px;"></div></div><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-10-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(300deg) translate(10px, 0px); border-radius: 2px;"></div></div><div style="position: absolute; top: -2px; opacity: 0.25; animation: 2s linear 0s infinite normal none running opacity-50-25-11-12;"><div style="position: absolute; width: 12px; height: 4px; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center; transform: rotate(330deg) translate(10px, 0px); border-radius: 2px;"></div></div></div></div>
+</div>
+<div class="success tshade hidden">
+	<div class="success-icon iconfont"></div>
+	<div class="success-msg">操作成功</div>
+</div>
+<div class="tips_form hidden"></div>
+<div class="shade fullheight fullwidth hidden"></div>
+<a href="javascript:void(0);" class="btn_top typo_white textc hidden">
+	<span class="iconfont typo_large btn_itop"></span>
+</a>
+<div class="pdf pshade pop-dwrap" style="display: none;">
+	<div class="pop-box fullwidth fullheight bg_white">
+		<h2 class="clearfix typo_gray typo_middle pdf bt_gray pop-title">
+			<span class="pop-dtitle">更多</span>
+			<a href="javascript:void(0);" class="typo_middle typo_lgray fright iconfont pop-iclose"></a>
+		</h2>
+		<div class="swiper-container fullwidth fullheight popup swiper-container-vertical swiper-container-free-mode" style="height: 794.059px; cursor: grab;">
+			<div class="swiper-wrapper" style="transition-duration: 0ms;">
+				<div class="swiper-slide pop-dlist swiper-slide-active"></div>
+			</div>
+			<div class="swiper-scrollbar pop-scrollbar" style="opacity: 0; transition-duration: 400ms;"><div class="swiper-scrollbar-drag" style="transition-duration: 0ms;"></div></div>
+		</div>	
+	</div>
+</div>
+<div class="pshade greenanswer-dwrap fullwidth fullheight">
+	<div class="greenanswer-box fullwidth fullheight bg_white absolute" style="top: 50%; height: 988.2px; width: 1920px; margin-top: -494.1px;">
+		<h2 class="clearfix typo_white typo_middle pdf greenanswer-title bg_green textc">
+			<span class="greenanswer-dtitle">更多</span>
+			<a href="javascript:void(0);" class="typo_middle typo_white fright iconfont greenanswer-iclose"></a>
+			<div class="pt5 typo_smaller typo_normal greenanswer-subtitle">
+		        将我的问题转发给其他好医生，听取更多意见！
+		    </div>
+		</h2>
+		<div class="fullwidth fullheight greenanswer-popup lauto" style="width: 1920px; height: 988.2px;">
+			<div class="greenanswer-dlist"></div>
+		</div>	
+	</div>
+</div>
+<div class="pshade prompt2 fullheight fullwidth">
+	<div class="prompt-box2 bg_white textc rsquare clearfix">
+		<div class="prompt-main2 pdf">
+			<div class="prompt-title2 typo_middle typo_dgray"></div>
+			<div class="prompt-msg2 typo_small typo_gray"></div>
+		</div>
+		<div class="prompt-bbox2 clearfix fullwidth">
+			<a class="prompt-btn2 prompt-sure2 block typo_green typo_middle" href="javascript:void(0);"></a>
+			<a class="prompt-btn2 prompt-cancel2 block typo_green typo_middle" href="javascript:void(0);"></a>
+		</div>
+	</div>
+</div>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2e7d40bfa5ae51733e63c04f3d028dd1";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script>
+    // CSZZ统计代码
+    (function() {
+        var hmm = document.createElement('script')
+        hmm.src = 'https://s4.cnzz.com/z_stat.php?id=1279197911&web_id=1279197911'
+        var ss = document.getElementsByTagName('script')[0]
+        ss.parentNode.insertBefore(hmm, ss)
+    })()
+</script>
+<script>
+    // 处理登录注册页面键盘弹起时，底部的文案被键盘顶起来
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+    if (isAndroid) {
+        const innerHeight = window.innerHeight;
+        window.addEventListener('resize', () => {
+            const newInnerHeight = window.innerHeight;
+            if (innerHeight > newInnerHeight) {
+                // 键盘弹出事件处理
+                console.log("android 键盘弹窗事件");
+                $('.user-footer-link').addClass('hidden')
+            } else {
+                // 键盘收起事件处理
+                console.log("android 键盘收起事件处理")
+                $('.user-footer-link').removeClass('hidden')
+            }
+        });
+    }
+</script>
+<script>
+    var CHANNEL_ID = "16";
+    var APP_LOGIN_URL = "https://weixin.91160.com/user/login.html";
+    var ENCRYPT_URL = "https://weixin.91160.com/sys/encrypt.html";
+    var REFERER_URL = ""; //替换掉url中的双引号，避免URL中的字符作为js代码运行
+    var USER_ID = 0;
+    var user_key = "";
+    var regDate_ppl = "";
+    var regChannel_ppl = "";
+    var syscaptchatUrl = "https://weixin.91160.com/sys/captcha.html"; //图片验证码
+    var syscapRandUrl = "https://weixin.91160.com/sys/captcha.html?rand=RAND"
+    var token = "";
+    var logcollect_domain = "https://logcollect.91160.com/"
+    var article_id = "";
+</script>
+<script src="https://wximg.91160.com/wechat/js/base64.min.js?v=1740277949"></script>
+<script type="text/javascript" src="https://wximg.91160.com/wechat/js/sensors/autotract.20240411.js?v=1740277949"></script>
+<!-- <script src="//webapi.amap.com/maps?v=1.4.15&key=cd347bcf058c8f6593ae8cc9215d3ec6&plugin=AMap.Driving,AMap.Geocoder"></script>
+<script src="//3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js?callback=init"></script> -->
+
+<script src="https://wximg.91160.com/wechat/js/amap/amap1.4.15cd347bcf058c8f6593ae8cc9215d3ec6DrivingGeocoder.js"></script><script crossorigin="anonymous" id="amap_plus_js" src="https://webapi.amap.com/maps/modules?v=1.4.24&amp;key=cd347bcf058c8f6593ae8cc9215d3ec6&amp;vrs=1698916239216&amp;m=mouse,vectorlayer,overlay,cgl,AMap.Driving,AMap.Geocoder,sync" type="text/javascript"></script>
+<script src="https://wximg.91160.com/wechat/js/qq/geolocation.min.js"></script>
+
+<script>
+    var ua = navigator.userAgent.toLowerCase()
+    
+    function isInWechatMP() {
+        return (ua.match(/micromessenger/i) && ua.match(/miniprogram/i)) || window.__wxjs_environment === 'miniprogram'
+    }
+    // 判断是否是支付宝小程序
+    function isInAlipayMP() {
+        var ua = window.navigator.userAgent.toLowerCase()
+        return ua.match(/Alipay/i) == 'alipay'
+    }
+
+    function loadTencentCapture() {
+        var hm = document.createElement('script')
+        hm.src = 'https://ssl.captcha.qq.com/TCaptcha.js'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(hm, s)
+    }
+
+    function loadAliSdk() {
+        var hm = document.createElement('script')
+        hm.src = '//appx/web-view.min.js'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(hm, s)
+    }
+
+
+    if (isInAlipayMP()) {
+      loadAliSdk()
+    }
+
+    var isMiniApp = isInWechatMP() || isInAlipayMP()
+    if (!isMiniApp) {
+        loadTencentCapture()
+    }
+</script> 
+<!-- <script type="text/javascript" src="js/jquery.wechat.js"></script> -->
+<script type="text/javascript" src="https://wximg.91160.com/wechat/js/jquery/jquery.wechat.js"></script>
+<script type="text/javascript" src="https://wximg.91160.com/wechat/js/js2App.js?v=1740277949"></script>
+<script type="text/javascript" src="https://wximg.91160.com/wechat/js/common.js?v=1740277949"></script>
+<script type="text/javascript" src="https://wximg.91160.com/wechat/js/form.js?v=1740277949"></script>
+
+<script src="https://wximg.91160.com/wechat/js/gio.js?v=1740277949"></script>
+<script src="https://wximg.91160.com/wechat/js/sensors/buriedSet.1009.js?v=1740277949"></script>
+<script src="https://wximg.91160.com/wechat/js/dataBI.js?v=1740277949"></script>
+<!-- 高德地图定位 -->
+<!-- <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.6&key=cd347bcf058c8f6593ae8cc9215d3ec6&plugin=AMap.CitySearch"></script> -->
+
+<script>
+  // 回到首页
+  $(document).on('click', '.home-btn', function() {
+    if(_cid == '100013549' || _cid == '100013553') {
+      location.replace('https://weixin.91160.com/h5/register/mychangsha/index.html?cid=' + _cid + '&city_id=3274')
+    } else {
+      location.replace('https://weixin.91160.com')
+    }
+  })
+</script>
+
+<script type="text/javascript">
+    var groupChatParam = ""
+    $(function() {
+        setCookie('logcollect_domain', logcollect_domain, 0.2)
+    })
+
+    function getStatisticsType() {
+        var pathname = window.location.pathname;
+        pathname = pathname.substr(1, pathname.length - 6);
+        pathname = pathname.replace(/\//g, '_');
+        return pathname;
+    }
+    var statistics_type = getStatisticsType();
+    var content_type = statistics_type.indexOf("microclass_l") > -1 ? 19 : statistics_type.indexOf("microclass_d") > -1 ? 18 : '';
+    article_id ? content_type = 20 : ''
+    console.log(content_type);
+    // var articleDetail = '< echo  json_encode($articleDetail)'
+    // console.log(articleDetail)
+    var doc_name = ""
+    var dep_name = "";
+    var zc_name = "";
+    var unit_name = "";
+    var sharetitle = "";
+    var description = "";
+    var shareimg = "";
+    if (content_type == 20) {
+        groupChatParam = {
+            'content_type': content_type,
+            'img_url': shareimg,
+            'title': sharetitle,
+            'doc_name': doc_name || '',
+            'dep_name': dep_name || '',
+            'zc_name': zc_name || '',
+            'unit_name': unit_name || '',
+            'link': encodeURIComponent(shareurl ? shareurl : window.location.href),
+        }
+    } else if (content_type == 19) {
+        groupChatParam = {
+            'content_type': content_type,
+            'img_url': shareimg,
+            'title': sharetitle,
+            'content': sharetitle,
+            'link': encodeURIComponent(shareurl ? shareurl : window.location.href),
+        }
+    } else if (content_type == 18) {
+        groupChatParam = {
+            'content_type': content_type,
+            'img_url': shareimg,
+            'title': sharetitle,
+            'doc_name': doc_name || '',
+            'dep_name': dep_name || '',
+            'zc_name': zc_name || '',
+            'unit_name': unit_name || '',
+            'link': encodeURIComponent(shareurl ? shareurl : window.location.href),
+        }
+    }
+    //console.log(statistics_type);
+    console.log('cid:', cid)
+
+    function getNyAppShareParam() {
+        var ret;
+        if (0) {
+            ret = "";
+        } else {
+            var v_data = {
+                title: sharetitle,
+                details: description,
+                img: shareimg,
+                shareurl: encodeURIComponent(shareurl ? shareurl : window.location.href),
+                timeLineTitle: sharetitle,
+                timeLineDetails: description,
+                timeLineImg: shareimg,
+                statistics_type: statistics_type,
+                groupChatParam: JSON.stringify(groupChatParam)
+            }
+            if (getUrlParam('task_id') && getUrlParam('action') === 'action_share') {
+                v_data['business_type'] = 'share_point'
+            }
+            if ((typeof mJavaScriptObject) === 'object' && (cid == 20 || cid == 24)) {
+                var appVersion = mJavaScriptObject.funGetVersion()
+                v_data.shareurl = v_data.shareurl + '&ny_share=app' + cid + 'v' + appVersion
+            }
+            if (sharetitle && shareimg) {
+                $.ajax({
+                    type: "get",
+                    url: "/sys/appencrypt.html?data=" + JSON.stringify(v_data),
+                    async: false,
+                    success: function(res) {
+                        ret = res.data;
+                    }
+                });
+            }
+        }
+        return ret
+    }
+    // if ((typeof mJavaScriptObject) === 'object' && (cid ==20 || cid == 24) && mJavaScriptObject.hasOwnProperty('funSetWebViewTitle')) {
+    if ((typeof mJavaScriptObject) === 'object' && (cid == 20 || cid == 24)) {
+        // app中调用h5 title
+        // if(mJavaScriptObject.hasOwnProperty('funSetWebViewTitle')){
+        //   mJavaScriptObject.funSetWebViewTitle(document.title)
+        // }
+        /* app中右上角分享按钮处理
+          默认都展示右上角分享按钮
+          如果地址栏上面有unshare 并且等于1，则不出现右上角分享按钮
+        */
+        var unshare = getUrlParam('unshare') || '0'
+        var setunshare = getUrlParam('setunshare') || '0'
+        console.log('unshare:', unshare, 'setunshare:', setunshare)
+        if (unshare == 1 || setunshare == 1) {
+            mJavaScriptObject.funShowShareButton('0')
+        } else {
+            mJavaScriptObject.funShowShareButton('1')
+        }
+    }
+    window.getNyAppShareParam = getNyAppShareParam
+</script>
+
+<script type="text/javascript">
+    function pourCall(ask_id) {
+        $.ajax({
+            url: '//wechatgate.91160.com/doctor-business/v1/ask_instant/call?user_key=' + user_key + '&user_id=' + USER_ID,
+            type: "post",
+            data: {
+                ask_id: ask_id
+            },
+            dataType: "json",
+            success: function(res) {
+                if (res.result_code == 1) {
+                    showTips("本服务通过第三方转接实现，请留意系统来电（0571或021或020开头的号码），如被拦截请及时恢复，避免服务失败。")
+                }
+            }
+        })
+    }
+    /**
+     * 获取医生端 token
+     * @returns {data}
+     */
+    function getDocAppToken() {
+        var doc_app_login_token;
+        if ((typeof(TokenNativeActionProxy) == 'object')) {
+            doc_app_login_token = TokenNativeActionProxy.getToken();
+        }
+        return (typeof(doc_app_login_token) == 'string' && doc_app_login_token.length > 32) ? doc_app_login_token : '';
+    }
+    $(function() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if ((typeof(mJavaScriptObject) == 'object') || isWeiXin() || CHANNEL_ID == 20 || CHANNEL_ID == 24) { //APP、微信不显示广告
+            $("#topAdBox").hide();
+            $("#app-ad-all").hide();
+            $(".top-app-wrap").css({
+                'padding-top': '0'
+            });
+        } else {
+            $("#topAdBox").show();
+            $("#app-ad-all").show();
+            $(".top-app-wrap").css({
+                'padding-top': '60px'
+            });
+        }
+
+            });
+</script>
+<img src="https://hm.baidu.com/hm.gif?si=d4fe452b4b4d3072dfda2f68e7a19668&amp;et=0&amp;nv=1&amp;st=1&amp;lt=0&amp;v=wap-0-0.2&amp;rnd=3860402770" width="0" height="0" style="display:none;" alt="健康160网-统计">
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-77294426-1', 'auto');
+ga('send', 'pageview');
+var reg_phone = "";
+if(reg_phone) {
+	ga('set', 'dimension1', reg_phone);
+}
+</script>
+<!-- PB点击量统计 -->
+<script type="text/javascript">
+    var SYSTEM_ID = "16";
+    var SYSTEM_NAME = "微信";
+    var SYSTEM_VERSION = "";
+    var IP = "67.180.163.209";
+    var CITY_ID = "5";
+    var USER_ID = "";
+</script>
+<script type="text/javascript" src="https://wximg.91160.com/wechat/js/statistics.js?v=1740277949"></script>
+
+<script type="text/javascript">
+    $(function() { //判断非登录状态清除localStorage中的user_id
+        var cookie_is_logout = readCookie('is_logout');
+        // console.log(cookie_is_logout)
+        // var cookie_is_logout = readCookie('is_logout');
+        if (cookie_is_logout) {
+            localStorage.removeItem('user_id');
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    if ("" == '') {
+        window.chooseType = "";
+    } else {
+        window.chooseType = ""
+    }
+
+    function collection(param, callback) {
+        $.ajax({
+            type: param.type,
+            url: param.ajaxUrl,
+            data: param.data,
+            success: function(res) {
+                if (res.state == 1) {
+                    if (chooseType == 0) {
+                        showTips('收藏成功');
+                        $('.nav .coll').show();
+                        $('.nav .notcoll').hide();
+                        chooseType = 1;
+                    } else {
+                        showTips('取消收藏成功');
+                        $('.nav .coll').hide();
+                        $('.nav .notcoll').show();
+                        chooseType = 0;
+                    }
+                    callback && callback();
+                } else if (res.login == -1) {
+                    window.location.href = '/user/login.html'
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        });
+    }
+
+    // 判断刘海屏
+    function hasNotch() {
+        var proceed = false
+        var div = document.createElement('div')
+        if (CSS.supports('padding-bottom: env(safe-area-inset-bottom)')) {
+            div.style.paddingBottom = 'env(safe-area-inset-bottom)'
+            proceed = true
+        } else if (CSS.supports('padding-bottom: constant(safe-area-inset-bottom)')) {
+            div.style.paddingBottom = 'constant(safe-area-inset-bottom)'
+            proceed = true
+        }
+        if (proceed) {
+            document.body.appendChild(div)
+            var calculatedPadding = parseInt(window.getComputedStyle(div).paddingBottom)
+            document.body.removeChild(div)
+            if (calculatedPadding > 0) {
+                return true
+            }
+        }
+        return false
+    }
+    //是否农行渠道
+    var isABC = "0";
+    var hasNotch = hasNotch();
+    if (isABC == '1') { //农行渠道的适配刘海
+        // $('body').css('paddingTop', hasNotch ? '84px' : '64px');
+        $('.nav.fixedtop').css('top', hasNotch ? '84px' : '64px');
+        $('#screenFilter').css('top', hasNotch ? '84px' : '64px');
+        $('#myasklist').css('top', hasNotch ? '84px' : '64px')
+        $('.abcNav,.placeholder').css('height', hasNotch ? '84px' : '64px')
+        $('.abcNav .container').css('paddingTop', hasNotch ? '41px' : '21px')
+        $('.abcNavrem,.placeholderrem').css('height', hasNotch ? '2.24rem' : '1.706667rem')
+        $('.abcNavrem .containerrem').css('paddingTop', hasNotch ? '1.093333rem' : '.56rem')
+        $('#abcTitle').show()
+    }
+
+    function abcGoBack() {
+        window.history.back(-1)
+    }
+
+    function locationDepGlobal(unitId) {
+        $.get("https://gate.91160.com/yaopin/unit/org?unit_id=" + unitId, function(data, status) {
+            if (data.data.online_shop) {
+                window.location.href = '/yiyao/cloud?unit_id=' + unitId
+                return
+            }
+            window.location.href = '/unit/dep.html?unit_id=' + unitId
+        })
+
+    }
+</script>
+<script>
+  handleSharePageStatus({})
+  // 处理小程序分享页（每次分享的是当前所处页面而非首页）
+  function handleSharePageStatus(obj) {
+    const data = {
+      url: obj.url || location.href,
+      title: obj.title || '健康160',
+      link: obj.url || location.href,
+      desc: obj.desc || '健康160',
+      imgUrl: obj.imgUrl || ''
+    }
+    console.log('处理39健康小程序分享页面--wechat-vue', data)
+    wx && wx.miniProgram && wx.miniProgram.postMessage({
+      type: 'share',
+      data: data
+    })
+  }
+</script>
+
+<script type="text/javascript" src="https://wximg.91160.com/wechat/js/template.js?v=1740277949"></script>
+
+<script id="doctorstemplate" type="text/html">
+	{{each rows as item index}}
+		<a href="/vue/doctor/detail.html?unit_id={{item.unit_id}}&dep_id={{item.dep_id}}&doc_id={{item.doctor_id}}&type=guahao" class="pagn pb30 block relative">
+			<div class="doctor_avatar_40 mr10 fl backgroundimg" style="background-image: url({{item.image}}),url('https://wximg.91160.com/wechat/img/common/avatar_.jpg')"></div>
+			<div class="clearfix pb1">
+				<div class="fs18rem c_333 pt1">{{item.doctor_name}} 
+					<span class="ml5 fs16rem c_999">{{item.zc_name}}</span>
+					{{if item.show_near}}
+						<span class="close_hospital">离我近</span>
+					{{/if}}
+				</div>
+				<div class="mt5">
+					{{if item.first_prictice}}
+						<span class="first_prictice">{{item.first_prictice}}</span>
+					{{/if}}
+					<span class="fr c_999 lh20">{{item.distance}}</span>
+				</div>
+				<div class="c_999 elli mt8">坐诊医院：{{item.stay_unit}}</div>
+				<div class="c_999 elli mt5">擅长：{{item.expert}}</div>
+				<div class="mt5 fs0">
+                    {{if item.cure_score != '暂无' || item.total_yuyue_num || item.ask_num}}
+					<span class="mr10 c_999 fs14rem">评分 {{if item.cure_score == '暂无'}}
+                        <i class="">{{item.cure_score}}</i></span>
+                    {{else}}
+                        <i class="c-ffb937">{{item.cure_score}}</i>
+                    {{/if}}
+                    </span>
+
+					<span class="mr10 c_999 fs14rem">预约量
+                    {{if item.total_yuyue_num == 0}}
+                        <i class="">暂无</i></span>
+                    {{else}}
+                        <i class="c-ffb937">{{item.total_yuyue_num}}</i>
+                    {{/if}}
+                    </span>
+
+                    <span class="mr10 c_999 fs14rem">咨询量
+                    {{if item.ask_num == 0}}
+                        <i class="">暂无</i></span>
+                    {{else}}
+                        <i class="c-ffb937">{{item.ask_num}}</i>
+                    {{/if}}
+                    </span>
+                    {{else}}
+                    <span class="mr10 c_999 fs14rem">评分 暂无
+                    </span>
+                    {{/if}}
+
+				</div>
+				<div class="fs0 mt8">
+					{{each item.support_services as service i}}
+						<span class="doctor_service">{{service}}</span>
+					{{/each}}
+				</div>
+			</div>
+		</a>
+	{{/each}}
+</script>
+<script id="hospitaltemplate" type="text/html">
+	{{each rows as item index}}
+		<div class="p15">
+			<div class="fl backgroundimg hospital_image" style="background-image: url({{item.image}}),url(https://wximg.91160.com/wechat/img/common/default_hospital.gif)"></div>
+			<div class="clearfix pb1">
+				<a class=" block" href="/doctor/index.html?unit_id={{item.unit_id}}&dep_id={{item.dep_id}}">
+					<h2 class="elli typo_black c_333 fs18rem typo_normal lh22">{{item.unit_name}}
+						{{if item.dep_name}}
+							<span>| {{item.dep_name}}</span>
+						{{/if}}
+					</h2>
+					<div class="lh22 ">
+						<span class="typo_orange middle mr10"><i class="iconfont xxing mr5">&#xe628;</i>{{item.overall_score}}</span>
+						{{if item.unit_level == "A" || item.unit_level == "B" || item.unit_level == "C" || item.unit_level == "D"}}
+							<span class="c_666 middle"><i class="iconfont v_top mr5">&#xe61e;</i>{{item.unit_level_name}}</span>
+						{{else}}
+							<span class="c_666 middle"><i class="iconfont v_top mr5">&#xe61e;</i>{{item.unit_class_name}}</span>
+						{{/if}}
+						<span class="fr c_999 ">{{item.distance}}</span>
+					</div>
+					{{if item.support_services.length > 0}}
+						<div class="pb1">
+							{{each item.support_services as support_service i}}
+								<div class="support_service_item">{{support_service}}</div>
+							{{/each}}
+						</div>
+					{{else}} 
+						<div class=" elli c_999">{{item.address}}</div>
+					{{/if}}
+				</a>
+				{{if item.unit_service}}
+					<div class="bor_t mt10 pt5">
+						{{each item.unit_service as serviceItem i}}
+							<a class="goods_item block clearfix" href="{{serviceItem.url}}">
+								<div class="fl backgroundimg goods_item_image mr10" style="background-image: url({{serviceItem.img}}),url(https://wximg.91160.com/wechat//img/common/default_hospital.gif)"></div>
+								<div class="w-60 elli typo_black fl">{{serviceItem.name}}</div>
+								<span class="fr typo_orange"><i>&yen;</i>{{serviceItem.price}}</span>
+							</a>
+						{{/each}}
+					</div>
+				{{/if}}
+			</div>
+		</div>
+	{{/each}}
+</script>
+<script>
+	
+	$(function(){
+		var navHeight = $('.nav').outerHeight() || 0,
+				containerTop = $('.tab_container').offset().top - navHeight,
+				tabBar = $('.tab_bar'),
+				tabBarContent = $('.tab_bar_content');
+		$(window).on('scroll',function(){
+			//tab_bar固定
+			if($(this).scrollTop() >= containerTop) {
+				tabBar.addClass('fixed_fullwidth').css('top',navHeight + 'px')
+				tabBarContent.css('padding-top',navHeight+ 'px')
+			}else {
+				tabBar.removeClass('fixed_fullwidth')
+				tabBarContent.css('padding-top',0)
+			}
+		})
+		var dortorPage = 1, hospitalPage = 1,
+				doctorFlag = true, hospitalFlag = true,
+				activeTab = 'doctors',timers = null, PAGESIZE = 10,
+				isDoctorsAllLoaded = false, isHospitalsAllLoaded = false;
+		var cat_id = "10751";
+		var ill_id = "8607";
+		$('.tab_bar').on('click',function(e){
+			var id = $(e.target).data('id');
+			activeTab = id;
+			$(e.target).addClass('active').siblings().removeClass('active');
+			$('#' + id).fadeIn(200).siblings().fadeOut(200);
+		})
+		
+		// 下拉滚动加载
+		$(window).on('scroll',function(){
+			//当时滚动条离底部60px时开始加载下一页的内容
+	    if (($(window).height() + $(window).scrollTop() + 60) >= $(document).height()) {
+        if(activeTab == 'doctors' && doctorFlag) {
+        	dortorPage++;
+        	loadDoctorData();
+        }else if(activeTab == 'hospitals' && hospitalFlag){
+        	hospitalPage++;
+        	loadHospitalData()
+        }
+	    }
+		})
+
+		loadDoctorData();
+		loadHospitalData();
+		function loadDoctorData() {//加载医生数据
+			if(!isDoctorsAllLoaded) {
+				doctorFlag = false
+				mylatlng(function(lat,lng){
+		      $.ajax({
+		        url:'/newunit/getPubcateDocList.html',
+		        data:{
+		          ill_id: ill_id,
+		          lat: lat,
+		          lng: lng,
+		          page:dortorPage
+		        }
+		      }).then(function(res){
+		      	doctorFlag = true
+		      	var doctorsTpl = template('doctorstemplate', {rows: res.data.rows});
+						$(doctorsTpl).insertBefore($('#doctors .ajax_loading')) ;
+						isAllLoaded(res.data.rows,'doctors')
+		      })
+		    })
+				
+			}
+		}
+		function loadHospitalData() {//加载医院数据
+			if(!isHospitalsAllLoaded) {		
+				hospitalFlag = false	
+				mylatlng(function(lat,lng){
+		      $.ajax({
+		        url:'/newunit/getUnitList.html',
+		        data:{
+		          cat_id: cat_id,
+		          lat: lat,
+		          lng: lng,
+		          business_type: 'dep_list',
+		          page:hospitalPage
+		        }
+		      }).then(function(res){
+		      	hospitalFlag = true
+	      		var hospitalsTpl = template('hospitaltemplate', {rows: res.data.rows});
+						$(hospitalsTpl).insertBefore($('#hospitals .ajax_loading'))
+						isAllLoaded(res.data.rows,'hospitals')
+		      })
+		    })	
+			
+			}
+		}
+		function isAllLoaded(data,type) {// 加载完毕
+			if(data.length < PAGESIZE) {
+				if(type == 'doctors') {
+					isDoctorsAllLoaded = true;
+					$('#doctors .ajax_loading').text('没有更多啦~')
+				}else {
+					isHospitalsAllLoaded = true;
+					$('#hospitals .ajax_loading').text('没有更多啦~')
+				}
+			}
+		}
+	})
+</script>
+
+
+</div></body></html>
