@@ -36,6 +36,19 @@ function cleanHTML(htmlContent) {
         $(selector).remove();
     });
 
+    // Handle base64 images
+    $('img[src^="data:image"]').each(function() {
+        const $img = $(this);
+        // Option 1: Remove base64 images completely
+        if (config.removeBase64Images) {
+            $img.remove();
+        }
+        // Option 2: Replace with placeholder
+        else if (config.replaceBase64WithPlaceholder) {
+            $img.attr('src', 'placeholder.jpg');
+        }
+    });
+
     // Remove empty paragraphs and divs
     $('p:empty, div:empty').remove();
 
