@@ -1,0 +1,47 @@
+# 性别变更业务办理流程（实施变性手术后）
+
+**发布时间：** 2023-07-27 18:54  
+**来源：** 泾县桃花潭镇  
+**索引号：** 11341729743054042A/202307-00060  
+**组配分类：** 性别变更、更正  
+**发布机构：** 泾县桃花潭镇  
+**主题分类：** 公安、安全、司法  
+**文号：** 无  
+
+---
+
+## 一、项目名称
+性别变更更正\[性别变更（实施变性手术后）\]
+
+## 二、设立依据
+《安徽省户政管理工作规范》
+
+## 三、受理部门
+泾县公安局下辖的各派出所
+
+## 四、办理条件
+变更性别
+
+## 五、申报材料
+1. 变更人《居民户口簿》；
+2. 变更人《居民身份证》；
+3. 国内三级医院出具的性别鉴定证明和公证部门出具的公证书，或者司法鉴定部门出具的证明。
+
+## 六、办理程序
+申请人携带申报材料到户籍所在地派出所窗口申办业务。
+
+## 七、办理时限
+十五个工作日
+
+## 八、收费标准
+免费办理
+
+![Scan me!](data:image/png;base64,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)
+
+--- 
+
+**主办：** 泾县人民政府办公室  
+**承办：** 泾县人民政府政务网络信息中心  
+**邮政编码：** 242500  
+**网站运维电话：** 0563-5102817  
+**传真：** 0563-5102624  

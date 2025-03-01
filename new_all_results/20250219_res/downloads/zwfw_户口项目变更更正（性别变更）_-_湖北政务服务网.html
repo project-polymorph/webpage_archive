@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>湖北政务服务网</title>
+    <link rel="stylesheet" href="../../common/css/base.css">
+    <link rel="stylesheet" href="../../css/bszn/bsznpage.css">
+    <link rel="stylesheet" href="../../css/bszn/bszn-1.css">
+    <link rel="stylesheet" href="../../common/css/model/conmon_tab.css">
+    <link rel="stylesheet" href="../../common/css/model/conmon_table.css">
+    <link rel="stylesheet" href="../../common/layui/css/layui.css">
+    <script src="https://hm.baidu.com/hm.js?2e78e4e6592603c96de5e3ada929877c"></script><script src="../../common/js/plugins/jquery.min.js"></script>
+    <script src="/common/js/common_param.js"></script>
+    <script src="/common/js/plugins/moment.js"></script>
+    <script src="../../common/js/common_SaveHistory.js"></script>
+    <!-- <script src="/js/bszn/common_wssb.js"></script> -->
+    <script>
+        var common_data = document.createElement("script");
+        common_data.src = "/common/js/common_data.js?v=" + Math.random();
+        $('head').append(common_data);
+    </script><script src="/common/js/common_data.js?v=0.5624016631619551"></script>
+    <script src="../../common/js/tools.js"></script>
+    <script src="../../common/layui/layui.all.js"></script><link id="layuicss-laydate" rel="stylesheet" href="http://zwfw.hubei.gov.cn/common/layui/css/modules/laydate/default/laydate.css?v=5.0.9" media="all"><link id="layuicss-layer" rel="stylesheet" href="http://zwfw.hubei.gov.cn/common/layui/css/modules/layer/default/layer.css?v=3.1.1" media="all"><link id="layuicss-skincodecss" rel="stylesheet" href="http://zwfw.hubei.gov.cn/common/layui/css/modules/code.css" media="all">
+    <!-- <script src="/common/js/common_data.js"></script> -->
+    <!-- <script src="https://api.map.baidu.com/api?v=2.0&ak=nw1XwsqHrASVs4bGsfG2SPSA34OycPMU"></script> -->
+    <script src="/js/zwgk/zcgg/common_layer.js"></script>
+    <style>
+        #loading {
+            min-height: 600px;
+            margin-bottom: -10px;
+            position: relative;
+        }
+
+        #loading .loading_con {
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 9999999;
+            /* border: 1px solid rgb(151, 151, 151); */
+        }
+
+        #loading .loading_con i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+<link rel="shortcut icon" href="/images/favicon.ico"></head>
+
+<body id="bf_body" style="zoom: 1;"><div id="bf-assist-wrapper"><div id="bf-assist-page-x" class="bf-assist-page-x" style="display: none; top: 0px; left: 1302px;"></div><div id="bf-assist-page-y" class="bf-assist-page-y" style="display: none; top: 429px; left: 0px;"></div><div class="bf-assist-bottom" style=" display: none;"><div class="bf-assist-btn_left"></div><div class="bf-assist-btn_right"><button id="bf-assist-cha">×</button><div class="bf-trans-btn-box"><span class="bf-trans-item active" id="bf-assist-jian" title="简体">简</span><span class="bf-trans-item" id="bf-assist-fan" title="繁体">繁</span><br><span class="bf-trans-item special" id="bf-assist-pinyin" title="拼音">拼音</span></div></div></div><div class="bf-assist-top"><div class="tool-tips"><span>辅助浏览<br>轻松阅读</span></div><div class="tool-item" id="bf-assist-elder" title="当前模式无障碍普通模式,按Shift+1切换为适老模式"><span>适老</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-yangshi_icon_tongyong_elder"></i></div></div><div class="tool-item" id="bf-assist-screen-read" title="当前模式无障碍普通模式,按Shift+2切换为读屏模式"><span>读屏</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-LEDxianshipingguanli"></i></div></div><div class="tool-line"></div><div class="tool-item" id="bf-assist-items" title="当前模式为视图模式,按Al+Shift+V切换为文本模式"><span>视图</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-liebiaolan"></i></div></div><div class="tool-item" id="bf-assist-magnify" title="当前为正常模式，网页放大,按Alt+Shift+加号键"><span>放大</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-fangda"></i></div></div><div class="tool-item" id="bf-assist-shrink" title="网页缩小,按Alt+Shift+减号键"><span>缩小</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-suoxiao"></i></div></div><div class="tool-item" id="bf-assist-blendent" title="当前配色已开启,关闭按Alt+Shift+T键"><span>配色</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-biangengcheliangyanse"></i></div><div class="bf-assist-blendent_select" title="向上选择配色 Alt+Shift+↑,向下选择配色 Alt+Shift+↓"><div class="bf-assist-color bf-assist-wt_color" color="wt">白底黑字蓝链接</div><div class="bf-assist-color bf-assist-bl_color" color="bl">蓝底黄字白链接</div><div class="bf-assist-color bf-assist-ye_color" color="ye">黄底黑字蓝链接</div><div class="bf-assist-color bf-assist-bk_color" color="bk">黑底黄字白链接</div><div class="bf-assist-color bf-assist-back bf-color-selected" color="df">页面原始配色</div></div></div><div class="tool-item" id="bf-assist-curson" title="当前大鼠标已关闭,开启按Alt+Shift+M键"><span>大鼠标</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-shubiao1"></i></div></div><div class="tool-item" id="bf-assist-subline" title="当前辅助线已关闭,开启按Alt+Shift+L键"><span>辅助线</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-fuzhuxian"></i></div></div><div class="tool-item" id="bf-assist-viewing" title="当前显示屏已关闭,开启请按Alt+Shift+D键"><span>显示屏</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-iconset0230"></i></div></div><div class="tool-line"></div><div class="tool-item" id="bf-assist-sound" title="当前声音已关闭,开启Alt+Shift+W键"><span>声音</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-shengyin"></i></div></div><div class="tool-item" id="bf-assist-point" title="指读模式,按Alt+Shift+ J键"><span>指读</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-shouzhi"></i></div></div><div class="tool-item" id="bf-assist-continuous" title="连读模式,按Alt + Shift + Y键"><span>连读</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-wanzhuanzhangting-lianxuzhangtingjiantou"></i></div></div><div class="tool-item" id="bf-assist-slow" title="减缓语速,按Alt + Shift + ←键"><span>减速</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-jijiansu" style="font-size: 26px;"></i></div></div><div class="tool-item" id="bf-assist-quick" title="加快语速,按Alt + Shift + →键"><span>加速</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-jiasu"></i></div></div><div class="tool-item" id="bf-assist-change-sound" title="当前音量调节已关闭,开启按Alt + Shift + O"><span>音量</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-icon--"></i></div><div class="bf-assist-sound_select" title=""><div class="deci-up-sound" id="deci-up-sound" title="增加音量,按Alt+Shift+]键">增加音量</div><div class="deci-down-sound" id="deci-down-sound" title="减少音量,按Alt+Shift+[键">减小音量</div></div></div><div class="tool-line"></div><div class="tool-item" id="bf-assist-back" title="页面后退,按Alt + Shift + ,键"><span>后退</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-youqianjin1"></i></div></div><div class="tool-item" id="bf-assist-forword" title="页面前进,按Alt + Shift + .键"><span>前进</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-zuoqianjin"></i></div></div><div class="tool-item" id="bf-assist-fullscreen" title="切换全屏,按Alt + Shift + F键"><span>全屏</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-quanping"></i></div></div><div class="tool-item bf-assist-none" id="bf-assist-exit-fullscreen"><span>全屏</span><div class="bf-assist-iii wza-icon-style" title="退出全屏,按ESC键"><i class="wza-iconfont wza-icon-tuichuquanping"></i></div></div><div class="tool-item" id="bf-assist-reflush" title="刷新页面,按Alt + Shift + K键"><span>刷新</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-refresh"></i></div></div><div class="tool-item" id="bf-assist-exit" title="退出无障碍,按Alt + Shift + Q键"><span>退出</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-084tuichu"></i></div></div><div class="tool-item" id="bf-assist-help" title="跳转帮助页面,按Alt + Shift + H键"><span>帮助</span><div class="bf-assist-iii wza-icon-style"><i class="wza-iconfont wza-icon-bangzhu"></i></div></div><div class="check_others"><i class="wza-iconfont wza-icon-Settings"></i><span>换肤</span><div class="zhuti_choose"><div style="background-color: #DCDCDC;"></div><div style="background-color: #182A58;"></div><div style="background-color: #C34E4E;"></div><div style="background-color: #535353;"></div><div style="background-color: #685C5C;"></div></div></div></div><div id="bf-assist-mydiv"><div id="bdtts_div_id" style="display:none;"><audio id="tts_autio_id" autoplay="autoplay"><source id="tts_source_id" src="" type="audio/mpeg"><embed id="tts_embed_id" height="0" width="0" src=""></audio></div></div></div>
+    <!-- 公共头部 -->
+    <div id="cm_top" bfdi="1">
+
+
+
+  <meta charset="UTF-8" bfdi="2">
+  <meta name="apple-mobile-web-app-capable" content="yes" bfdi="3">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" bfdi="4">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" bfdi="5">
+  <!-- 默认webkit核 -->
+  <meta name="renderer" content="webkit" bfdi="6">
+  <title bfdi="7">湖北政务服务网</title>
+  <!-- 基础CSS -->
+  <!-- <link rel="stylesheet" href="/common/css/base.css"> -->
+  <!-- PC端CSS -->
+  <link href="/common/layout/top/css/style_three.css?_v=20200727" rel="stylesheet" type="text/css">
+  <!-- 中等屏幕CSS -->
+  <link href="/common/layout/top/css/style_three-1024.css?_v=20200727" media="screen and (max-width: 1024px) and (min-width: 751px)" rel="stylesheet">
+  <!-- 小屏CSS -->
+  <link href="/common/layout/top/css/style_three-750.css?_v=20200727" media="screen and (max-width: 750px)" rel="stylesheet">
+
+
+  <style>
+    .icon_header_parent{
+      float:left;
+      margin-left:5px;
+      position:relative;
+    }
+
+    .icon_message_red{
+      width:18px;
+      height: 18px;
+      position:relative;
+      top:5px;
+      vertical-align: inherit;
+    } 
+
+    .text_message_header{
+      float:left;
+    }
+
+    .header_aside .message_a{
+      margin-right:5px;
+    }
+
+    .header_aside .message_a::after{
+      right:0;
+    }
+
+    .red_isRead{
+      position:absolute;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background-color: #FF0000;
+      top: 8px;
+      right: 8px;
+      /* display:none; */
+    }
+    #messageIdel{
+      display: none;
+    }
+    /* 初始化样式 */
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+    }
+    .clearfix {  *zoom: 1;}
+    .clearfix:before, .clearfix:after { content: ""; display: table; }
+    .clearfix:after { clear: both; overflow: hidden; }
+    ul, dl {
+      margin: 0;
+      padding: 0;
+      list-style: none outside none;
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  *, a, a:hover, a:visited, a:link {
+      list-style: none;
+      text-decoration: none!important;
+      outline: none;
+      /* blr: expression(this.onFocus=this.blur()); */
+  }
+  @media screen and (max-width:1200px) {
+  	.xys_w{
+		padding-top: 12px!important;
+		height: 100%;
+		padding: 13px 16px;
+	}
+	.logo{
+		width: 198px!important;
+		height: 47px!important;
+	}
+	.hide750,.backsy{
+		display:inline-block!important;
+		height: 46px;
+	}
+	.screen_zx{
+		display: none!important;
+	}
+	.navBox_x{
+		height: 46px;
+	}
+	#zgzwfwpt{
+		font-size: 12px;
+		line-height: 20px;
+	}
+	.screen_1024 > li > a > img{
+		width: 24px!important;
+	}
+	#xp_register a, #register a{
+		width: 52px;
+		height: 22px;
+		display: inline-block;
+		font-size: 12px;
+		line-height: 22px;
+		text-align: center;
+		padding: 0!important;
+	}
+	.screen_1024{
+		line-height: 20px!important;
+	}
+	.navBox_x a{
+		font-size: inherit!important;
+	}
+	.screen_1024 > li{
+		float: none;
+		margin-left: 12px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	#tzrmzf{
+		font-size: 12px;
+		line-height: 20px;
+	}
+  }
+  </style>
+
+
+
+
+
+  <div id="wza" style="display: none;" bfdi="8">
+
+
+
+    <meta charset="UTF-8" bfdi="9">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" bfdi="10">
+    <title bfdi="11">Document</title>
+    <!-- <link rel="stylesheet" href="/x_wza/css/wza.css?v=20201215"> -->
+    <link href="/assets/css/bf/barrierfree.css" rel="stylesheet" type="text/css">
+
+
+
+    <!-- <div id="bf">
+
+        <div id="bf_lineX"></div>
+        <div id="bf_lineY"></div>
+        <div id="bf_box">
+            <ul class="clearfix">
+                <li id="bf_big" onclick="bfBig()"><a href="javascript:;">放大</a></li>
+                <li id="bf_small" onclick="bfSmall()"><a href="javascript:;">缩小</a></li>
+                <li id="bf_color" onclick="bfColor()"><a href="javascript:;">配色</a> </li>
+                <li id="bf_mouse" onclick="bfMouse()"><a href="javascript:;">鼠标样式</a></li>
+                <li id="bf_board" onclick="bfScreen()"><a href="javascript:;">辅屏</a></li>
+                <li id="bf_line" onclick="bfLine()"><a href="javascript:;">辅助线</a></li>
+                <li id="bf_read" onclick="bfRead()"><a href="javascript:;">读屏</a></li>
+                <li id="bf_reset" onclick="bfReload()"><a href="javascript:;">重置</a></li>
+                <li id="bf_help" onclick="bfHelp()"><a href="javascript:;">帮助</a></li>
+                <li id="bf_close" onclick="bfClose()"><a href="javascript:;">关闭</a></li>
+            </ul>
+        </div>
+
+        <div id="supScreen">
+            <div class="screenBtn left">
+                <div id="simpleBtn" class="zh_click" onclick="zh_tran('s')">简体</div>
+                <div id="raditionalBtn" class="zh_click" onclick="zh_tran('t')">繁体</div>
+                <div id="pinyinBtn" onclick="zhuanPinyin()">拼音</div>
+                <div id="screenClose">关闭</div>
+            </div>
+            <div id="screenText" class="screenText left">
+
+            </div>
+        </div>
+    </div> -->
+
+     <!-- <script src="/assets/js/jquery-1.12.4.min.js"></script> -->
+<script src="/assets/js/iframe.js" id="barrierFree" data="sn=E3EBEF4A574ACB1D11F1C19C4E7E7F89554EE8F3A18F7A2DE9CE640E16FBA65B&amp;rcode=4EBDA411E5B9E026C35E32690DE51778695688D86A9C7181D1C4116329973CFC5C96B64C48A7A9E5AEECD21250D7B66DC6056B02F008B42B3FF8B51E73FFC20A3BC9B57A02B2871DC524ABFCF6D3079CD8277A91D7CFB26155889A145785505E3269279775CECB38FB78F913398659CB123C06A7B91F6A734D4E11E654A19966"></script>
+
+
+
+</div>
+  <div class="header" bfdi="12" style="background: url(&quot;/images/top2_bgc/bg-sanjiye2x.png&quot;) right bottom / cover no-repeat;">
+    <div class="navBox_x clearfix" bfdi="13">
+      <div class="xys_w" bfdi="14">
+        <div id="zgzwfwpt" class="left" bfdi="15">
+          <a href="javascript:;" bfdi="16">国家政务服务平台</a> <img src="/images/indexImg/btn-down.png" width="10" alt="" bfdi="17">
+          <ul class="webBox" bfdi="18">
+            <li bfdi="19"><a href="https://gjzwfw.www.gov.cn/index.html" bfdi="20">国家政务服务平台</a></li>
+            <li bfdi="21"><a href="https://www.hubei.gov.cn/" bfdi="22">湖北省人民政府</a></li>
+
+          </ul>
+        </div>
+        <div id="tzrmzf" class="left" style="margin-left: 10px;" bfdi="23"><a href="javascript:;" data-url="http://www.hubei.gov.cn/" bfdi="24">湖北省人民政府</a></div>
+        <!-- <div id="kfpt" class="left" style="margin-left: 10px;"><a href="javascript:;">开放平台</a></div>
+        <div id="ehb" class="left" style="margin-left: 10px;"><a href="javascript:;">鄂汇办APP</a></div> -->
+        <ul class="header_aside right clearfix" bfdi="25">
+          <li id="ehb" bfdi="26"><a href="javascript:;" bfdi="27">鄂汇办APP</a></li>
+          <!-- <li id="help"><a href="javascript:;">帮助</a></li> -->
+          <!-- <li style="cursor: pointer;" id="bfOpen"> -->
+          <li style="cursor: pointer;" id="wuzhangai" bfdi="28">
+            <div id="obstacle" bfdi="29">
+
+              <a class="obstacle" accesskey="g" bfdi="30">无障碍阅读</a>
+            </div>
+          </li>
+          <li id="qcord_login" style="margin: 0 15px 0 20px;" bfdi="31">
+            <a onclick="$('#login').click();" href="javascript:;" bfdi="32">扫码登录</a>
+            <!-- <div class="qrCode_wrap">
+              <div class="qrCode_index">
+              </div>
+              <p>打开<span>鄂汇办App</span></p>
+              <p>扫一扫登录</p>
+            </div> -->
+          </li>
+          <li id="login" bfdi="33"><a href="javascript:;" bfdi="34">登录</a></li>
+          <li id="register" bfdi="35"><a href="javascript:;" bfdi="36">注册</a></li>
+          <li id="username_span" style="display: none" bfdi="37">
+            <a href="javascript:;" id="username" bfdi="38">
+              <img class="userImgCon" src="/images/userImg-con.png" width="15" alt="" bfdi="39">
+            </a>
+          </li>
+          <li style="cursor: pointer;" id="bfOpen" bfdi="40">
+            <div id="messageIdel" bfdi="41" style="display: none;">
+              <!-- <a class="obstacle" accesskey="g"></a> -->
+              <a class="obstacle message_a" href="javascript:void(0);" bfdi="42">
+                <div class="icon_header_parent" bfdi="43">
+                  <b class="red_isRead" bfdi="44"></b>
+                  <img class="icon_message_red" src="/images/icon-msg-img.png" alt="" bfdi="45">
+                </div>
+                <span class="text_message_header" bfdi="46">消息</span>
+              </a>
+            </div>
+          </li>
+          <li id="logout" class="clearMarg0" style="display: none" bfdi="47"><a href="javascript:;" bfdi="48">退出</a></li>
+        </ul>
+        <ul class="screen_1024 clearfix" bfdi="49">
+          <li id="xp_login" onclick="$('#login').click()" bfdi="50"><a href="javascript:;" bfdi="51">登录</a></li>
+          <li id="xp_register" onclick="$('#register').click()" bfdi="52"><a href="javascript:;" bfdi="53">注册</a></li>
+          <li id="xp_username" onclick="toGrkjUrl(true)" bfdi="54" style="display: none;"><a id="xp_username" href="javascript:;" bfdi="55"></a></li>
+          <li id="xp_logout" onclick="logout()" bfdi="56" style="display: none;"><a href="javascript:;" bfdi="57">退出</a></li>
+
+          <li bfdi="58">
+            <a href="javascript:;" id="navList" bfdi="59">
+              <img src="/common/layout/top/img/gncdan_header.png" class="gncdan_header" alt="" bfdi="60">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xys_w xys_w_sty" style="position: relative" bfdi="61">
+      <div class="logo" bfdi="62"></div>
+      <span class="fengexian hide750" bfdi="63"></span>
+      <span id="threetitle" bfdi="64">办事指南</span>
+      <!-- <div class="tis_name" id="active_mbx"></div> -->
+      <div id="backsy" class="backsy" bfdi="65">回首页</div>
+      <div id="backsy" class="screen_zx" bfdi="66">
+        <a href="javascript:;" bfdi="67">
+          <img src="/common/layout/top/img/shouye_hrader_img.png" alt="" bfdi="68">
+        </a>
+      </div>
+      <!-- 中小屏幕 html结构 -->
+      <ul class="zxpm_andy_nav" bfdi="69">
+        <li class="nav_index" bfdi="70">首页</li>
+        <!-- <li class="yqzq_item nav_yqzq">疫情专区</li> -->
+        <li class="nav_grfw" bfdi="71">个人服务</li>
+        <li class="nav_frfw" bfdi="72">法人服务</li>
+        <li class="nav_zwgk" bfdi="73">政务公开</li>
+        <li class="nav_zmhd" bfdi="74">政民互动</li>
+        <li class="nav_yslb hlw_jg" bfdi="75"><a href="javascript:;" bfdi="76">高效办成一件事</a></li>
+        <!-- <li class="nav_yslb"><a href="http://zwfw.hubei.gov.cn/shell_pc/oneBusinessOneCertificate" rel="noopener noreferrer" target="_blank">一业一证</a></li> -->
+              
+        <!-- <li class="nav_yyyz">一业一证</li> -->
+        <li class="nav_hcp" bfdi="77">好差评</li>
+        <li class="hlw_jg" bfdi="78"><a href="http://zwfw.hubei.gov.cn/hlwjg/" rel="noopener noreferrer" target="_blank" bfdi="79">互联网+监管</a></li>
+        <li class="hlw_jg" bfdi="80"><a href="https://data.hubei.gov.cn" rel="noopener noreferrer" target="_blank" bfdi="81">数据开放</a></li>
+      </ul>
+
+    </div>
+
+
+    <!-- <script src="/common/js/plugins/jquery.min.js"></script> -->
+    <script src="/common/js/common_data.js"></script>
+    <!-- <script src="/common/js/model/area/common_area.js?_v=20200727"></script> -->
+    <script src="/common/js/model/user/common_user.js?_v=20200812"></script>
+    <script src="/common/js/tools.js?_v=20211109"></script>
+    <script src="/common/js/common_zfwz.js"></script>
+    <script src="/common/js/common_api.js"></script>
+    <!-- <script src="/common/js/jquery.qrcode.js"></script> -->
+    <script src="/common/js/jsencrypt.min.js"></script>
+
+    <script>
+      // 办事页面有引入qrcode 多次引入导致覆盖 失去效果 并且办事页面是必然登录的 不需要扫码操作
+      if (location.pathname != '/webview/apply/sbIndex.html') {
+        var qrcode = document.createElement("script");
+        qrcode.src = "/common/js/jquery.qrcode.js";
+        document.querySelector('body').appendChild(qrcode);
+      }
+    </script>
+    <script src="/common/js/utf.js"></script>
+    <script src="/common/js/model/header/header.js?_v=20211109"></script>
+    <script>
+      // 获取用户信息
+      var userAllInfo = getCurrentOnlineUserInfo();
+      if(userAllInfo.uias_userid != null && userAllInfo.uias_userid != ''){
+            // console.log('已登录')
+            $('#messageIdel').show()
+        }else{
+            // console.log('未登录')
+            $('#messageIdel').hide()
+        }
+      var u = navigator.userAgent, app = navigator.appVersion;
+      var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //如果输出结果是true就判定是android终端或者uc浏览器
+      var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //根据输出结果true或者false来判断ios终端
+      //!!双叹号一般用来将后面的表达式转换为布尔型的数据（boolean） 
+      if (isiOS) {
+        $('input[type="text"]').focus(function () {
+          $(this).css({ 'fontSize': '16px' })
+        })
+        $('input[type="text"]').blur(function () {
+          $(this).css({ 'fontSize': '' })
+        })
+      }
+      var andyCd = false
+      $('.screen_1024').on('click', '.gncdan_header', function () {
+        andyCd = !andyCd
+        if (andyCd) {
+          $('.zxpm_andy_nav').addClass('zxpm_andy_nav_show')
+          $(this).attr('src', '/common/layout/top/img/gbcd_header.png')
+        } else {
+          $('.zxpm_andy_nav').removeClass('zxpm_andy_nav_show')
+          $(this).attr('src', '/common/layout/top/img/gncdan_header.png')
+        }
+      })
+
+      $(function () {
+        // initMessageIsRead();
+      })
+
+      //初始化公共头部的消息中有没有未读消息
+      function initMessageIsRead(){
+        var obj = JSON.stringify({userId:userAllInfo.uias_userid,uType:userAllInfo.usertype});
+        $.ajax({
+          url: 'https://'+apiObj.API_NAME+'-gateway.ehbapp.hubei.gov.cn/0397337c0d585ebab205ace4532c0e5d',
+          data: obj,
+          contentType:"application/json",
+          type: 'post',
+          headers:{
+                "x-hbzw-api-key":"5cb0bca1-050e-4ca4-9afe-3027a5196f37"
+            },
+          crossDomain: true,
+          dataType: 'json',
+          success: function (data) {
+            if(data.status === 200 && data.data && data.data !== ""){
+              var list = data.data;
+              for(var i=0;i<list.length;i++){
+                  var item = list[i];
+                  var obj = {};
+                  if(item["appItemPushEntity"] !== ""){
+                      obj = item["appItemPushEntity"];
+                  }else if(item["hbzwMessageCenterEntity"] !== ""){
+                      obj = item["hbzwMessageCenterEntity"];
+                  }else{
+                      obj = item["weatherEntity"];
+                  }
+                  if(obj.isRead === "1"){
+                    $(".red_isRead").css({"display":"block"});
+                    break;
+                  }
+              }
+            }
+          },
+          error:function(e){
+            console.log(e);
+          }
+        })
+      }
+
+      $("#messageIdel").click(function(){
+		  toMessageUrl(true)
+        // $(".asideNavs").find(".current").removeClass("current");
+        // $(".asideNavs").find(".message_tabs_el").addClass("current");
+        // window.open("/webview/message/my_message_center.html?message=1",'_self')
+        // $('#right_frame').attr('src', "/webview/message/my_message_center.html");
+      });
+
+
+      //处理头部导航 高亮
+      var actice_nav_item = getSessionStorageData('active_nav_item');
+      if (actice_nav_item) {
+        $("." + actice_nav_item).addClass('active');
+        $("." + actice_nav_item).siblings().removeClass('active');
+      }
+
+      //回首页
+      // function goIndex(){
+
+      //      var grkjUrl = '/index.html'
+
+      //      window.location.href = grkjUrl
+      // }
+
+      //切换老版本门户网站
+      $('#qhlbbmh').click(function () {
+        window.open('/index5.jspx');
+      });
+      //湖北省人民政府
+      $('#tzrmzf').click(function () {
+        var curUrl = $(this).children('a').data('url')
+        window.open(curUrl);
+      });
+      //政务服务平台
+      $("#zgzwfwpt").click(function () {
+        if ($(window).width() <= 750) {
+          $('.webBox').toggle()
+        } else {
+          window.open('https://gjzwfw.www.gov.cn/index.html');
+        }
+      });
+
+      //点击logo 
+      $('.logo').click(function () {
+        sessionStorage.setItem("active_nav_item", "nav_index");
+        // sessionStorage.setItem("p_region_code", "420000000000");
+        // sessionStorage.setItem("p_region_name", "湖北省");
+        // sessionStorage.setItem("p_region_grade", "2");
+        // initRegion('420000000000')
+        setSessionRegionCode('420000000000', '湖北省', '2')
+        window.location.href = window.location.origin;
+      });
+      $('#backsy').click(function () {//首页
+        sessionStorage.setItem("active_nav_item", "nav_index");
+        window.location.href = window.location.origin;
+      });
+      $('.nav_grfw').click(function () { //切换个人服务
+        sessionStorage.setItem("active_nav_item", "nav_grfw");
+        window.location.href = '/webview/fw/grfw.html';
+      })
+      $('.nav_frfw').click(function () { //切换法人服务
+        sessionStorage.setItem("active_nav_item", "nav_frfw");
+        window.location.href = '/webview/fw/frfw.html';
+      })
+      $('.nav_yslb').click(function () {//一事联办
+        // sessionStorage.setItem("active_nav_item", "nav_yslb");
+        // window.location.href = '/webview/yslb/yslb.html';
+        if (sessionStorage.getItem('p_region_code').substr(0, 4) == '4201') {
+          // window.location.href = '/webview/yslb/whYslb/yslbWh.html';
+		  window.location.href = "/shell_pc/oneThingSpecialColumn/provinceTheme/localSpecialThemeList?region=420100000000";
+        } else {
+          // sessionStorage.setItem("active_nav_item", "nav_yslb");
+		  window.open('/shell_pc/onethingspecialcolumn/provincetheme');
+          // window.location.href = '/shell_pc/onethingspecialcolumn/provincetheme';//'/shell_pc/yslb';
+        }
+      })
+      $(".nav_yyyz").click(function () {
+        //一业一证
+        // sessionStorage.setItem("active_nav_item", "nav_yyyz");
+        // if(window.location.port){
+        // 	window.location.href = "/shell_pc/yyyz";
+        // }else{
+        	window.location.href = '/webview/yyyz/index.html';
+        // }
+      });
+      $('.nav_zwgk').click(function () {//政务公开
+        sessionStorage.setItem("active_nav_item", "nav_zwgk");
+        window.location.href = '/webview/zwgk/zwgk.html';
+      })
+      $('.nav_zmhd').click(function () {//政民互动
+        sessionStorage.setItem("active_nav_item", "nav_zmhd");
+        window.location.href = '/webview/bszn/zmhd.html';
+      })
+      $('.nav_hcp').click(function () {//好差评
+        sessionStorage.setItem("active_nav_item", "nav_hcp");
+        window.location.href = '/webview/hcp/hcp.html';
+      })
+      $('.nav_yqzq').click(function () {//疫情专区
+        // window.location.href = '/webview/yqzq/index.html';
+        if (sessionStorage.getItem('p_region_code').substr(0, 4) == '4201') {
+          window.location.href = '/webview/whWeb/whyqzq.html';
+        } else {
+          sessionStorage.setItem("active_nav_item", "nav_yqzq");
+          window.location.href = '/webview/yqzq/index.html';
+        }
+      })
+
+
+      var qcordFlag = true;
+      // 扫码登录
+      $('#qcord_login').click(function (e) {
+        e.stopPropagation()
+        $('.qrCode_wrap').toggle()
+        if (qcordFlag) {
+          createQrcode()
+          qcordFlag = false;
+        } else {
+          qcordFlag = true;
+          socket.close();
+        }
+      })
+
+      $(window).on('click', function () {
+        $('.qrCode_wrap').hide()
+        // qcordFlag = true;
+        // socket.close();
+      })
+      // // 关闭浏览器，清除相关标识
+      // $(function() {
+      //   var beginTime = 0;//执行onbeforeunload的开始时间
+      //   var differTime = 0;//时间差
+      //   window.onunload = function (){
+      //       differTime = new Date().getTime() - beginTime;
+      //       if(differTime <= 5) {
+      //           console.log("浏览器关闭")
+      //             // 关闭浏览器，清除便民和办事扫脸认证标识
+      //             localStorage.removeItem("bmAndGuidePass");
+      //             localStorage.removeItem("bmAndGuidePassTimeStamp");
+      //             // 关闭浏览器，清空用户空间扫脸认证标识
+      //             localStorage.removeItem("grkjAuthenPass");
+      //             localStorage.removeItem("grkjAuthenPassTimeStamp");
+      //       }else{
+      //           console.log("浏览器刷新")
+      //       }
+
+      //   }
+      //   window.onbeforeunload = function (){
+      //     beginTime = new Date().getTime();
+      //   };
+
+      // })
+      var completeRegionCode_ = sessionStorage.getItem('p_region_code') || '420000000000'
+      if (completeRegionCode_ == '420000000000') {
+        var imgUrl_x = '/images/top2_bgc/bg-sanjiye2x.png'
+        $('.header').css({ 'background': 'url(' + imgUrl_x + ') no-repeat right bottom', 'background-size': 'cover' })
+      }
+      $(function () {
+        eztPreload();
+      })
+
+    // 证照预加载
+    function eztPreload(){
+        var zwwLastlogin=localStorage.getItem('zww-lastlogin');
+        var isEztLastlogin=localStorage.getItem('isEzt-lastlogin');
+        if(zwwLastlogin&&(zwwLastlogin!=isEztLastlogin)){
+            localStorage.setItem('isEzt-lastlogin',zwwLastlogin);
+            $.ajax({
+                url: '/web/user/dzzz/ezt/preload.jspc',
+                dataType: "json",
+                type: "get",
+                ContentType: "application/x-www-form-urlencoded",
+                data: {},
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function () {
+                    // console.log('获取数据失败')
+                }
+            })
+        }
+    }
+    </script>
+
+
+</div></div>
+    <!-- 版心1040  类名 w 控制 -->
+    <div id="bszn" bfdi="82">
+
+
+
+	<meta charset="UTF-8" bfdi="83">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" bfdi="84">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" bfdi="85">
+	<!-- 默认webkit核 -->
+	<meta name="renderer" content="webkit" bfdi="86">
+	<title bfdi="87">湖北政务服务网</title>
+	<!-- 基础CSS -->
+	<link rel="stylesheet" href="/common/css/base.css">
+	<!-- 办事基础样式和响应式样式 -->
+	<link rel="stylesheet" href="/webview/xysWeb/bszn/css/bzzn.css?_v=20210302">
+	<!-- PC端CSS -->
+	<!--<link href="/css/" rel="stylesheet" type="text/css" />-->
+	<!-- 中等屏幕CSS -->
+	<!--<link href="/css/" media="screen and (max-width: 1024px) and (min-width: 760px)" rel="stylesheet" />-->
+	<!-- 小屏CSS -->
+
+	<script type="text/javascript">
+		//代码说明  此段代码  再解决 ie浏览器下 @media screen and (max-width: 750px) {  在默认打开 大屏的情况下 ，ie 浏览器还是加载小屏幕样式的问题
+		//解决方案  判断浏览器 如果是 IE 浏览器 获取浏览器宽度大于 761px 就不引入小屏幕自适应css.
+		//解决人  dy  2020/5/22
+		var widths = window.screen.availWidth;
+		var userAgent = navigator.userAgent;
+		var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
+
+		var link = document.createElement("link");
+		link.rel = "stylesheet";
+		link.type = "text/css";
+		link.href = '/webview/xysWeb/bszn/css/bzznxp.css?_v=20200702';
+		var head = document.getElementById("bszn");
+
+		if (isIE) {
+			if (widths < 761) {
+				head.appendChild(link);
+			}
+		} else {
+			head.appendChild(link);
+		}
+
+	</script>
+	<!--<link href="/webview/xysWeb/bszn/css/bzznxp.css" media="screen and (max-width: 760px)" rel="stylesheet" />-->
+
+	<style>
+
+	</style>
+
+
+
+
+
+
+
+	<!-- 版心1040  类名 w 控制 -->
+	<div class="w" id="content" bfdi="88">
+		<!--左侧边栏-->
+		<div id="left_menu_box" class="left-menu-xyx left-menu-xyx-hide" bfdi="89">
+			<ul class="search_fixed_left" bfdi="90">
+				<li bfdi="91"><a index="1" class="a-lable-add-xyx active" bfdi="92">基本信息</a> <span class="no-round-xyx add-round-xyx" id="bszn101" bfdi="93"></span></li>
+				<li bfdi="94"><a index="2" class="a-lable-add-xyx" bfdi="95">窗口办理</a> <span class="no-round-xyx" id="bszn102" bfdi="96"></span></li>
+				<li bfdi="97"><a index="3" class="a-lable-add-xyx" bfdi="98">受理条件 </a> <span class="no-round-xyx" id="bszn103" bfdi="99"></span></li>
+				<li class="sidebar_bllc" bfdi="100"><a index="4" class="a-lable-add-xyx" bfdi="101">办理流程 </a> <span class="no-round-xyx" id="bszn104" bfdi="102"></span></li>
+				<li bfdi="103"><a index="5" class="a-lable-add-xyx" bfdi="104">申请材料 </a> <span class="no-round-xyx" id="bszn105" bfdi="105"></span></li>
+				<li bfdi="106"><a index="6" class="a-lable-add-xyx" bfdi="107">许可收费 </a> <span class="no-round-xyx" id="bszn106" bfdi="108"></span></li>
+				<li bfdi="109"><a index="7" class="a-lable-add-xyx" bfdi="110">中介服务 </a> <span class="no-round-xyx" id="bszn107" bfdi="111"></span></li>
+				<li bfdi="112"><a index="8" class="a-lable-add-xyx" bfdi="113">查看评价 </a> <span class="no-round-xyx" id="bszn108" bfdi="114"></span></li>
+				<li bfdi="115"><a index="9" class="a-lable-add-xyx" bfdi="116">设定依据 </a> <span class="no-round-xyx" id="bszn109" bfdi="117"></span></li>
+				<li bfdi="118"><a index="10" class="a-lable-add-xyx" bfdi="119">常见问题 </a> <span class="no-round-xyx" id="bszn110" bfdi="120"></span></li>
+				<li bfdi="121"><a index="11" class="a-lable-add-xyx" bfdi="122">咨询监督 </a> <span class="no-round-xyx" id="bszn111" bfdi="123"></span></li>
+				<li bfdi="124"><a index="12" class="a-lable-add-xyx" bfdi="125">行政复议 </a> <span class="no-round-xyx" id="bszn112" bfdi="126"></span></li>
+			</ul>
+
+
+			<div class="vertical-line3-xyx" bfdi="127"></div>
+		</div>
+
+		<!--头部标签栏 -->
+		<div class="headerTag" bfdi="128">
+			<div class="tag_t" bfdi="129">
+				<h1 id="data_TransactName" bfdi="130">户口项目变更更正（性别变更）</h1>
+				<div style="font-size: 18px;line-height: 26px;margin-top: 4px;color: #000000;" bfdi="131">实施清单名称：<span id="data_TaskName">户口项目变更更正</span></div>
+			</div>
+			<div class="tag_c" bfdi="132">
+				<div class="tag_c_l" bfdi="133">
+					<ol bfdi="134">
+						<li bfdi="135">
+							<h2 bfdi="136">
+								<span id="pdcs" bfdi="137">0</span>
+								<span bfdi="138">次</span>
+							</h2>
+							<p bfdi="139">跑动次数</p>
+						</li>
+						<li class="tag_c_l_ct" bfdi="140">
+							<h2 bfdi="141">
+								<span class="data_AnticipateDay" bfdi="142">20</span>
+								<span bfdi="143">工作日</span>
+							</h2>
+							<p bfdi="144">法定办结时限</p>
+						</li>
+						<li bfdi="145">
+							<h2 bfdi="146">
+								<span class="data_PromiseDay" bfdi="147">1</span>
+								<span bfdi="148">工作日</span>
+							</h2>
+							<p bfdi="149">承诺办结时限</p>
+						</li>
+					</ol>
+				</div>
+				<div class="tag_c_r" bfdi="150">
+
+					<h3 bfdi="151">99.3%
+						<span>好评率</span>
+					</h3>
+					<p bfdi="152">53748次评价</p>
+
+				</div>
+			</div>
+			<div class="tag_b" bfdi="153">
+				<button class="zxzx " onclick="doConsult()" bfdi="154">
+					<img id="zx_h" src="/webview/xysWeb/bszn/images/zx-h.png" alt="">
+					<img id="zx_a" src="/webview/xysWeb/bszn/images/zx.png" alt="">
+					在线咨询</button>
+
+				<button class="axbl lable-bg-img2-off" id="data_IsOnline" bfdi="155" onclick="dowssb()">
+					<img src="/webview/xysWeb/bszn/images/bl.png" alt="">
+					在线办理</button>
+
+        <button class="faqibangban bangban" style="display: none;" data-uniqueid="8316daaf58b552c60b4c876a70fc0f70" data-applyway="1" bfdi="156">
+          <img src="/webview/xysWeb/bszn/images/fa_qi_bang_ban.png" alt="">
+					小襄帮你办
+        </button> 
+		<button class="faqibangban bangbanEs" style="display: none;" data-uniqueid="1a5d86e86011aae97e27a4883c65e57b" data-applyway="1" bfdi="157">
+          <img src="/webview/xysWeb/bszn/images/fa_qi_bang_ban.png" alt="">
+					小恩帮你办
+        </button>
+		 <button class="faqibangban daoban" style="display: none;" data-uniqueid="baef20884369c5a09f77b1dd2fc5321a" data-applyway="2" bfdi="158">
+		   <img src="/webview/xysWeb/bszn/images/fa_qi_dao_ban.png" alt="">
+		 			发起导办
+		 </button> 
+
+				<button class="sc disabled" id="mycollect" onclick="docollect(this) " bfdi="159">
+					<img id="sc" src="/webview/xysWeb/bszn/images/sc.png" alt="" bfdi="160">
+					<img id="sc-hover" src="/webview/xysWeb/bszn/images/sc-hover.png" alt="" bfdi="161">
+					<img id="ysc" src="/webview/xysWeb/bszn/images/ysc.png" alt="" bfdi="162">
+
+					<span id="mycollectSc" bfdi="163">收藏</span>
+				</button>
+			</div>
+		</div>
+
+		<!--375 最小屏下显示头部框 -->
+		<div class="sHeaderBox" bfdi="164">
+
+		</div>
+
+		<!--中部列表-->
+		<div class="contentList" bfdi="165">
+			<ul bfdi="166">
+				<!--基本信息-->
+				<li id="bszn1" bfdi="167">
+					<div bfdi="168">
+						<div class="unit-title-h" bfdi="169">
+							基本信息
+						</div>
+
+						<span class=" sf" idfild="1" id="data_IsFee1" fildname="info.data.IsFee1" name="data_IsFee1" bfdi="170">不收费</span>
+						<span class=" pt" idfild="1" id="data_qcwb" fildname="window.data.qcwb" bfdi="171">零跑腿</span>
+					</div>
+					<table id="jbxx" bfdi="172">
+						<tbody class="contentListTable" bfdi="173">
+							<tr class="title_tr" bfdi="174">
+								<td colspan="2" bfdi="175">基本信息</td>
+
+							</tr>
+							<tr bfdi="176">
+								<td bfdi="177">事项名称</td>
+								<td bfdi="178">
+									<p idfild="1" id="data_TransactName1" fildname="Handlingprocess.data.TransactName" bfdi="179">户口项目变更更正（性别变更）</p>
+								</td>
+							</tr>
+							<tr bfdi="180">
+								<td bfdi="181">实施编码</td>
+								<td bfdi="182">
+									<span idfild="1" id="data_TaskCode" fildname="info.data.TaskCode" bfdi="183">1142102472610457004420709048W00</span>
+								</td>
+							</tr>
+							<tr bfdi="184">
+								<td bfdi="185">业务编码</td>
+								<td bfdi="186">
+									<span idfild="1" id="data_TransactCode" fildname="info.data.TransactCode" bfdi="187">1142102472610457004420709048W0003</span>
+								</td>
+							</tr>
+							<tr bfdi="188">
+								<td bfdi="189">基本编码</td>
+								<td bfdi="190">
+									<p idfild="1" id="data_CatalogCode" fildname="info.data.CatalogCode" bfdi="191">420709048W00</p>
+								</td>
+							</tr>
+							<tr bfdi="192">
+								<td bfdi="193">事项类型</td>
+								<td bfdi="194">
+									<p idfild="1" id="data_TaskType" fildname="info.data.TaskType" bfdi="195">行政确认</p>
+								</td>
+							</tr>
+							<tr bfdi="196">
+								<td bfdi="197">受理机构</td>
+								<td bfdi="198">
+									<p idfild="1" id="data_DeptName" fildname="info.data.DeptName" bfdi="199">江陵县公安局</p>
+								</td>
+							</tr>
+							<tr bfdi="200">
+								<td bfdi="201">办件类型</td>
+								<td bfdi="202">
+									<p idfild="1" id="data_ProjectType" fildname="info.data.ProjectType" bfdi="203">即办件</p>
+								</td>
+							</tr>
+							<tr bfdi="204">
+								<td bfdi="205">法定办结时限</td>
+								<td bfdi="206">
+									<span idfild="1" class="data_AnticipateDay" fildname="info.data.AnticipateDay">20</span>个工作日
+									<span class="sxsm" id="data_DesAnticipateDay" attr="无" title="法定办结时限说明">查看时限说明</span>
+								</td>
+							</tr>
+							<tr bfdi="207">
+								<td bfdi="208">承诺办结时限</td>
+								<td bfdi="209">
+									<span idfild="1" class="data_PromiseDay" fildname="infoExt.data.PromiseDay">1</span>个工作日
+
+									<span class="sxsm" id="DesPromiseDay" attr="无" title="承诺办结时限说明">查看时限说明</span>
+								</td>
+							</tr>
+							<tr bfdi="210">
+								<td bfdi="211">网办深度</td>
+								<td bfdi="212">
+									<p idfild="1" id="data_NetworkDepth" fildname="window.data.NetworkDepth" bfdi="213">互联网咨询,互联网办理,互联网收件,互联网预审,互联网受理,互联网办理结果信息反馈</p>
+								</td>
+							</tr>
+							<tr class="show-jbxx-tab" bfdi="214">
+								<td bfdi="215">行使层级</td>
+								<td bfdi="216">
+									<p idfild="1" id="data_UseLevel" fildname="info.data.UseLevel" bfdi="217">县区级</p>
+								</td>
+							</tr>
+							<tr class="show-jbxx-tab" bfdi="218">
+								<td bfdi="219">主体性质</td>
+								<td bfdi="220">
+									<p idfild="1" id="data_DeptType" fildname="infoExt.data.DeptType" bfdi="221">法定机关</p>
+								</td>
+							</tr>
+							<tr class="show-jbxx-tab" bfdi="222">
+								<td bfdi="223">委托部门</td>
+								<td bfdi="224">
+									<span idfild="1" id="data_EntrustName" fildname="infoExt.data.EntrustName" bfdi="225">无</span>
+								</td>
+							</tr>
+							<tr class="show-jbxx-tab" bfdi="226">
+								<td bfdi="227">权利来源</td>
+								<td bfdi="228">
+									<p idfild="1" id="data_PowerSource" fildname="infoExt.data.PowerSource" bfdi="229">法定本级行使</p>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+
+					<table class="table-jbxx" bfdi="230">
+						<tbody class="contentListTable" bfdi="231">
+							<tr class="title_tr" bfdi="232">
+								<td colspan="2" bfdi="233">审批结果信息</td>
+
+							</tr>
+							<tr bfdi="234">
+								<td bfdi="235">审批结果</td>
+								<td bfdi="236">
+									<span idfild="1" id="data_SPNAME" fildname="document.data.SPNAME" bfdi="237"></span><br><button id="ckxkyb" class="andy-but-newAdd" onclick="_init_document1(this)" type="3" bfdi="238" style="color: rgb(0, 0, 0);">无</button>
+								</td>
+							</tr>
+							<tr bfdi="239">
+								<td bfdi="240">审批结果类型</td>
+								<td bfdi="241">
+									<p idfild="1" id="data_TYPE" fildname="document.data.TYPE" bfdi="242">无</p>
+								</td>
+							</tr>
+							<tr bfdi="243">
+								<td bfdi="244">审批不通过结果</td>
+								<td bfdi="245">
+									<span idfild="1" id="data_NotAllowedName" fildname="document.data.NotAllowedName" bfdi="246"></span><br><button id="ckbyxkyb" value="查看" class="andy-but-newAdd" onclick="_init_document2(this)" type="3" bfdi="247" style="color: rgb(0, 0, 0);">无</button>
+								</td>
+							</tr>
+							<tr bfdi="248">
+								<td bfdi="249">审批不通过结果类型</td>
+								<td bfdi="250">
+									<p idfild="1" id="data_NotAllowedType" fildname="document.data.NotAllowedType" bfdi="251">无</p>
+								</td>
+							</tr>
+
+
+						</tbody>
+					</table>
+
+					<table class="table-jbxx" bfdi="252">
+						<tbody class="contentListTable" bfdi="253">
+							<tr class="title_tr" bfdi="254">
+								<td colspan="2" bfdi="255">办理信息</td>
+
+							</tr>
+							<tr bfdi="256">
+								<td bfdi="257">通办范围</td>
+								<td bfdi="258">
+									<p idfild="1" id="data_HandleArea" fildname="infoExt.data.HandleArea" bfdi="259">全省</p>
+								</td>
+							</tr>
+							<tr bfdi="260">
+								<td bfdi="261">是否就近办理</td>
+								<td bfdi="262">
+									<p idfild="1" id="data_IsCloseToHome" fildname="infoExt.data.IsCloseToHome" bfdi="263">否</p>
+								</td>
+							</tr>
+							<tr bfdi="264">
+								<td bfdi="265">办理形式</td>
+								<td bfdi="266">
+									<p idfild="1" id="data_HandleForm" fildname="infoExt.data.HandleForm" bfdi="267">窗口办理,网上办理,快递申请</p>
+								</td>
+							</tr>
+							<tr bfdi="268">
+								<td bfdi="269">是否网办</td>
+								<td bfdi="270">
+									<p idfild="1" id="data_IsOnline1" fildname="window.data.IsOnline" bfdi="271">是</p>
+								</td>
+							</tr>
+							<tr bfdi="272">
+								<td bfdi="273">网办地址</td>
+								<td bfdi="274">
+									<a href="http://zwfw.hubei.gov.cn" bfdi="275">http://zwfw.hubei.gov.cn</a>
+								</td>
+							</tr>
+							<tr bfdi="276">
+								<td bfdi="277">是否支持网上预约办理</td>
+								<td bfdi="278">
+									<p idfild="1" id="data_IsSchedule" fildname="window.data.IsSchedule" bfdi="279">不支持</p>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+					<table class="table-jbxx" bfdi="280">
+						<tbody class="contentListTable" bfdi="281">
+							<tr class="title_tr" bfdi="282">
+								<td colspan="2" bfdi="283">其他信息</td>
+
+							</tr>
+							<tr bfdi="284">
+								<td bfdi="285">联办机构</td>
+								<td bfdi="286">
+									<p idfild="1" id="data_OtherDept" fildname="infoExt.data.OtherDept" bfdi="287">无</p>
+								</td>
+							</tr>
+							<tr bfdi="288">
+								<td bfdi="289">数量限制</td>
+								<td bfdi="290">
+									<p idfild="1" id="data_LimitExplain" fildname="infoExt.data.LimitExplain" bfdi="291">无</p>
+								</td>
+							</tr>
+							<tr bfdi="292">
+								<td bfdi="293">自助终端办理</td>
+								<td bfdi="294">
+									<p idfild="1" id="data_IsServiceTerminals" fildname="window.data.IsServiceTerminals" bfdi="295">不支持</p>
+								</td>
+							</tr>
+							<tr bfdi="296">
+								<td bfdi="297">移动端形式</td>
+								<td bfdi="298">
+									<span idfild="1" id="data_MobileTerminalType" fildname="window.data.MobileTerminalType" bfdi="299">移动APP</span>
+								</td>
+							</tr>
+							<tr bfdi="300">
+								<td bfdi="301">移动服务内容</td>
+								<td bfdi="302">
+									<span idfild="1" id="data_MobileTerminalDepth" fildname="window.data.MobileTerminalDepth" bfdi="303">预约,查询,办理,评价</span>
+								</td>
+							</tr>
+							<tr bfdi="304">
+								<td bfdi="305">移动端是否对接单点登录</td>
+								<td bfdi="306">
+									<span idfild="1" id="data_AppIsSingleLogin" fildname="Country.data.AppIsSingleLogin" bfdi="307">否</span>
+								</td>
+							</tr>
+							<tr bfdi="308">
+								<td bfdi="309">移动端办理地址</td>
+								<td bfdi="310">
+									<span>无</span>
+								</td>
+							</tr>
+							<tr bfdi="312">
+								<td bfdi="313">计算机端是否对接单点登录</td>
+								<td bfdi="314">
+									<span idfild="1" id="data_IsSingleLogin" fildname="Country.data.IsSingleLogin" bfdi="315">否</span>
+								</td>
+							</tr>
+							<tr bfdi="316">
+								<td bfdi="317">计算机端办理地址</td>
+								<td bfdi="318">
+									<span>无</span>
+								</td>
+							</tr>
+							<tr bfdi="320">
+								<td bfdi="321">是否支持网上支付</td>
+								<td bfdi="322">
+									<p idfild="1" id="data_IsPayOnline" fildname="window.data.IsPayOnline" bfdi="323">不支持</p>
+								</td>
+							</tr>
+							<tr bfdi="324">
+								<td bfdi="325">是否信用监督</td>
+								<td bfdi="326">
+									<p idfild="1" id="data_IsCredit" fildname="info.data.IsCredit" bfdi="327">是</p>
+								</td>
+							</tr>
+							<tr bfdi="328">
+								<td bfdi="329">是否年审年检</td>
+								<td bfdi="330">
+									<p idfild="1" id="data_isCheck" fildname="info.data.isCheck" bfdi="331">是</p>
+								</td>
+							</tr>
+							<tr bfdi="332">
+								<td bfdi="333">是否物流</td>
+								<td bfdi="334">
+									<p idfild="1" id="data_IsExpress" fildname="window.data.IsExpress" bfdi="335">支持</p>
+								</td>
+							</tr>
+							<tr bfdi="336">
+								<td bfdi="337">支持物流快递类型</td>
+								<td bfdi="338">
+									<p idfild="1" id="data_ExpressType" fildname="window.data.ExpressType" bfdi="339">寄件,收件</p>
+								</td>
+							</tr>
+							<tr bfdi="340">
+								<td bfdi="341">物流地址</td>
+								<td bfdi="342">
+									<span idfild="1" id="data_ExpressAddress" fildname="Window.data.ExpressAddress" bfdi="343">1、物流快递接收 收件信息：江陵县郝穴镇楚江大道32号政务服务中心二楼公安专区38-47号综合窗口；收件人：付蓉；电话：0716-4709102 2、物流快递寄出  需通过物流快递获取办理结果材料的，应提供收件地址、收件人及电话</span>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+					<div class="fgx" bfdi="344">
+						<span bfdi="345">
+							<span id="switch-next-text" bfdi="346">显示更多</span>
+							<img class="tbxz" src="/webview/xysWeb/bszn/images/jtx.png" alt="" bfdi="347">
+						</span>
+					</div>
+
+				</li>
+
+				<!--窗口办理-->
+				<li id="bszn2" bfdi="348">
+					<div bfdi="349">
+						<div class="unit-title-h" bfdi="350">
+							窗口办理
+						</div>
+					</div>
+					<table bfdi="351">
+						<tbody class="contentListTable" bfdi="352">
+
+							<tr bfdi="353">
+								<td bfdi="354">是否进驻服务大厅</td>
+
+								<td bfdi="355">
+									<p idfild="1" id="data_EnterHall" fildname="window.data.EnterHall" bfdi="356">是</p>
+								</td>
+							</tr>
+							<tr bfdi="357">
+								<td bfdi="358">办事大厅名称</td>
+								<td bfdi="359">
+									<p idfild="1" id="data_bsNAME" fildname="window.data.bsNAME" bfdi="360">江陵县人民政府政务服务中心</p>
+								</td>
+							</tr>
+							<tr bfdi="361">
+								<td bfdi="362">办理时间</td>
+								<td bfdi="363">
+									<p idfild="1" id="data_OfficeHour" fildname="window.data.OfficeHour" bfdi="364">周一至周五 上午9:00--12:00，下午13:30--17:00 ( 法定节假日除外 )</p>
+								</td>
+							</tr>
+							<tr bfdi="365">
+								<td bfdi="366">办理地点</td>
+								<td bfdi="367">
+									<p idfild="1" id="data_ADDRESS" fildname="window.data.ADDRESS" bfdi="368">江陵县郝穴镇楚江大道32号政务服务中心二楼公安专区38-47号综合窗口</p>
+								</td>
+							</tr>
+							<tr bfdi="369">
+								<td bfdi="370">办理窗口</td>
+								<td bfdi="371">
+									<p idfild="1" id="data_windows" fildname="window.data.windows" bfdi="372">江陵县郝穴镇楚江大道32号政务服务中心二楼公安专区38-47号综合窗口</p>
+								</td>
+							</tr>
+							<tr bfdi="373">
+								<td bfdi="374">办公电话</td>
+								<td bfdi="375">
+									<p idfild="1" id="data_PHONE" fildname="window.data.PHONE" bfdi="376">0716-4745600</p>
+								</td>
+							</tr>
+							<tr bfdi="377">
+								<td bfdi="378">办理地点地图</td>
+								<td bfdi="379">
+									<button value="查看" id="showMapImage" class="andy-but-newAdd" bfdi="380" onclick="_init_window2('group1/M00/0D/9F/wKhUBWVR7SGAWH_DAAteTNHBvQo583.jpg')">查看</button>
+									<p id="showMapImage2" style="display:none" bfdi="381">无</p>
+								</td>
+							</tr>
+							<tr bfdi="382">
+								<td bfdi="383">交通指引</td>
+								<td bfdi="384">
+									<p idfild="1" id="data_TrafficGuide_MetroGuide" fildname="window.data.TrafficGuide_MetroGuide" bfdi="385">公交:1路、3路、4路公交车在县政务服务中心站下车，步行100米即到。<br>地铁:      无</p>
+								</td>
+							</tr>
+							<tr bfdi="386">
+								<td bfdi="387">到办事现场次数</td>
+								<td bfdi="388">
+									<p idfild="1" id="data_HandlingTimes" fildname="window.data.HandlingTimes" bfdi="389">零跑腿</p>
+								</td>
+							</tr>
+							<tr bfdi="390">
+								<td bfdi="391">必须现场办理原因说明</td>
+								<td bfdi="392">
+									<p idfild="1" id="data_LimitSceneExplain" fildname="window.data.LimitSceneExplain" bfdi="393">无</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</li>
+
+				<!--受理条件-->
+				<li id="bszn3" bfdi="394">
+					<div bfdi="395">
+						<div class="unit-title-h" bfdi="396">
+							受理条件
+						</div>
+					</div>
+					<table bfdi="397">
+						<tbody class="contentListTable" bfdi="398">
+							<tr bfdi="399">
+								<td bfdi="400">面向法人事项主题</td>
+
+								<td bfdi="401">
+									<div id="frsxzt" bfdi="402"><p idfild="1" id="data_SubjectId1" fildname="subject.data.SubjectId1">无</p></div>
+								</td>
+							</tr>
+							<tr bfdi="403">
+								<td bfdi="404">面向自然人事项主题</td>
+								<td bfdi="405">
+									<div id="zrrsxzt" bfdi="406"><p idfild="1" id="data_SubjectId1" fildname="subject.data.SubjectId1">户籍办理</p></div>
+								</td>
+							</tr>
+							<tr bfdi="407">
+								<td bfdi="408">服务对象</td>
+								<td bfdi="409">
+									<p idfild="1" id="data_serviceCode" fildname="info.data.serviceCode" bfdi="410">自然人</p>
+								</td>
+							</tr>
+							<tr bfdi="411">
+								<td bfdi="412">申请条件</td>
+								<td bfdi="413">
+									<p idfild="1" id="data_AcceptCondition" fildname="condition.data.AcceptCondition" bfdi="414">公民实施变性手术或性别矫正后，可以申请变更性别。
+</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</li>
+
+				<!--办理流程-->
+				<li id="bszn4" bfdi="415">
+					<div bfdi="416">
+						<div class="unit-title-h" bfdi="417">
+							办理流程
+						</div>
+						<div class="line" style="position: relative;height: 0;" bfdi="418"><a class="ck_flow" style="position: absolute;right:5px;top:-20px;font-size:14px;font-weight:500;color:rgba(63,130,188,1);line-height:20px;" href="javascript:void(0)" onclick="_init_outmap()" bfdi="419">查看流程图</a></div>
+
+
+					</div>
+
+					<ol id="bllcBox" bfdi="420">
+
+
+					<li><table><tbody class="contentListTable newTableType"><tr class="gray_line"><th colspan="2"><span class="line_index">1</span><span class="lcmc">受理</span><div class="gray_line_lb"><span class="blr">办理人</span><span>王楚楚，郑孝君，黄敏，周宗兰，胡静，陈淑敏，竺丽，周静，黄荆华，逮晓丹</span><span class="shixian">时限</span><span>0.2工作日</span><span class="gray_jt_icon"><img class="tbxz" src="/webview/xysWeb/bszn/images/jtx.png" alt=""></span></div></th></tr><tr><td>审查标准</td><td class="neirong ">1.核对申请人是否符合申请条件； 2.依据办事指南中材料清单逐一核对是否齐全； 3.核对每个材料是否涵盖材料要求中涉及的内容和要素。</td></tr><tr><td>办理结果</td><td class="neirong ">1.能当场受理或通过当场补正达到受理条件的，直接进入受理步骤，当场出具受理通知书；2.根据一次性告知通知书内容进行补正后达到受理条件的，出具决定受理通知书；3.收件之日起5个工作日内未收到一次性告知通知书的，从收件之日起即为受理。</td></tr><tr><td>是否为特殊程序</td><td>否</td></tr><tr><td>特殊程序类型</td><td>-</td></tr><tr><td>特殊程序种类</td><td>-</td></tr><tr><td>特殊程序时限</td><td>-</td></tr><tr><td>特殊程序说明</td><td>-</td></tr></tbody></table></li><li><table><tbody class="contentListTable newTableType"><tr class="gray_line"><th colspan="2"><span class="line_index">2</span><span class="lcmc">审核</span><div class="gray_line_lb"><span class="blr">办理人</span><span>王楚楚，郑孝君，黄敏，周宗兰，胡静，陈淑敏，竺丽，周静，黄荆华，逮晓丹</span><span class="shixian">时限</span><span>0.2工作日</span><span class="gray_jt_icon"><img class="tbxz" src="/webview/xysWeb/bszn/images/jtx.png" alt=""></span></div></th></tr><tr><td>审查标准</td><td class="neirong ">申请人的申请符合法定条件、标准的，同意初审意见；不符合法定条件、标准的提出“不同意”的初审意见。以下程序根据国家有关的规定和项目实际情况进行，且不计入审核承诺时限： 1、需进行现场踏勘的； 2、需进行专家评审咨询的； 3、需要委托咨询的； 4、需要按程序报经上级主管部门同意的； 5、需提请委主任办公会审议的； 需要进行公示的重大投资项目，按规定进行公示后，参考所征集到的意见和建议移交首席代表签字审批。</td></tr><tr><td>办理结果</td><td class="neirong ">根据申请材料对本期申请办证明细表材料进行核查是否符合有关规定，并签字认可后移交首席代表签字审批。</td></tr><tr><td>是否为特殊程序</td><td>否</td></tr><tr><td>特殊程序类型</td><td>-</td></tr><tr><td>特殊程序种类</td><td>-</td></tr><tr><td>特殊程序时限</td><td>-</td></tr><tr><td>特殊程序说明</td><td>-</td></tr></tbody></table></li><li><table><tbody class="contentListTable newTableType"><tr class="gray_line"><th colspan="2"><span class="line_index">3</span><span class="lcmc">审批</span><div class="gray_line_lb"><span class="blr">办理人</span><span>王楚楚，郑孝君，黄敏，周宗兰，胡静，陈淑敏，竺丽，周静，黄荆华，逮晓丹</span><span class="shixian">时限</span><span>0.2工作日</span><span class="gray_jt_icon"><img class="tbxz" src="/webview/xysWeb/bszn/images/jtx.png" alt=""></span></div></th></tr><tr><td>审查标准</td><td class="neirong ">首席代表对本期申请办证受理人员材料进行过程和条件核查是否符合有关规定，签字作出审批决定。</td></tr><tr><td>办理结果</td><td class="neirong ">按照核实同意的首席签字意见进行制证后，并加盖户口专用章。</td></tr><tr><td>是否为特殊程序</td><td>否</td></tr><tr><td>特殊程序类型</td><td>-</td></tr><tr><td>特殊程序种类</td><td>-</td></tr><tr><td>特殊程序时限</td><td>-</td></tr><tr><td>特殊程序说明</td><td>-</td></tr></tbody></table></li><li><table><tbody class="contentListTable newTableType"><tr class="gray_line"><th colspan="2"><span class="line_index">4</span><span class="lcmc">办结</span><div class="gray_line_lb"><span class="blr">办理人</span><span>王楚楚，郑孝君，黄敏，周宗兰，胡静，陈淑敏，竺丽，周静，黄荆华，逮晓丹</span><span class="shixian">时限</span><span>0.2工作日</span><span class="gray_jt_icon"><img class="tbxz" src="/webview/xysWeb/bszn/images/jtx.png" alt=""></span></div></th></tr><tr><td>审查标准</td><td class="neirong ">办理完结后，领取项目变更后的《居民户口簿》</td></tr><tr><td>办理结果</td><td class="neirong ">将加盖首席签字、印章制证登记表移交后台人员制证。</td></tr><tr><td>是否为特殊程序</td><td>否</td></tr><tr><td>特殊程序类型</td><td>-</td></tr><tr><td>特殊程序种类</td><td>-</td></tr><tr><td>特殊程序时限</td><td>-</td></tr><tr><td>特殊程序说明</td><td>-</td></tr></tbody></table></li><li><table><tbody class="contentListTable newTableType"><tr class="gray_line"><th colspan="2"><span class="line_index">5</span><span class="lcmc">送达</span><div class="gray_line_lb"><span class="blr">办理人</span><span>王楚楚，郑孝君，黄敏，周宗兰，胡静，陈淑敏，竺丽，周静，黄荆华，逮晓丹</span><span class="shixian">时限</span><span>0.2工作日</span><span class="gray_jt_icon"><img class="tbxz" src="/webview/xysWeb/bszn/images/jtx.png" alt=""></span></div></th></tr><tr><td>审查标准</td><td class="neirong ">可以通过邮寄、申请人自行领取、申请人委托他人领取、公告等方式送达申请人</td></tr><tr><td>办理结果</td><td class="neirong ">将证件颁发申请人，需要邮寄的，将按邮寄送达。</td></tr><tr><td>是否为特殊程序</td><td>否</td></tr><tr><td>特殊程序类型</td><td>-</td></tr><tr><td>特殊程序种类</td><td>-</td></tr><tr><td>特殊程序时限</td><td>-</td></tr><tr><td>特殊程序说明</td><td>-</td></tr></tbody></table></li></ol>
+
+
+				</li>
+
+				<!--申请材料-->
+				<li id="bszn5" bfdi="421">
+					<div bfdi="422">
+						<div class="unit-title-h" bfdi="423">
+							申请材料
+						</div>
+					</div>
+
+					<ol id="sqclBox" bfdi="424">
+
+
+					<li><table><tbody class="contentListTable newTableType"><tr class="gray_line"><th colspan="2"><span class="line_index">1</span><span class="lcmc">中华人民共和国居民身份证</span><img class="nosubmit" src="/webview/xysWeb/bszn/images/nosubmit.png" alt=""></th></tr><tr><td>材料分类</td><td>证照</td></tr><tr><td>介质要求</td><td><div>原件要求：核验</div><div>必要性：必要</div></td></tr><tr><td>材料类型</td><td>原件：1份；复印件：1份</td></tr><tr><td>材料形式</td><td>纸质、电子</td></tr><tr class="showCl"><td class="clBtn" colspan="2"><span><a class="aLableAddNew" href="/web/lcfile/group1/M00/0A/69/wKhUBF-_B4KAYYn_AAKYTXP2PfI626.pdf">查看示例</a></span></td></tr><tr><td>来源渠道</td><td>政府部门核发</td></tr><tr><td>来源说明</td><td>公安部门核发</td></tr><tr><td>材料规格</td><td>A4</td></tr><tr><td>填表须知</td><td>无</td></tr><tr><td>材料受理标准</td><td>暂无</td></tr></tbody></table></li><li><table><tbody class="contentListTable newTableType"><tr class="gray_line"><th colspan="2"><span class="line_index">2</span><span class="lcmc">居民户口簿</span><img class="nosubmit" src="/webview/xysWeb/bszn/images/nosubmit.png" alt=""></th></tr><tr><td>材料分类</td><td>证照</td></tr><tr><td>介质要求</td><td><div>原件要求：存档</div><div>必要性：必要</div></td></tr><tr><td>材料类型</td><td>原件：1份；复印件：1份</td></tr><tr><td>材料形式</td><td>纸质、电子</td></tr><tr class="showCl"><td class="clBtn" colspan="2"><span><a class="aLableAddNew" href="/web/lcfile/group1/M00/0A/69/wKhUBF-_ChiAGS7BAAA2J5db1mA894.jpg">查看示例</a></span></td></tr><tr><td>来源渠道</td><td>政府部门核发</td></tr><tr><td>来源说明</td><td>公安部门核发</td></tr><tr><td>材料规格</td><td>无</td></tr><tr><td>填表须知</td><td>无</td></tr><tr><td>材料受理标准</td><td>暂无</td></tr></tbody></table></li><li><table><tbody class="contentListTable newTableType"><tr class="gray_line"><th colspan="2"><span class="line_index">3</span><span class="lcmc">《变性手术医学证明》或者司法鉴定部门出具的证明</span><div class="gray_line_lb"><span class="gray_jt_icon"><img class="tbxz" src="/webview/xysWeb/bszn/images/jtx.png" alt=""></span></div></th></tr><tr><td>材料分类</td><td>其他</td></tr><tr><td>介质要求</td><td><div>原件要求：核验</div><div>必要性：必要</div></td></tr><tr><td>材料类型</td><td>原件：1份；复印件：0份</td></tr><tr><td>材料形式</td><td>纸质、电子</td></tr><tr class="showCl"><td class="clBtn" colspan="2"><span><a class="aLableAddNew" href="/web/lcfile/group1/M00/0B/CC/wKhUBGGPezaAQHkaAAAmAAH8MjA643.doc">查看示例</a></span></td></tr><tr><td>来源渠道</td><td>政府部门核发</td></tr><tr><td>来源说明</td><td> 卫生健康部门</td></tr><tr><td>材料规格</td><td>无</td></tr><tr><td>填表须知</td><td>无</td></tr><tr><td>材料受理标准</td><td>暂无</td></tr></tbody></table></li><li><table><tbody class="contentListTable newTableType"><tr class="gray_line"><th colspan="2"><span class="line_index">4</span><span class="lcmc">《申报户口登记表（性别变更）》</span><div class="gray_line_lb"><span class="gray_jt_icon"><img class="tbxz" src="/webview/xysWeb/bszn/images/jtx.png" alt=""></span></div></th></tr><tr><td>材料分类</td><td>申请表</td></tr><tr><td>介质要求</td><td><div>原件要求：核验</div><div>必要性：必要</div></td></tr><tr><td>材料类型</td><td>原件：1份；复印件：0份</td></tr><tr><td>材料形式</td><td>纸质</td></tr><tr class="showCl"><td class="clBtn" colspan="2"><span><a class="aLableAddNew" href="/web/lcfile/group1/M00/0B/CC/wKhUBGGPekWANGvyAABsAJv7NXI821.doc">查看示例</a></span><span class="kbxz"><a class="aLableAddNew" href="/web/lcfile/group1/M00/0B/CC/wKhUBWGPekqAC-JDAABoAANEoaA956.doc">空表下载</a></span></td></tr><tr><td>来源渠道</td><td>政府部门核发</td></tr><tr><td>来源说明</td><td>公安部门</td></tr><tr><td>材料规格</td><td>无</td></tr><tr><td>填表须知</td><td>无</td></tr><tr><td>材料受理标准</td><td>暂无</td></tr></tbody></table></li></ol>
+
+
+				</li>
+
+				<!--许可收费-->
+				<li id="bszn6" bfdi="425">
+					<div bfdi="426">
+						<div class="unit-title-h" bfdi="427">
+							许可收费
+						</div>
+					</div>
+
+					<ol id="chargexx" bfdi="428"><li><table><tbody class="contentListTable newTableType"><tr class="gray_line sqcl"><th colspan="2"><span class="lcmc">无</span></th></tr></tbody></table></li></ol>
+				</li>
+
+				<!--中介服务-->
+				<li id="bszn7" bfdi="429">
+					<div bfdi="430">
+						<div class="unit-title-h" bfdi="431">
+							中介服务
+						</div>
+					</div>
+
+					<ol bfdi="432">
+						<li bfdi="433">
+							<table bfdi="434">
+								<tbody class="contentListTable newTableType zxfsTable zjfw" bfdi="435">
+									<tr bfdi="436">
+										<th colspan="2" bfdi="437"><span>·</span>中介服务事项名称</th>
+									</tr>
+									<tr bfdi="438">
+										<td colspan="2" bfdi="439">
+											<span id="zjname" bfdi="440">无</span>
+										</td>
+
+									</tr>
+
+									<tr bfdi="441">
+										<th colspan="2" bfdi="442"><span>·</span> 中介服务查询网址</th>
+									</tr>
+									<tr bfdi="443">
+										<td colspan="2" bfdi="444">
+											<span id="zjurl" bfdi="445">无</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</li>
+
+					</ol>
+				</li>
+
+				<!--查看评价-->
+				<li id="bszn8" bfdi="446">
+
+
+					<ol bfdi="447">
+						<li bfdi="448">
+							<!-- 查看评价 块 -->
+
+							<div class="tabBox" bfdi="449">
+								<a href="javascript:;" data-type="bm" id="bjfwpj" class="tabItem active_x" title="办件服务" bfdi="450">办件服务</a>
+								<a href="javascript:;" data-type="lx" id="bsznpj" class="tabItem" title="办事指南" bfdi="451">办事指南</a>
+
+								<a href="javascript:;" class="btn_bsznpj" id="btn_pj" bfdi="452">评价办事指南</a>
+								<!-- <div class="btn_bsznpj">评价办事指南</div> -->
+							</div>
+
+							<div class="line" bfdi="453"></div>
+
+							<div class="pj bjfw_pj" bfdi="454">
+								<div id="ckpj" bfdi="455">
+									<h3 bfdi="456"></h3>
+									<div class="sltj" bfdi="457">
+										<div bfdi="458"> <span class="layui-icon layui-icon-loading layui-icon layui-anim layui-anim-rotate layui-anim-loop loading_x" bfdi="459"></span>
+										</div>
+
+										<form id="form1" action="" target="target1" method="post" bfdi="460"></form>
+										<iframe id="hcpBjpjList" name="target1" scrolling="auto" width="100%" height="360px" src="" style="border:0;" bfdi="461"></iframe>
+									</div>
+								</div>
+							</div>
+
+							<div class="pj bszn_pj" bfdi="462">
+								<div id="ckpj" bfdi="463">
+									<h3 bfdi="464"></h3>
+									<div class="sltj sltj2" bfdi="465">
+										<form id="form2" action="" target="target2" method="post" bfdi="466"></form>
+										<iframe id="_init_bsznpjList" name="target2" scrolling="auto" width="100%" height="360px" src="" style="border:0;" bfdi="467"></iframe>
+									</div>
+								</div>
+							</div>
+
+
+							<!-- 查看评价 块 end -->
+						</li>
+
+					</ol>
+
+
+
+				</li>
+
+				<!--设定依据-->
+				<li id="bszn9" bfdi="468">
+					<div bfdi="469">
+						<div class="unit-title-h" bfdi="470">
+							设定依据
+						</div>
+					</div>
+
+					<ol id="sdyj" bfdi="471"><li><table><tbody class="contentListTable newTableType"><tr class="gray_line sqcl"><th colspan="2"><span class="line_index greenText">1</span><span class="lcmc">中华人民共和国户口登记条例</span><div class="gray_line_lb"><span class="gray_jt_icon"><img class="tbxz" src="/webview/xysWeb/bszn/images/jtx.png" alt=""></span></div></th></tr><tr><td>号 令</td><td>中华人民共和国主席令</td></tr><tr><td>颁布机构</td><td>全国人民代表大会常务委员会</td></tr><tr><td>发布日期</td><td>1958-01-09</td></tr><tr><td>生效日期</td><td>1958-01-09</td></tr><tr><td>法规原文链接</td><td><a idfild="1" href="中华人民共和国户口登记条例" fildname="legalbasis.data.ywUrl" id="data_Url" class="a-lable-add">中华人民共和国户口登记条例</a></td></tr><tr><td>条款内容</td><td><p idfild="1" fildname="legalbasis.data.LawItems" id="data_LawItems" class="neirong"></p></td></tr></tbody></table></li></ol>
+				</li>
+
+				<li class="left_box" bfdi="472">
+					<div class="cjwt" id="bszn10" bfdi="473">
+						<div class="unit-title-h" bfdi="474">
+							常见问题
+						</div>
+						<ol id="cjwt" bfdi="475">
+
+
+						<li><table><tbody class="cjwtTable">	<tr>		<td valign="top"><img src="/webview/xysWeb/bszn/images/ico_d.png" alt=""></td>		<td valign="top" class="cjwtTableText">1、如何查询办理进度及结果？</td>	</tr>	<tr>		<td valign="top"><img src="/webview/xysWeb/bszn/images/ico_w.png" alt=""></td>		<td valign="top" class="cjwtTableText">1、在湖北省政务服务网、鄂汇办移动端、各政务服务大厅查询设备查看办理进度及结果。</td>	</tr></tbody></table></li></ol>
+
+					</div>
+					<div class="cjwt" id="bszn11" bfdi="476">
+						<div class="unit-title-h" bfdi="477">
+							监督咨询
+						</div>
+						<ol bfdi="478">
+							<li bfdi="479">
+								<table bfdi="480">
+									<tbody class="zxfsTable" bfdi="481">
+										<tr bfdi="482">
+											<th colspan="2" bfdi="483"><span>·</span> 咨询方式</th>
+										</tr>
+										<tr bfdi="484">
+											<td valign="top" bfdi="485">咨询电话</td>
+											<td valign="top" class="cjwtTableText" bfdi="486">
+												<p class="phone_call" idfild="1" id="data_AdvicePhone" fildname="complain.data.AdvicePhone" bfdi="487">0716-4745600</p>
+											</td>
+										</tr>
+										<tr bfdi="488">
+											<td valign="top" bfdi="489">咨询网址</td>
+											<td valign="top" class="cjwtTableText" bfdi="490">
+												<a idfild="1" class="a_link_web" id="data_AdviceNetworkAddr" fildname="complain.data.AdviceNetworkAddr" bfdi="491" href="http://zwfw.hubei.gov.cn">http://zwfw.hubei.gov.cn</a>
+											</td>
+										</tr>
+										<tr bfdi="492">
+											<td valign="top" bfdi="493">咨询公众号</td>
+											<td valign="top" class="cjwtTableText" bfdi="494">
+												<p idfild="1" id="data_OfficialAccounts" fildname="complain.data.OfficialAccounts" bfdi="495">湖北政务服务网</p>
+											</td>
+										</tr>
+										<tr bfdi="496">
+											<td valign="top" bfdi="497">咨询地址</td>
+											<td valign="top" class="cjwtTableText" bfdi="498">
+												<p idfild="1" id="data_AdviceAddress" fildname="complain.data.AdviceAddress" bfdi="499">江陵县郝穴镇楚江大道32号政务服务中心二楼公安专区38-47号综合窗口</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</li>
+
+							<li bfdi="500">
+								<table bfdi="501">
+									<tbody class="zxfsTable" bfdi="502">
+										<tr bfdi="503">
+											<th colspan="2" bfdi="504"><span>·</span>投诉方式</th>
+										</tr>
+										<tr bfdi="505">
+											<td valign="top" bfdi="506">投诉电话</td>
+											<td valign="top" class="cjwtTableText" bfdi="507">
+												<p idfild="1" class="phone_call" id="data_ComplaintPhone" fildname="complain.data.ComplaintPhone" bfdi="508">0716-4728655</p>
+											</td>
+										</tr>
+										<tr bfdi="509">
+											<td valign="top" bfdi="510">投诉网址</td>
+											<td valign="top" class="cjwtTableText" bfdi="511">
+												<a idfild="1" class="a_link_web" id="data_ComplaintNetworkAddr" fildname="complain.data.ComplaintNetworkAddr" bfdi="512"><a class="a-lable-add" href="http://zwfw.hubei.gov.cn">http://zwfw.hubei.gov.cn</a></a>
+											</td>
+										</tr>
+										<tr bfdi="513">
+											<td valign="top" bfdi="514">投诉邮箱</td>
+											<td valign="top" class="cjwtTableText" bfdi="515">
+												<p idfild="1" id="data_ComplaintMailBox" fildname="complain.data.ComplaintMailBox" bfdi="516">jlzwfwzx@126.com</p>
+											</td>
+										</tr>
+										<tr bfdi="517">
+											<td valign="top" bfdi="518">投诉地址</td>
+											<td valign="top" class="cjwtTableText" bfdi="519">
+												<p idfild="1" id="data_ComplaintAddress" fildname="complain.data.ComplaintAddress" bfdi="520">江陵县郝穴镇楚江大道32号政务服务中心</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</li>
+						</ol>
+
+					</div>
+					<div class="cjwt" id="bszn12" bfdi="521">
+						<div class="unit-title-h" bfdi="522">
+							行政复议
+						</div>
+						<ol bfdi="523">
+							<li bfdi="524">
+								<table bfdi="525">
+									<tbody class="zxfsTable" bfdi="526">
+										<tr bfdi="527">
+											<th colspan="2" bfdi="528"><span>·</span> 咨询方式</th>
+										</tr>
+										<tr bfdi="529">
+											<td valign="top" bfdi="530">行政部门</td>
+											<td valign="top" class="cjwtTableText" bfdi="531">
+												<p idfild="1" id="data_ReviewOrgan" fildname="window.data.ReviewOrgan" bfdi="532">1.江陵县人民政府；2.荆州市公安局</p>
+											</td>
+										</tr>
+										<tr bfdi="533">
+											<td valign="top" bfdi="534">行政电话</td>
+											<td valign="top" class="cjwtTableText" bfdi="535">
+												<p idfild="1" class="phone_call" id="data_ReviewPhone" fildname="window.data.ReviewPhone" bfdi="536">1.0716-4730996；2.0716-8502870</p>
+											</td>
+										</tr>
+										<tr bfdi="537">
+											<td valign="top" bfdi="538">行政网址</td>
+											<td valign="top" class="cjwtTableText" bfdi="539">
+												<a idfild="1" class="a_link_web" id="data_ReviewUrl" fildname="window.data.ReviewUrl" bfdi="540">1.http://www.jiangling.gov.cn/；2.http://gaj.jingzhou.gov.cn/</a>
+											</td>
+										</tr>
+										<tr bfdi="541">
+											<td valign="top" bfdi="542">行政地址</td>
+											<td valign="top" class="cjwtTableText" bfdi="543">
+												<p idfild="1" id="data_ReviewAddress" fildname="window.data.ReviewAddress" bfdi="544">1.江陵县江陵大道128号.；2.荆州市沙市区江津西路254号</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</li>
+
+							<li bfdi="545">
+								<table bfdi="546">
+									<tbody class="zxfsTable" bfdi="547">
+										<tr bfdi="548">
+											<th colspan="2" bfdi="549"><span>·</span>行政诉讼</th>
+										</tr>
+										<tr bfdi="550">
+											<td valign="top" bfdi="551">行政部门</td>
+											<td valign="top" class="cjwtTableText" bfdi="552">
+												<p idfild="1" id="data_ProceedOrgan" fildname="window.data.ProceedOrgan" bfdi="553">江陵县人民法院</p>
+											</td>
+										</tr>
+										<tr bfdi="554">
+											<td valign="top" bfdi="555">行政电话</td>
+											<td valign="top" class="cjwtTableText" bfdi="556">
+												<p idfild="1" class="phone_call" id="data_ProceedPhone" fildname="window.data.ProceedPhone" bfdi="557">0716-4733067</p>
+											</td>
+										</tr>
+										<tr bfdi="558">
+											<td valign="top" bfdi="559">行政网址</td>
+											<td valign="top" class="cjwtTableText" bfdi="560">
+												<a idfild="1" class="a_link_web" id="data_ProceedUrl" fildname="window.data.ProceedUrl" bfdi="561">http://www.jlxfyw.hbfy.gov.cn/</a>
+											</td>
+										</tr>
+										<tr bfdi="562">
+											<td valign="top" bfdi="563">行政地址</td>
+											<td valign="top" class="cjwtTableText" bfdi="564">
+												<p idfild="1" id="data_ProceedAddress" fildname="window.data.ProceedAddress" bfdi="565">江陵县荆江路北62号</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</li>
+						</ol>
+
+					</div>
+				</li>
+
+			</ul>
+
+		</div>
+
+
+		<div class="foot_line_box" bfdi="566">
+
+			<span class="foot_line" bfdi="567"></span>
+			<span class="foot_text" bfdi="568">没有更多内容了</span>
+		</div>
+
+		<!--脚部分页-->
+		<div class="footPage" bfdi="569">
+
+		</div>
+
+		<!--说明弹框-->
+		<div id="smBox" class="gbBox" bfdi="570">
+			<div class="smtkBox" bfdi="571">
+				<img class="gbBox" src="/webview/xysWeb/bszn/images/gb.png" bfdi="572">
+				<h3 bfdi="573">
+					<span id="smBoxTitle" bfdi="574">法定办结时限说明</span>
+				</h3>
+				<div class="infoBox" id="smBoxInfo" bfdi="575">
+					自受理之日起，在1个工作日内办结。
+				</div>
+			</div>
+		</div>
+
+    <!-- 发起帮办弹框 -->
+    <div class="bangban_model_box" bfdi="576">
+      <div class="bangban_mian_box" bfdi="577">
+        <div class="bangban_header_box" bfdi="578">
+          <img class="bangban_close_box" src="/images/button-close.png" width="18" height="18" bfdi="579">
+        </div>
+        <div class="bangban_body_box" bfdi="580">
+          <iframe id="bangbanDOM" class="bangban_iframe_box" src="" bfdi="581"></iframe>
+        </div>
+      </div>
+    </div>
+
+		<!-- 隐藏框 -->
+		<div class="zgc" id="spmb" bfdi="582">
+			<!-- 审批模板 -->
+			<div class="model_x" bfdi="583">
+				<div class="model_title" bfdi="584">
+					<span bfdi="585">准予审批样本</span>
+					<span class="close_x right" bfdi="586">x</span>
+				</div>
+				<div class="city_list_x clearfix" id="SPYB" bfdi="587">
+
+				</div>
+			</div>
+		</div>
+		<div class="zgc" id="bspmb" bfdi="588">
+			<!-- 不准予审批模板 -->
+			<div class="model_x" bfdi="589">
+				<div class="model_title" bfdi="590">
+					<span bfdi="591">不准予审批样本</span>
+					<span class="close_x right" bfdi="592">x</span>
+				</div>
+				<div class="city_list_x clearfix" id="BSPYB" bfdi="593">
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</div>
+	<!-- <script src="/common/js/plugins/jquery.min.js"></script>  -->
+	<!--<script src="/js/bszn/bszn.js"></script>-->
+	<!--<script src="/js/bszn/bszn-3.js"></script>-->
+	<!-- 神策记录埋点 -->
+	<script src="/common/js/sensorsdata.min.js"></script>
+	
+	<script src="/webview/xysWeb/bszn/js/bsznXyx.js?_v=20201223"></script>
+
+
+<link rel="stylesheet" type="text/css" href="/webview/xysWeb/bszn/css/bzznxp.css?_v=20200702"></div>
+    <!-- 左侧菜单 块 end -->
+    <div id="sideEdge" bfdi="594"><!-- PC端CSS -->
+<link href="/common/layout/toolbar/style.css" rel="stylesheet" type="text/css">
+<!-- 中等屏幕CSS -->
+<!-- <link href="./css/style-1024.css" media="screen and (max-width: 1024px) and (min-width: 751px)" rel="stylesheet"/> -->
+<!-- 小屏CSS -->
+<!-- <link href="./css/style-750.css" media="screen and (max-width: 750px)" rel="stylesheet" /> -->
+
+<div id="main_toolbar" bfdi="595">
+    <div id="ehuiban_display" bfdi="596">
+        <img src="/images/app_download_new.jpg" bfdi="597">
+    </div>
+    <div onclick="xxbnbLink()" id="xxbnb" class="div_item" bfdi="598" style="display: none;">
+      <div class="ehbimgBox item_imgBox" bfdi="599">
+          <img src="/common/layout/toolbar/images/xxbnb_img.png" bfdi="600">
+      </div>
+      <div class="ehbText item_name" bfdi="601">小襄帮你办</div>
+    </div>
+    <div onclick="yddbLink()" id="yddb" class="div_item" bfdi="602" style="display: none;">
+        <div class="ehbimgBox item_imgBox" bfdi="603">
+            <img src="/common/layout/toolbar/images/xxbnb_img.png" bfdi="604">
+        </div>
+        <div class="ehbText item_name" bfdi="605">云端导办</div>
+      </div>
+    <div id="ehuiban" class="div_item" bfdi="606">
+        <div class="ehbimgBox item_imgBox" bfdi="607">
+            <img src="/common/layout/toolbar/images/ehb_app_img.png" bfdi="608">
+        </div>
+        <div class="ehbText item_name" bfdi="609">鄂汇办APP</div>
+    </div>
+    <div onclick="kefu()" id="kefu" class="div_item" bfdi="610">
+        <div class="item_imgBox" bfdi="611">
+            <img src="/common/layout/toolbar/images/znzx_img.png" bfdi="612">
+        </div>
+        <div class="item_name" bfdi="613">智能咨询</div>
+    </div>
+    <div onclick="hudong()" id="rexian" class="div_item" bfdi="614">
+        <div class="item_imgBox" bfdi="615">
+            <img src="/common/layout/toolbar/images/lyts_img.png" bfdi="616">
+        </div>
+        <div class="item_name" bfdi="617">留言 投诉</div>
+    </div>
+    <div onclick="yuyue()" id="zxyy" class="div_item" bfdi="618" style="display: none;">
+        <div class="item_imgBox" bfdi="619">
+            <img src="/common/layout/toolbar/images/zxyy_img.png" bfdi="620">
+        </div>
+        <div class="item_name" bfdi="621">在线预约</div>
+    </div>
+    <div onclick="zhifu()" id="tyzf" class="div_item" bfdi="622">
+        <div class="item_imgBox" bfdi="623">
+            <img src="/common/layout/toolbar/images/tyzf_img.png" bfdi="624">
+        </div>
+        <div class="item_name" bfdi="625">统一支付</div>
+    </div>
+    <!-- <div id="weixin_display" style="position: fixed;right: 90px;display: none;">
+        <img src="/common/layout/toolbar/images/weixin_download.png">
+    </div> -->
+    <div onclick="goTop()" id="dingbu" class="div_item" bfdi="626">
+        <div class="item_imgBox" bfdi="627">
+            <img src="/common/layout/toolbar/images/hddb_img.png" bfdi="628">
+        </div>
+        <div class="item_name" bfdi="629">回到顶部</div>
+    </div>
+    <div id="shouqi" class="div_item" bfdi="630">
+        <div class="item_imgBox" bfdi="631">
+            <img src="/common/layout/toolbar/images/shouqi_img.png" bfdi="632">
+        </div>
+        <div class="item_name" bfdi="633">收起</div>
+    </div>
+    <div id="zhankai" class="div_item isHide" bfdi="634">
+        <div class="item_imgBox" bfdi="635">
+            <img src="/images/index_cbicon8.png" bfdi="636">
+        </div>
+        <div class="item_name" bfdi="637">展开</div>
+    </div>
+    <div class="kjgj_box isHide" bfdi="638">
+        <span class="kjgj_zhankai"></span> 快捷工具<span class="kjgj_sq"></span>
+    </div>
+<div class="bwInstruction" bfdi="639">
+    <img src="/common/layout/toolbar/images/icon-floating-sq.png" width="20" alt="" bfdi="640">
+    <p bfdi="641">浏览器<br>使用说明</p>
+</div>
+
+<div class="bwInstructionPoint rightPoint clearfix" bfdi="642">
+    <div class="pointItem p_left" bfdi="643">
+        <img src="/common/layout/toolbar/images/icon-floating-sq.png" width="20" alt="" bfdi="644">
+        <p bfdi="645">浏览器<br>使用说明</p>
+    </div>
+    <div class="pointItem p_cen" bfdi="646">
+        <h4 bfdi="647">
+            <img src="/common/layout/toolbar/images/ico-right.png" width="16" alt="" bfdi="648">
+            <b bfdi="649">您的浏览器在兼容范围内</b>
+        </h4>
+        <p bfdi="650">属于IE10及以上版本、Google Chrome、Firefox、360和Edge等主流类型。</p>
+    </div>
+    <div class="pointItem p_right" bfdi="651">
+        <img src="/common/layout/toolbar/images/btn-close-normal.png" width="25" alt="" bfdi="652">
+    </div>
+</div>
+
+
+
+</div>
+<style type="text/css">
+    .div_item {
+        cursor: pointer;
+    }
+
+    .div_item:hover {
+        /*background-color: #337ab7;*/
+        color: rgba(51, 122, 183, 1) !important;
+    }
+
+
+    @media screen and (min-width: 1024px) {
+
+        .bwInstruction {
+            cursor: pointer;
+            width: 72px;
+            height: 92px;
+            background: #FFFFFF;
+            box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+            position: fixed;
+            right: 15px;
+            top: 85%;
+            padding: 18px 12px 17px;
+            text-align: center;
+        }
+
+        .bwInstruction>p {
+            font-size: 12px;
+            color: #606266;
+            line-height: 16px;
+            margin-top: 5px;
+        }
+
+        .bwInstruction:hover>p {
+            color: rgba(51, 122, 183, 1) !important;
+        }
+
+        .bwInstructionPoint {
+            height: 92px;
+            background: #FFFFFF;
+            box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+            position: fixed;
+            right: -100%;
+            top: 85%;
+            padding: 9px 0 8px;
+            box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        .bwInstructionPoint .pointItem {
+            float: left;
+            height: 75px;
+        }
+
+        .bwInstructionPoint .pointItem.p_left {
+            text-align: center;
+            width: 72px;
+            cursor: pointer;
+        }
+
+        .bwInstructionPoint .pointItem.p_left>img {
+            margin-top: 9px;
+            margin-bottom: 5px;
+
+        }
+
+        .bwInstructionPoint .pointItem.p_left>p {
+            font-size: 12px;
+            color: #606266;
+            line-height: 16px;
+        }
+
+        .bwInstructionPoint .pointItem.p_left:hover>p {
+            color: rgba(51, 122, 183, 1) !important;
+        }
+
+        .bwInstructionPoint .pointItem.p_cen {
+            /* width: 640px; */
+            padding: 12px 19px 14px;
+            border-right: 1px solid #dfdfdf;
+            border-left: 1px solid #dfdfdf;
+            margin-left: 12px;
+        }
+
+        .bwInstructionPoint .pointItem.p_cen>h4 {
+            font-size: 18px;
+            color: #000000;
+            line-height: 24px;
+        }
+
+        .bwInstructionPoint .pointItem.p_cen>h4>b {
+            vertical-align: middle;
+        }
+
+        .bwInstructionPoint .pointItem.p_cen>p {
+            margin-top: 6px;
+            font-size: 14px;
+        }
+
+        .bwInstructionPoint .pointItem.p_right {
+            width: 61px;
+            margin-right: 12px;
+        }
+
+        .bwInstructionPoint .pointItem.p_right>img {
+            margin: 25px 0 0 24px;
+            cursor: pointer;
+
+        }
+    }
+
+    @media screen and (max-width: 1023px) {
+        .bwInstructionPoint {
+            display: none;
+        }
+
+        .bwInstruction {
+            display: none;
+        }
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        $("#ehuiban").hover(function () {
+            $("#ehuiban_display").show();
+        }, function () {
+            $("#ehuiban_display").hide();
+        });
+        $("#weixin").hover(function () {
+            $("#weixin_display").show();
+        }, function () {
+            $("#weixin_display").hide();
+        });
+
+    });
+
+    var regionCode_xx = sessionStorage.getItem('p_region_code')
+    var whzxyyFlag = false;
+    var slideHeight = '335px'
+    if (regionCode_xx.substr(0, 4) == '4201') {
+        whzxyyFlag = true;
+    } else {
+        whzxyyFlag = false;
+    }
+    if (whzxyyFlag) {
+        $('#zxyy').show()
+        slideHeight = '395px'
+    } else {
+        $('#zxyy').hide()
+        slideHeight = '335px'
+    }
+    if(regionCode_xx.substr(0, 6) == '429006'){
+                $('#yddb').show()
+                slideHeight = '395px'
+    }else{
+        $('#yddb').hide()
+                slideHeight = '335px'
+    }
+    regionCode_xx.substr(0, 4) == '4206'?($('#xxbnb').show()):($('#xxbnb').hide());
+    // regionCode_xx.substr(0, 6) == '429006'?($('#yddb').show()):($('#yddb').hide());
+    //回到顶部
+    function goTop() {
+        $("html,body").animate({ scrollTop: 0 }, 500);
+    };
+    var isShouqi = false
+    $("#shouqi").click(function () {
+        isShouqi = true
+        $("#main_toolbar").stop().animate({
+            height: "56px",
+        }, 500, function () {
+            $("#main_toolbar").animate({ "margin-top": "-28px" }, 300);
+            $("#rexian").hide();
+            $("#ehuiban").hide();
+            $("#weixin").hide();
+            $("#kefu").hide();
+            if (whzxyyFlag) {
+                $('#zxyy').hide()
+            }
+            if(regionCode_xx.substr(0, 6) == '429006'){
+                $('#yddb').hide()
+            }
+            $("#dingbu").addClass('isHide')
+            $('#tyzf').hide()
+        });
+        $("#shouqi").addClass('isHide');
+        $("#zhankai").removeClass('isHide')
+    });
+
+    $("#zhankai").click(function () {
+        isShouqi = false
+
+        $("#main_toolbar").stop().animate({
+            // height: "395px",
+            height: slideHeight,
+        }, 500, function () {
+            $("#main_toolbar").animate({ "margin-top": "-178px" }, 300);
+            $("#rexian").show();
+            $("#ehuiban").show();
+            $("#kefu").show();
+            if (whzxyyFlag) {
+                $('#zxyy').show()
+            }
+            if(regionCode_xx.substr(0, 6) == '429006'){
+                $('#yddb').show()
+            }
+            $("#dingbu").removeClass('isHide')
+            $('#tyzf').show()
+        });
+        $("#shouqi").removeClass('isHide')
+        $("#zhankai").addClass('isHide');
+    });
+    // 中小屏  点击收起 与 展开
+    $('.kjgj_zhankai').click(function () {
+        isShouqi = false
+        if (whzxyyFlag) {
+            if (windowWidth <= 450) {
+                $('#main_toolbar').attr('style', 'height:5.1rem')
+            } else if (windowWidth > 450 && windowWidth <= 750) {
+                $('#main_toolbar').attr('style', 'height:33%')
+            } else {
+                $('#main_toolbar').attr('style', 'height:269px')
+            }
+        } else {
+            if (windowWidth <= 750) {
+                $('#main_toolbar').attr('style', 'height:3.5rem')
+            } else {
+                $('#main_toolbar').attr('style', 'height:213px')
+            }
+        }
+        $('.kjgj_box').attr('style', 'right:0')
+        $("#rexian").show();
+        $("#ehuiban").show();
+        $("#kefu").show();
+        if (whzxyyFlag) {
+            $('#zxyy').show()
+        }
+        $("#dingbu").removeClass('isHide')
+        $('#tyzf').show()
+    })
+    $('.kjgj_sq').click(function () {
+        isShouqi = true
+        $('#main_toolbar').attr('style', 'height:0;padding-top:0')
+        if (windowWidth <= 750) {
+            $('.kjgj_box').attr('style', 'right:-2.7rem')
+        } else {
+            $('.kjgj_box').attr('style', 'right:-158px')
+        }
+        $("#rexian").hide();
+        $("#ehuiban").hide();
+        $("#kefu").hide();
+        if (whzxyyFlag) {
+            $('#zxyy').hide()
+        }
+        $("#dingbu").addClass('isHide')
+        $('#tyzf').hide()
+
+    })
+    function hudong() {
+        if (checkLogin(true, '/webview/bszn/zxts.html')) {
+            // window.location.href = '/webview/bszn/zxts.html';
+            window.open('/webview/bszn/zxts.html')
+        }
+    };
+
+    function zhifu() {
+        window.open("/webview/tyzf/tyzf_index.html")
+    };
+
+    function kefu() {
+        window.open("/tongban/hb_qa/tourist/guide/qa");
+    };
+
+    function yuyue() {
+        window.open("/webview/whWeb/whzxyy.html");
+    }
+
+    //小襄帮你办 测试地址(需要更换)
+    function xxbnbLink(){
+      let localUrl = window.location.href;
+      if(checkLogin(true, localUrl, true)){
+        $.ajax({
+            url: '/web/external/openPlatform/formPath.jspc',
+            data: {
+                type: 2,
+                uniqueID: "8316daaf58b552c60b4c876a70fc0f70"
+            },
+            type: 'get',
+            crossDomain: true,
+            //async:false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data, '获取专区地址');
+                if (data.code == "1") {
+                    let url = data.data;
+                    window.open(url);
+                } else {
+                    layer_msg(data.msg);
+                }
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+      }
+
+      // window.open("https://119.36.80.131:8888/znkfrest/robot/robot?siteNo=wechat");
+    }
+    function yddbLink(){
+        // let localUrl = window.location.href;
+        // if(checkLogin(true, localUrl, true)){
+            window.open('https://www.tmyddb.com.cn:18081/epoint-web-zwdt/ycdbzwdt/pages/ycdbzwdt/index');
+        // }
+    }
+
+    //定义变量获取屏幕视口宽度
+    var windowWidth = $(window).width();
+    var isWindowWidth = false  //做控制 
+    if (windowWidth <= 1024) {
+        isWindowWidth = true
+        $('.kjgj_box').removeClass('isHide')
+    }
+    if (windowWidth <= 750) {
+        isShouqi = true
+        $('#main_toolbar').attr('style', 'height:0;padding-top:0')
+        $('.kjgj_box').attr('style', 'right:-2.7rem')
+        $("#rexian").hide();
+        $("#ehuiban").hide();
+        $("#kefu").hide();
+        if (whzxyyFlag) {
+            $('#zxyy').hide()
+        }
+        $("#dingbu").addClass('isHide')
+        $('#tyzf').hide()
+    }
+    $(window).resize(function () {
+        windowWidth = $(window).width();
+
+        if (windowWidth <= 1024) {
+            isWindowWidth = true
+            $("#shouqi").addClass('isHide')
+            $("#zhankai").addClass('isHide');
+            $("#dingbu").addClass('isHide');
+            $('.kjgj_box').removeClass('isHide')
+            if (isShouqi) {
+                $('#main_toolbar').attr('style', 'height:0;padding-top:0')
+                if (windowWidth <= 750) {
+                    $('.kjgj_box').attr('style', 'right:-2.7rem')
+                } else {
+                    $('.kjgj_box').attr('style', 'right:-158px')
+                }
+                // $("#zhankai").removeClass('isHide')
+            } else {
+                if (whzxyyFlag) {
+                    if (windowWidth <= 450) {
+                        $('#main_toolbar').attr('style', 'height:5.1rem')
+                    } else if (windowWidth > 450 && windowWidth <= 750) {
+                        $('#main_toolbar').attr('style', 'height:33%')
+                    } else {
+                        $('#main_toolbar').attr('style', 'height:269px')
+                    }
+                } else {
+                    if (windowWidth <= 750) {
+                        $('#main_toolbar').attr('style', 'height:3.5rem')
+                    } else {
+                        $('#main_toolbar').attr('style', 'height:213px')
+                    }
+                }
+
+                $('.kjgj_box').attr('style', 'right:0')
+                // $("#shouqi").removeClass('isHide')
+                // $("#dingbu").removeClass('isHide');
+            }
+        } else {
+            isWindowWidth = false
+            $('.kjgj_box').addClass('isHide')
+            if (isShouqi) {
+                $("#zhankai").removeClass('isHide')
+                $('#main_toolbar').attr('style', 'height:58px;margin-top: -28px;')
+            } else {
+                $('#main_toolbar').attr('style', 'height:' + slideHeight + '')
+                $("#shouqi").removeClass('isHide')
+                $("#dingbu").removeClass('isHide');
+            }
+        }
+    })
+
+    $('#ehuiban').click(function () {
+        if (isWindowWidth) {
+            $("#ehuiban_display").hide();
+            window.open('https://prod-pass4.ehbapp.hubei.gov.cn/download/page/download.html')
+        }
+    })
+
+
+    $('.bwInstruction,.pointItem.p_left').hover(function () {
+        $(this).find('img').attr('src', '/common/layout/toolbar/images/icon-browser-hover.png')
+    }, function () {
+        $(this).find('img').attr('src', '/common/layout/toolbar/images/icon-floating-sq.png')
+    })
+
+    $('.p_right.pointItem > img').hover(function () {
+        $(this).attr('src', '/common/layout/toolbar/images/btn-close-hover.png')
+    }, function () {
+        $(this).attr('src', '/common/layout/toolbar/images/btn-close-normal.png')
+    })
+
+    $('.bwInstruction').on('click', function () {
+        $('.bwInstruction').animate({ 'right': '-100px' })
+        $('.bwInstructionPoint').animate({ 'right': '15px' })
+    })
+
+    $('.p_right.pointItem > img,.pointItem.p_left').on('click', function () {
+        $('.bwInstruction').animate({ 'right': '15px' })
+        $('.bwInstructionPoint').animate({ 'right': '-100%' })
+    })
+
+
+    function getBroswerAndVersion() {
+        var os = navigator.platform;
+        var userAgent = navigator.userAgent;
+        var info = "";
+        var tempArray = "";
+        //判断浏览器版本
+        var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
+        var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器
+        var isEdge = userAgent.toLowerCase().indexOf("edge") > -1 && !isIE; //判断是否IE的Edge浏览器
+        var isIE11 = (userAgent.toLowerCase().indexOf("trident") > -1 && userAgent.indexOf("rv") > -1);
+
+        if (/[Ff]irefox(\/\d+\.\d+)/.test(userAgent)) {
+            tempArray = /([Ff]irefox)\/(\d+\.\d+)/.exec(userAgent);
+            info += tempArray[1] + tempArray[2];
+            if (tempArray[2] <= 52) {
+                return false;
+            }
+        } else if (isIE) {
+
+            var version = "";
+            var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+            reIE.test(userAgent);
+            var fIEVersion = parseFloat(RegExp["$1"]);
+            if (fIEVersion == 7) { version = "IE7"; return false }
+            else if (fIEVersion == 8) { version = "IE8"; return false }
+            else if (fIEVersion == 9) { version = "IE9"; return false }
+            else if (fIEVersion == 10) { version = "IE10";}
+            else { version = "0"; return false }
+
+            info += version;
+
+        } else if (isEdge) {
+            info += "Edge";
+        } else if (isIE11) {
+            info += "IE11";
+        } else if (/[Cc]hrome\/\d+/.test(userAgent)) {
+            tempArray = /([Cc]hrome)\/(\d+)/.exec(userAgent);
+            info += tempArray[1] + tempArray[2];
+            if (tempArray[2] <= 63) {
+                return false;
+            }
+        } else if (/[Vv]ersion\/\d+\.\d+\.\d+(\.\d)* *[Ss]afari/.test(userAgent)) {
+            tempArray = /[Vv]ersion\/(\d+\.\d+\.\d+)(\.\d)* *([Ss]afari)/.exec(userAgent);
+            info += tempArray[3] + tempArray[1];
+            if (tempArray[1] <= 10) {
+                return false;
+            }
+        } else if (/[Oo]pera.+[Vv]ersion\/\d+\.\d+/.test(userAgent)) {
+            tempArray = /([Oo]pera).+[Vv]ersion\/(\d+)\.\d+/.exec(userAgent);
+            info += tempArray[1] + tempArray[2];
+            if (tempArray[1] <= 50) {
+                return false;
+            }
+        } else {
+            info += "unknown";
+            return false;
+        }
+        return info;
+    }
+
+
+    var bwModel = getBroswerAndVersion()
+    if (!bwModel) {
+        $('.bwInstructionPoint.rightPoint').remove()
+        $('.bwInstruction').animate({ 'right': '-100px' })
+        $('.bwInstructionPoint').animate({ 'right': '15px' })
+    } else {
+        $('.bwInstructionPoint.wrongPoint').remove()
+    }
+
+
+</script>
+<!-- </body>
+
+</html>--></div>
+    <!-- 公共底部 -->
+    <div id="cm_footer" bfdi="653">
+
+
+
+    <meta charset="UTF-8" bfdi="654">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" bfdi="655">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" bfdi="656">
+    <!-- 默认webkit核 -->
+    <meta name="renderer" content="webkit" bfdi="657">
+    <title bfdi="658">湖北政务服务网</title>
+    <!-- 基础CSS -->
+    <!-- <link rel="stylesheet" href="/common/css/base.css"> -->
+<!-- PC端CSS -->
+<link href="/common/layout/footer/css/style-1440.css?_v=20200509" rel="stylesheet" type="text/css">
+<link href="/common/layout/footer/css/style-1439-1366.css?_v=20200509" media="screen and (max-width: 1439px) and (min-width: 1366px)" rel="stylesheet">
+<!-- 中等屏幕CSS -->
+<link href="/common/layout/footer/css/style-1365-1024.css?_v=20200509" media="screen and (max-width: 1365px) and (min-width: 1024px)" rel="stylesheet">
+<link href="/common/layout/footer/css/style-1023-768.css?_v=20200509" media="screen and (max-width: 1023px) and (min-width: 768px)" rel="stylesheet">
+<!-- 小屏CSS -->
+<link href="/common/layout/footer/css/style-767.css?_v=20200509" media="screen and (max-width: 767px)" rel="stylesheet">
+<style>
+
+    /* @media screen and (min-width: 1025px) {
+      
+    }
+
+    @media screen and (max-width: 1024px) and (min-width: 751px) {
+     
+    }
+
+    @media screen and (max-width: 750px) {
+     
+    } */
+    /* 初始化样式 */
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+    }
+    .clearfix {  *zoom: 1;}
+    .clearfix:before, .clearfix:after { content: ""; display: table; }
+    .clearfix:after { clear: both; overflow: hidden; }
+    ul, dl {
+      margin: 0;
+      padding: 0;
+      list-style: none outside none;
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  *, a, a:hover, a:visited, a:link {
+      list-style: none;
+      text-decoration: none!important;
+      outline: none;
+      /* blr: expression(this.onFocus=this.blur()); */
+  }
+  .yywhdw{
+    margin-left:10px;
+  }
+</style>
+
+
+
+
+    <div class="xys_footer" bfdi="659">
+        <div class="xys_w footer_box clearfix" bfdi="660">
+            <div class="footer_com footer_1" bfdi="661">
+                <div class="footer_lx" bfdi="662">
+                    <p class="lx_tx" bfdi="663">联系我们</p>
+                    <p class="lx_phone" bfdi="664">12345</p>
+                    <p class="lx_tsjy" bfdi="665">您可以咨询、建议、投诉</p>
+                </div>
+                <div class="footer_sm" onclick="yinsizhengce()" bfdi="666">
+                    网站声明 
+                    <img src="/common/layout/footer/images/btn-more2x.png" alt="">
+                </div>
+            </div>
+            <div class="footer_com footer_2" bfdi="667">
+                <p class="wzjs_title" bfdi="668">网站介绍</p>
+                <!-- <p class="wzjs_con">湖北政务服务网定位为湖北群众和企业办事的首选窗口，是湖北省深化“互联网+政务服务”推进“一网、一门、一次”改革取得重要阶段性成果。</p> -->
+                <p class="wzjs_con" bfdi="669">湖北政务服务网是集公安、户政、教育、交通、不动产等众多领域于一体的在线政务服务平台，是人民群众和企业办事的首选窗口。“让数据多跑路，让群众少跑腿”是我们的宗旨，努力提升群众的满足感和获得感是我们不懈追求的目标。</p>
+            </div>
+            <div class="footer_com footer_3" bfdi="670">
+                <!-- <div class="border_css" onclick="zgzwfw()">
+                    <img src="/images/logo-bottom-zgzwfwpt.png">
+                    <span class="font_css">国家政务服务平台</span>
+                </div> -->
+
+                <div class="border_css ehbApp" style="position: relative;" bfdi="671">
+                    <img src="/common/layout/footer/images/ico-qr-ehb2x.png" bfdi="672">
+                    <span class="font_css" bfdi="673">鄂汇办APP</span>
+                    <div id="ehb_app_display" bfdi="674">
+                        <img width="120px" src="/common/layout/footer/images/app_download_new.jpg" bfdi="675">
+                    </div>
+                </div>
+
+                <div class="border_css hbzw_wx" style="position: relative;" bfdi="676">
+                    <img src="/common/layout/footer/images/ico-qr-gzh2x.png" bfdi="677">
+                    <span class="font_css" bfdi="678">鄂汇办微信公众号</span>
+                    <div id="ehb_weixin_display" bfdi="679">
+                        <img width="120px" src="/common/layout/footer/images/weixin_download.png" bfdi="680">
+                    </div>
+                </div>
+                <div class="border_css ehb_dyh" style="position: relative;" bfdi="681">
+                    <img src="/common/layout/footer/images/ico-qr-dy2x.png" bfdi="682">
+                    <span class="font_css" bfdi="683">鄂汇办抖音号</span>
+                    <div id="ehb_dyh_display" bfdi="684">
+                        <img width="120px" src="/common/layout/footer/images/ehb_dyh.png" bfdi="685">
+                    </div>
+                </div>
+                <div class="border_css hbzw_sph" style="position: relative;" bfdi="686">
+                    <img src="/common/layout/footer/images/ico-qr-sph2x.png" bfdi="687">
+                    <span class="font_css" bfdi="688">湖北政务服务视频号</span>
+                    <div id="zwfww_sph_display" bfdi="689">
+                        <img width="120px" src="/common/layout/footer/images/zwfww_sph.png" bfdi="690">
+                    </div>
+                </div>
+                <div class="border_css ehb_shh" style="position: relative;" bfdi="691">
+                    <img src="/common/layout/footer/images/ico-qr-sph2x.png" bfdi="692">
+                    <span class="font_css" bfdi="693">鄂汇办支付宝生活号</span>
+                    <div id="ehb_shh_display" bfdi="694">
+                        <img width="120px" src="/common/layout/footer/images/ehb_shh.png" bfdi="695">
+                    </div>
+                </div>
+            </div>
+            <div class="footer_com footer_4" bfdi="696">
+                <div class="dzjg_img" onclick="dangzhengjiguan()" bfdi="697">
+                    <img src="/common/layout/footer/images/logo-bottom-dzjg2x.png" alt="" bfdi="698">
+                    <p bfdi="699">党政机关</p>
+                </div>
+                <div class="dzjg_jbzc" bfdi="700">
+                    <a href="https://www.12377.cn/" rel="noopener noreferrer" target="_blank" class="blxxjb" bfdi="701">
+                        <img src="/images/logo-bottom-blxxjbzx.svg" alt="" bfdi="702">
+                        <p bfdi="703">不良信息举报中心</p>
+                    </a>
+                    <a href="javascript:void(0);" class="wzzc" onclick="Link('4200000116')" bfdi="704">
+                        <img src="/common/layout/footer/images/logo-bottom-zfwzzc@2x.png" alt="" bfdi="705">
+                        <span id="_span_jiucuo" style="display: none;" bfdi="706"><img onclick="Link('4200000116')" style="margin:0;border:0;cursor: pointer;" src="https://zfwzgl.www.gov.cn/exposure/images/jiucuo.png?v=4200000116" bfdi="707"></span>
+                        <p bfdi="708">
+                            <span class="text_zfwz" bfdi="709">政府网站</span>
+                            <span class="text_zc" bfdi="710">找错</span>
+                        </p>
+                    </a>
+                    <span id="_jiucuo_" sitecode="4200000116" style="display: none;" bfdi="711"></span>
+                    <script id="_jiucuo_" sitecode="4200000116" src="https://zfwzgl.www.gov.cn/exposure/jiucuo.js" integrity="sha384-64q1IOsxuJ4335e8EY7L8bnSOUfRfeBSbkKhdMQakgTO4xrwVje8M+Sxhoj8SfDp" crossorigin="anonymous"></script>
+                </div>
+            </div>
+        </div>
+        <div class="xys_w clearfix dbsm_info" bfdi="712">
+            <div class="info_left" bfdi="713">
+                <span class="zbdw" bfdi="714">主办单位：湖北省人民政府办公厅</span> 
+                <span class="yywhdw" bfdi="715">承办单位：湖北省数据局</span>
+            </div>
+            <!-- <div class="info_right"></div> -->
+            <div class="info_righht " bfdi="716">
+               <span bfdi="717"><img src="/common/layout/footer/images/logo-bottom-gorga@2X.png">鄂公网安备42010602000665号 鄂ICP备05011090号-1</span> <span bfdi="718"> 政府网站标识码：4200000116</span> 
+            </div>
+        </div>
+    </div>
+    <!-- 中小屏幕 二维码遮盖层 -->
+    <div class="zxpmewmzgc" bfdi="719">
+        <div class="ewmBox" bfdi="720">
+            <h3 bfdi="721">
+                <span bfdi="722">湖北政务服务微信</span>
+                <img src="/common/layout/footer/images/btn_gbfc.png" class="btn_gbfc" alt="" bfdi="723">
+            </h3>
+            <img class="img" src="/common/layout/footer/images/weixin_download-2.png" alt="" bfdi="724">
+            <p bfdi="725">请打开微信扫一扫关注公众号</p>
+        </div>
+    </div>
+    
+    <!-- <script src="/common/js/plugins/jquery.min.js"></script> -->
+    <!-- <script src="/common/js/common_data.js"></script>
+    <script src="/common/js/model/area/common_area.js"></script>
+    <script src="/common/js/model/user/common_user.js"></script>
+    <script src="/common/js/tools.js"></script>
+    <script src="/common/js/model/header/header.js"></script>
+    <script src="/common/js/common_zfwz.js"></script> -->
+    <script>
+
+
+// 鄂汇办app跳转   湖北政务微信跳转   js判断屏幕大小 
+    //定义变量获取屏幕视口宽度
+    var windowWidth = $(window).width();
+    var isWindowWidthFooter = false  //做控制 
+    if(windowWidth <= 767){
+        isWindowWidthFooter = true
+    }
+   
+    $(window).resize(function(){ 
+        windowWidth = $(window).width();
+        if(windowWidth <= 767){
+            isWindowWidthFooter = true
+        }else{
+            isWindowWidthFooter = false
+        }
+     })
+
+    // 中小屏幕下  湖北政务微信二维码 下周鄂汇办APP 注册点击事件
+     $('.border_css.hbzw_wx').click(function(){
+         if(isWindowWidthFooter){
+            $('.ewmBox span').text("鄂汇办微信公众号");
+            $('.ewmBox .img').attr("src","/common/layout/footer/images/weixin_download-2.png");
+            $('.ewmBox p').text("请打开微信扫一扫关注公众号");
+            $('.zxpmewmzgc').addClass('zwfwewmShow')
+         }
+     })
+     $('.border_css.ehb_dyh').click(function(){
+         if(isWindowWidthFooter){
+            $('.ewmBox span').text("鄂汇办抖音号");
+            $('.ewmBox .img').attr("src","/common/layout/footer/images/ehb_dyh.png");
+            $('.ewmBox p').text("请打开抖音扫一扫关注抖音号");
+            $('.zxpmewmzgc').addClass('zwfwewmShow')
+         }
+     })
+     $('.border_css.hbzw_sph').click(function(){
+         if(isWindowWidthFooter){
+             $('.ewmBox span').text("湖北政务服务视频号");
+            $('.ewmBox .img').attr("src","/common/layout/footer/images/zwfww_sph.png");
+            $('.ewmBox p').text("请打开微信扫一扫关注视频号");
+            $('.zxpmewmzgc').addClass('zwfwewmShow')
+         }
+     })
+     $('.border_css.ehb_shh').click(function(){
+         if(isWindowWidthFooter){
+             $('.ewmBox span').text("鄂汇办支付宝生活号");
+            $('.ewmBox .img').attr("src","/common/layout/footer/images/ehb_shh.png");
+            $('.ewmBox p').text("请打开支付宝扫一扫关注生活号");
+            $('.zxpmewmzgc').addClass('zwfwewmShow')
+         }
+     })
+     $('.btn_gbfc').click(function(){
+        $('.zxpmewmzgc').removeClass('zwfwewmShow')
+     })
+     $('.border_css.ehbApp').click(function(){
+         if(isWindowWidthFooter){
+            window.open('https://prod-pass4.ehbapp.hubei.gov.cn/download/page/download.html')
+         }
+     })
+     function zgzwfw(){
+        window.open("https://gjzwfw.www.gov.cn/index.html");
+     }
+     function dangzhengjiguan() {
+        window.open("https://bszs.conac.cn/sitename?method=show&id=085B302CA0945C90E053012819ACCDED");
+    };
+    function yinsizhengce() {
+        window.open("/common/layout/footer/yinsizhengce.html");
+    };
+
+
+    
+    // 宽带在 750以下 使用rem   
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                if (clientWidth >= 750) {
+                    docEl.style.fontSize = '100px';
+                } else {
+                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                }
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        recalc();
+    })(document, window);
+
+
+
+
+
+    var link_x = document.createElement('link');
+    link_x.setAttribute('rel', 'shortcut icon');
+    link_x.setAttribute('href', '/images/favicon.ico');
+    document.head.appendChild(link_x);
+
+    // 百度统计
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2e78e4e6592603c96de5e3ada929877c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+    // fastclick 公共js
+    var fastclick = document.createElement("script");
+    fastclick.src = "/common/js/fastclick.js";
+    $('body').append(fastclick);
+    $(function () {
+        setTimeout(function () {
+            FastClick.attach(document.body);
+        }, 300);
+        eztPreload();
+    });
+
+    // 证照预加载
+    function eztPreload(){
+        var zwwLastlogin=localStorage.getItem('zww-lastlogin');
+        var isEztLastlogin=localStorage.getItem('isEzt-lastlogin');
+        if(zwwLastlogin&&(zwwLastlogin!=isEztLastlogin)){
+            localStorage.setItem('isEzt-lastlogin',zwwLastlogin);
+            $.ajax({
+                url: '/web/user/dzzz/ezt/preload.jspc',
+                dataType: "json",
+                type: "get",
+                ContentType: "application/x-www-form-urlencoded",
+                data: {},
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function () {
+                    // console.log('获取数据失败')
+                }
+            })
+        }
+    }
+    </script>
+
+
+
+</div>
+    <script>
+
+        $(function () {
+            $("#cm_top").load("/common/layout/top/xysHeader_three.html", function () {
+                $("#threetitle").html("办事指南");
+            });
+
+            // 引入侧边栏
+            $("#sideEdge").load("/common/layout/toolbar/xysToolbar.html");
+
+            // 引入底部
+            $("#cm_footer").load("/common/layout/footer/xysFooter.html");
+
+
+            var transactCode = getRequest()["transactCode"];
+
+            $.ajax({
+                url: '/web/bszn/item_project_transaction_index_info.jspc',
+                data: { transactcode: transactCode },
+                type: 'POST',
+                // crossDomain: true,
+                //async:false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data, 'data111')
+                    //拿到区划 REGION_GRADE 与 类型 TRANSACTORDER
+                    if (data.code == '1') {
+                        var grade = data.data.REGION_GRADE
+                        var taskType = data.data.TASKTYPE
+                        // 足迹标题
+                        let jz_title = data.data.TRANSACTNAME;
+                        let url = window.location.href;
+                        SaveHistory(jz_title, url, 1)
+                        if (grade == 2) {
+                            if (taskType == "02") { //行政处罚
+                                $("#bszn").load("/webview/bszn/bszn-yzq/bszn-yzq-s-cf.html?v=20211204");
+                            } else if (taskType == "03") { //行政强制
+                                $("#bszn").load("/webview/bszn/bszn-yzq/bszn-yzq-s-qz.html?v=20211204");
+                            } else if (taskType == "04") { //行政征收
+                                $("#bszn").load("/webview/bszn/bszn-yzq/bszn-yzq-s-zs.html?v=20211204");
+                            } else if (taskType == "06") { //行政检查
+                                $("#bszn").load("/webview/bszn/bszn-yzq/bszn-yzq-s-jc.html?v=20211204");
+                            } else {
+                                $("#bszn").load("/webview/xysWeb/bszn/xysBsznpage.html?v=20201225"); //3.0办事指南
+                            };
+                        } else if (grade >= 3) {
+                            // else if(grade == 3 || grade == 4)
+                            // 市州
+                            if (taskType == "02") { //行政处罚
+                                $("#bszn").load("/webview/bszn/bszn-yzq-sz/bszn-yzq-sz-cf.html?v=20211203");
+                            } else if (taskType == "04") { //行政征收
+                                $("#bszn").load("/webview/bszn/bszn-yzq-sz/bszn-yzq-sz-zs.html?v=20211203");
+                            } else if (taskType == "06" || taskType == "03") { //行政检查
+                                $("#bszn").load("/webview/bszn/bszn-yzq-sz/bszn-yzq-sz-jc.html?v=20211203");
+                            } else {
+                                $("#bszn").load("/webview/xysWeb/bszn/xysBsznpage.html?v=20201225"); //3.0办事指南
+                            }
+                        }
+                        // else if(grade > 4){
+                        //     $("#bszn").load("/webview/bszn/bszn-1.html"); //1.0办事指南
+                        // }
+                        $('#loading').hide()
+                    } else {
+                        $('#loadImg').hide()
+                        layer.open({
+                            title: '温馨提示'
+                            , content: "<div style='text-align:center;'>" + data.msg + "</div>"
+                            , shade: 0.5
+                            , shadeClose: false
+                            , yes: function (index, layero) {
+                                //do something
+                                window.location.href = "/";
+                                layer.close(index); //如果设定了yes回调，需进行手工关闭
+                            }
+                            , cancel: function (index, layero) {
+                                window.location.href = "/";
+                                layer.close(index);
+                            }
+                        });
+                    }
+
+                },
+                error: function (e) {
+                    $('#loadImg').hide()
+                    layer.open({
+                        title: '温馨提示'
+                        , content: "<div style='text-align:center;'>查询出错，请联系系统管理员</div>"
+                        , shade: 0.5
+                        , shadeClose: false
+                        , yes: function (index, layero) {
+                            //do something
+                            window.location.href = "/";
+                            layer.close(index); //如果设定了yes回调，需进行手工关闭
+                        }
+                        , cancel: function (index, layero) {
+                            window.location.href = "/";
+                            layer.close(index);
+                        }
+                    });
+                }
+            });
+
+        });
+
+        /**
+         * 弹出导航层
+         * @param address 需要导航到的地方 中文名 例如【黄鹤楼】
+         */
+        function addressGuid(address) {
+            var geolocation = new BMap.Geolocation();
+            geolocation.getCurrentPosition(function (result) {
+                if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                    console.log(result.latitude);
+                    console.log(result.longitude);
+                    // window.open("http://api.map.baidu.com/direction?origin=latlng:" + result.latitude + "," + result.longitude + "|name:我的位置&destination=" + address + "&mode=driving&region=湖北&output=html&src=webapp.baidu.openAPIdemo");
+                    layer.open({
+                        type: 2,
+                        title: "交通指引",
+                        area: ['1200px', '800px'],
+                        content: "http://api.map.baidu.com/direction?origin=latlng:" + result.latitude + "," + result.longitude + "|name:我的位置&destination=" + address + "&mode=driving&region=湖北&output=html&src=webapp.baidu.openAPIdemo" //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+                    });
+                } else {
+                    layer.alert("指引服务暂时不可用！", { icon: 5 })
+                }
+            });
+        }
+    </script>
+
+
+<script src="/common/js/fastclick.js"></script><script src="/common/js/common_utils.js?random=0.8390889180743797"></script><script src="/common/js/jquery.qrcode.js"></script></body></html>

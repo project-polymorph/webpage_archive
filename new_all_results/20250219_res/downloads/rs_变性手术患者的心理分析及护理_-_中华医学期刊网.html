@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>变性手术患者的心理分析及护理</title>
+<!--<link href="/r/cms/css/mobile_all.css" rel="stylesheet" type="text/css" />-->
+<link href="/r/cms/css/mobile_content.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/thirdparty/jquery-powerFloat/css/common.css" type="text/css">
+<link rel="stylesheet" href="/thirdparty/jquery-powerFloat/css/powerFloat.css" type="text/css">
+<style>
+.hide{display:none;}
+.inline_graphic{max-height: 15px;}
+</style>
+<script src="/r/cms/jquery.js" type="text/javascript"></script>
+<script src="/r/cms/front.js" type="text/javascript"></script>
+<script src="/r/cms/js/common.js" type="text/javascript"></script>
+<script src="/r/cms/js/mobile/mobile_content.js" type="text/javascript"></script>
+<script src="/r/cms/user_interface.js" type="text/javascript"></script>
+<script src="/r/cms/js/green/content/common.js" type="text/javascript"></script>
+<script src="/r/cms/js/green/confirm.js" type="text/javascript"></script>
+<style>
+.shadow{-moz-box-shadow:1px 1px 3px rgba(0,0,0,.4); -webkit-box-shadow:1px 1px 3px rgba(0,0,0,.4); box-shadow:1px 1px 3px rgba(0,0,0,.4);}
+.target_box{background:#e8f1f2;width:90%; padding:10px; border:1px solid #aaa;height:70%;display:none;}
+.scoll{OVERFLOW-Y: auto; OVERFLOW-X:hidden;}
+.target_list{padding:4px; border-bottom:1px dotted #ddd; overflow:hidden; _zoom:1;}
+.target_list a{width:22px; line-height:20px; margin-right:5px; padding:1px; color:#333; font-size:12px; text-align:center; text-decoration:none; float:left;}
+.target_list a:hover{padding:0; border:1px solid #ddd; color:#cd0000;}
+.target_more{margin-top:-20px;}
+
+.target_fixed{height:25px; padding:1px; position:fixed; _position:absolute; top:0; right:0;}
+.custom_container{position:absolute; background-color:rgba(0, 0, 0, .5); background-color:#999\9;}
+.custom_container img{padding:0; position:relative; top:-5px; left:-5px;}
+#hidebg { position:absolute;left:0px;top:0px; 	
+      background-color:#000; 
+      width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/ 
+      filter:alpha(opacity=60);  /*设置透明度为60%*/ 
+      opacity:0.6;  /*非IE浏览器下设置透明度为60%*/ 
+      display:none; /* http://www.jb51.net */ 
+      z-Index:2;} 
+.abs{position:relative;}
+</style> 
+<script type="text/javascript">
+var userFlag = false;
+var userId = 0;
+var thisUrl = location.href;
+var userType = 0;
+$(function(){
+	browserRedirect();
+	/**
+	 * 判断用户是否登录
+	 */
+	 Cnt.weatherLogin("",function(data){
+		 userFlag = data.success;
+		 if(userFlag){
+			 userId = data.user.userId;
+			 userType = data.user.userType;
+			 $("input[name='userId']").val(userId);
+			 $("#bizUrl").val(thisUrl);
+			 var topBox = $(".top_box");
+			 // var a = $("<a href=\"javascript:toPersonalCenter(1);\"></a>").appendTo(topBox);
+			 // var loginBtn = $("<input type=\"button\" class=\"btn top_user_no_login\" />").appendTo(a);
+			 var buyHtml = '<button class="btn_preview" style="text-align: left;">试读结束，本文不支持移动端阅读，请使用中华医学期刊APP或电脑端浏览器阅读。</button> ';
+			 $("#main_txt").after(buyHtml);
+			 /* Cnt.getBasePrice("",528590,26579,1,function(data){
+			 	if(data.success){
+			 		 Cnt.getVisitJournalPermission("",userId,121,528590,26579,data.data.coupenPrice,function(data){
+			 			 if(data.success){
+			 				 if(data.data.paperPrice != 0){ */
+			 					 /*去掉试读页的上标*/
+								 /* $("#main_txt .sup").remove(); */
+								 /*未购买*/
+								/*  var buyHtml = '<div class="buy_intro"><p>试读结束，购买后可阅读余下内容</P>'
+								   			 +	'<button class="btn_preview btn_daka_buy" id="BuyThisArticle">账户余额&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #000;font-weight: normal;">优惠价：<span id="memberPrice"></span> 元	</span></button>'
+											 +	'<button class="btn_preview btn_welcome_club" onclick="gotoClub();"><p style="font-size: 14px;color: orange;">成为读者俱乐部会员,订阅本刊</p><p style="font-size: 12px;color: grey;font-weight:normal;">订阅专属中华系列杂志，更享超多优惠服务</p></button> '
+											 +	'<div class="clear"></div></div>';
+								 $("#main_txt").after(buyHtml); */
+								 /*获取基础价格*/
+								 /*本篇价格*/
+								/* Cnt.getBasePrice("",528590,26579,1,function(data){
+									if(data.success){
+										$("#baseCntprice").text(data.data.basicPrice); */
+										/*全文会员价*/
+										/* Cnt.getFavorablePrice("",userId,"528590",2,"121", data.data.basicPrice,data.data.coupenPrice,function(data){
+											if(data.data.priceState == 1){ */
+											/*优惠价*/
+												/* $("#memberPrice").text(data.data.price);
+												$("#buyMemberPrice").text(data.data.price);
+											}else if(data.data.priceState == 2){ */
+												/*会员价*/
+												/* $("#memberPrice").text(data.data.price);
+												$("#buyMemberPrice").text(data.data.price);
+											}
+										});
+									}
+								});
+								 
+								 BuyThisArticle();
+			 				 }else{ */
+			 					/*判断本篇文章的优惠价是否为会员价*/
+								/* Cnt.getBasePrice("",528590,26579,1,function(data){
+									if(data.success){ */
+										/*全文会员价*/
+										/* Cnt.getVisitJournalPermission("",userId,121,528590,26579,data.data.coupenPrice,function(data){
+											if(data.data.isBuyState == 3){ */
+												/*会员折扣免费*/
+											  /* var member_tip =	'<div class="copy_right">'+
+												'<span class="warning"></span>' +
+												'<span class="txt">为回馈读者，近期我刊向会员免费开放全文。更多权益说明，请访问<a href="http://club.medline.org.cn/" target="_blank">中华医学会杂志社读者俱乐部官方网站<a>。</span>' +
+												'<span class="close_btn" onclick="$(this).parent().parent().hide();"></span>' +
+												'<div class="clear"></div></div>';
+												$("#copy_right").after(member_tip);
+											
+											}
+										});
+									}
+								});
+			 				 }
+			 			}else{
+			 				 $("#main_txt").after($("#userLoginDiv").html());
+			 			}
+			 		 });
+			 	}
+			 });   */
+					
+		 }else{
+			 var topBox = $(".top_box");
+			 // var a = $("<a href=\"javascript:backUrl();\"></a>").appendTo(topBox);
+			 // var loginBtn = $("<input type=\"button\" class=\"btn top_user_login\" />").appendTo(a);
+			 var buyHtml = '<button class="btn_preview" style="text-align: left;">试读结束，本文不支持移动端阅读，请使用中华医学期刊APP或电脑端浏览器阅读。</button> ';
+			 $("#main_txt").after(buyHtml);
+		 }
+		/*浏览记录*/
+			Cnt.savePaperHistory("",userId,121,528590,26579, "变性手术患者的心理分析及护理", thisUrl,"2011","27","31",58,"2011-11-01")
+	 });
+	
+	 loadCommentList();
+	 showAbs();
+	
+	/*购买*/
+	 	$("#userBuy").click(function(){
+	 		if(userFlag){
+	 			var bp = $("#balancePayment").attr("checked"); /*是否余额支付*/
+	 			var prompt = $("#prompt").attr("checked"); /*余额足够时是否提示*/
+	 			var promptVal = 0;
+	 			if(!bp){
+	 				showMsg("请选择是否余额支付!");
+	 				return;
+	 			}
+	 			if(prompt){
+	 				promptVal = 1;
+	 			}
+	 			Cnt.userBuyGood("", 528590,userId,121,"变性手术患者的心理分析及护理",0,$("#buyMemberPrice").text(), promptVal,thisUrl, 26579,function(data){
+	 				if(data.success){
+	 					if(data.data.buy){
+	 	 					/*购买成功需要刷新*/
+	 	 					location.reload();
+	 	 					openDivById("PaySuccess");
+	 	 				}else{
+	 	 					if(data.data.msg = '用户余额不足，请先充值'){
+	 	 						openDivAndMsg("PayFailure","PayFailure_msg",'余额不足，请移步PC端进行充值');
+	 	 					}else{
+	 	 						openDivAndMsg("PayFailure","PayFailure_msg",data.data.msg);
+	 	 					}
+	 	 				}
+	 				}else{
+	 					openDivById("dataFailure");
+	 				}
+	 				
+	 			});
+	 		}
+	 		
+	 	});
+});
+
+
+
+$(function() {
+	
+	var currentPosition = 0;
+	var viewSize = getViewSize();
+	var viewWidth = viewSize.width;
+	var slideWidth = viewWidth * 0.9;
+	var slides = $('.pics');
+	var numberOfSlides = slides.length;
+	
+	$('.icon_body_top').css('overflow', 'hidden');
+	slides
+    .wrapAll('<div id="slideInner"></div>')
+	.css({
+      'float' : 'left',
+      'width' : slideWidth
+    });
+	$('#slideInner').css('width', slideWidth * numberOfSlides);
+	$('.icon_body_top')
+    .prepend('<span class="control" id="leftControl">Clicking moves left</span>')
+    .append('<span class="control" id="rightControl">Clicking moves right</span>');
+	manageControls(currentPosition);
+	
+	$('.control').bind('click', function(){
+		currentPosition = ($(this).attr('id')=='rightControl') ? currentPosition+1 : currentPosition-1;
+		manageControls(currentPosition);
+		$('#slideInner').animate({
+			'marginLeft' : slideWidth*(-currentPosition)
+		});
+	});
+	
+	function manageControls(position){
+		if(position==0){ $('#leftControl').hide() } else{ $('#leftControl').show() }
+		if(position==numberOfSlides-1){ $('#rightControl').hide() } else{ $('#rightControl').show() }
+	}
+	
+	$("#menuBtn").bind('click', function(e) {
+		if($(".top_banner").hasClass("hide")){
+			$(".top_banner").removeClass("hide");
+			$('body > .main').bind('touchstart', function() {
+				if(!$(".top_banner").hasClass("hide")){
+					$(".top_banner").addClass("hide");
+					$('body > .main').unbind('touchstart');
+				}
+			});
+		}  else {
+			$(".top_banner").addClass("hide");
+			$('body > .main').unbind('touchstart');
+		}
+	});
+	$(".top_banner").click(function (e) { 
+		e.stopPropagation();/*阻止事件向上冒泡 */
+	});
+	
+	/*关闭购买*/
+ 	$("button[class*='default']").click(function(){
+ 	    $(this).parents(".modal_window_two").hide();
+ 	});
+});
+
+function browserRedirect() { 
+	var contentId = 528590;
+	var sUserAgent= navigator.userAgent.toLowerCase(); 
+	var bIsIpad= sUserAgent.match(/ipad/i) == "ipad"; 
+	var bIsIphoneOs= sUserAgent.match(/iphone os/i) == "iphone os"; 
+	var bIsMidp= sUserAgent.match(/midp/i) == "midp"; 
+	var bIsUc7= sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4"; 
+	var bIsUc= sUserAgent.match(/ucweb/i) == "ucweb"; 
+	var bIsAndroid= sUserAgent.match(/android/i) == "android"; 
+	var bIsCE= sUserAgent.match(/windows ce/i) == "windows ce"; 
+	var bIsWM= sUserAgent.match(/windows mobile/i) == "windows mobile"; 
+	if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) { 
+	} else{
+		location.href= '/CN211501201131/528590.htm'; 
+	}
+}
+/*加载评论列表*/
+function loadCommentList(){
+	Cnt.commentListHtml("",528590,7,1,6,function(data){
+		if(data.success){
+			$("#comments2").text(data.count);
+			var  commentDiv = $("#commentListContainer").empty();
+			$.each(data.data, function(key, val) {
+				var userName = val.ycUserName;
+				if(userName == undefined || userName == ""){
+					userName = "游客";
+				}
+				var commentTime = val.ycCreateTimeStr;
+				var content = val.ycContent;
+				var div1 = $('<div class="comment_info_ship"></div>' ).appendTo(commentDiv);
+				var p = $('<p class="user"></p>').appendTo(div1);
+				/*var a1 = $( '<a href="#"><img src="/r/cms/img/article/user_img.jpg" width="104" height="104"></a>').appendTo(div2);*/
+				//var a1 = $( '<a href="#"></a>').appendTo(p);
+				Cnt.getPersonPic("",val.ycUserId,"small",function(data){
+					if(data.success){
+						var a1 = $( '<img src="'+data.data+'" width="104" height="104">').appendTo(div2);
+					}
+				});				
+				a1.html(userName);
+				var span = $('<span></span>').appendTo(p);
+				span.html(commentTime);
+				var p1 = $('<p></p>').appendTo(div1);
+				p1.html(content);
+			});
+		}
+	});
+	if(userId != 0){
+		Cnt.getPersonPic("",userId,"small",function(data){
+			if(data.success){
+				$("#user_photo").attr("src", data.data); 
+			}
+		});
+	}
+	/*提交评论*/
+	$("#saveComment").click(function(){
+		if(userId == 0){
+			showMsg("请先登录","confirm");
+			return;
+		}
+		if(userType == 1 || userType == 2){
+			showMsg("当前账号不可评论！");
+			return;
+		}
+		var c = $("#commentContent").val().trim();
+		if(c == ''){
+			showMsg("评论不能为空");
+			return;
+		}	
+		var captcha = $("#captcha").val().trim();
+		if(captcha == ''){
+			showMsg("请输入验证码");
+			return;
+		}else{
+			Cnt.saveCommentHtml("", userId,528590,"变性手术患者的心理分析及护理",thisUrl,7,c,captcha,function(data){
+				if(data.success){
+					$("#commentContent").val("");
+					showMsg("评论成功");
+					loadCommentList();
+				}else{
+					if(data.status == 1){
+						showMsg("验证码错误");
+					}else{
+						showMsg("评论失败");
+					}
+				}
+				$("#commentCaptcha").click();
+				$("#captcha").val("")
+			});
+		}
+	});
+	
+}
+</script>
+</head>
+<body>
+<div id="hidebg">
+<input type="hidden" name="contentId" value="528590">
+<input type="hidden" name="bizTitle" value="变性手术患者的心理分析及护理">
+<input type="hidden" name="userId" id="userId" value="0">
+<input type="hidden" name="bizUrl" id="bizUrl" value="">
+<input type="hidden" name="bizType" value="7">
+</div>
+<div id="top_wz" class="top">
+	<img src="/imgsource.jspx?r=r/cms/syhl/top_logo.png" class="img">
+	<div class="top_box">
+		<!-- 	 		<a href="javascript:backUrl();"><input type="button" class="btn top_user_login" /></a>
+                -->       
+	</div>
+
+</div>
+<div id="content_wz" class="main">
+	<div class="type">▪ <span>心理护理</span> ▪<a class="Top_NEWVERSION" href="https://rs.yiigle.com/cmaid/528590">转新版本阅读</a></div>
+	<div class="content_wz_tit">
+		<div class="a_top">
+			<h4 class="article_title">变性手术患者的心理分析及护理
+			</h4>
+			<div class="email_box">
+                    	王晓微
+	            	,
+                    	朱春莲
+			</div>
+			<div class="info_box">
+				中国实用护理杂志 2011,27(31): 76-77. 
+			</div>
+		</div>
+		<div id="abstrct" class="a_con">
+			<div class="a_content"><p class="p">男性假两性畸形指患者本身是男性,生殖腺只有睾丸,其外生殖器变化很大,可以表现为女性,具有完全或不完全的女性第二性征,外阴呈女性型,其核型为46,XY[1].此类患者因外表的女性表现而从小被当作女孩抚养,成年后才因各种原因发现自己是男性,对其心理造成极大的伤害.我院1996年至201 1年共收治了10例男性假两性畸形患者,分别进行矫形手术,术后恢复良好.随访数年发现均能适应女性角色,婚姻生活基本满意,现报道如下。</p></div>
+		</div>
+		<div class="content_wz_left">
+			    <button class="btn_preview" style="text-align: left;">试读结束，本文不支持移动端阅读，请使用中华医学期刊APP或电脑端浏览器阅读。</button>
+		<div class="modal_window_two modal_window_three" id="BuyThisArticleBox" style="position:fixed;display:none;top:50%; left:0;">
+        <div class="txt">
+            <div class="journal_intro">
+                <p>文&nbsp;&nbsp;&nbsp;&nbsp;题：变性手术患者的心理分析及护理</p>
+				<p>出&nbsp;&nbsp;&nbsp;&nbsp;处：中国实用护理杂志2011年27卷31期</p>                
+                <p>会员价/优惠价：<span class="color_orange" id="buyMemberPrice">0</span>大卡</p>
+            </div>
+            <div class="input_radio clearfix">
+                <label for="calPay" class="left"><input id="balancePayment" type="radio" name="" checked="">大卡余额支付</label>
+                <p class="right account_balance">账户余额：<span class="color_orange" id="balance">0</span> 大卡</p>
+            </div>
+            <div class="input_checkbox ">
+                <label for="CloseNote" class="color_grey"><input id="prompt" type="checkbox" name="" checked="">余额足够时不再提示</label>
+            </div>
+            <div class="btn_box">
+                <button class="btn default close">取消</button>
+                <button class="btn" id="userBuy">购买</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 支付成功  -->
+     <div id="PaySuccess" class="modal_window_two " style="position:fixed;display:none;top:50%; ">
+        <div class="cont_tips">支付成功！</div>
+        <div class="txt">
+            <div class="btn_box">
+                <button class="btn close" onclick="closeDivById('PaySuccess')">确定</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 订购失败，大卡余额不足  -->
+    <div id="PayFailure" class="modal_window_two " style="position:fixed;display:none;top:50%; ">
+        <div class="cont_tips"><span class="warning"></span><span id="PayFailure_msg">购买失败,请稍后再试!</span></div>
+        <div class="txt">
+            <div class="btn_box">
+                <button class="btn close" onclick="closeDivById('PayFailure')">确定</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 调用接口失败  -->
+	<div class="modal_window_two" id="dataFailure" style="position:fixed;display:none;top:50%;">
+		<div class="cont_tips"><span class="warning"></span>网络异常，请联系客服</div>	
+		<div class="txt">
+			<div class="btn_box">
+				<button class="btn default" onclick="closeDivById('dataFailure')">取消</button>
+			</div>
+		</div>
+	</div>
+			<script>
+			$(function() {
+				var contentId = '528590';
+				$(".main_txt").find(".table_wrap").each(function(){
+					var $table_tr_src = $(this).find("tbody").find("tr");
+					var $table_td_src = $table_tr_src.find("td:eq(1)");
+					$table_tr_src.find("td:eq(1)").remove();
+					$(this).find("tbody").append("<tr></tr>");
+					var newTr = $(this).find("tbody").find("tr:eq(1)");
+					$table_td_src.appendTo(newTr);
+				});
+				$(".fig .graphic").each(function(){
+					var parent = $(this).parent();
+					var url = $(this).attr("src");
+					if($(this).attr("src",url)){
+						$(this).attr("src",url).css({
+							"width":"100%"
+						});
+					}
+					var a = $("<a href='/newImg.do?url="+url+"&contentId="+contentId+"' ></a>");
+					$(this).appendTo(a);
+					$(a).appendTo(parent);
+				});
+				$(".table_wrap .graphic").each(function(){
+					var parent = $(this).parent();
+					var url = $(this).attr("src");
+					if($(this).attr("src",url)){
+						$(this).attr("src",url).css({
+							"width":"100%"
+						});
+					}
+					var a = $("<a href='/newImg.do?url="+url+"&contentId="+contentId+"' ></a>");
+					$(this).appendTo(a);
+					$(a).appendTo(parent);
+				});
+			});
+		</script>
+			</div>
+		</div>
+	</div>
+
+<div style="height:100px;"></div>
+<div style="background: #ececec;width: 100%;padding: 16px 0;z-index: 999;position: fixed;bottom: 0;">
+	<a href="javascript:void(0)" onclick="footUrl();" style="display: block;border-radius: 100px;background-color: #23574b;line-height: 20px;color: #FFF;font-size: 16px;text-decoration: none;
+		   letter-spacing: 2px;padding: 14px 20px;text-align: center;margin: 0 20px;">打开中华医学期刊APP阅读全文</a>
+</div>
+<!--	<div class="foot_ad">-->
+<!--	 	<a href="javascript:void(0);" onclick="footUrl();"><img src="/r/cms/images/mobile/images/ad_foot.png" class="ad_img"  /></a>-->
+<!--		<div class="ad_button">-->
+<!--		    <a><img src="/r/cms/images/mobile/images/ad_close-button.png"  /></a>-->
+<!--		</div>-->
+<!--	</div>  -->
+--&gt;
+<div id="pop_window">
+	<!-- 参考文献 -->
+	<div class="index_wenzhang_part_tc2" style="display:none">
+		<div class="mid">
+			<div class="mid_gb">
+				<div class="mid_guanbi">
+					<a href="javascript:void(0)">
+						<img src="/imgsource.jspx?r=r/cms/images/mobile/img/flip.png">
+					</a> 
+				</div>
+			</div>
+			<div class="mid_xx"></div>
+		</div>
+	</div>
+</div>
+<div id="outlineBox" class="shadow target_box dn scoll summary">
+	<div style="text-align: right;"><a onclick="hiddenbox();"><img src="/imgsource.jspx?r=r/cms/images/mobile/img/flip.png"></a></div>
+  	<div class="summary_body"></div>
+</div>
+<!--<div id="commentBox" class="shadow target_box dn scoll">-->
+<!--	<div style="text-align: right;"><a onclick="hiddenbox();"><img src="/imgsource.jspx?r=r/cms/images/mobile/img/flip.png"/></a></div>-->
+<!--		<div id="comment" class="comment">-->
+<!--		<div class="comment_body">-->
+<!--			<div class="comment_title">共有 <span id="comments2"></span> 条评论</div>-->
+<!--                <input type="hidden" name="contentId" value="528590"/>-->
+<!--                <div class="comment_box">-->
+<!--                <textarea name="text" id="commentContent" class="text textarea_1" rows=4 placeholder="发表您的评论（内容最多为800字）"></textarea><br><br>-->
+<!--                	 验&nbsp;&nbsp;证&nbsp;&nbsp;码：-->
+<!--			    <input name="captcha" id="captcha" type="text" id="captcha" vld="{required:true}" class="input_2"/>&nbsp;-->
+<!--			    <img id="commentCaptcha" src="/captcha.svl" onclick="this.src='/captcha.svl?d='+new Date()" style="line-height: 30px;vertical-align: middle;height:30px; width:75px;"/>-->
+<!--                    <div class="com_btn_box">-->
+<!--                    	<input type="reset" class="btn reset" value="重写" />-->
+<!--                        <input type="button" id="saveComment" class="btn submit" value="提交" />-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--			<div class="comment_info" id="commentListContainer">-->
+<!--				<div class="comment_info_ship">-->
+<!--				</div>-->
+<!--			</div> -->
+<!--		</div>-->
+<!--	</div>-->
+<!--</div>-->
+<div id="authorBox" class="shadow target_box dn scoll">
+	<div style="text-align: right;"><a onclick="hiddenbox();"><img src="/imgsource.jspx?r=r/cms/images/mobile/img/flip.png"></a></div>
+	<div class="author_body">
+        <div class="title">贡献者信息</div>
+	      <p>王晓微</p>
+		<p> 325000 温州医学院附属第一医院</p>
+	      <p>朱春莲</p>
+		<p> 325000 温州医学院附属第一医院</p>
+   		
+		<div class="title">历史</div>
+		    <p>出版日期：2011-11-01</p>
+   		
+    </div>
+</div>
+<div id="abstractBox" class="shadow target_box dn scoll">
+<div style="text-align: right;"><a onclick="hiddenbox();"><img src="/imgsource.jspx?r=r/cms/images/mobile/img/flip.png"></a></div>
+<div class="content_left">
+	<div class="en_col"></div>
+	<div class="en_tit">
+	 
+	</div>
+	<div class="en_auth">
+            	</div>	
+ 		<div class="en_code"></div>
+		<div class="en_date">Published <span> 2011-11-01 </span>
+	</div>
+	<div class="en_cite"><strong>Cite as</strong> <span>Chin J Prac Nurs, 2011,27(31):  76-77. DOI: 10.3760/cma.j.issn.1672-7088.2011.31.037 </span></div>
+	<div class="en_abs">
+	</div>
+	<div class="en_abs">
+	</div>
+</div>
+</div>
+<script type="text/javascript" src="/thirdparty/jquery-powerFloat/js/jquery-powerFloat.js"></script>
+<script>
+$(function() {
+	var leftLen = window.innerWidth;
+	$("#outlineTrigger").powerFloat({
+		eventType: "click",
+		target: $("#outlineBox"),
+		hoverFollow: true,
+		reverseSharp: true,
+	}); 	
+	
+	$("#authorTrigger").powerFloat({
+		eventType: "click",
+		target: $("#authorBox"),
+		reverseSharp: true,	
+		offsets: {
+			x: -leftLen/2.09,
+			y: 0	
+		}
+	});
+	$("#abstractTrigger").powerFloat({
+		eventType: "click",
+		target: $("#abstractBox"),
+		reverseSharp: true,
+		offsets: {
+			x: -leftLen/4.36,
+			y: 0	
+		}
+	}); 	
+	$("#commentTrigger").powerFloat({
+		eventType: "click",
+		target: $("#commentBox"),
+		hoverFollow: false,
+		reverseSharp: true,
+		offsets: {
+			x: leftLen/49.8,
+			y: 0
+               }		
+	}); 
+	
+	$(".ad_button").bind("click",function(){
+		$(".foot_ad").hide();
+	});
+	
+});
+
+function hiddenbox() {
+	$.powerFloat.hide();
+}
+</script>
+
+
+<script>
+function BuyThisArticle() {
+	/*余额*/
+	$("#BuyThisArticle").click(function(){
+		if(userFlag){
+			Cnt.getUserBalance("","balance",userId);
+			openDivById("BuyThisArticleBox");
+		}else{
+			showMsg("您尚未登录，请先登录。","confirm");
+		}
+	});
+}
+
+function openDivById(id){
+	 $("#"+id).css({display:"block"});
+}
+function closeDivById(id){
+	 $("#"+id).css({display:"none"});
+}
+//登录后返回页面地址
+function backUrl() {
+	if(userId !=0){
+		//先退出再登录
+	  location.href = "/logout.do?backurl=/user/index.link?backurl="+location.href;
+	}else{
+		location.href = "/user/index.link?backurl="+location.href;
+	}
+	
+}
+
+</script>
+
+</body></html>

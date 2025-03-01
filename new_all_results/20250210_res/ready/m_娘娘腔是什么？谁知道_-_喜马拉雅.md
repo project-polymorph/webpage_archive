@@ -1,0 +1,40 @@
+# 娘娘腔是什么？谁知道
+
+![娘娘腔](https://imagev2.xmcdn.com/storages/4fab-audiofreehighqps/6F/A2/CKwRIJEFA4mXAAArcgDePsCY.png)
+
+2023-04-01 11:35 投诉举报
+
+- ![](//imagev2.xmcdn.com/storages/adb1-audiofreehighqps/06/88/CMCoOR4Ej1ZVAABZ7AC052tC.jpg!op_type=5&device_type=ios&name=web_meduim&upload_type=cover) 31.10万 娘娘腔
+- ![](//imagev2.xmcdn.com/storages/1cf9-audiofreehighqps/5B/B4/CMCoOSIEMEyoAACa5ACWDjBT.jpg!op_type=5&device_type=ios&name=web_meduim&upload_type=cover) 66.22万 娘娘腔，水千丞著
+- ![](//imagev2.xmcdn.com/storages/bf0d-audiofreehighqps/3B/91/GKwRIDoIr4okAAObvwJIwmw3.jpeg!op_type=5&device_type=ios&name=web_meduim&upload_type=cover) 2.76万 188娘娘腔 水雨-完结
+
+2个回答
+
+![图片](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABGxJREFUaEPtmV3IVVUQhh9JvOoixMCiAiuLoCArU7LAsFRILC3LDH/Knyz6UckgMkyKLAozK8UgjSJLRbRML8ooCJNMCUOpzCJJiiAsQboIMnlhNuw2e681s8/5og8aOJyLPTNr3jWzZs3M6kMvpz693H7+B1Dx4EXAJcA5pd/fwA/AYfvfBfzSLc93wwNXANcDtwCXOQ37GNgKfAR84ZSpZesEwK3AncDYTgwwIK8A77XR0wbALGAGMKLNggkZeSQMJApgJXBPlw2vqpsPLPeuEQEgF9/gVdwh3xLgcY8OLwAdtpEehcbzPbDPso0yzhn2U9j1d+oRAAFJkgeAFC3OKbLviuM3gfUJ/jvsDF3n0Dka+CDFlwNwF/CqYyGxuN1u+rQpnjAZDnzWZEMKwHjgHafxnwNXOnkLNoXVHuDMjNzXds8cqeNLAYjEvTy1NghA7MsAZZ0cPQ8siAC4F3g5p7X0fTBwKMBfsCoxaKM8dBWgMuQfVOeB043xPI9WQBnHy1un8ifLULnlNgK6/bMA5gKrctpK37cB4wL8VdZIqCoNf1pWUOeBt4DJAYOUpVRetKUIgKeBR3IAfgYGBqx5Cng0wN+JBw4AF6cAXNqivF0DzOwAwHfAuQF59Rv7C/5qCOmQpG7RunV2AlcHDCizngb8FpS9DdjQBOAh4Nmgwl8BZa42pNSoDYjQQuC5JgArgPsj2oxXMi+1kHsRuC8oJ5kHmgBsAW4MKhT7N8Aw4FhA9nw7b6cGZMSq8uambgOQvseAJwPGPAEsCvAXrEkAbUOoUK4koBszR5PKBzHHXPmeDKE2h7i6fg5EJ8ZrreQhbpNG6zbwbmvQq9/mAKuDO15lT6bRNhdZscBfwCml1fba4f4WULV6IXB5h8ZLPHmRiSFaSugiUi+gVlItZa5B0RryhNpFDcMilC0lpMxbzMlwHfrXbGQo2WqbqJbxePniAXZYhyX+a4DpgVLEVcx5ymmV2y9YiJR3sNwmCpgmd6J5gLoq0URgc2XbBeRB4OaMO1zldKqh2WSGf5JYqPDCoJJnxK6ObTcwJSErAAIiQFVyNzQSrGsp3wCmOQK28ML7JQ9oQPA2MAZIgS/UPwM8XFnL3VIWcuVG40vgWuCoA0BxFmYDZxm/dGnQpVDy0jrgdmMON/WSK49VmvJ6kzHyguJfzY5IUws15F95rbe0q5HKQWAUEB6raC1VfTqsuQFYnV2q9X+3D/2APwPGi7Uv8IeFXePkwmPY6zbU1eShMChoS5h9gHVdKht09hrJA0DCeiZSFtFLjJ6LepJUZr9r45rstMMLQAbrEJ6wCZl3GBUFqmmIBgTqL1y3dASAjFE4TQWWWu2vGO0GDbG0KQChIXEUgIzVDEgZRgdTDYx3AFwHVMWdwkQ5/8N/44mpbIR2S+nxAkDTue327/GIijnleM1GW72NFYu08UDVwKGW6ibYM6vy9Y+Wt4vcrQtNv7Pt/z/xzFq3073yodsTMj3G040Q6jHjPIp7PYCTtCbWMcm1X44AAAAASUVORK5CYII=)
+
+**匿名用户** [2023-04-01 15:44](/ask/a16544438)
+
+就是行为上，语言上，个性上，各各方面，都偏向女性化的男生，简单直白！
+
+![图片](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABGxJREFUaEPtmV3IVVUQhh9JvOoixMCiAiuLoCArU7LAsFRILC3LDH/Knyz6UckgMkyKLAozK8UgjSJLRbRML8ooCJNMCUOpzCJJiiAsQboIMnlhNuw2e681s8/5og8aOJyLPTNr3jWzZs3M6kMvpz693H7+B1Dx4EXAJcA5pd/fwA/AYfvfBfzSLc93wwNXANcDtwCXOQ37GNgKfAR84ZSpZesEwK3AncDYTgwwIK8A77XR0wbALGAGMKLNggkZeSQMJApgJXBPlw2vqpsPLPeuEQEgF9/gVdwh3xLgcY8OLwAdtpEehcbzPbDPso0yzhn2U9j1d+oRAAFJkgeAFC3OKbLviuM3gfUJ/jvsDF3n0Dka+CDFlwNwF/CqYyGxuN1u+rQpnjAZDnzWZEMKwHjgHafxnwNXOnkLNoXVHuDMjNzXds8cqeNLAYjEvTy1NghA7MsAZZ0cPQ8siAC4F3g5p7X0fTBwKMBfsCoxaKM8dBWgMuQfVOeB043xPI9WQBnHy1un8ifLULnlNgK6/bMA5gKrctpK37cB4wL8VdZIqCoNf1pWUOeBt4DJAYOUpVRetKUIgKeBR3IAfgYGBqx5Cng0wN+JBw4AF6cAXNqivF0DzOwAwHfAuQF59Rv7C/5qCOmQpG7RunV2AlcHDCizngb8FpS9DdjQBOAh4Nmgwl8BZa42pNSoDYjQQuC5JgArgPsj2oxXMi+1kHsRuC8oJ5kHmgBsAW4MKhT7N8Aw4FhA9nw7b6cGZMSq8uambgOQvseAJwPGPAEsCvAXrEkAbUOoUK4koBszR5PKBzHHXPmeDKE2h7i6fg5EJ8ZrreQhbpNG6zbwbmvQq9/mAKuDO15lT6bRNhdZscBfwCml1fba4f4WULV6IXB5h8ZLPHmRiSFaSugiUi+gVlItZa5B0RryhNpFDcMilC0lpMxbzMlwHfrXbGQo2WqbqJbxePniAXZYhyX+a4DpgVLEVcx5ymmV2y9YiJR3sNwmCpgmd6J5gLoq0URgc2XbBeRB4OaMO1zldKqh2WSGf5JYqPDCoJJnxK6ObTcwJSErAAIiQFVyNzQSrGsp3wCmOQK28ML7JQ9oQPA2MAZIgS/UPwM8XFnL3VIWcuVG40vgWuCoA0BxFmYDZxm/dGnQpVDy0jrgdmMON/WSK49VmvJ6kzHyguJfzY5IUws15F95rbe0q5HKQWAUEB6raC1VfTqsuQFYnV2q9X+3D/2APwPGi7Uv8IeFXePkwmPY6zbU1eShMChoS5h9gHVdKht09hrJA0DCeiZSFtFLjJ6LepJUZr9r45rstMMLQAbrEJ6wCZl3GBUFqmmIBgTqL1y3dASAjFE4TQWWWu2vGO0GDbG0KQChIXEUgIzVDEgZRgdTDYx3AFwHVMWdwkQ5/8N/44mpbIR2S+nxAkDTue327/GIijnleM1GW72NFYu08UDVwKGW6ibYM6vy9Y+Wt4vcrQtNv7Pt/z/xzFq3073yodsTMj3G040Q6jHjPIp7PYCTtCbWMcm1X44AAAAASUVORK5CYII=)
+
+**匿名用户** [2023-04-01 14:43](/ask/a16544439)
+
+男孩子很像女孩子
+
+相关问答
+
+- [娘娘腔娘娘腔](https://m.ximalaya.com/ask/q9837096) 1个回答 2023-08-26 06:20
+- [古代有娘娘腔一词吗？如果没有'那古代是怎样称呼娘娘腔的](https://m.ximalaya.com/ask/q2952068) 1个回答 2022-09-07 06:42
+- [说男生娘娘腔,男生在哪些方面会被说娘娘腔..改怎么改正啊...](https://m.ximalaya.com/ask/q12898075) 1个回答 2024-02-01 15:17
+- [娘娘腔！](https://m.ximalaya.com/ask/q378322) 2个回答 2022-05-18 09:40
+- [为什么有娘娘腔？](https://m.ximalaya.com/ask/q6114353) 2个回答 2022-12-26 21:06
+- [什么是娘娘腔](https://m.ximalaya.com/ask/q8237291) 1个回答 2023-04-23 19:07
+- [“娘娘腔”是什么意思](https://m.ximalaya.com/ask/q5294848) 4个回答 2022-12-08 15:41
+- [娘娘腔讲的什么剧情？](https://m.ximalaya.com/ask/q12352189) 1个回答 2024-01-18 08:50
+- [男生娘娘腔怎么办](https://m.ximalaya.com/ask/q12550377) 1个回答 2024-01-23 11:26
+- [男生说一个女生娘娘腔是什么意思、](https://m.ximalaya.com/ask/q12950957) 1个回答 2024-02-03 13:04
+
+标签： 娘娘腔，性别，男生，女生
+
+来源：喜马拉雅

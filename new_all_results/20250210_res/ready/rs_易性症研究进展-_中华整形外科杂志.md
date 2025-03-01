@@ -1,0 +1,31 @@
+# 易性症研究进展
+
+**出处**: 中华整形外科杂志  
+**出版日期**: 2016年5月25日  
+**DOI**: 10.3760/cma.j.issn.1009-4598.2016.03.021  
+
+**作者**: 朱文庆, 朱辉
+
+![图1](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNiA4QzE2IDEyLjQxODMgMTIuNDE4IDE2IDggMTZDMy41ODIwMyAxNiAwIDEyLjQxODMgMCA4QzAgMy41ODE3MyAzLjU4MjAzIDAgOCAwQzEyLjQxOCAwIDE2IDMuNTgxNzMgMTYgOFpNNS4xODE2NCA1LjE4MTk4QzYuMTU4MiA0LjIwNTY2IDcuNzQwMjMgNC4yMDU2NiA4LjcxNjggNS4xODE5OEM5LjY5MzM2IDYuMTU4MjkgOS42OTMzNiA3Ljc0MTE4IDguNzE2OCA4LjcxNzVDNy43NDAyMyA5LjY5MzgyIDYuMTU4MiA5LjY5MzgyIDUuMTgxNjQgOC43MTc1QzQuMjA1MDggNy43NDExOCA0LjIwNTA4IDYuMTU4MjkgNS4xODE2NCA1LjE4MTk4Wk05Ljc1MTk1IDkuMDQ1OTNDMTAuNzc5MyA3LjY3NTAyIDEwLjY3MTkgNS43MjE2NSA5LjQyMzgzIDQuNDc0ODVDOC4wNTg1OSAzLjEwODAzIDUuODQxOCAzLjEwODAzIDQuNDc0NjEgNC40NzQ4NUMzLjEwNzQyIDUuODQxNzEgMy4xMDc0MiA4LjA1Nzc3IDQuNDc0NjEgOS40MjQ2MkM1LjcyMjY2IDEwLjY3MTQgNy42NzU3OCAxMC43ODA5IDkuMDQ0OTIgOS43NTMxNEwxMS4xOTM0IDExLjg5OTVDMTEuMzg2NyAxMi4wOTQ4IDExLjcwNTEgMTIuMDk0OCAxMS45MDA0IDExLjg5OTVDMTIuMDk1NyAxMS43MDQyIDEyLjA5NTcgMTEuMzg3NiAxMS45MDA0IDExLjE5MjRMOS43NTE5NSA5LjA0NTkzWiIgZmlsbD0iIzY4NzY4MCIvPgo8L3N2Zz4K)
+
+![图2](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxNiAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzI2XzQ0MzE0KSI+CjxwYXRoIGQ9Ik0xNSAxM0gxQzAuNCAxMyAwIDEyLjYgMCAxMlYxQzAgMC40IDAuNCAwIDEgMEgxNUMxNS42IDAgMTYgMC40IDE2IDFWMTJDMTYgMTIuNiAxNS42IDEzIDE1IDEzWk0xIDFWMTJIMTVWMUgxWk0xIDAuNVYxVjAuNVoiIGZpbGw9IiM2ODc2ODAiLz4KPHBhdGggZD0iTTguNTI4MjMgNy42NzQxOUM4LjIwNzEzIDcuNjc0MTkgNy43Nzg5OSA3LjU2NzE1IDcuNDU3ODggNy4yNDYwNUwwLjcxNDY4OCAxLjQ2NjE3QzAuNTAwNjE4IDEuMjUyMSAwLjM5MzU4MyAwLjkzMDk5MSAwLjYwNzY1MyAwLjcxNjkyMkMwLjgyMTcyMyAwLjUwMjg1MiAxLjE0MjgzIDAuNTAyODUyIDEuMzU2OSAwLjYwOTg4N0w4LjEwMDA5IDYuMzg5NzdDOC4zMTQxNiA2LjYwMzg0IDguNjM1MjcgNi42MDM4NCA4Ljg0OTM0IDYuMzg5NzdMMTUuNTkyNSAwLjYwOTg4N0MxNS44MDY2IDAuMzk1ODE3IDE2LjEyNzcgMC4zOTU4MTcgMTYuMzQxOCAwLjcxNjkyMkMxNi41NTU4IDAuOTMwOTkxIDE2LjU1NTggMS4yNTIxIDE2LjIzNDcgMS40NjYxN0w5LjU5ODU4IDcuMjQ2MDVDOS4yNzc0NyA3LjU2NzE1IDguODQ5MzQgNy42NzQxOSA4LjUyODIzIDcuNjc0MTlaIiBmaWxsPSIjNjg3NjgwIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMjZfNDQzMTQiPgo8cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iMTMiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==)
+
+## 摘要
+
+易性症是一种由持续的生物性别与心理性别的严重不协调导致的性别身份障碍性疾病，患者深信自身为异性，强烈要求通过激素、变性手术等改变性别解剖结构及性征，直到获得期望性别，否则因性别身份矛盾而极度痛苦。易性症1949年由Cauldwell首次提出，1953年Harry发表文章"异装癖与易性症"。世界上8个不同地区的10份流行病学资料显示，男性易性症患病率约1∶45,000 ～ 1∶11,900，女性约1∶30,400～1∶200,000，男女比例3∶1～6∶1。但各年龄段比例不同，儿童期男女比例2∶1～4.5∶1，青春期两者比例持平，成年期为1.1∶1～6.1∶1。国际性别焦虑协会最新指南关于易性症有如下陈述：心理性别与生物性别之间的不统一是一种性别多样化的现象，而不应该被视为一种内在的缺陷或病态。
+
+## 参考文献
+
+1. Cauldwel DO. Psychopathia transsexualis[J]. Sexology, 1949, 16:274.  
+2. Harry BH. Transvestism and transsexualism[J]. Int J Sexology, 1953, 7:12-24.  
+3. Coleman E, Bocking W, Botzer M, et al. Standards of care for the health of transsexual, transgender, and gender nonconforming people, Version 7[J]. Int J Transgend, 2011, 13:165-232. DOI: [10.1080/15532739.2011.700873](http://dx.doi.org/10.1080/15532739.2011.700873).  
+4. American Psychiatric Association. Diagnostic and statistical manual of mental disorders[M]. 5th ed. Washington DC: American Psychiatric Publishing, 2013.  
+... [更多引用]
+
+## 标记
+- 易性症
+- 性别身份障碍
+- 激素治疗
+- 变性手术
+- 心理性别
+- 生物性别
