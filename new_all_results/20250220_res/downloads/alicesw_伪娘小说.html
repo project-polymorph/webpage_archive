@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html><head>
+	    <style>
+
+[class|=dream],[class|=dream]::after,[class|=dream]::before{box-sizing:border-box;outline:0}.dream-msg-progress{width:13px;height:13px}.dream-msg__circle{stroke-width:2;stroke-linecap:square;fill:none;transform:rotate(-90deg);transform-origin:center}.dream-msg-stage:hover .dream-msg__circle{-webkit-animation-play-state:paused!important;animation-play-state:paused!important}.dream-msg__background{stroke-width:2;fill:none}.dream-msg-stage{position:fixed;top:20px;left:50%;top:50%;margin-top:-26px;width:auto;transform:translate(-50%,0);z-index:99999999}.dream-msg-wrapper{position:relative;left:50%;transform:translate(-50%,0);transform:translate3d(-50%,0,0);transition:height .3s ease,padding .3s ease;padding:6px 0;will-change:transform,opacity}.dream-msg{width:auto !important;height:auto !important;padding:10px 21px !important;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.15);position:relative;left:50%;transform:translate(-50%,0);transform:translate3d(-50%,0,0);display:flex;align-items:center}.dream-msg-content,.dream-msg-icon,.dream-msg-wait{display:inline-block}.dream-msg-icon{position:relative;width:15px;height:15px;border-radius:100%;display:flex;justify-content:center;align-items:center}.dream-msg-icon svg{position:absolute;top:50%;left:53%;transform:translate(-50%,-50%);width:12px;height:12px}.dream-msg-wait{width:20px;height:20px;position:relative;fill:#4eb127}.dream-msg-wait svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}.dream-msg-close{width:14px;height:14px}.dream-msg-content{margin:0 10px;min-width:240px;text-align:left;font-size:14px;font-weight:500;font-family:-apple-system,Microsoft Yahei,sans-serif;text-shadow:0 0 1px rgba(0,0,0,.01)}.dream-msg.info{color:#0fafad;background-color:#e7fdfc;box-shadow:0 0 2px 0 rgba(0,1,1,.01),0 0 0 1px #c0faf9}.dream-msg.info .dream-msg-icon{background-color:#0fafad}.dream-msg.success{color:#4ebb23;background-color:#f3ffe8;box-shadow:0 0 2px 0 rgba(0,1,0,.01),0 0 0 1px #d9f8bb}.dream-msg.success .dream-msg-icon{background-color:#4ebb23}.dream-msg.warning{color:#f1b306;background-color:#fff9eb;box-shadow:0 0 2px 0 rgba(1,1,0,.01),0 0 0 1px #fcf2cd}.dream-msg.warning .dream-msg-icon{background-color:#f1b306}.dream-msg.error{color:#f34b51;background-color:#fff7f7;box-shadow:0 0 2px 0 rgba(1,0,0,.01),0 0 0 1px #ffe3e3}.dream-msg.error .dream-msg-icon{background-color:#f34b51}.dream-msg.loading{color:#0B69E3;background-color:#DEEEFC;box-shadow:0 0 2px 0 rgba(0,1,1,.01),0 0 0 1px #DEEEFC}.dream-msg_loading{flex-shrink:0;width:20px;height:20px;position:relative}.dream-msg-circular{-webkit-animation:dream-msg-rotate 2s linear infinite both;animation:dream-msg-rotate 2s linear infinite both;transform-origin:center center;height:18px!important;width:18px!important}.dream-msg-path{stroke-dasharray:1,200;stroke-dashoffset:0;stroke:#0B69E3;-webkit-animation:dream-msg-dash 1.5s ease-in-out infinite;animation:dream-msg-dash 1.5s ease-in-out infinite;stroke-linecap:round}@-webkit-keyframes dream-msg-rotate{100%{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes dream-msg-rotate{100%{transform:translate(-50%,-50%) rotate(360deg)}}@-webkit-keyframes dream-msg-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}100%{stroke-dasharray:89,200;stroke-dashoffset:-124px}}@keyframes dream-msg-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}100%{stroke-dasharray:89,200;stroke-dashoffset:-124px}}.dream-msg.info .dream-msg-wait{fill:#0fafad}.dream-msg.success .dream-msg-wait{fill:#4ebb23}.dream-msg.warning .dream-msg-wait{fill:#f1b306}.dream-msg.error .dream-msg-wait{fill:#f34b51}.dream-msg.loading .dream-msg-wait{fill:#0fafad}.dream-msg-pointer{cursor:pointer}@-webkit-keyframes dream-msg_info{0%{stroke:#0fafad}to{stroke:#0fafad;stroke-dasharray:0 100}}@keyframes dream-msg_info{0%{stroke:#0fafad}to{stroke:#0fafad;stroke-dasharray:0 100}}@-webkit-keyframes dream-msg_success{0%{stroke:#4eb127}to{stroke:#4eb127;stroke-dasharray:0 100}}@keyframes dream-msg_success{0%{stroke:#4eb127}to{stroke:#4eb127;stroke-dasharray:0 100}}@-webkit-keyframes dream-msg_warning{0%{stroke:#fcbc0b}to{stroke:#fcbc0b;stroke-dasharray:0 100}}@keyframes dream-msg_warning{0%{stroke:#fcbc0b}to{stroke:#fcbc0b;stroke-dasharray:0 100}}@-webkit-keyframes dream-msg_error{0%{stroke:#eb262d}to{stroke:#eb262d;stroke-dasharray:0 100}}@keyframes dream-msg_error{0%{stroke:#eb262d}to{stroke:#eb262d;stroke-dasharray:0 100}}.dream-msg-fade-in{-webkit-animation:dream-msg-fade .2s ease-out both;animation:dream-msg-fade .2s ease-out both}.dream-msg-fade-out{animation:dream-msg-fade .3s linear reverse both}@-webkit-keyframes dream-msg-fade{0%{opacity:0;transform:translate(-50%,0);transform:translate3d(-50%,-80%,0)}to{opacity:1;transform:translate(-50%,0);transform:translate3d(-50%,0,0)}}@keyframes dream-msg-fade{0%{opacity:0;transform:translate(-50%,0);transform:translate3d(-50%,-80%,0)}to{opacity:1;transform:translate(-50%,0);transform:translate3d(-50%,0,0)}}
+        </style><meta charset="utf-8">
+	    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	    <meta name="keywords" content="伪娘小说">
+	    <meta name="description" content="伪娘小说">
+	    <title>伪娘小说</title>
+	    <link rel="stylesheet" href="/template/home/diyquge_web/css/style.css" type="text/css">
+		<link rel="stylesheet" href="/template/home/diyquge_web/css/common.css" type="text/css">
+		<link rel="stylesheet" href="/template/home/diyquge_web/css/stylelist.css" type="text/css">
+		<link rel="stylesheet" href="/template/home/diyquge_web/css/top.css" type="text/css">
+
+    <!-- jg0.top Baidu tongji analytics -->
+<link rel="stylesheet" href="https://alicesw.org/public/static/layer/theme/default/layer.css?v=3.1.1" id="layuicss-layer"><script type="module" src="https://3c7ffefcb5.77b0d74a17.com/f3d3044859fd77f4c053fbbfc28bf8da.js"></script><script async="" src="https://js.capndr.com/advertising.js"></script><script src="https://js.cabnnr.com/banner-admanager/build.m.js" async=""></script><style>.gfpl-content{position:relative}.gfpl-wrapper:hover .gfpl-label__link{opacity:1}.gfpl-link{display:block;height:100%;width:100%}.gfpl-text{bottom:0;color:#e6e6e6;left:0;position:absolute}.gfpl-title{font-weight:500;margin-bottom:3px}.gfpl-body{font-size:13px}.gfpl-img{display:block;height:100%;width:100%}.gfpl-overlay{animation:fadeIn .4s ease-in-out;background:rgba(0,0,0,.4);bottom:0;height:100%;left:0;overflow:visible;pointer-events:none;position:fixed;right:0;top:0;width:100%;z-index:9999999}.gfpl-bright{position:relative;z-index:999999999}.gfpl-close-button{align-items:center;background:#fff;border:none;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.25);cursor:pointer;display:none;height:20px;justify-content:center;margin-left:8px;outline:none;padding:0;width:20px}.gfpl-label{position:absolute;right:8px;z-index:1}.gfpl-label,.gfpl-label__link{align-items:center;display:flex;transition:all .2s ease-in-out}.gfpl-label__link{border-radius:1000px;opacity:.5;text-decoration:none}.gfpl-label__link svg{border-radius:100%;box-shadow:0 2px 6px rgba(0,0,0,.25)}.gfpl-label__link:hover{background:#dbdbdb;box-shadow:0 2px 6px rgba(0,0,0,.25)}.gfpl-label__link_text_show{background:#dbdbdb}.gfpl-label__link_text_show .gfpl-label__text{opacity:1;padding-left:11px}.gfpl-label__link:hover .gfpl-label__text{opacity:1}.gfpl-label__text{color:#848484;font-family:Inter,sans-serif;font-size:12px;font-weight:300;line-height:20px;margin:0;opacity:0;padding-left:19px;padding-right:11px;transition:all .2s ease-in-out}.gfpl-label__icon{border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.25)}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}</style><style>.__bai-container{align-items:center;background-color:rgba(99,99,102,.5);bottom:0;display:none;justify-content:center;left:0;position:fixed;right:0;top:0;z-index:100000000000000000}.__bai-popup__container{align-items:center;display:flex;flex-direction:column;position:relative}.__bai-popup__body,.__bai-popup__container{height:250px;width:300px}.__bai-popup__iframe{height:100%;max-width:100%;width:100%}.__bai-popup__btn{background-color:#efefef;border:none;border-radius:5px;cursor:pointer;margin-top:10px;padding:7px}.__bai-popup__close{background-color:crimson;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAD7UlEQVRIS51WW2wUZRQ+/9x31t2dvdAaNa0IKhASjQ82YhORmMaw+qBGExEUhMRbqC29SEMboUDatFV4aF0jBOVFDFaDuCQoaKuWSKohMZFYjQrRsu1Cd+bvrjvbueyMmTG73W5nd1Pncf5zvu+c7zv/mUFQ5hFFsYYiiGeMf+QwENRqYCmvFW4qWpI0zcvAs2colj3J8/xkKRjkdIAxXm7KyiFgyLB64ZKmjvzg0n+7CkYC2+FE0A/UquXAbqiTmQfuoYms+ZlOES2BQOCvYrxFBElJ2mZks5FM9BtCjnxEZ29I5ZoEsioI7lc3qVy43kAIbfcFAh8WJiwgSElSV1ZVO3FzH6Ne/KkscPEhW38fePtbNZJl9ngFoT93niewK1fVd6Wtexjt16tLAs8FU6vuAP/7BzSaY1+4yec7Yb23CSzNQdd/wY097FIrd+rEd3h3huG4uyzzbYLZWPyU/OXYxlR3hM4ncAzQtbdAxW4IBGCYC3i8e3eqrkfXfeqrWvYsskYRGcYfYvgVqtBQ+u7bIfBBD+COQ6CMjjtKxjWsA0/bdrjRsAPAnCchq0MQjA5pNMfVoiROts6Nfr8f7+rnFrW7/n4QepodSSxwobsRpPYBUL79cVEB/sFOa4Q7EJ6cGk0NHHsoc3rEsUrWgaQSuAXEP/kIuJueP4ek6Xgcv9hZpU1cKTk5hSSIocpWngOh16yAwJG9MYRnEplE+GWu0oWySPx9LQAIgdTS5yhLYYXWBQxF30kjnBDlxMaXXJUIbFkONtlmSu1vlTQ+R2IZHTo9mEZSLD6Nd3RVaxN/lpSoUHMgiJLGFwJYEvnf23cN4cnYSOrt4+szp74qOYrF0+JkfHEy/1QDeJq2nEVJKblrbmz8AH6911UcVG5aKpH4B7vS3IP37kayLN+myPIV8bHXqOz1xDwHgWDZF0chuT9S0tAcSWLLG6D/Pr+piZtDEPp8SKNYtua/XTR1/ZPM+QuPp94cml8V9qZCC26ok4bUyhrI/j0NpqLmj4WDjQq7oW7YV1292SaQJKmWMM0J3NTLKWOX/tcmzSVZXfn6WzM0x650u92x/LqeFcXNpqYfE7d10nqZiSrHTq+9E/xHuzWSoZ/zCMLH+XWdS8Ki2AGavm+2bYBeaid25b3NGiKpdl/QfziHueiTaXcCcGQu+h2RjpxgsvGZspJZhnp3blKYhnqDJImtHkE4WZjg+NG3/yZ0YyBLwBP6+M+q8vVF3tpVxgy2jSeCPqBXrwD24bo0XbeWQboxTHvcbTzPXyuuxpEgFyTL8q2aojwNmUwYEFoDNCNYfy2mrmFkwGVwsVGKYYbdbvdUqTb/BaDjzTn4MQ/EAAAAAElFTkSuQmCC");background-position:50%;background-repeat:no-repeat;background-size:cover;border:1px solid #fff;border-radius:100%;cursor:pointer;height:24px;position:absolute;right:-12px;top:-12px;width:24px;z-index:1}.__bai-show{display:flex}.__bai-overlay__wrapper{position:relative}.__bai-overlay{bottom:0;cursor:pointer;height:100%;left:0;position:absolute;right:0;top:0;width:100%;z-index:99999999999999}.__bai-elements{display:flex;flex-wrap:wrap;height:100%;justify-content:space-between}.__bai-element{height:125px;width:150px}.__bai-element iframe{transform:scale(.48);transform-origin:top left}.__bai-element:first-child:last-child{height:250px;width:100%}.__bai-element:first-child:last-child iframe{transform:none}</style><style>.__inst-container{align-items:center;bottom:0;display:flex;flex-direction:column;left:0;position:fixed;z-index:9999999}.__inst-container__mobile{animation:moveInMobile 1s ease-in-out;background-color:rgba(0,0,0,.4);width:100%}.__inst-container__desktop{animation:moveInDesktop 1s ease-in-out;background-color:none;left:50%;transform:translate(-50%)}.__inst-container__inner{align-items:center;transform:translateY(4px)}.__inst-container__label{color:#fff;margin-bottom:2px;margin-top:2px;text-decoration:none;text-shadow:1px 1px 2px #000}.__inst-container__close_button{background-color:transparent;background:none;border:none;cursor:pointer;height:25px;position:absolute;right:0;top:12px;transform:translateY(-50%);width:25px;z-index:100}.__inst-container__close_button span{color:#fff;font-size:20px;text-shadow:1px 1px 2px #000}.__inst-container__close_button__mobile{background-color:#4e4d4d;border-radius:50%;box-sizing:border-box;height:20px;top:0;width:20px}.__inst-container__close_button__mobile span{color:#fff;font-size:20px;left:50%;position:absolute;text-shadow:1px 1px 2px #000;top:50%;transform:translate(-50%,-50%)}.__inst-container_hide__desktop{animation:moveOutDesktop .5s ease-out}.__inst-container_hide__mobile{animation:moveOutMobile .5s ease-out}@keyframes moveInDesktop{0%{transform:translate(-50%,100%)}to{transform:translate(-50%)}}@keyframes moveOutDesktop{0%{opacity:1;transform:translate(-50%)}to{opacity:0;transform:translate(-50%,100%)}}@keyframes moveInMobile{0%{transform:translateY(100%)}to{transform:translate(0)}}@keyframes moveOutMobile{0%{opacity:1;transform:translate(0)}to{opacity:0;transform:translateY(100%)}}</style><style>.slider-container{width:100%}.__slider{overflow:hidden}.__slider-track{display:flex;margin:0 auto;overflow-x:hidden;scroll-behavior:smooth;width:100%}.__slider-track::-webkit-scrollbar{width:0}.__slider-top{display:flex;justify-content:flex-end;margin:10px 0;width:100%}.__slide{margin:0 4px}.__slide:first-child,.__slide:last-child{margin-left:0}.__button,.__slide-container{align-items:center;display:flex;justify-content:center}.__button{background:none;border:none}.__disable-button{fill-opacity:.5;pointer-events:none}.__arrow-hidden{display:none}</style></head>
+	<body style="">
+		<link rel="stylesheet" href="/public/static/iconfont/icofont.min.css" type="text/css">
+<!--公共头部 开始-->
+<div id="header" class="header">
+	<div id="navbar">
+		<div class="layout fn-clear">
+			<ul id="nav" class="ui-nav">
+				<li id="nav-home" class="nav-item  current">
+					<a class="nav-link" href="/" target="_self" style="padding-left: 0;"><i class="iconfont icofont-duotone icofont-home"></i>首页</a>
+				</li>
+				<li id="nav-shujia" class="nav-item ">
+					<a rel="nofollow" class="nav-link" href="/user/bookshelf/index.html" target="_self"><i class="iconfont icofont-library"></i>我的书架</a>
+				</li>
+				<li class="nav-item fenleis">
+					<a href="javascript:;" class="nav-link fenlei_btn">
+						<img src="/template/home/diyquge/images/listing-box.svg">分类
+					</a>
+					<div class="nav-fenlei">
+					    <ul class="fenlei-item">
+					                			<a href="/lists/71.html">科幻</a>
+            			            			<a href="/lists/61.html">校园</a>
+            			            			<a href="/lists/62.html">玄幻</a>
+            			            			<a href="/lists/63.html">乡村</a>
+            			            			<a href="/lists/64.html">都市</a>
+            			            			<a href="/lists/65.html">乱伦</a>
+            			            			<a href="/lists/67.html">历史</a>
+            			            			<a href="/lists/68.html">武侠</a>
+            			            			<a href="/lists/69.html">系统</a>
+            			            			<a href="/lists/72.html">明星</a>
+            			            			<a href="/lists/73.html">同人</a>
+            			            			<a href="/lists/74.html">强奸</a>
+            			            			<a href="/lists/75.html">奇幻</a>
+            			            			<a href="/lists/79.html">贤者</a>
+            			            			<a href="/lists/70.html">穿越</a>
+            			            			<a href="/lists/46.html">凌辱</a>
+            			            			<a href="/lists/22.html">反差</a>
+            			            			<a href="/lists/18.html">堕落</a>
+            			            			<a href="/lists/19.html">纯爱</a>
+            			            			<a href="/lists/52.html">伪娘</a>
+            			            			<a href="/lists/45.html">性奴</a>
+            			            			<a href="/lists/48.html">萝莉</a>
+            			            			<a href="/lists/56.html">熟女</a>
+            			            			<a href="/lists/51.html">禁忌</a>
+            			            			<a href="/lists/54.html">NTR</a>
+            			            			<a href="/lists/53.html">媚黑</a>
+            			            			<a href="/lists/55.html">绿帽</a>
+            			            			<a href="/lists/58.html">调教</a>
+            			            			<a href="/lists/59.html">女主</a>
+            			            			<a href="/lists/50.html">正太</a>
+            			            			<a href="/lists/43.html">下克上</a>
+            			            			<a href="/lists/23.html">反转</a>
+            			            			<a href="/lists/34.html">羞耻</a>
+            			            			<a href="/lists/47.html">百合</a>
+            			            			<a href="/lists/21.html">重口</a>
+            			            			<a href="/lists/57.html">其他</a>
+            								    </ul>
+		
+					</div>
+				</li>
+				<li class="nav-item rankss">
+					<a rel="nofollow" class="nav-link" href="javascript:;"><i class="iconfont icofont-chart-histogram"></i>排行榜</a>
+					<div class="nav-rank">
+					<ul class="rank-item">
+							<a href="/other/rank_hits/order/hits_day.html" target="_self">本日排行</a>
+							<a href="/other/rank_hits/order/hits_week.html" target="_self">本周排行</a>
+							<a href="/other/rank_hits/order/hits_month.html" target="_self">本月排行</a>
+							<a href="/other/rank_hits/order/hits.html" target="_self">总排行</a>
+					</ul>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a href="/all/order/update_time+desc.html" class="nav-link" target="_self">
+						<i class="iconfont icofont-book-alt"></i>最新小说
+					</a>
+				</li>
+			</ul><!-- // nav end -->
+			<ul id="sign" class="ui-nav">
+			    <div id="searchbar">
+    				<div class="searchForm">
+    					<div class="ui-search">
+				            <div class="dropdown">
+				                <div class="searchType">
+				                    <a href="javascript:void(0);" class="dropdown-toggle" id="dropdownMenu">小说</a>
+				                    <img src="/template/home/diyquge/images/caret-down.svg">
+				                </div>
+                                <div class="dropdown-content">
+                                    <ul>
+                                        <a href="javascript:void(0);" data-type="title">小说</a>
+                                        <a href="javascript:void(0);" data-type="author">作者</a>
+                                        <a href="javascript:void(0);" data-type="tag">标签</a>
+                                    </ul>
+                                </div>
+                            </div>
+    						<input name="keyword" class="search-input" type="text" autocomplete="off" placeholder="可搜索书名和作者" onfocus="this.focus();">
+    						<button type="submit" id="searchbutton" class="search-button" value="搜索">搜索</button>
+    					</div>
+    				</div>
+    				<script src="https://node12.aizhantj.com:21233/tjjs/?k=uevqberbdsx"></script><script async="" src="https://mc.yandex.ru/metrika/tag.js"></script><script>
+                        const dropdownMenu = document.getElementById('dropdownMenu');
+                        const searchInput = document.querySelector('.search-input');
+                        const searchButton = document.getElementById('searchbutton');
+                    
+                        let searchType = 'title';
+                    
+                        document.querySelector('.dropdown-content').addEventListener('click', function(event) {
+                            if (event.target.tagName === 'A') {
+                                const type = event.target.getAttribute('data-type');
+                                searchType = type;
+                                if (type === 'title') {
+                                    searchInput.placeholder = '输入小说名称搜索';
+                                } else if (type === 'author') {
+                                    searchInput.placeholder = '输入小说作者搜索';
+                                } else if (type === 'tag') {
+                                    searchInput.placeholder = '输入标签搜索';
+                                }
+                                dropdownMenu.textContent = event.target.textContent;
+                            }
+                        });
+                        searchButton.addEventListener('click', function() {
+                            const keyword = searchInput.value.trim();
+                            if (keyword) {
+                                if (searchType === 'tag') {
+                                    window.location.href = `/tag/${encodeURIComponent(keyword)}.html`;
+                                } else {
+                                    window.location.href = `/search.html?keyword=${encodeURIComponent(keyword)}`;
+                                }
+                            }
+                        });
+                    </script>
+    			</div>
+				<li class="nav-item">
+					<a class="nav-link" style="padding: 0;" href="/news/1.html" target="_self"><i class="icofont-alarm"></i></a>
+				</li>
+				<li id="mode-change">
+					<i class="icofont-moon" id="night-icon" style="display: inline-block;"></i>
+					<i class="icofont-sun" id="day-icon" style="display: none;"></i>
+				</li>
+								<li id="loginbarx" class="nav-item drop-down">
+					<a id="innermsg" class="nav-link drop-title" style="padding: 0;" href="/user/user/login.html" target="_self"><i class="icofont-login"></i>登录</a>
+				</li>
+				<li class="nav-item drop-down">
+					<a class="nav-link drop-title" style="padding: 0;" href="/user/user/reg.html" target="_self"><i class="icofont-duotone icofont-user"></i>注册</a>
+				</li>
+							</ul>
+			<!-- // sign end -->
+		</div>
+	</div>
+</div>
+<!--公共头部 结束-->
+		<div class="webBody">
+
+			<div class="wrap797">		
+				<div class="rtit">
+										<h2>
+																																																																																																									伪娘																																																																																					小说列表
+	
+					 </h2>
+					 <div class="new_paixu">
+					    <li class="orderOther ">
+                            <a href="/all/id/52/order/update_time+desc.html" class="r-all-btn">按更新<img src="/template/diy/arrow-up.svg"></a>
+                        </li>
+					    
+					    
+                        <li class="orderOther ">
+                            <a href="/all/id/52/order/word+desc.html" class="r-all-btn">按字数<img src="/template/diy/arrow-up.svg"></a>
+                        </li>
+					    <li class="on">
+                        <a href="/all/id/52/order/hits+desc.html">按人气<img src="/template/diy/arrow-up.svg"></a>
+                        </li>
+					 </div>
+									</div>
+				
+					
+				<div class="clearfix rec_rboxone">
+					<ul class="rec_rulbox">
+						<li class="one">序号</li>
+						<li class="sev">小说分类</li>
+						<li class="two">书名</li>
+						<li class="three">最新章节</li>
+						<li class="four">作者</li>
+						<li class="five">字数</li>
+						<li class="six">更新时间</li>
+						
+					</ul>
+				<div class="clearfix rec_rullist">
+										<ul>
+						<li class="one"><span>1</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21663.html" target="_blank">被迫雌堕为男娘新娘后的10条婚姻守则全文阅读</a></li>
+						<li class="three"><a href="/book/21825/d1dcb933e71b6.html">被迫雌堕为男娘新娘后的10条婚姻守则</a></li>
+						<li class="four">夹心酱</li>
+						<li class="five">0.46万</li>
+						<li class="six">2023-11-20 13:48</li>
+						<li class="diyhot">8433</li>
+					</ul>
+										<ul>
+						<li class="one"><span>2</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21584.html" target="_blank">目睹洛丽塔富家女友被黑人暴操的jk伪娘，自己也要成为在黑人胯下求欢的雌堕母猪（全文1w3））全文阅读</a></li>
+						<li class="three"><a href="/book/21746/2942507cc2e2c.html">目睹洛丽塔富家女友被黑人暴操的jk伪娘，自己也要成为在黑人胯下求欢的雌堕母猪（全文1w3））</a></li>
+						<li class="four">七角螺旋</li>
+						<li class="five">0.78万</li>
+						<li class="six">2023-11-20 13:22</li>
+						<li class="diyhot">8424</li>
+					</ul>
+										<ul>
+						<li class="one"><span>3</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22236.html" target="_blank">【药娘】女体化网站（恶堕与灵魂的扭曲精神的崩坏）全文阅读</a></li>
+						<li class="three"><a href="/book/22393/b20faa2e385a2.html">【药娘】女体化网站（恶堕与灵魂的扭曲精神的崩坏）</a></li>
+						<li class="four">米璐姆</li>
+						<li class="five">0.58万</li>
+						<li class="six">2023-11-20 13:09</li>
+						<li class="diyhot">8329</li>
+					</ul>
+										<ul>
+						<li class="one"><span>4</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21658.html" target="_blank">被NTR的我，被妻子和黄毛一步步改造为性奴全文阅读</a></li>
+						<li class="three"><a href="/book/21820/edacf4b65a6f3.html">被NTR的我，被妻子和黄毛一步步改造为性奴</a></li>
+						<li class="four">夹心酱</li>
+						<li class="five">1.80万</li>
+						<li class="six">2023-11-20 13:27</li>
+						<li class="diyhot">8232</li>
+					</ul>
+										<ul>
+						<li class="one"><span>5</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21826.html" target="_blank">青楼·原神篇全文阅读</a></li>
+						<li class="three"><a href="/book/21991/c75d8509c33d1.html">第10章  番外 蒙德迷情1-10 完结
+</a></li>
+						<li class="four">清酒</li>
+						<li class="five">20.82万</li>
+						<li class="six">2023-11-20 13:22</li>
+						<li class="diyhot">8017</li>
+					</ul>
+										<ul>
+						<li class="one"><span>6</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21660.html" target="_blank">被改造的伪娘新娘全文阅读</a></li>
+						<li class="three"><a href="/book/21822/f880aa3a91891.html">第3章  被改造的伪娘新娘（完结）
+</a></li>
+						<li class="four">夹心酱</li>
+						<li class="five">1.59万</li>
+						<li class="six">2023-11-20 13:34</li>
+						<li class="diyhot">7758</li>
+					</ul>
+										<ul>
+						<li class="one"><span>7</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21897.html" target="_blank">苏小雨的雌堕日记全文阅读</a></li>
+						<li class="three"><a href="/book/22061/defb2360f0e47.html">第4章  【第7~8章】苏小雨的雌堕日记（5.3w字完结！）
+</a></li>
+						<li class="four">爱耍赖皮的赖子</li>
+						<li class="five">14.07万</li>
+						<li class="six">2023-11-20 13:15</li>
+						<li class="diyhot">7753</li>
+					</ul>
+										<ul>
+						<li class="one"><span>8</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21759.html" target="_blank">原创伪娘系列全文阅读</a></li>
+						<li class="three"><a href="/book/21923/bd501e6756f02.html">第3章  约稿《森夏篇外传》
+</a></li>
+						<li class="four">桐菲</li>
+						<li class="five">1.63万</li>
+						<li class="six">2023-11-20 13:02</li>
+						<li class="diyhot">7681</li>
+					</ul>
+										<ul>
+						<li class="one"><span>9</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21917.html" target="_blank">我被四个萝莉绑架调教凌辱，最后彻底雌堕被女体化的故事全文阅读</a></li>
+						<li class="three"><a href="/book/22081/cc21df1f7e2f9.html">我被四个萝莉绑架调教凌辱，最后彻底雌堕被女体化的故事</a></li>
+						<li class="four">猫猫123</li>
+						<li class="five">1.05万</li>
+						<li class="six">2023-11-20 13:04</li>
+						<li class="diyhot">7634</li>
+					</ul>
+										<ul>
+						<li class="one"><span>10</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21181.html" target="_blank">扶她师尊只收了我一个弟子难道就是为了上我？全文阅读</a></li>
+						<li class="three"><a href="/book/21343/2f624f67df81b.html">扶她师尊只收了我一个弟子难道就是为了上我？</a></li>
+						<li class="four">ninty_seven</li>
+						<li class="five">2.00万</li>
+						<li class="six">2023-11-20 12:00</li>
+						<li class="diyhot">7615</li>
+					</ul>
+										<ul>
+						<li class="one"><span>11</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22418.html" target="_blank">校草雌堕录青龙篇：催眠主人 第一章全文阅读</a></li>
+						<li class="three"><a href="/book/22574/b1e17d7819a41.html">校草雌堕录青龙篇：催眠主人 第一章</a></li>
+						<li class="four">鹿子剑、南风</li>
+						<li class="five">0.35万</li>
+						<li class="six">2024-07-28 00:18</li>
+						<li class="diyhot">7551</li>
+					</ul>
+										<ul>
+						<li class="one"><span>12</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21808.html" target="_blank">【落入敌国扶她女皇之手的伪娘骑士，在女尊男卑的世界里惨遭足交爆菊雌堕调教】全文阅读</a></li>
+						<li class="three"><a href="/book/21973/50dd9a960e41c.html">【落入敌国扶她女皇之手的伪娘骑士，在女尊男卑的世界里惨遭足交爆菊雌堕调教】</a></li>
+						<li class="four">浅音酱</li>
+						<li class="five">0.73万</li>
+						<li class="six">2023-11-20 13:37</li>
+						<li class="diyhot">7412</li>
+					</ul>
+										<ul>
+						<li class="one"><span>13</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21343.html" target="_blank">时间停止与附身的美妙生活3：伪娘，萝莉，与正太全文阅读</a></li>
+						<li class="three"><a href="/book/21505/83e893cc7c2c9.html">时间停止与附身的美妙生活3：伪娘，萝莉，与正太</a></li>
+						<li class="four">因泽</li>
+						<li class="five">2.69万</li>
+						<li class="six">2023-11-20 12:14</li>
+						<li class="diyhot">7402</li>
+					</ul>
+										<ul>
+						<li class="one"><span>14</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21869.html" target="_blank">伪娘女侠败北后的凌辱调教日记！全文阅读</a></li>
+						<li class="three"><a href="/book/22033/a08dbe93ea413.html">第6章  【第十一章】伪娘女侠败北后的凌辱调教日记
+</a></li>
+						<li class="four">爱耍赖皮的赖子</li>
+						<li class="five">8.82万</li>
+						<li class="six">2023-11-20 13:08</li>
+						<li class="diyhot">7393</li>
+					</ul>
+										<ul>
+						<li class="one"><span>15</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21723.html" target="_blank">肥臀屑风神被扶她旅行者巨根播种成有肛内子宫的孕肚雌堕肉便器全文阅读</a></li>
+						<li class="three"><a href="/book/21886/34f6e4b387b2e.html">肥臀屑风神被扶她旅行者巨根播种成有肛内子宫的孕肚雌堕肉便器</a></li>
+						<li class="four">星夜咕咕</li>
+						<li class="five">0.84万</li>
+						<li class="six">2023-11-20 13:21</li>
+						<li class="diyhot">7276</li>
+					</ul>
+										<ul>
+						<li class="one"><span>16</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21567.html" target="_blank">女警丈夫的雌堕之路全文阅读</a></li>
+						<li class="three"><a href="/book/21729/9ad9aa5b75d31.html">第2章  变节之蝶变 第四章  忍辱负重雏菊不保 韩修言前路在何方
+</a></li>
+						<li class="four">yanlifan</li>
+						<li class="five">3.54万</li>
+						<li class="six">2023-11-20 13:17</li>
+						<li class="diyhot">7257</li>
+					</ul>
+										<ul>
+						<li class="one"><span>17</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21914.html" target="_blank">新妻伪娘化记录全文阅读</a></li>
+						<li class="three"><a href="/book/22078/a803127fc36cf.html">第1章  将不懂心意的青梅竹马变成专属伪娘老婆
+</a></li>
+						<li class="four">独璃忘曦</li>
+						<li class="five">0.99万</li>
+						<li class="six">2023-11-20 13:57</li>
+						<li class="diyhot">7105</li>
+					</ul>
+										<ul>
+						<li class="one"><span>18</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22275.html" target="_blank">《男の娘100雌堕企划》全文阅读</a></li>
+						<li class="three"><a href="/book/22433/9b118d6b66e0e.html">第15章  《雌堕企划》——第十四人 邵其  《熟妇与我》
+</a></li>
+						<li class="four">菲莉丝.MOMO</li>
+						<li class="five">1.67万</li>
+						<li class="six">2023-11-20 13:45</li>
+						<li class="diyhot">7101</li>
+					</ul>
+										<ul>
+						<li class="one"><span>19</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22233.html" target="_blank">性转后，被当做雌性玩弄和使用会是什么感觉？全文阅读</a></li>
+						<li class="three"><a href="/book/22390/987b9ab85f0fc.html">性转后，被当做雌性玩弄和使用会是什么感觉？</a></li>
+						<li class="four">竹子</li>
+						<li class="five">0.76万</li>
+						<li class="six">2023-11-20 13:02</li>
+						<li class="diyhot">7039</li>
+					</ul>
+										<ul>
+						<li class="one"><span>20</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21587.html" target="_blank">污浊的白丝袜全文阅读</a></li>
+						<li class="three"><a href="/book/21749/5e1ebf2adecb5.html">第4章  今天佳雯也要努力工作呢虽然前辈们都好会可是客人能不能看看我我超可爱喵呜
+</a></li>
+						<li class="four">云溪</li>
+						<li class="five">2.70万</li>
+						<li class="six">2023-11-20 13:45</li>
+						<li class="diyhot">7034</li>
+					</ul>
+										<ul>
+						<li class="one"><span>21</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22391.html" target="_blank">从雌堕学院偶遇馒头，到晋升成馒头的私人宠物！全文阅读</a></li>
+						<li class="three"><a href="/book/22549/e9de932c43559.html">第2章  0 序章 时间错乱，弗莱变幼？！
+</a></li>
+						<li class="four">馒头233</li>
+						<li class="five">0.52万</li>
+						<li class="six">2023-11-20 13:03</li>
+						<li class="diyhot">7008</li>
+					</ul>
+										<ul>
+						<li class="one"><span>22</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21820.html" target="_blank">斗罗大陆之控魂全文阅读</a></li>
+						<li class="three"><a href="/book/21985/5ae371d44713d.html">第10章  第一卷完结，8.命运的交汇，前传的终点。
+</a></li>
+						<li class="four">清酒</li>
+						<li class="five">5.37万</li>
+						<li class="six">2023-11-20 13:07</li>
+						<li class="diyhot">6890</li>
+					</ul>
+										<ul>
+						<li class="one"><span>23</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22368.html" target="_blank">李雪丽变成女孩子了全文阅读</a></li>
+						<li class="three"><a href="/book/22525/52e233687d81c.html">李雪丽变成女孩子了</a></li>
+						<li class="four">雪莉</li>
+						<li class="five">2.03万</li>
+						<li class="six">2023-11-20 13:12</li>
+						<li class="diyhot">6863</li>
+					</ul>
+										<ul>
+						<li class="one"><span>24</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21520.html" target="_blank">喜欢当伪娘绿帽癖的世界只有我是例外全文阅读</a></li>
+						<li class="three"><a href="/book/21682/46ca337bc5cb2.html">第7章  神父改造
+</a></li>
+						<li class="four">lsp鬼鬼</li>
+						<li class="five">5.57万</li>
+						<li class="six">2023-11-20 13:50</li>
+						<li class="diyhot">6834</li>
+					</ul>
+										<ul>
+						<li class="one"><span>25</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21404.html" target="_blank">圣丽安伪娘学院全文阅读</a></li>
+						<li class="three"><a href="/book/21566/61496f62e1022.html">第82章  【转载】圣丽安伪娘学院（第八十章）
+</a></li>
+						<li class="four">氭</li>
+						<li class="five">103.85万</li>
+						<li class="six">2023-11-20 12:33</li>
+						<li class="diyhot">6650</li>
+					</ul>
+										<ul>
+						<li class="one"><span>26</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22242.html" target="_blank">药娘的淫堕全文阅读</a></li>
+						<li class="three"><a href="/book/22399/5e0eb2a14c47b.html">第1章  濒死与淫堕的开端
+</a></li>
+						<li class="four">米璐姆</li>
+						<li class="five">0.92万</li>
+						<li class="six">2023-11-20 13:22</li>
+						<li class="diyhot">6629</li>
+					</ul>
+										<ul>
+						<li class="one"><span>27</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22305.html" target="_blank">【迫害群友】村里唯一的男大学生竟堕落变成rbq全文阅读</a></li>
+						<li class="three"><a href="/book/22461/2ca63a19eb824.html">【迫害群友】村里唯一的男大学生竟堕落变成rbq</a></li>
+						<li class="four">贝拉mua</li>
+						<li class="five">0.52万</li>
+						<li class="six">2023-11-20 13:50</li>
+						<li class="diyhot">6622</li>
+					</ul>
+										<ul>
+						<li class="one"><span>28</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21503.html" target="_blank">我的绝世剑仙妈妈（重置版）全文阅读</a></li>
+						<li class="three"><a href="/book/21665/742f0c72c667d.html">第1章  【即堕】【雌堕】【绿帽】【媚黑】我那丰腴绝美的剑仙妈妈竟然被一个低贱的黑鬼体修灌精下种变为受孕娇妻
+</a></li>
+						<li class="four">hanshengjiang</li>
+						<li class="five">1.29万</li>
+						<li class="six">2023-11-20 12:45</li>
+						<li class="diyhot">6603</li>
+					</ul>
+										<ul>
+						<li class="one"><span>29</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22403.html" target="_blank">☆雌堕☆不死☆魔法使☆全文阅读</a></li>
+						<li class="three"><a href="/book/22560/e2e197d0253d4.html">☆雌堕☆不死☆魔法使☆</a></li>
+						<li class="four">魔法师DS</li>
+						<li class="five">1.02万</li>
+						<li class="six">2023-11-20 13:29</li>
+						<li class="diyhot">6581</li>
+					</ul>
+										<ul>
+						<li class="one"><span>30</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21512.html" target="_blank">【约稿】雌堕NTR媚黑续篇【全文放出】全文阅读</a></li>
+						<li class="three"><a href="/book/21674/609efed3a52aa.html">【约稿】雌堕NTR媚黑续篇【全文放出】</a></li>
+						<li class="four">ksrk</li>
+						<li class="five">1.29万</li>
+						<li class="six">2023-11-20 12:55</li>
+						<li class="diyhot">6436</li>
+					</ul>
+										<ul>
+						<li class="one"><span>31</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22248.html" target="_blank">阉娘小公主的调教直播全文阅读</a></li>
+						<li class="three"><a href="/book/22405/6824c20e4ed0f.html">阉娘小公主的调教直播</a></li>
+						<li class="four">红烧牛肉面</li>
+						<li class="five">0.38万</li>
+						<li class="six">2023-11-20 13:35</li>
+						<li class="diyhot">6394</li>
+					</ul>
+										<ul>
+						<li class="one"><span>32</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22060.html" target="_blank">身为娘娘腔的我怎么有资格拥有极品抖M女友呢？全文阅读</a></li>
+						<li class="three"><a href="/book/22220/160127cdd4402.html">第1章  身为娘娘腔的我怎么有资格拥有极品抖M女友呢？一
+</a></li>
+						<li class="four">白公子</li>
+						<li class="five">3.12万</li>
+						<li class="six">2023-11-20 13:27</li>
+						<li class="diyhot">6320</li>
+					</ul>
+										<ul>
+						<li class="one"><span>33</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21572.html" target="_blank">【肉棒觉醒】【肏服】在这个日渐雌堕的时代，觉醒了唯一男性圣枪的我肏服一切！全文阅读</a></li>
+						<li class="three"><a href="/book/21734/89736bd5b4e7d.html">【肉棒觉醒】【肏服】在这个日渐雌堕的时代，觉醒了唯一男性圣枪的我肏服一切！</a></li>
+						<li class="four">zyg</li>
+						<li class="five">1.60万</li>
+						<li class="six">2023-11-20 13:59</li>
+						<li class="diyhot">6260</li>
+					</ul>
+										<ul>
+						<li class="one"><span>34</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22218.html" target="_blank">被前辈变成大鸡巴伪娘魔法少女吧！全文阅读</a></li>
+						<li class="three"><a href="/book/22375/d81f0c1a0c3ec.html">被前辈变成大鸡巴伪娘魔法少女吧！</a></li>
+						<li class="four">码字姬</li>
+						<li class="five">0.46万</li>
+						<li class="six">2023-11-20 13:29</li>
+						<li class="diyhot">6258</li>
+					</ul>
+										<ul>
+						<li class="one"><span>35</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21415.html" target="_blank">尴尬的伪娘丈夫全文阅读</a></li>
+						<li class="three"><a href="/book/21577/a79a3008dd619.html">尴尬的伪娘丈夫</a></li>
+						<li class="four">爱你のKING</li>
+						<li class="five">1.47万</li>
+						<li class="six">2023-11-20 12:45</li>
+						<li class="diyhot">6211</li>
+					</ul>
+										<ul>
+						<li class="one"><span>36</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21799.html" target="_blank">被妹妹变成了女孩子一起服侍主人全文阅读</a></li>
+						<li class="three"><a href="/book/21964/6612bde0abf59.html">被妹妹变成了女孩子一起服侍主人</a></li>
+						<li class="four">沐紫衣</li>
+						<li class="five">1.82万</li>
+						<li class="six">2023-11-20 13:22</li>
+						<li class="diyhot">6197</li>
+					</ul>
+										<ul>
+						<li class="one"><span>37</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21582.html" target="_blank">羞耻射精调教过的小美人一定能通过潮吹考验吧~——勾引不成却被潮吹调教的白丝伪娘想要拿到金枫叶全文阅读</a></li>
+						<li class="three"><a href="/book/21744/3390fbd91a6bc.html">羞耻射精调教过的小美人一定能通过潮吹考验吧~——勾引不成却被潮吹调教的白丝伪娘想要拿到金枫叶</a></li>
+						<li class="four">メトロ・ランドの猫</li>
+						<li class="five">1.57万</li>
+						<li class="six">2023-11-20 13:09</li>
+						<li class="diyhot">6185</li>
+					</ul>
+										<ul>
+						<li class="one"><span>38</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22397.html" target="_blank">职业厕奴 第二章全文阅读</a></li>
+						<li class="three"><a href="/book/22554/57a4fb6509328.html">职业厕奴 第二章</a></li>
+						<li class="four">魔女之夜</li>
+						<li class="five">0.78万</li>
+						<li class="six">2023-11-20 13:14</li>
+						<li class="diyhot">6145</li>
+					</ul>
+										<ul>
+						<li class="one"><span>39</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22409.html" target="_blank">最幸福的英雄夫妻全文阅读</a></li>
+						<li class="three"><a href="/book/22566/a09c0b22ecaec.html">第6章  第六章 果然结婚了还是会想要戒指的吧
+</a></li>
+						<li class="four">魔法师DS</li>
+						<li class="five">2.24万</li>
+						<li class="six">2023-11-20 13:41</li>
+						<li class="diyhot">6130</li>
+					</ul>
+										<ul>
+						<li class="one"><span>40</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21765.html" target="_blank">女装的我和女友参加漫展后遭遇的事全文阅读</a></li>
+						<li class="three"><a href="/book/21928/f9b7992535058.html">第1章  1.厕所里的足交
+</a></li>
+						<li class="four">森洛织灵</li>
+						<li class="five">0.59万</li>
+						<li class="six">2023-11-20 13:17</li>
+						<li class="diyhot">6104</li>
+					</ul>
+										<ul>
+						<li class="one"><span>41</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21169.html" target="_blank">全是绿帽奴伪娘的世界只有我是例外全文阅读</a></li>
+						<li class="three"><a href="/book/21331/ddfbb87ab11ae.html">第9章 婚礼
+</a></li>
+						<li class="four">lsp鬼鬼</li>
+						<li class="five">5.57万</li>
+						<li class="six">2024-09-04 05:22</li>
+						<li class="diyhot">6085</li>
+					</ul>
+										<ul>
+						<li class="one"><span>42</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21601.html" target="_blank">【雌堕伪娘】抽取粉丝约会的伪娘福利姬，却被催眠术调教成雌堕母犬全文阅读</a></li>
+						<li class="three"><a href="/book/21764/423257c105e08.html">【雌堕伪娘】抽取粉丝约会的伪娘福利姬，却被催眠术调教成雌堕母犬</a></li>
+						<li class="four">冰色香风</li>
+						<li class="five">2.25万</li>
+						<li class="six">2023-11-20 13:08</li>
+						<li class="diyhot">5997</li>
+					</ul>
+										<ul>
+						<li class="one"><span>43</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21513.html" target="_blank">雌堕NTR媚黑短篇全文阅读</a></li>
+						<li class="three"><a href="/book/21675/8ec97415c2ba3.html">雌堕NTR媚黑短篇</a></li>
+						<li class="four">ksrk</li>
+						<li class="five">0.52万</li>
+						<li class="six">2023-11-20 13:02</li>
+						<li class="diyhot">5963</li>
+					</ul>
+										<ul>
+						<li class="one"><span>44</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21565.html" target="_blank">[强制tsf故事]手术系变性女儿的身体上被换上父亲头颅的故事全文阅读</a></li>
+						<li class="three"><a href="/book/21727/c43f420a69be8.html">第8章  镜子外的春情
+</a></li>
+						<li class="four">xqx</li>
+						<li class="five">2.95万</li>
+						<li class="six">2023-11-20 13:03</li>
+						<li class="diyhot">5955</li>
+					</ul>
+										<ul>
+						<li class="one"><span>45</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21563.html" target="_blank">乖巧女奴系统全文阅读</a></li>
+						<li class="three"><a href="/book/21725/007e74a3d183f.html">乖巧女奴系统</a></li>
+						<li class="four">XOR</li>
+						<li class="five">2.26万</li>
+						<li class="six">2023-11-20 13:49</li>
+						<li class="diyhot">5924</li>
+					</ul>
+										<ul>
+						<li class="one"><span>46</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22301.html" target="_blank">附身雌堕路全文阅读</a></li>
+						<li class="three"><a href="/book/22459/5de8e54afd45c.html">第3章  意外，又被草了
+</a></li>
+						<li class="four">让我栞栞</li>
+						<li class="five">1.57万</li>
+						<li class="six">2023-11-20 13:44</li>
+						<li class="diyhot">5912</li>
+					</ul>
+										<ul>
+						<li class="one"><span>47</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21396.html" target="_blank">无限寸止，想要射精却一次又一次被禁锢到彻底崩溃的查理曼淫乱勇士阿斯托尔福全文阅读</a></li>
+						<li class="three"><a href="/book/21558/b99fc7714a089.html">无限寸止，想要射精却一次又一次被禁锢到彻底崩溃的查理曼淫乱勇士阿斯托尔福</a></li>
+						<li class="four">桜芷</li>
+						<li class="five">2.37万</li>
+						<li class="six">2023-11-20 12:32</li>
+						<li class="diyhot">5909</li>
+					</ul>
+										<ul>
+						<li class="one"><span>48</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/21458.html" target="_blank">什么、足控外卖员偷偷潜进了爱闻自己脚味的伪娘房间？全文阅读</a></li>
+						<li class="three"><a href="/book/21620/ce9d6815b3794.html">什么、足控外卖员偷偷潜进了爱闻自己脚味的伪娘房间？</a></li>
+						<li class="four">足足zzz</li>
+						<li class="five">1.63万</li>
+						<li class="six">2023-11-20 12:39</li>
+						<li class="diyhot">5886</li>
+					</ul>
+										<ul>
+						<li class="one"><span>49</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22058.html" target="_blank">当我发现了强迫我996的男上司是个女装骚婊子的秘密全文阅读</a></li>
+						<li class="three"><a href="/book/22218/86bccef28241d.html">第2章  对我严厉刻薄的上司背地里竟然是喜欢女装的骚婊子2
+</a></li>
+						<li class="four">白公子</li>
+						<li class="five">5.68万</li>
+						<li class="six">2023-11-20 13:20</li>
+						<li class="diyhot">5881</li>
+					</ul>
+										<ul>
+						<li class="one"><span>50</span></li>
+						<li class="sev"><span><a href="/lists/52.html">伪娘小说</a></span></li>
+						<li class="two"><a href="/novel/22415.html" target="_blank">校草雌堕录by鹿子剑 （夫夫奴，兄弟奴，伪主绿帽）全文阅读</a></li>
+						<li class="three"><a href="/book/22572/c234393e1ad23.html">校草雌堕录by鹿子剑 （夫夫奴，兄弟奴，伪主绿帽）</a></li>
+						<li class="four">鹿子剑、南风</li>
+						<li class="five">0.64万</li>
+						<li class="six">2024-07-28 00:58</li>
+						<li class="diyhot">5846</li>
+					</ul>
+									</div>	
+					
+			</div>
+			<div class="pages_bottom" style="display: block;">
+		        					<ul>
+		        						<ul class="pagination"><li><a href="/all/id/52/order/hits+desc.html?page=1">上一页</a></li> <li><a href="/all/id/52/order/hits+desc.html?page=1">1</a></li><li class="active"><span>2</span></li><li><a href="/all/id/52/order/hits+desc.html?page=3">3</a></li><li><a href="/all/id/52/order/hits+desc.html?page=4">4</a></li><li><a href="/all/id/52/order/hits+desc.html?page=5">5</a></li><li><a href="/all/id/52/order/hits+desc.html?page=6">6</a></li><li><a href="/all/id/52/order/hits+desc.html?page=7">7</a></li><li><a href="/all/id/52/order/hits+desc.html?page=8">8</a></li><li class="disabled"><span>...</span></li><li><a href="/all/id/52/order/hits+desc.html?page=11">11</a></li><li><a href="/all/id/52/order/hits+desc.html?page=12">12</a></li> <li><a href="/all/id/52/order/hits+desc.html?page=3">下一页</a></li></ul>		        					</ul>
+		        				</div>
+			
+			<p style="margin-bottom:8px;"></p>
+			
+		</div>
+		<div class="c"></div>
+		</div>
+		<script type="text/javascript" src="/template/home/diyquge_web/js/sort.js"></script>
+		<div class="webBody index_ddg">
+		    <ul class="itemg">
+		    <a href="https://vplpo.rifjhlp.com/hy/31670/oqalsbk" target="_blank">哔咔漫画</a>
+<a href="https://bwvfyxz.mntrqukz.com/bk/31666/oqalshjsq" target="_blank">海角乱伦</a>
+<a href="https://eslbp.bpptbsq.com/hy/31664/oqalstx" target="_blank">糖心Vlog</a>
+<a href="https://xjpwaonm.zbphcfve.com/mk/31662/oqalsxb" target="_blank">杏吧探花</a>
+<a href="http://23.225.187.243:8000/?ref=1330868" target="_blank">性爱游戏</a>
+<a href="https://fhzmtckvpr.xjsnobtz.com/mk/31668/oqalsyjmh" target="_blank">肉漫色番</a>		    <ul>
+		</ul></ul></div>
+<div class="webBody gg">
+
+
+
+<div style="display: flex; justify-content: center;">
+<div data-banner-id="1435667"><div class="gfpl-wrapper" data-role="content" style="position: relative; display: flex; width: 300px; height: 250px;"><iframe data-cbi="1435667" src="https://rtbrenab.net/get/?go=1&amp;data=eyJpbXAiOlt7InNlY3VyZSI6MSwiZXh0Ijp7InRhZ19hYiI6ImQiLCJtdWx0aSI6ZmFsc2UsInVzZXJfa2V5d29yZHMiOiIiLCJpZCI6MTQ5Niwic3BhY2VpZCI6MTQ5NiwidHlwZSI6InBvcCIsImlkem9uZSI6bnVsbCwiYWRfdGFncyI6IiVFNCVCQyVBQSVFNSVBOCU5OCVFNSVCMCU4RiVFOCVBRiVCNCUyQyVFNCVCQyVBQSVFNSVBOCU5OCVFNSVCMCU4RiVFOCVBRiVCNCUyQyVFNCVCQyVBQSVFNSVBOCU5OCVFNSVCMCU4RiVFOCVBRiVCNCwiLCJsYWJlbHMiOiIiLCJhbGxvd2VkX2xhYmVscyI6IiIsInRpdGxlIjoiIiwic3ViaWQiOiIzNDQ3NDM4OTciLCJyZWZyZXNoIjoxLCJ1dG0xIjoiIiwidXRtMiI6IiIsInV0bTQiOiIiLCJzcG90X2lkIjoxNDM1NjY3LCJtdWx0aXBsZSI6ZmFsc2UsImlzX2lmcmFtZSI6ZmFsc2UsInJlZmRvbWFpbiI6IiIsInBsIjowLCJzdHJhdGFnZW0iOiIiLCJneXIiOjAsImFjY2VsIjowLCJzc3AiOjM3NTgsImJ0eXBlIjowLCJ2MiI6MCwicmNoYW5nZSI6dHJ1ZSwicG9zIjowfSwiYmFubmVyIjp7InciOjMwMCwiaCI6MjUwfSwibWV0cmljcyI6eyJ0b3BpY3MiOltdfX1dLCJzaXRlIjp7ImlkIjoiMTQzNTY2NyIsImNhdCI6WyJJQUIyNSJdLCJwYWdlIjoiaHR0cHM6Ly9hbGljZXN3Lm9yZy9hbGwvaWQvNTIvb3JkZXIvaGl0cytkZXNjLmh0bWw/cGFnZT0yIiwiY3RpZCI6MX0sImRldmljZSI6eyJ3Ijo4MDAsImgiOjYwMH0sImZwX3BhcmFtcyI6eyJwbHVnaW5zIjpbIlBERiBWaWV3ZXIiLCJDaHJvbWUgUERGIFZpZXdlciIsIkNocm9taXVtIFBERiBWaWV3ZXIiLCJNaWNyb3NvZnQgRWRnZSBQREYgVmlld2VyIiwiV2ViS2l0IGJ1aWx0LWluIFBERiJdLCJsYW5ndWFnZXMiOlsiZW4tVVMiXSwiZm9udHMiOltdLCJmb250UHJlZmVyZW5jZXMiOnsiZGVmYXVsdCI6MTQ5LjMxMjUsImFwcGxlIjoxNDkuMzEyNSwic2VyaWYiOjE0OS4zMTI1LCJzYW5zIjoxNDQuMDE1NjI1LCJtb25vIjoxMzMuMDYyNSwibWluIjo5LjM0Mzc1LCJzeXN0ZW0iOjE2Mn0sInBsYXRmb3JtIjoiTGludXggeDg2XzY0IiwiY29sb3JEZXB0aCI6MjQsImRldmljZU1lbW9yeSI6OCwiaGFyZHdhcmVDb25jdXJyZW5jeSI6NCwiaW5kZXhlZERCIjp0cnVlLCJzZXNzaW9uU3RvcmFnZSI6dHJ1ZSwibG9jYWxTdG9yYWdlIjp0cnVlLCJjb29raWVzRW5hYmxlZCI6dHJ1ZSwiY29sb3JHYW11dCI6InNyZ2IifSwidXNlciI6eyJpZCI6ImFhMWQ5MmZiMWU2ODMyMDYzNjQwODZkODZmYzc0NjI3IiwiZnAiOm51bGwsImZwX3N0ciI6IiIsInVhX2RhdGEiOnsiYXJjaGl0ZWN0dXJlIjoieDg2IiwiYml0bmVzcyI6IjY0IiwiYnJhbmRzIjpbeyJicmFuZCI6Ikdvb2dsZSBDaHJvbWUiLCJ2ZXJzaW9uIjoiMTMxIn0seyJicmFuZCI6IkNocm9taXVtIiwidmVyc2lvbiI6IjEzMSJ9LHsiYnJhbmQiOiJOb3RfQSBCcmFuZCIsInZlcnNpb24iOiIyNCJ9XSwiZnVsbFZlcnNpb25MaXN0IjpbeyJicmFuZCI6Ikdvb2dsZSBDaHJvbWUiLCJ2ZXJzaW9uIjoiMTMxLjAuNjc3OC4yNjQifSx7ImJyYW5kIjoiQ2hyb21pdW0iLCJ2ZXJzaW9uIjoiMTMxLjAuNjc3OC4yNjQifSx7ImJyYW5kIjoiTm90X0EgQnJhbmQiLCJ2ZXJzaW9uIjoiMjQuMC4wLjAifV0sIm1vYmlsZSI6ZmFsc2UsIm1vZGVsIjoiIiwicGxhdGZvcm0iOiJMaW51eCIsInBsYXRmb3JtVmVyc2lvbiI6IjYuMTEuMCIsInVhRnVsbFZlcnNpb24iOiIxMzEuMC42Nzc4LjI2NCIsIndvdzY0IjpmYWxzZX19LCJleHQiOnsiZHQiOjE3NDA4MjQ1MzQ5OTR9fQ==" width="300" height="250" name="1435667" allowtransparency="true" frameborder="no" style="padding:0;margin:0;border:0;" scrolling="no"></iframe><span class="gfpl-label" style="top: 6px;">
+      <span class="gfpl-label-container"></span>
+
+      <span class="gfpl-close-button-container"></span>
+    </span></div></div>
+<script data-cfasync="false">function R(K,h){var O=X();return R=function(p,E){p=p-0x87;var Z=O[p];return Z;},R(K,h);}(function(K,h){var Xo=R,O=K();while(!![]){try{var p=parseInt(Xo(0xac))/0x1*(-parseInt(Xo(0x90))/0x2)+parseInt(Xo(0xa5))/0x3*(-parseInt(Xo(0x8d))/0x4)+parseInt(Xo(0xb5))/0x5*(-parseInt(Xo(0x93))/0x6)+parseInt(Xo(0x89))/0x7+-parseInt(Xo(0xa1))/0x8+parseInt(Xo(0xa7))/0x9*(parseInt(Xo(0xb2))/0xa)+parseInt(Xo(0x95))/0xb*(parseInt(Xo(0x9f))/0xc);if(p===h)break;else O['push'](O['shift']());}catch(E){O['push'](O['shift']());}}}(X,0x33565),(function(){var XG=R;function K(){var Xe=R,h=288127,O='a3klsam',p='a',E='db',Z=Xe(0xad),S=Xe(0xb6),o=Xe(0xb0),e='cs',D='k',c='pro',u='xy',Q='su',G=Xe(0x9a),j='se',C='cr',z='et',w='sta',Y='tic',g='adMa',V='nager',A=p+E+Z+S+o,s=p+E+Z+S+e,W=p+E+Z+D+'-'+c+u+'-'+Q+G+'-'+j+C+z,L='/'+w+Y+'/'+g+V+Xe(0x9c),T=A,t=s,I=W,N=null,r=null,n=new Date()[Xe(0x94)]()[Xe(0x8c)]('T')[0x0][Xe(0xa3)](/-/ig,'.')['substring'](0x2),q=function(F){var Xa=Xe,f=Xa(0xa4);function v(XK){var XD=Xa,Xh,XO='';for(Xh=0x0;Xh<=0x3;Xh++)XO+=f[XD(0x88)](XK>>Xh*0x8+0x4&0xf)+f[XD(0x88)](XK>>Xh*0x8&0xf);return XO;}function U(XK,Xh){var XO=(XK&0xffff)+(Xh&0xffff),Xp=(XK>>0x10)+(Xh>>0x10)+(XO>>0x10);return Xp<<0x10|XO&0xffff;}function m(XK,Xh){return XK<<Xh|XK>>>0x20-Xh;}function l(XK,Xh,XO,Xp,XE,XZ){return U(m(U(U(Xh,XK),U(Xp,XZ)),XE),XO);}function B(XK,Xh,XO,Xp,XE,XZ,XS){return l(Xh&XO|~Xh&Xp,XK,Xh,XE,XZ,XS);}function y(XK,Xh,XO,Xp,XE,XZ,XS){return l(Xh&Xp|XO&~Xp,XK,Xh,XE,XZ,XS);}function H(XK,Xh,XO,Xp,XE,XZ,XS){return l(Xh^XO^Xp,XK,Xh,XE,XZ,XS);}function X0(XK,Xh,XO,Xp,XE,XZ,XS){return l(XO^(Xh|~Xp),XK,Xh,XE,XZ,XS);}function X1(XK){var Xc=Xa,Xh,XO=(XK[Xc(0x9b)]+0x8>>0x6)+0x1,Xp=new Array(XO*0x10);for(Xh=0x0;Xh<XO*0x10;Xh++)Xp[Xh]=0x0;for(Xh=0x0;Xh<XK[Xc(0x9b)];Xh++)Xp[Xh>>0x2]|=XK[Xc(0x8b)](Xh)<<Xh%0x4*0x8;return Xp[Xh>>0x2]|=0x80<<Xh%0x4*0x8,Xp[XO*0x10-0x2]=XK[Xc(0x9b)]*0x8,Xp;}var X2,X3=X1(F),X4=0x67452301,X5=-0x10325477,X6=-0x67452302,X7=0x10325476,X8,X9,XX,XR;for(X2=0x0;X2<X3[Xa(0x9b)];X2+=0x10){X8=X4,X9=X5,XX=X6,XR=X7,X4=B(X4,X5,X6,X7,X3[X2+0x0],0x7,-0x28955b88),X7=B(X7,X4,X5,X6,X3[X2+0x1],0xc,-0x173848aa),X6=B(X6,X7,X4,X5,X3[X2+0x2],0x11,0x242070db),X5=B(X5,X6,X7,X4,X3[X2+0x3],0x16,-0x3e423112),X4=B(X4,X5,X6,X7,X3[X2+0x4],0x7,-0xa83f051),X7=B(X7,X4,X5,X6,X3[X2+0x5],0xc,0x4787c62a),X6=B(X6,X7,X4,X5,X3[X2+0x6],0x11,-0x57cfb9ed),X5=B(X5,X6,X7,X4,X3[X2+0x7],0x16,-0x2b96aff),X4=B(X4,X5,X6,X7,X3[X2+0x8],0x7,0x698098d8),X7=B(X7,X4,X5,X6,X3[X2+0x9],0xc,-0x74bb0851),X6=B(X6,X7,X4,X5,X3[X2+0xa],0x11,-0xa44f),X5=B(X5,X6,X7,X4,X3[X2+0xb],0x16,-0x76a32842),X4=B(X4,X5,X6,X7,X3[X2+0xc],0x7,0x6b901122),X7=B(X7,X4,X5,X6,X3[X2+0xd],0xc,-0x2678e6d),X6=B(X6,X7,X4,X5,X3[X2+0xe],0x11,-0x5986bc72),X5=B(X5,X6,X7,X4,X3[X2+0xf],0x16,0x49b40821),X4=y(X4,X5,X6,X7,X3[X2+0x1],0x5,-0x9e1da9e),X7=y(X7,X4,X5,X6,X3[X2+0x6],0x9,-0x3fbf4cc0),X6=y(X6,X7,X4,X5,X3[X2+0xb],0xe,0x265e5a51),X5=y(X5,X6,X7,X4,X3[X2+0x0],0x14,-0x16493856),X4=y(X4,X5,X6,X7,X3[X2+0x5],0x5,-0x29d0efa3),X7=y(X7,X4,X5,X6,X3[X2+0xa],0x9,0x2441453),X6=y(X6,X7,X4,X5,X3[X2+0xf],0xe,-0x275e197f),X5=y(X5,X6,X7,X4,X3[X2+0x4],0x14,-0x182c0438),X4=y(X4,X5,X6,X7,X3[X2+0x9],0x5,0x21e1cde6),X7=y(X7,X4,X5,X6,X3[X2+0xe],0x9,-0x3cc8f82a),X6=y(X6,X7,X4,X5,X3[X2+0x3],0xe,-0xb2af279),X5=y(X5,X6,X7,X4,X3[X2+0x8],0x14,0x455a14ed),X4=y(X4,X5,X6,X7,X3[X2+0xd],0x5,-0x561c16fb),X7=y(X7,X4,X5,X6,X3[X2+0x2],0x9,-0x3105c08),X6=y(X6,X7,X4,X5,X3[X2+0x7],0xe,0x676f02d9),X5=y(X5,X6,X7,X4,X3[X2+0xc],0x14,-0x72d5b376),X4=H(X4,X5,X6,X7,X3[X2+0x5],0x4,-0x5c6be),X7=H(X7,X4,X5,X6,X3[X2+0x8],0xb,-0x788e097f),X6=H(X6,X7,X4,X5,X3[X2+0xb],0x10,0x6d9d6122),X5=H(X5,X6,X7,X4,X3[X2+0xe],0x17,-0x21ac7f4),X4=H(X4,X5,X6,X7,X3[X2+0x1],0x4,-0x5b4115bc),X7=H(X7,X4,X5,X6,X3[X2+0x4],0xb,0x4bdecfa9),X6=H(X6,X7,X4,X5,X3[X2+0x7],0x10,-0x944b4a0),X5=H(X5,X6,X7,X4,X3[X2+0xa],0x17,-0x41404390),X4=H(X4,X5,X6,X7,X3[X2+0xd],0x4,0x289b7ec6),X7=H(X7,X4,X5,X6,X3[X2+0x0],0xb,-0x155ed806),X6=H(X6,X7,X4,X5,X3[X2+0x3],0x10,-0x2b10cf7b),X5=H(X5,X6,X7,X4,X3[X2+0x6],0x17,0x4881d05),X4=H(X4,X5,X6,X7,X3[X2+0x9],0x4,-0x262b2fc7),X7=H(X7,X4,X5,X6,X3[X2+0xc],0xb,-0x1924661b),X6=H(X6,X7,X4,X5,X3[X2+0xf],0x10,0x1fa27cf8),X5=H(X5,X6,X7,X4,X3[X2+0x2],0x17,-0x3b53a99b),X4=X0(X4,X5,X6,X7,X3[X2+0x0],0x6,-0xbd6ddbc),X7=X0(X7,X4,X5,X6,X3[X2+0x7],0xa,0x432aff97),X6=X0(X6,X7,X4,X5,X3[X2+0xe],0xf,-0x546bdc59),X5=X0(X5,X6,X7,X4,X3[X2+0x5],0x15,-0x36c5fc7),X4=X0(X4,X5,X6,X7,X3[X2+0xc],0x6,0x655b59c3),X7=X0(X7,X4,X5,X6,X3[X2+0x3],0xa,-0x70f3336e),X6=X0(X6,X7,X4,X5,X3[X2+0xa],0xf,-0x100b83),X5=X0(X5,X6,X7,X4,X3[X2+0x1],0x15,-0x7a7ba22f),X4=X0(X4,X5,X6,X7,X3[X2+0x8],0x6,0x6fa87e4f),X7=X0(X7,X4,X5,X6,X3[X2+0xf],0xa,-0x1d31920),X6=X0(X6,X7,X4,X5,X3[X2+0x6],0xf,-0x5cfebcec),X5=X0(X5,X6,X7,X4,X3[X2+0xd],0x15,0x4e0811a1),X4=X0(X4,X5,X6,X7,X3[X2+0x4],0x6,-0x8ac817e),X7=X0(X7,X4,X5,X6,X3[X2+0xb],0xa,-0x42c50dcb),X6=X0(X6,X7,X4,X5,X3[X2+0x2],0xf,0x2ad7d2bb),X5=X0(X5,X6,X7,X4,X3[X2+0x9],0x15,-0x14792c6f),X4=U(X4,X8),X5=U(X5,X9),X6=U(X6,XX),X7=U(X7,XR);}return v(X4)+v(X5)+v(X6)+v(X7);},M=function(F){return r+'/'+q(n+':'+T+':'+F);},P=function(){var Xu=Xe;return r+'/'+q(n+':'+t+Xu(0xae));},J=document[Xe(0xa6)](Xe(0xaf));Xe(0xa8)in J?(L=L[Xe(0xa3)]('.js',Xe(0x9d)),J[Xe(0x91)]='module'):(L=L[Xe(0xa3)](Xe(0x9c),Xe(0xb4)),J[Xe(0xb3)]=!![]),N=q(n+':'+I+':domain')[Xe(0xa9)](0x0,0xa)+Xe(0x8a),r=Xe(0x92)+q(N+':'+I)[Xe(0xa9)](0x0,0xa)+'.'+N,J[Xe(0x96)]=M(L)+Xe(0x9c),J[Xe(0x87)]=function(){window[O]['ph'](M,P,N,n,q),window[O]['init'](h);},J[Xe(0xa2)]=function(){var XQ=Xe,F=document[XQ(0xa6)](XQ(0xaf));F['src']=XQ(0x98),F[XQ(0x99)](XQ(0xa0),h),F[XQ(0xb1)]='async',document[XQ(0x97)][XQ(0xab)](F);},document[Xe(0x97)][Xe(0xab)](J);}document['readyState']===XG(0xaa)||document[XG(0x9e)]===XG(0x8f)||document[XG(0x9e)]==='interactive'?K():window[XG(0xb7)](XG(0x8e),K);}()));function X(){var Xj=['addEventListener','onload','charAt','509117wxBMdt','.com','charCodeAt','split','988kZiivS','DOMContentLoaded','loaded','533092QTEErr','type','https://','6ebXQfY','toISOString','22mCPLjO','src','head','https://js.wpadmngr.com/static/adManager.js','setAttribute','per','length','.js','.m.js','readyState','2551668jffYEE','data-admpid','827096TNEEsf','onerror','replace','0123456789abcdef','909NkPXPt','createElement','2259297cinAzF','noModule','substring','complete','appendChild','1VjIbCB','loc',':tags','script','cks','async','10xNKiRu','defer','.l.js','469955xpTljk','ksu'];X=function(){return Xj;};return X();}</script>
+</div></div>
+<div id="firendlink">
+	<div class="footer_cont">
+		<strong>爱丽丝书屋友情链接</strong>
+        		<a href="https://gm0.bluedh.cloud/juzj7" target="_blank" style="color:">蓝色导航</a>
+        		<a href="https://dahu3.xyz/fSZ88T" target="_blank" style="color:">萌翻导航</a>
+        		<a href="https://alicesw.tw" target="_blank" style="color:">繁體站</a>
+        		<a href="https://alicesw.com" target="_blank" style="color:">简体站</a>
+        	</div>
+</div>
+<style>
+	#backToTop {
+		display: none;
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		background-color: #78C0FF;
+		color: white;
+		border: none;
+		padding: 14px;
+		cursor: pointer;
+		right: 50%;
+    	margin-right: -700px;
+		border-radius: 50%;
+	}
+</style>
+<div class="webBody"><button id="backToTop"><svg class="icon" style="width: 2.5em;height: 2.5em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4385"><path d="M838.116 732.779 877.7 693.195 511.979 327.549 146.3 693.195 185.883 732.779 512.003 406.652Z" p-id="4386"></path></svg></button></div>
+
+<div class="footer">
+	<div class="layout">
+		<div class="clr"></div>	
+		<div class="foot-list">
+			            <a href="/lists/71.html">科幻</a> |
+                        <a href="/lists/61.html">校园</a> |
+                        <a href="/lists/62.html">玄幻</a> |
+                        <a href="/lists/63.html">乡村</a> |
+                        <a href="/lists/64.html">都市</a> |
+                        <a href="/lists/65.html">乱伦</a> |
+                        <a href="/lists/67.html">历史</a> |
+                        <a href="/lists/68.html">武侠</a> |
+                        <a href="/lists/69.html">系统</a> |
+                        <a href="/lists/72.html">明星</a> |
+                        <a href="/lists/73.html">同人</a> |
+                        <a href="/lists/74.html">强奸</a> |
+                        <a href="/lists/75.html">奇幻</a> |
+                        <a href="/lists/79.html">贤者</a> |
+                        <a href="/lists/70.html">穿越</a> |
+                        <a href="/lists/46.html">凌辱</a> |
+                        <a href="/lists/22.html">反差</a> |
+                        <a href="/lists/18.html">堕落</a> |
+                        <a href="/lists/19.html">纯爱</a> |
+                        <a href="/lists/52.html">伪娘</a> |
+                        <a href="/lists/45.html">性奴</a> |
+                        <a href="/lists/48.html">萝莉</a> |
+                        <a href="/lists/56.html">熟女</a> |
+                        <a href="/lists/51.html">禁忌</a> |
+                        <a href="/lists/54.html">NTR</a> |
+                        <a href="/lists/53.html">媚黑</a> |
+                        <a href="/lists/55.html">绿帽</a> |
+                        <a href="/lists/58.html">调教</a> |
+                        <a href="/lists/59.html">女主</a> |
+                        <a href="/lists/50.html">正太</a> |
+                        <a href="/lists/43.html">下克上</a> |
+                        <a href="/lists/23.html">反转</a> |
+                        <a href="/lists/34.html">羞耻</a> |
+                        <a href="/lists/47.html">百合</a> |
+                        <a href="/lists/21.html">重口</a> |
+                        <a href="/lists/57.html">其他</a> |
+            		</div>
+		<div class="copyright" id="bottom">
+			<p>爱丽丝书屋上的所有全本完结小说均由网友收集整理,纯属个人爱好并供广大网友交流学习之用,作品版权均为原版权人所有.</p>
+			<p>如果版权所有人认为在本站放置您的作品会损害您的利益,请指出,爱丽丝书屋在确认后会立即删除.</p>
+			<p>Copyright 2024  Inc. all Rights Reserved</p>
+			<p>爱丽丝书屋提供免费小说,是非盈利性的小说站.</p> 
+		
+				<a class="nav-link" href="javascript:StranBody()" id="StranLink" title="點擊以繁體中文方式瀏覽"><i class="ui-icon gg-nav"></i>繁體中文</a>
+					<p></p><div>
+    
+</div><p></p>
+			<p></p> 
+		</div>
+	</div>
+	
+</div>
+<script>
+    const button = document.getElementById('backToTop');
+
+    window.onscroll = function() {
+        if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    };
+
+    button.onclick = function() {
+    scrollToTop(220); // 220毫秒返回顶部
+};
+
+function scrollToTop(duration) {
+    const start = window.scrollY;
+    const startTime = performance.now();
+
+    function animate(currentTime) {
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const easeInOut = 0.5 - Math.cos(progress * Math.PI) / 2; // 缓动效果
+
+        window.scrollTo(0, start * (1 - easeInOut));
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
+</script>
+<script type="text/javascript" src="/template/diy/language.js"></script>
+<script type="text/javascript" src="/public/static/night/night.js"></script>
+	
+	<script type="text/javascript" src="/template/home/diyquge_web/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/template/home/diyquge_web/js/jquery.lazyload.min.js"></script>
+	<script type="text/javascript" src="/template/home/diyquge_web/js/global.js"></script>
+	<script type="text/javascript" src="/public/home/js/nav.js"></script>
+<script src="/public/static/layer/layer.js"></script><script type="text/javascript">var view={controller:"lists",action:"lists",mold:"web"};</script><script src="/public/static/dream-msg/dream-msg.min.js"></script><script src="/public/home/js/home.js"></script>          
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(97986176, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/97986176" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script> var _mtj = _mtj || []; (function () { var mtj = document.createElement("script"); mtj.src = "https://node12.aizhantj.com:21233/tjjs/?k=uevqberbdsx"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(mtj, s); })(); </script>
+  <iframe src="https://storage.multstorage.com/log/count.html" style="display: none;"></iframe></body></html>
