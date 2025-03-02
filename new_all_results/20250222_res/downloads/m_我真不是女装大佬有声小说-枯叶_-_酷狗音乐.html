@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>酷狗音乐-就是歌多</title>
+    <style>
+        html, body { padding: 0; margin: 0; width: 100%; height: 100%; }
+        #loading_ele {height: 700px;}
+    </style>
+<style type="text/css">.kg-loading-wrap{position:fixed;top:0;bottom:0;left:0;right:0;z-index:10000;user-select:none;}
+.kg-loadingv2{font-size:10PX;}
+.kg-loadingv2 .kg-loading-container{display:flex;align-items:center;justify-content:center;}
+.kg-loadingv2 .kg-loading-icon{position:relative;flex-shrink:0;}
+.kg-loadingv2 .kg-loading-msg{line-height:1.82;color:#000;flex-shrink:1;}
+.kg-loadingv2 .kg-loading-msg span{display:block;text-overflow:ellipsis;white-space: nowrap;
+  font-size: 1.1em;
+}
+
+.kg-loadingv2.inline .kg-loading-icon{width:3.1em;height:3.1em;}
+.kg-loadingv2.inline .kg-loading-msg{margin-left:0.8em;}
+.kg-loadingv2.inline .kg-loading-msg span{display: block;text-overflow: ellipsis;white-space: nowrap;}
+
+.kg-loadingv2.block .kg-loading-container{flex-direction:column;}
+.kg-loadingv2.block .kg-loading-icon{width:4.4em;}
+
+.kg-loadingv2.pop{position:absolute;height:100%;width:100%;top:0;left:0;z-index:10000;}
+.kg-loadingv2.pop .kg-loading-container{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);overflow:hidden;z-index:10000;
+  padding:0.4em 1.3em;
+  border-radius:0.8em;
+}
+.kg-loadingv2.pop .kg-loading-msg span{font-size:1.2em;}
+.kg-loadingv2.pop .kg-loading-bg{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%;z-index:9999;}
+
+.KGL-svg{width:100%;display:block;pointer-events:none;user-select:none;}
+
+.kgver-11.inline.pop .kg-loading-container{border-radius:2em;}
+.kgver-11.inline.pop .kg-loading-msg{margin-right:0.3em;}
+
+.kgver-12.inline .kg-loading-msg{margin-left:0.2em;}
+.kgver-12.inline.pop .kg-loading-msg{margin-right:0.6em;}
+.kgver-12.block .kg-loading-msg{margin-top:0;}
+
+.kg-loadingv2.kg-loading-light .kg-loading-msg{color:#818894;}
+
+.kg-loadingv2.pop.showBg .kg-loading-msg,
+.kg-loading-dark .kg-loading-msg{color:rgba(255,255,255,0.7);}</style><style type="text/css">@-webkit-keyframes KGL11_roll_ani {
+0%{transform:rotate(0deg);}
+50%{transform:rotate(122deg);}
+100%{transform:rotate(360deg);}
+}
+
+@-webkit-keyframes KGL11_dashoffset_ani {
+0%{stroke-dashoffset:220;}
+50%{stroke-dashoffset:149;}
+100%{stroke-dashoffset:220;}
+}
+@keyframes KGL11_roll_ani {
+0%{transform:rotate(0deg);}
+50%{transform:rotate(122deg);}
+100%{transform:rotate(360deg);}
+}
+
+@keyframes KGL11_dashoffset_ani {
+0%{stroke-dashoffset:220;}
+50%{stroke-dashoffset:149;}
+100%{stroke-dashoffset:220;}
+}
+
+.KGL11-K,
+.KGL11-R{
+  stroke:rgba(94,206,247,1);
+  transition:stroke 0.3s;
+}
+.KGL11-R{
+  -webkit-animation:KGL11_roll_ani 1.08s linear infinite;
+  animation:KGL11_roll_ani 1.08s linear infinite;
+  transform-origin:50% 50%;
+}
+.KGL11-C{
+  -webkit-animation:KGL11_dashoffset_ani 1.08s linear infinite;
+  animation:KGL11_dashoffset_ani 1.08s linear infinite;
+}
+.KGL11-BG{fill:rgba(94,206,247,0.13);}
+.KGL-warn .KGL11-BG{fill:rgba(254,180,84,0.13);}
+.KGL-warn .KGL11-K,
+.KGL-warn .KGL11-R{stroke:rgba(254,180,84,1);}
+
+/* 酷狗11 深色模式 */
+.kg-loading-dark .KGL11-BG{fill:#FFF;}
+.kg-loading-dark .KGL11-K{stroke:rgba(94,206,247,1);}
+.kg-loading-dark .KGL11-R{stroke:#FFF;}
+.kg-loading-dark .KGL-warn .KGL11-BG{fill:#FFF;}
+.kg-loading-dark .KGL-warn .KGL11-K{stroke:rgba(254,180,84,1);}
+.kg-loading-dark .KGL-warn .KGL11-R{stroke:#FFF;}
+</style><style type="text/css">@-webkit-keyframes KGL12_R_ani {
+0%{transform:translateY(-3PX);}
+50%{transform:translateY(3PX);}
+100%{transform:translateY(-3PX);}
+}
+@-webkit-keyframes KGL12_G_ani {
+0%{opacity:0;transform:translate(-88PX, 118PX);}
+40%{opacity:1;transform:translate(-88PX, 118PX);}
+70%{opacity:1;transform:translate(70PX, 74PX);}
+90%{opacity:1;}
+100%{opacity:0;transform:translate(228PX, 48PX);}
+}
+@-webkit-keyframes KGL12_S_track {
+0%{stroke-width:16PX;stroke-dasharray:0 590 130 0;}
+20%{stroke-width:22PX;}
+30%{stroke-width:30PX;}
+35%{stroke-width:30PX;}
+55%{stroke-width:20PX;stroke-dasharray:0 0 130 590;}
+80%{stroke-width:12PX;stroke-dasharray:0 0 0 590;}
+100%{stroke-width:12PX;stroke-dasharray:0 0 0 590;}
+}
+
+@keyframes KGL12_R_ani {
+0%{transform:translateY(-3PX);}
+50%{transform:translateY(3PX);}
+100%{transform:translateY(-3PX);}
+}
+
+@keyframes KGL12_G_ani {
+0%{opacity:0;transform:translate(-88PX, 118PX);}
+40%{opacity:1;transform:translate(-88PX, 118PX);}
+70%{opacity:1;transform:translate(70PX, 74PX);}
+90%{opacity:1;}
+100%{opacity:0;transform:translate(228PX, 48PX);}
+}
+@keyframes KGL12_S_track {
+0%{stroke-width:16PX;stroke-dasharray:0 590 130 0;}
+20%{stroke-width:22PX;}
+30%{stroke-width:30PX;}
+35%{stroke-width:30PX;}
+55%{stroke-width:20PX;stroke-dasharray:0 0 130 590;}
+80%{stroke-width:12PX;stroke-dasharray:0 0 0 590;}
+100%{stroke-width:12PX;stroke-dasharray:0 0 0 590;}
+}
+
+.KGL12_glass{fill:url(#KGL12_G_blue_rg)}
+
+.KGL12_R-dark1{fill: #579DF9;fill-opacity:0.1;}
+.KGL12_R-dark2{stroke-width:2;stroke-linecap:round;stroke:url(#KGL12_R_darks_blue_lg);fill:url(#KGL12_R_dark_blue_lg);}
+.KGL12_R-white{fill:url(#KGL12_R_blue_rg)}
+
+.KGL12_R-dark1,
+.KGL12_R-dark2{display:none;}
+
+.KGL12_K{fill:#FFF;}
+.KGL12_S-ani{stroke:#9AC3FD;stroke-linejoin:round;stroke-linecap:round;stroke-width:22PX;stroke-dasharray:0 590 0 0;
+  -webkit-animation:KGL12_S_track 0.83s linear 0s infinite;
+  animation:KGL12_S_track 0.83s linear 0s infinite;
+}
+.KGL12_G-ani{opacity:0;transform:translate(-88PX, 118PX);
+  -webkit-animation:KGL12_G_ani 0.83s linear 0.1s infinite;
+  animation:KGL12_G_ani 0.83s linear 0.1s infinite;
+}
+.KGL12_R-ani{
+  -webkit-animation:KGL12_R_ani 1.67s linear 0s infinite;
+  animation:KGL12_R_ani 1.67s linear 0s infinite;
+}
+
+
+.KGL-warn .KGL12_glass{fill:url(#KGL12_G_yellow_rg)}
+.KGL-warn .KGL12_R-dark1{fill: #FF9A58;}
+.KGL-warn .KGL12_R-dark2{stroke:url(#KGL12_R_darks_yellow_lg);fill:url(#KGL12_R_dark_yellow_lg);}
+.KGL-warn .KGL12_R-white{fill:url(#KGL12_R_yellow_rg)}
+.KGL-warn .KGL12_S-ani{stroke:#FFBF74;}
+
+.kg-loading-dark .KGL12_R-dark1,
+.kg-loading-dark .KGL12_R-dark2{display:block;}
+.kg-loading-dark .KGL12_R-white{display:none;}
+.kg-loading-dark .KGL12_K{fill:url(#KGL12_K_rg);}
+.kg-loading-dark .KGL-warn .KGL12_K{fill:url(#KGL12_K_lg);}</style><script type="text/javascript" src="https://staticssl.kugou.com/verify/static/js/verify.min.js?20200707&amp;kguser_jv=180925"></script><style type="text/css" id="verifyBoxCss">/* 遮罩 */.kg_verify_bg {width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(0, 0, 0, 0.6);}/* 内容框 */.kg_verify_ab_box {width: 420px; position: relative; top: 50%; transform: translateY(-50%); background: #fff; margin: 0 auto; display: none;}/* 顶部 */.kg_verify_ab_box .box_top {width: 100%; height: 38px; color: #fff; background: linear-gradient(to right,#008ae3,#0196e8); background: -webkit-linear-gradient(to right,#008ae3,#0196e8); background: -moz-linear-gradient(to right,#008ae3,#0196e8); background: -ms-linear-gradient(to right,#008ae3,#0196e8); background: -o-linear-gradient(to right,#008ae3,#0196e8); background: -webkit-gradient(linear, 0 0, 100% 0, from(#008ae3), to(#0196e8)); line-height: 38px; text-align: right;}.kg_verify_ab_box .box_top .bt_txt {margin-left: 35px; float: left;}.kg_verify_ab_box .box_top .bt_btn {display: inline-block; width: 14px; height: 14px; background-image: url(https://staticssl.kugou.com/verify/static/images/close.png?20190111); background-repeat: no-repeat; background-size: 14px auto; margin-right: 15px; cursor: pointer; margin-top: 12px;}.captcha-box {width: 360px; margin: 0 auto; position: relative;top: 50%;transform: translateY(-50%);}.credible_slide {width: 100%; height: 100%; display: none;}.credible_slide .cs_inner {width: 125px; height: 125px; background: #fff; -webkit-border-radius: 0.08rem; border-radius: 0.08rem; margin: 0 auto; position: relative; top: 50%; transform: translateY(-50%); text-align: center;}.credible_slide .cs_inner .dots_item {width: 12px; height: 12px; margin-right: 3px; border-radius: 50%; display: inline-block; vertical-align: top; background: #0090ff; position: relative; top: 50%; transform: translateY(-50%);}.cs_inner_loading {display: none;}.cs_inner_success {text-align: center; display: none;}.cs_inner_success .icon {display: inline-block; width: 50px; height: 50px; background-image: url("https://staticssl.kugou.com/verify/static/images/success.png"); background-repeat: no-repeat; background-size: contain;margin-top: 25px;}.cs_inner_success .text {font-size: 14px; color: #888;}.kg_captcha_body {background-color: #fff;}.kg_captcha_container {-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; margin: 0 auto; padding: 8px 15px;}.kg_captcha_container .title {font-size: 18px; color: #333; text-align: center;}.kg_captcha_container .kg_ca_content {position: relative; overflow: hidden; width: 250px; height: 250px; margin: 25px auto; border: 0; -webkit-background-size: 100% 100%; background-size: 100% 100%;}img[src=""], img:not([src]) {opacity: 0;}.kg_captcha_container .kg_ca_content .img_outer { position: absolute; display: block; width: 100%; height: 100%; border: 0;}.kg_captcha_container .kg_ca_content .img_inner {position: absolute; display: block; width: 100%; height: 100%; border: 0;}.kg_captcha_container .kg_ca_content .img_err {display: none; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.1); border-radius: 50%;}.kg_captcha_container .kg_ca_content .img_err img {display: inline-block; width: 50px; height: 50px; margin: 100px;}.kg_captcha_container .kg_ca_content .loading_box {position: absolute; display: block; width: 100%; height: 100%; border: 0; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; z-index: 999;}.kg_captcha_container .kg_ca_content .loading_box .inner {margin: 0 auto; position: relative; top: 50%; transform: translateY(-50%);}.kg_captcha_container .kg_ca_content .loading_box .kg_loading_icon {width: 50px; height: 50px; position: relative; margin: 0 auto; background: url(https://webimg.kgimg.com/c47e54633d8bd65701629ac3f3e6ee9f.png) no-repeat top center; background-size: 100%; }.kg_captcha_container .kg_ca_content .loading_box .kg_loading_icon:before {content: ""; width: 100%; height: 100%; background: url(https://webimg.kgimg.com/a76d10d8a9d930969330a396361f9a4a.png) no-repeat; background-size: 100%; position: absolute; top: 0; left: 0; -webkit-animation: rotateAni 1s linear infinite; animation: rotateAni 1s linear infinite;}.kg_captcha_container .kg_ca_control {position: relative; width: 100%; height: 46px; border: 1px solid #ddd; background: #f7f7f7; -webkit-border-radius: 23px; border-radius: 23px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}.kg_captcha_container .kg_ca_control .button {position: absolute; top: 0; left: -1px; -webkit-box-sizing: border-box;-moz-box-sizing: border-box; box-sizing: border-box; width: 46px; height: 100%; border: 1px solid #ddd; -webkit-border-radius: 100px; border-radius: 100px; background: #fff; -webkit-transform: translateX(0); -ms-transform: translateX(0); -moz-transform: translateX(0); transform: translateX(0);}@-webkit-keyframes rotateAni {0% {-webkit-transform: rotate(0); transform: rotate(0);} 100% { -webkit-transform: rotate(360deg); transform: rotate(360deg);}}.kg_captcha_container .kg_ca_control .button .icon {position: absolute; top: 50%; left: 50%; width: 20px; height: 20px; margin-left: -10px; margin-top: -10px; background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAyCAYAAAATIfj2AAAAAXNSR0IArs4c6QAABAdJREFUaAXtWUloU0EYbhaNTQWhItiIBz2kaYkHodWDBxEUa9OFIBHxoOnB3oSCgoqCKdijC3rpQTBCcYsQaUsE0eJBRIXiQZEuehJzUxCa1mIWvxFHpsPMvCUzh8oLlDfzzbxvvn+Zmb9JQ4P38TzgecDzgOeBVeQBn0prKpUKLC0tXa7VagNkns/nu93Y2Hgxl8tVVO9ZjZniJesGVYsvLi6OwJizdA7a54BtRv+PgRR3+jTFS3T4LcSk+XEYle7p6TnJ4w77pngtDRLqrFarN/r6+nYKB+sAdfAqI4Ro3JHoW1epVB5hL2yQjCthU7xkUaVBgUBgGAfBB5E6iNpeKpWyojErzBQvWTegWnxubu5XPB5/jlRIY15IMDcWjUZL8/PzrwRjUsgUL1lQeWxTRYlEIoWIPKR97lmGx/dNTEy85HDLrgleZYSoIkTgY2trazOM2k0x5knStguRHJuZmSkxuGXTBK9yD7GKIpHIGfRfsxhtw9DI8vLyvUwmY5uPvqub11aEyOLT09PV9vb2pxB/HN0wFcQ8txWLxSC8PsVglk3dvLb2EKuqu7u7C/0C/kTv1rCfEthPT9h37LR18dqOEBWFCHzCyUZSay/FmKcPETwUi8Xu4yT7weCWTV28jnOeKOvs7CT30zOJymYc8zlcumsl41JYB68rg7D5q+Fw+BiM+ipShyjtQgF6RTSmwnTwivaBas0VY6jn9pTL5RcAhVW73+8/Ojk5+WDFSzY69fA63kOsntnZ2S+4n0qIyEEWZ9pdbW1tOcz7zmCWzXp4XaUcqwgRuIrUy7MYbcPQ9ShiM7Tv5OmWt26DiEik1hCMqooEw6gdItwO5oZXi0E41a5DuJALhr63I140xw2vUISIXIahwDwNY5KicRizgIs2Ixqzwtzy/nennOsI4eLchA1PjmThkY3o3HRzZNfL68ogUlXj4ryLVNsiSh0Y8xYXL6nOHX108Lq6h5qamoZhzIBILYz5htNpfz6fd3T3EC4dvI73kK6qmHeGLl5HKdff378VERiDGKEjEJkRN/866OS1bdDg4OAa1G05pNpG3rt/+1MdHR2XJGNSWDev7T3U0tJyDcYcFilD1IqhUOjA6OjogmhchenmFaYOLwD5fQSYrGp2/a2PCV7LlEsmk1FE4BZvJO1j7Lybr7BM8Soj1NvbG0Y99QapFqcGcM/HhUJBWPZw81Z0TfGSRYS3PF0dlQDZ5DJjPuPeSNO5Tp6meIkGZcohnU5IhP4MBoMp/PDl6IsQymWK19IgKoB/ooI+NT4+/o7H6+3r4FVGCAKzvEh4N4tDQHpI8PMlfVO86j2EAvMCfmPFmfCvbssSTCLSNmyK17YAb6LnAc8DngdWrQd+A6CJYdIFu4L0AAAAAElFTkSuQmCC"); -webkit-background-size: 100% 100%; background-size: 100% 100%; background-repeat: no-repeat;}.kg_captcha_container .bottom {width: 100%; height: 20px; position: relative; padding: 15px 0;}.kg_captcha_container .bottom .err_msg {font-size: 14px; color: #fe2c62; position: absolute; right: left;}.kg_captcha_container .bottom .reload {width: 23px; height: 23px; background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAApCAMAAACfvvDEAAAAV1BMVEUAAACzs7Ozs7Ozs7O1tbW0tLSzs7O0tLSzs7Ozs7Ozs7OxsbG0tLS0tLS0tLSzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0tLSzs7Ozs7Ozs7MCr8W7AAAAHHRSTlMA+c7tBWPlQBvCbQ+poCPys5JPmoR5VthcMou2UDBsZgAAAVFJREFUOMutlNmWgyAMQFkEFLS4trbN/3/nJO460OHM6X0Sek1IUmQnMjPUQnKpi07lLM6tkXCgUFnYyyu4otUeZReVB0LWvR3V0Ikl7mIM9XbAKSCvDFtxapJ9S792sJquoN3qUkT7oLcVczUGXyKSKFt2JWtItQI2k1KLYFdGDjNiLoaeHAty5wczl9iPWJ/bxXzQosMHExHtml1TT3FRRcTXPoR5xcO5sxI2PC51NKSphD+Yz/gpidzYrpCYFieKPWd/4YxiDM9SsyRwVH2aiWdQaSZ28/5tk7J/u6L0LlnsfJbgrdNMQgOUaWaP478lmTlPDkpXtU0yncby0/Lf6e7lyfkfwaitKN3patUfvjbqvPUGpLyENYJ2TeBt4KXJtjrHYtoaf5clgfDvl1XKNgUHQjxDzWo4XJA29qXv9dET1n36Zw2l0N5rUdkb+y8/ZAokC7z2nLcAAAAASUVORK5CYII="); -webkit-background-size: 100% 100%; background-size: 100% 100%; background-repeat: no-repeat; position: absolute; right: 40px;}.kg_captcha_container .bottom .close {width: 23px; height: 23px; background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAASFBMVEUAAACzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OkWi1rAAAAF3RSTlMAmuwRq02hhzbj39OzeF5YHMQzhGDxxeUkqr0AAAEzSURBVDjLjZXtFoMgCIZJW1kt+1jN+7/T4chDaJ7D+yvlEYKQQMrN7WRCMFM7O6hq7Ydw09Cvj5htQqHGltxiosV0h0OjdUdH6yXn/u6+r/vW6/t3Krk3bo0JY3TE7XfOtRYK2TaRHPcDj/rcoy+46KGiHo3L5d9gXKgKoxubAo+2DtrxCr6ib8rXm0ZUzHjKHYGVXmIjy0lHOUNDTxulMJBDMhHJi+RyAHDpIKojY3EIs3Uwh9CBJJnj7Tlmf4Akcw58rN8U3SZdSMbBHsIU41vIyIwDG/PAzazhCg4ipAb1oTGZXZNMVp6mXh4uOHP00MmC8ydkjkn+hNqmEG1m8jY7uc1k4571xtVeBf3l0l9X/QDQjxT9kOKm2eTY26iNKoPU73GQ7l4OUv1o1g979e/jB3QEJK9EcOSuAAAAAElFTkSuQmCC"); -webkit-background-size: 100% 100%; background-size: 100% 100%; background-repeat: no-repeat; position: absolute; right: 0;}/* 绑定手机或微信 */.kg_verify_ab_box .wx_cont {width: 100%; text-align: center;}.kg_verify_ab_box .wx_cont .wx_txt {width: 100%; padding: 50px 0 35px 0; font-size: 16px;}.kg_verify_ab_box .wx_cont .wx_bind {width: 100%; font-size: 0; text-align: center; padding-bottom: 65px;}.kg_verify_ab_box .wx_cont .wxb_blod {display: inline-block; width: 100px; margin: 0 15px;}.kg_verify_ab_box .wx_cont .wx_icon {width: 52px; height: 52px; border-radius: 50%;}.kg_verify_ab_box .wx_cont .wx_icon_txt {font-size: 14px; color: #000; text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}.kg_verify_ab_box .wx_cont .wx_btn {display: block; width: 100px; height: 33px; border: 1px solid #e5e5e5; border-radius: 2px; color: #000; line-height: 33px; font-size: 14px; margin-top: 20px; text-decoration: none;}.kg_verify_ab_box .wx_cont .err_msg {position: relative; margin-bottom: 10px; height: 1.5em; zoom: 1; overflow: hidden; color: #db0909; font: 12px/1.5 "Microsoft YaHei",Tahoma,Arial,"b8bf53",sans-serif;}.kg_verify_ab_box .wx_cont .err_msg_icon {background-image: url(https://staticssl.kugou.com/common/images/login/kg_popup_splice01.png?201811261100); background-repeat: no-repeat; position: relative; display: inline-block; width: 12px; height: 12px; padding: 0; margin: 0 5px 0 0; vertical-align: middle; font-size: 0; overflow: hidden; background-position: 0 -100px;}.kg_verify_ab_box .wx_cont .err_msg_txt {display: inline-block; vertical-align: middle;}/* 绑定第三方账号重复 */.bindopenplat_alert {position: fixed; display: none; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.3);}.bindopenplat_alert .inner {width: 293px; background-color: #fff; border-radius: 10px; margin: 0 auto; top: 50%; left: 50%; position: fixed; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}.bindopenplat_alert .title {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; padding: 28px 28px 33px 25px; font-size: 16px; color: #000; text-align: center;}.bindopenplat_alert .title_tl {text-align: left;}.bindopenplat_alert .title_name {color: #1e88d4;}.bindopenplat_alert .account {text-align: center;}.bindopenplat_alert .pic {display: block; margin: 0 auto; width: 45px; height: 45px; border-radius: 50%;}.bindopenplat_alert .nick_name {padding: 15px 0 18px 0; font-size: 14px; color: #000;}.bindopenplat_alert .msg {font-size: 14px; color: #000;}.bindopenplat_alert .msg_num {color: #1e88d4;}.bindopenplat_alert .btn_row {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; margin-top: 38px; height: 45px; border-top: 1px solid rgba(0, 0, 0, 0.05); font-size: 0;}.bindopenplat_alert .btn_l {border: 0; background-color: #ffffff; color: #000; font-size: 16px; text-align: center; display: inline-block; vertical-align: top; width: 50%; height: 45px; border-right: 1px solid rgba(0, 0, 0, 0.05); border-radius: 0 0 0 10px;}.bindopenplat_alert .btn_r {border: 0; background-color: #ffffff; color: #1e88d4; font-size: 16px; text-align: center; display: inline-block; vertical-align: top; width: 50%; height: 45px; border-radius: 0 0 10px 0;}.bindopenplat_alert .btn_all_row {width: 100%; margin-top: 38px;}.bindopenplat_alert .btn_s {display: block; background-color: #fff; width: 100%; height: 45px; border: 0; border-top: 1px solid rgba(0, 0, 0, 0.05); color: #1e88d4; font-size: 16px;}.bindopenplat_alert .btn_c {display: block; background-color: #fff; width: 100%; height: 45px; border: 0; border-top: 1px solid rgba(0, 0, 0, 0.05); border-radius: 0 0 10px 10px; font-size: 16px;}/* 绑定手机 */.kg_verify_ab_box .phone_cont {padding: 23px 26px;}.kg_verify_ab_box .phone_cont .phone_txt {width: 100%; font-size: 16px; margin-bottom: 15px;}.kg_verify_ab_box .phone_cont .phone_txt_area {margin-bottom: 11px;}.kg_verify_ab_box .phone_cont .ipt {height: 34px; margin-bottom: 10px; color: #ccc; border: 1px solid #ccc; overflow: hidden;}.kg_verify_ab_box .phone_cont .ipt input { border: 0 none; height: 14px; padding: 9px 0; width: 240px; margin-left: 14px; outline: 0; zoom: 1; overflow: hidden; font: 16px;}.kg_verify_ab_box .phone_cont .iptHaveBtn { position: relative; width: 240px; height: 36px;}.kg_verify_ab_box .phone_cont .iptHaveBtn .disable { border: 1px solid #eee; color:#ccc; cursor: default;}.kg_verify_ab_box .phone_cont .phoneMsg { position: absolute; width: 240px;}.kg_verify_ab_box .phone_cont .get_msg { position: absolute; left: 250px; top: 0; display: block; width: 115px; line-height: 34px; border: 1px solid #ccc; border-radius: 2px; color:#666; text-align: center; cursor: pointer; font-size: 12px;}.kg_verify_ab_box .phone_cont .get_msg:active {border-color:#ccc; color:#666;}.kg_verify_ab_box .phone_cont .get_msg i {font-style: normal; color:#1e88d4;}.kg_verify_ab_box .phone_cont .err_msg {position: relative; margin-bottom: 10px; height: 1.5em; zoom: 1; overflow: hidden; color: #db0909; font: 12px/1.5 "Microsoft YaHei",Tahoma,Arial,"b8bf53",sans-serif;}.kg_verify_ab_box .phone_cont .err_msg_icon {background-image: url(https://staticssl.kugou.com/common/images/login/kg_popup_splice01.png?201811261100); background-repeat: no-repeat; position: relative; display: inline-block; width: 12px; height: 12px; padding: 0; margin: 0 5px 0 0; vertical-align: middle; font-size: 0; overflow: hidden; background-position: 0 -100px;}.kg_verify_ab_box .phone_cont .err_msg_txt {display: inline-block; vertical-align: middle;}.kg_verify_ab_box .phone_cont .box_code {height: 22px; border: 1px solid #ccc; background:#f6f6f6; padding: 7px 10px; transition:0.2s; -webkit-transition: 0.2s; -moz-transition: 0.2s; -o-transition: 0.2s; display: inline-block; vertical-align: middle; width: 128px; float: left;}.kg_verify_ab_box .phone_cont .box_code_txt {float: left; height: 22px; line-height: 22px; _margin-right: -3px; color: #7b7b7b; font: 12px/1.5 "Microsoft YaHei", Tahoma,Arial, "b8bf53", sans-serif;}.kg_verify_ab_box .phone_cont .box_code_ipt { border: 0; width: 80px; height: 22px; line-height: 22px; padding: 0; background: transparent; color: #a1a1a1; -webkit-transition: 0.2s; -moz-transition: 0.2s; -o-transition: 0.2s; transition: 0.2s; vertical-align: top;}.kg_verify_ab_box .phone_cont .box_code_area {display: inline-block; *display: inline; *zoom: 1; width: 120px; height: 40px; margin: 0 0 0 5px; vertical-align: middle; color: #7b7b7b; text-decoration: none; cursor: pointer;}.kg_verify_ab_box .phone_cont .box_code_changeone {display: inline-block; *display: inline; *zoom: 1; padding-top: 20px; height: 18px; line-height: 18px; vertical-align: middle;}.kg_verify_ab_box .phone_cont .box_code_changeone a {color: #7b7b7b; text-decoration: none; font: 12px/1.5 "Microsoft YaHei", Tahoma,Arial, "b8bf53", sans-serif;}/* 手机已被使用 */.bind_sucess{padding: 23px 26px;}.bind_sucess p {font-size: 14px;}.bind_sucess a { color: #7b7b7b; text-decoration: none;}.bind_sucess .tips {height: 60px; line-height: 24px; text-align: center;}.bind_sucess .phone {color:#ff5b0a;}.bind_sucess .sucess_infor {width: 238px; height: 54px; line-height: 30px; margin: 0 auto; margin-bottom: 20px; border: 1px solid #e5e5e5; padding: 13px 20px; font-size: 16px; color:#888; background:#f8f8f8;}.bind_sucess .confirm_bind {width: 280px; margin: 0 auto; margin-bottom: 20px; text-align: center;}.bind_sucess .confirm_bind .cancel_bind {display: block; width: 100%; height: 40px; line-height: 40px; font-size: 16px; color: #fff; text-decoration: none; cursor: pointer; background-color: #2299ed; margin: 0; border-radius: 4px; padding: 0; text-align: center;}/* 阻断，上报 */.kg_verify_ab_box .stop_cont {padding: 25px 35px;}.kg_verify_ab_box .stop_cont .stop_main {font-size: 0;}.kg_verify_ab_box .stop_cont .stop_icon { display: inline-block; vertical-align: middle; width: 42px; height: 42px; margin: 0 20px 0 0;}.kg_verify_ab_box .stop_cont .stop_txt { display: inline-block; vertical-align: middle; width: 285px;}.kg_verify_ab_box .stop_cont .stop_txt_title {font-size: 18px; color: #333;}.kg_verify_ab_box .stop_cont .stop_txt_cont {margin-top: 10px; font-size: 13px; color: #999; line-height: 18px;}.kg_verify_ab_box .stop_cont .stop_bind {text-align: center; margin-top: 30px;}.kg_verify_ab_box .stop_cont .stop_btn { display: inline-block; width: 90px; height: 28px; line-height: 28px; text-align: center; margin: 0 9px;}.kg_verify_ab_box .stop_cont .stop_btn_feeback {background-color: #1e88d4; color: #fff;}.kg_verify_ab_box .stop_cont .stop_btn_get {border: 1px solid #e5e5e5; color: #000;}.box_error {position: absolute; background: #fff; top: 50%; margin-top: -180px; left: 50%; margin-left: -105px; padding: 25px 35px; display: none;}.box_error_img {display: inline-block; vertical-align: middle; width: 25px; height: 25px;}.box_error_cont {display: inline-block; vertical-align: middle; line-height: 25px; font-size: 14px; padding-left: 10px;}/* 绑定按钮 */.kg_verify_ab_box .phone_cont .phone_btn {display: block; width: 100%; height: 40px; line-height: 40px; font-size: 16px; color: #fff; text-decoration: none; cursor: pointer; background-color: #2299ed; margin: 0; border-radius: 4px; padding: 0; text-align: center;}/* 解决滑块会根据滚动条滚动的问题 */#tcaptcha_transform {position: fixed !important;}/* 绑定按钮 */.verify_10_btn {width: 80% !important;}/* 验证10 */.page_verify_10 .ipt {height: 36px; margin-bottom: 10px; overflow: hidden; font-size: 0;}.page_verify_10 .ipt span {width: 90px; font-size: 14px; color: #000; display: inline-block; vertical-align: middle;}.page_verify_10 .ipt input {width: 230px; display: inline-block; vertical-align: middle; border: 1px solid #ccc; height: 16px; padding: 9px; outline: 0; zoom: 1; overflow: hidden; font-size: 14px;}.page_verify_10 .errmsg {width: 100%; font-size: 12px; color: #db0909}/* verify in phone */.qrcode_cont {padding: 25px 10px;}.qrcode_tips {text-align: center;}.qrcode {width: 200px; height: 200px; position: relative; margin: 15px auto;}.qrcode img {width: 100%; height: 100%;}.overtime {width: 100%; height: 100%; background-color: rgba(255,255,255,0.9); position: absolute; left: 0; top: 0;}.overtime .btn {width: 100px; height: 30px; text-align: center; border-radius: 5px; background: #0090ff; color: #fff; margin: 85px auto; line-height: 30px; cursor: pointer;}.page_verify_in_phone .errmsg {width: 100%; font-size: 12px; color: #db0909; margin-top: 5px; text-align: center;}/* 27 */.page_verify_kw .box_top {background: #cb83f7;}.verify_kw_cont {padding: 0; width: 100%; height: 250px; transform: scale(0.95);}.verify_kw_cont iframe {width: 100%; height: 100%; border: 0;}</style><script type="text/javascript" src="https://h5.kugou.com/apps/verify-pkg/verifycode.js?20200701"></script><script type="text/javascript" src="https://staticssl.kugou.com/common/js/min/popuplogin-min.js?1740912909"></script><style type="text/css" id="KgPopupLoginStyleheet">.kg_popup_close{ position:absolute; top: -37px; right:0; width:37px; height:37px; background:url(about:blank);}
+.kg_popup_close i{ background-image:url(https://staticssl.kugou.com/common/images/login/clos3.png); background-repeat:no-repeat; position:absolute; left: 50%; top: 50%; width: 20px; height: 20px; margin-left: -9px; margin-top: -9px; overflow:hidden; text-indent:-999em; opacity: 0.6; filter:alpha(opacity=60); -webkit-transition:0.2s; -moz-transition:0.2s; -o-transition:0.2s; transition:0.2s; cursor:pointer;}
+.kg_popup_close:hover i{ opacity:1; filter:alpha(opacity=100);}
+.kg_popup_login{ position:fixed; _position:absolute;}</style></head>
+<body>
+<!-- 头部 -->
+
+
+<script src="https://hm.baidu.com/hm.js?aedee6983d4cfc62f509129360d6bb3d"></script><script>
+  // ie9及以下 提示升级浏览器
+  var checkIe9 = function() {
+    function IEVersion () {
+      if (document.documentMode) return document.documentMode;
+    }
+    if (IEVersion()) {
+      if (IEVersion() <= 9) {
+        document.body.innerHTML = ('<p style="position:absolute;width:100%;height:100%;background:#fff;z-index:99999999;left:0;top:0;font-size: 30px;text-align: center;color: #0062FF;">您的浏览器版本过低，可能存在安全风险，建议升级或更换浏览器后浏览本站</p>')
+      }
+    } else {
+    }
+  }
+  checkIe9()
+</script>
+<link rel="stylesheet" href="https://www.kugou.com/common/css/cmdialog.css?20220113">
+<link rel="stylesheet" href="https://www.kugou.com/common/css/cmhead_v20.css?20220113">
+<div class="cmhead1">
+    <div class="cmhead1_d0">
+        <div class="cmhead1_d1">
+            <a href="https://www.kugou.com" class="cmhead1_a2">
+                <img src="https://www.kugou.com/common/images/icon_logo_v20.png" alt="" class="cmhead1_i1">
+            </a>
+            <div class="cmhead1_d7">
+                <div class="cmhead1_nd0"></div>
+                <div class="cmhead1_nd1 _nfCon"></div>
+                <input type="text" class="cmhead1_ipt1 _cmheadsearchinput">
+                <div class="cmhead1_d8 _searchbtn4cmhead"></div>
+                <div class="cmhead1_d12 _recommend4cmhead">
+                    <ul class="cmhead1_ul1 _recommendsong">
+                    </ul>
+                    <div class="cmhead1_d13">
+                        <span class="cmhead1_sp2"></span>
+                        <span class="cmhead1_sp3">MV</span>
+                    </div>
+                    <ul class="cmhead1_ul1 _recommendmv">
+                    </ul>
+                </div>
+                <div class="cmhead1_d14 _history4cmhead">
+                    <ul class="cmhead1_ul1 _historysong">
+                    </ul>
+                    <div class="cmhead1_d15 _clearhistorysong">清空搜索历史</div>
+                </div>
+            </div>
+        </div>
+        <div class="cmhead1_d2">
+            <a target="_blank" href="https://www.kugou.com/imusic/" class="cmhead1_a1">音乐人</a>
+            <a target="_blank" href="http://www.kugou.com/fmugc-v2/dist/index.html" class="cmhead1_a1" rel="nofollow">音频创作</a>
+            <a target="_blank" href="http://vip.kugou.com/" class="cmhead1_a1" rel="nofollow">VIP会员</a>
+
+            <div class="cmhead1_d3"></div>
+
+            <div class="cmhead1_d4">
+                <div class="cmhead1_d5 _login">登录</div>
+                <div class="cmhead1_d6 _userinfoBox">
+                    <div class="cmhead1_d9">
+                        <img src="" alt="" class="cmhead1_i2">
+                        <span class="cmhead1_sp1"></span>
+                    </div>
+                    <div class="cmhead1_d10">
+                        <a class="cmhead1_d11 _userinfo" target="_blank" href="https://www.kugou.com/newuc/user/uc/type=edit" rel="nofollow">个人账号</a>
+                        <a class="cmhead1_d11 _logout" href="https://www.kugou.com/newuc/login/outlogin" rel="nofollow">退出登录</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+<div class="cmhead2">
+    <div class="cmhead2_d0"></div>
+    <div class="cmhead2_d01"></div>
+    <ul class="cmhead2_ul1">
+        <li class="cmhead2_li1">
+            <a href="https://www.kugou.com/" class="cmhead2_a1">首页</a>
+        </li>
+        <li class="cmhead2_li1" id="_rankhome">
+            <a href="https://www.kugou.com/yy/html/rank.html" class="cmhead2_a1">榜单</a>
+        </li>
+        <li class="cmhead2_li1 _active" id="_tshome">
+            <a href="https://www.kugou.com/ts/" class="cmhead2_a1">听书</a>
+        </li>
+        <li class="cmhead2_li1">
+            <a href="http://fanxing.kugou.com/?action=spreadIndex&amp;id=3" target="_blank" class="cmhead2_a1">直播</a>
+        </li>
+        <li class="cmhead2_li1" id="_downloadhome">
+            <a href="https://download.kugou.com/" class="cmhead2_a1">下载酷狗</a>
+        </li>
+        <li class="cmhead2_li1">
+            <a href="https://www.kugou.com/about/business.html" class="cmhead2_a1">商务合作</a>
+        </li>
+        <li class="cmhead2_li1 _more">
+            <div class="cmhead2_d2">
+                更多
+                <div class="cmhead2_d3"></div>
+            </div>
+            <ul class="cmhead2_ul2">
+                <li style="
+                    height: 15px;
+                    margin-top: -25px;
+                    position: absolute;
+                    width: 100%;
+                "></li>
+                <li class="cmhead2_li2">
+                    <a href="https://www.kugou.com/fmweb/html/index.html" class="cmhead2_a2">频道</a>
+                </li>
+                <li class="cmhead2_li2">
+                    <a href="https://www.kugou.com/mvweb/html/" class="cmhead2_a2">MV</a>
+                </li>
+                <li class="cmhead2_li2">
+                    <a href="https://www.kugou.com/yy/html/special.html" class="cmhead2_a2">歌单</a>
+                </li>
+                <li class="cmhead2_li2">
+                    <a href="https://www.kugou.com/yy/html/singer.html" class="cmhead2_a2">歌手</a>
+                </li>
+                <li class="cmhead2_li2">
+                    <a href="https://www.kugou.com/yy/album/index/1-1-1.html" class="cmhead2_a2">专辑</a>
+                </li>
+                <li class="cmhead2_li2">
+                    <a href="https://www.kugou.com/burntool/" class="cmhead2_a2">煲机</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script src="https://m.kugou.com/static/js/share/npm/sentry5.6.1.min.js" crossorigin="anonymous"></script>
+<script>
+    Sentry.init({
+        dsn: "https://fc8678a0071145128f0c8314c07f8407@sentry.kugou.com/33",
+        // integrations: [new Sentry.Integrations.BrowserTracing()],
+        sampleRate: 0.1,
+    })
+</script>
+
+<script type="text/javascript" src="https://www.kugou.com/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.kugou.com/common/js/lib.js"></script>
+<script type="text/javascript" src="https://www.kugou.com/common/js/utility.js"></script>
+<script src="https://staticssl.kugou.com/common/js/min/login/kguser.v2.min.js?20190111"></script>
+<script src="https://staticssl.kugou.com/common/js/repalceHttpsImg.js"></script>
+<script src="https://staticssl.kugou.com/common/js/min/npm/getBaseInfo.min.js"></script>
+<script src="https://staticssl.kugou.com/common/js/min/infSign.min.js"></script>
+<script type="text/javascript" src="https://staticssl.kugou.com/verify/static/js/registerDev.v1.min.js?appid=1014&amp;20190408" charset="utf-8"></script>
+<script type="text/javascript" src="https://www.kugou.com/common/js/cmhead.min.js?20220119"></script>
+<div id="loading_ele"></div>
+<script>
+    window.HIJACKED_LIST = ['turing.captcha.qcloud.com/'];  
+</script>
+<!--底部-->
+<link rel="stylesheet" href="https://www.kugou.com/common/css/cmfoot.css?20220127">
+<div class="cmfoot">
+    <ul class="cmfoot_ul1">
+        <li class="cmfoot_li1">
+            <a href="https://www.tencentmusic.com/" target="_blank" class="cmfoot_a1 _a4i1" rel="nofollow">
+                <div class="cmfoot_a1_d1 _i1"></div>
+                <p class="cmfoot_a1_p1">腾讯音乐娱乐集团</p>
+            </a>
+        </li>
+        <li class="cmfoot_li1">
+            <a href="https://y.tencentmusic.com/" target="_blank" class="cmfoot_a1 _a4i2" rel="nofollow">
+                <div class="cmfoot_a1_d1 _i2"></div>
+                <p class="cmfoot_a1_p1">腾讯音乐人</p>
+            </a>
+        </li>
+        <li class="cmfoot_li1">
+            <a href="https://www.kugou.com/imusic/" target="_blank" class="cmfoot_a1 _a4i3" rel="nofollow">
+                <div class="cmfoot_a1_d1 _i3"></div>
+                <p class="cmfoot_a1_p1">酷狗音乐人</p>
+            </a>
+        </li>
+        <li class="cmfoot_li1">
+            <a href="https://tui.kugou.com/" target="_blank" class="cmfoot_a1 _a4i4" rel="nofollow">
+                <div class="cmfoot_a1_d1 _i4"></div>
+                <p class="cmfoot_a1_p1">音乐推</p>
+            </a>
+        </li>
+        <li class="cmfoot_li1">
+            <a href="http://5sing.kugou.com/" target="_blank" class="cmfoot_a1 _a4i5" rel="nofollow">
+                <div class="cmfoot_a1_d1 _i5"></div>
+                <p class="cmfoot_a1_p1">5sing原创音乐</p>
+            </a>
+        </li>
+        <li class="cmfoot_li1">
+            <a href="https://www.kugou.com/music_recognition/?from=pcweb" target="_blank" class="cmfoot_a1 _a4i7" rel="nofollow">
+                <div class="cmfoot_a1_d1 _i7"></div>
+                <p class="cmfoot_a1_p1">听歌识曲</p>
+            </a>
+        </li>
+        <li class="cmfoot_li1">
+            <a href="https://gejigeji.kugou.com/" target="_blank" class="cmfoot_a1 _a4i8">
+                <div class="cmfoot_a1_d1 _i8"></div>
+                <p class="cmfoot_a1_p1">歌叽歌叽</p>
+            </a>
+        </li>
+    </ul>
+    
+    <ul class="cmfoot_ul2">
+        <li class="cmfoot_li2">
+            <a href="https://www.kugou.com/about/aboutus.html" target="_blank" class="cmfoot_a3" rel="nofollow">关于酷狗</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a href="https://www.kugou.com/about/business.html" target="_blank" class="cmfoot_a3" rel="nofollow">商务合作</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a href="https://www.kugou.com/about/adservice.html" target="_blank" class="cmfoot_a3" rel="nofollow">广告服务</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a href="https://www.kugou.com/about/copyRightGuide.html" target="_blank" class="cmfoot_a3" rel="nofollow">投诉指引</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a href="https://activity.kugou.com/privacy4pcweb/v-d45bb170/index.html" target="_blank" class="cmfoot_a3" rel="nofollow">隐私政策</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a href="https://activity.kugou.com/privacy4pcweb/v-5115fce0/index.html" target="_blank" class="cmfoot_a3" rel="nofollow">儿童隐私政策</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a href="https://activity.kugou.com/privacy4pcweb/v-e010f2d0/index.html" target="_blank" class="cmfoot_a3" rel="nofollow">用户服务协议</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a href="https://www.kugou.com/hr/kugouHr/dist/index.html" target="_blank" class="cmfoot_a3" rel="nofollow">招聘信息</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a href="https://www.kugou.com/shop/help/serviceCenter" class="cmfoot_a3" rel="nofollow">客服中心</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a href="https://www.kugou.com/shop/help/serviceCenter?showlist=1" class="cmfoot_a3" rel="nofollow">举报中心</a>
+        </li>
+    </ul>
+    
+    <ul class="cmfoot_ul2">
+        <li class="cmfoot_li2">
+            <a target="_blank" href="https://www.kugou.com/common/images/kugou_wangluowenhua.jpg" class="cmfoot_a3" rel="nofollow">粤网文（2022）1053-085号</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a target="_blank" href="https://www.kugou.com/common/images/kugou_xinxiwangluo.jpg" class="cmfoot_a3" rel="nofollow">网络视听许可证 1910564号</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a target="_blank" href="https://www.kugou.com/common/images/kugou_dianxin.jpg" class="cmfoot_a3" rel="nofollow">增值电信业务 粤B2-20060339</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a target="_blank" href="https://beian.miit.gov.cn/" class="cmfoot_a3" rel="nofollow">粤ICP备09017694号</a>
+        </li>
+    </ul>
+    
+    <ul class="cmfoot_ul2">
+        <li class="cmfoot_li2">
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010602000141" class="cmfoot_a3" rel="nofollow">粤公网安备 44030002000001号</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a target="_blank" href="https://www.kugou.com/common/images/kugou_zhongjiaoxukezheng.jpg" class="cmfoot_a3" rel="nofollow">互联网宗教信息服务许可证 粤（2022）0000022</a>
+        </li>
+        <li class="cmfoot_li2">
+            <a target="_blank" href="https://www.kugou.com/common/images/kugou_yingyezhizhao.jpg" rel="nofollow" class="cmfoot_a3">营业执照</a>
+        </li>
+    </ul>
+
+    <div class="cmfoot_d1">
+        <a target="_blank" href="https://www.12377.cn/" class="cmfoot_d1_a1" rel="nofollow">互联网不良信息举报中心</a>
+        <span class="cmfoot_d1_sp1">酷狗不良信息举报邮箱：jubao_music@kugou.net</span>
+        <span class="cmfoot_d1_sp1">客服电话：020-29195668</span>
+    </div>
+
+    <div class="cmfoot_d1">
+        <span class="cmfoot_d1_sp1">Copyright © 2004-2025 KuGou-Inc.All Rights Reserved</span>
+    </div>
+    
+</div>
+
+<!--百度---统计-->
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        
+        var _this = this,
+            tUrl = location.href,
+            reg = /\d+/g,
+            ua = navigator.userAgent.toLowerCase(),
+            ipad = /ipad/gi.test(ua),
+            android = /android|Adr/gi.test(ua),
+            iphone = /iphone/gi.test(ua),
+            mobileUa = !!ua.match(/AppleWebKit.*Mobile.*/),
+            frwrap = /fr=wrap/gi.test(tUrl);
+        var bdScriptSrc = 'https://hm.baidu.com/hm.js?aedee6983d4cfc62f509129360d6bb3d'
+        if (!frwrap) {
+            if (!ipad) {
+                if ((android || iphone || mobileUa) && tUrl.indexOf('m.kugou') != -1) { // 手机UA且访问站点位m.kugou.com (听书移动端页面场景)
+                    bdScriptSrc = "https://hm.baidu.com/hm.js?c0eb0e71efad9184bda4158ff5385e91"
+                }
+            }
+        }
+        
+        var hm = document.createElement("script")
+        hm.src = bdScriptSrc
+        var s = document.getElementsByTagName("script")[0]
+        s.parentNode.insertBefore(hm, s)
+
+    })();
+    (function () {
+        setTimeout(function () {
+            var d = document.createElement("script");
+            d.src = "https://staticssl.kugou.com/common/js/min/hijacked-min.js";
+            document.body.appendChild(d);
+        }, 2000);
+    })();
+</script>
+<script>
+    (function () {
+        setTimeout(function () {
+            var d = document.createElement("script");
+            d.onload = function(){
+                var d2 = document.createElement("script");
+                d2.src = "https://www.kugou.com/common/js/reportStat.js";
+                document.body.appendChild(d2);
+            };
+            d.src = "https://staticssl.kugou.com/collect/common/dist/js/collect-2400.js";
+            document.body.appendChild(d);
+        }, 0);
+    })();
+</script>
+<script type="text/javascript" src="https://www.kugou.com/common/js/utility.js"></script>
+<script src="https://staticssl.kugou.com/verify/static/js/registerDev.v1.min.js?appid=1014&amp;20190408"></script>
+<script src="https://activity.kugou.com/vpublic/kg-loading_2.0.6.min.js"></script>
+<script src="https://staticssl.kugou.com/common/js/min/login/kguser.v2.min.js"></script>
+<script>
+    var ssacode = 'gz_tx_event_0bbadf95e49ed049425568b3c6de2878';
+    var ssahmid = '89e7f9edd84a6dae3303c64b824afcfc';
+    
+    if (!ssahmid) {
+        var loadObj
+        function showLoadHandle () {
+            loadObj && loadObj.remove()
+            loadObj = window.kgLoad({
+                ele: "loading_ele",
+                msg: "正在加载，请稍候",
+                type: 'block',
+                ver: '12',
+                warnConfig: {
+                    time: 5000, // 默认为5秒
+                }
+            })
+        }
+        showLoadHandle()
+
+        setTimeout(function() {
+            window.location.reload()
+        }, 1000)
+    } else {
+        KgUser.antiBrush({
+            eventid: ssacode,
+            userid: utility.read("KuGoo") ? utility.read("KuGoo").KugooID : "0",
+            appid: 1014,
+            mid: ssahmid,
+            url: window.location.href,
+            callback: function (res) {
+                if (res && res.status) {
+                    KgUser.Cookie.remove('SSA-CODE')
+                    KgUser.Cookie.remove('SSA-HMID')
+                } 
+                window.location.reload()
+            }
+        });
+    }
+</script>
+
+<script src="https://staticssl.kugou.com/collect/common/dist/js/collect-2400.js"></script>                  <div class="suspension4rightside" style="position: absolute; top: 770px;">                      <div class="s4rs_d1">                          <a href="https://download.kugou.com/" class="s4rs_a1 _s4rs_ic1">                              <div class="s4rs_d2 _s4rs_icm1"></div>                              <p class="s4rs_p1">下载酷狗</p>                              <div class="s4rs_d3">                                  <div class="s4rs_d3_d1">                                      <img src="https://www.kugou.com/common/images/qrcode4home_download.png" alt="" class="s4rs_d3_i1">                                      <p class="s4rs_d3_p2">下载手机酷狗</p>                                  </div>                              </div>                          </a>                      </div>                      <div class="s4rs_d1">                          <a href="https://www.kugou.com/shop/help/serviceCenter" class="s4rs_a1 _s4rs_ic3">                              <div class="s4rs_d2 _s4rs_icm3"></div>                              <p class="s4rs_p1">意见反馈</p>                          </a>                      </div>                      <div class="s4rs_d1">                          <a href="#" class="s4rs_a1 _s4rs_ic4">                              <div class="s4rs_d2 _s4rs_icm4"></div>                              <p class="s4rs_p1">返回顶部</p>                          </a>                      </div>                  </div>                <script src="https://www.kugou.com/common/js/reportStat.js"></script><div class="kg_popup kg_popup_login" id="KgPopupLoginBox" style="display: block; z-index: 10001; left: 50%; margin-left: -220px; top: 50%; margin-top: -188px; position: fixed;"><a id="KgPopupLoginCloseBtn" class="kg_popup_close" title="关闭" href="javascript:;"><i>关闭</i></a><iframe style="height:376px;width:440px" scrolling="no" frameborder="0" id="loginIframe" src="https://login-user.kugou.com/login/?appid=1014&amp;ref=https://www.kugou.com/reg/web/&amp;redirect_uri=https://staticssl.kugou.com/common/html/login/regok.html&amp;callback=UsLoginCallback" data-mohijack="3"></iframe></div><div id="KgPopupLoginBoxBg" style="position: absolute; display: block; left: 0px; top: 0px; width: 1905px; background: rgb(0, 0, 0); opacity: 0.6; z-index: 10000; height: 993px;"><iframe style="position: absolute; top: 0px; left: 0px; width: 100%; height: 993px; opacity: 0.01;" frameborder="0" src="about:blank" data-mohijack="3"></iframe></div><script src="https://staticssl.kugou.com/common/js/min/hijacked-min.js"></script></body></html>

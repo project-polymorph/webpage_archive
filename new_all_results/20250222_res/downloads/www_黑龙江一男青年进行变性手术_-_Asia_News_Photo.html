@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html style="font-size:100px;"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <!--让部分国产浏览器默认采用高速模式渲染页面-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title></title>
+    
+    <script>
+        <!--检查是否需要跳到手机版-->
+        !function checkAndGo(){
+            var search = location.search;
+            if(/view=1/gi.test(search)){
+                return;
+            }
+            var _clientWidth = document.documentElement ? document.documentElement.clientWidth : document.getElementsByTagName("html")[0].clientWidth;
+            if(_clientWidth > 1024){
+                return ;
+            }
+            var url = window.location.href;
+            if(url.indexOf('/photo') != -1){
+                url = url.replace('/photo','/m_photo')
+            }
+            return window.location.replace(url);
+        }()
+    </script>
+    
+
+
+
+
+
+
+<link rel="icon" href="/public_resource/public/img/favicon.ico?v=4" type="image/x-icon">
+<link href="/public_resource/public/lib/bootstrap/css/bootstrap.min.css?v=4" rel="stylesheet">
+<!-- 阿里字体图标-->
+<link href="/public_resource/public/css/iconfont/iconfont.css?v=4" rel="stylesheet">
+<!-- 公共CSS-->
+<link href="/public_resource/public/lib/sweetalert/dist/sweetalert.css?v=4" rel="stylesheet">
+<link href="/public_resource/public/css/common_style.css?v=4" rel="stylesheet">
+<link href="/public_resource/public/css/new_temp.css?v=4" rel="stylesheet">
+<!-- <link href="/public_resource/public/dist/css/c_head.css?v=50b4412989" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://www.asianewsphoto.com/public_resource/public/lib/layer/theme/default/layer.css?v=3.1.1" id="layuicss-layer"></head><body style="position: relative;"><input style="display: none" type="hidden" id="rootPath" data-path="/public_resource/public"><i class="iconfont resetIcon" style="display:none"></i>
+<!--分享-->
+
+
+
+
+
+<script type="text/javascript">
+    (function (exports) {
+        exports.htmlUrl = {
+        search_html:"/1264/index.html",
+        m_search_html:"/1567/index.html"
+        };
+        exports.default = {
+            defaultImg : "/public_resource/public/img/default.png",
+            defaultImg2_1 : "/public_resource/public/img/default2_1.png"
+        }
+        exports.setDefaultImgWhenError = function (item,imgUrl) {
+            if(imgUrl == 'default2_1'){
+                imgUrl = tycom.default.defaultImg2_1;
+            }else{
+                imgUrl = tycom.default.defaultImg;
+            }
+            var $item = $(item);
+            var errorTime = $item.data('errorTime');
+            if(errorTime >3 ){
+                item.onerror = null;
+                return ;
+            }
+            $item.attr('src',imgUrl);
+            errorTime == undefined ? $item.data(errorTime,1)  : $item.data(errorTime,errorTime + 1) ;
+
+        }
+        //    环境变量
+        exports.env = {
+            lang:'cn'
+        }
+
+        window.excludeSubjectCodes = ["fuse_media","fuse_media_recommend_work","fuse_media_recommend","fuse_media_site","zjwz_fuse_media","zjra_fuse_media","zjcx_fuse_media","zjrj_fuse_media","gztj_fuse_media","hnwc_fuse_media","hbnq_fuse_media","jxhc_fuse_media","jxxw_fuse_media","hbwh_fuse_media","gsdh_fuse_media","gszy_fuse_media","gxlz_fuse_media","fjnd_fuse_media","fjsm_fuse_media","sxpy_fuse_media","sxqy_fuse_media","scyb_fuse_media","scsm_fuse_media","nmej_fuse_media","nmee_fuse_media","nmxl_fuse_media","lnsy_fuse_media","lnpj_fuse_media","jlqg_fuse_media","hheb_fuse_media","hlhh_fuse_media","xznq_fuse_media","xjbh_fuse_media","jxay_fuse_media","sxjx_fuse_media","new_layout","new_leader_layout","xuexishijiao","shijuetianxia","New_Info_graphics","New_News_Page_Design","New_8_Pages_Spread","New_illustration","New_Cartoon","regular_video","New_Talking_Images","guangyinghuixinpian","New_Lens","Far_Wide","New_Going_Green","New_Talking_Cartoons","New_Paintings_of_the_Age","latest_video","AIhuagushi","usercenter","Special_List_video1","Video_Special_Coverage"];
+    })((function () {
+        if (typeof exports === 'undefined') {
+            if (typeof window.tycom === 'undefined') {
+                window.tycom = {};
+            }
+            return window.tycom;
+        } else {
+            return exports;
+        }
+    })());
+</script>
+ 
+<script>
+        var localLang = "cn"
+        var siteCode = "anp_cn"
+        var siteId = 58
+        var rootPath = document.getElementById("rootPath").getAttribute("data-path");
+        var version = "?v=2";
+        localStorage.setItem('version', "2");
+        var screenSwitch = true;
+        var dUseCache = true;
+
+        var locationAdd = window.location.hostname
+        if(window.location.hostname == "qa.asianewsphoto.com"){
+                locationAdd = window.location.protocol + "//" + "dynamicqa." + locationAdd.substring(locationAdd.indexOf('.') + 1, locationAdd.length);
+        }else if(window.location.hostname == "www.asianewsphoto.com"){
+                locationAdd = window.location.protocol + "//" + "dynamic." + locationAdd.substring(locationAdd.indexOf('.') + 1, locationAdd.length)
+        }else{
+                locationAdd = window.location.origin;
+        }
+</script>
+<!--jquery-->
+<!-- <script src="/public_resource/public/lib/jquery/jquery.min.js?v=4"></script>
+<script src="/public_resource/public/lib/moment/moment.min.js?v=4"></script>
+<script src="/public_resource/public/js/utils/lang.js?v=4"></script>
+<script src="/public_resource/public/lib/crypto-js-3.1.9-1/crypto-js.js?v=4"></script>
+<script src="/public_resource/public/lib/encryption_data.min.js?v=4"></script>
+<script src="/public_resource/public/lib/nunjucks/browser/nunjucks.js?v=4"></script>
+<script src="/public_resource/public/js/utils/api_tools.js?v=4"></script>
+<script src="/public_resource/public/js/hideElement.js?v=4"></script>
+<script src="/public_resource/public/lib/lazysizes/lazysizes.min.js?v=4"></script> -->
+<script src="/public_resource/public/dist/js/c_head.min.js?v=0c3afa2b0e"></script>
+<!-- 以下的 rem相关和respond相关的都需要放在css之后 -->
+<!-- 调整htmlfont-size大小 -->
+<script src="/public_resource/public/js/tycom_rem.js?v=4"></script>
+<!-- 使IE8支持rem -->
+<script src="/public_resource/public/js/ie8rem.js?v=4"></script>
+<script>
+        // $.ajaxPrefilter( function( s ) {
+	//     if ( s.crossDomain ) {
+	// 	s.contents.script = false;
+	//     }
+	// } );
+
+        if(dUseCache){
+        $.ajaxPrefilter(function(options) {
+        var optUrl = options.url.split("?",1)
+           if(/.json$/.test(optUrl)){
+                options.cache = false
+               //options.ifModified = true
+            }
+        });
+        }
+        $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+			if (location.origin !== new URI(options.url).origin()) {
+				options.crossDomain = true;
+				if (!options.xhrFields)
+					options.xhrFields = {};
+				options.xhrFields.withCredentials = true;
+			}
+		});
+</script>
+
+ 
+    <script src="/public_resource/public/js/render.js"></script>
+
+
+
+
+
+
+    <div class="header">
+    <div class="anp-top">
+        <!--1550 layout wrapper -->
+        <div class="layout  clearfix">
+            <!--左边logo-->
+            <h1 class="top-logo fl" style="width: 380px">
+                <a href="/cn/index.html">
+                    <img src="/public_resource/public/img/top-logo.png" alt="AsiaNewsPhoto">
+                    <span style="font-size:14px;"></span>
+                </a>
+            </h1>
+            <!--右边-->
+            <div class="top-right fr login-container">
+                <!--搜索框-->
+                <div class="search-box">
+                    <div class="search-container" data-searchurl="/1264/index.html" style="position: relative;">
+                        <input class="search-input" type="text" placeholder="请输入查询关键字"><i class="iconfont resetIcon" style="display:none"></i><button class="search-btn"><span class="iconfont iconsearch" style="color:#fff"></span></button>
+                    </div>
+                </div>
+                <div class="top-upload">
+                    <a class="dib" href="/public_resource/public/html/uc1-new.html">
+                        <span class="iconfont iconshangchuan1"></span>
+                        <span class="upload-text">上传</span>
+                    </a>
+                </div>
+
+                <div class="login">
+                    <a href="/public_resource/public/html/login2.html">登录</a><span>/</span><a href="/public_resource/public/html/./res-know.html">注册</a>
+                </div>
+                <div class="lang"><a href="/en/index.html">EN</a></div>
+                <!--用户头像-->
+                <div class="user-center" style="display: none;">
+                    <div class="alarm">
+                        <a class="alarm-icon" onclick="event.stopPropagation();tycom.nav_js.clickAlarmIcon(this)" href="#"><span class="iconfont iconalarm"></span><span class="none red-point iconfont iconyuandian-copy"></span></a>
+                        <ul class="alarmUl">
+                            <li class="more"><a href="/public_resource/public/html/uc2-message-list.html">查看更多</a><span class="iconfont iconarrowdropdown"></span></li>
+                        </ul>
+
+                    </div>
+                    <div class="user">
+                        <a class="avatar" href="/public_resource/public/html/uc1-index.html">
+                            <!-- <img src="/public_resource/public/img/usercenter/avatar.jpg" alt="avatar"> -->
+                        <img alt="avatar" src="/public_resource/public/img/usercenter/avatar.jpg"></a>
+                        <span class="iconfont iconarrowdropdown" onclick="event.stopPropagation();tycom.nav_js.clickIconfont(this)"></span>
+                        <ul class="hiddle-box">
+                            <li class="uc1 none"><a href="/public_resource/public/html/uc1-profile.html">个人信息</a></li>
+                            <li class="uc1 none"><a href="/public_resource/public/html/uc1-upload.html">我的图库</a></li>
+                            <li class="uc1 none"><a href="/public_resource/public/html/uc1-like.html">我的收藏</a></li>
+							<li class="uc2 none"><a href="/public_resource/public/html/uc2-profile.html">个人信息</a></li>
+                            <li class="uc2 none"><a href="/public_resource/public/html/uc2-download.html">我的下载</a></li>                          
+                            <li class="uc2 none"><a href="/public_resource/public/html/uc2-like.html">我的收藏</a></li>
+                            <li class="logout"><a href="javascript:void(0);">退出</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menubar">
+        <div class="layout">
+            <ul class="nav-list clearfix">
+                <li data-subject="home">
+                    <a href="/cn/index.html">首页</a>
+                </li>
+                <li data-subject="hour">
+                    <a href="/subjects/hour/1194/index.html">24小时</a>
+                </li>
+                <li data-subject="Politics">
+                    <a href="/subjects/Politics/1142/index.html">时政</a>
+                </li>
+                <li data-subject="international">
+                    <a href="/subjects/international/1149/index.html">国际</a>
+                </li>
+                <li data-subject="Business_Economics">
+                    <a href="/subjects/Business_Economics/1153/index.html">经济</a>
+                </li>
+                <li data-subject="Society">
+                    <a href="/subjects/Society/1157/index.html" class="active">社会生活</a>
+                </li>
+                <li data-subject="Science_Education">
+                    <a href="/subjects/Science_Education/1161/index.html">科技</a>
+                </li>
+                <li data-subject="Sports">
+                    <a href="/subjects/Sports/1165/index.html">体育</a>
+                </li>
+                <li data-subject="Culture">
+                    <a href="/subjects/Culture/1169/index.html">文化艺术</a>
+                </li>
+                <li data-subject="Environment">
+                    <a href="/subjects/Environment/1173/index.html">自然环境</a>
+                </li>
+                <li data-subject="legal_system">
+                    <a href="/subjects/legal_system/1177/index.html">法制</a>
+                </li>
+                <li data-subject="military">
+                    <a href="/subjects/military/1181/index.html">军事</a>
+                </li>
+                <li data-subject="HongKong_Macao_Taiwan">
+                    <a href="/subjects/HongKong_Macao_Taiwan/1193/index.html">港澳台</a>
+                </li>
+                <li data-subject="Entertainment">
+                    <a href="/subjects/Entertainment/1189/index.html">时尚</a>
+                </li>
+                <!-- <li data-subject="Panorama">
+                        <a href="/subjects/Panorama/photo_index.html">全景图</a>
+                    </li> -->
+                <li data-subject="video">
+                    <a href="/subjects/Video/1197/index.html">视频</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="/public_resource/public/js/nav_js.js?v=3"></script>
+    <script src="/public_resource/public/js/head_nav.js?v=3"></script>
+</div>
+ 
+<!---->
+<div id="div_article_info" class="inPhotoDetail" style="display: none;height: 0;" data-pagetype="pc" data-subject="Society" data-inhistory="1"></div>
+<!--个人展厅-->
+<div class="main layout">
+    <div class="main-nav clearfix">
+        <!--基于bootstrap面包屑导航-->
+        <ol class="breadcrumb fl link-gray" style="">
+            <li><a href="/cn/index.html">首页</a></li>
+            <li class="subjectCode"><a href="/subjects/Society/1157/index.html">社会生活</a></li>
+            <li class="title"><a href="javascript:void(0);">黑龙江一男青年进行变性手术</a></li>
+            <li class="groupId"><a href="/Society/detail/articles/164/247/20/10727105.html" class="img-groupid">组图编号：246433</a></li>
+            <li class="photoId active">图片编号：1080683</li>
+        </ol>
+
+        <div class="main-nav-search normal fr">
+            <div style="position: relative;">
+                <input class="search-input" type="search" placeholder="在此分类中检索"><i class="iconfont resetIcon" style="display:none"></i>
+                <button class="search-btn"><span class="iconfont iconsearch"></span></button>
+            </div>
+        </div>
+    </div>
+    <div class="content_view"><div id="article_info" data-subjectname="社会生活" data-title="黑龙江一男青年进行变性手术" data-pcid="246433" data-relationid="1080683" data-htmlurl="" data-parenturl="/Society/detail/articles/164/247/20/10727105.html" style="display: none"></div>
+
+
+<link rel="stylesheet" href="/public_resource/public/css/photo-detail.css">
+<div id="top_img_slider" class="cl" data-jsonurl="/anp_cn/articles/16/157/248/1080683.json" data-parenturl="/anp_cn/articles/164/247/20/10727105.json">
+    <div class="left-box big-img-box">
+        
+        
+        
+        
+        <img src="/res/attachments/image/16/157/248/1080683_1751835_800_600_wm.jpg" class="big-img heightImg" alt="" onerror="tycom.setDefaultImgWhenError(this)">
+        <div class="img-left img-btn small-btn">
+            <span class="iconfont iconxiazai6"></span>
+        </div>
+        <div class="img-right img-btn small-btn">
+            <span class="iconfont iconxiazai6-copy"></span>
+        </div>
+    </div>
+    <div class="right-box">
+        <div class="title-box">
+            <p>
+                <span class="tit">黑龙江一男青年进行变性手术</span>
+                <a href="/Society/detail/articles/164/247/20/10727105.html" class="a-unset">
+                    <span class="watch-zutu"><i class="iconfont iconmt_photo"></i>查看组图</span>
+                </a>
+            </p>
+        </div>
+
+        <div class="img-info-box">
+            <div class="img-info active" tabindex="1" style="overflow: hidden; outline: none;">
+                <div>
+                    <span class="item-title"><i></i>图片说明：</span><span class="photo-explain zutu-list"><p>7时，23岁小伙子晓志早早地起了床，穿上了高根鞋，准备进行手术。</p></span>
+                </div>
+                <div>
+                    <div class="item-main-title"><span class="item-title"><i></i>基本信息</span></div>
+                    <div class="item-main">
+                        <div class="item-group">
+                            <span class="item"><span>拍摄时间</span>：<span class="shoot-time">2007-09-29</span></span>
+                            
+                            
+                            <span class="item" style="width: auto;"><span>摄影师</span>：
+                                    <span class="photographer">
+                                        白林鹤
+                                    </span>
+                                </span>
+                            
+                        </div>
+                        <div class="item-group">
+                            <span class="item"><span>图片尺寸</span>：<span class="photo-format" data-photowidth="1839" data-photoheight="2992">1839 x 2992</span></span>
+                            <span class="item"><span>图片大小</span>：<span class="photo-size" data-filesize="576076">562.57 KB</span></span>
+                            <span class="item"><span>图片编号</span>：<span class="photo-number">1080683</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="item-title"><i></i>组图说明：</span><span class="zutu-explain share-description zutu-list2"><p>        2007年9月29日，来自黑龙江省五常的23岁男青年晓志在哈医大四院进行了变性手术。</p><p>        据了解，五常市23岁男青年晓志在当地公安机关等相关部门履行了各项手续，包括公安机关出具的无犯罪记录证明、变性手术后的户籍更改证明和哈医大一院司法精神病的相关鉴定。当天，晓志与哈医大四院的医生一起来到哈尔滨国信公证处（原黑龙江省公证处）对这项变性手术进行了司法公证。司法公证的内容包括手术同意书，乳房美容手术术前告知暨知情同意书，会阴部整形手术术前告知暨知情同意书共三项。据了解，这是该公证处自1998年以来公证的第四例变性手术，之前有一例是女变男。</p><p></p><p>        责任编辑    颜晓晴</p></span>
+
+                </div>
+                
+                
+            </div>
+        </div>
+        <div class="tuzu-info">
+            <span>发布时间：2007-09-29<i class="split"></i></span>
+            
+            
+            <span>
+                    关键词：<i class="i-normal i-flagWordStr">变性</i>
+                </span>
+            
+        </div>
+        <div class="interaction-box" data-contentid="" data-relationid="">
+            <div class="interaction-group">
+                <span><i class="iconfont icondianzan1"></i>点赞</span>
+            </div>
+            <div class="interaction-group">
+                <span><i class="iconfont iconshoucang2"></i>收藏</span>
+            </div>
+            <div class="interaction-group">
+                <span><i class="iconfont iconxiazai1"></i>下载</span>
+            </div>
+            <div class="interaction-group share-none share-component social-share" id="sharejs_div">
+                <span>分享至：</span>
+                <a class="share-btn iconfont iconweixin icon-wechat" href="javascript:;" tabindex="-1"><div class="wechat-qrcode"><h4></h4><div class="qrcode"><img src="data:image/png;base64,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"></div><div class="help"><p>扫一扫</p><p></p></div></div></a>
+                <a class="share-btn iconfont iconsina icon-weibo" href="https://service.weibo.com/share/share.php?url=https%3A%2F%2Fwww.asianewsphoto.com%2FSociety%2Fphoto%2Farticles%2F16%2F157%2F248%2F1080683.html&amp;title=%E9%BB%91%E9%BE%99%E6%B1%9F%E4%B8%80%E7%94%B7%E9%9D%92%E5%B9%B4%E8%BF%9B%E8%A1%8C%E5%8F%98%E6%80%A7%E6%89%8B%E6%9C%AF&amp;pic=https%3A%2F%2Fwww.asianewsphoto.com%2Fres%2Fattachments%2Fimage%2F16%2F157%2F248%2F1080683_1751835_800_600_wm.jpg&amp;appkey=" target="_blank"></a>
+                <!--                    <a class="share-btn iconfont iconfacebook icon-facebook"></a>-->
+                <!--                    <a class="share-btn iconfont icontwitter icon-twitter"></a>-->
+            </div>
+        </div>
+        <div class="slider-box" id="publishResList">
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            
+                
+                
+                
+                
+                    
+                    
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        <div class="top-info">
+            <span class="current-img">1</span> / <span class="total-img">9</span>
+        </div>
+        <div class="slider-container">
+            <div class="arrow-left arrow-btn">
+                <span class="iconfont iconxiazai6"></span>
+            </div>
+            <div class="arrow-right arrow-btn">
+                <span class="iconfont iconxiazai6-copy"></span>
+            </div>
+            <div class="slider-body" data-reid="-1080681">
+                <div class="swiper-container" id="tuzu_swiper" data-prevurl="" data-nexturl="/Society/photo/articles/16/157/246/1080681.html">
+                    <div class="swiper-wrapper" style="width: 1560px; height: 112px;">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                            <div class="swiper-slide active heightImg" style="width: 173.333px; height: 112px;">
+                                
+                                <a href="/Society/photo/articles/16/157/248/1080683.html" class="dib img-box" data-relationid="1080683">
+                                    <img src="/res/attachments/image/16/157/248/1080683_1751835_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                                </a>
+                            </div>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                                <div class="swiper-slide heightImg" style="width: 173.333px; height: 112px;">
+                                    
+                                <a href="/Society/photo/articles/16/157/246/1080681.html" class="dib img-box" data-relationid="1080681">
+                                    <img src="/res/attachments/image/16/157/246/1080681_1751833_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                                </a>
+                            </div>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                                <div class="swiper-slide heightImg" style="width: 173.333px; height: 112px;">
+                                    
+                                <a href="/Society/photo/articles/16/157/249/1080684.html" class="dib img-box" data-relationid="1080684">
+                                    <img src="/res/attachments/image/16/157/249/1080684_1751836_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                                </a>
+                            </div>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                                <div class="swiper-slide heightImg" style="width: 173.333px; height: 112px;">
+                                    
+                                <a href="/Society/photo/articles/16/157/250/1080685.html" class="dib img-box" data-relationid="1080685">
+                                    <img src="/res/attachments/image/16/157/250/1080685_1751837_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                                </a>
+                            </div>
+                            
+                        
+                        
+                        
+                        
+                                <div class="swiper-slide heightImg" style="width: 173.333px; height: 112px;">
+                                    
+                                <a href="/Society/photo/articles/16/157/251/1080686.html" class="dib img-box" data-relationid="1080686">
+                                    <img src="/res/attachments/image/16/157/251/1080686_1751838_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                                </a>
+                            </div>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                                <div class="swiper-slide heightImg" style="width: 173.333px; height: 112px;">
+                                    
+                                <a href="/Society/photo/articles/16/157/252/1080687.html" class="dib img-box" data-relationid="1080687">
+                                    <img src="/res/attachments/image/16/157/252/1080687_1751840_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                                </a>
+                            </div>
+                            
+                        
+                        
+                        
+                        
+                                <div class="swiper-slide heightImg" style="width: 173.333px; height: 112px;">
+                                    
+                                <a href="/Society/photo/articles/16/158/0/1080690.html" class="dib img-box" data-relationid="1080690">
+                                    <img src="/res/attachments/image/16/158/0/1080690_1751843_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                                </a>
+                            </div>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                                <div class="swiper-slide heightImg" style="width: 173.333px; height: 112px;">
+                                    
+                                <a href="/Society/photo/articles/16/158/1/1080691.html" class="dib img-box" data-relationid="1080691">
+                                    <img src="/res/attachments/image/16/158/1/1080691_1751844_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                                </a>
+                            </div>
+                            
+                        
+                        
+                        
+                        
+                                <div class="swiper-slide heightImg" style="width: 173.333px; height: 112px;">
+                                    
+                                <a href="/Society/photo/articles/16/158/2/1080692.html" class="dib img-box" data-relationid="1080692">
+                                    <img src="/res/attachments/image/16/158/2/1080692_1751845_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <div class="img-left img-btn big-btn">
+            <span class="iconfont iconxiazai6"></span>
+        </div>
+        <div class="img-right img-btn big-btn">
+            <span class="iconfont iconxiazai6-copy"></span>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="main layout main-sub" id="related-container">
+    <!--相关图片-->
+    <div class="all-list photo-list related-photo" style="">
+        <div class="cur-title cur-border">
+            <div class="title-box">
+            <span class="dib">
+                <span class="iconfont iconshuben"></span>
+              <span class="tit">相关图片</span>
+            </span>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row photo-list-row" id="list-container_imagegroup">
+
+            
+        
+        
+        
+        <div class="col-sm-4 col-md-3 photo-list-single">
+            <a href="/Society/detail/articles/164/155/164/10703789.html" class="single-link">
+                <div class="img-wrap">
+                    
+                    <img src="/res/attachments/image/14/147/104/947939_1648149_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                    
+                </div>
+
+                <p class="single-title">沈阳：变性人T型台走秀过“三八”</p>
+                <div class="date-num clearfix">
+                    <div class="date fl"><span class="iconfont icontime"></span><span>2007-03-08</span></div>
+                    <div class="num fr"><span class="iconfont iconmt_photo"></span><span>5</span></div>
+                </div>
+            </a>
+        </div>
+        
+        
+        
+        
+        <div class="col-sm-4 col-md-3 photo-list-single">
+            <a href="/Society/detail/articles/165/33/100/10737640.html" class="single-link">
+                <div class="img-wrap">
+                    
+                    <img src="/res/attachments/image/17/163/225/1147215_900322_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                    
+                </div>
+
+                <p class="single-title">山东潍坊：七载艰辛“变性”路    今朝重回寻良缘</p>
+                <div class="date-num clearfix">
+                    <div class="date fl"><span class="iconfont icontime"></span><span>2008-03-02</span></div>
+                    <div class="num fr"><span class="iconfont iconmt_photo"></span><span>4</span></div>
+                </div>
+            </a>
+        </div>
+        
+        
+        
+        
+        <div class="col-sm-4 col-md-3 photo-list-single">
+            <a href="/Society/detail/articles/163/99/89/10624409.html" class="single-link">
+                <div class="img-wrap">
+                    
+                    <img src="/res/attachments/image/7/227/21/513081_1339344_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                    
+                </div>
+
+                <p class="single-title">南京变性人状告变性医院胜诉</p>
+                <div class="date-num clearfix">
+                    <div class="date fl"><span class="iconfont icontime"></span><span>2005-05-17</span></div>
+                    <div class="num fr"><span class="iconfont iconmt_photo"></span><span>6</span></div>
+                </div>
+            </a>
+        </div>
+        
+        
+        
+        
+        <div class="col-sm-4 col-md-3 photo-list-single">
+            <a href="/Society/detail/articles/164/106/63/10691193.html" class="single-link">
+                <div class="img-wrap">
+                    
+                    <img src="/res/attachments/image/13/122/8/876443_802167_500_375.jpg" onerror="tycom.setDefaultImgWhenError(this)">
+                    
+                </div>
+
+                <p class="single-title">沈阳：变性男子手术前回乡</p>
+                <div class="date-num clearfix">
+                    <div class="date fl"><span class="iconfont icontime"></span><span>2006-11-14</span></div>
+                    <div class="num fr"><span class="iconfont iconmt_photo"></span><span>9</span></div>
+                </div>
+            </a>
+        </div>
+        
+        
+    </div>
+        </div>
+
+    </div>
+    <!--相关视频-->
+    <div class="all-list photo-list related-video" style="display:none !important;">
+        <div class="cur-title cur-border">
+            <div class="title-box">
+	          <span class="dib">
+	            <span class="iconfont iconshipin"></span>
+	            <span class="tit">相关视频</span>
+	          </span>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row photo-list-row" id="list-container_videogroup">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tempSign" style="display: none;"></div>
+<script src="/public_resource/public/js/photo_detail.js"></script>
+
+</div>
+</div>
+<div id="template" style="display:none;">
+    <script type="text/x-template" class="publishResList">
+        {& var publishResList = items.publishResList &}
+        {& var currentIndex = 1 &}
+        {& var itemClass = '' &}
+        {& var prevRelationId = "" &}
+        {& var nextRelationId = "" &}
+        {& var prevUrl = "" &}
+        {& var nextUrl = "" &}
+        {& for (var i = 0;i<publishResList.length;i++){ &}
+            {& if(publishResList[i].relationId == items.relationId){ &}
+                {& var currentIndex = i+1 &}
+                {& var itemClass = 'active' &}
+                {& if(currentIndex >= 2){ &}
+                    {& var prevRelationId = publishResList[currentIndex - 2].relationId &}
+                    {& var prevUrl = publishResList[currentIndex - 2].htmlUrl &}
+                {& } &}
+                {& if(i < publishResList.length - 1){ &}
+                    {& var nextRelationId = publishResList[i+1].relationId &}
+                    {& var nextUrl = publishResList[i+1].htmlUrl &}
+                {& } &}
+            {& } &}
+        {& } &}
+        <div class="top-info">
+            <span class="current-img">{&=currentIndex &}</span> / <span class="total-img">{&=publishResList.length &}</span>
+        </div>
+        <div class="slider-container">
+            <div class="arrow-left arrow-btn">
+                <span class="iconfont iconxiazai6"></span>
+            </div>
+            <div class="arrow-right arrow-btn">
+                <span class="iconfont iconxiazai6-copy"></span>
+            </div>
+            <div class="slider-body" data-reid="{&=prevRelationId &}-{&=nextRelationId &}">
+                <div class="swiper-container" id="tuzu_swiper" data-prevurl="{&=prevUrl &}" data-nexturl="{&=nextUrl &}">
+                    <div class="swiper-wrapper">
+                        {& for(var i = 0;i<publishResList.length;i++){ &}
+                        {& var item = publishResList[i] &}
+                        {& var imgClass = 'widthImg' &}
+                        {& if (item.height > item.width){ &}
+                        {& var imgClass = 'heightImg' &}
+                        {& } &}
+                        {& if(publishResList[i].relationId == items.relationId){ &}
+                            <div class="swiper-slide active {&=imgClass &}">
+                                {& }else{ &}
+                                <div class="swiper-slide {&=imgClass &}">
+                                    {& } &}
+                                <a href="{&=item.htmlUrl &}" class="dib img-box" data-relationid="{&=item.relationId &}">
+                                    <img src="{&=item.imgUrl &}" onerror="tycom.setDefaultImgWhenError(this)">
+                                </a>
+                            </div>
+                            {& } &}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="img-left img-btn big-btn">
+            <span class="iconfont iconxiazai6"></span>
+        </div>
+        <div class="img-right img-btn big-btn">
+            <span class="iconfont iconxiazai6-copy"></span>
+        </div>
+    </script>
+    <!--icon-color-->
+    <script type="text/x-template" class="imagegroup-temp">
+        {& for(var i = 0;i<items.length;i++){ &}
+        {& var item = items[i] &}
+        {& if (item && item.publishStatus == 1){ &}
+        <div class="col-sm-4 col-md-3 photo-list-single">
+            <a href="{&= item.htmlUrl &}" class="single-link">
+                <div class="img-wrap">
+                    {& if(item.listImage){ &}
+                    <img src="{&=item.listImage&}" onerror="tycom.setDefaultImgWhenError(this)">
+                    {& }else{ &}
+                    <img src="{&=item.titleImage&}" onerror="tycom.setDefaultImgWhenError(this)">
+                    {& } &}
+                </div>
+
+                <p class="single-title">{&= item.title &}</p>
+                <div class="date-num clearfix">
+                    <div class="date fl"><span class="iconfont icontime"></span><span>{&= item.publishDate &}</span></div>
+                    <div class="num fr"><span class="iconfont iconmt_photo"></span><span>{&= item.publishResCount &}</span></div>
+                </div>
+            </a>
+        </div>
+        {& } &}
+        {& } &}
+    </script>
+    <script type="text/x-template" class="videogroup-temp">
+        {& for(var i = 0;i<items.length;i++){ &}
+        {& var item = items[i] &}
+        {& if (item && item.publishStatus == 1){ &}
+        <div class="col-sm-4 col-md-3 photo-list-single">
+            <a href="{&= item.htmlUrl &}" class="single-link">
+                <div class="img-wrap video-img-wrap">
+                    <img src="{&= item.titleImage &}" onerror="tycom.setDefaultImgWhenError(this)">
+                    <div class="play-btn">
+                        <span class="iconfont icongroup39"></span>
+                        <span class="font">播放</span>
+                    </div>
+                </div>
+                <p class="single-title">{&= item.title &}</p>
+                <div class="date-num clearfix">
+                    <div class="date fl"><span class="iconfont icontime"></span><span>{&= item.publishDate &}</span></div>
+                    <div class="num fr"><span class="iconfont icongroup39"></span><span>{&= item.publishResCount &}</span></div>
+                </div>
+            </a>
+        </div>
+        {& } &}
+        {& } &}
+    </script>
+</div>
+
+<!--友链和关注-->
+
+
+
+<div class="link-followus">
+    <div class="wrap main-wrap container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-7 link">
+                <div class="title">
+
+                        <img src="/public_resource/public/img/icon/link.png" alt="">
+                        <span>友情链接</span>
+                </div>
+                <div class="content row">
+                    <div class="link-item">
+                        <a href="http://cn.chinadaily.com.cn/" target="_blank" class="db">
+                            <img src="/public_resource/public/img/pngs/link1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <a target="_blank" class="db">
+                            <img src="/public_resource/public/img/pngs/link2.png" width="170" alt="">
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <a href="http://www.cpanet.cn/" target="_blank" class="db">
+                            <img src="/public_resource/public/img/pngs/link3.png" alt="">
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <a href="http://www.cri.cn/" target="_blank" class="db">
+                            <img src="/public_resource/public/img/pngs/link4.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-5 followus">
+                <div class="col-xs-12 col-sm-4 col-lg-3">
+                    <div class="title">
+                        <p>
+                            <img src="/public_resource/public/img/icon/collect.png" alt="">
+                            <span>关注我们</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-lg-9 qr-list">
+                    <div class="col-xs-4 qr-box">
+                        <p class="qr dib">
+                            <img src="/public_resource/public/img/pngs/qr3.png" alt="">
+                        </p>
+                        <a class="caption" target="_blank">
+                            <img src="/public_resource/public/img/pngs/weixin.png" width="20" alt="">
+                            CD国传影像
+                        </a>
+                    </div>
+                    <div class="col-xs-4 qr-box">
+                        <p class="qr dib">
+                            <img src="/public_resource/public/img/pngs/qr2.png" alt="">
+                        </p>
+                        <a href="https://weibo.com/u/2662152953?topnav=1&amp;wvr=6&amp;topsug=1" class="caption" target="_blank">
+                            <img src="/public_resource/public/img/pngs/weibo.png" height="20" alt="">
+                            中国日报-视觉
+                        </a>
+                    </div>
+                    <div class="col-xs-4 qr-box">
+                        <p class="qr dib" id="qrcode" title="https://www.asianewsphoto.com/cn/public_resource/m_public/html/client_download.html">
+<!--                            <img src="/public_resource/public/img/pngs/qr.png" alt="">-->
+                        <canvas width="256" height="256" style="display: none;"></canvas><img alt="Scan me!" src="data:image/png;base64,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" style="display: block;"></p>
+                        <a href="/public_resource/public/html/client_download.html" class="caption">
+                            <img src="/public_resource/public/img/pngs/anp-download.png" height="13" alt="">
+                            本网客户端
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<!--页脚-->
+
+
+
+<div class="footer">
+    <div class="wrap">
+        <div class="title">
+            <a href="/public_resource/public/html/about-us.html" target="_blank" class="dib">关于我们</a>
+        </div>
+        <div class="content">
+            <p class="copyright dib">
+                    版权所有，未经许可请勿转载。
+                <a style="margin: 0" href="mailto:photo@chinadaily.com.cn"> photo@chinadaily.com.cn</a>
+                <br>
+                <br>
+                <a style="margin: 0;font-size:15px" target="_blank" href="https://beian.miit.gov.cn">京 ICP备06023331号-5</a>
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502049926">
+                    <img src="/public_resource/public/img/pngs/record-icon.png" style="height:20px;" width="20" height="20">
+                    <span style="font-size:15px;margin: 0px 0px 0px 5px;">京公网安备 11010502049926号</span>
+                </a>
+            </p>
+            <div class="fr">
+                <div class="dib logo">
+                    <a href="http://bszs.conac.cn/sitename?method=show&amp;id=5620ABAEC1477E6FE053012819AC7DF5" target="_blank">
+                        <img src="/public_resource/public/img/pngs/sydw.png" alt="">                    
+                    </a>
+                </div>
+                <div class="dib">
+                    <img src="/public_resource/public/img/pngs/china_daily.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<!--侧边按钮和聊天-->
+
+
+<!--在线客服  -->
+<div class="rigthButtons">
+    <div class="tel-star-down">
+        <img class="btn-collect" src="/public_resource/public/img/index/star.png" alt="">
+        <img class="btn-download" src="/public_resource/public/img/index/donlow.png" alt="">
+    </div>
+</div>
+<!-- 聊天窗口 -->
+<div class="dialogue-wrapper">
+    <div class="dialogue-main">
+        <div class="dialogue-header">
+            <img src="/public_resource/public/img/top-logo.png" alt="" class="logo-imgs">
+            <img id="btn_close" class="dialogue-close" src="/public_resource/public/img/icon/close.png" alt="" srcset="">
+        </div>
+        <div id="dialogue_contain" class="dialogue-contain">
+
+        </div>
+        <div class="dialogue-submit" style="position: relative;">
+            <p id="dialogue_hint" class="dialogue-hint">
+                <span class="dialogue-hint-icon">!</span>
+                <span class="dialogue-hint-text">发送内容不能为空</span></p>
+            <textarea id="dialogue_input" class="dialogue-input-text" placeholder="请输入您的问题，按Enter键提交（shift+Enter换行）"></textarea><i class="iconfont resetIcon" style="display:none"></i>
+        </div>
+        <div class="send-btn">
+            <button class="blue-btn" id="btn-upload">上传图片</button>
+            <button class="blue-btn" id="dialogue_btn">发 送</button>
+        </div>
+    </div>
+    <div id="chat_webUploaderContainer" style="display:none !important;" class="webuploader-div"></div>
+</div>
+ 
+
+<!--公共js-->
+
+
+
+
+<!-- <script src="/public_resource/public/lib/bootstrap/js/bootstrap.min.js?v=5"></script>
+<script type="text/javascript" src="/public_resource/public/lib/scrollbar/jquery.nicescroll.min.js?v=5" ></script>
+<script src="/public_resource/public/js/ejs.js?v=5"></script>
+<script src="/public_resource/public/lib/socket.io/socket.io.js?v=5"></script>
+<script src="/public_resource/public/js/tycom.socket.js"></script>
+<script type="text/javascript" src="/public_resource/public/lib/async/dist/async.min.js?v=5"></script>
+<script type="text/javascript" src="/public_resource/public/lib/sweetalert/dist/sweetalert.min.js?v=5"></script>
+<script src="/public_resource/public/js/utils/utils.js?v=5"></script>
+<script src="/public_resource/public/js/imagesLoaded.js?v=5"></script>
+<script src="/public_resource/public/lib/localforage/localforage.min.js?v=5"></script> -->
+
+
+<!--search-->
+<!-- <script src="/public_resource/public/js/utils/search_page.js?v=5"></script> -->
+<!--dayjs-->
+<!-- <script src="/public_resource/public/lib/dayjs/dayjs.min.js?v=5"></script>
+<script src="/public_resource/public/lib/dayjs/plugin/relativeTime.js?v=5"></script>
+<script src="/public_resource/public/lib/dayjs/local/zh-cn.js?v=5"></script> -->
+<!--分享-->
+<!-- <script src="/public_resource/public/lib/jquery/jquery.share.min.js?v=5"></script>
+<script src="/public_resource/public/lib/crypto-js-3.1.9-1/crypto-js.js?v=5"></script>
+<script type="text/javascript" src="/public_resource/public/js/utils/encryption.js?v=5"></script>
+<script src="/public_resource/public/lib/webuploader-0.1.5/webuploader.js?v=5"></script>
+<script src="/public_resource/public/lib/qrcodejs-master/qrcode.js?v=5"></script>
+<script type="text/javascript" src="/public_resource/public/js/utils/api_tools.js?v=5"></script>
+<script type="text/javascript" src="/public_resource/public/js/utils/userinfo.js?v=5"></script>
+<script type="text/javascript" src="/public_resource/public/js/utils/dialog.js?v=5"></script>
+<script type="text/javascript" src="/public_resource/public/js/api.js?v=5"></script>
+<script type="text/javascript" src="/public_resource/public/js/utils/public_tools.js?v=5"></script>
+<script type="text/javascript" src="/public_resource/public/js/utils/public_methods.js?v=5"></script>
+<script src="/public_resource/public/js/style.js?v=5"></script> -->
+<script type="text/javascript" src="/public_resource/public/dist/js/c_js.min.js?v=b4cca2d22d?v=5"></script>
+<!--layer-->
+<script src="/public_resource/public/lib/layer/layer.js?v=5"></script>
+ 
+
+
+
+
+ 
+<script>
+    $(function () {
+        var jsonPath = tycom.utils.urlHtmlToJson();
+        var $ol = $('ol.breadcrumb');
+        // var subjectCode = $ol.find('.subjectCode a');
+        var title = $ol.find('.title a');
+        var groupId = $ol.find('.groupId a');
+        var photoId = $ol.find('.photoId');
+        var template_publishResList = $('#template .publishResList').html();
+        // var $publishResList = ;
+        tycom.render('history_photo.html',jsonPath,tycom.utils.init_obj,function(err,result){
+            if(result){
+                $(".content_view").html(result);
+                $('#footer').css('position','static');
+                var $article = $('#article_info');
+                // subjectCode.text($article.attr("data-subjectName"));
+                title.text($article.attr("data-title"));
+                groupId.attr('href',$article.attr('data-parentUrl'));
+                photoId.text(photoId.text() + $article.attr("data-relationId"));
+                $ol.show();
+                var descTime = setInterval(function () {
+                    if($('.img-info').length > 0){
+                        //滚动条
+                        $(".img-info").niceScroll({
+                            cursorcolor: "#10151f", // 改变滚动条颜色，使用16进制颜色值
+                            cursorwidth: "5px",
+                            cursorborder: "none", // CSS方式定义滚动条边框
+                            cursorborderradius: "5px", // 滚动条圆角（像素）
+                            autohidemode: false, // 隐藏滚动条的方式, 可用的值:
+                            background: "rgba(255,255,255,.2)", // 轨道的背景颜色
+                        });
+                        clearInterval(descTime);
+                    }
+                },300);
+                var parentUrl = $('#top_img_slider').attr('data-parentUrl');
+                $.getJSON(parentUrl,function (ret,status) {
+                    if(status == 'err'){
+                        console.log(status);
+                        return;
+                    }
+                    if(!ret){
+                        return
+                    }
+                    var data = ret;
+                    data.relationId = $article.attr('data-relationId');
+                    data = tycom.utils.init_obj(data);
+                    groupId.text(groupId.text() + data.pcId);
+                    $('.zutu-explain').html(data.description);
+                    var shootingDate = $('.shoot-time').text();
+                    if(shootingDate == ''){
+                        $(".shoot-time").html(data.shootingDate);
+                    }
+                    var html = renderTemplate(template_publishResList, {items: data}); //渲染后的html
+                    $('#publishResList').append(html);
+                    $(document).trigger("complete")
+                })
+            }else{
+                console.log(render, err)
+            }
+        });
+        var documentTitle = $('.albumInfo .title').text();
+        document.getElementsByTagName("title")[0].innerText = documentTitle;
+    });
+</script>
+<script src="/public_resource/public/lib/swiper/js/idangerous.swiper.min.js?v="></script>
+
+
+
+
+
+ <div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 5px; z-index: auto; background: rgba(255, 255, 255, 0.2); cursor: default; position: absolute; top: 303.844px; left: 1682.5px; height: 230px; opacity: 1; display: block;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 176px; background-color: rgb(16, 21, 31); border: none; background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 5px; z-index: auto; background: rgba(255, 255, 255, 0.2); top: 528.844px; left: 1085.5px; position: absolute; opacity: 1; cursor: default; display: none; width: 597px;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 602px; background-color: rgb(16, 21, 31); border: none; background-clip: padding-box; border-radius: 5px; left: 0px;"></div></div></body></html>
