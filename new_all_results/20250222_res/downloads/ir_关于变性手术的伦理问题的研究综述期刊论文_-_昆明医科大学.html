@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="机构知识库,">
+    <title>
+        昆明医科大学
+    </title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/fonts/iconfont.css">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="/js/html5shiv.min.js"></script>
+<script src="/js/respond.min.js"></script>
+<![endif]-->
+<script src="/js/jquery-3.5.1.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/list.js"></script>
+<script src="/js/jquery.validate.min.js"></script>
+<script src="/js/messages_zh.js"></script>
+<script src="/js/validator.js"></script>
+<link href="/lib/jQCloud/jqcloud/jqcloud.min.css" rel="stylesheet">
+<script src="/lib/jQCloud/jqcloud/jqcloud-1.0.3.min.js"></script>
+<link href="/lib/jqueryui/jquery-ui.min.css" rel="stylesheet">
+<link href="/lib/jqueryui/jquery-ui.structure.css" rel="stylesheet">
+<link href="/lib/jqueryui/jquery-ui.theme.css" rel="stylesheet">
+<script src="/lib/jqueryui/jquery-ui.min.js"></script>
+<script src="/lib/jquery-qrcode/qrcode.js"></script>
+<script src="/lib/jquery-qrcode/jquery.qrcode.js"></script>
+<script src="/lib/echart/echarts-all.js"></script>
+<script src="/lib/knockout/dist/knockout.js"></script>
+<script src="/lib/knockout-jqueryui.min.js"></script>
+<script src="/lib/cj.js"></script>
+<script src="/lib/bootbox.min.js"></script>
+<link href="/lib/pagination.min.css" rel="stylesheet">
+<script src="/lib/jquery.pagination.js"></script>
+<link href="/lib/ploading/css/p-loading.min.css" rel="stylesheet">
+<script src="/lib/ploading/js/p-loading.min.js"></script>
+
+
+
+
+<script src="/App/md5.js"></script>
+<script src="/App/ChainedCalls.js"></script>
+<script src="/App/MaskUtil.js"></script>
+<script src="/App/Global.js?638766304592195803"></script>
+
+        <script>
+        Global.RemoteUrl = "https://ir.kmmu.edu.cn"
+        </script>
+
+<link rel="stylesheet" href="/css/mymain.css">
+
+
+<script src="/App/Encryption.js"></script>
+<script src="/App/ViewModelBase.js?638766304593232067"></script>
+<script src="/App/SystemModels.js"></script>
+<script src="/lib/crypto-js/crypto-js.js"></script>
+
+<script src="/ViewModels/IRViewModelBase.js?638766304593856020"></script>
+
+<script src="/ViewModels/Models.js?638766304594064014"></script>
+<script src="/ViewModels/CrossCompareViewModelBase.js?638766304594267312"></script>
+<script src="/ViewModels/QueryClient.js?638766304594471512"></script>
+
+
+<script>
+    var UserInfo = /** @class */ (function () {
+        function UserInfo() {
+            this.UserName = "";
+            this.LoginName = "";
+            this.Password = "";
+            this.PhoneNumber = "";
+            this.Email = "";
+        }
+        return UserInfo;
+    }());
+    var KeyStores = /** @class */ (function () {
+        function KeyStores() {
+            this.userName = "";
+            this.apiKey = "";
+            this.secretKey = "";
+        }
+        return KeyStores;
+    }());
+    var ResultInfo = /** @class */ (function () {
+        function ResultInfo() {
+            this.operationDone = true;
+            this.message = "";
+        }
+        return ResultInfo;
+    }());
+    var KeyValuePair = /** @class */ (function () {
+        function KeyValuePair(key, value) {
+            this.Key = key;
+            this.Value = value;
+        }
+        return KeyValuePair;
+    }());
+    var Dictionary = /** @class */ (function () {
+        function Dictionary() {
+            this.Items = new Array();
+        }
+        Dictionary.prototype.Add = function (key, value) {
+            var kv = new KeyValuePair(key, value);
+            this.Items.push(kv);
+        };
+        return Dictionary;
+    }());
+    var AuthClient = /** @class */ (function () {
+        function AuthClient(apiKey, secretKey) {
+            if (apiKey === void 0) { apiKey = ""; }
+            if (secretKey === void 0) { secretKey = ""; }
+            //    public string ValidateUserUrl { get; set; } = "Auth/ValidateUser";
+            this.ValidateUserUrl = "Auth/ValidateUser";
+            //        public string RegisterUrl { get; set; } = "Auth/Register";
+            this.RegisterUrl = "Auth/Register";
+            //        public string GetValidationCodeUrl { get; set; } = "Auth/GetValidationCode";
+            this.GetValidationCodeUrl = "Auth/GetValidationCode";
+            //HttpClient httpClient = new HttpClient();
+            this.ApiKey = "";
+            this.SecretKey = "";
+            this.BaseUrl = "";
+            this.BaseUrl = Global.RemoteUrl;
+        }
+        AuthClient.prototype.Request = function (url, postData, callback) {
+            if (postData === void 0) { postData = null; }
+            url = this.BaseUrl + "/" + url;
+            if (postData == null && postData.Items.length != 0) {
+                $.get(url, function (data) {
+                    callback(data);
+                });
+            }
+            else {
+                $.post(url, postData, function (data) {
+                    callback(data);
+                });
+            }
+        };
+        AuthClient.prototype.SendToServer = function (method, paramters, callback) {
+            if (paramters === void 0) { paramters = null; }
+            if (callback === void 0) { callback = null; }
+            var postData = new Object();
+            postData["api_key"] = this.ApiKey;
+            if (paramters != null) {
+                for (var item in paramters) {
+                    postData[item] = paramters[item];
+                }
+            }
+            var sbParam = "";
+            var ordered = {};
+            Object.keys(postData).sort().forEach(function (key) {
+                ordered[key] = postData[key];
+            });
+            for (var item in ordered) {
+                sbParam += "{" + item + "}={" + ordered[item] + "}&";
+            }
+            var sign = hex_hmac_sha1(this.SecretKey, sbParam);
+            postData["sign"] = sign;
+            this.Request(method, postData, callback);
+        };
+        /// <summary>
+        /// 用户登录方式并返回ApiKey及SecretKey
+        /// </summary>
+        /// <param name="userName">用户名</param>
+        /// <param name="password">密码</param>
+        /// <returns></returns>
+        AuthClient.prototype.ValidateUser = function (userName, password, callback) {
+            var user = {
+                UserName: userName,
+                Password: password
+            };
+            var dic = {
+                User: JSON.stringify(user)
+            };
+            this.Request(this.ValidateUserUrl, dic, function (result) {
+                if (result.operationDone) {
+                    var loginip = result.additionalData.loginIP;
+                    var login = { UserName: userName, Password: password, KeyStores: result.additionalData, Site: Global.RemoteUrl };
+                    eval("Cookies.set(Global.RemoteUrl+'-login',JSON.stringify(login), { path:'/'})");
+                }
+                callback(result);
+            });
+        };
+        AuthClient.SetCookie = function (userName, password, displayName) {
+            $.get(Global.RemoteUrl + '/caskeystore?workingid=' + userName, function (r) {
+                var login = { UserName: userName, Password: password, displayname: displayName, KeyStores: r.additionalData, Site: Global.RemoteUrl };
+                eval("Cookies.set(Global.RemoteUrl+'-login',JSON.stringify(login), { path:'/'})");
+                window.location.href = Global.RemoteUrl + "/Home/Index";
+            });
+        };
+
+        AuthClient.SetCookieToHref = function (userName, password, displayName,tohref) {
+            $.get(Global.RemoteUrl + '/caskeystore?workingid=' + userName, function (r) {
+                var login = { UserName: userName, Password: password, displayname: displayName, KeyStores: r.additionalData, Site: Global.RemoteUrl };
+                eval("Cookies.set(Global.RemoteUrl+'-login',JSON.stringify(login), { path:'/'})");
+                if (tohref == 'claim') {
+                    window.location.href = Global.RemoteUrl + "/Author/Document";
+                }
+                else if (tohref == 'sus') {
+                    window.location.href = Global.RemoteUrl + "/Author/SusDocument";
+                }
+                else if (tohref == 'add') {
+                    window.location.href = Global.RemoteUrl + "/Author/SubmitDocument";
+                }
+                else {
+                    window.location.href = Global.RemoteUrl + "/Home/Index";
+                }
+                
+            });
+        };
+
+        AuthClient.Signout = function () {
+            eval("Cookies.remove(Global.RemoteUrl+'-login',  { path:'/'})");
+            window.location.href = Global.RemoteUrl + '/Auth/Login?ReturnUrl=' + window.location.href;
+        };
+        ///// <summary>
+        ///// 获取注册验证码
+        ///// </summary>
+        ///// <param name="phoneNumber">用户电话</param>
+        ///// <returns></returns>
+        //public async  GetVCode(phoneNumber: string): Promise<ResultInfo<any>> {
+        //    return await this.Request(this.GetValidationCodeUrl + "?phone=" + phoneNumber);
+        //}
+        /// <summary>
+        /// 用户注册
+        /// </summary>
+        /// <param name="user">用户信息</param>
+        /// <param name="vCode">验证码</param>
+        /// <returns></returns>
+        AuthClient.prototype.Register = function (user, vCode, callback) {
+            var dic = {
+                "User": JSON.stringify(user),
+                "VCode": vCode
+            };
+            this.Request(this.RegisterUrl, dic, function (result) { callback(result); });
+        };
+        AuthClient.GetCookie = function () {
+            var userInfo = null;
+            eval("userInfo=Cookies.get(Global.RemoteUrl+'-login',  { path:'/'})");
+            if (userInfo == undefined) {
+                return undefined;
+            }
+            var obj = $.parseJSON(userInfo);
+            if (!obj.Site || obj.Site != Global.RemoteUrl) {
+                return undefined;
+            }
+            return obj;
+        };
+        AuthClient.CheckAuth = function () {
+            var userInfo = AuthClient.GetCookie();
+            var returnUrl = Global.RemoteUrl + '?ReturnUrl=' + window.location.href;
+            if (userInfo == undefined || userInfo.UserName == null) {
+                window.location.href = returnUrl;
+            }
+            else {
+                var client = new AuthClient();
+                client.ValidateUser(userInfo.UserName, userInfo.Password, function (result) {
+                    if (result.operationDone) {
+                        if (result.additionalData.apiKey != userInfo.KeyStores.apiKey || result.additionalData.secretKey != userInfo.KeyStores.secretKey) {
+                            window.location.href = returnUrl;
+                        }
+                    }
+                    else {
+                        window.location.href = returnUrl;
+                    }
+                });
+            }
+        };
+        return AuthClient;
+    }());
+
+</script>
+
+<script src="/ViewModels/LayoutViewModel.js?638766304594680545"></script>
+
+<script>
+    $(".t-right-bar").hide();
+    $(function () {
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 100) {
+                $(".t-right-bar").fadeIn(500);
+            }
+            else {
+                $(".t-right-bar").fadeOut(500);
+            }
+        });
+
+        $("#back-to-top").click(function () {
+            $('body,html').animate({ scrollTop: 0 }, 100);
+            return false;
+        });
+    });
+
+    function Encrypt(text, secret) {
+    if (secret.length < 16) {
+        var zeroLength = 16 - secret.length;
+        for (var i = 0; i < zeroLength; i++) {
+            secret += '0'
+        }
+    }
+    var key = CryptoJS.enc.Utf8.parse(secret);
+    var InDkn4 = CryptoJS.enc.Utf8.parse(text);
+    var b = CryptoJS.AES.encrypt(InDkn4, key, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+    });
+    return b["toString"]()
+}
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        $("#secImg").click();
+    }
+
+</script><script src="https://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=483603"></script></head>
+
+
+<body id="body">
+
+
+
+
+
+    <!--head star-->
+    <div class="box100 wit-bg">
+        <div class="warp">
+            <div class="banner pos">
+                <img src="/PublicApi/SitePhoto/TopLogo" alt="">
+                <div class="user-box font12 ">
+                            <script>
+                                Global.Authenticated = false;
+                            </script>
+                        <script>
+                            Global.ProjectName = "&#x6606;&#x660E;&#x533B;&#x79D1;&#x5927;&#x5B66;";
+                            Global.ViewAuth =  {"LoggedIn":false,"IsAdmin":false,"IsSuperAdmin":false,"IsUnivAdmin":false,"IpLoggedIn":false} ;
+                        </script>
+                                    <a href="https://e.kmmu.edu.cn/lyuapServer/login?service=http://ir.kmmu.edu.cn/caslogin" class="topred pr10"><i class="fontico"></i><span>统一身份认证</span></a>
+
+                        <a href="http://cdn.xuezheku.com/help/tourist/page/index.html" target="_blank" class="topred pr10"><i class="fontico"></i><span>帮助</span></a>
+
+                </div>
+                            <div class="soso">
+                                <div class="form-so">
+                                    <div class="sel-text font14"><span id="spSelectedKey">标题</span><i class="fontico pl10 font16"></i></div>
+                                    <ul class="sel-list font14">
+                                        <li><a href="javascript:void(0);">全部</a></li>
+                                        <li><a href="javascript:void(0);">署名</a></li>
+                                        <li><a href="javascript:void(0);">标题</a></li>
+                                        <li><a href="javascript:void(0);">地址</a></li>
+                                        <li><a href="javascript:void(0);">期刊</a></li>
+                                        <li><a href="javascript:void(0);">关键词</a></li>
+                                        <li><a href="javascript:void(0);">编号</a></li>
+                                    </ul>
+                                    <input type="text" class="inp" id="tbxKey" placeholder="请选择搜索条件">
+                                    <button type="button" class="inp2" onclick="Search()"><i class="fontico font18 color1"></i></button>
+                                </div>
+                                <button type="button" class="btn-red color1 font16 btn-dw" onclick="HighSearch()">高级检索</button>
+                            </div>
+                <ul class="nav-top dw font16 clearfix">
+                    <span data-bind="foreach:MenuList"></span>
+
+
+
+
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--head end-->
+    <!--one star-->
+
+    
+<script src="/lib/jquery.print.min.js"></script>
+<script src="/lib/pdfreader.js"></script>
+<script src="/ViewModels/DocumentDetailViewModel.js?638766304578247517"></script>
+<style>
+    .print-title {
+        width: 155px;
+        text-align: right;
+        float: left;
+        line-height: 24px;
+    }
+
+    .edit-input {
+        border: none;
+        width: 600px;
+        background-color: #e8e8e8;
+    }
+
+    .print-form {
+    }
+
+        .print-form dl {
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+    .printdd {
+        margin-left: 155px;
+        line-height: 24px;
+    }
+
+    .editdelete {
+        color: red;
+        float: left;
+        display: none;
+        cursor: pointer;
+    }
+
+    .bgRed {
+        background-color: #b9b3b3
+    }
+</style>
+<script>
+
+</script>
+
+    <script>
+    Global.currentViewModel.DocumentID = '18596c2c-d5e8-417e-9f02-111e9f8554b1';
+    Global.currentViewModel.UserID = '';
+
+    </script>
+    <link href="/font-awesome/font-awesome.min.css" rel="stylesheet">
+    <div class="warp">
+        <div class="crumbs clearfix font14 pl20"><i class="fontico font14"></i><a href="" class="blank">首页</a> / <a href="" class="blank">院系成果</a> / 成果详情页</div>
+        <div class="line f5-bg box100">
+            <div class="box80 pt90 pos">
+                <!--left-bar start-->
+                <div class="cont-left">
+
+
+                    <div class="pb10 line-b1">
+
+                        <h1 class="h1 pr20">
+
+
+                            关于变性手术的伦理问题的研究综述
+                            &nbsp;<span style="font-size:12px;line-height:22px"><a href="#" class="line-ico">期刊论文</a> </span>&nbsp;
+
+
+                        </h1>
+                    </div>
+                    <ul class="cont-list clearfix">
+
+                        <li>
+
+                            <div class="text-item fl">
+                                <span>编号：</span>
+                            </div>
+                            <div class="text-cont fr">18596c2c-d5e8-417e-9f02-111e9f8554b1</div>
+                        </li>
+
+                                <li>
+
+                                    <div class="text-item fl">
+                                        <span>作者：</span>
+                                    </div>
+                                    <div class="text-cont fr"><a target="_blank" href="http://ir.kmmu.edu.cn/Home/ToAuthor/付登礼/昆明医科大学;第二附属医院;神经外科;" title="付登礼:昆明医科大学;第二附属医院;神经外科;"><i class="fa fa-user" style="float:none"></i><span style="color:#f60">付登礼<span style="color:#000; font-size:12px; font-weight:bold;">#</span></span></a>; <a target="_blank" href="http://ir.kmmu.edu.cn/Home/ToAuthor/何梅/昆明医科大学;人文与管理学院;" title="何梅:昆明医科大学;人文与管理学院;"><i class="fa fa-user" style="float:none"></i><span style="color:#f60">何梅</span></a>; </div>
+                                </li>
+                                        <li>
+
+                                            <div class="text-item fl">
+                                                <span>地址：</span>
+                                            </div>
+                                            <div class="text-cont fr">昆明医学院第二附属医院神经外科,昆明医学院社科部 云南昆明650101 ,云南昆明650030</div>
+                                        </li>
+                            <li>
+                                <div class="text-item fl">
+                                    <span>语种：</span>
+                                </div>
+                                <div class="text-cont fr">中文</div>
+                            </li>
+                                    <li>
+                                        <div class="text-item fl">
+                                            <span>期刊：</span>
+                                        </div>
+                                        <div class="text-cont fr">
+                                            <b class="pr10">中国医学伦理学</b>
+                                                <b class="pr10">ISSN：1001-8567</b>
+                                            <b class="pr10">
+                                                    <span>2002 年</span>
+
+                                                    <span>3  期</span>
+                                                    <span>(20 - 22)</span>
+
+                                                    <span> ; 2002/6/30 0:00:00 </span>
+                                            </b>
+                                        </div>
+                                    </li>
+                                <li>
+                                    <div class="text-item fl">
+                                        <span>收录：</span>
+                                    </div>
+                                    <div class="text-cont fr">
+
+                                        <!--ko foreach:CPList--><!--/ko-->
+
+                                    </div>
+                                </li>
+                                    <li>
+                                        <div class="text-item fl">
+                                            <span>关键词：</span>
+                                        </div>
+                                        <div class="text-cont fr">
+                                            <div class="clearfix">
+                                                        <a href="javascript://" class="fl line-ico mb10">变性手术</a>
+                                                        <a href="javascript://" class="fl line-ico mb10">易性癖</a>
+                                                        <a href="javascript://" class="fl line-ico mb10">伦理问题</a>
+
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                <li>
+                                    <div class="text-item fl">
+                                        <span>摘要：</span>
+                                    </div>
+                                    <div class="text-cont fr">
+                                        <div>
+                                            <p class="line-h26">
+                                                对易性癖现象和变性手术所涉及的诸多伦理问题 ,如 :如何看待易性癖者 ,变性手术的临床应用、医疗价值、手术对象选择、技术标准等方面的观点进行综述分析和探讨
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            <li>
+                                <div class="text-item fl">
+                                    <span>推荐引用方式<br>GB/T 7714：</span>
+                                </div>
+                                <div class="text-cont fr">
+                                    <div class="clearfix">
+付登礼何梅, 等. 关于变性手术的伦理问题的研究综述 [J].中国医学伦理学,2002(3):20-22.                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="text-item fl">
+                                    <span>APA：</span>
+                                </div>
+                                <div class="text-cont fr">
+                                    <div class="clearfix">
+付登礼何梅.(2002).关于变性手术的伦理问题的研究综述 .<i>中国医学伦理学</i>(3):20-22.                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="text-item fl">
+                                    <span>MLA：</span>
+                                </div>
+                                <div class="text-cont fr">
+                                    <div class="clearfix">
+付登礼何梅, et al. "关于变性手术的伦理问题的研究综述" .<i>中国医学伦理学</i>,3(2002):20-22.                                    </div>
+                                </div>
+                            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <li>
+                            <div class="text-item fl">
+                                <span>入库时间：</span>
+                            </div>
+                            <div class="text-cont fr">
+                                <div class="clearfix">
+                                    2021/10/18 23:00:14
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-item fl">
+                                <span>更新时间：</span>
+                            </div>
+                            <div class="text-cont fr">
+                                <div class="clearfix">
+                                    2021/10/18 23:00:14
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+                    </ul>
+                    <div class="line-b1 pt90"></div>
+                    <div class="pb20">
+                        <div class="operation-box ">
+                            <span class="pr20"><i class="fontico font16 color3"></i>浏览次数：<b>19</b></span>
+                            <span class="pr20"><i class="fontico font16 color3"></i> 下载次数：<b>0</b></span>
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <!--left-bar end-->
+                <!--right-bar star-->
+                <div class="cont-right">
+                    <div class="pr20 pl10 line-b1 height40">
+                        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a></div>
+                        <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+                    </div>
+                    <div class="line-b1 pt10 pb10" style="padding-left:2px ;text-align:center">
+
+                        <div id="divQrcode" style="background-color:white;">
+                        <canvas width="100" height="100"></canvas></div>
+                    </div>
+                        <div class="line-b1 height40 text-center">
+
+                        </div>
+
+                    <div class="pr20 pt20 pl10 "><i class="fontico font14 color3"></i>浏览次数：<b>19</b></div>
+                    <div class="pr20 pl10 "><i class="fontico font14 color3"></i>下载次数：<b>0</b></div>
+                    <div class="pr20 pl10 "><i class="fontico font14 color3"></i>打印次数：<b>0</b></div>
+                        <div class=" pr20 pl10 pt10">
+                            <button type="submit" class="btn-my red-bg" data-bind="click:CollectionDoc"> 收藏</button>
+                        </div>
+
+                </div>
+                <!--right-bar end-->
+            </div>
+        </div>
+        <div class="margin-t20">
+
+            <!--<a class="btn btn-primary btn-orange"><span class="print"></span>打印收录证明</a>-->
+            <!-- Button trigger modal -->
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-lg modal-dialog-modify" role="document">
+                    <div class="modal-content">
+
+
+                            <div class="modal-header modal-header-modify clearfix02" style="height:50px;">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                     收录自助打印
+                                </h4>
+
+                            </div>
+                            <div style="height:460px;padding:20px;overflow-y:scroll;">
+                                <div id="printform" class="modal-body modal-body-modify print-form" style="text-align:left;">
+                                    <div id="printnav" style="position:fixed;top:100;right:0;left:0; display:none; "><img src="/PublicApi/SitePhoto/PrintBgImg" width="100%"></div>
+                                    <div id="gird_tbl" style="background-color:white;">
+                                        <table width="100%">
+
+                                            <tbody><tr>
+                                                <td style="width:400px;">
+                                                </td>
+                                                <td style="text-align:right;">
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                        <div style="text-align:center;font-size:30px ;margin:20px;">
+                                        </div>
+                                        <dl><dt class="print-title">标题：</dt><dd class="printdd">关于变性手术的伦理问题的研究综述</dd></dl>
+                                        <dl>
+                                            <dt class="print-title"></dt>
+                                            <dd class="printdd">
+
+                                            </dd>
+                                        </dl>
+                                        <dl><dt class="print-title"><i class="editdelete fontico font16"></i>作者：</dt><dd class="printdd"> 付登礼,何梅</dd></dl>
+                                        <dl>
+                                            <dt class="print-title"><i class="editdelete fontico font16"></i>来源出版物：</dt>
+                                            <dd class="printdd">
+                                                <span>
+                                                    中国医学伦理学
+                                                </span>
+                                                    <span>2002  年</span>
+                                                    <span>3  期</span>
+                                                    <span>(20 - 22)</span>
+                                            </dd>
+                                        </dl>
+                                        <dl><dt class="print-title"><i class="editdelete fontico font16"></i>出版日期：</dt><dd class="printdd">2002&nbsp;2002/6/30 0:00:00</dd></dl>
+
+                                            <dl><dt class="print-title"><i class="editdelete fontico font16"></i>ISSN/EISSN：</dt><dd class="printdd"> 1001-8567 &nbsp;</dd></dl>
+
+
+
+
+
+
+                                            <dl><dt class="print-title"><i class="editdelete fontico font16"></i>地址：</dt><dd class="printdd"> 昆明医学院第二附属医院神经外科,昆明医学院社科部 云南昆明650101 ,云南昆明650030 </dd></dl>
+
+                                                    <dl><dt class="print-title"><i class="editdelete fontico font16"></i>第一作者及地址(认领)：</dt><dd class="printdd">付登礼  </dd></dl>
+
+
+
+                                        <dl><dt class="print-title"><i class="editdelete fontico font16"></i>基金资助信息：</dt><dd class="printdd"> 无 </dd></dl>
+
+                                        <dl><dt class="print-title"><i class="editdelete fontico font16"></i>查询人：</dt><dd class="printdd"><div class="edit-input" contenteditable="true" id="SearchName"></div> </dd></dl>
+
+
+                                        <br>
+                                        <div style="text-align:right; padding-right:15px;">
+                                            <div style="font-size:larger;margin-top:20px;" contenteditable="true">
+                                                昆明医科大学
+图书馆                                            </div>
+                                            <span>
+                                                打印日期：2025年03月03日
+                                            </span>
+
+                                            <div class="printzhang"><img src="/PublicApi/SitePhoto/PrintZhang" width="150" height="150"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        <div class="modal-footer modal-footer-modify">
+                            <button type="button" class="btn btn-primary btn-primary-modify" onclick="Print()">打印</button>
+                            <button type="button" class="btn btn-default btn-default-modify" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <div id="printtemplate">
+
+        </div>
+    </div>
+    <script>
+    $(document).ready(function () {
+        $("#divQrcode").qrcode({ width: 100, height: 100, text: Global.RemoteUrl + '/Document/Detail/18596c2c-d5e8-417e-9f02-111e9f8554b1.html', correctLevel: QRErrorCorrectLevel.M });
+
+    });
+    function Print() {
+        $("#printnav").css('display', 'block');
+        var searchname = $("#SearchName").text();
+        var documentid = "18596c2c-d5e8-417e-9f02-111e9f8554b1";
+        if (searchname == "") {
+            $("#printform").print({
+                title: '\n\r',
+                deferred: $.Deferred().done(function () {
+                    $.get(Global.RemoteUrl + "/Home/UpdatePrintTimesNew/" + documentid )
+                })
+            });
+            $("#printnav").css('display', 'none');
+        }
+        else {
+            $("#printform").print({
+                title: '\n\r',
+                deferred: $.Deferred().done(function () {
+                    $.get(Global.RemoteUrl + "/Home/UpdatePrintTimesNew/" + documentid + "/" + searchname)
+                })
+            });
+            $("#printnav").css('display', 'none');
+        }
+
+
+    }
+
+
+    $(".editdelete").on("click", function () {
+        $(this).parent().parent().remove();
+    })
+
+    //$(document).ready(function () {
+    //    //$('#dldiv').hover(function () {
+    //    //    $(".editdelete").css('display', 'block');
+    //    //}, function () {
+    //    //    $(".editdelete").css('display', 'none');
+    //    //});
+
+    //    $("#gird_tbl dl").live('mouseover', function () {
+    //        $(".editdelete").css('display', 'block');
+    //    }).live('mouseout', function () {
+    //        $(".editdelete").css('display', 'none');
+    //    });
+    //})
+
+    $(function () {
+        $("#gird_tbl dl").nextAll().mouseover(function () {
+            $(this).children().addClass("bgRed");   
+            $(this).find(".editdelete").css('display', 'block');
+        })
+        $("#gird_tbl dl").nextAll().mouseleave(function () {
+            $(this).children().removeClass("bgRed");
+            $(this).find(".editdelete").css('display', 'none');
+
+        })
+
+    })
+
+
+    </script>
+    <div class="modal fade" id="ShowTipWindow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div style="margin-top:20px;margin-bottom:30px;text-align:center"><h3>请先到图书馆审核，再打印收录证明</h3></div>
+
+
+                </div>
+                <div class="modal-footer" style="text-align:center">
+                    <input type="button" class="btn" data-bind="click:CloseTip" value=" 确   认">&nbsp;&nbsp;
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--footer star-->
+    <div class="footer">
+        <div class="warp clearfix footerinner">
+                        <div class="pos">
+                                <div class="footer-txt">
+
+                                    <p>
+                                        网站总浏览量：<span id="spViewCount"></span> 次 &nbsp;&nbsp;
+                                    </p>
+                                    <p>Copyright © 昆明医科大学</p>
+                                        <p>技术支持：<a class="wit" target="_blank" href="http://www.xuezheku.com">北京同舟云网络信息技术有限公司</a></p>
+
+                                </div>
+
+
+                        </div>
+                        <div class="fr pt20"><img src="/images/qrcode.jpg" alt=""></div>
+        </div>
+    </div>
+    <div class="footer2">
+        <div class="warp   clearfix">
+            <div style="line-height: 12px;text-align: right;color: #fff;">
+                <span>
+                    浏览器支持:
+                    <a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank"><img src="/images/ico_gg.png" alt="Google Chrome" title="Google Chrome"></a>&nbsp;&nbsp;
+                    <a href="http://www.firefox.com.cn/" target="_blank"><img src="/images/ico_ff.png" alt="火狐" title="火狐"></a>&nbsp;&nbsp;
+                    <a href="http://browser.360.cn/" target="_blank"><img src="/images/ico_360.png" alt="360浏览器极速模式" title="360浏览器极速模式"></a>(8.0+极速模式)&nbsp;
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--footer end-->
+
+    <div class="t-right-bar">
+
+        <div class="t-bar-rocket" id="back-to-top">返回顶部</div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title color-red" id="myModalLabel">高级检索</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="mode-form1 font14 box70 mr-auto clearfix">
+                        <li class="clearfix">
+                            <div class="box-100x text-right pr10">学院：</div>
+                            <div class="box100">
+                                <div class="drop-box">
+                                    <div class="drop-txt"><span class="pl10">选择</span><i class="fontico ico-dw"></i></div>
+                                    <ul class="drop-menu drop-menu1 drop-dw">
+                                        <li>2018年</li>
+                                        <li>2017年</li>
+                                        <li>2016年</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="box-100x text-right pr10"> 年份：</div>
+                            <div class="box100">
+                                <div class="drop-box box30 fl">
+                                    <div class="drop-txt"><span class=" pl10">选择</span><i class="fontico ico-dw"></i></div>
+                                    <ul class="drop-menu drop-menu1 drop-dw">
+                                        <li>2018年</li>
+                                        <li>2017年</li>
+                                        <li>2016年</li>
+                                    </ul>
+                                </div>
+                                <div class="fl pl10 pr10">至</div>
+                                <div class="drop-box box30 fl">
+                                    <div class="drop-txt"><span class=" pl10">选择</span><i class="fontico ico-dw"></i></div>
+                                    <ul class="drop-menu drop-menu1 drop-dw">
+                                        <li>2018年</li>
+                                        <li>2017年</li>
+                                        <li>2016年</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="box-100x text-right pr10">学院：</div>
+                            <div class="box100">
+                                <div class="drop-box box30 fl">
+                                    <div class="drop-txt"><span class=" pl10">选择</span><i class="fontico ico-dw"></i></div>
+                                    <ul class="drop-menu drop-menu1 drop-dw">
+                                        <li>2018年</li>
+                                        <li>2017年</li>
+                                        <li>2016年</li>
+                                    </ul>
+                                </div>
+                                <div class="fl box70"><input type="text" class="box100 height36"></div>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="box-100x text-right pr10">
+                                <a href="javascript:void(0);" class="font24 fl add-item1">+</a>
+                                <a href="javascript:void(0);" class="font24 fl del-item2" style="display: none;">-</a>
+                            </div>
+                            <div class="box100">
+                                <div class="drop-box box30 fl">
+                                    <div class="drop-txt"><span class=" pl10">标题</span><i class="fontico ico-dw"></i></div>
+                                    <ul class="drop-menu drop-menu1 drop-dw">
+                                        <li>标题</li>
+                                        <li>作者</li>
+                                        <li>关键字</li>
+                                        <li>ISSN</li>
+                                    </ul>
+                                </div>
+                                <div class="fl box70"><input type="text" class="box100 height36"></div>
+                            </div>
+                        </li>
+                        <li class="clearfix" style="display: none;">
+                            <div class="box-100x text-right pr10">
+                                <div class="drop-box text-left">
+                                    <div class="drop-txt"><span class=" pl10">并且</span><i class="fontico ico-dw"></i></div>
+                                    <ul class="drop-menu drop-menu1 drop-dw">
+                                        <li>并且</li>
+                                        <li>或者</li>
+                                        <li>不含</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="box100">
+                                <div class="drop-box box30 fl">
+                                    <div class="drop-txt"><span class=" pl10">标题</span><i class="fontico ico-dw"></i></div>
+                                    <ul class="drop-menu drop-menu1 drop-dw">
+                                        <li>标题</li>
+                                        <li>作者</li>
+                                        <li>关键字</li>
+                                        <li>ISSN</li>
+                                    </ul>
+                                </div>
+                                <div class="fl box70"><input type="text" class="box100 height36"></div>
+
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">重置</button>
+                    <button type="submit" class="btn btn-danger">检索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="login" role="dialog" aria-labelledby="myModalLabel" style="background: rgba(0,0,0,0)">
+        <div class="modal-dialog" id="divLogin" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: 0;">
+                    <span class="font18">用户登录</span>
+                    <a href="javascript:void(0);" class="myclose font34" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></a>
+                </div>
+                <div class="modal-body">
+
+                    <!--login start-->
+                    <div>
+
+                        <ul class="mode-form1 font14 box70 mr-auto">
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">用户名：</div>
+                                <div class="box100"><input id="loginUserName" name="loginUserName" type="text" class="box100 height36" data-bind="value:LoginUserName"></div>
+                            </li>
+
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">密码：</div>
+                                <div class="box100"><input id="loginPassword" name="loginPassword" type="password" class="box100 height36" data-bind="value:LoginPassword"></div>
+                            </li>
+
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">验证码：</div>
+
+                                <div class="box50" style="float:left; ">
+                                    <input id="securityCode" name="securityCode" required="" class="box100 height36" data-bind="value:LoginSecCode">
+                                    <input id="KeyIDInput" name="KeyIDInput" required="" class="box100 height36" value="de3eb05b-b70d-4313-803b-ece9ad9e6e67" style="display:none">
+                                </div>
+                                <div class="box50" style="float:right; padding-left:15px;">
+                                    <p><img onclick="this.src= document.location.protocol + '/Home/GetSecurityCode?KeyID=de3eb05b-b70d-4313-803b-ece9ad9e6e67&amp;flag=' + Math.random(); " id="secImg" title="换一张" style="cursor:pointer" src="http:/Home/GetSecurityCode?KeyID=de3eb05b-b70d-4313-803b-ece9ad9e6e67&amp;flag=0.4933326709061798"></p>
+                                </div>
+                            </li>
+                            <li class="pt20 pb20 clearfix">
+                                <button type="submit" id="btnsubmit" class="btn btn-danger fl" data-bind="click:CheckLogin">登录</button>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!--login end-->
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editpwd" role="dialog" aria-labelledby="myModalLabel" style="background: rgba(0,0,0,0)">
+        <div class="modal-dialog" id="divEditPwd" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: 0;">
+                    <span class="font18">修改初始密码</span>
+                    <a href="javascript:void(0);" class="myclose font34" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></a>
+                </div>
+                <div class="modal-body">
+
+                    <!--login start-->
+                    <div>
+
+                        <ul class="mode-form1 font14 box70 mr-auto">
+
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">用户名：</div>
+                                <div class="box100"><input id="loginUserName" name="loginUserName" disabled="" type="text" class="box100 height36" data-bind="value:LoginUserName"></div>
+                                <input id="loginPassword" name="loginPassword" type="password" style="display:none" class="box100 height36" data-bind="value:LoginPassword">
+                            </li>
+
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">新密码：</div>
+                                <div class="box100">
+                                    <input id="loginPassword" name="loginPassword" type="password" class="box100 height36" data-bind="value:NewPassword">
+                                    <span style="color:orangered;line-height:20px;"><i class="fontico font14" title="帮助"></i>密码长度不小于8位<br>包含数字、字母大、小写、符号中的至少3种</span>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">确认新密码：</div>
+                                <div class="box100"><input id="loginPassword" name="loginPassword" type="password" class="box100 height36" data-bind="value:NewPasswordConfirm"></div>
+                            </li>
+
+                            <li class="pt20 pb20 clearfix">
+                                <button type="submit" class="btn btn-danger fl" data-bind="click:$root.UpdatePassword">修改密码</button>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!--login end-->
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="reg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="background: rgba(0,0,0,0)">
+        <div class="modal-dialog" id="divReg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: 0;">
+                    <span class="font18">用户注册</span><br>
+                    <span style="color:orangered;line-height:20px;"><i class="fontico font14" title="帮助"></i>&nbsp;说明：E-mail用于注册验证接收邮件，请认真填写。如已经存在，请联系管理员进行核实是否是本人！</span>
+                    <a href="javascript:void(0);" class="myclose font34" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></a>
+                </div>
+                <div class="modal-body">
+                    <!--regsiter star -->
+                    <div>
+
+                        <ul class="mode-form1 font14 box70 mr-auto">
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">E-mail：</div>
+                                <div class="box100"><input id="email" name="email" type="email" class="box100 height36" data-bind="value:RegEmail"></div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">学号/职工号：</div>
+                                <!--<input id="loginName" name="loginName" type="text" value="adm" style="display:none" disabled autocomplete="off">-->
+                                <div class="box100">
+                                    <input id="loginName" name="loginName" type="text" class="box100 height36" data-bind="value:RegUserName">
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">学者姓名：</div>
+                                <div class="box100"><input id="scholarName" name="scholarName" type="text" class="box100 height36" data-bind="value:RegAuthorName"></div>
+                            </li>
+
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">所在单位：</div>
+                                <div class="box100"><input id="userUnit" name="userUnit" type="text" class="box100 height36" data-bind="value:RegAddress"></div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">密码：</div>
+                                <div class="box100">
+                                    <!--<input id="password" name="password" type="password" style="display:none" disabled autocomplete = "off">-->
+                                    <input id="password" name="password" type="password" class="box100 height36" data-bind="value:RegPassword" autocomplete="off">
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">确认密码：</div>
+                                <div class="box100">
+                                    <!--<input id="confirm_password" name="confirm_password" type="password" style="display:none" disabled autocomplete = "off">-->
+                                    <input id="confirm_password" name="confirm_password" type="password" class="box100 height36" data-bind="value:RegPasswordConfirm" autocomplete="off">
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="box-100x text-right pr10">邀请码：</div>
+                                <div class="box100"><input id="InvitationCodeTxt" name="InvitationCodeTxt" type="text" class="box100 height36" data-bind="value:InvitationCodeTxt"></div>
+                            </li>
+                            <li class="pt20 pb20 clearfix">
+                                <button type="submit" class="btn btn-danger fl" data-bind="click:Register">注册新用户</button>
+                                <a href="javascript:void(0);" class="btn fl ml20 btnlogin" onclick="ShowLogin()">已有一个帐户</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!--regsiter end-->
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+<script>
+    $.get(Global.RemoteUrl + "/Home/UpdateWebsiteViewCount", function (r) {
+        $("#spViewCount").html(r);
+    });
+
+    $.get(Global.RemoteUrl + "/Home/PrintViewCount", function (r) {
+        $("#printViewCount").html(r);
+    });
+
+
+    //统计带时间日期的访问量
+    $.get(Global.RemoteUrl + "/Home/WebsiteViewCountDate", function (r) {
+
+    });
+
+
+    //$("#securityCode").keydown(function (e) {
+    //    debugger
+    //    var theEvent = e || window.event;
+    //    var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+    //    if (code == 13) {
+    //        $("#btnsubmit").click();
+
+    //    }
+    //})
+</script>
+<script type="text/javascript">
+    //var showAD = {
+    //    curve: function (t, b, c, d, s) {
+    //        if ((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+    //        return c / 2 * ((t -= 2) * t * t + 2) + b
+    //    },
+    //    fx: function (from, to, playTime, onEnd) {
+    //        var Me = this,
+    //            who = this.adWrap,
+    //            position = 0,
+    //            changeVal = to - from,
+    //            curve = this.curve;
+    //        playTime = playTime / 10;
+    //        who.style.overflow = 'hidden';
+    //        function _run() {
+    //            if (position++ < playTime) {
+    //                who.style.height = Math.max(1, Math.abs(Math.ceil(curve(position, from, changeVal, playTime)))) + "px";
+    //                setTimeout(_run, 10)
+    //            } else {
+    //                onEnd && onEnd.call(Me, to)
+    //            }
+    //        };
+    //        _run()
+    //    },
+    //    init: function (info) {
+    //        var Me = this,
+    //            loadImg = new Image;
+    //        loadImg.src = info.endImgURL;
+    //        window.onload = function () {
+    //            Me.endImgURL = info.endImgURL;
+    //            Me.img = document.getElementById(info.imgID);
+    //            Me.adWrap = document.getElementById(info.adWrapID);
+    //            var max = Me.img.height;
+    //            setTimeout(function () {
+    //                Me.fx(max, 0, 500,
+    //                    function (x) {
+    //                        this.img.src = this.endImgURL;
+    //                        this.curve = function (t, b, c, d) {
+    //                            if ((t /= d) < (1 / 2.75)) {
+    //                                return c * (7.5625 * t * t) + b
+    //                            } else if (t < (2 / 2.75)) {
+    //                                return c * (7.5625 * (t -= (1.5 / 2.75)) * t + .75) + b
+    //                            } else if (t < (2.5 / 2.75)) {
+    //                                return c * (7.5625 * (t -= (2.25 / 2.75)) * t + .9375) + b
+    //                            } else {
+    //                                return c * (7.5625 * (t -= (2.625 / 2.75)) * t + .984375) + b
+    //                            }
+    //                        };
+    //                        this.fx(0, this.img.height, 600)
+    //                    })
+    //            },
+    //                info.timeout || 5000)
+    //        };
+    //    }
+    //};
+    //showAD.init({
+    //    adWrapID: 'ad_box',
+    //    imgID: 'adImg',
+    //    endImgURL: '/AD/bupt_indexad2.jpg'
+    //});
+</script><div id="divLoadingmask" style="display: none; position: absolute; left: 0px; z-index: 10000000;"></div></body></html>

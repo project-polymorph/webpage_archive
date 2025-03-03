@@ -1,0 +1,981 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="phpwind,bbs,board,php,mysql,forums">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="//www.summer-plus.net/">
+<title>（自用）南+男娘花名册茶馆 南+ South Plus - powered by Pu!mdHd</title>
+<script language="JavaScript" src="data/bbscache/face.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/5.8.1/css/all.min.css" type="text/css" rel="stylesheet">
+
+<!-- jQuery library -->
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js" type="application/javascript"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/4.3.1/js/bootstrap.min.js" type="application/javascript"></script>
+<!--css--><style type="text/css">
+body {font-family: Verdana;FONT-SIZE: 12px;MARGIN: 0;color: #000000;background: #ffffff;}
+img {border:0;}
+td {FONT-SIZE: 12px;}
+textarea,input,select{
+	font-family: Verdana;
+	font-size: 12px;
+	background-color: #ffffff;
+}
+div.quote{
+	margin:5px 5px;
+	border:1px dashed #dddddd;
+	padding:5px;
+	background:#FFFFFF;
+	line-height:normal;
+}
+a { TEXT-DECORATION: none;}
+a:hover{ color:#ff0000;text-decoration:none;}
+.smalltxt {font-family: Tahoma, Verdana; font-size: 12px;}
+.tpc_content { font-size: 13px;}
+.i_table {BORDER: #E7E3E7 1px solid;}
+.head{background-color: #E7E3E7;}
+@supports (-webkit-overflow-scrolling: touch) {
+    .pagination li input{
+      font-size: 11px !important;
+    }
+}
+/*Back to top start*/
+.cd-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-top-btn {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    bottom: 40px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    /* image replacement properties */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: rgba(255,120,120,0.8) url(/images/cd-top-arrow.svg) no-repeat center 50%;
+    border-radius: 100%;
+}
+.cd-top.cd-is-visible,
+.cd-top.cd-fade-out,
+.no-touch .cd-top:hover {
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+    -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+    /* the button becomes visible */
+    
+    visibility: visible;
+    opacity: 1;
+}
+.cd-top.cd-fade-out {
+    /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+    
+    opacity: 1;
+}
+.no-touch .cd-top:hover {
+    background-color: #888888;
+    opacity: 1;
+}
+@media only screen and (min-width: 768px) {
+    .cd-top-btn {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .cd-top-btn {
+        height: 60px;
+        width: 60px;
+        right: 30px;
+        bottom: 30px;
+    }
+}
+
+/* .modal-fullscreen */
+.modal-fullscreen {
+  background: transparent;
+}
+.modal-fullscreen .modal-content {
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.modal-backdrop.modal-backdrop-fullscreen {
+  background: rgb(237, 241, 242);
+}
+.modal-backdrop.modal-backdrop-fullscreen.in {
+  opacity: .97;
+  filter: alpha(opacity=97);
+}
+/* .modal-fullscreen size: we use Bootstrap media query breakpoints */
+
+.modal-fullscreen .modal-dialog {
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  overflow-y:hidden;
+}
+@media (min-width: 768px) {
+  .modal-fullscreen .modal-dialog {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-fullscreen .modal-dialog {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-fullscreen .modal-dialog {
+     width: 1170px;
+  }
+}
+.m-tool {
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: relative;
+    background-color: rgb(237, 241, 242);
+}
+
+.m-tool > .m-close {
+    position: absolute;
+    left: 2rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    color: #888888;
+}
+
+.m-tool > .m-tool-toolbar {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.m-tool-list > ul {
+    list-style: none;
+    padding: 0 2rem;
+    font-size: 1rem;
+    background-color: rgb(237, 241, 242);
+}
+
+.m-tool-list > ul > li {
+    height: 4rem;
+    line-height: 4rem;
+    border-bottom: 1px solid #E2E2E2;
+}
+.m-tool-title {
+    padding-top: 0.75rem;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #343a40;
+}
+/*Back to top end*/
+</style><!--css-->
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KYN9Z1NWGY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KYN9Z1NWGY');
+</script>
+<script>
+function showfaces(){
+	$('#showface').toggle(300);
+	path = 'smallface';
+	picpath = "images/post/smile/";
+	if($('#showface').html().trim() == ""){
+		for(var i in faces[path]){
+			var sid = faces[path][i];
+			var pic = document.createElement("img");
+			pic.style.margin = "3px";
+			pic.style.cursor = "pointer";
+			pic.id = sid;
+			pic.onclick = function(){addsmile(this.id);};
+			pic.src = picpath+face[sid][0];
+			pic.title = face[sid][1];
+			$('#showface').append(pic);
+		}
+	}
+	
+	return false;
+}
+
+function addsmile(NewCode){  
+	document.FORM.atc_content.value += ' [s:'+NewCode+'] ';
+}
+function setCookie(name,value,hours) {
+    var expires = "";
+    if (hours) {
+        var date = new Date();
+        date.setTime(date.getTime() + (hours*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {   
+    document.cookie = name+'=; Max-Age=-99999999;';  
+}
+$(function() {
+  if(getCookie('mobilever') == null){
+    setCookie('mobilever',1,6);
+  }
+});
+</script>
+<script>
+jQuery(function() {
+    if(getCookie('peacemaker') == null){
+        ajax.send('pw_ajax.php','action=getblocklist',function(){
+            var parser = new DOMParser;
+            if(ajax.request.responseText != ''){
+                var dom = parser.parseFromString(ajax.request.responseText,'text/html');
+                config = JSON.parse(dom.body.textContent);
+                SP_setValue('config', config);
+                SP_peacemaker();
+                setCookie('peacemaker',1,24);
+            } else {
+                SP_peacemaker();
+                setCookie('peacemaker',1,24);
+            }
+        });
+    }
+    else{
+        SP_peacemaker();
+    }
+});
+
+function SP_setValue(key, value){
+    var existingConfig = window.localStorage.getItem(key);
+    if(existingConfig != JSON.stringify(value)){
+        window.localStorage.setItem(key, JSON.stringify(value));
+        ajax.send('pw_ajax.php?action=updateblocklist','blocklistconfig='+JSON.stringify(value));
+    }
+}
+
+function SP_getValue(key){
+    return JSON.parse(window.localStorage.getItem(key));
+}
+
+function SP_peacemaker(){
+    var config = SP_getValue("config");
+
+    jQuery.each( config.blist, function( i, val ) {
+      //alert(i);
+      //alert(val.level.includes("topic"));
+      
+      if(val.level.includes("topic")){
+        $('.author_'+i).hide();
+        $('.author_'+i).next('br').remove();
+      }
+    });
+}
+</script>
+</head>
+<body vlink="#333333" link="#333333">
+<nav class="navbar navbar-light" style="height: 3rem; background: #FEFFFE; box-shadow: inset 0 -1px 0 0 #E2E2E2;">
+    <div class="container" style="width: 100%; padding-left: 0; padding-right: 0">
+        <div class="row" style="width: 100%; margin-right: 0; margin-left: 0;">
+            <div class="col-4" style="padding-left: 0"><div class="clickable" data-toggle="modal" data-target="#modal-nav">
+            <img src="/images/nav.png" style="height: 2rem;">
+        </div></div>
+            <div class="col-4" style="padding: 0;text-align: center;"><a href="simple/index.php?" class="navbar-brand" style="text-align: center;height:2.5rem;flex:1;margin-top: -0.25rem;cursor: pointer;"><img src="/images/m-logo-south-high.png" style="height: 100%;"></a></div>
+            <div class="col-4" style="padding-right: 0; text-align: right;padding-top: 0.3rem;"><span style="overflow: hidden;text-overflow: ellipsis;color: #FF7878 !important;font-size: 14px;">
+
+<a href="login.php" style="color: #FF7878 !important;">登录</a> | <a href="register.php" style="color: #FF7878 !important;">注册</a>
+
+            </span></div>
+        </div>
+    </div>
+</nav>
+<div class="modal modal-fullscreen fade" id="modal-nav" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:rgb(237, 241, 242);">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" style="margin: auto;width:100%;">
+                <div class="m-tool">
+                    <span class="m-close clickable"><i class="fa fa-times" aria-hidden="true" data-toggle="modal" data-target="#modal-nav"></i></span>
+                    <div class="m-tool-title">
+                        桌面版导航
+                    </div>
+                    <div class="m-tool-list">
+                        <ul>
+                            <li><a href="/search.php" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">搜索</a></li>
+                            <li><a href="/plugin.php?H_name-tasks.html" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">社区论坛任务</a></li>
+                            <li><a href="javascript:setCookie('mobilever',1,720);alert('设置成功！30天内不会自动跳转移动版。');" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">停止自动跳转移动版</a></li>
+                            <li><a href="/" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">桌面版首页</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script language="JavaScript">
+function CopyCode(obj){
+	var js = document.body.createTextRange();
+	js.moveToElementText(obj);
+	js.select(); 
+	js.execCommand("Copy");
+}
+function postreply(txt) {
+	if (typeof document.FORM != "undefined") {
+		document.FORM.atc_title.value = txt;
+		document.FORM.atc_content.focus();
+	} else {
+		window.location = 'post.php?action=reply&fid='+fid+'&tid='+tid;
+	}
+}
+</script>
+<style type="text/css">
+.card img{
+	max-width: 100%;
+    height: auto;
+}
+.blockquote {
+    font-size: 12px;
+    border: 1px solid #eeeeee;
+    background: #f8f8f8;
+    border-left-width: 3px;
+    margin: 0 0 1%;
+    color: #736933;
+}
+.pagination a{
+  color: #888;
+}
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #FF7878;
+    border-color: #FF7878;
+}
+.jumbotron select {
+    padding: 5px;
+    margin: 10px 0;
+}
+.jumbotron {
+    padding: 1rem 1rem; 
+}
+.nopadding-right {
+   padding-right: 0 !important;
+   margin-right: 0 !important;
+}
+.nopadding-left {
+   padding-left: 0 !important;
+   margin-left: 0 !important;
+}
+@media (min-width: 576px){
+.jumbotron {
+    padding: 1rem 1rem; 
+}
+}
+</style>
+
+<nav class="navbar navbar-light bg-light" style="font-size: 14px; display: block;box-shadow: inset 0 -1px 0 0 #E2E2E2;">
+  <a href="simple/index.php?" style="color: #FF7878">南+ South Plus </a> <i class="fas fa-chevron-right" style="color: #999999; font-size: 12px;"></i> <a href="simple/index.php?f9.html" style="color: #FF7878">茶馆</a> <i class="fas fa-chevron-right" style="color: #999999; font-size: 12px;"></i> <span style="color: #444444">（自用）南+男娘花名册</span>
+</nav>
+<div class="container">
+<div class="text-center"><br><a href="https://equity.tmall.com/tm?agentId=388a34ec184045eb&amp;bc_fl_src=tmall_market_llb_1_2691627&amp;llbPlatform=_pube&amp;llbOsd=1&amp;di=__IDFA__&amp;dim=__IMEI__&amp;oaid=__OAID__&amp;caid=__CAID__&amp;sy=llb" onclick="ga('send', 'event', 'mobile', 'clicked', 'ad');"><img src="/images/sswgmobile8.png" class="img-fluid" alt="Responsive image"></a></div>
+<p></p><center><ul class="pagination" style="justify-content: center;"><li class="page-item"><a href="simple/index.php?t2154158_1.html" class="page-link"><span aria-hidden="true">«</span></a></li><li class="page-item active"><b class="page-link">1</b></li><li class="page-item"><a class="page-link" href="simple/index.php?t2154158_2.html">2</a></li><li class="page-item"><a class="page-link" href="simple/index.php?t2154158_3.html">3</a></li><li class="page-item"><input type="text" size="2" placeholder="跳转" class="page-link " style="border-radius:0;width:3.25rem;-webkit-appearance: none;
+" onkeydown="javascript: if(window.event.keyCode==13) window.location='/simple/index.php?t2154158_'+this.value+'.html';"></li><li class="page-item"><a class="page-link" href="simple/index.php?t2154158_9.html"><span aria-hidden="true">»</span></a></li></ul></center><p></p>
+
+
+<div class="card author_1710649">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1710649" target="_blank"><strong>花生慕斯</strong></a> - 2024-04-07 01:13
+			<span class="float-right">[GF]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+
+
+楼主深耕男娘领域多年，发现论坛里也有很多潜力股，所以做个索引方便自己拿来手冲。<br>注意事项：1.本帖仅为收录，不作推荐及过多评论。如果你不希望出现在本帖里或者不希望被我作为手冲配菜：前者可以私信我删除，后者我会冲得更爽。<br>2.贴主留下推特等联系方式的会一并贴在本帖里。<br>3.本帖按我搜到的顺序排列，水平有高有低。善语结善缘，可以不爱请别伤害，希望大家友好讨论。<br>4.停更清空旧帖的贴主视为已退坑，不再收录
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 楼主(花生慕斯) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1385441">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1385441" target="_blank"><strong>abbyy</strong></a> - 2024-04-07 01:15
+			<span class="float-right">[B1F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+mark等更 <img src="images/post/smile/smallface/face106.gif" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 1楼(abbyy) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1710649">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1710649" target="_blank"><strong>花生慕斯</strong></a> - 2024-04-07 01:15
+			<span class="float-right">[B2F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+0. xixiyaxixi<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-post-uid-505048.html" target="_blank">https://www.summer-plus.net/u.php?action-post-uid-505048.html</a><br><a href="https://twitter.com/xixiyaxixi1" target="_blank">https://twitter.com/xixiyaxixi1</a><br>简评：评委会特别大奖，伪娘圈的旗舰级头牌。虽然还在登陆但是长期不发言了，大概只是看看帖子这样。<br>伟大无需多言，我很怀疑看这个帖子的人真的会有人没看过她的资源吗？不是登上这个帖子给了她含金量，而是她的存在才给了这个帖子含金量，我只能这么说。看男娘不看xixi，就像看四大名著不看金瓶梅，腿控不看桥本，吃面不吃蒜，吃葡萄不吐葡萄皮。xi宝的牛牛不要说嗦一嗦，就是摸一摸也是延年益寿啊。<br><br>1. 椰汁<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-1407026.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-1407026.html</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-1650741.html" target="_blank">https://www.summer-plus.net/read.php?tid-1650741.html</a><br><a href="https://www.summer-plus.net/read.php?tid-1731023.html" target="_blank">https://www.summer-plus.net/read.php?tid-1731023.html</a><br><a href="https://www.summer-plus.net/read.php?tid-1705412.html" target="_blank">https://www.summer-plus.net/read.php?tid-1705412.html</a><br>简评：质量数量颜值三料冠军，最高的山最长的河～<br>椰汁宝宝我想和你做艾我想和你做艾我想和你做艾我想和你做艾我想和你做艾我想和你做艾我想和你做艾我想和你做艾我想和你做艾我想和你做艾（另外谁有椰宝推啊私发我一个求你了<br><br>2.nekoll <br>个人主页：<a href="https://www.summer-plus.net/u.php?action-show-uid-1794465.html" target="_blank">https://www.summer-plus.net/u.php?action-show-uid-1794465.html</a><br><a href="https://twitter.com/nekkkkko422" target="_blank">https://twitter.com/nekkkkko422</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-2136608.html" target="_blank">https://www.summer-plus.net/read.php?tid-2136608.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2123033.html" target="_blank">https://www.summer-plus.net/read.php?tid-2123033.html</a><br>简评：看推特就是普通擦边女生的感觉，已臻化境。说实话我已经不太能分辨了，贴主真的是男的吗？快把牛牛端上来让我验验罢。<br><br>3.创世星胆小的饼干<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-1979664.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-1979664.html</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-2133440.html" target="_blank">https://www.summer-plus.net/read.php?tid-2133440.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2136623.html" target="_blank">https://www.summer-plus.net/read.php?tid-2136623.html</a><br>简评：和我水平差不多的伪娘，拍完自己看感觉挺变态的，但是过几天又重操旧业。其实并不胖，但是由于男女身材差异显得壮，没办法的事。<br><br>4.西伯利亚舔过铁<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-show-uid-382419.html" target="_blank">https://www.summer-plus.net/u.php?action-show-uid-382419.html</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-2128567-keyword-%E7%94%B7%2B.html" target="_blank">https://www.summer-plus.net/read.php?tid-2128567-keyword-%E7%94%B7%2B.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2013714.html" target="_blank">https://www.summer-plus.net/read.php?tid-2013714.html</a><br>简评：更新很慢的伪娘，身材非常不错的二次元前辈。如果我以后女朋友也这样我能把蛋都塞进去。<br><br>5.奇脆暴风雪<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-1570976.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-1570976.html</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-2127091-uid-1570976.html" target="_blank">https://www.summer-plus.net/read.php?tid-2127091-uid-1570976.html</a><br>简评：刚入门选手，等新作。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 2楼(花生慕斯) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1710649">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1710649" target="_blank"><strong>花生慕斯</strong></a> - 2024-04-07 01:16
+			<span class="float-right">[B3F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+6.雪美月<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-show-uid-1497432.html" target="_blank">https://www.summer-plus.net/u.php?action-show-uid-1497432.html</a><br><a href="https://twitter.com/yuki_mizuki01" target="_blank">https://twitter.com/yuki_mizuki01</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-2111345.html" target="_blank">https://www.summer-plus.net/read.php?tid-2111345.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2120301.html" target="_blank">https://www.summer-plus.net/read.php?tid-2120301.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2117908.html" target="_blank">https://www.summer-plus.net/read.php?tid-2117908.html</a><br>简评：敢于露脸好评，当然脸型也很流畅，化妆技术不错再加上还有胸，潜力无限。<br><br>7.周丝绮 <br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-1973693.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-1973693.html</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-2091943.html" target="_blank">https://www.summer-plus.net/read.php?tid-2091943.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2096759.html" target="_blank">https://www.summer-plus.net/read.php?tid-2096759.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2092855.html" target="_blank">https://www.summer-plus.net/read.php?tid-2092855.html</a><br>简评：风格化很明显，身材很好，适合女装。但是本人对戴锁不太感兴趣，喜欢又长又粗白皙红润的牛牛<br><br>8.Narukyun<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-show-uid-790689.html" target="_blank">https://www.summer-plus.net/u.php?action-show-uid-790689.html</a><br><a href="https://twitter.com/Narukyun776" target="_blank">https://twitter.com/Narukyun776</a><br>简评：南+上的原帖404了，想看的可以去推特。<br><br>9.鱿鱼酱<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-1267378.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-1267378.html</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-1705960.html" target="_blank">https://www.summer-plus.net/read.php?tid-1705960.html</a><br><a href="https://www.summer-plus.net/read.php?tid-1676787.html" target="_blank">https://www.summer-plus.net/read.php?tid-1676787.html</a><br><a href="https://www.summer-plus.net/read.php?tid-1725892.html" target="_blank">https://www.summer-plus.net/read.php?tid-1725892.html</a><br>简评：虽然都戏称是男+，但男同其实还是少见的。有前高需求的+人可以看看他写的教程。<br><br>10.拟态复读虫<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-32399.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-32399.html</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-2058815.html" target="_blank">https://www.summer-plus.net/read.php?tid-2058815.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2096679-keyword-%E7%94%B7%2B.html" target="_blank">https://www.summer-plus.net/read.php?tid-2096679-keyword-%E7%94%B7%2B.html</a><br>简评：优秀的coser一枚，很多帖子失效了看不到照片有点可惜。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 3楼(花生慕斯) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1710649">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1710649" target="_blank"><strong>花生慕斯</strong></a> - 2024-04-07 01:18
+			<span class="float-right">[B4F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+11.NAGISORA<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-795887.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-795887.html</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-2067417.html" target="_blank">https://www.summer-plus.net/read.php?tid-2067417.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2070218-keyword-%E7%94%B7%2B.html" target="_blank">https://www.summer-plus.net/read.php?tid-2070218-keyword-%E7%94%B7%2B.html</a><br>简评：更的不多<br><br>12.青芒w<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-show-uid-1966326.html" target="_blank">https://www.summer-plus.net/u.php?action-show-uid-1966326.html</a><br><a href="https://twitter.com/Qingmang2020" target="_blank">https://twitter.com/Qingmang2020</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-2069608-keyword-%E7%94%B7%2B.html" target="_blank">https://www.summer-plus.net/read.php?tid-2069608-keyword-%E7%94%B7%2B.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2031629.html" target="_blank">https://www.summer-plus.net/read.php?tid-2031629.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2019926.html" target="_blank">https://www.summer-plus.net/read.php?tid-2019926.html</a><br>简评：主战场在推特，感兴趣的+人们可以关注一下。在他来南+发帖之前就在蓝鸟上关注他了，真正的猛男敢于对全世界露出，真的牛批。还有一点是我女装跟他长得挺像，而且他也在深圳，有一种看自己在街边露出的感觉好刺激有没有懂的（。。<br><br>13.蜜柑猫<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-634074.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-634074.html</a><br><a href="https://twitter.com/meow_marmalade" target="_blank">https://twitter.com/meow_marmalade</a><br>简评：独居上班真是女装buff。南+的帖子都404了，主战场在推特大家去点点关注。喜欢双狼的都是很有品味的人，可以和我做艾吗宝宝<br><br>14.上木栗子<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-show-uid-1828701.html" target="_blank">https://www.summer-plus.net/u.php?action-show-uid-1828701.html</a><br><a href="https://twitter.com/KamikiKuriko" target="_blank">https://twitter.com/KamikiKuriko</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-2039091.html" target="_blank">https://www.summer-plus.net/read.php?tid-2039091.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2062852.html" target="_blank">https://www.summer-plus.net/read.php?tid-2062852.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2045778.html" target="_blank">https://www.summer-plus.net/read.php?tid-2045778.html</a><br>简评：减肥女装的励志典型，不更了有点可惜<br><br>15.涵涵啊<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-show-uid-1224761.html" target="_blank">https://www.summer-plus.net/u.php?action-show-uid-1224761.html</a><br><a href="https://twitter.com/cd_hanhan" target="_blank">https://twitter.com/cd_hanhan</a><br>简评：更的不多，主要在推特。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 4楼(花生慕斯) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1710649">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1710649" target="_blank"><strong>花生慕斯</strong></a> - 2024-04-07 01:18
+			<span class="float-right">[B5F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+16.兔子<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-1363876.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-1363876.html</a><br>简评：图全裂了，评价不了。<br><br>17.斯忒比22<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-1751280.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-1751280.html</a><br><a href="https://twitter.com/dqzqz20/media" target="_blank">https://twitter.com/dqzqz20/media</a><br>简评：很不错的coser，看得出来个子蛮高的，平时更的不多。<br><br>18.ca393d1f<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-show-uid-193140.html" target="_blank">https://www.summer-plus.net/u.php?action-show-uid-193140.html</a><br><a href="https://twitter.com/siswaiter10631" target="_blank">https://twitter.com/siswaiter10631</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-2010063.html" target="_blank">https://www.summer-plus.net/read.php?tid-2010063.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2026227.html" target="_blank">https://www.summer-plus.net/read.php?tid-2026227.html</a><br><a href="https://www.summer-plus.net/read.php?tid-2006348.html" target="_blank">https://www.summer-plus.net/read.php?tid-2006348.html</a><br>简评：哥我求你了你哪儿来的淫趴啊带我一个<br><br>19.不能被熟人发现<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-1247679.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-1247679.html</a><br><a href="https://twitter.com/fangfeiziwoooo" target="_blank">https://twitter.com/fangfeiziwoooo</a><br>Top点击：<a href="https://www.summer-plus.net/read.php?tid-1808308.html" target="_blank">https://www.summer-plus.net/read.php?tid-1808308.html</a><br><a href="https://www.summer-plus.net/read.php?tid-1884255.html" target="_blank">https://www.summer-plus.net/read.php?tid-1884255.html</a><br><a href="https://www.summer-plus.net/read.php?tid-1791415.html" target="_blank">https://www.summer-plus.net/read.php?tid-1791415.html</a><br>简评：经历过肾移植的猛男，当时看到手术成功松了一口气。男娘圈不能没有你，好好活着，加油。<br><br>20.丝澪silsy<br>个人主页：<a href="https://www.summer-plus.net/u.php?action-topic-uid-1650568.html" target="_blank">https://www.summer-plus.net/u.php?action-topic-uid-1650568.html</a><br>简评：图全裂了，评价不了。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 5楼(花生慕斯) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1710649">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1710649" target="_blank"><strong>花生慕斯</strong></a> - 2024-04-07 01:19
+			<span class="float-right">[B6F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+先招20个，剩下的睡醒了再整理 <img src="images/post/smile/smallface/face084.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 6楼(花生慕斯) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_965178">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=965178" target="_blank"><strong>haimimi</strong></a> - 2024-04-07 03:43
+			<span class="float-right">[B7F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+Mark一下，大佬牛批 <img src="images/post/smile/smallface/face017.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 7楼(haimimi) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_997379">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=997379" target="_blank"><strong>Idoit</strong></a> - 2024-04-07 03:46
+			<span class="float-right">[B8F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+mark了， <img src="images/post/smile/smallface/face077.gif" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 8楼(Idoit) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1980891">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1980891" target="_blank"><strong>红浪漫K3</strong></a> - 2024-04-07 04:05
+			<span class="float-right">[B9F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+太震撼了 <img src="images/post/smile/smallface/face084.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 9楼(红浪漫K3) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1711264">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1711264" target="_blank"><strong>帧舔王</strong></a> - 2024-04-07 04:16
+			<span class="float-right">[B10F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face077.gif" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face077.gif" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face077.gif" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face077.gif" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 10楼(帧舔王) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_885575">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=885575" target="_blank"><strong>rtlyc</strong></a> - 2024-04-07 06:47
+			<span class="float-right">[B11F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+mkmk
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 11楼(rtlyc) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1211812">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1211812" target="_blank"><strong>灰溜溜</strong></a> - 2024-04-07 06:53
+			<span class="float-right">[B12F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<span style="color:black;background-color:#ffff66">用户被禁言,该主题自动屏蔽!</span>
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 12楼(灰溜溜) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1574863">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1574863" target="_blank"><strong>五十五</strong></a> - 2024-04-07 07:01
+			<span class="float-right">[B13F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+原来是无手射精的老哥 <img src="images/post/smile/smallface/face113.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 13楼(五十五) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1249142">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1249142" target="_blank"><strong>ddda2f92</strong></a> - 2024-04-07 08:00
+			<span class="float-right">[B14F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face017.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 14楼(ddda2f92) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1309429">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1309429" target="_blank"><strong>sdfdfd</strong></a> - 2024-04-07 09:06
+			<span class="float-right">[B15F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face047.jpg" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face047.jpg" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face047.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 15楼(sdfdfd) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1397208">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1397208" target="_blank"><strong>v</strong></a> - 2024-04-07 09:09
+			<span class="float-right">[B16F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face020.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 16楼(v) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_795330">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=795330" target="_blank"><strong>滑小稽</strong></a> - 2024-04-07 09:09
+			<span class="float-right">[B17F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face106.gif" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 17楼(滑小稽) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1332366">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1332366" target="_blank"><strong>9d291c3e</strong></a> - 2024-04-07 09:10
+			<span class="float-right">[B18F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+mark
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 18楼(9d291c3e) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1979664">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1979664" target="_blank"><strong>remake</strong></a> - 2024-04-07 09:16
+			<span class="float-right">[B19F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face056.jpg" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face056.jpg" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face056.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 19楼(remake) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1080561">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1080561" target="_blank"><strong>最爱穹妹</strong></a> - 2024-04-07 09:21
+			<span class="float-right">[B20F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+mark
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 20楼(最爱穹妹) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1407026">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1407026" target="_blank"><strong>椰汁</strong></a> - 2024-04-07 09:23
+			<span class="float-right">[B21F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+草，hso
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 21楼(椰汁) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_2048132">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=2048132" target="_blank"><strong>f363c9e1</strong></a> - 2024-04-07 09:28
+			<span class="float-right">[B22F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+mark
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 22楼(f363c9e1) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1642095">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1642095" target="_blank"><strong>火哗哗</strong></a> - 2024-04-07 09:59
+			<span class="float-right">[B23F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+插
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 23楼(火哗哗) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1710649">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1710649" target="_blank"><strong>花生慕斯</strong></a> - 2024-04-07 10:05
+			<span class="float-right">[B24F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+椰宝么么
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 24楼(花生慕斯) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1710649">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1710649" target="_blank"><strong>花生慕斯</strong></a> - 2024-04-07 10:06
+			<span class="float-right">[B25F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+没活了给大家咬个打火机
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 25楼(花生慕斯) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1438459">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1438459" target="_blank"><strong>kksl</strong></a> - 2024-04-07 10:28
+			<span class="float-right">[B26F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+还有这种操作 <img src="images/post/smile/smallface/face002.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 26楼(kksl) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1593752">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1593752" target="_blank"><strong>芝芝士士</strong></a> - 2024-04-07 10:39
+			<span class="float-right">[B27F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+我嘞个豆
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 27楼(芝芝士士) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1352467">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1352467" target="_blank"><strong>自律的N头人</strong></a> - 2024-04-07 10:41
+			<span class="float-right">[B28F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+震惊，居然发现南+这么多男良 <img src="images/post/smile/smallface/face111.jpg" loading="lazy">&nbsp;&nbsp;<img src="images/post/smile/smallface/face040.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 28楼(自律的N头人) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_472749">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=472749" target="_blank"><strong>1c206da5</strong></a> - 2024-04-07 11:08
+			<span class="float-right">[B29F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+居然有汇总，MARK！谢谢楼主 <img src="images/post/smile/smallface/face077.gif" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 29楼(1c206da5) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1331186">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1331186" target="_blank"><strong>你很对劲</strong></a> - 2024-04-07 11:24
+			<span class="float-right">[B30F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+那个nekoll根本不是男娘吧？感觉就是女生
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 30楼(你很对劲) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<p></p><center><ul class="pagination" style="justify-content: center;"><li class="page-item"><a href="simple/index.php?t2154158_1.html" class="page-link"><span aria-hidden="true">«</span></a></li><li class="page-item active"><b class="page-link">1</b></li><li class="page-item"><a class="page-link" href="simple/index.php?t2154158_2.html">2</a></li><li class="page-item"><a class="page-link" href="simple/index.php?t2154158_3.html">3</a></li><li class="page-item"><input type="text" size="2" placeholder="跳转" class="page-link " style="border-radius:0;width:3.25rem;-webkit-appearance: none;
+" onkeydown="javascript: if(window.event.keyCode==13) window.location='/simple/index.php?t2154158_'+this.value+'.html';"></li><li class="page-item"><a class="page-link" href="simple/index.php?t2154158_9.html"><span aria-hidden="true">»</span></a></li></ul></center><p></p>
+<form name="FORM" method="post" action="post.php?" enctype="multipart/form-data">
+<div class="form-group">
+<label style="font-size: 16px">回复</label>
+<input type="text" class="form-control" name="atc_title" value="Re:（自用）南+男娘花名册" size="65">
+<br>
+<textarea name="atc_content" rows="4" class="form-control" required=""></textarea> 
+<br>
+<input class="btn btn-danger" type="submit" name="Submit" value=" 提 交 ">
+<button class="btn btn-info" onclick="return showfaces();">&nbsp;表&nbsp;情&nbsp;</button><br><br>
+<div id="showface" style="background: rgb(255, 255, 255);overflow-y: auto; height: 200px; display: none">
+</div>
+</div>
+<input type="hidden" value="9" name="fid"> 
+<input type="hidden" value="2154158" name="tid"> 
+<input type="hidden" name="verify" value="0199e425">
+
+<input type="hidden" name="atc_autourl" value="1">
+<input type="hidden" name="atc_usesign" value="1">
+<input type="hidden" name="atc_convert" value="1">
+<input type="hidden" name="atc_money" value="0">
+<input type="hidden" name="atc_credittype" value="money">
+<input type="hidden" name="atc_rvrc" value="0">
+<input type="hidden" name="atc_enhidetype" value="rvrc">
+<input type="hidden" value="2" name="step"> 
+<input type="hidden" value="reply" name="action">
+<input type="hidden" value="" name="atc_desc1">
+<input type="hidden" name="att_special1" value="0">
+<input type="hidden" name="att_ctype1" value="money">
+<input type="hidden" name="atc_needrvrc1" value="0">
+<input type="hidden" name="simplepost" value="1">
+</form>
+<center><a href="read.php?tid=2154158" target="_blank" style="padding: 1rem;font-size: 16px;color: #555;"><i class="fas fa-desktop"></i> 桌面版</a></center>
+</div>
+
+
+<br><br>
+<center><small><font color="#999999">Powered by <a href="/" target="_blank"><b>SP Project</b></a> <b style="color:#FF9900">v1.0</b> © 2010-2019  <br>
+Time 0.012799 second(s),query:4 Gzip enabled<br><br></font></small>
+</center><br><a href="#0" class="cd-top cd-top-btn">Top</a>
+<script>
+$(function () {
+    InitBackToTop();
+});
+function InitBackToTop() {
+    if ($('.cd-top').length > 0) {
+        // browser window scroll (in pixels) after which the "back to top" link is shown
+        var offset = 300,
+        //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+        offset_opacity = 700,
+        //duration of the top scrolling animation (in ms)
+        scroll_top_duration = 700,
+        //grab the "back to top" link
+        back_to_top = $('.cd-top');
+        back_to_top_btn = $('.cd-top-btn');
+
+        //hide or show the "back to top" link
+        $(window).scroll(function () {
+            ($(this).scrollTop() > offset) ? back_to_top.addClass('cd-is-visible') : back_to_top.removeClass('cd-is-visible cd-fade-out');
+            if ($(this).scrollTop() > offset_opacity) {
+                back_to_top.addClass('cd-fade-out');
+            }
+        });
+
+        //smooth scroll to top
+        back_to_top_btn.on('click', function (event) {
+            event.preventDefault();
+            $('body,html').animate({
+                scrollTop: 0,
+            }, scroll_top_duration
+            );
+        });
+    }
+}
+;(function(f){"use strict";"function"===typeof define&&define.amd?define(["jquery"],f):"undefined"!==typeof module&&module.exports?module.exports=f(require("jquery")):f(jQuery)})(function($){"use strict";function n(a){return!a.nodeName||-1!==$.inArray(a.nodeName.toLowerCase(),["iframe","#document","html","body"])}function h(a){return $.isFunction(a)||$.isPlainObject(a)?a:{top:a,left:a}}var p=$.scrollTo=function(a,d,b){return $(window).scrollTo(a,d,b)};p.defaults={axis:"xy",duration:0,limit:!0};$.fn.scrollTo=function(a,d,b){"object"=== typeof d&&(b=d,d=0);"function"===typeof b&&(b={onAfter:b});"max"===a&&(a=9E9);b=$.extend({},p.defaults,b);d=d||b.duration;var u=b.queue&&1<b.axis.length;u&&(d/=2);b.offset=h(b.offset);b.over=h(b.over);return this.each(function(){function k(a){var k=$.extend({},b,{queue:!0,duration:d,complete:a&&function(){a.call(q,e,b)}});r.animate(f,k)}if(null!==a){var l=n(this),q=l?this.contentWindow||window:this,r=$(q),e=a,f={},t;switch(typeof e){case "number":case "string":if(/^([+-]=?)?\d+(\.\d+)?(px|%)?$/.test(e)){e= h(e);break}e=l?$(e):$(e,q);case "object":if(e.length===0)return;if(e.is||e.style)t=(e=$(e)).offset()}var v=$.isFunction(b.offset)&&b.offset(q,e)||b.offset;$.each(b.axis.split(""),function(a,c){var d="x"===c?"Left":"Top",m=d.toLowerCase(),g="scroll"+d,h=r[g](),n=p.max(q,c);t?(f[g]=t[m]+(l?0:h-r.offset()[m]),b.margin&&(f[g]-=parseInt(e.css("margin"+d),10)||0,f[g]-=parseInt(e.css("border"+d+"Width"),10)||0),f[g]+=v[m]||0,b.over[m]&&(f[g]+=e["x"===c?"width":"height"]()*b.over[m])):(d=e[m],f[g]=d.slice&& "%"===d.slice(-1)?parseFloat(d)/100*n:d);b.limit&&/^\d+$/.test(f[g])&&(f[g]=0>=f[g]?0:Math.min(f[g],n));!a&&1<b.axis.length&&(h===f[g]?f={}:u&&(k(b.onAfterFirst),f={}))});k(b.onAfter)}})};p.max=function(a,d){var b="x"===d?"Width":"Height",h="scroll"+b;if(!n(a))return a[h]-$(a)[b.toLowerCase()]();var b="client"+b,k=a.ownerDocument||a.document,l=k.documentElement,k=k.body;return Math.max(l[h],k[h])-Math.min(l[b],k[b])};$.Tween.propHooks.scrollLeft=$.Tween.propHooks.scrollTop={get:function(a){return $(a.elem)[a.prop]()}, set:function(a){var d=this.get(a);if(a.options.interrupt&&a._last&&a._last!==d)return $(a.elem).stop();var b=Math.round(a.now);d!==b&&($(a.elem)[a.prop](b),a._last=this.get(a))}};return p});
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91a69f7b5ee30fcd',t:'MTc0MDk3ODU4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+</body></html>
