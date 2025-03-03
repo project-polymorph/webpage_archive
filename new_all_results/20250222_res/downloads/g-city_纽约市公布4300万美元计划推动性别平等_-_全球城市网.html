@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>提示信息</title>
+        <link href="/_css/error/error.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="/_js/themes/default/easyui.css">
+        <script type="text/javascript" src="/_js/jquery.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="/_js/themes/icon.css"> 
+        <script type="text/javascript" src="/_js/jquery.easyui.min.js"></script>
+        <script type="text/javascript" src="/_js/easyui-lang-zh_CN.js"></script>
+        <script type="text/javascript" src="/_js/common.js"></script>
+        <script type="text/javascript" src="/_js/security.js"></script>
+    </head>
+    <body>
+        <input id="ipAddress" name="ipAddress" type="hidden" value="127.0.0.1">
+        <!--No Permission-->
+        <div class="wp_error"> 
+            <div class="wp_error_image">
+                <img src="/_images/error/no_permit.gif">
+            </div>
+            
+            <div class="wp_error_login"> 
+                <form id="loginForm" name="loginForm" method="POST">
+                    <div class="login_bar">
+                        <label class="login_item">
+                            <span class="label_text">用户名</span>
+                            <div class="login_input input_username">
+                                <div class="input_inner">
+                                    <input type="hidden" name="isSubmitted" value="1">
+                                    <input id="userName" name="userName" onkeydown="if (event.keyCode === 13) {
+                            if (this.value === '') {
+                                alert('请输入用户名！');
+                            } else {
+                                $('#password').focus();
+                            }
+                        }" size="20">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="login_bar">
+                        <label class="login_item">
+                            <span class="label_text">密码</span>
+                            <div class="login_input input_password">
+                                <div class="input_inner">
+                                    <input type="password" id="password" name="password" onkeydown="if (event.keyCode === 13) {
+                            if ($('#validateCode').length > 0) {
+                                $('#validateCode').focus();
+                            } else {
+                                userLogin();
+                            }
+                        }" size="20">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="login_bar">
+                        <label class="login_item">
+                            <span class="label_text">验证码</span>
+                            <div class="login_input input_verify">
+                                <div class="input_inner">
+                                    <input name="validateCode" id="validateCode" onkeydown="if (event.keyCode === 13) {
+                            userLogin();
+                        }">
+                                </div>
+                            </div>
+                            <div class="verify_code"><img src="/_control/validateimage?tt=Mon Mar 03 19:18:22 CST 2025" id="valCodeImg" width="60" height="20"></div>
+                        </label>
+                    </div>
+                    <div class="login_bar login_btn">
+                        <div class="login_input input_submit">
+                            <div class="input_inner"><input type="button" id="loginbtn" name="loginbtn" value="登录"></div>
+                        </div>
+                    </div>
+                </form> 
+            </div> 
+            <script type="text/javascript">
+                    $().ready(function() {
+                        $("#loginbtn").click(function() {
+                            userLogin();
+                        });
+                        getCode();
+                    });
+                    function userLogin() {
+                        if ($('#userName').val() === '') {
+                            $('#userName').focus();
+                            alert('请输入用户名！');
+                        } else if ($('#password').val() === '') {
+                            $('#password').focus();
+                            alert('请输入密码！');
+                        } else {
+                            if ($('#validateCode').length > 0 && $('#validateCode').val() === '') {
+                                $('#validateCode').focus();
+                                alert('请输入验证码！');
+                                return;
+                            }
+
+                            openWaitingBar("身份认证中...");
+                            var password = $("#password").val();
+                            var exponent = '010001';//java代码产生的hexPublicExponent
+                            var modulus = '0092660df1d75ae48e5a1289d2550eb59f9ee7d12d703ed46051f257237746f86d06b38bdf11e10e5906a96260b044a05d90592ac6f097a0efcc878befc3d5f9fbab9c2f734fa820efadc6cdc5cc7779d298ec5c87871d86deb22b256fbc905dff6cb93f2c911d12af02ada97f7c4597804e23bd8621f3ee451d21717e1aba68d7';//java代码产生的hexModulus
+                            var publicKey = RSAUtils.getKeyPair(exponent, '', modulus);
+                            var newpassword = RSAUtils.encryptedString(publicKey, password);
+                            $('#password').val(newpassword);
+                            $.post("/_web/_ids/login/api/login/create.rst?_p=YXM9MQ__&tt=" + Math.random(), {userName: $("#userName").val(), password: $("#password").val(), validateCode: $('#validateCode').val()}, function(result) {
+                                var loginInfo = eval('(' + result + ')');
+                                closeWaitingBar();
+                                if (loginInfo.status !== 1) {
+                                    getCode();
+                                    $("#valCodeImg").trigger('click');
+                                    alert(loginInfo.message);
+                                    return;
+                                }
+                                openWaitingBar("认证成功，页面跳转中...");
+                                var  url = window.location.href;
+								if(window.location.href.indexOf("?")>0){
+									url = window.location.href.substring("0",window.location.href.indexOf("?"));
+								}
+								window.location.href = url+"?tt=" + Math.random();
+                            });
+                        }
+                    }
+                    function getCode() {
+                        $('#valCodeImg').on('click', function(event) {
+                            event.preventDefault();
+                            document.getElementById("valCodeImg").src = '/_control/validateimage?tt=Mon Mar 03 19:18:22 CST 2025&t='+Math.random();
+                        });
+                    }
+            </script>                
+            
+        </div> 
+    
+
+<div class="panel window" style="display: none; width: 248px; left: 835px; top: 431.5px;"><div class="panel-header panel-header-noborder window-header" style="width: 243px;"><div class="panel-title">提示</div><div class="panel-tool"><a class="panel-tool-close" href="javascript:void(0)"></a></div></div><div title="" class="panel-body panel-body-noborder window-body" style="overflow: hidden; width: 248px; height: 102px;"><div class="panel" style="width: 248px;"><div class="dialog-content panel-body panel-body-noheader panel-body-noborder" title="" style="width: 248px; height: 66px;"><div></div></div></div><div class="dialog-button"><a href="javascript:void(0)" class="l-btn" id="undefined"><span class="l-btn-left"><span class="l-btn-text icon-ok" style="padding-left: 20px;">确定</span></span></a><a href="javascript:void(0)" class="l-btn" id="undefined"><span class="l-btn-left"><span class="l-btn-text icon-cancel" style="padding-left: 20px;">取消</span></span></a></div></div></div><div class="window-shadow" style="display: none; left: 835px; top: 431.5px;"></div><div class="window-mask" style="width: 1920px; height: 993px; display: none;"></div><div class="panel window" style="display: none; width: auto; left: 889px; top: 389.5px;"><div class="panel-header panel-header-noborder window-header" style="width: 135px;"><div class="panel-title">New Dialog</div><div class="panel-tool"><a class="panel-tool-close" href="javascript:void(0)"></a></div></div><div title="" class="panel-body panel-body-noborder window-body" style="overflow: hidden; width: 140px; height: auto;"><div class="panel" style="width: 140px;"><div class="dialog-content panel-body panel-body-noheader panel-body-noborder" title="" style="width: 140px; height: auto;"><iframe id="dialogFrame" src="" frameborder="0" width="100%" height="100%"></iframe></div></div><div class="dialog-button"><a href="javascript:void(0)" class="l-btn" id="undefined"><span class="l-btn-left"><span class="l-btn-text icon-ok" style="padding-left: 20px;">确定</span></span></a><a href="javascript:void(0)" class="l-btn" id="undefined"><span class="l-btn-left"><span class="l-btn-text icon-cancel" style="padding-left: 20px;">取消</span></span></a></div></div></div><div class="window-shadow" style="display: none; left: 889px; top: 389.5px;"></div><div class="window-mask" style="width: 1920px; height: 993px; display: none;"></div><div class="panel window" style="display: none; width: auto; left: 924px; top: 407.5px;"><div class="panel-header panel-header-noborder window-header" style="width: 65px;"><div class="panel-title">New Dialog</div><div class="panel-tool"><a class="panel-tool-close" href="javascript:void(0)"></a></div></div><div title="" class="panel-body panel-body-noborder window-body" style="overflow: hidden; width: 70px; height: auto;"><div class="panel" style="width: 70px;"><div class="dialog-content panel-body panel-body-noheader panel-body-noborder" title="" style="width: 70px; height: auto;"><iframe id="openUrlFrame" name="openUrlFrame" src="" frameborder="0" width="100%" height="100%"></iframe></div></div></div></div><div class="window-shadow" style="display: none; left: 924px; top: 407.5px;"></div><div class="window-mask" style="width: 1920px; height: 993px; display: none;"></div><div class="panel window" style="display: none; width: 278px; left: 820px; top: 441.5px;"><div class="panel-header panel-header-noborder window-header" style="width: 273px;"><div class="panel-title">请稍等</div><div class="panel-tool"></div></div><div title="" class="panel-body panel-body-noborder window-body" style="width: 278px; height: 82px;"><div style="padding: 0 20px;"><table width="100%" align="center" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td height="16px"></td></tr><tr><td><span id="wb_tipMsg">程序处理中...</span></td></tr><tr><td height="8px"></td></tr><tr><td height="20px" class="waitingbar-image"></td></tr></tbody></table></div></div></div><div class="window-shadow" style="display: none; left: 820px; top: 441.5px;"></div><div class="window-mask" style="width: 1920px; height: 993px; display: none;"></div></body></html>

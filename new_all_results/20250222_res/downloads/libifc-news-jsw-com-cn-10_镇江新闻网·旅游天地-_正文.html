@@ -1,0 +1,2209 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>广东岭南职业技术学院图书馆电子资源导航平台</title>
+    <meta name="referrer" content="no-referrer">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/library/css/index.css">
+    <link rel="stylesheet" href="/css/main/index/global.css">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    
+    <!--[if lt ie 9]>
+    <script src="/js/html5shiv.min.js"></script>
+
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+        .scroll {
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+            height: 14px;
+            margin-left: -35px;
+        }
+
+        .scroll ul {
+            transform: translateY(0);
+        }
+
+        .animate {
+            -webkit-transition: all .3s ease-out;
+        }
+
+        .scroll li {
+            overflow: hidden;
+            display: -webkit-box;
+            height: 14px;
+
+            line-height: 15px;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+        }
+
+        .btn-sm {
+            font-size: 14.5px;
+        }
+    </style>
+<script>
+  const url = window.location.protocol + '//' + window.location.host + window.location.pathname;
+  console.log(url);
+  if(url == 'http://libifc.lnc.edu.cn/' || url == 'https://libifc.lnc.edu.cn/'){
+	//window.location.replace("http://ums.libifc.lnc.edu.cn/");
+  }
+    var v_url = localStorage.getItem("v_url");
+    var v_id = localStorage.getItem("v_id");
+    if (v_url && v_id) {
+        localStorage.removeItem("v_url");
+        localStorage.removeItem("v_id");
+        let path = "";
+        $.ajax({
+            type: "POST",
+            url: '/visit',
+            data: {
+                url: v_url,
+                id: v_id
+            },
+            async: false,
+            cache: false,
+            error: function () {
+                alert("error");
+            },
+            success: function (data) {
+                if (data.code === 0) {
+                    path = data.msg;
+                }
+            }
+        });
+        if (path) {
+            location.replace(path);
+        }
+    }
+</script></head>
+
+<body>
+
+<!--登录弹窗-->
+<div id="login-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="lib-pop-header">
+                <div>用户名密码登录</div>
+                <img src="/library/img/login-line.png" alt="" srcset="">
+            </div>
+            <div class="lib-pop-body">
+                <form class="navbar-form">
+                    <div class="lib-input-group">
+                        <span class="lib-input-label">用户名</span>
+                        <div class="lib-input-wrap">
+                            <input type="text" class="form-control" placeholder="请输入用户名">
+                            <i class="icon glyphicon glyphicon-user lib-input-icon"></i>
+                        </div>
+                    </div>
+                    <div class="lib-input-group">
+                        <span class="lib-input-label">密码</span>
+                        <div class="lib-input-wrap">
+                            <input type="password" class="form-control" placeholder="请输入密码">
+                            <i class="icon glyphicon glyphicon-lock lib-input-icon"></i>
+                        </div>
+                    </div>
+                    <div class="lib-button-group">
+                        <button type="button" class="btn btn-primary" id="btn-login-submit">登 录</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部-->
+
+    <div class="lib-header">
+        <div class="container">
+            <div class="row row-no-gutters">
+                <div class="col-xs-12 col-lg-3">
+                    <span id="btn-mobile-nav" class="glyphicon glyphicon-list hidden-lg"></span>
+                    <a href="/"><img class="lib-header-logo" style="width:260px;height: 70px;" alt="" src="/files/4f6c211c-e882-4b7d-8bf0-ddd065c60ae2.png"></a>
+                </div>
+                <div class="col-xs-6 col-lg-5">
+                    <div id="navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            
+                                <li>
+                                    <a href="javascript:;" onclick="openUrl(&quot;http:\/\/lib.lnc.edu.cn\/about.asp?id=1&quot;,null)">本馆概况</a>
+                                </li>
+                            
+                                <li>
+                                    <a href="javascript:;" onclick="openUrl(&quot;http:\/\/lib.lnc.edu.cn\/about.asp?id=6&quot;,null)">开放时间</a>
+                                </li>
+                            
+                                <li>
+                                    <a href="javascript:;" onclick="openUrl(&quot;http:\/\/lib.lnc.edu.cn\/about.asp?id=4&quot;,null)">服务项目</a>
+                                </li>
+                            
+                                <li>
+                                    <a href="javascript:;" onclick="openUrl(&quot;http:\/\/lib.lnc.edu.cn\/about.asp?id=2&quot;,null)">机构设置</a>
+                                </li>
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-6 col-lg-4 login-wrap text-right">
+                    
+                    
+                
+                    <button data-toggle="modal" data-target="#loginModal" type="button" class="btn login-btn" style="display: inline-block;margin-bottom: 2px" onclick="ipCount()">登录
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<!--搜索-->
+<div class="lib-search container">
+    <div class="row row-no-gutters">
+        <div class="col-xs-12 col-md-6 lib-title">数据库导航
+            <span id="btn-mobile-filter" class="glyphicon glyphicon-filter hidden-lg">
+
+            </span>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <form class="navbar-form navbar-right" role="search" onsubmit="return false;">
+                <input type="text" class="form-control" onblur="indexSearch()" onkeyup="indexSearch()" placeholder="请输入数据库名称" id="elecName">
+                <button id="searchElec" type="button" class="btn btn-default btn-search">搜索</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--筛选-->
+<div class="lib-filter container" id="lib-filter">
+    <span id="lib-btn-filter" class="glyphicon glyphicon-menu-down hidden-xs">展开</span>
+    <!-- <span id="lib-btn-filter" class="glyphicon glyphicon-menu-up">收起</span> -->
+    <div class="row row-no-gutters">
+        <div class="col-xs-12 col-md-1 lib-filter-label">
+            首字母：<span class="glyphicon glyphicon-menu-down hidden-lg lib-btn-down">展开</span>
+        </div>
+        <div class="col-xs-12 col-md-11 lib-filter-item lib-filter-az">
+            <div class="col-xs-2  col-md-1 lib-filter-all active">
+                全部
+            </div>
+            <div class="col-xs-2 col-md-1">
+                A
+            </div>
+            <div class="col-xs-2 col-md-1">
+                B
+            </div>
+            <div class="col-xs-2 col-md-1">
+                C
+            </div>
+            <div class="col-xs-2 col-md-1">
+                D
+            </div>
+            <div class="col-xs-2 col-md-1">
+                E
+            </div>
+            <div class="col-xs-2 col-md-1">
+                F
+            </div>
+            <div class="col-xs-2 col-md-1">
+                G
+            </div>
+            <div class="col-xs-2 col-md-1">
+                H
+            </div>
+            <div class="col-xs-2 col-md-1">
+                I
+            </div>
+            <div class="col-xs-2 col-md-1">
+                J
+            </div>
+            <div class="col-xs-2 col-md-1">
+                K
+            </div>
+            <div class="col-xs-2 col-md-1">
+                L
+            </div>
+            <div class="col-xs-2 col-md-1">
+                M
+            </div>
+            <div class="col-xs-2 col-md-1">
+                N
+            </div>
+            <div class="col-xs-2 col-md-1">
+                O
+            </div>
+            <div class="col-xs-2 col-md-1">
+                P
+            </div>
+            <div class="col-xs-2 col-md-1">
+                Q
+            </div>
+            <div class="col-xs-2 col-md-1">
+                R
+            </div>
+            <div class="col-xs-2 col-md-1">
+                S
+            </div>
+            <div class="col-xs-2 col-md-1">
+                T
+            </div>
+            <div class="col-xs-2 col-md-1">
+                U
+            </div>
+            <div class="col-xs-2 col-md-1">
+                V
+            </div>
+            <div class="col-xs-2 col-md-1">
+                W
+            </div>
+            <div class="col-xs-2 col-md-1">
+                X
+            </div>
+            <div class="col-xs-2 col-md-1">
+                Y
+            </div>
+            <div class="col-xs-2 col-md-1">
+                Z
+            </div>
+        </div>
+    </div>
+    <!--分割线-->
+    
+        <div class="lib-line"></div>
+        <!--分类--开始-->
+        <div class="row row-no-gutters">
+            <div class="col-xs-12 col-md-1 lib-filter-label">
+                <!--<span th:utext="|${#strings.length(dictmu.name) == 2
+                ? #strings.substring(dictmu.name,0,1) + '&emsp;&emsp;' +#strings.substring(dictmu.name,1,2)
+                : #strings.length(dictmu.name) == 3
+                ?#strings.substring(dictmu.name,0,1) + '&ensp;' +#strings.substring(dictmu.name,1,2) + '&ensp;' +#strings.substring(dictmu.name,2,3)
+                :dictmu.name}|"></span>-->
+                <span>资源类型</span>：
+                <span class="glyphicon glyphicon-menu-down hidden-lg lib-btn-down">展开</span>
+            </div>
+            <div class="col-xs-12 col-md-11 lib-filter-item">
+                <div class="col-xs-2  col-md-1 lib-filter-all active">
+                    全部
+                </div>
+                <div class="col-xs-2 col-md-1" value="1c6feab78570">图书</div>
+                <div class="col-xs-2 col-md-1" value="9d852a0b1fe6">期刊</div>
+                <div class="col-xs-2 col-md-1" value="24ff594c859b">论文</div>
+                <div class="col-xs-2 col-md-1" value="9a2f07383750">资讯,数据</div>
+                <div class="col-xs-2 col-md-1" value="6528f4ca2364">标准,工具</div>
+                <div class="col-xs-2 col-md-1" value="d7fd1d49960c">图片</div>
+                <div class="col-xs-2 col-md-1" value="1ee2bda3a410">音视频</div>
+                <div class="col-xs-2 col-md-1" value="35c4af032090">其他</div>
+                <div class="col-xs-2 col-md-1" value="298bfaeffc40">综合</div>
+            </div>
+        </div>
+        <!--分类--结束-->
+    
+        <div class="lib-line"></div>
+        <!--分类--开始-->
+        <div class="row row-no-gutters">
+            <div class="col-xs-12 col-md-1 lib-filter-label">
+                <!--<span th:utext="|${#strings.length(dictmu.name) == 2
+                ? #strings.substring(dictmu.name,0,1) + '&emsp;&emsp;' +#strings.substring(dictmu.name,1,2)
+                : #strings.length(dictmu.name) == 3
+                ?#strings.substring(dictmu.name,0,1) + '&ensp;' +#strings.substring(dictmu.name,1,2) + '&ensp;' +#strings.substring(dictmu.name,2,3)
+                :dictmu.name}|"></span>-->
+                <span>学科</span>：
+                <span class="glyphicon glyphicon-menu-down hidden-lg lib-btn-down">展开</span>
+            </div>
+            <div class="col-xs-12 col-md-11 lib-filter-item">
+                <div class="col-xs-2  col-md-1 lib-filter-all active">
+                    全部
+                </div>
+                <div class="col-xs-2 col-md-1" value="0fea0d0bdfe3">哲学</div>
+                <div class="col-xs-2 col-md-1" value="b7de0610934e">经济学</div>
+                <div class="col-xs-2 col-md-1" value="2e7eba41-f103-4ebb-b1b0-4f358b6030a7">法学</div>
+                <div class="col-xs-2 col-md-1" value="9166bd930628">教育学</div>
+                <div class="col-xs-2 col-md-1" value="7d6ae0239870">文学</div>
+                <div class="col-xs-2 col-md-1" value="4f7366acf050">历史学</div>
+                <div class="col-xs-2 col-md-1" value="7311ecb24a29">理学</div>
+                <div class="col-xs-2 col-md-1" value="ed42cf22f6cd">工学</div>
+                <div class="col-xs-2 col-md-1" value="5090cc01d502">农学</div>
+                <div class="col-xs-2 col-md-1" value="d2a002d7420d">医学</div>
+                <div class="col-xs-2 col-md-1" value="0c70369a96a5">军事学</div>
+                <div class="col-xs-2 col-md-1" value="d831a15fef2c">管理学</div>
+                <div class="col-xs-2 col-md-1" value="2aebf322de3d">艺术学</div>
+                <div class="col-xs-2 col-md-1" value="ac70741be664">交叉学科</div>
+                <div class="col-xs-2 col-md-1" value="6ef354dcad34">综合</div>
+            </div>
+        </div>
+        <!--分类--结束-->
+    
+
+    <div class="lib-line"></div>
+
+    <div class="row row-no-gutters">
+        
+        
+        
+        
+        <!--自建分类-->
+        
+    </div>
+</div>
+
+<!--检索结果-->
+<div class="lib-res container">
+    <div class="row row-no-gutters">
+        <div class="col-xs-6 col-md-6">共查询到 <b id="total">17</b> 条数据库信息</div>
+        <div class="col-xs-6 col-md-6">
+            <!-- Single button -->
+            <div class="btn-group navbar-right" id="btn-orderby">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span id="sort-btn-text" value="-1">默认排序</span> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" onclick="toggleSortDropdown()">
+                    <li><a href="#" value="-1">默认排序</a></li>
+                    <li><a href="#" value="0">按总访问量正序</a></li>
+                    <li></li>
+                    <li><a href="#" value="2">按首字母正序</a></li>
+                    <li><a href="#" value="3">按首字母倒序</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--检索数据-->
+<div id="list" class="lib-data container" style="margin-bottom: 120px">
+    <!--资源列表-->
+    <div>
+    <script type="text/javascript">
+        $("#total").text(17);
+        if ("1" == 1 && navigator.userAgent.match(/mobile/i)) {
+            $(".lib-data-head").eq(1).hide();
+            $(".num").each(function (index) {
+                if (index % 2 == 0) {
+                    $(this).parent().css("background", "#fff");
+                } else {
+                    $(this).parent().css("background", "#EBEDF0");
+                }
+                $(this).text(index + 1);
+            });
+        }
+    </script>
+    <!--中外文模式-->
+    <div class="row">
+        <div class="col-xs-12 col-md-6 lib-data-list">
+            <div class="row row-no-gutters lib-data-head">
+                <div class="col-xs-2 col-md-2 text-center">序号</div>
+                <div class="col-xs-6 col-md-7" style="padding-left: 32px">数据库</div>
+                
+                <div class="col-xs-4 col-md-2 text-center">访问地址</div>
+            </div>
+            <div class="lib-data-body">
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">1</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=10" target="_blank" title="中国知网(CNKI)">中国知网(CNKI)</a>
+                        
+   
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+						<a href="javascript:jinru('https://www.cnki.net','10')">访问地址</a>
+                    </div>
+                    
+  
+                   <span class="label label-warning"></span>
+                </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">3</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=3" target="_blank" title="超星电子书">超星电子书</a>
+                        
+   
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+						<a href="javascript:jinru('https://www.sslibrary.com/','3')">访问地址</a>
+                    </div>
+                    
+  
+                   <span class="label label-warning"></span>
+                </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">5</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=5" target="_blank" title="读秀学术搜索">读秀学术搜索</a>
+                        
+   
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+						<a href="javascript:jinru('https://www.duxiu.com/','5')">访问地址</a>
+                    </div>
+                    
+  
+                   <span class="label label-warning"></span>
+                </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">7</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=4" target="_blank" title="超星名师讲坛">超星名师讲坛</a>
+                        
+   
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+						<a href="javascript:jinru('https://ssvideo.superlib.com/','4')">访问地址</a>
+                    </div>
+                    
+  
+                   <span class="label label-warning"></span>
+                </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">9</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=11" target="_blank" title="中科JobLib总库">中科JobLib总库</a>
+                        
+   
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+						<a href="javascript:jinru('https://www.joblib.cn/','11')">访问地址</a>
+                    </div>
+                    
+  
+                   <span class="label label-warning"></span>
+                </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">11</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=7" target="_blank" title="维普考试题库">维普考试题库</a>
+                        
+   
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+						<a href="javascript:jinru('https://vers7.cqvip.com/','7')">访问地址</a>
+                    </div>
+                    
+  
+                   <span class="label label-warning"></span>
+                </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">13</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=18" target="_blank" title=" “找本书”随书光盘"> “找本书”随书光盘</a>
+                        
+   
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+						<a href="javascript:jinru('https://lnc.shuhenglib.com/iso','18')">访问地址</a>
+                    </div>
+                    
+  
+                   <span class="label label-warning"></span>
+                </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">15</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=21" target="_blank" title="PubScholar公益学术平台">PubScholar公益学术平台</a>
+                        
+   
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+						<a href="javascript:jinru('https://pubscholar.cn/','21')">访问地址</a>
+                    </div>
+                    
+  
+                   <span class="label label-warning"></span>
+                </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">17</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=17" target="_blank" title="全景岭南数字平台">全景岭南数字平台</a>
+                        
+   
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+						<a href="javascript:jinru('http://10.32.1.9:8085/','17')">访问地址</a>
+                    </div>
+                    
+  
+                   <span class="label label-warning"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6 lib-data-list">
+            <div class="row row-no-gutters lib-data-head">
+                <div class="col-xs-2 col-md-2 text-center">序号</div>
+                <div style="padding-left: 32px" class="col-xs-6 col-md-7">数据库</div>
+                
+                <div class="col-xs-4 col-md-2 text-center">访问地址</div>
+            </div>
+            <div class="lib-data-body">
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">2</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=8" target="_blank" title="维普期刊">维普期刊</a>
+                        
+                          
+
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+                        <a href="javascript:jinru('http://qikan.cqvip.com/','8')">访问地址</a>
+                    </div>
+                    
+ 
+                        <span class="label label-warning"></span>
+                    </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">4</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=2" target="_blank" title="畅想之星电子书">畅想之星电子书</a>
+                        
+                          
+
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+                        <a href="javascript:jinru('https://www.cxstar.com/','2')">访问地址</a>
+                    </div>
+                    
+ 
+                        <span class="label label-warning"></span>
+                    </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">6</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=1" target="_blank" title="百链学术搜索">百链学术搜索</a>
+                        
+                          
+
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+                        <a href="javascript:jinru('http://www.blyun.com/','1')">访问地址</a>
+                    </div>
+                    
+ 
+                        <span class="label label-warning"></span>
+                    </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">8</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=6" target="_blank" title="软件通">软件通</a>
+                        
+                          
+
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+                        <a href="javascript:jinru('https://rjt.softtone.cn/index','6')">访问地址</a>
+                    </div>
+                    
+ 
+                        <span class="label label-warning"></span>
+                    </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">10</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=12" target="_blank" title="iLearning外语学习资源库(镜像)">iLearning外语学习资源库(镜像)</a>
+                        
+                          
+
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+                        <a href="javascript:jinru('http://10.32.1.11/knbook/wpress/index.aspx','12')">访问地址</a>
+                    </div>
+                    
+ 
+                        <span class="label label-warning"></span>
+                    </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">12</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=19" target="_blank" title="新学术外文期刊整合平台">新学术外文期刊整合平台</a>
+                        
+                          
+
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+                        <a href="javascript:jinru('http://search.newacademic.net/','19')">访问地址</a>
+                    </div>
+                    
+ 
+                        <span class="label label-warning"></span>
+                    </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">14</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=20" target="_blank" title="中国知网论文格式精灵">中国知网论文格式精灵</a>
+                        
+                          
+
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+                        <a href="javascript:jinru('http://author.cnki.net','20')">访问地址</a>
+                    </div>
+                    
+ 
+                        <span class="label label-warning"></span>
+                    </div>
+                <div class="row row-no-gutters">
+                    
+                    <div class="col-xs-2 col-md-2 text-center num">16</div>
+                    <div style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding-left: 32px" class="col-xs-6 col-md-7">
+                        <a href="/detail?id=14" target="_blank" title="OALIB开放存取资源图书馆">OALIB开放存取资源图书馆</a>
+                        
+                          
+
+                        
+                        
+
+                        
+                    </div>
+                    <div class="col-xs-4 col-md-2" style="height: 20px;cursor: pointer">
+                        <img class="icon-link" src="/img/url-icon.png" width="14px" height="14px">
+                        <a href="javascript:jinru('https://www.oalib.com','14')">访问地址</a>
+                    </div>
+                    
+ 
+                        <span class="label label-warning"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+
+    <!--底部-->
+    <div class="lib-bottom" style="padding: 40px 0px">
+        <div class="container">
+            <div class="row row-no-gutters" style="text-align: center">
+                 <span>
+        <p>版权所有：广东岭南职业技术学院图书馆</p>
+        <a style="color: #fff;text-decoration: none" target="_blank" href="/">技术支持：杭州智图软件开发有限公司</a>
+      </span>
+            </div>
+        </div>
+
+
+
+    <div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog redirect-dialog" role="document">
+            <div class="modal-content redirect-content">
+                <div class="modal-header redirect-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title redirect-title">
+                        欢迎使用电子资源智能网关
+                    </h4>
+                </div>
+                <div class="modal-body body">
+                    <p class="content">
+                        系统检测到您在短时间内多次访问相同地址，您当前使用的<em id="authType">地址重写模式</em>远程访问方式访问该资源。请诃该访问模式是否发生故暲，是否需要切换访问模式?
+                    </p>
+                    <ul class="link-list" id="supportTypes">
+                    </ul>
+                    <div class="ignore-btn" id="vpnGatGoHtml">
+
+                    </div>
+                </div>
+                <p><a href="#" onclick="feedProblem()" id="feedProblemBtn" style="float: right">无法解决,反馈问题</a></p>
+                <div class="login-form" style="width: 80%;margin: auto;display: none;margin-bottom: 15px" id="feedProblem">
+                    <hr>
+                    <div class="form-group">
+                        <label>登录ID：</label><input type="text" class="form-control" id="loginId" placeholder="请输入登录ID" readonly="" disabled="">
+                    </div>
+                    <div class="form-group">
+                        <label>用户名：</label><input type="text" class="form-control" id="name" placeholder="请输入用户名">
+                    </div>
+                    <div class="form-group">
+                        <label>联系方式：</label>
+                        <input type="text" class="form-control" id="connect" placeholder="请输入电话或邮箱">
+                    </div>
+                    <input type="hidden" id="feedElecId">
+                    <div class="form-group">
+                        <label>故障资源：</label>
+                        <select id="feedElec" class="form-control chosen-select" tabindex="2">
+                            <option value="">请选择</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>故障描述：</label>
+                        <div>
+                            <textarea placeholder="请填写故障描述,以便快速解决您的问题!" id="describe" rows="4" class="form-control"></textarea>
+                            <p style="float:right;"><span id="feed-count">500</span>/500</p>
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align: center">
+                        <button type="button" class="btn btn-primary login-btn" onclick="trial()">提交</button>
+                        <button type="button" class="btn btn-primary login-btn" onclick="callback()" style="margin-left: 10px">返回
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<input value="" type="hidden" id="searchKey">
+<input value="1" type="hidden" id="pattern">
+
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="/js/bootstrap.js"></script>
+    <script src="/library/js/jquery.raty.js"></script>
+    <script src="/library/js/index.js"></script>
+    <script src="/js/ajax-util.js"></script>
+    <script src="/js/jquery.base64.js"></script>
+    <script src="/js/plugins/chosen/chosen.jquery.js"></script>
+    <script type="text/javascript" src="/js/appjs/main/index/navigation.js"></script>
+    <div>
+    <!--修改密码-->
+    <div class="modal fade" id="upPwdModal" tabindex="-1" role="dialog" aria-labelledby="upPwdModal">
+        <div class="modal-dialog login-dialog" role="document" style="width: 80%">
+            <div class="modal-content login-content" style="height: 600px">
+                <div class="modal-header login-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size: 38px;z-index: 999">
+                        <span aria-hidden="true" id="close">×</span>
+                    </button>
+                    <h4 class="modal-title login-title" style="font-size: 20px;letter-spacing:5px">修改密码</h4>
+                </div>
+                <div class="modal-body login-body">
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="oldPwd">旧密码：</label>
+                            <input type="password" class="form-control" id="oldPwd" placeholder="请输入旧密码">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPwd">新密码：</label>
+                            <input type="password" class="form-control" autocomplete="off" id="newPwd" placeholder="密码需包含数字、字母、符号、8-16位">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPwd2">确认密码：</label>
+                            <input type="password" class="form-control" autocomplete="off" id="newPwd2" placeholder="密码需包含数字、字母、符号、8-16位">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPwd2">验证码：</label>
+                            <div style="display: flex">
+                                <input style="width: 50%" type="text" id="pwdVerify" class="form-control">
+                                <img style="width: 105px;cursor: pointer" class="input-group-addon img" id="pwdVerifyImg" alt="更换验证码" onclick="getPwdVerify(this);">
+                            </div>
+
+                        </div>
+                        <button type="button" class="btn btn-primary login-btn" onclick="upPwd()">确定</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal">
+        <input type="hidden" id="type" name="type">
+        <input type="hidden" id="url" name="url">
+        <div class="modal-dialog login-dialog" role="document" style="width: 80%">
+            <div class="modal-content login-content" style="height: 450px">
+                <!-- <img class="bg" src="/img/login-bg.png" alt="" /> -->
+                <div class="modal-header login-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size: 38px;z-index: 999">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title login-title" id="myModalLabel">用户名密码登录</h4>
+                </div>
+                <div class="modal-body login-body">
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="userId">用户名：</label>
+                            <input type="text" class="form-control" id="userId" placeholder="请输入用户名">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码：</label>
+                            <input type="password" class="form-control" autocomplete="off" id="password" placeholder="请输入密码">
+                        </div>
+                        <div class="form-group" id="verify_image">
+                            <input style="display: none" id="verify">
+                        </div>
+                        <button type="button" class="btn btn-primary login-btn" id="login">登录</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="notifyModal" tabindex="-1" role="dialog" aria-labelledby="notifyModal">
+        <div class="modal-dialog notify-dialog" role="document">
+            <div class="modal-content notify-content">
+                <img class="bg" src="/img/notify-bg.png" alt="">
+                <div class="modal-header notify-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title notify-title" id="tz_title" style="color:black">
+                        <small id="tz_data"></small>
+                    </h4>
+                </div>
+                <div class="modal-body notify-body">
+                    <p style="color:black" id="tz_main"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--故障反馈-->
+    <div class="modal fade" id="faultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="width: 60%;margin: auto;overflow-y: clip">
+        <div class="modal-dialog notify-dialog" role="document">
+            <div class="modal-content notify-content" style="height: 635px;">
+                <div class="modal-header notify-header" style="border-bottom: 0px">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title notify-title" style="text-align: center">
+                        留言反馈
+                    </h4>
+                    <div class="login-form" style="width: 80%;margin-top: 30px !important;margin: auto">
+                        <div class="form-group">
+                            <label>登录ID：</label><input type="text" class="form-control" id="faultUserId" placeholder="请输入登录ID" readonly="" disabled="">
+                            <div class="form-group">
+                                <label>用户名：</label><input type="text" class="form-control" id="faultName" placeholder="请输入昵称">
+                            </div>
+                            <div class="form-group">
+                                <label>联系方式：</label>
+                                <input type="text" class="form-control" placeholder="请输入电话或邮箱" id="faultConnect">
+                            </div>
+                            <input type="hidden" id="faultElecId">
+                            <div class="form-group">
+                                <label>故障资源：</label>
+                                <input type="text" class="form-control" id="faultElecName" readonly="" disabled="">
+                            </div>
+                            <div class="form-group">
+                                <label>故障描述：</label>
+                                <div>
+                                <textarea placeholder="请填写故障描述,以便快速解决您的问题!" id="faultDescribe" rows="4" class="form-control"></textarea>
+                                    <p style="float:right;"><span id="text-count">500</span>/500</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>验证码：</label>
+
+                                <div style="display: flex">
+                                    <input type="text" class="form-control" placeholder="请输入验证码" id="faultImg" style="width: 50%">
+                                    <img style="width: 105px;" class="input-group-addon img" id="imgVerify" src="" alt="更换验证码" onclick="getVerify(this);">
+                                </div>
+                            </div>
+                            <div class="form-group" style="text-align: center">
+                                <button type="button" class="btn btn-primary login-btn" onclick="feedBack()">提交
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body notify-body">
+                        <!-- <p id="tz_main"></p>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--常见问题-->
+        <div class="modal fade" id="problemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="width: 80%;margin: auto">
+            <div class="modal-dialog notify-dialog" role="document">
+                <div class="modal-content notify-content" style="overflow-y: auto">
+                    <img class="bg" src="/img/main/index/notify-bg.png" alt="">
+                    <div class="modal-header notify-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title notify-title">
+                            常见问题
+                        </h4>
+                        <div class="login-form" style="width: 90%;margin-top: 30px !important;margin: auto">
+                            <ul id="problemUl">
+                                <li style="list-style-type: none;margin-top: 10px"><a style="text-decoration: none;color: black"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="page" style="margin-top: 30px">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function () {
+			
+                let upPwdFlag = localStorage.getItem("upPwdFlag");
+                if (upPwdFlag) {
+                    getPwdVerify();
+                    $('#upPwdModal').modal('show');
+                }
+
+                $('.tab-bar .tab').each(function (index) {
+                    if ($(this).attr("class") === 'tab active') {
+                        $("#searchType").val($(this).html())
+                    }
+                })
+                var scrollDiv = $(".scroll"),
+                    $ul = scrollDiv.find("ul"),
+                    $li = scrollDiv.find("li"),
+                    $length = $li.length,
+                    $liHeight = $li.height(),
+                    num = 0;
+                if (scrollDiv.length == 0) {
+                    return;
+                }
+
+                if ($length > 1) {
+                    $ul.append($li.eq(0).clone());
+                    setInterval(
+                        function () {
+                            num++;
+                            $ul.addClass("animate").css("-webkit-transform", "translateY(-" + $liHeight * (num) + "px)");
+                            setTimeout(
+                                function () {
+                                    if (num >= $length) {
+                                        $ul.removeClass("animate").css("-webkit-transform", "translateY(0)");
+                                        num = 0;
+                                    }
+                                }, 300);
+                        }, 3000);
+                }
+            });
+
+            function getPwdVerify() {
+                $("#pwdVerifyImg").attr("src", '/erlist/login/getVerify?' + Math.random());
+            }
+            $("#close").click(function () {
+                let upPwdFlag = localStorage.getItem("upPwdFlag");
+                if (upPwdFlag) {
+                    localStorage.removeItem("upPwdFlag");
+                    window.location.href = "/erlist/login/logout"
+                }
+            })
+
+            function upPwd() {
+                let oldPwd = $("#oldPwd").val();
+                let newPwd = $("#newPwd").val();
+                let newPwd2 = $("#newPwd2").val();
+                let pwdVerify = $("#pwdVerify").val();
+                if (!oldPwd) {
+                    alert("请输入旧密码！");
+                    return;
+                } else if (!newPwd) {
+                    alert("请输入新密码！");
+                    return;
+                } else if (!newPwd2) {
+                    alert("请输入确认密码！");
+                    return;
+                }
+                if (newPwd != newPwd2) {
+                    alert("两次输入密码不一致！");
+                    return false;
+                }
+                var reg = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,16}$/;
+                if (!reg.test(newPwd2)) {
+                    alert("密码必须是8-16位，需包含数字、字母、特殊符号的组合！");
+                    return;
+                }
+                if (!pwdVerify) {
+                    alert("请输入验证码！");
+                    return;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/erlist/login/upPwd",
+                    data: {
+                        oldPwd,
+                        newPwd,
+                        pwdVerify,
+                        "userId": sessionItem.userId
+                    },
+                    success: function (r) {
+                        if (r.code == 0) {
+                            alert("密码修改成功");
+                            localStorage.removeItem("upPwdFlag");
+                            $('#upPwdModal').modal('hide');
+                            //退出
+                            window.location.href = "/erlist/login/logout";
+                        } else {
+                            alert(r.msg);
+                            getPwdVerify();
+                            $("#pwdVerify").val('');
+                        }
+                    }
+                });
+            }
+
+            function ipCount() {
+
+                $.ajax({
+                    cache: true,
+                    type: "GET",
+                    url: "/erlist/login/ipCount",
+                    success: function (data) {
+                        console.log(data.count);
+                        if (parseInt(data.count) > 4) {
+                            var html = '<label htmlFor="verifyCode">验证码：</label>\n' +
+                                '                            <div class="input-group">\n' +
+                                '                                <input type="text" class="form-control" id="verify" placeholder="请输入验证码">\n' +
+                                '                                <img class="input-group-addon img" id="imgVerify" src="erlist/login/getVerify" alt="更换验证码" onClick="getVerify(this);">\n' +
+                                '                            </div>'
+                            $("#verify_image").html(html);
+                            getVerify();
+                        } else {
+                            $("#verify_image").html('<input style="display: none" id="verify"/>');
+                            $.ajax({
+                                cache: true,
+                                type: "GET",
+                                url: "/erlist/login/cleanSession",
+                                success: function (data) {
+
+                                }
+                            })
+                        }
+                    }
+                });
+            }
+
+            function getVerify() {
+                $("#imgVerify").attr("src", 'erlist/login/getVerify?' + Math.random());
+            }
+
+            function openResetPwd() {
+                $("#resetPwd").show();
+            }
+
+
+            //显示详情
+            function loadDetail(id) {
+                window.open("/detail?id=" + id, "_blank");
+            }
+
+            $('.denglu').click(function () {
+                $('#loginUser').show();
+            })
+
+            $('.guanbi').click(function () {
+                $('#loginUser').hide();
+            })
+
+            $('.resetPwdClose').click(function () {
+                $('#resetPwd').hide();
+            })
+
+            //显示公告
+            function loadNotify(id) {
+                $('.make_gg').show();
+                try {
+
+                    $.ajax({
+                        cache: false,
+                        type: "GET",
+                        url: "/notify/" + id,
+                        success: function (r) {
+                            let notify = r.notifyDO;
+                            let tz_date = notify.noDate;
+                            if (tz_date != '') {
+                                tz_date = tz_date.substring(0, tz_date.indexOf(" "));
+                            }
+                            $("#tz_title").html(notify.title);
+                            $("#tz_data").html(tz_date);
+                            $("#tz_main").html(notify.content)
+                        }
+                    });
+                    return;
+                } catch (e) {
+                    console.log(e);
+                }
+
+                return;
+            }
+
+            //关闭公告
+            $('.guanbi_gg').click(function () {
+                $('.make_gg').hide();
+            })
+
+            $('#login').click(function () {
+                var userName = $("#userId").val();
+                var password = $("#password").val();
+                var verify = $("#verify").val();
+                if (userName.length > 0 && password.length > 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: '/auth/login',
+                        data: {
+                            userName: userName,
+                            password: $.base64.encode(password),
+                            verify: verify
+                        },
+                        async: false,
+                        cache: false,
+                        success: function (data) {
+                            if (data.code != 0) {
+                                if (parseInt(data.count) > 4) {
+                                    var html = '<label for="verifyCode">验证码：</label>\n' +
+                                        '                            <div class="input-group">\n' +
+                                        '                                <input type="text" class="form-control" id="verify" placeholder="请输入验证码">\n' +
+                                        '                                <img class="input-group-addon img" id="imgVerify" src="erlist/login/getVerify" alt="更换验证码" onClick="getVerify(this);">\n' +
+                                        '                            </div>'
+                                    $("#verify_image").html(html);
+                                    getVerify();
+                                }
+                                alert(data.msg.replace(/\s+/g, ""));
+                            } else {
+                                let type = $("#type").val();
+                                //校验密码
+                                var reg = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,16}$/;
+                                if (!reg.test(password) && data.pwdSecurity) {
+                                    let msg = confirm("由于安全要求请把密码修改为8-16位复杂密码（必须同时含数字、字母和特殊符号等）")
+                                    if (msg) {
+                                        localStorage.setItem("upPwdFlag", true);
+                                        window.location.reload()
+                                    } else {
+                                        window.location.href = "/erlist/login/logout";
+                                    }
+
+                                } else {
+                                    localStorage.removeItem("upPwdFlag");
+                                    if (type && data.linkId && data.linkId.indexOf(type) == -1) {
+                                        jinru($("#url").val(), type);
+                                        window.location.reload()
+                                    } else {
+                                        window.location.reload();
+                                    }
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    alert("用户名或密码不能为空")
+                }
+            })
+
+
+            function div_tis_over(id) {
+                $('#bdsugbg >ul > li').each(function (index) {
+                    if ($(this).attr('id') == id) {
+                        $(this).attr("class", "s_ipt_wr");
+                    } else {
+                        $(this).attr("class", "bdsug-overflow");
+                    }
+                });
+            }
+
+            function div_tit_over(id) {
+                $('#unifiedTips >ul > li').each(function (index) {
+                    if ($(this).attr('id') == id) {
+                        $(this).attr("class", "s_ipt_wr");
+                    } else {
+                        $(this).attr("class", "bdsug-overflow");
+                    }
+                });
+            }
+
+            function div_tis_out(id) {
+                $('#bdsugbg').each(function (index) {
+
+                });
+            }
+
+            function div_tit_out(id) {
+                $('#unifiedTips').each(function (index) {
+
+                });
+            }
+
+            function select_li_click(text) {
+                $("#txtKey").val(text);
+                $('#searchBtn').submit();
+                $("#bdsugbg").css('display', 'none');
+                $(".search-btn").click()
+            }
+
+            function txtKey_blur() {
+                $("#bdsugbg").css('display', 'none');
+            }
+
+            function txtKey_down(t) {
+                if (searchType.val() != "联邦检索") {
+                    $("#bdsugbg").css('display', 'none');
+                }
+                if (searchType.val() != "统一检索") {
+                    $("#unifiedTips").css('display', 'none');
+                }
+                switch (searchType.val()) {
+                    case '联邦检索':
+                        $.ajax({
+                            type: "get",
+                            url: '/keyword',
+                            data: {
+                                title: t.value.replace(/(^\s*)|(\s*$)/g, ""),
+                            },
+                            error: function (request) {
+                                alert("error");
+                            },
+                            success: function (data) {
+                                // console.log(data.toString());
+                                let html = '', sty = "style='cursor: pointer;";
+                                let leng = data.keyList.length;
+                                for (let i = 0; i < leng; i++) {
+                                    if (data.keyList.length == 1) {
+                                        sty += 'line-height: 54px;';
+                                    }
+                                    html += "<li style='width: 99%;list-style: none;cursor: pointer;' id='li_" + i + "'onmouseover=\"div_tis_over(this.id )\" " + sty + "' onclick = \"select_li_click('" + data.keyList[i].title + "') \""
+                                        + "onmouseout=\"div_tis_out(this.id)\"  class='bdsug-overflow'><span> "
+                                        + data.keyList[i].title + "</span> <span style='float:right'>检索" + data.keyList[i].id + "次 </span> </li>";
+                                }
+                                $("#bdsugbg").html("<ul>" + html + "</ul>");
+                                if (data.keyList.length > 0) {
+                                    $("#bdsugbg").css('display', '');
+                                } else {
+                                    $("#bdsugbg").css('display', 'none');
+                                }
+                            }
+                        });
+                        break;
+                    case '统一检索':
+                        $.ajax({
+                            url: "http://1.15.184.114:9165/home/hotWord",
+                            type: "post",
+                            data: {
+                                'keyword': t.value.replace(/(^\s*)|(\s*$)/g, ""),
+                            },
+                            success: function (data) {
+                                let html = '', sty = "style='cursor: pointer;";
+                                if ((data.length > 0)) {
+                                    console.log(data);
+                                    let leng = data.length;
+                                    for (let i = 0; i < leng; i++) {
+                                        html += "<li style='width: 99%;list-style: none;cursor: pointer;' id='li_" + i + "'onmouseover=\"div_tit_over(this.id )\" " + sty + "' onclick = \"select_li_click('" + data[i].svue + "') \""
+                                            + "onmouseout=\"div_tit_out(this.id)\"  class='bdsug-overflow'><span> "
+                                            + data[i].svue + "</span> <span style='float:right'>检索" + data[i].num + "次 </span> </li>";
+                                    }
+                                    $("#unifiedTips").html("<ul>" + html + "</ul>");
+                                    if (data.length > 0) {
+                                        $("#unifiedTips").css('display', '');
+                                    } else {
+                                        $("#unifiedTips").css('display', 'none');
+                                    }
+                                } else {
+                                }
+
+                            }
+                        });
+                        break;
+                    case '资源库检索':
+                        let name = t.value.replace(/(^\s*)|(\s*$)/g, "");
+                        if (!name) {
+                            break;
+                        }
+                        $.ajax({
+                            type: "get",
+                            url: '/accessData',
+                            data: {
+                                elecName: name,
+                                sortType: 0
+                            },
+                            error: function (request) {
+                                alert("error");
+                            },
+                            success: function (data) {
+                                let html = '', sty = "style='cursor: pointer;";
+                                for (let i = 0; i < data.rows.length; i++) {
+                                    if (data.rows.length == 1) {
+                                        sty += 'line-height: 54px;';
+                                    }
+                                    html += "<li style='width: 99%;list-style: none;cursor: pointer;' id='li_" + i + "'onmouseover=\"div_tis_over(this.id )\" " + sty + "' onclick = \"select_li_click('" + data.rows[i].elecName + "') \""
+                                        + "onmouseout=\"div_tis_out(this.id)\"  class='bdsug-overflow'><span> "
+                                        + data.rows[i].elecName + "</span>  </li>";
+                                }
+                                $("#bdsugbg").html("<ul>" + html + "</ul>");
+                                if (data.rows.length > 0) {
+                                    $("#bdsugbg").css('display', '');
+                                } else {
+                                    $("#bdsugbg").css('display', 'none');
+                                }
+                            }
+                        });
+                        break;
+
+                }
+
+            }
+
+
+            function switchSearchTab(type) {
+                $('#searchType').val(type);
+                $('.tab-bar .tab').each(function () {
+                    if ($(this).text() === type) {
+                        $(this).addClass('active')
+                    } else {
+                        $(this).removeClass('active')
+                    }
+                })
+
+                if (type === "资源库检索" || type === "联邦检索") {
+                    $('.search-dropdown').css('display', 'none');
+                    $('.checkbox-group').css('display', 'none')
+                    $("#unified").hide();
+                    $("#esearch").hide();
+                    $("#lhml").hide();
+                } else if (type === "统一检索") {
+                    // $('#q').text('题名').append('<img src="/img/main/index/dropdown-icon.png" alt="">');
+                    // $('.retrieval').html('<li><a onclick="retrieval(\'题名\',\'title\')" href="#">题名</a></li>\n' +
+                    //     '                    <li><a onclick="retrieval(\'著者\',\'author\')" href="#">著者</a></li>\n' +
+                    //     '                    <li><a onclick="retrieval(\'ISBN/ISSN\',\'issn\')" href="#">ISBN/ISSN</a></li>\n' +
+                    //     '                    <li><a onclick="retrieval(\'出版社\',\'publisher\')" href="#">出版社</a></li>')
+                    // $('.search-dropdown').css('display', 'inline-block')
+                    $('.search-dropdown').css('display', 'none');
+                    $('.checkbox-group').css('display', 'none')
+                    $("#unified").show();
+                    $("#esearch").show();
+                    $("#lhml").hide();
+                } else if (type === "期刊检索") {
+                    $('#q').text('刊名').append('<img src="/img/main/index/dropdown-icon.png" alt="">');
+                    $('.retrieval').html('<li><a onclick="retrieval(\'刊名\',\'title\')" href="#">刊名</a></li>\n' +
+                        '                    <li><a onclick="retrieval(\'ISSN号\',\'issn\')" href="#">ISSN号</a></li>\n' +
+                        '                    <li><a onclick="retrieval(\'出版社\',\'publisher\')" href="#">出版社</a></li>')
+                    $('.search-dropdown').css('display', 'inline-block')
+                    $("#unified").hide();
+                    $("#esearch").hide();
+                    $("#lhml").hide();
+                } else if (type === "电子书检索") {
+                    $('#q').text('书名').append('<img src="/img/main/index/dropdown-icon.png" alt="">');
+                    $('.retrieval').html('<li><a onclick="retrieval(\'书名\',\'bookName\')" href="#">书名</a></li>\n' +
+                        '                    <li><a onclick="retrieval(\'ISBN\',\'isbn\')" href="#">ISBN</a></li>\n' +
+                        '                    <li><a onclick="retrieval(\'作者\',\'author\')" href="#">作者</a></li>')
+                    $('.search-dropdown').css('display', 'inline-block')
+                    $("#unified").hide();
+                    $("#esearch").hide();
+                    $("#lhml").hide();
+                    // $('.search-dropdown').css('display', 'none');
+                    // $('.checkbox-group').css('display', 'none');
+                }
+            }
+
+            function personal() {
+                window.location.href = "/personal";
+            }
+
+            /*//回车检索
+            document.onkeydown = function(e){
+                var ev = document.all ? window.event : e;
+                if(ev.keyCode==13) {
+                    submitForm();
+                }
+            }*/
+            $("#txtKey").keydown(function (e) {
+                if (e.keyCode == 13) {
+                    submitForm();
+                }
+            });
+            $('#loginModal').on('hidden.bs.modal', function (e) {
+                $("#type").val("")
+            })
+            //回车触发登录事件
+            $("#userId").keydown(function (e) {
+                if (e.keyCode == 13) {
+                    $("#login").click();
+                }
+            });
+
+            $("#password").keydown(function (e) {
+                if (e.keyCode == 13) {
+                    $("#login").click();
+                }
+            });
+
+            function retrieval(text, value) {
+                $('#q').text(text).append('<img src="/img/main/index/dropdown-icon.png" alt="">');
+                $('#q').val(value);
+            }
+
+            function openUrl(value, description) {
+                $("#navbar-collapse").find("a").each(function (index, item) {
+                    $(item).prev().css("display", "none");
+                    $(item).css("border-top", "");
+                })
+                if (description != '1') {
+                    window.location.href = value;
+                } else {
+                    window.open(value, description);
+                }
+            }
+
+            $("#txtKey").click(function (e) {
+                e.stopPropagation();
+                //判断当前选中的是什么选项
+                if (searchType.val() == '联邦检索') {
+                    $("#unifiedTips").css('display', 'none');
+                    $("#bdsugbg").css('display', 'block');
+                    $(".input-group").css('border-radius', '12px 12px 0px 0px');
+                } else if (searchType.val() == '统一检索') {
+                    $("#unifiedTips").css('display', 'block');
+                    $(".input-group").css('border-radius', '12px 12px 0px 0px');
+                    $("#bdsugbg").css('display', 'none');
+                } else {
+                    $("#unifiedTips").css('display', 'none');
+                    $(".input-group").css('border-radius', '12px');
+                    $("#bdsugbg").css('display', 'none');
+                }
+            })
+
+            $("html,body").click(function () {
+                $("#unifiedTips").css('display', 'none');
+                $(".input-group").css('border-radius', '12px');
+                $("#bdsugbg").css('display', 'none');
+            });
+
+
+            //常见问题
+            function commonProblem() {
+                /* $("#problemModal").modal();
+                 pageProblem(1)*/
+                window.location.href = "/questions/1"
+            }
+
+            function pageProblem(page) {
+                var currentNo = parseInt(page);
+                var pageSize = 8;
+                var pageTotal;
+                $.ajax({
+                    url: "/url/commonProblem/list",
+                    type: "get",
+                    data: {
+                        limit: pageSize,
+                        offset: (currentNo - 1) * pageSize
+                    },
+                    success: function (data) {
+                        let html = "";
+                        for (let i = 0; i < data.rows.length; i++) {
+                            html += '<li style="list-style-type: none;margin-top: 13px"><a  onclick="showAnswer(\'problem'
+                                + data.rows[i].id
+                                + '\')"  style="text-decoration: none;color: black;font-size: 15px">' + (i + 1) + '.' + data.rows[i].problem + '</a>' +
+                                '<div id="problem' + data.rows[i].id + '" style="background-color:#D9EEFF;padding: 10px;display: none;margin-left: 10px">' + data.rows[i].answer + '</div></div>';
+                        }
+                        $("#problemUl").html(html);
+                        $("#problemUl li").mouseover(function () {
+                            $(this).find('a').css('color', 'blue')
+                        });
+                        $("#problemUl li").mouseout(function () {
+                            $(this).find('a').css('color', 'black')
+                        });
+                        //分页条
+                        if (data.total > pageSize) {
+                            $("#page").empty();
+                            pageTotal = parseInt((data.total + pageSize - 1) / pageSize);
+                            let html = '<div class="row paging"><div class="col-sm-12 col-md-4 page-total" style="line-height: 34px;text-align: right">共<b style="color: #347AED" id="totalProblem">' + data.total + '</b>个记录</div>'
+                            html += '<div class="col-sm-12 col-md-6 page-control" style="text-align: left"> '
+                            if (currentNo > 1) {
+                                html += '<button class="btn btn-default" onclick="pageProblem(\'' + (currentNo - 1) + '\')">&#10094;</button>';
+                            }
+                            for (let i = 1; i <= pageTotal; i++) {
+                                if (currentNo == i) {
+                                    html += '<button class="btn btn-default active" style="background-color: #347AED;color: white" onclick="pageProblem(\'' + currentNo + '\')">' + currentNo + ' </button>';
+                                }
+                            }
+                            if (currentNo < pageTotal) {
+                                html += '<button class="btn btn-default" onclick="pageProblem(\'' + (currentNo + 1) + '\' )">&#10095;</button>';
+                            }
+                            html += ' <div class="page-input" style="float: right">' +
+                                '<span class="now-page"><b style="color: #347AED">' + currentNo + '</b>/' + pageTotal + '' +
+                                '<span>跳转</span> <input style="width: 55px" type="text" id="problemJumpNo"> <sapn>页</sapn> <button class="btn btn-default" onclick="problemJump(\'' + pageTotal + '\')"> 确定 </button></div>';
+                            html += '</div>';
+                            html += '</div>';
+                            $("#page").html(html);
+
+                        }
+
+                    }
+                });
+            }
+
+            function problemJump(pageTotal) {
+                let page = $("#problemJumpNo").val();
+                if (page === '') {
+                    alert("请输入跳转页数");
+                    return;
+                }
+                //判断当前输入的是否为数字
+                if (page !== '') {
+                    let re = /^[0-9]+.?[0-9]*$/;
+                    if (!re.test(page)) {
+                        alert("请输入数字");
+                        return;
+                    } else if (Number(page) <= 1) {
+                        page = 1;
+                    } else if (Number(page) >= Number(pageTotal)) {
+                        page = pageTotal;
+                    }
+                }
+                pageProblem(page)
+            }
+
+            function showAnswer(id) {
+                if ($("#" + id + "").css('display') == 'none') {
+                    $("#" + id + "").css('display', 'block')
+                } else {
+                    $("#" + id + "").css('display', 'none')
+                }
+            }
+
+
+            var scrollBool = true;
+
+            function toTop() {
+                if ($("html,body").scrollTop() > 0 && scrollBool) {
+                    scrollBool = false
+                    $("html,body").animate({scrollTop: 0}, 1000);
+                    setTimeout(function () {
+                        scrollBool = true;
+                    }, 1020);
+                }
+            }
+        </script>
+        <script>
+            var sessionItem = null
+
+            //故障反馈
+            function fault(elec) {
+                if (!sessionItem) {
+                    //alert("请登录后在使用故障反馈功能");
+                    $('#loginModal').modal('show');
+
+                    return;
+                }
+                $("#faultElecName").val(elec.elecName);
+                $("#faultElecId").val(elec.id);
+                $("#faultName").val(sessionItem.name);
+                $("#faultUserId").val(sessionItem.userId);
+                // getElec("faultElec", "faultElecId")
+                $("#faultModal").modal();
+                $('#imgVerify').click();
+            }
+
+            /*字数限制*/
+            $("#faultDescribe").on("input propertychange", function () {
+                var $this = $(this),
+                    _val = $this.val(),
+                    count = "";
+                if (_val.length > 500) {
+                    $this.val(_val.substring(0, 500));
+                }
+                count = 500 - $this.val().length;
+                $("#text-count").text(count);
+            });
+
+            function getElec(el1, el2, eid) {
+                $.ajax({
+                    url: '/listElec',
+                    success: function (data) {
+                        let html = "";
+                        console.log(eid)
+                        if (eid) {
+                            $("#" + el2).val(eid)
+                        }
+                        for (var i = 0; i < data.length; i++) {
+                            var selectH = ''
+                            if (eid) {
+                                if (eid === data[i].id) {
+                                    selectH = "selected ='selected'"
+                                }
+                            }
+                            html += '<option ' + selectH + '   value="' + data[i].id + '">' + data[i].elecName + '</option>'
+                        }
+                        $("#" + el1).append(html);
+                        $("#" + el1).chosen({
+                            search_contains: true,
+                            maxHeight: 200
+                        });
+                        $("#" + el1 + "_chosen").css('width', '100%');
+                        $("#" + el1 + "_chosen a").css('height', '30px');
+                        $('#' + el1).on('change', function (e, params) {
+                            $("#" + el2).val(params.selected)
+                        });
+                    }
+                });
+            }
+
+            $("#faultDescribe,#describe").on("input propertychange", function () {
+                var $this = $(this),
+                    _val = $this.val(),
+                    count = "";
+                if (_val.length > 500) {
+                    $this.val(_val.substring(0, 500));
+                }
+                count = 500 - $this.val().length;
+                if ("faultDescribe" == $(this).context.id) {
+                    $("#text-count").text(count);
+                } else {
+                    $("#feed-count").text(count);
+                }
+
+            });
+
+            function toggleTheme() {
+                $("link[title='red-theme']")[0].disabled = !$("link[title='red-theme']")[0].disabled;
+            }
+        </script>
+
+    </div>
+    <!--常见问题-->
+    <div class="modal fade" id="problemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="width: 80%;margin: auto">
+        <div class="modal-dialog notify-dialog" role="document">
+            <div class="modal-content notify-content" style="overflow-y: auto">
+                <img class="bg" src="/img/main/index/notify-bg.png" alt="">
+                <div class="modal-header notify-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title notify-title">
+                        常见问题
+                    </h4>
+                    <div class="login-form" style="width: 90%;margin-top: 30px !important;margin: auto">
+                        <ul id="problemUl">
+                            <li style="list-style-type: none;margin-top: 10px"><a style="text-decoration: none;color: black"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="page" style="margin-top: 30px">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.tab-bar .tab').each(function (index) {
+                if ($(this).attr("class") === 'tab active') {
+                    $("#searchType").val($(this).html())
+                }
+            })
+            var scrollDiv = $(".scroll"),
+                $ul = scrollDiv.find("ul"),
+                $li = scrollDiv.find("li"),
+                $length = $li.length,
+                $liHeight = $li.height(),
+                num = 0;
+            if (scrollDiv.length == 0) {
+                return;
+            }
+
+            if ($length > 1) {
+                $ul.append($li.eq(0).clone());
+                setInterval(
+                    function () {
+                        num++;
+                        $ul.addClass("animate").css("-webkit-transform", "translateY(-" + $liHeight * (num) + "px)");
+                        setTimeout(
+                            function () {
+                                if (num >= $length) {
+                                    $ul.removeClass("animate").css("-webkit-transform", "translateY(0)");
+                                    num = 0;
+                                }
+                            }, 300);
+                    }, 3000);
+            }
+        });
+
+
+        function getVerify() {
+            $("#imgVerify").attr("src", 'erlist/login/getVerify?' + Math.random());
+        }
+
+        function openResetPwd() {
+            $("#resetPwd").show();
+        }
+
+
+        //显示详情
+        function loadDetail(id) {
+            window.open("/detail?id=" + id, "_blank");
+        }
+
+        $('.denglu').click(function () {
+            $('#loginUser').show();
+        })
+
+        $('.guanbi').click(function () {
+            $('#loginUser').hide();
+        })
+
+        $('.resetPwdClose').click(function () {
+            $('#resetPwd').hide();
+        })
+
+        //显示公告
+        function loadNotify(id) {
+            $('.make_gg').show();
+            try {
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/notify/" + id,
+                    success: function (r) {
+                        let notify = r.notifyDO;
+                        let tz_date = notify.noDate;
+                        if (tz_date != '') {
+                            tz_date = tz_date.substring(0, tz_date.indexOf(" "));
+                        }
+                        $("#tz_title").html(notify.title);
+                        $("#tz_data").html(tz_date);
+                        $("#tz_main").html(notify.content)
+                    }
+                });
+                return;
+            } catch (e) {
+                console.log(e);
+            }
+
+            return;
+        }
+
+        //关闭公告
+        $('.guanbi_gg').click(function () {
+            $('.make_gg').hide();
+        })
+
+
+        function div_tis_over(id) {
+            $('#bdsugbg >ul > li').each(function (index) {
+                if ($(this).attr('id') == id) {
+                    $(this).attr("class", "s_ipt_wr");
+                } else {
+                    $(this).attr("class", "bdsug-overflow");
+                }
+            });
+        }
+
+        function div_tit_over(id) {
+            $('#unifiedTips >ul > li').each(function (index) {
+                if ($(this).attr('id') == id) {
+                    $(this).attr("class", "s_ipt_wr");
+                } else {
+                    $(this).attr("class", "bdsug-overflow");
+                }
+            });
+        }
+
+        function div_tis_out(id) {
+            $('#bdsugbg').each(function (index) {
+
+            });
+        }
+
+        function div_tit_out(id) {
+            $('#unifiedTips').each(function (index) {
+
+            });
+        }
+
+        function select_li_click(text) {
+            $("#txtKey").val(text);
+            $('#searchBtn').submit();
+            $("#bdsugbg").css('display', 'none');
+            $(".search-btn").click()
+        }
+
+        function txtKey_blur() {
+            $("#bdsugbg").css('display', 'none');
+        }
+
+
+        function switchSearchTab(type) {
+            $('#searchType').val(type);
+            $('.tab-bar .tab').each(function () {
+                if ($(this).text() === type) {
+                    $(this).addClass('active')
+                } else {
+                    $(this).removeClass('active')
+                }
+            })
+
+            if (type === "资源库检索" || type === "联邦检索") {
+                $('.search-dropdown').css('display', 'none');
+                $('.checkbox-group').css('display', 'none')
+                $("#unified").hide();
+                $("#esearch").hide();
+                $("#lhml").hide();
+            } else if (type === "统一检索") {
+                // $('#q').text('题名').append('<img src="/img/main/index/dropdown-icon.png" alt="">');
+                // $('.retrieval').html('<li><a onclick="retrieval(\'题名\',\'title\')" href="#">题名</a></li>\n' +
+                //     '                    <li><a onclick="retrieval(\'著者\',\'author\')" href="#">著者</a></li>\n' +
+                //     '                    <li><a onclick="retrieval(\'ISBN/ISSN\',\'issn\')" href="#">ISBN/ISSN</a></li>\n' +
+                //     '                    <li><a onclick="retrieval(\'出版社\',\'publisher\')" href="#">出版社</a></li>')
+                // $('.search-dropdown').css('display', 'inline-block')
+                $('.search-dropdown').css('display', 'none');
+                $('.checkbox-group').css('display', 'none')
+                $("#unified").show();
+                $("#esearch").show();
+                $("#lhml").hide();
+            } else if (type === "期刊检索") {
+                $('#q').text('刊名').append('<img src="/img/main/index/dropdown-icon.png" alt="">');
+                $('.retrieval').html('<li><a onclick="retrieval(\'刊名\',\'title\')" href="#">刊名</a></li>\n' +
+                    '                    <li><a onclick="retrieval(\'ISSN号\',\'issn\')" href="#">ISSN号</a></li>\n' +
+                    '                    <li><a onclick="retrieval(\'出版社\',\'publisher\')" href="#">出版社</a></li>')
+                $('.search-dropdown').css('display', 'inline-block')
+                $("#unified").hide();
+                $("#esearch").hide();
+                $("#lhml").hide();
+            } else if (type === "电子书检索") {
+                $('#q').text('书名').append('<img src="/img/main/index/dropdown-icon.png" alt="">');
+                $('.retrieval').html('<li><a onclick="retrieval(\'书名\',\'bookName\')" href="#">书名</a></li>\n' +
+                    '                    <li><a onclick="retrieval(\'ISBN\',\'isbn\')" href="#">ISBN</a></li>\n' +
+                    '                    <li><a onclick="retrieval(\'作者\',\'author\')" href="#">作者</a></li>')
+                $('.search-dropdown').css('display', 'inline-block')
+                $("#unified").hide();
+                $("#esearch").hide();
+                $("#lhml").hide();
+                // $('.search-dropdown').css('display', 'none');
+                // $('.checkbox-group').css('display', 'none');
+            }
+        }
+
+        function personal() {
+            window.location.href = "/personal";
+        }
+
+        /*//回车检索
+        document.onkeydown = function(e){
+            var ev = document.all ? window.event : e;
+            if(ev.keyCode==13) {
+                submitForm();
+            }
+        }*/
+        $("#txtKey").keydown(function (e) {
+            if (e.keyCode == 13) {
+                submitForm();
+            }
+        });
+        $('#loginModal').on('hidden.bs.modal', function (e) {
+            $("#type").val("")
+        })
+
+        function retrieval(text, value) {
+            $('#q').text(text).append('<img src="/img/main/index/dropdown-icon.png" alt="">');
+            $('#q').val(value);
+        }
+
+        function openUrl(value, description) {
+            $("#navbar-collapse").find("a").each(function (index, item) {
+                $(item).prev().css("display", "none");
+                $(item).css("border-top", "");
+            })
+            if (description != '1') {
+                window.location.href = value;
+            } else {
+                window.open(value, description);
+            }
+        }
+
+        $("#txtKey").click(function (e) {
+            e.stopPropagation();
+            //判断当前选中的是什么选项
+            if (searchType.val() == '联邦检索') {
+                $("#unifiedTips").css('display', 'none');
+                $("#bdsugbg").css('display', 'block');
+                $(".input-group").css('border-radius', '12px 12px 0px 0px');
+            } else if (searchType.val() == '统一检索') {
+                $("#unifiedTips").css('display', 'block');
+                $(".input-group").css('border-radius', '12px 12px 0px 0px');
+                $("#bdsugbg").css('display', 'none');
+            } else {
+                $("#unifiedTips").css('display', 'none');
+                $(".input-group").css('border-radius', '12px');
+                $("#bdsugbg").css('display', 'none');
+            }
+        })
+
+        $("html,body").click(function () {
+            $("#unifiedTips").css('display', 'none');
+            $(".input-group").css('border-radius', '12px');
+            $("#bdsugbg").css('display', 'none');
+        });
+
+
+        //常见问题
+        function commonProblem() {
+            /* $("#problemModal").modal();
+             pageProblem(1)*/
+            window.location.href = "/questions/1"
+        }
+
+        function pageProblem(page) {
+            var currentNo = parseInt(page);
+            var pageSize = 8;
+            var pageTotal;
+            $.ajax({
+                url: "/url/commonProblem/list",
+                type: "get",
+                data: {
+                    limit: pageSize,
+                    offset: (currentNo - 1) * pageSize
+                },
+                success: function (data) {
+                    let html = "";
+                    for (let i = 0; i < data.rows.length; i++) {
+                        html += '<li style="list-style-type: none;margin-top: 13px"><a  onclick="showAnswer(\'problem'
+                            + data.rows[i].id
+                            + '\')"  style="text-decoration: none;color: black;font-size: 15px">' + (i + 1) + '.' + data.rows[i].problem + '</a>' +
+                            '<div id="problem' + data.rows[i].id + '" style="background-color:#D9EEFF;padding: 10px;display: none;margin-left: 10px">' + data.rows[i].answer + '</div></div>';
+                    }
+                    $("#problemUl").html(html);
+                    $("#problemUl li").mouseover(function () {
+                        $(this).find('a').css('color', 'blue')
+                    });
+                    $("#problemUl li").mouseout(function () {
+                        $(this).find('a').css('color', 'black')
+                    });
+                    //分页条
+                    if (data.total > pageSize) {
+                        $("#page").empty();
+                        pageTotal = parseInt((data.total + pageSize - 1) / pageSize);
+                        let html = '<div class="row paging"><div class="col-sm-12 col-md-4 page-total" style="line-height: 34px;text-align: right">共<b style="color: #347AED" id="totalProblem">' + data.total + '</b>个记录</div>'
+                        html += '<div class="col-sm-12 col-md-6 page-control" style="text-align: left"> '
+                        if (currentNo > 1) {
+                            html += '<button class="btn btn-default" onclick="pageProblem(\'' + (currentNo - 1) + '\')">&#10094;</button>';
+                        }
+                        for (let i = 1; i <= pageTotal; i++) {
+                            if (currentNo == i) {
+                                html += '<button class="btn btn-default active" style="background-color: #347AED;color: white" onclick="pageProblem(\'' + currentNo + '\')">' + currentNo + ' </button>';
+                            }
+                        }
+                        if (currentNo < pageTotal) {
+                            html += '<button class="btn btn-default" onclick="pageProblem(\'' + (currentNo + 1) + '\' )">&#10095;</button>';
+                        }
+                        html += ' <div class="page-input" style="float: right">' +
+                            '<span class="now-page"><b style="color: #347AED">' + currentNo + '</b>/' + pageTotal + '' +
+                            '<span>跳转</span> <input style="width: 55px" type="text" id="problemJumpNo"> <sapn>页</sapn> <button class="btn btn-default" onclick="problemJump(\'' + pageTotal + '\')"> 确定 </button></div>';
+                        html += '</div>';
+                        html += '</div>';
+                        $("#page").html(html);
+
+                    }
+
+                }
+            });
+        }
+
+        function problemJump(pageTotal) {
+            let page = $("#problemJumpNo").val();
+            if (page === '') {
+                alert("请输入跳转页数");
+                return;
+            }
+            //判断当前输入的是否为数字
+            if (page !== '') {
+                let re = /^[0-9]+.?[0-9]*$/;
+                if (!re.test(page)) {
+                    alert("请输入数字");
+                    return;
+                } else if (Number(page) <= 1) {
+                    page = 1;
+                } else if (Number(page) >= Number(pageTotal)) {
+                    page = pageTotal;
+                }
+            }
+            pageProblem(page)
+        }
+
+        function showAnswer(id) {
+            if ($("#" + id + "").css('display') == 'none') {
+                $("#" + id + "").css('display', 'block')
+            } else {
+                $("#" + id + "").css('display', 'none')
+            }
+        }
+
+
+        var scrollBool = true;
+
+        function toTop() {
+            if ($("html,body").scrollTop() > 0 && scrollBool) {
+                scrollBool = false
+                $("html,body").animate({scrollTop: 0}, 1000);
+                setTimeout(function () {
+                    scrollBool = true;
+                }, 1020);
+            }
+        }
+		
+    </script>
+
+
+</div>
+
+<script>
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    var keyword = getParameterByName("keyword")
+    if (keyword && keyword.trim()) {
+        $("#elecName").val(keyword)
+        indexSearch();
+    }
+
+
+    $("#searchElec").click(function () {
+        let elecName = $("#elecName").val().trim();
+        if (!elecName) {
+            alert("请输入资源库名称");
+            return false;
+        }
+        indexSearch();
+    });
+
+    function toggleSortDropdown() {
+        var e = window.event || arguments.callee.caller.arguments[0];
+        $("#sort-btn-text").text($(e.target).text());
+        $("#sort-btn-text").attr('value', $(e.target).attr('value'))
+        indexSearch()
+    }
+
+    function openUrl(value, description) {
+        $("#navbar-collapse").find("a").each(function (index, item) {
+            $(item).prev().css("display", "none");
+            $(item).css("border-top", "");
+        })
+        if (description != '1') {
+            window.location.href = value;
+        } else {
+            window.open(value, description);
+        }
+        return false;
+    }
+</script>
+<script>
+    //通过goId访问资源
+    $(function () {
+        var id = localStorage.getItem('id')
+        var url = localStorage.getItem('url')
+        if (id && url) {
+            localStorage.removeItem('id')
+            localStorage.removeItem('url')
+            $("#loginModal").modal('show');
+            $("#type").val(id);
+            $("#url").val(url);
+        }
+        //混排手机端序号及标题处理
+        let pattern = "1";
+        if (pattern == 1 && navigator.userAgent.match(/mobile/i)) {
+            $(".lib-data-head").eq(1).hide();
+            $(".num").each(function (index) {
+                if (index % 2 == 0) {
+                    $(this).parent().css("background", "#fff");
+                } else {
+                    $(this).parent().css("background", "#EBEDF0");
+                }
+                $(this).text(index + 1);
+            });
+        }
+    })
+
+</script>
+
+
+
+
+
+</div></body></html>
