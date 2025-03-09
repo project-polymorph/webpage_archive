@@ -1,0 +1,47 @@
+# 跨性別（社區）
+
+## 影片
+
+![社會新聞](https://cdn.hk01.com/di/media/images/dw/20201127/409014835594924032519476.png/r436xnnAl6qhPVgmycHmEvd-PyfrRKaco_YF3KP2Bdw)  
+**發布時間：** 2023-03-31  
+[跨性別人士入境處請願　促按高院判詞落實三個月內免手術申請換證](https://www.hk01.com/%E7%A4%BE%E6%9C%83%E6%96%B0%E8%81%9E/883444/%E8%B7%A8%E6%80%A7%E5%88%A5%E4%BA%BA%E5%A3%AB%E5%85%A5%E5%A2%83%E8%99%95%E8%AB%8B%E9%A1%98-%E4%BF%83%E6%8C%89%E9%AB%98%E9%99%A2%E5%88%A4%E8%A9%9E%E8%90%BD%E5%AF%A6%E4%B8%89%E5%80%8B%E6%9C%88%E5%85%A7%E5%85%8D%E6%89%8B%E8%A1%93%E7%94%B3%E8%AB%8B%E6%8F%9B%E8%AD%89)  
+
+## 即時體育
+
+![即時體育](https://cdn.hk01.com/di/media/images/dw/20201125/408227399805702144507921.png/IlofgFGhLkgz5lG2-XgT1iYInd7C9v-5aruQT2q7kE8)  
+**發布時間：** 2022-06-19  
+[體育熱話｜國際體壇爆跨性別參賽爭議　單車修例　國際泳聯明表決](https://www.hk01.com/%E5%8D%B3%E6%99%82%E9%AB%94%E8%82%B2/783120/%E9%AB%94%E8%82%B2%E7%86%B1%E8%A9%B1-%E5%9C%8B%E9%9A%9B%E9%AB%94%E5%A3%87%E7%88%86%E8%B7%A8%E6%80%A7%E5%88%A5%E5%8F%83%E8%B3%BD%E7%88%AD%E8%AD%B0-%E5%96%AE%E8%BB%8A%E4%BF%AE%E4%BE%8B-%E5%9C%8B%E9%9A%9B%E6%B3%B3%E8%81%AF%E6%98%8E%E8%A1%A8%E6%B1%BA)  
+
+![即時體育](https://cdn.hk01.com/di/media/images/dw/20201125/408227399805702144507921.png/IlofgFGhLkgz5lG2-XgT1iYInd7C9v-5aruQT2q7kE8)  
+**發布時間：** 2022-01-12  
+[體育熱話｜跨性別泳手正面交鋒　「男跨女」被「女跨男」擊敗](https://www.hk01.com/%E5%8D%B3%E6%99%82%E9%AB%94%E8%82%B2/723240/%E9%AB%94%E8%82%B2%E7%86%B1%E8%A9%B1-%E8%B7%A8%E6%80%A7%E5%88%A5%E6%B3%B3%E6%89%8B%E6%AD%A3%E9%9D%A2%E4%BA%A4%E9%8B%92-%E7%94%B7%E8%B7%A8%E5%A5%B3-%E8%A2%AB-%E5%A5%B3%E8%B7%A8%E7%94%B7-%E6%93%8A%E6%95%97)  
+
+![即時體育](https://cdn.hk01.com/di/media/images/dw/20201125/408227914820096000156473.png/Tr5b4awsE2lDrGj3zO5LegNr4GHunfLjdpBk9naQZPY)  
+**發布時間：** 2021-06-29  
+[同樂運動會成功租下21個私人場地舉辦活動　強調跟從政府防疫規定](https://www.hk01.com/18%E5%8D%80%E6%96%B0%E8%81%9E/644209/%E5%90%8C%E6%A8%82%E9%81%8B%E5%8B%95%E6%9C%83%E6%88%90%E5%8A%9F%E7%A7%9F%E4%B8%8B21%E5%80%8B%E7%A7%81%E4%BA%BA%E5%A0%B4%E5%9C%B0%E8%88%89%E8%BE%A6%E6%B4%BB%E5%8B%95-%E5%BC%B7%E8%AA%BF%E8%B7%9F%E5%BE%9E%E6%94%BF%E5%BA%9C%E9%98%B2%E7%96%AB%E8%A6%8F%E5%AE%9A)  
+
+![即時體育](https://cdn.hk01.com/di/media/images/dw/20201125/408227914820096000156473.png/Tr5b4awsE2lDrGj3zO5LegNr4GHunfLjdpBk9naQZPY)  
+**發布時間：** 2021-05-12  
+[調查發現近八成跨性別人士曾想過自殺　學者促跟進性別承認法](https://www.hk01.com/18%E5%8D%80%E6%96%B0%E8%81%9E/624319/%E6%80%A7%E5%88%A5%E6%95%99%E8%82%B2-%E8%BF%91%E5%85%AB%E6%88%90%E8%B7%A8%E6%80%A7%E5%88%A5%E4%BA%BA%E5%A3%AB%E6%9B%BE%E6%83%B3%E9%81%8E%E8%87%AA%E6%AE%BA-%E5%AD%B8%E8%80%85%E4%BF%83%E8%B7%9F%E9%80%B2%E6%80%A7%E5%88%A5%E6%89%BF%E8%AA%8D%E6%B3%95)  
+
+![即時體育](https://cdn.hk01.com/di/media/images/dw/20201125/408227914820096000156473.png/Tr5b4awsE2lDrGj3zO5LegNr4GHunfLjdpBk9naQZPY)  
+**發布時間：** 2021-03-01  
+[特朗普卸任後繼續針對LGBT　批華府新政策令運動場「消除了女人」](https://www.hk01.com/%E5%8D%B3%E6%99%82%E9%AB%94%E8%82%B2/593279/%E7%89%B9%E6%9C%97%E6%99%AE%E5%8D%B8%E4%BB%BB%E5%BE%8C%E7%B9%BC%E7%BA%8C%E9%87%9D%E5%B0%8Dlgbt-%E6%89%B9%E8%8F%AF%E5%BA%9C%E6%96%B0%E6%94%BF%E7%AD%96%E4%BB%A4%E9%81%8B%E5%8B%95%E5%A0%B4-%E6%B6%88%E9%99%A4%E4%BA%86%E5%A5%B3%E4%BA%BA)  
+
+![即時體育](https://cdn.hk01.com/di/media/images/dw/20201125/408227914820096000156473.png/Tr5b4awsE2lDrGj3zO5LegNr4GHunfLjdpBk9naQZPY)  
+**發布時間：** 2020-10-13  
+[11跨性別模特兒下月辦影展　主辦方：跨性別人士與常人無異](https://www.hk01.com/18%E5%8D%80%E6%96%B0%E8%81%9E/535125/11%E8%B7%A8%E6%80%A7%E5%88%A5%E6%A8%A1%E7%89%B9%E5%85%92%E4%B8%8B%E6%9C%88%E8%BE%A6%E5%BD%B1%E5%B1%95-%E4%B8%BB%E8%BE%A6%E6%96%B9-%E8%B7%A8%E6%80%A7%E5%88%A5%E4%BA%BA%E5%A3%AB%E8%88%87%E5%B8%B8%E4%BA%BA%E7%84%A1%E7%95%B0)  
+
+![即時體育](https://cdn.hk01.com/di/media/images/dw/20201125/408227914820096000156473.png/Tr5b4awsE2lDrGj3zO5LegNr4GHunfLjdpBk9naQZPY)  
+**發布時間：** 2020-09-25  
+[跨性別人士服裝店試身遭拒絕　團體促平機會調查事件](https://www.hk01.com/18%E5%8D%80%E6%96%B0%E8%81%9E/528494/%E8%B7%A8%E6%80%A7%E5%88%A5%E4%BA%BA%E5%A3%AB%E6%9C%8D%E8%A3%9D%E5%BA%97%E8%A9%A6%E8%BA%AB%E9%81%AD%E6%8B%92%E7%B5%95-%E5%9C%98%E9%AB%94%E4%BF%83%E5%B9%B3%E6%A9%9F%E6%9C%83%E8%AA%BF%E6%9F%A5%E4%BA%8B%E4%BB%B6)  
+
+![即時體育](https://cdn.hk01.com/di/media/images/dw/20201125/408227914820096000156473.png/Tr5b4awsE2lDrGj3zO5LegNr4GHunfLjdpBk9naQZPY)  
+**發布時間：** 2020-07-15  
+[跨性後績效評估被降級　同事罵人妖　團體推跨性別職場友善指引](https://www.hk01.com/18%E5%8D%80%E6%96%B0%E8%81%9E/498391/%E8%B7%A8%E6%80%A7%E5%BE%8C%E7%B8%BE%E6%95%88%E8%A9%95%E4%BC%B0%E8%A2%AB%E9%99%8D%E7%B4%9A-%E5%90%8C%E4%BA%8B%E7%BD%B5%E4%BA%BA%E5%A6%96-%E5%9C%98%E9%AB%94%E6%8E%A8%E8%B7%A8%E6%80%A7%E5%88%A5%E8%81%B7%E5%A0%B4%E5%8F%8B%E5%96%84%E6%8C%87%E5%BC%95)  
+
+![即時體育](https://cdn.hk01.com/di/media/images/dw/20201125/408227914820096000156473.png/Tr5b4awsE2lDrGj3zO5LegNr4GHunfLjdpBk9naQZPY)  
+**發布時間：** 2019-07-25  
+[【跨性別】怎麼天生不是女人　跨性別女生：曾懷疑自己「雙性戀」](https://www.hk01.com/%E7%A4%BE%E5%8D%80%E5%B0%88%E9%A1%8C/354135/%E8%B7%A8%E6%80%A7%E5%88%A5-%E6%80%8E%E9%BA%BC%E5%A4%A9%E7%94%9F%E4%B8%8D%E6%98%AF%E5%A5%B3%E4%BA%BA-%E8%B7%A8%E6%80%A7%E5%88%A5%E5%A5%B3%E7%94%9F-%E6%9B%BE%E6%87%B7%E7%96%91%E8%87%AA%E5%B7%B1-%E9%9B%99%E6%80%A7%E6%88%80)  
+
+![dot image pixel](https://sp.analytics.yahoo.com/sp.pl?a=10000&d=Wed%2C%2026%20Feb%202025%2006%3A13%3A10%20GMT&n=0&b=%E8%B7%A8%E6%80%A7%E5%88%A5%EF%BC%88%E7%A4%BE%E5%8D%80%EF%BC%89%EF%BD%9C%E9%A6%99%E6%B8%AF01&.yp=10061689&f=https%3A%2F%2Fwww.hk01.com%2Ftag%2F24258&enc=UTF-8&gdpr=0&yv=1.16.6&tagmgr=gtm)
