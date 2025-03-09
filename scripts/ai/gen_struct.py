@@ -2,6 +2,7 @@ import os
 import json
 import openai
 import argparse
+import requests
 from openai import OpenAI
 from dotenv import load_dotenv
 import base64
@@ -15,8 +16,11 @@ print(f"Using model: {model_name}")
 temperature = os.getenv('OPENAI_TEMPERATURE')
 if not temperature:
     temperature = 0.7
+else:
+    temperature = float(temperature)
 print(f"Using temperature: {temperature}")
 client = OpenAI()
+gemini_api_key = os.getenv('GEMINI_API_KEY')
 
 def read_file(file_path):
     """Read the content of the input file."""
@@ -34,47 +38,101 @@ def encode_image(image_path):
         return base64.b64encode(image_file.read()).decode('utf-8')
 
 def generate_cleanup_content(content, schema, image_path=None):
-    """Send the prompt and content to OpenAI's API and get the structured content."""
+    """Send the prompt and content to OpenAI's API or Gemini API and get the structured content."""
     
-    messages = [
-        {"role": "system", "content": f"You are a helpful assistant that generates structured output based on the following JSON schema: {json.dumps(schema)}"}
-    ]
-
-    # Prepare user message with optional image
-    if image_path:
-        base64_image = encode_image(image_path)
-        messages.append({
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": content
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {
-                        "url": f"data:image/jpeg;base64,{base64_image}"
-                    }
-                }
-            ]
-        })
-    else:
-        messages.append({"role": "user", "content": content})
-
-    completion = client.chat.completions.create(
-        model=model_name,
-        messages=messages,
-        response_format={
-            "type": "json_schema",
-            "json_schema": {
-                "name": "response",
-                "schema": schema,
-                "strict": True
+    if model_name.startswith("gemini"):
+        # Use Gemini API
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={gemini_api_key}"
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        
+        # Prepare request data
+        gemini_data = {
+            "contents": [{
+                "parts": []
+            }],
+            "generationConfig": {
+                "temperature": temperature
             }
         }
-    )
+        
+        # Add system prompt as text
+        system_prompt = f"You are a helpful assistant that generates structured output based on the following JSON schema: {json.dumps(schema)}"
+        gemini_data["contents"][0]["parts"].append({"text": system_prompt + "\n\n" + content})
+        
+        # Add image if provided
+        if image_path:
+            base64_image = encode_image(image_path)
+            gemini_data["contents"][0]["parts"].append({
+                "inline_data": {
+                    "mime_type": "image/jpeg",
+                    "data": base64_image
+                }
+            })
+        
+        response = requests.post(url, headers=headers, data=json.dumps(gemini_data))
+        response_json = response.json()
+        
+        if 'candidates' in response_json and len(response_json['candidates']) > 0:
+            # Extract the JSON response from the text
+            response_text = response_json['candidates'][0]['content']['parts'][0]['text']
+            # Find JSON content in the response (it might be wrapped in markdown code blocks)
+            json_start = response_text.find('{')
+            json_end = response_text.rfind('}') + 1
+            if json_start >= 0 and json_end > json_start:
+                json_str = response_text[json_start:json_end]
+                try:
+                    return json.loads(json_str)
+                except json.JSONDecodeError:
+                    # If direct parsing fails, try to clean up the string
+                    cleaned_json = json_str.replace('\n', '').replace('\\', '\\\\')
+                    return json.loads(cleaned_json)
+            raise Exception("Could not extract valid JSON from Gemini response")
+        else:
+            raise Exception(f"Gemini API error: {response_json}")
+    else:
+        # Use OpenAI API
+        messages = [
+            {"role": "system", "content": f"You are a helpful assistant that generates structured output based on the following JSON schema: {json.dumps(schema)}"}
+        ]
 
-    return json.loads(completion.choices[0].message.content)
+        # Prepare user message with optional image
+        if image_path:
+            base64_image = encode_image(image_path)
+            messages.append({
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": content
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/jpeg;base64,{base64_image}"
+                        }
+                    }
+                ]
+            })
+        else:
+            messages.append({"role": "user", "content": content})
+
+        completion = client.chat.completions.create(
+            model=model_name,
+            messages=messages,
+            temperature=temperature,
+            response_format={
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "response",
+                    "schema": schema,
+                    "strict": True
+                }
+            }
+        )
+
+        return json.loads(completion.choices[0].message.content)
 
 def main():
     # Set up command-line argument parsing

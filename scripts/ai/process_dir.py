@@ -81,21 +81,42 @@ def process_file(file_path, prompt_template, gen_script_path, output_dir, total_
             temp_input_path, output_path
         ]
         
-        subprocess.run(cmd, check=True)
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        
+        # Check if there was a Gemini API error
+        if "Gemini API error" in result.stdout or "PROHIBITED_CONTENT" in result.stdout:
+            logging.warning(f"Process {process_idx} - Gemini API error for {file_path}, skipping this file")
+            print(f"Process {process_idx} - Gemini API error:")
+            print("============================================")
+            print(result.stdout)
+            print("============================================")
+            # Remove the output file if it was partially created
+            if os.path.exists(output_path):
+                os.remove(output_path)
+            return True  # Return True to indicate we handled this case and want to continue
+        
+        # If there was any other error
+        if result.returncode != 0:
+            logging.error(f"Error processing {file_path}: {result.stderr}")
+            return False
         
         # Log progress
         logging.info(f"Process {process_idx} - Successfully processed {file_path} -> {output_path}")
         
-        # Print output content
-        output_content = read_file_content(output_path)
-        print(f"Process {process_idx} - output_content:")
-        print("============================================")
-        print(output_content)
-        print("============================================")
+        # Check if output file exists before trying to read it
+        if os.path.exists(output_path):
+            # Print output content
+            output_content = read_file_content(output_path)
+            print(f"Process {process_idx} - output_content:")
+            print("============================================")
+            print(output_content)
+            print("============================================")
+        else:
+            logging.warning(f"Process {process_idx} - Output file not created: {output_path}")
         
         return True
 
-    except subprocess.CalledProcessError as e:
+    except Exception as e:
         logging.error(f"Error processing {file_path}: {e}")
         return False
 
@@ -116,7 +137,19 @@ def check_file_sizes(src_dir, pattern, max_size_kb=50):
 def worker(args_tuple):
     """Worker function for multiprocessing that unpacks arguments and calls process_file."""
     idx, (file_path, prompt_template, gen_script_path, output_dir, total_files) = args_tuple
-    return process_file(file_path, prompt_template, gen_script_path, output_dir, total_files, idx)
+    try:
+        # Ensure output directory exists before processing
+        rel_path = os.path.relpath(file_path, start=args.src)
+        output_path = os.path.join(output_dir, rel_path)
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        
+        return process_file(file_path, prompt_template, gen_script_path, output_dir, total_files, idx)
+    except FileNotFoundError as e:
+        logging.error(f"Process {idx} - FileNotFoundError: {e}")
+        return False
+    except Exception as e:
+        logging.error(f"Process {idx} - Unexpected error: {e}")
+        return False
 
 def main():
     parser = argparse.ArgumentParser(description='Process files using a prompt template')
@@ -126,7 +159,7 @@ def main():
     parser.add_argument('--gen', help='Path to gen.py script', default='scripts/ai/gen.py')
     parser.add_argument('--pattern', default='*.*', help='File pattern to match (default: *.*)')
     parser.add_argument('--skip-size-check', action='store_true', default=True, help='Skip initial file size check (default: True)')
-    parser.add_argument('--processes', type=int, default=16, help='Number of parallel processes to use (default: 16)')
+    parser.add_argument('--processes', type=int, default=1, help='Number of parallel processes to use (default: 16)')
 
     global args
     args = parser.parse_args()
@@ -161,8 +194,12 @@ def main():
     
     # Process files in parallel
     start_time = time.time()
-    with multiprocessing.Pool(processes=min(args.processes, len(files))) as pool:
-        results = list(pool.map(worker, indexed_args))
+    try:
+        with multiprocessing.Pool(processes=min(args.processes, len(files))) as pool:
+            results = list(pool.map(worker, indexed_args))
+    except Exception as e:
+        logging.error(f"Error during parallel processing: {e}")
+        results = []
     
     # Calculate statistics
     end_time = time.time()
