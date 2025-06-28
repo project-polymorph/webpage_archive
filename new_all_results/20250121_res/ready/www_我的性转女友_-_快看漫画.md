@@ -1,0 +1,33 @@
+# 我的性转女友漫画
+
+![我的性转女友](https://tn1-f2.kkmh.com/image/211001/UHjMgnt35.webp-w750.jpg)
+
+## 作者信息
+**作者**: 帝企鹅不是鹅
+
+## 漫画简介
+【KK原创投稿计划】某天威胡收到了一个快递，里面放着一个按钮，上面写着“基友性转按钮”，经常看安晴Ankii视频的他开始意识到，这好像不是什么正常的世界，但是谁在乎呢？毕竟，他的春天，就要开始了······一个按钮，居然有那么多种玩法？？？
+
+### 人气值
+![人气值](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAOVBMVEUAAACZmZmZmZmbm5uXl5eZmZmXl5efn5+ampqampqZmZmZmZmampqZmZmZmZmYmJiZmZmZmZmZmZkuWYPwAAAAEnRSTlMAgN9AQGAgEJ/PcO+/kFAwoK81M8sdAAABUElEQVRIx+3V0a6DIAwGYItaEBSU93/Y05qYLqJH27sl+29GIt8UaEP3S5M+hmVEE8W57gGLdQStmuyRrLUjoQQ4bPQ7aTEveOTBRIOis56I20eR/0WHM5FwfL8WL0QGK+aVeiNG2WM9XklEIy6VgjaMbt9rC/aQ+JBRj/0YmNZUug8M/ZFyxyCEieFhBX/EwQVdUpXMKE+GeorzZzvJwzQPp2I7ZW7OVTI0dQ6SrZ3RV0rIiNDii6KPzYuBB88Y+TVNG3TvcGmwq9U9Ylkh6LGsOVvxzC1jxF4aXY8zTViseOUJVuz4UI24cGlbceTi1GM5qGLAcgnpsVxCBiwHpcYyL3VqLB216bF01GjFE3eUEaOUlxZLebXfk7zgp/Jqd2J5wrEtL7lSAt1jgb+sv0pe6911udVXcdcVP72y2F0HHmkCf99uGf5LzL775TvzB+ERKnrRTfD9AAAAAElFTkSuQmCC) 408 赞:408
+
+### 章节列表
+- **连载中**
+  - 共1个内容
+  - 共1篇正文
+  - 1 - 50: 都是按钮惹的祸
+
+## 评论
+1. **xiaohuihui_E3fKQU**
+   - 2021-10-07
+   - 发展的也太快了吧
+   - ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAOVBMVEUAAACZmZmZmZmbm5uXl5eZmZmXl5efn5+ampqampqZmZmZmZmampqZmZmZmZmYmJiZmZmZmZmZmZkuWYPwAAAAEnRSTlMAgN9AQGAgEJ/PcO+/kFAwoK81M8sdAAABUElEQVRIx+3V0a6DIAwGYItaEBSU93/Y05qYLqJH27sl+29GIt8UaEP3S5M+hmVEE8W57gGLdQStmuyRrLUjoQQ4bPQ7aTEveOTBRIOis56I20eR/0WHM5FwfL8WL0QGK+aVeiNG2WM9XklEIy6VgjaMbt9rC/aQ+JBRj/0YmNZUug8M/ZFyxyCEieFhBX/EwQVdUpXMKE+GeorzZzvJwzQPp2I7ZW7OVTI0dQ6SrZ3RV0rIiNDii6KPzYuBB88Y+TVNG3TvcGmwq9U9Ylkh6LGsOVvxzC1jxF4aXY8zTViseOUJVuz4UI24cGlbceTi1GM5qGLAcgnpsVxCBiwHpcYyL3VqLB216bF01GjFE3eUEaOUlxZLebXfk7zgp/Jqd2J5wrEtL7lSAt1jgb+sv0pe6911udVXcdcVP72y2F0HHmkCf99uGf5LzL775TvzB+ERKnrRTfD9AAAAAElFTkSuQmCC) 2
+2. **王钰淇_f4NXjU**
+   - 2022-04-06
+   - 作者，你倒是更啊！
+   - ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAAOVBMVEUAAACZmZmZmZmbm5uXl5eZmZmXl5efn5+ampqampqZmZmZmZmampqZmZmZmZmYmJiZmZmZmZmZmZkuWYPwAAAAEnRSTlMAgN9AQGAgEJ/PcO+/kFAwoK81M8sdAAABUElEQVRIx+3V0a6DIAwGYItaEBSU93/Y05qYLqJH27sl+29GIt8UaEP3S5M+hmVEE8W57gGLdQStmuyRrLUjoQQ4bPQ7aTEveOTBRIOis56I20eR/0WHM5FwfL8WL0QGK+aVeiNG2WM9XklEIy6VgjaMbt9rC/aQ+JBRj/0YmNZUug8M/ZFyxyCEieFhBX/EwQVdUpXMKE+GeorzZzvJwzQPp2I7ZW7OVTI0dQ6SrZ3RV0rIiNDii6KPzYuBB88Y+TVNG3TvcGmwq9U9Ylkh6LGsOVvxzC1jxF4aXY8zTViseOUJVuz4UI24cGlbceTi1GM5qGLAcgnpsVxCBiwHpcYyL3VqLB216bF01GjFE3eUEaOUlxZLebXfk7zgp/Jqd2J5wrEtL7lSAt1jgb+sv0pe6911udVXcdcVP72y2F0HHmkCf99uGf5LzL775TvzB+ERKnrRTfD9AAAAAElFTkSuQmCC) 10
+
+## 版权信息
+快看世界（北京）科技有限公司 版权所有 未经许可 严禁转载
+
+Copyright © 2015-2025 kuaikanmanhua.com All Rights Reserved

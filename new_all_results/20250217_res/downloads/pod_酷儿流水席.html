@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head><meta charset="utf-8"><title>酷儿流水席</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="相似又迥异的酷儿人类们蹲在一起倾诉做人的难处，剖析人生和社会的复杂性，尝试用声音重铸连结，共同探索我们的酷儿人生新叙事。"><link rel="icon" type="image/png" href="/assets/default/favicon.png"><style>
+  /* Inspired by https://www.swyx.io/css-100-bytes */
+  html {
+    max-width: 70ch;
+    padding: 1.5em 0.2em;
+    margin: auto;
+    line-height: 1.75;
+    font-size: 1em;
+    color: #24292f;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  }
+
+  section {
+    margin-bottom: 4em;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.25em;
+  }
+
+  p, ul, ol {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+
+  a, a:visited {
+    color: #0997cc;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  a:hover {
+    opacity: 65%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  /* Some css classes */
+  .flex {
+    display: flex;
+  }
+
+  .flex-none {
+    flex: none;
+  }
+
+  .flex-1 {
+    flex: 1;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .px-2 {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .mb-1 {
+    margin-bottom: 0.25em;
+  }
+
+  .mb-2 {
+    margin-bottom: 0.5em;
+  }
+
+  .mb-4 {
+    margin-bottom: 1em;
+  }
+
+  .mt-2 {
+    margin-top: 0.5em;
+  }
+
+  .mt-4 {
+    margin-top: 1em;
+  }
+
+  .ml-1 {
+    margin-left: 0.25em;
+  }
+
+  .mr-4 {
+    margin-right: 1em;
+  }
+
+  .one-line {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  .text-sm {
+    font-size: 0.8em;
+  }
+
+  .text-lg {
+    font-size: 1.25em;
+  }
+
+  .img-lg {
+    max-width: 7.5em;
+    border-radius: 0.8em;
+    box-shadow: 0.2em 0.2em 0.2em #DCDCDC;
+  }
+
+  .img-md {
+    max-width: 3.5em;
+    border-radius: 0.2em;
+    box-shadow: 0.1em 0.1em 0.1em #DCDCDC;
+  }
+
+  .img-sm {
+    max-width: 1em;
+    border-radius: 0.2em;
+  }
+
+  .border-t {
+    border-top: 1px solid #DCDCDC;
+  }
+
+  .border-b {
+    border-bottom: 1px solid #DCDCDC;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  .font-bold {
+    font-weight: bold;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .hide-mobile {
+      display: none;
+    }
+  }
+
+  .icon-arrow-left:before {
+    content: "←";
+  }
+
+  .icon-arrow-right:before {
+    content: "→";
+  }
+</style>
+
+<!-- Lazy load images -->
+<style>
+  @keyframes backgroundColorPalette {
+    0% {
+      background: #DCDCDC;
+    }
+    25% {
+      background: #D3D3D3;
+    }
+    50% {
+      background: #778899;
+    }
+    75% {
+      background: #D3D3D3;
+    }
+    100% {
+      background: #DCDCDC;
+    }
+  }
+
+  .loader {
+    width: 100%;
+    height: 20em;
+    background-color: #DCDCDC;
+    animation-name: backgroundColorPalette;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target;
+          const newImage = document.createElement('img');
+          newImage.src = lazyImage.dataset.src;
+          newImage.onload = function () {
+            lazyImage.classList.remove("loader");
+            const wrapper = document.createElement('a');
+            wrapper.setAttribute('href', newImage.src);
+            wrapper.setAttribute('target', "_blank");
+            wrapper.appendChild(newImage.cloneNode(true));
+            if (lazyImage.parentElement) {
+              lazyImage.parentElement.replaceChild(wrapper, lazyImage);
+              lazyImage.remove();
+            }
+          };
+          lazyImageObserver.unobserve(lazyImage);
+        }
+      });
+    });
+
+    const images = document.querySelectorAll('img:not([loading=lazy])');
+    for (let i = 0; i < images.length; i++) {
+      images[i].dataset.src = images[i].src;
+      images[i].classList.add('loader');
+      images[i].src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP88eNnPQAJQwNqJHSUZQAAAABJRU5ErkJggg==";
+      lazyImageObserver.observe(images[i]);
+    }
+
+  }, false);
+
+</script>
+
+</head><body><!-- right after <body> tag -->
+<div><main>
+  <section>
+    <h1>酷儿流水席</h1>
+    <div class="flex">
+      <div class="mr-4">
+        <a href="https://media-cdn.50w.us/microfeed-podcast/production/images/channel-1fabfb4db0e0d8bf2a37083ea0b0ba85.png" target="_blank">
+          <img alt="酷儿流水席" src="https://media-cdn.50w.us/microfeed-podcast/production/images/channel-1fabfb4db0e0d8bf2a37083ea0b0ba85.png" class="img-lg" loading="lazy">
+        </a>
+      </div>
+      <div>
+        <div class="one-line">
+          <span title="酷儿流水席 Queer Roadside Banquet">酷儿流水席 Queer Roadside Banquet</span>
+        </div>
+        <div>
+          <div class="text-sm mt-4 mb-2">
+            Subscribe:
+          </div>
+          <div class="flex flex-wrap">
+            <a href="https://podcasts.apple.com/us/podcast/酷儿流水席/id1725512952" class="mr-4 mb-2">
+              <div class="flex items-center">
+                <img src="https://pod.50w.us/assets/brands/subscribe/apple.jpg" class="img-sm flex-none" alt="Apple Podcasts" loading="lazy">
+                <div class="flex-1 ml-1 text-sm hide-mobile">Apple Podcasts</div>
+              </div>
+            </a>
+            <a href="https://open.spotify.com/show/2tthCR4m5rDY1Wcy5wpbqD" class="mr-4 mb-2">
+              <div class="flex items-center">
+                <img src="https://pod.50w.us/assets/brands/subscribe/spotify.jpg" class="img-sm flex-none" alt="Spotify" loading="lazy">
+                <div class="flex-1 ml-1 text-sm hide-mobile">Spotify</div>
+              </div>
+            </a>
+            <a href="https://pod.50w.us/rss/" class="mr-4 mb-2">
+              <div class="flex items-center">
+                <img src="https://pod.50w.us/assets/brands/subscribe/rss.png" class="img-sm flex-none" alt="RSS" loading="lazy">
+                <div class="flex-1 ml-1 text-sm hide-mobile">RSS</div>
+              </div>
+            </a>
+            <a href="https://biplus.date/@queerroadsidebanquet" class="mr-4 mb-2">
+              <div class="flex items-center">
+                <img src="https://pod.50w.us/assets/brands/subscribe/custom.png" class="img-sm flex-none" alt="Mastodon" loading="lazy">
+                <div class="flex-1 ml-1 text-sm hide-mobile">Mastodon</div>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/queerroadsidebanquet/" class="mr-4 mb-2">
+              <div class="flex items-center">
+                <img src="https://pod.50w.us/assets/brands/subscribe/custom.png" class="img-sm flex-none" alt="Instagram" loading="lazy">
+                <div class="flex-1 ml-1 text-sm hide-mobile">Instagram</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="border-b">About</h2>
+    <div><p>相似又迥异的酷儿人类们蹲在一起倾诉做人的难处，剖析人生和社会的复杂性，尝试用声音重铸连结，共同探索我们的酷儿人生新叙事。</p></div>
+  </section>
+
+  <section>
+    <h2 class="border-b">
+      Latest
+    </h2>
+
+    <div>
+
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/14-or-ft-X3Aov9qWAmI/" class="mb-1">
+          14 | 在景观化新闻叙事之外，书写大陆跨性别社群的真实 ft. 胡卯
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Fri Feb 21 2025
+
+          ·
+          <i>01:09:23</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/bonus-or-GMte208UrDy/" class="mb-1">
+          BONUS | 年底特别篇：聊聊节日和我们
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Wed Dec 25 2024
+
+          ·
+          <i>00:48:21</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/13-or-ft-VZIiPBMu9hk/" class="mb-1">
+          13 | 无关爱情的亲密关系：在“自定义”中生长的柏拉图式人生伴侣关系 ft. 啵啵茶, 夏夏
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Sat Nov 30 2024
+
+          ·
+          <i>00:56:49</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/12-or-ft-BEM9BEDMyPH/" class="mb-1">
+          12 | 酷儿视角下的户外：在消费主义和性别气质之外找寻归属感 ft. 激光猫, 波浪
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Fri Nov 01 2024
+
+          ·
+          <i>01:14:46</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/11-or-yuan-ft-yzoHY0RtmAa/" class="mb-1">
+          11 | 访谈：上帝是酷儿——一位非二元天主教徒的信仰之路 ft. 苏林
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Sun Sep 22 2024
+
+          ·
+          <i>01:03:06</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/10-or-and-ft-aqueer-mkVK6S91VaG/" class="mb-1">
+          10 | 访谈：作为离散的酷儿，如何参与社会议题&amp;建构新的故土印象 ft. Aqueer
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Sun Aug 25 2024
+
+          ·
+          <i>01:04:35</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/09-or-and-ft-aqueer-EArQzauNxVt/" class="mb-1">
+          09 | 访谈：在纽约找到自己的声音&amp;选择新的家庭的性别酷儿 ft. Aqueer
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Sun Aug 25 2024
+
+          ·
+          <i>00:57:46</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/08-or-and-ft-ashton-l-IUcFwyuxN/" class="mb-1">
+          08 | 访谈：性别流动的漫漫长路 &amp; 在内地高校绽放过的彩虹 ft. Ashton
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Fri Jul 12 2024
+
+          ·
+          <i>01:10:35</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/07-or-6W8ogxRas1O/" class="mb-1">
+          07 | 在骄傲月，一起聊聊友善语言
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Fri Jun 21 2024
+
+          ·
+          <i>00:54:41</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/06-or-ft-o5NrcTE7__R/" class="mb-1">
+          06 | 酷儿的脱口秀：当故事被讲述，创伤被看见 ft. 毛线
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Sun May 26 2024
+
+          ·
+          <i>00:50:03</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/05-or-ft-nTfVRHSQeAr/" class="mb-1">
+          05 | 走出“另一个柜子”：神经多样性酷儿的自我接纳之旅 ft. 咸鱼
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Wed May 01 2024
+
+          ·
+          <i>01:07:33</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/04-or-ta-ft-T6Ym7-Q9bJ0/" class="mb-1">
+          04 | 在跨性别现身日，听见ta们的声音和故事 ft. 叶子
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Sat Mar 30 2024
+
+          ·
+          <i>01:02:15</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/03-or-ft-QsII_2tJtby/" class="mb-1">
+          03 | 访谈：在实践中消解浪漫规范，构筑理想的关系和社群 ft. 拉皮
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Fri Mar 01 2024
+
+          ·
+          <i>00:53:14</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/02-or-yuan-ft-1ExUK4XiQ4h/" class="mb-1">
+          02 | 《无法相恋的二人》：走向多元成家的旷野 ft. 呗罗
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Mon Jan 29 2024
+
+          ·
+          <i>00:41:26</i>
+        </div>
+      </div>
+      <div class="mb-4">
+        <a href="https://pod.50w.us/i/01-or-dls-yPb7cvb/" class="mb-1">
+          01 | 如果孤独是人生底色，如何与之相伴？
+          <span class="icon-arrow-right"></span>
+        </a>
+        <div class="text-sm">
+          Wed Jan 17 2024
+
+          ·
+          <i>01:05:20</i>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center mt-4">
+
+    </div>
+  </section>
+</main>
+</div><div id="client-side-root"></div><footer class="text-sm border-t text-center mb-4">
+  <div class="mt-4">
+    ©2024 酷儿流水席 Queer Roadside Banquet
+  </div>
+  <div>
+    Powered by <a href="https://www.microfeed.org/" class="text-black">microfeed</a>
+    (a <a class="text-black" href="https://www.listennotes.com/">Listen Notes</a> project)
+  </div>
+</footer>
+</body></html>

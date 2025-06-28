@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8"><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="content-language" content="utf-8">
+<meta name="robots" content="all">
+<meta name="author" content="">
+<meta name="copyright" content="">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../../../tplimg/mulu.css" type="text/css" rel="stylesheet" rev="stylesheet" media="all">
+<title>环球人物</title>
+<!--[if !IE]><!-->
+<link href="../../../tplimg/hack.css" type="text/css" rel="stylesheet" rev="stylesheet" media="all">
+<!--<![endif]-->
+<!--[if IE 7]>
+<link href="../../../tplimg/hackie7.css" type="text/css" rel="stylesheet" rev="stylesheet" media="all" />
+<![endif]-->
+<script language="Javascript" src="../../../tplimg/prototype.js"></script>
+<script language="Javascript" src="../../../tplimg/mp.js"></script>
+<script language="Javascript" src="../../../tplimg/calendar2.js"></script>
+<script language="Javascript" src="../../../tplimg/new.js"></script>
+<script language="Javascript" src="../../../tplimg/range.js"></script>
+<script type="text/javascript">
+function nTabs(tabObj,obj){
+	var tabList = document.getElementById(tabObj).getElementsByTagName("li");
+	for(i=0; i <tabList.length; i++)
+	{
+		if (tabList[i].id == obj.id)
+		{
+			document.getElementById(tabObj+"_Title"+i).className = "active";
+ 		document.getElementById(tabObj+"_Content"+i).style.display = "block";
+		}else{
+			document.getElementById(tabObj+"_Title"+i).className = "normal";
+			document.getElementById(tabObj+"_Content"+i).style.display = "none";
+		}
+	}
+}
+function CopyAll()
+
+{
+
+ var obj = document.getElementById("articleContent");
+
+ if(obj!=null){
+
+ var content = obj.innerText;
+
+ window.clipboardData.setData("Text",content);
+
+ alert("复制成功");
+
+ }
+
+}
+
+function zoomIn() {
+ newZoom= parseInt(ozoom.style.zoom)+10+'%'
+ ozoom.style.zoom =newZoom;
+ }
+function zoomOut() {
+ newZoom= parseInt(ozoom.style.zoom)-10+'%'
+ ozoom.style.zoom =newZoom;
+ }
+
+</script>
+<script type="text/javascript">
+ var focus_width=260;
+ var focus_height=180;
+ var text_height=20;
+ var swf_height = focus_height+text_height;
+ var pics ="";
+ var links ="";
+ var texts ="";
+ var resCount=0;
+ function showArtPics()
+ {
+ if(resCount>0)
+ {
+ pics = pics.substring(0, pics.length-1);
+ links = links.substring(0, links.length-1);
+ texts = texts.substring(0, texts.length-1);
+ var content = "";
+ content += '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ focus_width +'" height="'+ swf_height +'">';
+ content += '<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="../../../tplimg/picflash.swf"><param name="quality" value="high"><param name="bgcolor" value="#ffffff">';
+ content += '<param name="menu" value="false"/><param name="wmode" value="opaque"/>';
+ content += '<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'">';
+ content += '<embed src="../../../tplimg/picflash.swf" wmode="opaque" FlashVars="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'" menu="false" bgcolor="#ffffff" quality="high" width="'+ focus_width +'" height="'+ focus_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />';
+ content += '<\/object>';
+ document.getElementById("showArtPicsDiv").innerHTML = content;
+ }
+}
+</script>
+</head>
+<body onload="initialize();initMPPage();showArtPics();"><span id="leveldiv" title="点击查看内容" style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; Z-INDEX: 100; LEFT: 233px; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 210px; CURSOR: hand; POSITION: absolute; TOP: 123px; HEIGHT: 34px; BORDER-RIGHT-WIDTH: 0px"></span>
+
+<!--头部-->
+<div class="head"> </div>
+<!--菜单-->
+<div class="menu"> </div>
+<!--内容部分-->
+<div class="content">
+ <!--左侧版面图部分-->
+ <div class="left_c">
+ <div class="ban">
+ <div>
+ <map name="pagepicmap"><area coords="" shape="polygon" href="./content_51649.htm"></map><img width="400" height="575" src="../../../page/1121/2008-06/16/40/2008061640_brief.jpg" border="0" usemap="#PagePicMap">
+ </div>
+ </div>
+ <div class="tool">
+ <input onclick="viewOL_RMP()" type="image" src="../../../tplimg/button1.gif" name="">&nbsp;<input onclick="openRMP()" type="image" src="../../../tplimg/button2.gif" name="">
+ </div>
+ <div class="title">
+ <div>友情链接</div>
+ </div>
+ <div class="pai f_link"></div>
+ </div>
+ <!--右侧目录部分-->
+ <div class="right_c">
+ <div class="head_c"> <span onmouseover="document.getElementById('rmrbbx').style.display = 'block';" onmouseout="document.getElementById('rmrbbx').style.display = 'none';">日&nbsp;报<img src="../../../tplimg/ico10.gif" border="0" alt=""></span><span onmouseover="document.getElementById('rmrbbx1').style.display = 'block';" onmouseout="document.getElementById('rmrbbx1').style.display = 'none';">周&nbsp;报<img src="../../../tplimg/ico10.gif" border="0" alt=""></span><span onmouseover="document.getElementById('rmrbbx2').style.display = 'block';" onmouseout="document.getElementById('rmrbbx2').style.display = 'none';">杂&nbsp;志<img src="../../../tplimg/ico10.gif" border="0" alt=""></span> <a href="http://www.people.com.cn" target="_blank"><img src="../../../tplimg/logo.jpg" style="float:right;margin:-12px 15px 0 0;" border="0" alt="人民网"></a></div>
+ <div style="margin:-30px 0 8px 0;height:18px;">
+ </div>
+ <div class="menu_c">往期回顾 <a onclick="autoShowDate();" style="cursor:hand;" title="鼠标点击，显示日历牌"><img src="../../../tplimg/ico1.gif" border="0" alt=""></a>&nbsp;
+ &nbsp;<img src="../../../tplimg/ico2.gif" border="0" alt=""><a href="http://search.people.com.cn/rmw/GB/bkzzsearch/index.jsp" target="_blank">分类检索</a>&nbsp;<span style="float:right;"><a href="node_1161.htm">返回目录</a></span></div>
+ <!--目录与标题-->
+ <div class="list_t">
+ <div class="text_c">
+ <h3></h3> <h1>短消息</h1> <h2></h2> 
+ <div class="lai">
+ 
+ 《
+ 环球人物
+ 》（<span style="font-weight:400;color:#2E9BC6;float:none;" id="periodName">2008年第12期</span>）</div>
+ <div class="c_c">
+ 
+ <div id="ozoom" style="zoom:100%;">
+ <div id="showArtPicsDiv" align="center"></div>
+ <script language="javascript">
+							/*	if(picResCount>0){
+									document.getElementById("picres").style.display="block";
+									document.write("<br />");
+								}*/
+ 			 				</script>
+ <founder-content><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;李明博陷入“牛肉危机”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;6月3日是韩国总统李明博执政的第100天，但他的支持率已经从上台时的近70%下降到20%左右。“牛肉风波”被看作是李明博支持率下跌的导火索。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;自从李明博宣布将恢复进口美国牛肉以来，韩国国内掀起了一场声势浩大的示威抗议浪潮。随着“牛肉危机”愈演愈烈，李明博的8位高级幕僚已提出辞呈，国务总理韩升洙和内阁各部会首长也在讨论集体请辞的时间。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;李明博上任之初，韩国人对这位“CEO总统”寄予厚望，但在短短3个月内，其支持率急速下滑，使他成为韩国民选总统史上，声望下降速度最快的总统。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;“9·11”事件主谋首次出庭&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;6月5日，自称策划了“9·11”恐怖袭击事件的哈立德·穆罕默德在被捕5年后首次出庭受审。哈立德曾是“基地”组织的第三号人物，如果罪名成立，他将被法庭判处极刑。面对法官的警告，哈立德显得毫不在乎，扬言希望通过被美国处决而成为“烈士”。&nbsp;他狂妄地说：“是的，这正是我所希望的——成为一名不朽的殉道者，希望我能借助你（法官）达成愿望。”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;除大约3000项谋杀指控之外，哈立德和其他四名嫌疑人还被控参与“基地”组织谋杀平民、破坏财产和开展恐怖主义活动。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;穆沙拉夫准备辞职？&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据巴基斯坦媒体报道，巴总统穆沙拉夫已做好辞职的准备，有可能在数周或最多数月之内体面地辞职下台。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据报道，穆沙拉夫已开始与反对党接触，就自己辞职的条件进行谈判。他希望政府将来不要追究他2007年11月3日宣布国家进入紧急状态的责任。美国已表示，它不想看到穆沙拉夫被送上法庭。另有报道称，沙特国王阿卜杜拉已向巴反对派领导人之一谢里夫发出呼吁，希望他能让穆沙拉夫平静地辞职。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;但穆沙拉夫6月7日对媒体说，有关他将辞职的传闻是毫无根据的。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;尼泊尔不再有国王&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;在尼泊尔制宪会议不久前宣布取消君主制后，统治尼泊尔长达238年的沙阿王朝画上了句号，国王贾南德拉也成为一介平民。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;作为尼泊尔沙阿王朝的末代国王，贾南德拉多年来一直居住在粉红色的纳拉扬希蒂王宫内，但现在他必须搬出王宫。尼泊尔内阁会议6月4日宣布，同意贾南德拉在离开纳拉扬希蒂王宫后，搬到位于首都加德满都西北郊的讷格尔朱纳王宫。目前，尼泊尔政府已着手安排贾南德拉今后的安全保卫工作。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;英国游客最粗鲁&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;一项调查显示，英国游客因为酗酒成性、粗鲁无礼和不会说当地语言，被评为“世界最差游客”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据报道，全球最大的在线旅游公司Expedia，日前对4000名旅馆经营者进行调查后发现，对不少旅馆老板来说，遇到英国游客是他们的恶梦。英国游客不仅被认为粗鲁、肮脏、大嗓门，还被批跟美国人一样吃得多。许多旅游胜地已经开始设法制止英国游客的粗鲁行为，希腊罗得岛甚至设立了专门处理英国游客不当行为的警察局。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;不过与此同时，英国游客因为在海外出手阔绰而受到欢迎，他们甚至还战胜时尚的法国人成为“着装最佳的游客”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;日本男性更易寻短见&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;日本厚生劳动省最新公布的统计数字显示，去年日本有30777人自杀，比前年增加了856人。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据日本广播协会电视台报道，从性别上看，去年日本自杀者中男性占了七成以上，数量为21977人；从年龄段来看，自杀者以45岁到65岁之间的人居多。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;日本每年自杀人数已经几乎连续10年超过3万，造成人们寻短见的三个最主要原因是：身体健康问题、经济困难和家庭矛盾。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;古巴为公民免费变性&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据西方媒体报道，古巴官员6月6日表示，古巴将允许进行变性手术，并为符合规定的申请人提供免费手术服务。据悉，古巴卫生部部长已经签署了这项决定，并将其公布在卫生部网站上。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;作为古巴国民福利体系的一部分，变性手术将免收任何费用。目前，已有28名古巴人申请做变性手术，但尚不知第一例手术将在何时进行。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;瑞典首都“最盛产美女”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;世界著名旅游杂志《游客文摘》日前公布了男性游客心目中“最盛产美女的城市”，瑞典首都斯德哥尔摩、丹麦首都哥本哈根和阿根廷的布宜诺斯艾利斯位列三甲。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;该杂志评论说，斯德哥尔摩街头美女如云，她们头发金黄，眼睛明亮，性格友善，使这座城市成为男性旅游者最向往的地方。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;哥本哈根的美女性感，而且性格开放，男性游客在那里常会有艳遇。布宜诺斯艾利斯有很多意大利移民后代，那里的美女被认为继承了米兰超级模特的基因。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;富豪伊坎逼杨致远退位&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据美国媒体报道，雅虎定于8月1日举行股东大会，美国投资大亨卡尔·伊坎决定在会上向雅虎CEO杨致远“逼宫”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;自从微软宣布放弃收购雅虎之后，雅虎的投资者感到强烈不满，伊坎借机发起了旨在促成微软收购雅虎的代理权争夺战。他提出了10位雅虎董事候选人名单，希望他们取代现有的雅虎董事会，以推动雅虎接受微软的收购方案。伊坎说：“雅虎一方面声称愿意谈判，一方面却暗中阻挠。如果我在此次代理权之战中获胜，将罢免杨致远的职务。”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;但有律师表示，如果卡尔·伊坎提名的董事会候选人在重选中赢得多数席位，那么他将触发雅虎的“控制权改变”员工遣散费计划。这一计划规定，一旦雅虎的控制权被改变，就须向员工支付高达21.3亿美元的遣散费。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;地震不会影响中国粮食安全&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;中国农业部部长孙政才6月3日在罗马出席由联合国粮农组织主办的世界粮食安全高级别会议时表示，尽管今年中国先后遭遇冰雪灾害和汶川大地震等自然灾害，但这并不会影响中国的粮食安全保障。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;孙政才说，地震造成了巨大的人员和财产损失，农业领域损失的主要是田间作物和畜牧业。但受灾地区的农业尤其是种植业，在全国以及四川省所占的份额相当有限，因此不会改变今年全国农业生产的大局。针对人们对世界粮食安全的普遍担忧，孙政才指出，2007年中国粮食总产量突破5亿吨，有能力实现粮食基本自给。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;索罗斯协助调查高油价幕后黑手&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;应美国商品期货管理委员会（CFTC）的要求，美国“投资大鳄”索罗斯回国作证，协助调查高油价的幕后黑手。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;由于国际油价最近连续飙升，并创下每桶139美元的历史新高，消费者怀疑一些能源公司和交易员采取暗箱操作的手段，哄抬原油价格并从中获利。CFTC已对此进行了长达6个月的调查，埃克森美孚、雪佛莱等全球大型石油公司的高层相继被传唤，向美国国会解释油价高涨给他们带来的巨额利润。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;6月5日，索罗斯在书面证词中默认了“幕后黑手”的存在：“过度投机以及供需失衡导致的高油价，最终将‘吹破’商品期货指数的泡沫。如果市场风向发生转变，投机者将集体寻找退路，到那时，市场将会崩盘。”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;王石向股东无条件道歉&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;6月5日，中国著名房地产公司万科召开2008年第一次临时股东大会，就《关于参与四川地震灾区灾后安置及恢复重建工作的议案》展开投票，董事长王石在会议上向股东进行无条件道歉。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;地震发生后，王石在博客上称“万科捐出200万是合适的”，“普通员工的捐款以10元为限”，“不要让慈善成为负担”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;这些言论引起舆论的强烈反对，导致万科股价下跌。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;临时股东大会以99.8%的高票，通过了向灾区捐赠1亿元的预案，其中7000万元用于捐建绵竹市遵道镇学校、幼儿园和中心医院，其余3000万元用于援建四川省其他灾区的部分工程。王石表示，以后万科会建立新闻发言人制度，避免因他个人言论引起公司股价波动。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;法国“时尚大鳄”&nbsp;圣罗兰去世&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;6月1日，71岁的法国时装品牌“圣罗兰（YSL）”的创办者伊夫·圣罗兰在巴黎去世。他是公认的世界顶级服装设计大师，被誉为时尚界的“太阳王”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;出生于阿尔及利亚的圣罗兰，自幼酷爱服装设计。21岁时，他成为迪奥公司的首席设计师。1958年，他创办了自己的品牌“圣罗兰”。1985年，法国总统密特朗授予他荣誉军团骑士级勋章，这是法国第一次为一位时装设计师授勋。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;1985年，圣罗兰在中国美术馆举行了时装回顾展，使“圣罗兰”这个品牌成为最早进入中国的高档时装之一。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;德国姑娘为季羡林终身不嫁&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;中国国学大师季羡林在《留德十年》一书中，披露了自己的一段异国恋情。让人感慨的是，一位德国姑娘为了他终身未嫁。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;1935年，季羡林到德国哥廷根大学留学，和一位名叫伊姆加德·迈耶的德国女孩成了邻居。季羡林需要写很多论文，但他连最便宜的打字机都买不起。就在他为此发愁之时，伊姆加德主动提供了一部打字机，并自任打字员，报酬只是“你陪我走遍哥廷根的每个角落”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;1941年，季羡林告别伊姆加德回国，两人从此再未谋面。伊姆加德此后一直住在当年的房子里，守着那台老式打字机。终生未嫁的她说：“一切都没有改变，我一直在等他回来。我的手指依然勤快灵活，我甚至还能打字！”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;默多克抱怨《华尔街日报》文章太长&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;新闻集团掌舵人默多克日前在《华尔街日报》的大会上抱怨说，《华尔街日报》的文章太长了，他根本没有时间读完这些内容。“一篇《华尔街日报》的文章由8.5个人来编辑，文章内容越来越长，但读者并没有这么多时间来阅读。其实，一半的长度就可以让读者了解文章内容。”默多克还抱怨了没完没了的新闻奖项：“别再为赢得‘普利策奖’写文章了，还是发表一些读者喜欢的内容吧！”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;这是自去年8月1日新闻集团以50亿美元收购道琼斯及其旗下的《华尔街日报》以来，默多克第一次对《华尔街日报》的编辑业务“指手画脚”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;狄更斯书桌拍出85万美元&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;英国作家查尔斯·狄更斯写作小说《远大前程》时使用的一张书桌，6月4日在伦敦克里斯蒂拍卖行拍出了85万美元的高价。买主是爱尔兰企业家汤姆·希金斯。他说：“我一直非常喜爱狄更斯。事实上，我认为它值500万英镑（约合980万美元）……这是狄更斯的一部分，我很高兴成为它的拥有者。”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;这张书桌也是狄更斯最后写作的地方。他去世前一天，还在这张书桌上写过几封信。后来狄更斯的家人把它捐给伦敦大奥蒙德街医院。此次拍卖所得将归医院所有。</p><p></p></founder-content> <input type="checkbox" value="0" name="titlecheckbox" sourceid="" style="display:none">
+ </div>
+ </div>
+ </div>
+ </div>
+ <!--工具条-->
+ <div class="tool_t">
+ <a href="node_1161.htm">返回目录</a>
+&nbsp;&nbsp;&nbsp;<a href="#" onclick="zoomIn();"><img src="../../../tplimg/ico5.gif" border="0" alt="">放大</a><a href="#" onclick="zoomOut();"><img src="../../../tplimg/ico6.gif" border="0" alt="">缩小</a><a href="#" onclick="CopyAll();"><img src="../../../tplimg/ico7.gif" border="0" alt="">全文复制</a>&nbsp;&nbsp;&nbsp;
+ 
+ </div>
+ <!-- 以下是供复制全文用 -->
+ <div style="display:none" id="articleContent">
+ 			<founder-content><p></p><p>&nbsp;&nbsp;&nbsp;&nbsp;李明博陷入“牛肉危机”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;6月3日是韩国总统李明博执政的第100天，但他的支持率已经从上台时的近70%下降到20%左右。“牛肉风波”被看作是李明博支持率下跌的导火索。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;自从李明博宣布将恢复进口美国牛肉以来，韩国国内掀起了一场声势浩大的示威抗议浪潮。随着“牛肉危机”愈演愈烈，李明博的8位高级幕僚已提出辞呈，国务总理韩升洙和内阁各部会首长也在讨论集体请辞的时间。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;李明博上任之初，韩国人对这位“CEO总统”寄予厚望，但在短短3个月内，其支持率急速下滑，使他成为韩国民选总统史上，声望下降速度最快的总统。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;“9·11”事件主谋首次出庭&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;6月5日，自称策划了“9·11”恐怖袭击事件的哈立德·穆罕默德在被捕5年后首次出庭受审。哈立德曾是“基地”组织的第三号人物，如果罪名成立，他将被法庭判处极刑。面对法官的警告，哈立德显得毫不在乎，扬言希望通过被美国处决而成为“烈士”。&nbsp;他狂妄地说：“是的，这正是我所希望的——成为一名不朽的殉道者，希望我能借助你（法官）达成愿望。”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;除大约3000项谋杀指控之外，哈立德和其他四名嫌疑人还被控参与“基地”组织谋杀平民、破坏财产和开展恐怖主义活动。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;穆沙拉夫准备辞职？&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据巴基斯坦媒体报道，巴总统穆沙拉夫已做好辞职的准备，有可能在数周或最多数月之内体面地辞职下台。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据报道，穆沙拉夫已开始与反对党接触，就自己辞职的条件进行谈判。他希望政府将来不要追究他2007年11月3日宣布国家进入紧急状态的责任。美国已表示，它不想看到穆沙拉夫被送上法庭。另有报道称，沙特国王阿卜杜拉已向巴反对派领导人之一谢里夫发出呼吁，希望他能让穆沙拉夫平静地辞职。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;但穆沙拉夫6月7日对媒体说，有关他将辞职的传闻是毫无根据的。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;尼泊尔不再有国王&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;在尼泊尔制宪会议不久前宣布取消君主制后，统治尼泊尔长达238年的沙阿王朝画上了句号，国王贾南德拉也成为一介平民。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;作为尼泊尔沙阿王朝的末代国王，贾南德拉多年来一直居住在粉红色的纳拉扬希蒂王宫内，但现在他必须搬出王宫。尼泊尔内阁会议6月4日宣布，同意贾南德拉在离开纳拉扬希蒂王宫后，搬到位于首都加德满都西北郊的讷格尔朱纳王宫。目前，尼泊尔政府已着手安排贾南德拉今后的安全保卫工作。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;英国游客最粗鲁&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;一项调查显示，英国游客因为酗酒成性、粗鲁无礼和不会说当地语言，被评为“世界最差游客”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据报道，全球最大的在线旅游公司Expedia，日前对4000名旅馆经营者进行调查后发现，对不少旅馆老板来说，遇到英国游客是他们的恶梦。英国游客不仅被认为粗鲁、肮脏、大嗓门，还被批跟美国人一样吃得多。许多旅游胜地已经开始设法制止英国游客的粗鲁行为，希腊罗得岛甚至设立了专门处理英国游客不当行为的警察局。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;不过与此同时，英国游客因为在海外出手阔绰而受到欢迎，他们甚至还战胜时尚的法国人成为“着装最佳的游客”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;日本男性更易寻短见&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;日本厚生劳动省最新公布的统计数字显示，去年日本有30777人自杀，比前年增加了856人。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据日本广播协会电视台报道，从性别上看，去年日本自杀者中男性占了七成以上，数量为21977人；从年龄段来看，自杀者以45岁到65岁之间的人居多。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;日本每年自杀人数已经几乎连续10年超过3万，造成人们寻短见的三个最主要原因是：身体健康问题、经济困难和家庭矛盾。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;古巴为公民免费变性&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据西方媒体报道，古巴官员6月6日表示，古巴将允许进行变性手术，并为符合规定的申请人提供免费手术服务。据悉，古巴卫生部部长已经签署了这项决定，并将其公布在卫生部网站上。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;作为古巴国民福利体系的一部分，变性手术将免收任何费用。目前，已有28名古巴人申请做变性手术，但尚不知第一例手术将在何时进行。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;瑞典首都“最盛产美女”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;世界著名旅游杂志《游客文摘》日前公布了男性游客心目中“最盛产美女的城市”，瑞典首都斯德哥尔摩、丹麦首都哥本哈根和阿根廷的布宜诺斯艾利斯位列三甲。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;该杂志评论说，斯德哥尔摩街头美女如云，她们头发金黄，眼睛明亮，性格友善，使这座城市成为男性旅游者最向往的地方。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;哥本哈根的美女性感，而且性格开放，男性游客在那里常会有艳遇。布宜诺斯艾利斯有很多意大利移民后代，那里的美女被认为继承了米兰超级模特的基因。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;富豪伊坎逼杨致远退位&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;据美国媒体报道，雅虎定于8月1日举行股东大会，美国投资大亨卡尔·伊坎决定在会上向雅虎CEO杨致远“逼宫”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;自从微软宣布放弃收购雅虎之后，雅虎的投资者感到强烈不满，伊坎借机发起了旨在促成微软收购雅虎的代理权争夺战。他提出了10位雅虎董事候选人名单，希望他们取代现有的雅虎董事会，以推动雅虎接受微软的收购方案。伊坎说：“雅虎一方面声称愿意谈判，一方面却暗中阻挠。如果我在此次代理权之战中获胜，将罢免杨致远的职务。”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;但有律师表示，如果卡尔·伊坎提名的董事会候选人在重选中赢得多数席位，那么他将触发雅虎的“控制权改变”员工遣散费计划。这一计划规定，一旦雅虎的控制权被改变，就须向员工支付高达21.3亿美元的遣散费。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;地震不会影响中国粮食安全&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;中国农业部部长孙政才6月3日在罗马出席由联合国粮农组织主办的世界粮食安全高级别会议时表示，尽管今年中国先后遭遇冰雪灾害和汶川大地震等自然灾害，但这并不会影响中国的粮食安全保障。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;孙政才说，地震造成了巨大的人员和财产损失，农业领域损失的主要是田间作物和畜牧业。但受灾地区的农业尤其是种植业，在全国以及四川省所占的份额相当有限，因此不会改变今年全国农业生产的大局。针对人们对世界粮食安全的普遍担忧，孙政才指出，2007年中国粮食总产量突破5亿吨，有能力实现粮食基本自给。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;索罗斯协助调查高油价幕后黑手&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;应美国商品期货管理委员会（CFTC）的要求，美国“投资大鳄”索罗斯回国作证，协助调查高油价的幕后黑手。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;由于国际油价最近连续飙升，并创下每桶139美元的历史新高，消费者怀疑一些能源公司和交易员采取暗箱操作的手段，哄抬原油价格并从中获利。CFTC已对此进行了长达6个月的调查，埃克森美孚、雪佛莱等全球大型石油公司的高层相继被传唤，向美国国会解释油价高涨给他们带来的巨额利润。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;6月5日，索罗斯在书面证词中默认了“幕后黑手”的存在：“过度投机以及供需失衡导致的高油价，最终将‘吹破’商品期货指数的泡沫。如果市场风向发生转变，投机者将集体寻找退路，到那时，市场将会崩盘。”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;王石向股东无条件道歉&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;6月5日，中国著名房地产公司万科召开2008年第一次临时股东大会，就《关于参与四川地震灾区灾后安置及恢复重建工作的议案》展开投票，董事长王石在会议上向股东进行无条件道歉。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;地震发生后，王石在博客上称“万科捐出200万是合适的”，“普通员工的捐款以10元为限”，“不要让慈善成为负担”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;这些言论引起舆论的强烈反对，导致万科股价下跌。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;临时股东大会以99.8%的高票，通过了向灾区捐赠1亿元的预案，其中7000万元用于捐建绵竹市遵道镇学校、幼儿园和中心医院，其余3000万元用于援建四川省其他灾区的部分工程。王石表示，以后万科会建立新闻发言人制度，避免因他个人言论引起公司股价波动。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;法国“时尚大鳄”&nbsp;圣罗兰去世&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;6月1日，71岁的法国时装品牌“圣罗兰（YSL）”的创办者伊夫·圣罗兰在巴黎去世。他是公认的世界顶级服装设计大师，被誉为时尚界的“太阳王”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;出生于阿尔及利亚的圣罗兰，自幼酷爱服装设计。21岁时，他成为迪奥公司的首席设计师。1958年，他创办了自己的品牌“圣罗兰”。1985年，法国总统密特朗授予他荣誉军团骑士级勋章，这是法国第一次为一位时装设计师授勋。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;1985年，圣罗兰在中国美术馆举行了时装回顾展，使“圣罗兰”这个品牌成为最早进入中国的高档时装之一。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;德国姑娘为季羡林终身不嫁&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;中国国学大师季羡林在《留德十年》一书中，披露了自己的一段异国恋情。让人感慨的是，一位德国姑娘为了他终身未嫁。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;1935年，季羡林到德国哥廷根大学留学，和一位名叫伊姆加德·迈耶的德国女孩成了邻居。季羡林需要写很多论文，但他连最便宜的打字机都买不起。就在他为此发愁之时，伊姆加德主动提供了一部打字机，并自任打字员，报酬只是“你陪我走遍哥廷根的每个角落”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;1941年，季羡林告别伊姆加德回国，两人从此再未谋面。伊姆加德此后一直住在当年的房子里，守着那台老式打字机。终生未嫁的她说：“一切都没有改变，我一直在等他回来。我的手指依然勤快灵活，我甚至还能打字！”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;默多克抱怨《华尔街日报》文章太长&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;新闻集团掌舵人默多克日前在《华尔街日报》的大会上抱怨说，《华尔街日报》的文章太长了，他根本没有时间读完这些内容。“一篇《华尔街日报》的文章由8.5个人来编辑，文章内容越来越长，但读者并没有这么多时间来阅读。其实，一半的长度就可以让读者了解文章内容。”默多克还抱怨了没完没了的新闻奖项：“别再为赢得‘普利策奖’写文章了，还是发表一些读者喜欢的内容吧！”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;这是自去年8月1日新闻集团以50亿美元收购道琼斯及其旗下的《华尔街日报》以来，默多克第一次对《华尔街日报》的编辑业务“指手画脚”。&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;狄更斯书桌拍出85万美元&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;英国作家查尔斯·狄更斯写作小说《远大前程》时使用的一张书桌，6月4日在伦敦克里斯蒂拍卖行拍出了85万美元的高价。买主是爱尔兰企业家汤姆·希金斯。他说：“我一直非常喜爱狄更斯。事实上，我认为它值500万英镑（约合980万美元）……这是狄更斯的一部分，我很高兴成为它的拥有者。”&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;这张书桌也是狄更斯最后写作的地方。他去世前一天，还在这张书桌上写过几封信。后来狄更斯的家人把它捐给伦敦大奥蒙德街医院。此次拍卖所得将归医院所有。</p><p></p></founder-content> 			
+ </div>
+ <!--结束工具条-->
+ </div>
+</div>
+<!--结束内容部分-->
+<!--版权部分-->
+<div class="copyright">	<p class="p1"><span class="red">人 民 网 版 权 所 有 ，未 经 书 面 授 权 禁 止 使 用</span><br>
+ <span class="black">Copyright © 1997-2008 by www.people.com.cn.
+ all rights reserved</span><a href="http://www.hd315.gov.cn/beian/view.asp?bianhao=0102000101300040" target="_blank"><img src="../../../tplimg/gongshang.gif" width="40" style="float:right;margin:-45px 0px 0 10px;" height="48" alt="" align="middle" border="0"></a></p>
+ </div>
+ <!--日报-->
+ <div id="rmrbbx" style="display:none;position:absolute;top:50px;left:50%;margin-left:-40px;" onmouseover="document.getElementById('rmrbbx').style.display = 'block';" onmouseout="document.getElementById('rmrbbx').style.display = 'none';">
+ <table width="100" border="0" cellpadding="0" cellspacing="1" bordercolor="#007CD2" bgcolor="#007CD2">
+ <tbody><tr>
+ <td bgcolor="#D8EFFF" style="padding: 3px;"><table width="100" border="0" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+ <td bgcolor="#FFFFFF" style="padding: 1px;" valign="top">
+ <table width="100" border="0" cellpadding="0" cellspacing="0" height="23">
+ <tbody><tr>
+ <td width="99" bgcolor="#ffffff" align="center" valign="top"><table width="85" border="0" cellpadding="0" cellspacing="0" style="margin: 5px 0;">
+ <tbody><tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/rmrb/paperindex.htm" target="_blank">人民日报</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+						 <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/rmrbhwb/paperindex.htm" target="_blank">人民日报海外版</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://www.huanqiu.com/" target="_blank">环球时报</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/jhsb/paperindex.htm" target="_blank">京华时报</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/gjjrb/paperindex.htm" target="_blank">国际金融报</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/jnsb/paperindex.htm" target="_blank">江南时报</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://www.p5w.net/index.htm" target="_blank">证券时报</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ </tbody></table></td>
+ </tr>
+ </tbody></table></td>
+ </tr>
+ </tbody></table></td>
+ </tr>
+ </tbody></table>
+ </div>
+ <!--结束日报-->
+ <!--周报-->
+ <div id="rmrbbx1" style="display:none;position:absolute;top:50px;left:50%;margin-left:75px;" onmouseover="document.getElementById('rmrbbx1').style.display = 'block';" onmouseout="document.getElementById('rmrbbx1').style.display = 'none';">
+ <table width="100" border="0" cellpadding="0" cellspacing="1" bordercolor="#007CD2" bgcolor="#007CD2">
+ <tbody><tr>
+ <td bgcolor="#D8EFFF" style="padding: 3px;"><table width="100" border="0" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+ <td bgcolor="#FFFFFF" style="padding: 1px;" valign="top">
+ <table width="100" border="0" cellpadding="0" cellspacing="0" height="23">
+ <tbody><tr>
+ <td width="99" bgcolor="#ffffff" align="center" valign="top"><table width="85" border="0" cellpadding="0" cellspacing="0" style="margin: 5px 0;">
+ <tbody><tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/scb/paperindex.htm" target="_blank">市场报</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/smsb/paperindex.htm" target="_blank">生命时报</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/jksb/paperindex.htm" target="_blank">健康时报</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/fcyym/paperindex.htm" target="_blank">讽刺与幽默</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ </tbody></table></td>
+ </tr>
+ </tbody></table></td>
+ </tr>
+ </tbody></table></td>
+ </tr>
+ </tbody></table>
+ </div>
+ <!--结束周报-->
+ <div id="rmrbbx2" style="display:none;position:absolute;top:50px;left:50%;margin-left:185px;" onmouseover="document.getElementById('rmrbbx2').style.display = 'block';" onmouseout="document.getElementById('rmrbbx2').style.display = 'none';">
+ <table width="110" border="0" cellpadding="0" cellspacing="1" bordercolor="#007CD2" bgcolor="#007CD2">
+ <tbody><tr>
+ <td bgcolor="#D8EFFF" style="padding: 3px;"><table width="110" border="0" cellpadding="0" cellspacing="0">
+ <tbody><tr>
+ <td bgcolor="#FFFFFF" style="padding: 1px;" valign="top">
+ <table width="115" border="0" cellpadding="0" cellspacing="0" height="23">
+ <tbody><tr>
+ <td width="115" bgcolor="#ffffff" align="center" valign="top"><table width="115" border="0" cellpadding="0" cellspacing="0" style="margin: 5px 0 0 1px;">
+ <tbody><tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/xwzx/paperindex.htm" target="_blank">新闻战线</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/dd/paperindex.htm" target="_blank">大地</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/hqrw/paperindex.htm" target="_blank">环球人物</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/rmlt/paperindex.htm" target="_blank">人民论坛</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/rmwz/paperindex.htm" target="_blank">人民文摘</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/zgjjzk/paperindex.htm" target="_blank">中国经济周刊</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/xaq/paperindex.htm" target="_blank">新安全</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/xxdk/paperindex.htm" target="_blank">信息导刊·中国债券</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/qcz/paperindex.htm" target="_blank">汽车族</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ <tr>
+ <td height="20" align="left" class="fontstyle"><a href="http://paper.people.com.cn/zgby/paperindex.htm" target="_blank">中国报业</a></td>
+ </tr>
+ <tr>
+ <td height="1"></td>
+ </tr>
+ </tbody></table></td>
+ </tr>
+ </tbody></table></td>
+ </tr>
+ </tbody></table></td>
+ </tr>
+ </tbody></table>
+ </div>
+ <!--结束杂志-->
+<script language="JavaScript">
+<!--
+document.write("<div id=detail style=position:absolute;width:300px;></div>");
+//-->
+</script><div id="detail" style="position:absolute;width:300px;"></div>
+ <!-------rqdh版面导航------>
+ <div id="daydh" style="display:none; position:absolute; left:50%;margin-left:-100px; top:110px; filter:alpha(opacity=90);" onmouseover="document.getElementById('daydh').style.display='block';">
+ <form name="CLD" style="padding:0px;margin:0px;">
+ <table width="210" border="0" cellpadding="0" cellspacing="1" bordercolor="#007CD2" bgcolor="#007CD2">
+ <tbody><tr>
+ <td bgcolor="#D8EFFF" style="padding: 3px;"><table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" bgcolor="#D8EFFF">
+ <tbody><tr>
+ <td><table width="100%" align="center" border="0" cellpadding="1" cellspacing="1">
+ <tbody><tr class="default" align="center">
+ <td height="15" colspan="7" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="2" cellspacing="0">
+ <tbody><tr align="center">
+ <td align="left" nowrap=""><img src="../../../tplimg/d1.gif" width="7" height="11" style="cursor:hand;" onclick="turnpage(SY,0)"></td>
+ <td><select class="jumpmenu" onchange="changeMPCld()" name="SY">
+ <script language="JavaScript">
+					for(i=2006;i<2051;i++)
+					document.write('<option>'+i+'</option>')
+ 			</script><option>2006</option><option>2007</option><option>2008</option><option>2009</option><option>2010</option><option>2011</option><option>2012</option><option>2013</option><option>2014</option><option>2015</option><option>2016</option><option>2017</option><option>2018</option><option>2019</option><option>2020</option><option>2021</option><option>2022</option><option>2023</option><option>2024</option><option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option><option>2030</option><option>2031</option><option>2032</option><option>2033</option><option>2034</option><option>2035</option><option>2036</option><option>2037</option><option>2038</option><option>2039</option><option>2040</option><option>2041</option><option>2042</option><option>2043</option><option>2044</option><option>2045</option><option>2046</option><option>2047</option><option>2048</option><option>2049</option><option>2050</option>
+ </select>
+ </td>
+ <td><img src="../../../tplimg/d.gif" width="7" height="11" style="cursor:hand;" onclick="turnpage(SY,1)"></td>
+ <td align="center" nowrap=""><img src="../../../tplimg/d1.gif" width="7" height="11" style="cursor:hand;" onclick="turnpage(SM,0)"></td>
+ <td><select class="jumpmenu" onchange="changeMPCld()" name="SM">
+ <script language="JavaScript">
+				<!--
+					for(i=1;i<13;i++) document.write('<option>'+i+'</option>')
+				//-->
+ 			</script><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+ </select>
+ </td>
+ <td><img src="../../../tplimg/d.gif" width="7" height="11" style="cursor:hand;" onclick="turnpage(SM,1)"></td>
+ <td align="right" nowrap=""><strong><font id="GZ" fface="Arial, Helvetica, sans-serif"></font></strong></td>
+ </tr>
+ </tbody></table></td>
+ </tr>
+ <tr align="middle" bgcolor="#FFFFFF" class="default">
+ <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">日</font></b></td>
+ <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">一</font></b></td>
+ <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">二</font></b></td>
+ <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">三</font></b></td>
+ <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">四</font></b></td>
+ <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">五</font></b></td>
+ <td bgcolor="#027CD1" align="center" class="fontstyle01"><b><font face="Arial, Helvetica, sans-serif">六</font></b> </td>
+ </tr>
+ <script language="JavaScript">
+		<!--
+			var gNum;
+			for(i=0;i<6;i++)
+			{
+				document.write('<tr align=center>');
+				for(j=0;j<7;j++)
+				{
+					gNum = i*7+j;
+					document.write('<td bgcolor="#FFFFFF" class="default" align=center id="GD' + gNum +'" style="cursor: default;" width="14%"><a href="" id="CD' + gNum + '"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onMouseOver="mOvr(' + gNum +')" onMouseOut="mOut()" id="SD' + gNum +'"');
+					document.write('></font></span></a><br><font id="LD' + gNum + '" size=2 class=pt9 style=display:none></font></td>');
+				}
+				document.write('</tr>');
+			}
+		//-->
+ 	</script><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD0" style="cursor: default;" width="14%"><a href="http://paper.people.com.cn/hqrw/html/2008-06/01/node_1122.htm" id="CD0"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(0)" onmouseout="mOut()" id="SD0" class="" color="">1</font></span></a><br><font id="LD0" size="2" class="pt9" style="display:none">廿六</font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD1" style="cursor: default;" width="14%"><a href="#" id="CD1"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(1)" onmouseout="mOut()" id="SD1" class="" color="#DFDEDB">2</font></span></a><br><font id="LD1" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD2" style="cursor: default;" width="14%"><a href="#" id="CD2"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(2)" onmouseout="mOut()" id="SD2" class="" color="#DFDEDB">3</font></span></a><br><font id="LD2" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD3" style="cursor: default;" width="14%"><a href="#" id="CD3"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(3)" onmouseout="mOut()" id="SD3" class="" color="#DFDEDB">4</font></span></a><br><font id="LD3" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD4" style="cursor: default;" width="14%"><a href="#" id="CD4"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(4)" onmouseout="mOut()" id="SD4" class="" color="#DFDEDB">5</font></span></a><br><font id="LD4" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD5" style="cursor: default;" width="14%"><a href="#" id="CD5"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(5)" onmouseout="mOut()" id="SD5" class="" color="#DFDEDB">6</font></span></a><br><font id="LD5" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD6" style="cursor: default;" width="14%"><a href="#" id="CD6"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(6)" onmouseout="mOut()" id="SD6" class="" color="#DFDEDB">7</font></span></a><br><font id="LD6" size="2" class="pt9" style="display:none"></font></td></tr><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD7" style="cursor: default;" width="14%"><a href="#" id="CD7"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(7)" onmouseout="mOut()" id="SD7" class="" color="#DFDEDB">8</font></span></a><br><font id="LD7" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD8" style="cursor: default;" width="14%"><a href="#" id="CD8"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(8)" onmouseout="mOut()" id="SD8" class="" color="#DFDEDB">9</font></span></a><br><font id="LD8" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD9" style="cursor: default;" width="14%"><a href="#" id="CD9"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(9)" onmouseout="mOut()" id="SD9" class="" color="#DFDEDB">10</font></span></a><br><font id="LD9" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD10" style="cursor: default;" width="14%"><a href="#" id="CD10"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(10)" onmouseout="mOut()" id="SD10" class="" color="#DFDEDB">11</font></span></a><br><font id="LD10" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD11" style="cursor: default;" width="14%"><a href="#" id="CD11"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(11)" onmouseout="mOut()" id="SD11" class="" color="#DFDEDB">12</font></span></a><br><font id="LD11" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD12" style="cursor: default;" width="14%"><a href="#" id="CD12"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(12)" onmouseout="mOut()" id="SD12" class="" color="#DFDEDB">13</font></span></a><br><font id="LD12" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD13" style="cursor: default;" width="14%"><a href="#" id="CD13"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(13)" onmouseout="mOut()" id="SD13" class="" color="#DFDEDB">14</font></span></a><br><font id="LD13" size="2" class="pt9" style="display:none"></font></td></tr><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD14" style="cursor: default;" width="14%"><a href="#" id="CD14"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(14)" onmouseout="mOut()" id="SD14" class="" color="#DFDEDB">15</font></span></a><br><font id="LD14" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD15" style="cursor: default;" width="14%"><a href="http://paper.people.com.cn/hqrw/html/2008-06/16/node_1122.htm" id="CD15"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(15)" onmouseout="mOut()" id="SD15" class="todaycolor" color="red">16</font></span></a><br><font id="LD15" size="2" class="pt9" style="display:none">十二</font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD16" style="cursor: default;" width="14%"><a href="#" id="CD16"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(16)" onmouseout="mOut()" id="SD16" class="" color="#DFDEDB">17</font></span></a><br><font id="LD16" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD17" style="cursor: default;" width="14%"><a href="#" id="CD17"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(17)" onmouseout="mOut()" id="SD17" class="" color="#DFDEDB">18</font></span></a><br><font id="LD17" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD18" style="cursor: default;" width="14%"><a href="#" id="CD18"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(18)" onmouseout="mOut()" id="SD18" class="" color="#DFDEDB">19</font></span></a><br><font id="LD18" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD19" style="cursor: default;" width="14%"><a href="#" id="CD19"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(19)" onmouseout="mOut()" id="SD19" class="" color="#DFDEDB">20</font></span></a><br><font id="LD19" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD20" style="cursor: default;" width="14%"><a href="#" id="CD20"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(20)" onmouseout="mOut()" id="SD20" class="" color="#DFDEDB">21</font></span></a><br><font id="LD20" size="2" class="pt9" style="display:none"></font></td></tr><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD21" style="cursor: default;" width="14%"><a href="#" id="CD21"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(21)" onmouseout="mOut()" id="SD21" class="" color="#DFDEDB">22</font></span></a><br><font id="LD21" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD22" style="cursor: default;" width="14%"><a href="#" id="CD22"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(22)" onmouseout="mOut()" id="SD22" class="" color="#DFDEDB">23</font></span></a><br><font id="LD22" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD23" style="cursor: default;" width="14%"><a href="#" id="CD23"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(23)" onmouseout="mOut()" id="SD23" class="" color="#DFDEDB">24</font></span></a><br><font id="LD23" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD24" style="cursor: default;" width="14%"><a href="#" id="CD24"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(24)" onmouseout="mOut()" id="SD24" class="" color="#DFDEDB">25</font></span></a><br><font id="LD24" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD25" style="cursor: default;" width="14%"><a href="#" id="CD25"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(25)" onmouseout="mOut()" id="SD25" class="" color="#DFDEDB">26</font></span></a><br><font id="LD25" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD26" style="cursor: default;" width="14%"><a href="#" id="CD26"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(26)" onmouseout="mOut()" id="SD26" class="" color="#DFDEDB">27</font></span></a><br><font id="LD26" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD27" style="cursor: default;" width="14%"><a href="#" id="CD27"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(27)" onmouseout="mOut()" id="SD27" class="" color="#DFDEDB">28</font></span></a><br><font id="LD27" size="2" class="pt9" style="display:none"></font></td></tr><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD28" style="cursor: default;" width="14%"><a href="#" id="CD28"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(28)" onmouseout="mOut()" id="SD28" class="" color="#DFDEDB">29</font></span></a><br><font id="LD28" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD29" style="cursor: default;" width="14%"><a href="#" id="CD29"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(29)" onmouseout="mOut()" id="SD29" class="" color="#DFDEDB">30</font></span></a><br><font id="LD29" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD30" style="cursor: default;" width="14%"><a href="" id="CD30"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(30)" onmouseout="mOut()" id="SD30" class=""></font></span></a><br><font id="LD30" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD31" style="cursor: default;" width="14%"><a href="" id="CD31"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(31)" onmouseout="mOut()" id="SD31" class=""></font></span></a><br><font id="LD31" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD32" style="cursor: default;" width="14%"><a href="" id="CD32"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(32)" onmouseout="mOut()" id="SD32" class=""></font></span></a><br><font id="LD32" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD33" style="cursor: default;" width="14%"><a href="" id="CD33"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(33)" onmouseout="mOut()" id="SD33" class=""></font></span></a><br><font id="LD33" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD34" style="cursor: default;" width="14%"><a href="" id="CD34"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(34)" onmouseout="mOut()" id="SD34" class=""></font></span></a><br><font id="LD34" size="2" class="pt9" style="display:none"></font></td></tr><tr align="center"><td bgcolor="#FFFFFF" class="default" align="center" id="GD35" style="cursor: default;" width="14%"><a href="" id="CD35"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(35)" onmouseout="mOut()" id="SD35" class=""></font></span></a><br><font id="LD35" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD36" style="cursor: default;" width="14%"><a href="" id="CD36"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(36)" onmouseout="mOut()" id="SD36" class=""></font></span></a><br><font id="LD36" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD37" style="cursor: default;" width="14%"><a href="" id="CD37"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(37)" onmouseout="mOut()" id="SD37" class=""></font></span></a><br><font id="LD37" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD38" style="cursor: default;" width="14%"><a href="" id="CD38"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(38)" onmouseout="mOut()" id="SD38" class=""></font></span></a><br><font id="LD38" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD39" style="cursor: default;" width="14%"><a href="" id="CD39"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(39)" onmouseout="mOut()" id="SD39" class=""></font></span></a><br><font id="LD39" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD40" style="cursor: default;" width="14%"><a href="" id="CD40"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(40)" onmouseout="mOut()" id="SD40" class=""></font></span></a><br><font id="LD40" size="2" class="pt9" style="display:none"></font></td><td bgcolor="#FFFFFF" class="default" align="center" id="GD41" style="cursor: default;" width="14%"><a href="" id="CD41"><span class="date" style="font-family:Verdana, Arial;font-size:11px;"><font _onmouseover="mOvr(41)" onmouseout="mOut()" id="SD41" class=""></font></span></a><br><font id="LD41" size="2" class="pt9" style="display:none"></font></td></tr>
+ </tbody></table></td>
+ </tr>
+ </tbody></table></td>
+ </tr>
+		 <tr><td align="center" height="22"><a href="#" onclick="autoShowDate();">关闭</a></td></tr>
+ </tbody></table>
+ </form>
+ </div>
+ <!-------rqdh版面导航END------>
+<!-------文章显示标题开始------>
+<div style="display:none">
+ <table width="265" border="0" cellspacing="0" cellpadding="0" style="margin-top:3px;"> <tbody><tr> 	<td width="16" align="left"><img src="3.files/icon07.jpg"></td> 	<td width="271" align="left" class="fontstyle" height="22"> <a href="./content_51649.htm"><div style="display:inline" id="mp51649">短消息</div></a> 	</td> </tr> <tr><td background="3.files/dian01.jpg" colspan="2" height="1"></td></tr> </tbody></table>
+</div>
+<!-------文章显示标题结束------>
+<img src="../../../tplimg/left_ico.gif" style="display:none;"> <img src="../../../tplimg/right_ico.gif" style="display:none;"> <img src="../../../tplimg/ico10.gif" style="display:none;"> <img src="../../../tplimg/ico8.gif" style="display:none;"> <img src="../../../tplimg/ico9.gif" style="display:none;"> <img src="../../../tplimg/ti.gif" style="display:none;"> <img src="../../../tplimg/fb.gif" style="display:none;"><img src="../../../tplimg/nav_bg.gif" style="display:none;"><img src="../../../tplimg/line_bg1.gif" style="display:none;"><img src="../../../tplimg/line_bg.gif" style="display:none;"><img src="../../../tplimg/top_bg.gif" style="display:none;">
+
+
+<script language="javascript">
+if(document.getElementById('ozoom')!=null&&document.getElementById('ozoom').offsetHeight<=357)
+	document.getElementById('ozoom').style.height = '357px';
+</script><!--enpproperty <founder-date>2008-06-16</founder-date><founder-author></founder-author><founder-title>短消息</founder-title><founder-nodename></founder-nodename><founder-keyword></founder-keyword><founder-ip></founder-ip><founder-ChannelID>1121</founder-ChannelID><founder-imp>0</founder-imp><founder-subtitle></founder-subtitle><founder-type>1</founder-type><founder-introtitle></founder-introtitle><founder-pagepicurl>hqrw/page/1121/2008-06/16/40/2008061640_icon.jpg</founder-pagepicurl><founder-pagenum>40</founder-pagenum><founder-papername>环球人物</founder-papername><founder-nodeid>1161</founder-nodeid><founder-paperhead></founder-paperhead> /enpproperty--></body></html>

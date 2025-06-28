@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html><head><meta name="renderer" content="webkit"><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"><title>Home 浙江师范大学教师个人主页系统</title><meta name="keywords" content="李蓉,">
+<meta name="description" content="李蓉,Home,浙江师范大学教师个人主页系统,● 个人简介李蓉，女，湖北江陵人，文学博士、博士后，现为浙江师大人文学院教授、硕士生导师，入选浙江省中青年学科带头人、浙江省“151”人才第二层次。在《文学评论》...">
+
+
+
+
+
+<meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta name="renderer" content="webkit">
+<link rel="stylesheet" href="/_ts/zjsfdxen4/css/base.css">
+<link rel="stylesheet" type="text/css" href="/_ts/zjsfdxen4/css/index.en.css">
+<script language="javascript" src="/system/resource/js/jquery/jquery-latest.min.js"></script>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+<!--Announced by Visual SiteBuilder 9-->
+<link rel="stylesheet" type="text/css" href="/_ts/zjsfdxen4/_sitegray/_sitegray_d.css">
+<script language="javascript" src="/_ts/zjsfdxen4/_sitegray/_sitegray.js"></script>
+<!-- CustomerNO:77656262657232307b7647545350574403070101 -->
+<link rel="stylesheet" type="text/css" href="/zjsfdxen4/lwcg/content.vsb.css">
+<script type="text/javascript" src="/system/resource/js/vsbscreen.min.js" id="_vsbscreen"></script>
+<script type="text/javascript" src="/system/resource/js/counter.js"></script>
+<script type="text/javascript">_jsq_(1001,'/lwcg/content.jsp',-1,1410060364)</script>
+</head>
+<body> <div style="display:none;"><img src=""></div>
+
+
+
+
+<style>
+.headerbar{
+height: 300px;
+background: url(../images/bg_top.jpg) center 0 no-repeat #ca0101;
+min-width: 1200px;
+}
+</style>
+
+<!--top S-->
+<div class="navbar">
+	
+
+<div class="inner clearfix">
+	<div class="nav">
+	<ul class="clearfix" id="MenuBar1" style="visibility: visible;">
+		<li><h3><a href="/LR/en/index/71307/list/index.htm">Home</a></h3>
+        </li>
+	<li><h3><a href="/LR/en/zhym/71308/list/index.htm">Scientific research</a></h3>
+		<div class="dropdwon">
+                <a href="/LR/en/kyxm/71309/list/index.htm">Research project</a>
+                <a href="/LR/en/zzcg/71310/list/index.htm">Achievements of works</a>
+                <a href="/LR/en/zlcg/71311/list/index.htm">Patent</a>
+                <a href="/LR/en/lwcg/71312/list/index.htm">Paper achievements</a>
+                <a href="/LR/en/yjgk/71313/list/index.htm">Research field</a>
+		</div>
+        </li>
+	<li><h3><a href="/LR/en/zhym/71314/list/index.htm">Teaching research</a></h3>
+		<div class="dropdwon">
+                <a href="/LR/en/jxcg/71315/list/index.htm">Teaching achievement</a>
+                <a href="/LR/en/skxx/71316/list/index.htm">Teaching information</a>
+                <a href="/LR/en/jxzy/71317/list/index.htm">Teaching resources</a>
+		</div>
+        </li>
+	<li><h3><a href="/LR/en/hjxx/71318/list/index.htm">Winning information</a></h3>
+        </li>
+	<li><h3><a href="/LR/en/zsxx/71319/list/index.htm">Enrollment information</a></h3>
+        </li>
+	
+	
+	
+	</ul>
+	</div>
+	 <ul class="menu rm-nav">
+            <li class="fNiv"><a href="#" class="leixin_xz_a_dh f_r"><span class="ico"></span></a>
+                <ul id="MenuBar2"><li><a href="/LR/en/xsxx/71320/list/index.htm">Student information</a></li>
+        <li><a href="/LR/en/img/71321/list/index.htm">My album</a></li>
+        <li><a href="/LR/en/article/71322/list/index.htm">Teacher blog</a></li>
+        </ul>
+            </li>
+        </ul>
+</div>  
+  
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+    var totalwidth = jQuery("#MenuBar1").width()-104;
+    var allliwidth = 0;
+    var othernavary = new Array();
+    var MenuBar2 = jQuery("#MenuBar2")[0];
+    var MenuBar1 = jQuery("#MenuBar1");
+    var navliobjlist =  jQuery("#MenuBar1 > li");
+    
+    for(var i=0;i<navliobjlist.length;i++)
+    {
+        var liobj = navliobjlist.get(i);
+        if(liobj)
+        {
+            var jliobj = jQuery(liobj);
+            var liwidth = jliobj.width();
+            allliwidth+=liwidth;
+            if(allliwidth>=totalwidth)
+            {
+                var templiobj = jliobj;      
+                othernavary.push(templiobj);
+                MenuBar1[0].removeChild(jliobj[0]);
+            }
+        }
+    }
+//能够显示全部的导航
+    if(allliwidth<totalwidth)
+    {
+        jQuery("#MenuBar2").css("display","none");
+    }else
+    {
+	var newinput = "";
+    for(var i=0;i<othernavary.length;i++)
+    {
+	
+        var tempotherli = jQuery(othernavary[i]);   
+	var allqita = jQuery("#MenuBar2").children();
+	
+	if(allqita)
+	{
+		var str = tempotherli.html();
+		var newstr = str.replace("<h3>",""); 
+		newstr = newstr.replace(/<a/g,"<li><a ");
+		newstr = newstr.replace(/<\/a>/g,"</a></li>");
+		newstr = newstr.replace("</h3>","");
+		if(newstr.indexOf("div")>0){
+			
+			tempotherli.className ="fNiv";
+			newstr = newstr.replace("</a></li>","</a>");
+			newstr = newstr.replace("<li>","<li class=\"fNiv\">");
+		}
+		newstr = newstr.replace("<div class=\"dropdwon\">","<ul>"); 
+		newstr = newstr.replace("</div>","</ul>"); 
+		newstr = newstr.replace("</ul>","</ul></li>"); 
+		
+		newinput += newstr;
+		
+	}
+        //tempotherli.find("div").removeClass("dropdwon");
+        //tempotherli.find(" ul").addClass("level2");
+        //tempotherli.find(" ul > li").removeClass("nav_submenu-item");
+        document.getElementById("MenuBar2").innerHTML = newinput;
+        
+    }}
+jQuery("#MenuBar1").css("visibility","visible");
+
+});
+</script> 
+
+</div>
+<!--top E-->
+<!--header S-->
+<div class="headerbar">
+	<script> var _tsites_com_view_mode_type_=8;</script>
+<div class="inner clearfix">
+<div class="logo"><a target="_blank" href="http://mypage.zjnu.edu.cn/"><img border="0" src="/__local/D/AC/70/127EE50B6DF04F5411A82E3FCA6_F06EFC31_6F48.png" title="浙江师范大学教师个人主页系统"></a></div>
+<div class="hpg">Personal Homepage</div>
+</div>
+</div>
+<!--header S-->
+<!--main S-->
+<div class="sg-main clearfix">
+	<div class="sg-left">
+		<div class="left-block">     
+         <div class="bl-t" style="border-bottom: 1px solid #eaeaea;margin: 0 10px;height: 50px;padding-top: 13px;line-height: 50px;width: 374px;"><h2 style="float: left;font-weight: normal;font-size: 24px;color: #961111;">Personal information</h2><a href="/LR/en/jsxx/71312/jsxx/jsxx.htm" class="more" style="float: right;font-size: 12px;color: #c8c8c8;">MORE+</a></div>
+        <div class="bl-ct" style="word-wrap: break-word;word-break:break-word;width:390px;">
+          <p style="line-height: 30px;color: #4c4c4c;padding: 5px 10px 20px;font-size: 14px;width:370px;word-break: break-word;word-wrap: break-word;">
+	    
+            
+            Degree:Doctorate<br>
+            Status:在岗<br>
+            School/Department:人文学院<br>
+            <br>
+          </p>
+        </div>
+</div>
+
+
+
+<script language="javascript" src="/system/resource/tsites/tsitesencrypt.js"></script>
+		
+		
+	</div>
+	<!--side top-->
+	<div class="sg-content">
+		<div class="searchbar clearfix">
+			<script language="javascript" src="/system/resource/tsites/com/search/tsitesearch.js"></script><script language="javascript" src="/system/resource/js/base64.js"></script><div class="srhbox">
+<form action="/LR/en/search/71312/search/result.htm" method="post" id="searchform54868" style="display:inline" onsubmit="return (new TsiteSearch()).checkSearch('searchform54868','keyWord_temp');">
+    <input type="hidden" name="tsites_search_content" id="tsites_search_content" value=""><input type="hidden" name="_tsites_search_current_language_" id="_tsites_search_current_language_" value="en">
+	<input type="searcht" name="keyWord_temp" id="keyWord_temp" value="" class="srhtxt" placeholder="Search">
+	<input type="submit" class="srhbtn" value="">
+</form>
+</div>
+
+			<script language="javascript" src="/system/resource/tsites/tsitesclick.js"></script>
+<script> var _tsites_com_view_mode_type_=8;</script>
+<div class="logingo" style="margin-left: 7px;">
+</div>
+			
+<div class="lagcg"> <span class="ico"></span>
+      <div class="cgbox"> <i class="ico-tri"></i>
+            <ul>
+	    	    <li> <a href="/LR/zh_CN/index.htm">中文</a></li>
+	    </ul>
+      </div>
+</div>
+
+
+		</div>
+		
+		<div class="mainshadow">
+			<div class="introme clearfix">
+				<div class="me-pic"><span><img id="u_u8_7536pic" alt="" border="0" src="https://mypage.zjnu.edu.cn/__local/D/33/42/8D60909E265D5808AEA2EE4C402_2DAC5F7A_DC10.jpg" width="167" height="252"></span></div><script language="javascript" src="/system/resource/tsites/imagescale.js"></script>
+<script type="text/javascript"> 
+ var u_u8_pic = new ImageScale("u_u8_",210,252,true,true);u_u8_pic.addimg("/__local/D/33/42/8D60909E265D5808AEA2EE4C402_2DAC5F7A_DC10.jpg","","李蓉","7536");
+</script>
+
+				<div class="me-info">
+					<h2>李蓉</h2>
+
+					
+<div class="youlike"><i class="icolike" id="_parise_imgobj_u10"></i>+<span id="_parise_obj_u10">61</span></div>
+<script language="javascript" src="/system/resource/tsites/TsitesPraiseUtil.js"></script>
+<script> var _TsitesPraiseUtil_u10= new TsitesPraiseUtil();_TsitesPraiseUtil_u10.setParam({'nodeid':'_parise_obj_u10','iscanclickidobj':'iscanclick_parise_obj_u10','imageid':'_parise_imgobj_u10','apptype':'index','teacherid':7536,'homepageid':5522,'limttype':'specilpage','limithour':24,'contentid':11203});</script>
+
+					<div class="ot">
+              
+              <p>Gender:Female</p>
+              <p>Education Level:Graduate student graduate</p>
+              <p>Alma Mater:华中师范大学</p>
+</div>
+				</div>
+			</div>
+			
+			<!--list S-->
+			<div class="listall">
+				<div class="title">
+					
+<h2 style="width: 350px;word-break: break-word;word-wrap: break-word;"><i class="ico"></i>Paper achievements</h2>
+					
+<div class="Current" style="word-break: break-word;word-wrap: break-word;width: 260px;"><i class="ico"></i>
+    Current position: 
+                <a href="/LR/en/index.htm">Home</a>
+                /
+                <a href="/LR/en/zhym/71308/list/index.htm">Scientific research</a>
+                /
+                <a href="/LR/en/lwcg/71312/list/index.htm">Paper achievements</a>
+</div>
+
+				</div>				
+
+<script> var _tsites_com_view_mode_type_=8;</script>
+<script language="javascript" src="/system/resource/tsites/tsitesdownloadclick.js"></script>
+<div class="articlebox">
+                    <div class="t" style="word-break: break-word;word-wrap: break-word;">论“十七年文学”中的跨性别写作现象</div>
+                    <div class="art-content" style="border-bottom: none">
+                        <div class="ot">Date of Publication:2010-01-01  Hits:<span id="lwcg_u14_11203">157</span></div>
+			<p class="jgh-p">
+			<!-- 第一作者 -->
+			First Author:李蓉<br>
+			<!-- 发表时间 -->
+			Date of Publication:2010-01-01<br>
+			<!-- 发表刊物 -->
+			Journal:南开学报(哲学社会科学版)<br>
+			<!-- 所属单位 -->
+			Affiliation of Author(s):人文学院<br>
+			<!-- 文献类型 -->
+			Document Type:期刊<br>
+			<!-- 期号 -->
+			Issue:第4期<br>
+			<!-- ISSN号 -->
+			ISSN No.:0465-7942<br>
+			<!-- 关键字 -->
+			Key Words:“十七年文学”；跨性别写作；女性形象<br>
+			<!-- 摘要 -->
+			Abstract:'十七年文学'中一些男性笔下的女性形象表现出既超越于现代男性作家笔下的女性形象,又超越于同时期女性作家笔下的女性形象的性质。这一时期,一些男性作家借其所塑造的女性形象所表达的不是单纯的性别话语,而是个人、性别与国家政治等话语的杂糅。女性主体在这些男性作家创作的文本中作为一种特殊的存在,不仅丰富了'十七年文学'的写作空间,同时也在一定程度上打破了性别写作界限的神话。<br>
+			<!-- 是否译文 -->
+			Translation or Not:no<br>
+			</p>
+			</div>
+
+
+
+
+
+			 <div class="prevnext">
+			<p style="word-break: break-word;word-wrap: break-word;"><a href="/LR/en/lwcg/71312/content/11204.htm#lwcg">Pre One:阶级对垒中的“身体”越界：论“十七年”文学中跨越阶级阵营的情爱书写</a></p>
+			<p style="word-break: break-word;word-wrap: break-word;"><a href="/LR/en/lwcg/71312/content/11202.htm#lwcg">Next One:论张竞生性话语的建构</a></p>
+			</div>
+</div><script type="text/javascript" defer="true">(new TsitesDownloadClickUtil()).getDownloadClicks('u14',7536,'lwyfj','');</script>
+<script type="text/javascript">(new TsitesClickUtil()).updateAndGetClick('lwcg_u14_11203',7536,'lwcg','en',11203)</script>
+
+<div style="text-align:right;padding-right: 20px;    display: none;">
+ 
+
+<a id="_recommended_imgobj_u15" style="    cursor: pointer;
+    font-size: 19px;
+    font-weight: bold;
+    color: #2173f3;">Recommend this article</a>
+        <span id="_recommended_obj_u15">0</span>
+ </div><script language="javascript" src="/system/resource/tsites/TsiteRecommended.js"></script>
+<script> var _TsitesPraiseUtil_u15= new TsitesPraiseUtil();_TsitesPraiseUtil_u15.setParam({'nodeid':'_recommended_obj_u15','imageid':'_recommended_imgobj_u15','apptype':'lwcg','teacherid':7536,'homepageid':5522,'limithour':24,'contentid':11203});</script>
+
+			</div>
+			<!--list E-->
+			
+			<div class="ct-foot-bg"></div>
+		</div>
+	</div>
+</div>
+<!--main E-->
+<div class="f-bg"></div>
+<div class="footer">
+	<div class="inner clearfix">
+		<div class="fleft">
+			<ul>
+				
+<li><i class="ico-1"></i>Click:<span id="u16_click">0000016780</span></li><script>(new TsitesClickUtil()).getHomepageClickByType(document.getElementById('u16_click'),0,10,'teacher',7536,5522);</script>
+
+				
+		<li><i class="ico-2"></i><a href="javascript:void(0);" title="MOBILE Version" onclick="_vsb_multiscreen.setDevice('mobile')" style="color: #f5f5f5;">MOBILE Version</a></li>
+
+			</ul>
+			<script language="javascript" src="/system/resource/tsites/latestupdatetime.js"></script>
+ <p>The Last Update Time:<span id="u18_latestupdatetime_year">2018</span>.<span id="u18_latestupdatetime_month">4</span>.<span id="u18_latestupdatetime_day">16</span></p><script>(new TsitesLatestUpdate()).getTeacherHomepageLatestUpdateTime(document.getElementById('u18_latestupdatetime_year'),document.getElementById('u18_latestupdatetime_month'),document.getElementById('u18_latestupdatetime_day'),'yyyy-MM-dd&zh',7536,5522);</script>
+<script>(new TsitesLatestUpdate()).getTeacherHomepageOpenTime(document.getElementById('u18_opentime_year'),document.getElementById('u18_opentime_month'),document.getElementById('u18_opentime_day'),'yyyy-MM-dd&zh',7536,5522);</script>
+
+			<p style="line-height: 25px;">©2018 Zhejiang Normal University all rights reserved.<br>Add: 688 Yingbin Road, Jinhua, Zhejiang Province, 321004 ChinaTel: +86 (579) 8228-2380<br>Fax: +86 (579) 8228-0337<br>E-mail: wsc@zjnu.cn</p>
+		</div>
+		<div class="f-qrcode"><!-- 下面这个div是二维码容器,ID不能变-->
+<span class="ico" style="margin-bottom: -30px;">
+<div class="qrimg"><i></i>
+<div class="imgw" id="outputu20"><canvas width="175" height="175"></canvas></div>
+</div>
+</span>
+<!-- 下面是生成二维码调用的JS，不要动-->
+<script src="/system/resource/qrcode/js/jquery.qrcode.js"></script>
+<script src="/system/resource/qrcode/js/qrcode.js"></script>
+<script>
+var codeInfo = "" ==""? window.location.href:"";
+jQuery(function(){
+    jQuery('#outputu20').qrcode({
+        text:codeInfo,
+        render: !!document.createElement('canvas').getContext?"canvas":"table",//设置渲染方式  
+        width: 175,     //设置宽度  
+        height: 175,     //设置高度  
+        correctLevel: 0,//纠错等级  
+        background: "#ffffff",//背景颜色  
+        foreground: "#000000",//前景颜色  
+        logo:""//图像logo
+    });
+})
+</script>
+<style>
+.imgw canvas
+{
+	margin: 10px;
+}
+</style></div>
+	</div>
+</div>
+
+<script src="/_ts/zjsfdxen4/js/jquery.SuperSlide.2.1.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="/_ts/zjsfdxen4/js/single.hq.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(function(){
+	$(".groupscroll").slide({ mainCell:".scrollmain ul", effect:"leftLoop",pnLoop:false,vis:2, autoPlay:false});
+})
+</script>
+
+
+</body></html>

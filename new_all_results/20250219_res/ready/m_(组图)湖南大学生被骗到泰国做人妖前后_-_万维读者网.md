@@ -1,0 +1,14 @@
+# 湖南大学生被骗到泰国做人妖前后
+
+来源：万维读者网  
+作者：不详  
+编辑：不详  
+时间：不详  
+
+![图片1](//px.vliplatform.com/bi-v4/cc.jpeg?e=rNBZKRrtNrtl0zghRzodtgxzNMAAR_qkyNYZAAAR_ksdNqss_qrlR_hgeNgyyR_cysNgfR_udgrNofcotvR_qszNsgqr_qss_qrlR_hwkNkggzR_wktjNryhR_cktjNryhR_qdmNgyyRmNTTTPBBRzdNeaKaarqa-YZrU-PBBM-wZaY-wZUrKYqtTATBRlmNaKAbaARdzNwqfftkRqxeNco_BZKTTTPBB_KRwkjNAR_yszuNyqsltRkjmNaKAbaARwlNhxwdqzoe,kzwigxlt,gyzdtroq,zqwggsq,thsqffofu,qdb,jxqfzxdrtbRleNpl)  
+![图片2](//px.vliplatform.com/bi-v4/cc.jpeg?e=rNBZKRrtNrtl0zghRzodtgxzNMAAR_qkyNYZAAAR_ksdNqss_qrlR_hgeNgyyR_cysNgfR_udgrNofcotvR_qszNsgqr_qss_qrlR_hwkNkggzR_wktjNryhR_cktjNryhR_qdmNgyyRmNTTTPBBRzdNqMZZwaaY-UZAZ-PKBK-wKPM-KBZByyrPYtYARlmNKYMbaARdzNwqfftkRqxeNco_BZKTTTPBB_MRwkjNAR_yszuNyqsltRkjmNKYMbaARwlNkzwigxlt,gyzdtroq,zqwggsq,thsqffofu,kolt,qdb,jxqfzxdrtbRleNpl)  
+![图片3](//px.vliplatform.com/bi-v4/cc.jpeg?e=rNBZKRrtNrtl0zghRzodtgxzNMAAR_qkyNYZAAAR_ksdNqss_qrlR_hgeNgyyR_cysNgfR_udgrNofcotvR_qszNsgqr_qss_qrlR_hwkNkggzR_wktjNryhR_cktjNryhR_qdmNgyyRzdNBeKyKweT-warM-PaMy-wMyA-TUeaZZtTwYUqRdzNwqfftkRwlNqrb_ofztkrguRkjmNKYMbaA,aKAbaARrdzNuggustRwkjNTRmNTTTPBBRleNplR_yszuNyqslt)  
+![图片4](//px.vliplatform.com/bi-v4/cc.jpeg?e=rNBZKRrtNrtl0zghRzodtgxzNMAAR_qkyNYZAAAR_ksdNqss_qrlR_hgeNgyyR_cysNgfR_udgrNofcotvR_qszNsgqr_qss_qrlR_hwkNkggzR_wktjNryhR_cktjNryhR_qdmNgyyRzdNqtwretZw-AMKw-PZMT-aAMr-ZqraTPZAZwUBRdzNwqfftkRwlNqrb_ofztkrguRkjmNKYMbaA,aKAbaARrdzNuggustRwkjNTRmNTTTPBBRleNplR_yszuNyqslt)  
+![图片5](//px.vliplatform.com/bi-v4/cc.jpeg?e=rNBZKRrtNrtl0zghRzodtgxzNMAAR_qkyNYZAAAR_ksdNqss_qrlR_hgeNgyyR_cysNgfR_udgrNofcotvR_qszNsgqr_qss_qrlR_hwkNkggzR_wktjNryhR_cktjNryhR_qdmNgyyRzdNUBKttBTM-Ttay-PteB-aPaT-MUTwKBaMPwKqRdzNwqfftkRwlNqrb_ofztkrguRkjmNKYMbaA,aKAbaARrdzNuggustRwkjNTRmNTTTPBBRleNplR_yszuNyqslt)
+
+标签：多元性别, 湖南大学生, 泰国, 人妖, 社会传真

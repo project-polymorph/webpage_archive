@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<title>天达共和官方网站</title>
+<link href="http://www.east-concord.com/Templates/demo1/IncludeFile/Style/base.css" rel="stylesheet" type="text/css">
+<link href="http://www.east-concord.com/Templates/demo1/IncludeFile/Style/index.css" rel="stylesheet" type="text/css">
+<link href="http://www.east-concord.com/Templates/demo1/IncludeFile/Style/viewpoint.css" rel="stylesheet" type="text/css">
+<!--[if IE]>
+<script src="http://www.east-concord.com/Templates/demo1/IncludeFile/JS/html5.js" type="text/javascript"></script>
+<![endif]-->
+<script src="https://hm.baidu.com/hm.js?c17cac2ad9620d24c893a221eb544585"></script><script type="text/javascript" src="http://www.east-concord.com/Templates/demo1/IncludeFile/JS/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="http://www.east-concord.com/Templates/demo1/IncludeFile/JS/html5.js"></script>
+<script type="text/javascript" src="http://www.east-concord.com/Templates/demo1/IncludeFile/JS/visit.js"></script><script>
+$(function () {
+   var source=$("#hidesource").text();
+   QS_Visit_URL='http://openapi.east-concord.com';
+   var hidsid=$(".HideGuid").text();
+   var hidcid=$(".HideColumnID").text();
+   if(source == "佚名")
+   {
+   GetTags31(26,hidsid,'AuthorNewsList',3);
+   GetTags41(hidcid,hidsid,'OtherArticleList',3);
+   GetTags_guid1(hidsid,'ViewPoionAuthorCon',3);
+   GetTagsGroupArticle(hidsid,'SpecializedField',1);
+   }else{
+   $(".ViewPoionAuthor").css("display","none");
+   $(".AuthorNews").css("display","none");
+   $(".OtherArticle").css("display","none");
+   $(".SpecializedField").css("display","none");
+   }
+  
+   
+   
+   
+   
+})
+</script></head>
+
+
+<body>
+<!--导航、搜索、语言-->
+
+<div class="QS_BgDiv QS_FloatArea_86"><div class="AreaBlockDiv"><div class="QS_Area_Content"><div class="QS_RoomdivIn"><div class="QS_AreaMainContent QS_AreaContent_86"><div class="Top">
+<div class="TopCon">
+<div class="Logo">
+<a href="http://www.east-concord.com">
+<img src="http://www.east-concord.com/Image/logo.png">
+</a></div><div class="Nav">
+<span id="currentName" style="display:none">专业观点</span> 
+<div id="soform">
+
+     <span class="yy-rnicon yy-rnso"></span>
+     <input name="search" id="search" type="text" value="" placeholder="关键字查找" autocomplete="off">
+</div>
+<ul> 
+<li><a href="http://www.east-concord.com/yewu/index.html">业务</a></li> <li><a href="http://www.east-concord.com/tuandui/index.html">团队</a></li> <li><a href="/xinwen/index.html">资讯</a></li> <li><a href="/zygd/index.html">观点</a></li> <li><a href="/activity/index.html">律途</a></li> <li><a href="http://www.east-concord.com/lxwm/index.html">联系我们</a></li> 
+</ul>
+</div>
+<!--<div class="yuyan01">
+<dl class="yuyan"><dt>中文</dt><dd><ul><li><a target="_blank" href="http://en.east-concord.com">English</a></li><li><a target="_blank" href="http://jp.east-concord.com">日本語</a></li></ul></dd></dl></div>-->
+        <div class="Change">
+        	<a href="http://en.east-concord.com/" target="_blank">ENG</a>
+        	<a href="http://www.east-concord.com/" target="_blank">中文</a>
+        	<a href="http://jp.east-concord.com/" target="_blank">日本語</a>
+        </div>
+<script type="text/javascript">
+$(function () {
+                                        $(".yuyan").each(function () {
+                                            var s = $(this);
+                                            var z = parseInt(s.css("z-index"));
+                                            var dt = $(this).children("dt");
+                                            var dd = $(this).children("dd");
+                                            var _show = function () {
+                                                dd.slideDown(200);
+                                                s.css("z-index", z + 1);
+                                            };
+                                            var _hide = function () {
+                                                dd.slideUp(200);
+                                                s.css("z-index", z);
+                                            };
+                                            dt.click(function (event) {
+                                                dd.is(":hidden") ? _show() : _hide();
+                                                event.stopPropagation();
+                                            });
+                                            dd.find("a").click(function () { _hide(); });
+                                            $("body").click(function (i) {
+                                                !$(i.target).parents(".yuyan").first().is(s)? _hide() : "";
+                                            });
+                                        })
+                                    })</script>
+</div></div>
+<script>
+var mobile = (/iphone|ipod|android|blackberry|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+		if (mobile) {
+var pathname=window.location.pathname;
+if(pathname == "/" || pathname == "/index.html")
+{
+			window.location = "http://m.east-concord.com";
+}
+		}
+	var currentName=$('#currentName').text();
+	$('.Nav ul li').each(function(){
+		if($(this).children('a').text()==currentName){
+			$(this).addClass('nav_hover');
+			return;
+		}
+	});
+  </script>
+<script type="text/javascript">
+ $(document).ready(function(){
+      $(".yy-rnso").bind("click",function(){
+	if($("#soform").hasClass("open")){
+	$("#soform").removeClass("open");
+	    }
+	else{
+	$("#soform").addClass("open");
+		}
+	});
+     });
+document.onkeydown = function(e){ 
+    var ev = document.all ? window.event : e;
+    if(ev.keyCode==13) {
+var key= encodeURI($("#search").val());
+if (key != ""&&key != null)
+	{
+ location.href="http://www.east-concord.com/search/index.html?search="+key; 
+}
+     }
+}
+</script></div></div></div></div></div>
+<!--观点内容Banner图片-->
+<div class="ViewPointShowBanner"><div class="ViewPointShowBannerTitle"><div class="TitleInfor"><h3>国际奥委会发布基于性别认同和性别差异的公平、包容、非歧视准则</h3><i></i><div class="ViewFrom"><span class="ViewFromTitle">作者:</span><span class="ViewFromName">宫晓燕 郭竞宇 陈海熠</span></div></div></div></div><div id="hidesource" style="display:none">佚名</div> 
+<!--观点列表-->
+<div class="ViewPoint">
+	<div class="ViewPointTitle"><h3>观点</h3><i></i></div>
+    <div class="ViewPointShow">
+    	 <p>在与250多名运动员和利益相关方进行了为期两年的磋商后，国际奥委会（IOC）于2021年11月16日发布了新的《国际奥委会基于性别认同和性别差异的公平、包容、非歧视准则》。</p><p>以下为该准则的全部内容。</p><p><strong>国际奥委会基于性别认同和性别差异的公平、包容、非歧视准则[1]</strong></p><p>引言</p><p>每个人都有权在不受歧视的情况下，以尊重其健康、安全和尊严的方式从事体育运动。同时，竞技体育——尤其是高水平的有组织的体育比赛——的公信力依赖于一个公平的、任何运动员都不享有不公平且不成比例的优势的竞争环境。</p><p>通过该基于性别认同和性别差异的公平、包容、非歧视准则，国际奥林匹克委员会（IOC，以下简称“国际奥委会”）力图按照《奥林匹克宪章》中的原则，为每个人营造一个安全和友好的环境。本准则还承认参赛资格标准在确保公平方面发挥的核心作用，特别是在高水平女性体育项目中。</p><p>本准则的发布是国际奥委会尊重人权承诺的一部分（正如《奥林匹克议程2020+5》所述），也是为促进性别平等和包容所采取的行动的一部分。</p><p>在发布本准则时，国际奥委会认识到，考虑到每项运动的性质，确定运动员在与其他参赛者的竞争中在何种情况是处于不相称的优势地位，必须属于每个运动项目及其管理机构的职权范围。因此，国际奥委会无法跨过不同国家和运动体系发布为每个运动大项、分项或小项都界定资格标准的规则。</p><p>因此，本准则的目的是为体育组织——特别是那些负责组织高水平比赛的组织——提供一个原则性的方法来制定适用于其运动项目的标准。体育组织还需要考虑可能与其实际情况相关的特定道德、社会、文化和法律方面的问题。</p><p>本准则是在与运动员和利益相关方进行广泛磋商后制定的。其中包括运动员群体、国际联合会和其他体育组织的成员，以及人权、法律和医学专家。它取代并更新了国际奥委会以前关于这一问题的声明，包括2015年的共识声明。</p><p>本准则既承认需要确保每个人——无论其性别认同或性别差异——都能在一个安全、无骚扰的、承认并尊重其需求和特质也重视每个人（特别是高水平运动员）的利益的环境中参加公平的、任何运动员都不享有不公平且不成比例的优势的体育比赛。</p><p>最后，国际奥委会还认识到，大多数有组织的高水平体育比赛都是男子和女子组别分别进行比赛的。在这种情况下，本文所包含的原则旨在确保每个类别的竞争都是公平和安全的，而且运动员不会仅仅因为其变性身份或性别差异而被排除在外。</p><p>如果必须制定资格标准以规范男女组别的参与，则应在尊重国际公认的人权、强有力的证据和与运动员协商的基础上，作为综合方法的一部分来制定和实施这种标准。在此过程中，应采取预防措施，避免对运动员的健康造成伤害。</p><p>原则</p><p>本准则应被视为一个连贯的整体。国际单项体育联合会和其他体育组织在履行其职责，为各自的运动大项、分项和小项的高水平有组织的比赛制定和实施资格规则时，以及在更广泛的意义上，在确保基于性别认同和性别差异的包容、非歧视方面的安全和公平竞争时，应考虑本准则。</p><p>虽然在起草这些原则时考虑的是高水平有组织的体育比赛的具体需要，但下文反映的包容和非歧视的一般原则应在所有级别的体育运动中得到促进和维护。</p><p>1. 包容</p><p>1.1. 每个人，无论其性别认同、表达方式和/或性别差异如何，都应能安全地、不受偏见地参与体育运动。</p><p>1.2. 应采取措施，使体育环境和设施对所有性别认同的人持友好态度。</p><p>1.3. 体育组织应通过培训、能力建设和由受影响的利益相关方参与的活动，共同推动包容，防止基于性别认同和/或性别差异的歧视。</p><p>1.4. 应考虑到变性人和性别差异者的特殊需求和脆弱性，进一步发展防止体育界骚扰和虐待的机制。</p><p>1.5. 如果体育组织选择制定资格标准，以确定高水平有组织的体育竞赛中特定比赛的男女组别参赛条件，则这些标准的制定和应用应尊重本准则所包含的原则。负责发布此类标准的个人或各方应接受适当的培训，以确保以符合这些原则的方式处理这些问题。</p><p>1.6. 这些措施和机制的设计、实施和评估应与受此影响的各类别运动员协商进行。</p><p>2. 防止伤害</p><p>2.1 在制定资格标准时，应优先考虑运动员的身体、心理和精神健康。</p><p>2.2. 体育组织应识别并防止因设计、实施或解释资格标准而对运动员的健康产生直接和间接的负面影响。</p><p>3. 非歧视</p><p>3.1 资格标准的制定和实施应公平合理，不得因运动员的性别认同、身体外观和/或性别差异而系统地将其排除在比赛之外。</p><p>3.2 只要运动员符合满足原则4规定的资格标准，就应允许运动员在最符合其自我确定的性别认同的类别中参赛。</p><p>3.3 确定不相称的竞争优势的标准，有时可能需要对运动员的运动表现和身体能力进行测试。然而，任何运动员都不应该因为他们的性别、性别认同和/或性别差异而接受有针对性的测试或旨在确定他们的性别认同和/或性别差异的测试。</p><p>4. 公正</p><p>4.1 如果体育组织选择发布某项比赛的男女组别资格标准，他们应着眼于：</p><p>a) 提供在一个类别中无任何运动员拥有不公平和不相称的竞争优势（即通过改变自己的身体而获得的优势或不相称地超过高水平比赛中存在的其他优势）的把握；</p><p>b) 防止对其他运动员的身体安全造成危险；以及</p><p>c) 防止运动员为了参加某一特定类别的比赛而声称自己的性别与一贯使用的性别不同。</p><p>5. 不推定优势</p><p>5.1 任何运动员都不应仅仅因为他们的性别差异、体貌和/或变性身份而被排除在比赛之外，或被认为具有不公平的竞争优势。</p><p>5.2 在根据证据确证（根据原则 6的规定）之前，不应认为运动员因其性别差异、体貌和/或变性认同状态而具有不公平或不相称的竞争优势。</p><p>6. 以证据为基础的方法</p><p>6.1 由资格标准引起的任何限制都应以强有力的、经同行审议的研究为基础，该等研究：</p><p>a) 表明在运动表现上存在一贯的、不公平的、不相称的竞争优势，和/或对其他运动员的身体安全存在不可预防的风险；</p><p>b) 主要基于与资格标准意图规制的群体的性别和运动参与一致的群体的人口统计学群体中收集的数据；以及</p><p>c) 证明这种不相称的竞争优势和/或不可预防的风险存在于资格标准旨在规范的具体运动大项、分项和小项中。</p><p>6.2 如果资格标准禁止运动员参加某项比赛，该运动员应：</p><p>a)允许他们参加他们有资格参加的同一性别类别的其他分项和小项；以及</p><p>b) 能够通过适当的内部调解机制，如监察员，和/或国际体育仲裁院的程序，对国际单项体育联合会或其他体育组织的最终决定提出异议，以寻求补救措施。</p><p>7. 以健康和身体自主权为首要考量</p><p>7.1 运动员绝不应受到国际联合会、体育组织或任何其他方（通过资格标准或其他方式）为达到资格标准而接受不必要的医疗程序或治疗的压力。</p><p>7.2 确定性别类别资格的标准不应包括以确定运动员的性别、性别差异或性别为目的的妇科检查或类似形式的侵入性身体检查。</p><p>7.3 体育组织应努力教育教练、管理人员和其他随行人员，防止对其资格标准的可能导致伤害的理解。</p><p>8. 采用以利益相关方为中心的方法</p><p>8.1 在起草、审查、评估和更新资格标准时，体育组织应与可能受到负面影响的各类别运动员进行有意义的磋商，以防止伤害。</p><p>8.2 任何影响运动员比赛资格的决定都应遵循程序公正的基本标准，包括中立和公正。</p><p>8.3 体育组织应建立内部机制，为运动员和其他受影响的利益相关方提供方便、合法、安全和可预测的供其提出与基于性别的资格有关的担忧和不满的渠道。</p><p>9. 隐私权</p><p>9.1 体育组织应确保其有关资格的决策过程的透明度，同时努力保护可能受到这种限制影响的个人的隐私。这包括在资格决定中处理的所有个人身份信息，这些信息的处理应符合适用法律和国际标准。</p><p>9.2 在反兴奋剂工作中或其他情况下收集的有关运动员的医疗信息，包括睾酮水平，在处理时必须遵守适用的隐私法，并应仅用于在收集这些信息时向运动员披露的目的。</p><p>9.3 在收集为确定男子或女子组别比赛资格而获取的数据之前，应获得运动员的知情同意。</p><p>9.4 体育组织应避免在未经运动员同意的情况下公开披露运动员的保密健康信息和其他个人信息。此外，体育组织应就公开说明运动员资格的最佳方式与相关运动员进行协商。</p><p>10. 定期审查</p><p>10.1 资格标准应接受可预测的定期审查，以反映该领域任何相关的伦理、人权、法律、科学和医学发展，并应包括受影响的利益相关方对其实施的反馈。</p><p>&nbsp;</p><p>2021年11月17日，insidethegames网站报道，人权观察（Human Rights Watch）对《国际奥委会基于性别认同和性别差异的公平、包容、非歧视准则》的发布表示赞扬。</p><p>我们对该新闻翻译如下以飨读者。</p><p><strong>人权观察赞扬了国际奥委会为变性、性别发展差异运动员制定的准则，因为该准则鼓励包容[2]</strong></p><p>人权观察赞扬了国际奥委会为变性、性别发展差异（DSD）运动员制定的新准则，称其是“保护所有女性运动员尊严的重要一步”。</p><p>该准则规定了10项原则，国际奥委会称这些原则将指导国际单项体育联合会为各自负责的运动项目制定参赛资格标准和规则。</p><p>包容、防止伤害、非歧视和公正是该准则的关键部分，与之前的共识声明相比，该准则有一个重大转变，即表明“不推定优势”，国际单项体育联合会进行的任何限制必须以“强有力的、经同行审议的研究”为基础。</p><p>以健康和身体自主权为首要考量、采用以利益相关方为中心的方法、隐私权与定期审查也被纳入该准则。</p><p>人权观察表示，与世界田径联合会采用的“性别检查政策”不同，该准则提供了“强有力的人权指导”。</p><p>人权观察多次批评世界田径联合会的政策，并在去年12月举行了题为“结束对女性运动员的虐待性的性别检查”的小组讨论。</p><p>人权观察全球倡议（global initiatives）主任Minky Worden说：“国际奥委会的新准则代表着运动员基本权利的一个转折点，并促进了全世界范围内体育运动对女性的包容。”</p><p>“国际奥委会给予身体自主权、健康权和隐私权突出的地位，在保护所有女性运动员的尊严方面迈出了重要一步。”</p><p>“国际奥委会声明，虽然规范公平竞争是体育管理机构的一项合理事业，但为此侵犯人权绝不是。”</p><p>“本质上具有歧视性的政策——如性别检查规则——与奥林匹克运动对所有人的尊严和平等的承诺背道而驰，且国际奥委会的新准则表明了性别检查规则应该在体育界成为历史。”</p><p>国际自行车联盟宣称，它将在其组织的体育赛事中使用世界田径联合会的政策——即要求变性运动员的（睾酮水平）低于5nmol/L才能参赛。</p><p>这与国际奥委会先前在2015年发布的共识声明不同，共识声明只要求睾酮水平在至少12个月内保持在10nmol/L以下。</p><p>世界橄榄球联合会去年批准了其更新过的指导方针，其管理机构决定，变性的女性不得参加女子触式橄榄球比赛。</p><p>一份报告认为，允许变性的女性参加女子橄榄球比赛可能会因“生理上的差异”而导致人身损害事件。</p><p>国际奥委会医疗和科学主任Richard Budgett今年早些的时候建议，高水平和大众的（比赛）政策可以有所不同。</p><p>这可以看出高水平（比赛）更强调公平和安全，而国家联合会可能更注重包容。</p><p>这已经在国际奥委会的声明中反映了。声明表示该准则意图满足有组织的高水平体育比赛的特定需求，同时促进和保护大众体育比赛中的包容和非歧视。</p><p>国际单项体育联合会作出任何限制的一个关键问题将是经同行审议的研究，因为国际奥委会认为需要更多的研究。</p><p>体育与人权中心（Centre For Sport and Human Rights）对国际奥委会的准则表示认可，并补充说它将向国际单项体育联合会提供支持，以帮助实践“负责任的体育运动”。</p><p>体育与人权中心首席执行官Mary Harvey说：“我们称赞国际奥委会制定的这个以运动员为中心的、基于原则的准则，该准则以人权为指导，致力于健康、安全、隐私权和以身体自主权为首要考量，并为包容、公平和非歧视的体育运动提供补救措施。”</p><p>“在制定如此重要的体育政策时，国际奥委会与众多利益相关方——受影响的运动员、专家和倡议者——的参与尤为关键，我们很高兴看到在此过程中国际奥委会重视这一点。”</p><p>“（体育与人权）中心期待着与国际奥委会和整个奥林匹克运动合作，特别是与国际单项体育联合会和国家奥林匹克委员会合作，继续从这个准则中发展，在教育、研究、背景设计和实践负责任的体育运动方面提供支持。”</p><p>&nbsp;</p><p><strong>乌干达运动员Annet Negesa公开指责国际田径联合会（现世界田径联合会，下称“国际田联”）对其不公正待遇并表示认可国际奥委会发布的关于公平、包容和非歧视的新准则[3]</strong></p><p>据英国媒体Telegraph于2021年11月18日报道的乌干达中长跑运动员Annet Negesa的自述，她在参加2012年伦敦奥运会的前夕被剥夺了比赛资格。在国际田联的建议下，她于2012年7月在法国接受了侵入性身体检查，并在之后被告知需要接受医疗干预。在接受医疗干预之后，无论她多努力都无法完全恢复力量，并且需要终生进行激素治疗。</p><p>直到2019年，运动员权利活动家Payoshni Mitra才使她了解她无缘比赛的原因。国际田联于2011年公布了女子运动员参加比赛的体内睾酮水平的规定。他们决定将女性体内的睾酮水平作为其中一项激素指标，若睾酮水平超标，将建议他们服用药物或通过手术来降低激素水平。这些规定让她在2011年韩国世锦赛上进行常规血检后被取消参赛资格。</p><p>两年前，她才得知一篇由法国医生在2013年发表在医学杂志上论文中提到了四名女运动员，而她相信她正是这四名运动员之一。这篇文章包含了很多细节：她们的年龄，家庭关系，解剖学信息——对生殖器官、阴毛、乳房和月经史的描述。这篇文章使她感到反感的同时又给她启发，因为这篇文章指出她们所做的手术在医学上是不必要的。自此她开始了解到，国际田联（世界田联）声称支持其规定的科学依据并不明确。</p><p>她对国际奥委会发布的关于公平、包容和非歧视的新政策（准则）表示高度赞同。她表示世界田联现行的DSD规则是有害的，她无法恢复到手术前的健康状况，但新政策可以阻止其他运动员以及黑人女性遭受这些痛苦和不公平对待。</p><p>&nbsp;</p><p><br clear="all"> </p><hr size="1" width="33%"><p><span style="font-size: 12px;">注释：</span></p><p><span style="font-size: 12px;">[1] https://stillmed.olympics.com/media/Documents/News/2021/11/IOC-Framework-Fairness-Inclusion-Non-discrimination-2021.pdf?_ga=2.59270185.52602273.1637115591-671817457.1627007152</span></p><p><span style="font-size: 12px;">[2] https://www.insidethegames.biz/articles/1115570/human-rights-watch-ioc-framework</span></p><p><span style="font-size: 12px;">[3] https://www.telegraph.co.uk/athletics/2021/11/18/annet-negesa-cannot-go-back-body-had-operated-can-try-stop-women/</span></p><p><br></p> 
+		
+        <script type="text/javascript">
+            $(function(){
+                var pp = $(".case");
+                var see = '<div class="SeeAll"><a href="javascript:;">查看全文</a></div>';
+                slowHeight();
+                function slowHeight(){
+                    for(var i=0; i<pp.length; i++){
+                        var ppHeight = pp.eq(i).css("height");
+                        if(parseInt(ppHeight) > 177){
+                            pp.eq(i).css({"height":"177px","overflow":"hidden"});
+                            pp.eq(i).after(see);
+                        }
+                    }
+                }
+                $('.SeeAll a').click(function(){
+                    slowHeight();
+                    $(this).parent().prev().removeAttr("style");
+                    $(this).hide();
+                });
+            });
+        </script>
+</div>
+    <!--观点作者-->
+    <div class="ViewPoionAuthor">
+    	<div class="Title"><h3>作者</h3><i></i></div>
+        <div class="ViewPoionAuthorCon">
+            <ul><li><div class="ImgModel"></div> <div class="Normal"><div class="Img"><img src="http://fileapi.east-concord.com/tiandagonghe/image/2023/5/5/133277416756787389_0.png"></div><div class="LawyerName"><h2>宫晓燕 </h2></div><p style="font-size:16px;padding-top:5px;">文化体育部负责人</p><div class="NumInfor"><span class="Num">+86 10 6590 6639</span><a href="http://www.east-concord.com/tuandui/Article/201710/ArticleContent_190.html"><span class="More"></span></a><a href="mailto:xiaoyan_gong@east-concord.com"><span class="Mail"></span></a></div></div><div class="Hover"><h2>宫晓燕 </h2><div class="Key"><span>文化体育部负责人</span></div><p>宫律师担任国际排球联合会审判庭副主席、世界游泳联合会法律委员会委员，曾作为巴黎奥运会以及东京奥运会中国体育代表团随团法律顾问，以及北京冬奥会中国体育代表团反兴奋剂工作专家。宫律师还担任多家体育单项协会、运动管理中心、俱乐部等的法律顾问，并为二十余个国际大型赛事提供专项法律服务。</p><h3>客户经验：</h3><p>宫律师在劳动人事管理、知识产权保护、国有企业改制、公司设立与并购以及职工股权激励等领域也具备非常丰富的经验。为五矿集团、日立中国、NTTDOCOMO、SRL、玛氏中国、箭牌中国、沃尔沃中国、雅诗兰黛中国等跨国公司以及大型国有企业等提供日常法律服务，为丰田、大金、东芝等多家跨国企业在中国直接投资以及间接投资提供法律服务。</p><h3>擅长领域：</h3><div class="GoodList"><span>文化体育传媒</span><span>公司与并购</span><span>劳动法</span><span></span></div><div class="NumInfor"><span class="Num">+86 10 6590 6639</span><span class="Add">北京</span><a href="http://www.east-concord.com/tuandui/Article/201710/ArticleContent_190.html"><span class="More"></span></a><a href="mailto:xiaoyan_gong@east-concord.com"><span class="Mail"></span></a></div></div></li></ul>
+         </div>
+    </div>
+<script type="text/javascript">
+            $(function () {
+        $(document).on('mouseover','.ViewPoionAuthorCon ul li .ImgModel',function(){
+			$(this).parent().addClass("imghover");
+			});
+		$(document).on('mouseleave','.ViewPoionAuthorCon ul li ',function(){
+			$(this).removeClass("imghover");
+		});
+            });
+  </script>
+    <!--作者动态-->
+    <div class="AuthorNews">
+        <div class="Title"><h3>作者动态</h3><i></i></div>
+        <div class="AuthorNewsList">
+            <ul class="showMoreNChildren" pagesize="2"><li><h3>动态</h3><i></i><a href="http://www.east-concord.com/xinwen/Article/20247/ArticleContent_3724.html">天达共和宫晓燕律师奥运再出征，为中国体育代表团提供赛事法律服务保障</a></li><li><h3>动态</h3><i></i><a href="http://www.east-concord.com/xinwen/Article/20247/ArticleContent_3698.html">天达共和24位律师入选第十二届北京市律师协会专门及专业委员会</a></li><li><h3>动态</h3><i></i><a href="http://www.east-concord.com/xinwen/Article/202310/ArticleContent_3468.html">天达共和律师受邀独家撰写The Sports Law Review中国章节</a></li></ul>
+        </div>
+        <script type="text/javascript" src="http://www.east-concord.com/Templates/demo1/IncludeFile/JS/jquery.showmorechildren.js"></script>
+    </div>
+    <!--作者其他文章-->
+    <div class="OtherArticle">
+        <div class="Title"><h3>作者其他文章</h3><i></i></div>
+        <div class="OtherArticleList">
+            <ul><li><h3>对生长激素阳性的兴奋剂违规案例的介绍及评析</h3> <a href="http://www.east-concord.com/zygd/Article/20244/ArticleContent_3618.html" target="_blank">查看详情</a></li><li><h3>篡改兴奋剂管制环节的兴奋剂违规案例评析</h3> <a href="http://www.east-concord.com/zygd/Article/202310/ArticleContent_3463.html" target="_blank">查看详情</a></li><li><h3>浅析生物护照兴奋剂违规案件的认定</h3> <a href="http://www.east-concord.com/zygd/Article/20229/ArticleContent_3008.html" target="_blank">查看详情</a></li></ul>
+        </div>
+    </div>
+    <!--相关领域-->
+    <div class="SpecializedField">
+        <div class="Title"><h3>相关领域</h3><i></i></div>
+        <ul></ul>
+    </div>
+</div>
+<!--底部信息-->
+	    <div class="HideGuid" style="display:none;">4d68377c-42bd-4522-83d5-042be10e2295</div><div class="HideColumnID" style="display:none;">28</div><div class="HideTags" style="display:none;">宫晓燕,</div> 
+<div class="QS_BgDiv QS_FloatArea_87"><div class="AreaBlockDiv"><div class="QS_Area_Content"><div class="QS_RoomdivIn"><div class="QS_AreaMainContent QS_AreaContent_87"><div class="Footer">
+  <div class="FooterNav">
+    <div class="Code"><img src="http://www.east-concord.com/Templates/demo1/Images/Code.png"></div>
+    <div class="Nav">
+      <ul>
+        <li>
+          <h3>业务</h3>
+          <a href="http://www.east-concord.com/yewu/index.html">业务领域</a> 
+        </li>
+        <li>
+          <h3>团队</h3>
+          <a href="http://www.east-concord.com/tuandui/index.html">专业团队</a> 
+        </li>
+        <li>
+          <h3>资讯</h3>
+          <a href="http://www.east-concord.com/xinwen/index.html">律所新闻</a> 
+          <a href="http://www.east-concord.com/rongyu/index.html">律所荣誉</a> 
+          <a href="http://www.east-concord.com/anli/index.html">律所案例</a> 
+        </li>
+        <li>
+          <h3>观点</h3>
+          <a href="http://www.east-concord.com/zygd/index.html">专业观点</a> 
+          <a href="http://www.east-concord.com/bgzl/index.html">并购专栏</a> 
+          <a href="http://www.east-concord.com/xfmzt01/index.html">新法每周听</a> 
+          <!-- <a href="http://www.east-concord.com/lskw/index.html">律所刊物</a>  -->
+          <a href="http://www.east-concord.com/fzfg/index.html">法规速递</a> 
+
+        </li>
+        <li>
+          <h3>律途</h3>
+          <a href="http://www.east-concord.com/activity/index.html">最新活动</a> 
+          <a href="http://www.east-concord.com/bj/index.html">律所生活</a> 
+          <a href="http://www.east-concord.com/beijing0/Article/ArticleList_1.html">社会招聘</a> 
+        </li>
+        <li>
+          <h3>关于我们</h3>
+          <a href="http://www.east-concord.com/bsgk/index.html">本所简介</a> 
+          <a href="http://www.east-concord.com/tdln/index.html">团队理念</a> 
+          <a href="http://www.east-concord.com/dsj/index.html">大事记</a> 
+          <a href="http://www.east-concord.com/shzr/index.html">社会责任</a> 
+          <a href="http://www.east-concord.com/lxwm/index.html">联系我们</a>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="Copy">
+   <div class="CopyInfor">
+    	<div class="Infor1">
+        	<a href="http://www.east-concord.com/flsm/index.html">法律声明</a>
+			<a target="_blank" href="https://mail.east-concord.com/owa">员工通道</a>
+        </div>
+    	<div class="Infor2">
+        	Copyright © 1998-<span id="CurrentYear">2025</span> 天达共和律师事务所  <a href="http://beian.miit.gov.cn" target="_black" style="color:#fff">京ICP备11012394号</a>
+        </div>
+    </div>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?c17cac2ad9620d24c893a221eb544585";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> 
+</div>
+<script type="text/javascript">
+  var myDate = new Date();
+  var year = myDate.getFullYear(); //获取完整的年份(4位,1970-????)
+  var CurrentYear = document.getElementById("CurrentYear");
+  CurrentYear.innerHTML = year; //自动显示当前年
+</script>
+<div class="zaixiankefu">
+  <div class="kefu_modal" id="kefu_modal">
+    <div class="kefu_modal_main">
+      <img src="http://fileapi.east-concord.com/tiandagongheeng/image/2023/7/27/133349134083386989_10.jpg" alt="" onclick="kefuClick_close()">
+      <span>联系我们</span>
+      <img src="http://fileapi.east-concord.com/tiandagongheeng/image/2023/7/27/133349133698074142_10.jpg" alt="">
+      <span>关注公众号</span>
+    </div>
+
+  </div>
+  <div class="kefu_icon" onclick="kefuClick()">
+    <img src="http://fileapi.east-concord.com/tiandagongheeng/image/2023/7/27/133349136569012082_10.png" alt="">
+    <span>联系我们</span>
+  </div>
+
+</div>
+<script type="text/javascript">
+  function kefuClick() {
+    document.getElementById('kefu_modal').style.display='block'
+  }
+  function kefuClick_close() {
+    document.getElementById('kefu_modal').style.display='none'
+  }
+</script>
+</div></div></div></div></div>
+<div style="display:none;" id="qswcm_visitCountDiv">2|1|4d68377c-42bd-4522-83d5-042be10e2295</div><script type="text/javascript" src="http://www.east-concord.com/IncludeFile/VisitJS/qswcmVisitJS.js"></script><script type="text/javascript" src="http://www.east-concord.com/IncludeFile/VisitJS/qswcmSSOJS.js"></script>
+
+ </body></html>

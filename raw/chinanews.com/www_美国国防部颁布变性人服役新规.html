@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html><head><script type="text/javascript" charset="utf-8" src="http://assets.changyan.sohu.com/upload/changyan.js?conf=prod_5d616dd38211ebb5d6ec52986674b6e4&amp;appid=cyqE875ep"></script><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style><style class="vjs-styles-dimensions">
+      .mini_player-dimensions {
+        width: 996px;
+        height: 560px;
+      }
+
+      .mini_player-dimensions.vjs-fluid {
+        padding-top: 56.16850551654965%;
+      }
+    </style>
+<meta charset="gb2312">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="//www.chinanews.com/js/jquery1.4.js"></script>
+<script>
+var isMyPathEmpty = "gj";
+var titleToWap = "美国国防部颁布变性人服役新规";
+var isToContent = "";
+</script>
+  <!--pc和手机适配代码开始-->
+ <!--pc和手机适配代码开始 视频正文适应-->
+<script>    
+//$(document).ready(function(){
+document.addEventListener('DOMContentLoaded',function(){
+var mynum=window.location.search;
+var url = window.location.href;//获取当前Url
+var pathname = window.location.pathname;//获取当前Url
+if(mynum != ""){
+  var url = url.split("?");
+  var url = url[0];
+  location = url;   
+}
+//取文档id开始并拼接新wap页地址
+var pathArr = pathname.split("/");
+var docid = pathArr[pathArr.length-1].split(".")[0].substr(4);//news长度为4，所以substr(4)开始
+  if(docid >= 547255){
+    if(mynum ==''){
+        var sUserAgent = window.navigator.userAgent;
+        //MicroMessenger微信浏览器
+        var mobileAgents = ['Windows CE', 'iPod', 'Symbian', 'iPhone', 'BlackBerry', 'Android','MicroMessenger'];
+        var isPhone = false;
+        var wapurl = "http://www.chinanews.com/wap/detail/sp";
+        if(isMyPathEmpty==""){
+           wapurl = wapurl + "/sp";
+        }
+        wapurl = wapurl + pathname.substring(0,pathname.indexOf("news")) + "news";
+         for (var i = 0; i < mobileAgents.length; i++) {
+            if (sUserAgent.indexOf(mobileAgents[i]) > -1) {
+              isPhone = true;
+              $("body").css("display","none");
+              break;
+            }
+         }
+         if(isPhone){
+            //if(titleToWap.indexOf("<a href=")<0){//不是链接稿
+              if(isToContent==""){//发往中新网为空时请求dw
+                $.ajax({
+                  async:true,
+                  url: 'http://dw.chinanews.com/chinanews/getContentId',
+                  type: 'get',
+                  timeout:3000,
+                  dataType: 'jsonp',
+                  data: {"id": docid},
+                  jsonp:'callback'
+                })
+                .done(function(data) {
+                    if(!data){
+                        location = "//www.chinanews.com/m" + pathname;
+                    }else{ 
+                        wapurl = wapurl + data + ".shtml";
+                        if (location.href.indexOf('?pc') == -1) {
+                            if(pathname.indexOf("/wap/")!=0){
+                              var reg_fenye=/_[0-9]*.shtml$/; 
+                              if(reg_fenye.test(wapurl))//分页跳转到第一页
+                              {
+                                wapurl=wapurl.replace(reg_fenye,".shtml");//注意这句，reg_fenye必须单独定义，不能写在""中，否则JavaScript将其当做普通字符串
+                              }
+                              location = wapurl;  
+                            }
+                        } 
+                    }  
+                }).fail(function() {
+                  location = "//www.chinanews.com/m" + pathname;
+                })
+                .always(function(xhr,textStatus) {
+                    if(textStatus != 'success'){
+                       location = "//www.chinanews.com/m" + pathname;
+                    }
+                });
+              }else{//发往中新网为空
+                conId = isToContent.split(".")[2];
+                wapurl = wapurl + conId + ".shtml";
+                if (location.href.indexOf('?pc') == -1) {
+                    if(pathname.indexOf("/wap/")!=0){
+                      var reg_fenye=/_[0-9]*.shtml$/; 
+                      if(reg_fenye.test(wapurl))//分页跳转到第一页
+                      {
+                        wapurl=wapurl.replace(reg_fenye,".shtml");//注意这句，reg_fenye必须单独定义，不能写在""中，否则JavaScript将其当做普通字符串
+                      }
+                      location = wapurl;  
+                    }
+                }
+              }
+            //}else{//链接稿跳转至/m
+            //  location = "//www.chinanews.com/m" + pathname;
+            //}
+         }
+      }
+  }
+//取文档id结束
+
+});
+
+</script>
+<!--pc和手机适配代码结束-->
+    <!--pc和手机适配代码结束-->
+<meta name="author" content="chinanews">
+<meta name="copyright" content="www.chinanews.com,版权所有"> 
+<meta name="keywords" content="美国 国防部 变性人 服役">
+<meta name="description" content="美国国防部颁布变性人服役新规">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>美国国防部颁布变性人服役新规-中新网视频</title>
+<!--[883,4,807422] published at 2019-03-14 14:31:00 from #10 by 潘力维--> 
+<link rel="stylesheet" href="//www.chinanews.com/shipin/2018/css/csslayout.css">
+<link rel="stylesheet" href="//www.chinanews.com/part/shipin/buttonbottom/videojs.css?v=0.1"> 
+<!-- <link rel="stylesheet" href="//www.chinanews.com/part/shipin/newvideocon/css/iconfont.css"> -->
+<!-- <link rel="stylesheet" href="//www.chinanews.com/part/shipin/css/videojs.ads.css"> -->
+<script src="//www.chinanews.com/js/jquery1.4.js"></script>
+<!--–[if lt IE 9]-->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-shim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.2/es6-sham.min.js"></script>
+<script src="https://wzrd.in/standalone/es7-shim@latest"></script> -->
+<script src="//i2.chinanews.com/videojs/js/html5shiv.min.js"></script>
+<!--[endif]–-->
+<script src="//i2.chinanews.com/videojs/js/videojs-ie8.min.js"></script>
+<script src="//i2.chinanews.com/videojs/js/video.min.js"></script>
+<script src="//www.chinanews.com/part/shipin/6/58/jquery.SuperSlide.2.1.1.js"></script>
+<!--–[if lt IE 9]-->
+<script src="http://i5.chinanews.com/shipin_live/replay/swfobject.js"></script>
+<script>
+var isMyPathEmpty = "gj";
+</script>
+<script src="//i2.chinanews.com/js/getUrlVars.js"></script>
+<!--[endif]–-->
+  <!--pc和手机适配代码开始-->
+ <!--include virtual="/part/cns_public/67.html"-->
+<!--include virtual="/part/cns_public/97.html"-->
+    <!--pc和手机适配代码结束-->
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<script src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=480849"></script><script src="//www.chinanews.com/part/shipin/6/68/xmltojson.js"></script></head>
+<body>
+  <!--20170905PV-->
+<input id="creator" type="hidden" name="creator" value="panliwei">
+    <input id="tgid" type="hidden" name="tgid" value="">
+    <input id="type" type="hidden" name="type" value="no">
+ <script type="text/javascript" src="http://www.chinanews.com/pv/js/videopv.js"></script>
+  <!--20170905PV-->
+
+<!--<div id="fixie"></div>-->
+
+ <!--div id="js_N_nav" class="index-nav" s-->
+<style>
+.index_icon14 {
+    background: url(/fileftp/2015/09/2015-09-06/U435P4T47D33340F978DT20150907155559.png) no-repeat ;
+    display: block;
+    height: 13px;
+    width: 18px;
+}
+
+ul.c-fl-ul .topnav_sel .index_icon14 {
+    background: url(/fileftp/2015/09/2015-09-06/U435P4T47D33340F979DT20150907155559.png) no-repeat ;
+}
+.index_icon_gzh{background:url(//i2.chinanews.com.cn/2013/news/newnc/images/wx_mo.png) no-repeat;display:block;width:24px;height:19px;}
+ul.c-fl-ul .topnav_sel .index_icon_gzh{background:url(//i2.chinanews.com.cn/2013/news/newnc/images/wx_sel.png) no-repeat;}
+.index-nav-select-wide .index-nav-select-title-gzh{padding:0px 10px 0px 43px}
+
+</style>
+
+<div id="js_N_nav" class="index-nav" style="height:46px;">
+    <div class="index-nav-main clearfix">
+        <div id="stepflow01" class="c-fl">
+          <ul class="c-fl-ul">
+              <li class="division"><div class="index-nav-select    left">
+                     <a href="/" class="index-nav-select-title index-nav-entry-bgblack"><em class="index-nav-select-arr index_icon1"></em>涓柊缃戦椤�</a></div>
+                </li>
+
+                <li id="jrzmdiv" class="division"> <div class="index-nav-select    left">
+                   <a href="/common/footer/sitemap.shtml" class="index-nav-select-title index-nav-entry-bgblack"><em class="index-nav-select-arr index_icon14"></em>缃戠珯鍦板浘</a> </div>
+                </li>
+
+               <li class="division"><div class="index-nav-select    left">
+                  <a href="//mail.chinanews.com.cn/" class="index-nav-select-title index-nav-entry-bgblack"><em class="index-nav-select-arr index_icon12"></em>浼佷笟閭</a></div>
+               </li>
+
+               <li class="division"><div class="index-nav-select    left">
+                   <a class="index-nav-select-title index-nav-entry-bgblack" href="//www.chinaso.com/"><em class="index-nav-select-arr index_icon11"></em>涓浗鎼滅储</a></div>
+               </li>
+             </ul>
+        </div>
+        <div class="c-fr">
+            <ul class="c-fl-ul">
+              <li id="jrzmdiv1" class="division"> <div class="index-nav-select    left">
+                    <a class="index-nav-select-title index-nav-entry-bgblack" href="/m/home/"><em class="index-nav-select-arr index_icon4"></em>绉诲姩鐗�</a></div>
+                 </li>
+                 <li id="jrzmdiv1" class="division"> <div class="index-nav-select    left">
+                     <a href="/app/chinanews/index.shtml" class="index-nav-select-title index-nav-entry-bgblack"><em class="index-nav-select-arr index_icon13"></em>瀹㈡埛绔�</a></div>
+                 </li>
+                  <li id="jrzmdiv1" class="division"> 
+         <div class="index-nav-select left">
+                <div class="newpic"></div>
+                <a class="index-nav-select-title index-nav-entry-bgblack" href="/cns2012.shtml"><em class="index-nav-select-arr index_icon_gzh"></em>寰俊</a>
+
+             </div>
+             </li>
+                 <li id="jrzmdiv2" class="division"> <div class="index-nav-select  index-nav-app left ">
+                      <div style="_width:90px;" class="dii81" id="id8" onmouseover="weibo(0)" onmouseout="weibo(1)">
+                           <div id="navshow_div" class="index-nav-select-pop">
+                                <ul class="index-nav-select-list clearfix">
+                                    <li><a href="//weibo.com/chinanewsv"><span>涓柊缃�<em>鏂版氮</em>娉曚汉寰崥</span></a></li>
+                                     <li><a href="//weibo.com/u/3604378011"><span>涓柊绀�<em>鏂版氮</em>娉曚汉寰崥</span></a></li>
+
+                                </ul>
+                            </div>
+                        <a class=" p_relative index-nav-select-title1  index-nav-entry-bgblack "><em class="index-nav-select-arr1"></em>
+                        <em class="index-nav-select-arr index_icon5"></em>寰崥
+                         </a>
+                        </div>
+                    </div>
+                 </li>
+                <li class="division"> <a href="//www.ecns.cn/" class="index-nav-entry-wide index-nav-select-title left">English</a></li>
+               <!-- <li class="division">  <a href="//big5.chinanews.com:80/" class="index-nav-entry-wide index-nav-select-title left">绻佷綋</a></li>-->
+        <!--<li class="division"><fjtignoreurl><a id="yx_style_nav" class="index-nav-entry-wide left" href="//wza.chinanews.com/" style="color:#b21112">鏃犻殰纰�</a></fjtignoreurl></li>-->
+            </ul>
+
+        </div>  
+
+        <div class="clear"></div>  
+    </div>
+</div>
+<!--div id="js_N_nav" class="index-nav" e-->
+
+<div id="index_topa">
+
+<div style="width:1000px;margin:0 auto; margin-top:10px;" id="news_top_advert">
+       
+
+</div>
+<!--[910,1,32] published at 2022-05-10 13:22:43 from #10 by 邹毅 -->
+
+<div class="enter_top" id="enter_top">
+       <div class=" w1000 m_center">
+
+      <div class="enter_banner">
+            <div class="enter_logo"><a href="//www.chinanews.com/shipin/"><img src="http://i8.chinanews.com/2016cns/video/2_03.jpg"></a></div>
+            <div class="searchnav">
+
+                    <div class="searchinput">
+
+                    <div class="search_listbox"> 
+
+                  					<!---->
+                     <script type="text/javascript"> 
+
+function checksubmit(){
+    var code = event.keyCode;
+    if(code == 13) submitFun();
+  }
+
+function submitFun() {
+
+var hotword=document.getElementsByName('q')[0].value;
+
+if (hotword==''){
+
+alert('请输入关键字!');
+
+return false;
+
+}
+else
+{
+
+$.ajax({
+  type: "GET",
+  url: "http://lc.chinanews.com:8090/rpc/pa.jsp?pid=1&paid=50&u=sousuo&aj="+encodeURI(Math.random()+ (new Date())),
+  dataType: "jsonp"
+});
+
+if(document.getElementsByName('s0')[0].value=='cns')
+{
+
+ window.open("http://sou.chinanews.com/search.do?q="+encodeURIComponent(hotword));
+ }
+ else if(document.getElementsByName('s0')[0].value=='baidu')
+ {
+ window.open("http://www.baidu.com/s?ie=utf-8&bs=%E4%B8+%9B%BD&sr=&z=&cl=3&f=8&wd="+encodeURIComponent(hotword)+"&ct=0");
+ }
+
+}
+
+}
+
+</script>  
+
+                <div style="_position:relative;padding:0px;margin:0px;" onmouseout="search_select(1)" onmouseover="search_select(0)" class="dii7" id="id7">
+                     <div class="select_border">
+
+<div class="select_container">
+                     <select id="s0" name="s0" class="selectnews"> 
+<option value="cns">站内搜索</option> 
+<option value="baidu">百度搜索</option> 
+
+</select> 
+</div>
+</div></div>     
+
+                    </div>
+
+                    <input type="text" value="" onclick="this.value='',this.style.color='#000'" name="q" id="q" class="search_input" onkeydown="checksubmit()">
+                    <a class="search_a" onclick="submitFun()"><img src="http://i2.chinanews.com/shipin/2018/image/search1.jpg"></a>
+					<div class="clear"></div>
+              </div>
+                    <div class="clear"></div>
+               </div>
+
+               <div class="ewmright">
+               <a onmouseover="ddd('cc', 'show');" onmouseout="ddd('cc', 'hide');" class="erweima_hg">
+               <p>中新网APP</p>
+				<div class="erweima_img" style=" display:none;" id="cc" onmouseover="ddd('cc', 'show');" onmouseout="ddd('cc', 'hide');"> 
+					<img src="http://www.chinanews.com/fileftp/2018/06/2018-06-14/U435P4T47D42148F980DT20180615171351.jpg">
+				</div> 
+			</a> 
+
+			<a onmouseover="ddd('aa', 'show');" onmouseout="ddd('aa', 'hide');" class="erweima_hg">
+            <p>中新视频</p>
+				<div class="erweima_img" style="display:none;" id="aa" onmouseover="ddd('aa', 'show');" onmouseout="ddd('aa', 'hide');">
+					<img src="http://www.chinanews.com/fileftp/2018/08/2018-08-30/U435P4T47D42728F24534DT20180831161455.png">
+				</div> 
+			</a>
+
+			<a onmouseover="ddd('bb', 'show');" onmouseout="ddd('bb', 'hide');" class="erweima_hg">
+            <p>中新网</p>
+				<div class="erweima_img" style="display:none;" id="bb" onmouseover="ddd('bb', 'show');" onmouseout="ddd('bb', 'hide');">
+					<img src="http://www.chinanews.com/fileftp/2017/02/2017-02-26/U435P4T47D38540F974DT20170227141744.jpg">
+				</div> 
+			</a> 
+
+               <script> 
+		function ddd(obj, sType) { 
+			var oDiv = document.getElementById(obj); 
+			if (sType == 'show') { oDiv.style.display = 'block';} 
+			if (sType == 'hide') { oDiv.style.display = 'none';} 
+		} 
+	</script> 
+</div>
+
+           <div class="clear"></div>
+        </div>
+
+  </div>
+        <div class="inter_navbox mt15">
+                    <ul class="inter_nav_ul">                                                                                                                                    
+                      <li class="nav_sel"><a href="//www.chinanews.com/shipin/m/gd/views.shtml">最新</a></li><em></em>
+                      <li><a href="//www.chinanews.com/shipin/m/rd/views.shtml">热点</a></li><em></em>
+                      <li><a href="//www.chinanews.com/shipin/m/gn/views.shtml">国内</a></li><em></em>
+                      <li><a href="//www.chinanews.com/shipin/m/sh/views.shtml">社会</a></li><em></em>
+
+                      <li><a href="//www.chinanews.com/shipin/m/gj/views.shtml">国际</a></li><em></em>
+                      <li><a href="//www.chinanews.com/shipin/m/jq/views.shtml">军事</a></li><em></em>
+                      <li><a href="//www.chinanews.com/shipin/m/wy/views.shtml">文娱</a></li><em></em>
+                      <li><a href="//www.chinanews.com/shipin/m/tt/views.shtml">体育</a></li><em></em>
+                      <li><a href="//www.chinanews.com/shipin/m/cj/views.shtml">财经</a></li><em></em>
+                      <li><a href="//www.chinanews.com/live.shtml">直播</a></li><em></em>
+                      <li><a href="//www.chinanews.com/shipin/m/ga/views.shtml">港澳台侨</a></li><em></em>
+                      <li><a href="//www.chinanews.com/shipin/minidocu.shtml">微视界</a></li><em></em>             
+                      <li><a href="http://www.chinanews.com/shipin/chinarevealed.shtml">中国新视野</a></li><em></em>                        
+
+               </ul>
+          </div>
+
+ <!--头部结束-->
+
+   </div>
+
+   </div>
+
+<div class="clear"></div>
+
+<div class="videoplay">
+<a href="http://www.chinanews.com/app/chinanews/index.shtml"><div class="fdc"></div></a>
+<div class="w1000 m_center">
+<div class="content_title">
+<div class="left">
+<h1>美国国防部颁布变性人服役新规</h1>
+<p> 发布时间：2019年03月14日 14:30 &nbsp;&nbsp;&nbsp;&nbsp;来源：福建东南高清</p>
+
+</div>
+<div class="right">
+
+<div style=" float: left;" class="bdsharebuttonbox">
+<span style="display: block;
+    float: left;
+    line-height: 45px;">分享到：</span>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+
+        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+
+    </div>
+    <script>
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdMiniList": false,
+            "bdPic": "",
+            "bdStyle": "0",
+            "bdSize": "16"
+        },
+        "share": {}
+    };
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+    <style>
+   .bdshare-button-style0-16 a, .bdshare-button-style0-16 .bds_more{background:url(http://www.chinanews.com/fileftp/2018/07/2018-07-25/U664P4T47D42404F24534DT20180725144333.png) no-repeat center top; width:45px; height:45px;margin-left:0;
+    width: 45px;
+    height: 45px;
+    margin-left: 0;
+	}
+	.bdshare-button-style0-16 .bds_tsina { background-position:0 0;}
+	.bdshare-button-style0-16 .bds_weixin { background-position:0 -45px;}
+	.bdshare-button-style0-16 .bds_qzone { background-position:0 -90px;}
+	.bdshare-button-style0-16 a, .bdshare-button-style0-16 .bds_more{padding-left:0px;margin:0 15px 0 0;}
+    </style>					
+
+</div>
+<div class="clear"></div>
+
+</div>
+    <div class="video-pic">
+        <div id="dgqlayer"><div style="width:996px;margin:0 auto;position:relative;" class="relativePar vjs-ad-playing"><div tabindex="-1" type="video/mp4" preload="auto" autoplay="true" class="video-js vjs-fluid vjs-paused mini_player-dimensions vjs-controls-enabled vjs-workinghover vjs-user-inactive" id="mini_player" role="region" aria-label="video player"><video id="mini_player_html5_api" class="vjs-tech" autoplay="" preload="auto" type="video/mp4" tabindex="-1" src="http://video.chinanews.com/tvmining//News/MP4ZXW/DongNanHD/2019/03/14/oo81vjq_1552542552183_3D93oUw_3277.mp4"></video><div></div><div class="vjs-poster vjs-hidden" tabindex="-1" aria-disabled="false"></div><div class="vjs-text-track-display" aria-live="off" aria-atomic="true"></div><div class="vjs-loading-spinner" dir="ltr"></div><button class="vjs-big-play-button" type="button" aria-live="polite" title="Play Video" aria-disabled="false"><span class="vjs-control-text">Play Video</span></button><div class="vjs-control-bar" dir="ltr" role="group"><button class="vjs-play-control vjs-control vjs-button" type="button" aria-live="polite" title="Play" aria-disabled="false"><span class="vjs-control-text">Play</span></button><div class="vjs-volume-menu-button vjs-menu-button vjs-menu-button-inline vjs-control vjs-button vjs-volume-menu-button-horizontal vjs-vol-3" tabindex="0" role="button" aria-live="polite" title="Mute" aria-disabled="false"><div class="vjs-menu"><div class="vjs-menu-content"><div tabindex="0" class="vjs-volume-bar vjs-slider-bar vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" aria-label="volume level" aria-valuetext="100.00%"><div class="vjs-volume-level"><span class="vjs-control-text"></span></div></div></div></div><span class="vjs-control-text">Mute</span></div><div class="vjs-current-time vjs-time-control vjs-control"><div class="vjs-current-time-display" aria-live="off"><span class="vjs-control-text">Current Time</span> 0:00</div></div><div class="vjs-time-control vjs-time-divider"><div><span>/</span></div></div><div class="vjs-duration vjs-time-control vjs-control"><div class="vjs-duration-display" aria-live="off"><span class="vjs-control-text">Duration Time</span> 0:41</div></div><div class="vjs-progress-control vjs-control"><div tabindex="0" class="vjs-progress-holder vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="NaN" aria-valuemin="0" aria-valuemax="100" aria-label="progress bar" aria-valuetext="0:00"><div class="vjs-load-progress" style="width: 75.6447%;"><span class="vjs-control-text"><span>Loaded</span>: 0%</span><div style="left: 0%; width: 100%;"></div></div><div class="vjs-mouse-display" data-current-time="0:00" style="left: 0px;"></div><div class="vjs-play-progress vjs-slider-bar" data-current-time="0:00" style="width: 0%;"><span class="vjs-control-text"><span>Progress</span>: 0%</span></div></div></div><div class="vjs-live-control vjs-control vjs-hidden"><div class="vjs-live-display" aria-live="off"><span class="vjs-control-text">Stream Type</span>LIVE</div></div><div class="vjs-remaining-time vjs-time-control vjs-control"><div class="vjs-remaining-time-display" aria-live="off"><span class="vjs-control-text">Remaining Time</span> -0:41</div></div><div class="vjs-custom-control-spacer vjs-spacer ">&nbsp;</div><div class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Playback Rate" aria-disabled="false" aria-expanded="false" aria-haspopup="true"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"></ul></div><span class="vjs-control-text">Playback Rate</span><div class="vjs-playback-rate-value">1</div></div><div class="vjs-chapters-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Chapters" aria-disabled="false" aria-expanded="false" aria-haspopup="true" aria-label="Chapters Menu"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-title" tabindex="-1">Chapters</li></ul></div><span class="vjs-control-text">Chapters</span></div><div class="vjs-descriptions-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Descriptions" aria-disabled="false" aria-expanded="false" aria-haspopup="true" aria-label="Descriptions Menu"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemcheckbox" aria-live="polite" aria-disabled="false" aria-checked="true">descriptions off<span class="vjs-control-text">, selected</span></li></ul></div><span class="vjs-control-text">Descriptions</span></div><div class="vjs-subtitles-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Subtitles" aria-disabled="false" aria-expanded="false" aria-haspopup="true" aria-label="Subtitles Menu"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemcheckbox" aria-live="polite" aria-disabled="false" aria-checked="true">subtitles off<span class="vjs-control-text">, selected</span></li></ul></div><span class="vjs-control-text">Subtitles</span></div><div class="vjs-captions-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Captions" aria-disabled="false" aria-expanded="false" aria-haspopup="true" aria-label="Captions Menu"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-texttrack-settings" tabindex="-1" role="menuitem" aria-live="polite" aria-disabled="false">captions settings<span class="vjs-control-text">, opens captions settings dialog</span></li><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemcheckbox" aria-live="polite" aria-disabled="false" aria-checked="true">captions off<span class="vjs-control-text">, selected</span></li></ul></div><span class="vjs-control-text">Captions</span></div><div class="vjs-audio-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden" tabindex="0" role="menuitem" aria-live="polite" title="Audio Track" aria-disabled="false" aria-expanded="false" aria-haspopup="true" aria-label="Audio Menu"><div class="vjs-menu" role="presentation"><ul class="vjs-menu-content" role="menu"></ul></div><span class="vjs-control-text">Audio Track</span></div><button class="vjs-fullscreen-control vjs-control vjs-button" type="button" aria-live="polite" title="Fullscreen" aria-disabled="false"><span class="vjs-control-text">Fullscreen</span></button></div><div class="vjs-error-display vjs-modal-dialog vjs-hidden " tabindex="-1" aria-describedby="mini_player_component_349_description" aria-hidden="true" aria-label="Modal Window" role="dialog"><p class="vjs-modal-dialog-description vjs-offscreen" id="mini_player_component_349_description">This is a modal window.</p><div class="vjs-modal-dialog-content" role="document"></div></div><div class="vjs-caption-settings vjs-modal-overlay vjs-hidden" tabindex="-1" role="dialog" aria-labelledby="TTsettingsDialogLabel-mini_player_component_354" aria-describedby="TTsettingsDialogDescription-mini_player_component_354"><div role="document"><div class="vjs-control-text" id="TTsettingsDialogLabel-mini_player_component_354" aria-level="1" role="heading">Caption Settings Dialog</div><div class="vjs-control-text" id="TTsettingsDialogDescription-mini_player_component_354">Beginning of dialog window. Escape will cancel and close the window.</div><div class="vjs-tracksettings"><div class="vjs-tracksettings-colors"><fieldset class="vjs-fg-color vjs-tracksetting"><legend>Text</legend><label class="vjs-label" for="captions-foreground-color-mini_player_component_354">Color</label><select id="captions-foreground-color-mini_player_component_354"><option value="#FFF">White</option><option value="#000">Black</option><option value="#F00">Red</option><option value="#0F0">Green</option><option value="#00F">Blue</option><option value="#FF0">Yellow</option><option value="#F0F">Magenta</option><option value="#0FF">Cyan</option></select><span class="vjs-text-opacity vjs-opacity"><label class="vjs-label" for="captions-foreground-opacity-mini_player_component_354">Transparency</label><select id="captions-foreground-opacity-mini_player_component_354"><option value="1">Opaque</option><option value="0.5">Semi-Transparent</option></select></span></fieldset><fieldset class="vjs-bg-color vjs-tracksetting"><legend>Background</legend><label class="vjs-label" for="captions-background-color-mini_player_component_354">Color</label><select id="captions-background-color-mini_player_component_354"><option value="#000">Black</option><option value="#FFF">White</option><option value="#F00">Red</option><option value="#0F0">Green</option><option value="#00F">Blue</option><option value="#FF0">Yellow</option><option value="#F0F">Magenta</option><option value="#0FF">Cyan</option></select><span class="vjs-bg-opacity vjs-opacity"><label class="vjs-label" for="captions-background-opacity-mini_player_component_354">Transparency</label><select id="captions-background-opacity-mini_player_component_354"><option value="1">Opaque</option><option value="0.5">Semi-Transparent</option><option value="0">Transparent</option></select></span></fieldset><fieldset class="vjs-window-color vjs-tracksetting"><legend>Window</legend><label class="vjs-label" for="captions-window-color-mini_player_component_354">Color</label><select id="captions-window-color-mini_player_component_354"><option value="#000">Black</option><option value="#FFF">White</option><option value="#F00">Red</option><option value="#0F0">Green</option><option value="#00F">Blue</option><option value="#FF0">Yellow</option><option value="#F0F">Magenta</option><option value="#0FF">Cyan</option></select><span class="vjs-window-opacity vjs-opacity"><label class="vjs-label" for="captions-window-opacity-mini_player_component_354">Transparency</label><select id="captions-window-opacity-mini_player_component_354"><option value="0">Transparent</option><option value="0.5">Semi-Transparent</option><option value="1">Opaque</option></select></span></fieldset></div><div class="vjs-tracksettings-font"><div class="vjs-font-percent vjs-tracksetting"><label class="vjs-label" for="captions-font-size-mini_player_component_354">Font Size</label><select id="captions-font-size-mini_player_component_354"><option value="0.50">50%</option><option value="0.75">75%</option><option value="1.00">100%</option><option value="1.25">125%</option><option value="1.50">150%</option><option value="1.75">175%</option><option value="2.00">200%</option><option value="3.00">300%</option><option value="4.00">400%</option></select></div><div class="vjs-edge-style vjs-tracksetting"><label class="vjs-label" for="mini_player_component_354">Text Edge Style</label><select id="mini_player_component_354"><option value="none">None</option><option value="raised">Raised</option><option value="depressed">Depressed</option><option value="uniform">Uniform</option><option value="dropshadow">Dropshadow</option></select></div><div class="vjs-font-family vjs-tracksetting"><label class="vjs-label" for="captions-font-family-mini_player_component_354">Font Family</label><select id="captions-font-family-mini_player_component_354"><option value="proportionalSansSerif">Proportional Sans-Serif</option><option value="monospaceSansSerif">Monospace Sans-Serif</option><option value="proportionalSerif">Proportional Serif</option><option value="monospaceSerif">Monospace Serif</option><option value="casual">Casual</option><option value="script">Script</option><option value="small-caps">Small Caps</option></select></div></div><div class="vjs-tracksettings-controls"><button class="vjs-default-button">Defaults</button><button class="vjs-done-button">Done</button></div></div></div></div><div class="vjs-modal-dialog vjs-hidden " tabindex="-1" aria-describedby="mini_player_component_378_description" aria-hidden="true" aria-label="Modal Window" role="dialog"><button class="vjs-close-button vjs-control vjs-button" type="button" aria-live="polite" aria-disabled="false" title="Close Modal Dialog"><span class="vjs-control-text">Close Modal Dialog</span></button><p class="vjs-modal-dialog-description vjs-offscreen" id="mini_player_component_378_description">This is a modal window. This modal can be closed by pressing the Escape key or activating the close button.</p><div class="vjs-modal-dialog-content" role="document"></div></div></div></div></div>
+    </div>
+</div>
+</div>
+
+<div class="clear"></div>
+
+<div class="w1000 m_center">
+<div class="content_desc">
+
+    <p><span>责任编辑：【潘力维】</span></p>
+
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<!--特别推荐start-->
+<div class="tbtj m_center">
+<div class="tbtj_bt">特别推荐</div>
+<script type="text/javascript">
+(function($){
+$.fn.extend({
+        Scroll:function(opt,callback){
+                //参数初始化
+                if(!opt) var opt={};
+                var _btnUp = $("#"+ opt.up);//Shawphy:向上按钮
+                var _btnDown = $("#"+ opt.down);//Shawphy:向下按钮
+                var timerID;
+                var _this=this.eq(0).find("ul:first");
+                var     lineH=_this.find("li:first").height(), //获取行高
+                        line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,10), //每次滚动的行数，默认为一屏，即父容器高度
+                        speed=opt.speed?parseInt(opt.speed,10):500; //卷动速度，数值越大，速度越慢（毫秒）
+                        timer=opt.timer //?parseInt(opt.timer,10):3000; //滚动的时间间隔（毫秒）
+                if(line==0) line=1;
+                var upHeight=0-line*lineH;
+                //滚动函数
+                var scrollUp=function(){
+                        _btnUp.unbind("click",scrollUp); //Shawphy:取消向上按钮的函数绑定
+                        _this.animate({
+                                marginTop:upHeight
+                        },speed,function(){
+                                for(i=1;i<=line;i++){
+                                        _this.find("li:first").appendTo(_this);
+                                }
+                                _this.css({marginTop:0});
+                                _btnUp.bind("click",scrollUp); //Shawphy:绑定向上按钮的点击事件
+                        });
+
+                }
+                //Shawphy:向下翻页函数
+                var scrollDown=function(){
+                        _btnDown.unbind("click",scrollDown);
+                        for(i=1;i<=line;i++){
+                                _this.find("li:last").show().prependTo(_this);
+                        }
+                        _this.css({marginTop:upHeight});
+                        _this.animate({
+                                marginTop:0
+                        },speed,function(){
+                                _btnDown.bind("click",scrollDown);
+                        });
+                }
+               //Shawphy:自动播放
+                var autoPlay = function(){
+                        if(timer)timerID = window.setInterval(scrollUp,timer);
+                };
+                var autoStop = function(){
+                        if(timer)window.clearInterval(timerID);
+                };
+                 //鼠标事件绑定
+                _this.hover(autoStop,autoPlay).mouseout();
+                _btnUp.css("cursor","pointer").click( scrollUp ).hover(autoStop,autoPlay);//Shawphy:向上向下鼠标事件绑定
+                _btnDown.css("cursor","pointer").click( scrollDown ).hover(autoStop,autoPlay);
+        }       
+})
+})(jQuery);
+$(document).ready(function(){
+        $("#scrollDiv").Scroll({line:1,speed:1000,timer:3000,up:"btn1",down:"btn2"});
+
+});
+</script>
+<div id="scrollDiv">
+  <ul style="margin-top: 0px;">
+
+
+  <li>
+
+ 	    <div class="splist_div2">
+<a href="//www.chinanews.com/cj/shipin/cns-d/2019/03-14/news807411.shtml"><img src="http://videoclips.chinanews.com/oss/onair/zxw/szuser/3c81d14b58864bd2b7fcd145728a0083.jpg" alt="中国会出现通货紧缩？统计局回应">
+<div class="splist_div2_bg"></div>
+<div class="splist_div2_video"></div>
+<p>中国会出现通货紧缩？统计局回应</p>
+
+</a>
+</div>
+
+ 	    <div class="splist_div2">
+<a href="//www.chinanews.com/gj/shipin/2019/03-14/news807383.shtml"><img src="http://www.chinanews.com/gj/shipin/2019/03-14/U574P883T4D807383F113DT20190314094953.jpg" alt="特朗普宣布美国停飞波音737MAX8和MAX9">
+<div class="splist_div2_bg"></div>
+<div class="splist_div2_video"></div>
+<p>特朗普宣布美国停飞波音737MAX8和MAX9</p>
+
+</a>
+</div>
+
+ 	    <div class="splist_div2">
+<a href="//www.chinanews.com/shipin/2019/03-14/news807364.shtml"><img src="http://www.chinanews.com/shipin/2019/03-14/U574P883T4D807364F113DT20190314084804.jpg" alt="男子心脏骤停 医院抢救">
+<div class="splist_div2_bg"></div>
+<div class="splist_div2_video"></div>
+<p>男子心脏骤停 医院抢救</p>
+
+</a>
+</div>
+
+ 	    <div class="splist_div2">
+<a href="//www.chinanews.com/gj/shipin/2019/03-14/news807361.shtml"><img src="http://i2.chinanews.com/simg/tvmimg/2019/03-14/1238227_sm.jpg" alt="尼日利亚一楼房坍塌">
+<div class="splist_div2_bg"></div>
+<div class="splist_div2_video"></div>
+<p>尼日利亚一楼房坍塌</p>
+
+</a>
+</div>
+
+</li><li>
+
+ 	    <div class="splist_div2">
+<a href="//www.chinanews.com/hr/shipin/2019/03-13/news807297.shtml"><img src="http://www.chinanews.com/hr/shipin/2019/03-13/U574P883T4D807297F113DT20190313143415.jpg" alt="医生巧用技术 帮助患者确诊病情">
+<div class="splist_div2_bg"></div>
+<div class="splist_div2_video"></div>
+<p>医生巧用技术 帮助患者确诊病情</p>
+
+</a>
+</div>
+
+ 	    <div class="splist_div2">
+<a href="//www.chinanews.com/shipin/2019/03-13/news807267.shtml"><img src="http://www.chinanews.com/shipin/2019/03-13/U574P883T4D807267F113DT20190313103753.jpg" alt="小伙吞下打火机 医生妙手取出">
+<div class="splist_div2_bg"></div>
+<div class="splist_div2_video"></div>
+<p>小伙吞下打火机 医生妙手取出</p>
+
+</a>
+</div>
+
+ 	    <div class="splist_div2">
+<a href="//www.chinanews.com/shipin/2019/03-13/news807266.shtml"><img src="http://www.chinanews.com/shipin/2019/03-13/U574P883T4D807266F113DT20190313102754.jpg" alt="萌娃结伴外出找爸妈">
+<div class="splist_div2_bg"></div>
+<div class="splist_div2_video"></div>
+<p>萌娃结伴外出找爸妈</p>
+
+</a>
+</div>
+
+ 	    <div class="splist_div2">
+<a href="//www.chinanews.com/shipin/2019/03-13/news807262.shtml"><img src="http://www.chinanews.com/shipin/2019/03-13/U574P883T4D807262F113DT20190313095126.jpg" alt="消防员7分钟鉴别真假防火门">
+<div class="splist_div2_bg"></div>
+<div class="splist_div2_video"></div>
+<p>消防员7分钟鉴别真假防火门</p>
+
+</a>
+</div>
+
+</li></ul> 
+  <span id="btn2" style="cursor: pointer;"><img src="http://i2.chinanews.com/shipin/2018/image/bnt2.jpg"></span>
+<span id="btn1" style="cursor: pointer;"><img src="http://i2.chinanews.com/shipin/2018/image/bnt1.jpg"></span>
+</div>
+</div>
+
+<!--特别推荐end-->
+
+<div class="clear"></div>
+
+  
+
+
+<div class="w1000 m_center" style="margin-bottom:90px; overflow:hidden;">
+<div class="pinglun">
+
+<div id="SOHUCS" sid="video807422"></div>
+<script>
+  var _config = { categoryId : 'sp'};
+  (function(){
+    var appid = 'cyqE875ep',
+    conf = 'prod_5d616dd38211ebb5d6ec52986674b6e4';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
+  })()
+</script>
+
+</div>
+<div class="spphb1">
+<p>视频排行榜</p>
+<ul class="life_left_ul_ph">
+                <li>
+              <a href="//www.chinanews.com/cul/shipin/cns/2019/03-28/news809316.shtml" target="_blank" title="【中国风】德云社孟鹤堂：万物皆可“盘”独觉相声深">【中国风】德云社孟鹤堂：万物皆可“盘”独觉相声深</a>
+        	</li><li>
+              <a href="//www.chinanews.com/shipin/cns/2019/03-28/news809262.shtml" target="_blank" title="河北无腿老兵马三小：爬行19年种树1.7万棵">河北无腿老兵马三小：爬行19年种树1.7万棵</a>
+        	</li><li>
+              <a href="//www.chinanews.com/sh/shipin/cns-d/2019/03-27/news809229.shtml" target="_blank" title="信号灯Plus！浑身都亮">信号灯Plus！浑身都亮</a>
+        	</li><li>
+              <a href="//www.chinanews.com/gj/shipin/cns-d/2019/03-28/news809338.shtml" target="_blank" title="美国发言人即兴用中文回答记者提问">美国发言人即兴用中文回答记者提问</a>
+        	</li><li>
+              <a href="//www.chinanews.com/cj/shipin/cns-d/2019/03-28/news809336.shtml" target="_blank" title="现代密码学之父如何保存密码？答案竟然是……">现代密码学之父如何保存密码？答案竟然是……</a>
+        	</li><li>
+              <a href="//www.chinanews.com/sh/shipin/cns-d/2019/03-28/news809318.shtml" target="_blank" title="“中华赏樱胜地”无锡太湖鼋头渚夜樱美如画">“中华赏樱胜地”无锡太湖鼋头渚夜樱美如画</a>
+        	</li><li>
+              <a href="//www.chinanews.com/shipin/xsy/2019/0328/xsy34.html" target="_blank" title="清华设计师投身胡同厕所改造 精力付出堪比建楼">清华设计师投身胡同厕所改造 精力付出堪比建楼</a>
+        	</li><li>
+              <a href="//www.chinanews.com/tw/shipin/cns/2019/03-28/news809301.shtml" target="_blank" title="盘点韩国瑜访大陆台前幕后的“精彩瞬间”">盘点韩国瑜访大陆台前幕后的“精彩瞬间”</a>
+        	</li><li>
+              <a href="//www.chinanews.com/shipin/cns-d/2019/03-28/news809266.shtml" target="_blank" title="想过桥就得跳舞！游客上桥“魔性”起舞">想过桥就得跳舞！游客上桥“魔性”起舞</a>
+        	</li><li>
+              <a href="//www.chinanews.com/sh/shipin/cns-d/2019/03-29/news809488.shtml" target="_blank" title="祁连山下玉石画师用废弃玉石拼出精美画作">祁连山下玉石画师用废弃玉石拼出精美画作</a>
+        	</li><!--published at 1553846701 -->
+                          </ul>
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+<div class="w1000 m_center">
+        <!-- 竞价广告开始 -->
+        <div class="cns_video_advert">
+            
+        </div>
+        <!-- 竞价广告结束 -->
+        <!-- 视频广告开始 -->
+        <div class="cns_video_advert" id="sptc">
+            
+
+        </div>
+        <!-- 视频广告结束 -->
+        <!-- 对联游标广告开始 -->
+        <div class="cns_video_advert">
+            
+        </div>
+        <!-- 对联游标广告结束 -->
+    </div>
+<div class="pagebottom">
+        <div class="pagebottom_nav">
+
+         <a href="/common/footer/intro.shtml">关于我们</a><span>|</span> <a href="/common/footer/aboutus.shtml">About us</a><span>|</span> <a href="/common/footer/contact.shtml">联系我们</a><span>|</span> <a href="http://ad.chinanews.com.cn/">广告服务</a><span>|</span> <a href="/common/footer/news-service.shtml">供稿服务</a><span>|</span> <a href="/common/footer/law.shtml">法律声明</a><span>|</span> <a href="//www.chinanews.com/hr/">招聘信息</a><span>|</span> <a href="/common/footer/sitemap.shtml">网站地图</a><div style="display:none;"><span>|</span> <a href="/common/footer/feedback.shtml">留言反馈</a></div> </div>
+
+        <div class="pagebottom_nr">
+<p>[<a href="/news/xuke.html">网上传播视听节目许可证（0106168)</a>] [<a href="http://www.miibeian.gov.cn/">京ICP证040655号</a>] [<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002003042" style="display:inline-block;height:20px;line-height:20px;">京公网安备 11000002003042号</a>] [<a href="http://www.miitbeian.gov.cn/">京ICP备05004340号-1</a>] </p>
+<p>总机：86-10-87826688　违法和不良信息举报电话：15699788000   </p>
+        <p>本网站所刊载信息，不代表中新社和中新网观点。 <br>刊用本网站稿件，务经书面授权。</p>
+
+<p>未经授权禁止转载、摘编、复制及建立镜像，违者将依法追究法律责任。</p>
+
+<p style="font-family:arial;">Copyright ©1999-
+2018
+
+ chinanews.com. All Rights Reserved</p>
+<div style="position:absolute; bottom:20px; left:128px;"><img src="http://i2.chinanews.com/shipin/2018/image/kexin.jpg"></div>
+</div>
+
+        </div>
+<script type="text/javascript">
+$(function() {
+    topnav1();
+    var vList = new Array();
+var vClass = new Array();
+vList.push('美国国防部颁布变性人服役新规|http://i2.chinanews.com/simg/tvmimg/2019/03-14/1238576_sm.jpg|/gj/shipin/2019/03-14/news807422.shtml');
+<!-- 分类列表s -->
+
+<!--[883,27,199] published at 2014-11-03 11:09:03 from #10 by 钟元霞-->  
+<!-- 分类列表e -->
+var isExist=false;
+var inext=1;
+var current=new Date().getTime();
+//填充li
+for(var i=0;i<vClass.length;i++){
+	var vItem=vClass[i].split('|');
+	if(vItem.length>2){
+		//vList
+		if(isExist){
+			vList.push(vClass[i]+'%3fr='+current);
+			inext=i;
+		}
+	}
+}
+if(vList.length<2){
+	for(var i=0;i<4&&i<vClass.length;i++){
+			vList.push(vClass[i]+'%3fr='+current);
+		}
+}
+    var videoWrap=document.getElementById("dgqlayer");
+    //视频播放器使用
+    if(isIEVer(7) || isIEVer(8) || isIEVer(6)){ //低版本使用flash
+      //addElement();
+      vList.push('美国国防部颁布变性人服役新规|http://i2.chinanews.com/simg/tvmimg/2019/03-14/1238576_sm.jpg|/gj/shipin/2019/03-14/news807422.shtml');
+/**需在head中引入才可，此处动态创建没作用***/
+/*var scriptObj = document.createElement("script");
+scriptObj.src="//i2.chinanews.com/js/getUrlVars.js";
+var headObj = document.getElementsByTagName("head")[0];
+headObj.appendChild(scriptObj);*/
+var r=$.getUrlVar('r');
+var current=new Date().getTime();
+var adhide=0;
+if(r&&Math.abs(current-r)<1800000){
+	adhide=1;
+}
+function Rand(){
+	var date = new Date();
+	var Num  = date.getFullYear() + "" + date.getMonth()+ "" + date.getDate()+"1";
+	return Num;
+}
+function getNextURL(url){
+	window.location.href=url;
+}
+videoWrap.innerHTML = '<div id="dgqlayerInner" style="width:996' + 'px;margin:0 auto;"></div>';
+	var rand=Rand();
+	var so = new SWFObject("/fileftp/2018/03/2018-03-05/169sourcecode.swf", "mymovie", "996", "560", "8", "#000000");	
+	so.addParam("quality", "high");
+	so.addParam("allowFullScreen", "true");
+	so.addParam("allowScriptAccess","always");
+	so.addParam("wmode", "transparent");
+	so.addVariable("vInfo", "http://video.chinanews.com/tvmining//News/MP4ZXW/DongNanHD/2019/03/14/oo81vjq_1552542552183_3D93oUw_3277.mp4");
+	so.addVariable("vsimg","/gj/shipin/2019/03-14/U738P883T4D807422F158DT20190314143059.jpg");		
+	so.addVariable("auto", "1");
+	so.addVariable("tiaotime", "1");	
+	so.addVariable("vList", vList.toString());
+
+          //if(adhide){
+         //so.addVariable("adshow", "0");
+	 //}
+	so.write("dgqlayerInner");
+    }else{
+                       var videojsList = ["http://video.chinanews.com/tvmining//News/MP4ZXW/DongNanHD/2019/03/14/oo81vjq_1552542552183_3D93oUw_3277.mp4"];
+            videoWrap.innerHTML = '<div style="width:' + 996 +'px;margin:0 auto;position:relative;" class="relativePar"><video id="mini_player" class="video-js  vjs-fluid" controls autoplay  preload="auto" width="996" height="560" type="video/mp4"></video></div>';var player = videojs('mini_player');
+        var modal_content = '<div class="modalWrap_inner"><div class="multipleColumn"><div class="hd hdprev"><a class="prev"><i class="iconfont icon-left"></i></a></div><div class="bd"><div class="ulWrap"><ul><li><div class="pic"><a href="/mil/shipin/cns-d/2019/03-14/news807418.shtml" target="_blank" title="多型装备亮相驻藏陆军春季练兵场"><img src="http://videoclips.chinanews.com/oss/onair/zxw/szuser/a63e1e5c63b8487bb2b0f3ed885181ad.jpg" /></a></div><div class="title"><a href="/mil/shipin/cns-d/2019/03-14/news807418.shtml" target="_blank" title="多型装备亮相驻藏陆军春季练兵场">多型装备亮相驻藏陆军春季练兵场</a></div></li><li><div class="pic"><a href="/sh/shipin/cns-d/2019/03-14/news807404.shtml" target="_blank" title="特巡警开"装甲车"护送学生"><img src="http://videoclips.chinanews.com/oss/onair/zxw/szuser/c629996269344e5d97c04096788068ca.jpg" /></a></div><div class="title"><a href="/sh/shipin/cns-d/2019/03-14/news807404.shtml" target="_blank" title="特巡警开"装甲车"护送学生">特巡警开"装甲车"护送学生</a></div></li><li><div class="pic"><a href="/cj/shipin/cns-d/2019/03-13/news807304.shtml" target="_blank" title="百余名“樟帮”药工比拼绝活"><img src="http://videoclips.chinanews.com/oss/onair/zxw/szuser/f521b550be49435c9ec172b97043e38b.jpg" /></a></div><div class="title"><a href="/cj/shipin/cns-d/2019/03-13/news807304.shtml" target="_blank" title="百余名“樟帮”药工比拼绝活">百余名“樟帮”药工比拼绝活</a></div></li><li><div class="pic"><a href="/shipin/cns-d/2019/03-13/news807222.shtml" target="_blank" title="扬子鳄陆续出洞寻春"><img src="http://videoclips.chinanews.com/oss/onair/zxw/szuser/95131ec0baaf4f83a79f78a030b3f49e.jpg" /></a></div><div class="title"><a href="/shipin/cns-d/2019/03-13/news807222.shtml" target="_blank" title="扬子鳄陆续出洞寻春">扬子鳄陆续出洞寻春</a></div></li><li><div class="pic"><a href="/sh/shipin/cns-d/2019/03-12/news807213.shtml" target="_blank" title="云南普洱发现罕见竹节虫种类"><img src="http://videoclips.chinanews.com/oss/onair/zxw/szuser/a1687bb8e15341ff82c70e4dca38d1c0.jpg" /></a></div><div class="title"><a href="/sh/shipin/cns-d/2019/03-12/news807213.shtml" target="_blank" title="云南普洱发现罕见竹节虫种类">云南普洱发现罕见竹节虫种类</a></div></li><li><div class="pic"><a href="/sh/shipin/cns-d/2019/03-12/news807182.shtml" target="_blank" title="摄影师外出采风 近距离与雪豹“对视”"><img src="http://videoclips.chinanews.com/oss/onair/zxw/szuser/4143de285404420fa908317d1e43ba94.jpg" /></a></div><div class="title"><a href="/sh/shipin/cns-d/2019/03-12/news807182.shtml" target="_blank" title="摄影师外出采风 近距离与雪豹“对视”">摄影师外出采风 近距离与雪豹“对视”</a></div></li></ul><ul><li><div class="pic"><a href="/sh/shipin/cns-d/2019/03-12/news807178.shtml" target="_blank" title="探秘上海首家过山车餐厅"><img src="http://videoclips.chinanews.com/oss/onair/zxw/szuser/21fe4756dc7e481690f634e526a241d9.jpg" /></a></div><div class="title"><a href="/sh/shipin/cns-d/2019/03-12/news807178.shtml" target="_blank" title="探秘上海首家过山车餐厅">探秘上海首家过山车餐厅</a></div></li><li><div class="pic"><a href="/sh/shipin/cns-d/2019/03-12/news807179.shtml" target="_blank" title="杭州临平一厂房发生火灾"><img src="http://videoclips.chinanews.com/oss/onair/zxw/szuser/b6c3a1ba79c94220aa106a1ed43397d6.jpg" /></a></div><div class="title"><a href="/sh/shipin/cns-d/2019/03-12/news807179.shtml" target="_blank" title="杭州临平一厂房发生火灾">杭州临平一厂房发生火灾</a></div></li><li><div class="pic"><a href="/sh/shipin/cns/2019/03-12/news807154.shtml" target="_blank" title="孝顺儿为父自制康复器材"><img src="http://i2.chinanews.com/simg/reportmanuscript/2019/03-12/109830_sm.jpg" /></a></div><div class="title"><a href="/sh/shipin/cns/2019/03-12/news807154.shtml" target="_blank" title="孝顺儿为父自制康复器材">孝顺儿为父自制康复器材</a></div></li><li><div class="pic"><a href="/sh/shipin/cns-d/2019/03-12/news807126.shtml" target="_blank" title="三岁娃“巡山”找妈妈"><img src="http://videoclips.chinanews.com/oss/onair/zxw/szuser/c0e117a48f8a4f368e44b4dbfd01a1ea.jpg" /></a></div><div class="title"><a href="/sh/shipin/cns-d/2019/03-12/news807126.shtml" target="_blank" title="三岁娃“巡山”找妈妈">三岁娃“巡山”找妈妈</a></div></li><li><div class="pic"><a href="http://www.chinanews.com/shipin/wsj/2019/0312/wsj257.html" target="_blank" title="“生命摆渡人”述背后故事"><img src="/shipin/2019/03-12/U574P883T4D807106F113DT20190312094643.jpg" /></a></div><div class="title"><a href="http://www.chinanews.com/shipin/wsj/2019/0312/wsj257.html" target="_blank" title="“生命摆渡人”述背后故事">“生命摆渡人”述背后故事</a></div></li><li><div class="pic"><a href="/sh/shipin/cns-d/2019/03-11/news806967.shtml" target="_blank" title="全国政协委员安阿玥：不宜在马桶上长时间玩手机"><img src="http://videoclips.chinanews.com/oss/onair/zxw/szuser/2be1cc28d42a4cd599220ea311eb67e2.jpg" /></a></div><div class="title"><a href="/sh/shipin/cns-d/2019/03-11/news806967.shtml" target="_blank" title="全国政协委员安阿玥：不宜在马桶上长时间玩手机">全国政协委员安阿玥：不宜在马桶上长时间玩手机</a></div></li></ul></div></div><div class="hd hdnext"><a class="next"><i class="iconfont icon-right"></i></a></div></div><a href="javascript:void(0)" class="doitagain"><i class="iconfont icon-refresh"></i>播放</a></div>';
+        var scriptObj = document.createElement("script");
+        scriptObj.id = 'superslide';
+        scriptObj.innerHTML = 'jQuery(".multipleColumn").slide({titCell:".hd ul",mainCell:".bd .ulWrap",effect:"leftLoop",autoPlay:true,vis:1});';
+        var modal_self = document.createElement("div");
+        modal_self.className = "modalWrap";
+        modal_self.innerHTML = modal_content;
+        var ModalDialog = videojs.getComponent("ModalDialog");
+        var modal = new ModalDialog(player,{
+              content:modal_self,
+              temporary:false
+        });
+        player.addChild(modal);
+        $("body").delegate('.doitagain', 'click', function(event) {
+            modal.close();  
+            player.play();
+        }); 
+          $.ajax({
+              url:'/ad2008/625.html',
+              type: 'get',
+              dataType: 'xml',
+              timeout: 1000,
+              cache: false,
+              async:false,//同步
+              error: function(error) {
+    var curr = 0; // 当前播放的视频
+    var isAllEnded = false;//所有视频是否已顺序播放完成（所有视频只播放一次）
+    var vLen = videojsList.length;
+    player.on("ended",play);
+    play();
+    function play(e) {
+        if(isAllEnded){
+              modal.open(); 
+              if($("#superslide").length==0){//需加在modal.open之后
+                 $("body").append(scriptObj);
+              } 
+              $(".doitagain").html('<i class="iconfont icon-refresh"></i>重播');
+              return false;
+        }
+        if (curr == 0) {
+          $(".relativePar").addClass("vjs-ad-playing");    
+        } else {
+          $(".relativePar").removeClass("vjs-ad-playing");
+        }
+        player.src(videojsList[curr]);
+        player.load(videojsList[curr]);
+        player.play();
+        curr++;
+        if (curr >= videojsList.length) {
+          //curr = 0; // 播放完了，重新播放
+          isAllEnded = true;
+        }
+    }
+              },
+              success: function(xml) {
+                    console.log("xml",!xml);
+                    if(xml){
+                      var startAd={},pauseAd={},controlAd={},rightAd={};
+                      var scriptObjXml = document.createElement("script");
+                      scriptObjXml.setAttribute("src","//www.chinanews.com/part/shipin/6/68/xmltojson.js");
+                      $("head").append(scriptObjXml );
+                      var jsonText = xmlToJson(xml);
+                      if(!!jsonText.root.startAD){
+                      	startAd.startVideoUrl = jsonText.root.startAD.videoUrl["#text"];
+                      	startAd.startVideolink = jsonText.root.startAD.videoLink["#text"];
+                      	videojsList.unshift(startAd.startVideoUrl);
+                      }
+                      if(!!jsonText.root.rightAD){
+                      	rightAd.width = jsonText.root.rightAD.width["#text"];
+	                    rightAd.height = jsonText.root.rightAD.height["#text"];
+	                    rightAd.x = jsonText.root.rightAD.x["#text"] + "px";
+	                    /*if(!/%/g.test(rightAd.x)){//值为右分比，添加margin-left:-width
+	                       rightAd.x = jsonText.root.rightAD.x["#text"] + "px";
+	                    }*/
+	                    rightAd.y = jsonText.root.rightAD.y["#text"] + "px";
+	                    rightAd.imgPath = jsonText.root.rightAD.imgPath["#text"];
+	                    rightAd.link = jsonText.root.rightAD.link["#text"];
+                      }
+                      /*if(!!jsonText.root.pauseAD){
+                      	 pauseAd.pauseAD = jsonText.root.pauseAD["#text"];
+                      	 pauseAd.width = jsonText.root.pauseADWHL.w["#text"];
+                      	 pauseAd.height = jsonText.root.pauseADWHL.h["#text"];
+                      	 pauseAd.link = jsonText.root.pauseADWHL.link["#text"];
+                      }*/
+
+                      var curr = 0; // 当前播放的视频
+                      var isAllEnded = false;//所有视频是否已顺序播放完成（所有视频只播放一次）
+                      var vLen = videojsList.length;
+                      player.on("ended",play);
+                      play();
+                      function play(e) {
+                          if(isAllEnded){
+                                modal.open(); 
+                                if($("#superslide").length==0){//需加在modal.open之后
+                                   $("body").append(scriptObj);
+                                } 
+                                $(".doitagain").html('<i class="iconfont icon-refresh"></i>重播');
+                                return false;
+                          }
+                          if (curr == 0) {
+                            $(".relativePar").addClass("vjs-ad-playing");
+                            $(".vjs-ad-playing .video-js").on("click", function() {
+                              if(startAd.adlink && startAd.adlink!=''){
+                                window.open(startAd.adlink);
+                              }
+                            });
+                          } else {
+                            $(".relativePar").removeClass("vjs-ad-playing");
+                            $(".video-js").off("click");
+                          }
+                          player.src(videojsList[curr]);
+                          player.load(videojsList[curr]);
+                          player.play();
+                          /*暂停时显示广告start*/
+                          /*player.on('pause',function(event) {
+                            if(curr > 0){
+                              event.preventDefault();
+                              if(pauseAd.pauseAD){
+                                  if($(".pauseAd").length==0){
+                                    var pauseAdHtml = '<div class="pauseAd" style="margin-left:-' + pauseAd.width/2 + 'px;margin-top:-' +pauseAd.height/2+ 'px;"><a href="' +pauseAd.link + '" target="_blank"><img src="http://www.chinanews.com/part/home2013/451/U601P4T451D5F17256DT20180628080548.jpg" alt="暂停广告"></a></div>';
+                                    $(".relativePar").append(pauseAdHtml);
+                                  }
+                              }
+                              if($(".rightTopCornerAd").length>0){
+                                $(".rightTopCornerAd").remove();
+                              }
+                            }
+                          });*/
+                          /*暂停时显示广告end*/
+                          /*播放时去掉广告、播放时显示右上角广告start*/
+                          player.on('play',function(event) {
+                            if(curr >0){
+                              event.preventDefault();
+                              /*add for pause*/
+                              /*if($(".pauseAd").length>0){
+                                $(".pauseAd").remove();
+                              }*/
+                              /*add for right top corner*/
+                              if(rightAd.imgPath && rightAd.imgPath!=''){
+                                if($(".rightTopCornerAd").length==0){
+                                  var rightTopAdHtml = '<div class="rightTopCornerAd" style="right:' + rightAd.x +';top:' + rightAd.y + ';display:block;"><a href="' + rightAd.link +'" target="_blank"><img src="' + rightAd.imgPath + '"></a></div>';
+                                  $(".relativePar").append(rightTopAdHtml);
+                                }
+                              }
+                            }
+                          });
+                          /*播放时去掉广告、播放时显示右上角广告end*/
+                          curr++;
+                          if (curr >= videojsList.length) {
+                            //curr = 0; // 播放完了，重新播放
+                            isAllEnded = true;
+                          }
+                      }
+                    }
+      }
+    })
+
+    }
+});
+function addElement() {
+  var divEle = document.createElement('div');
+  divEle.innerHTML = '浏览器版本过低，建议使用火狐或谷歌浏览器';
+  divEle.className = 'browserTips';
+  var firstChild = document.getElementById('fixie');
+  try {
+    firstChild.appendChild(divEle);
+  } catch (e) {}
+}
+function isIEVer(ieVer){
+    var b = document.createElement('b');
+    b.innerHTML = '<!--[if IE ' + ieVer + ']><i></i><![endif]-->';
+    return b.getElementsByTagName('i').length === 1;
+}
+
+</script>
+<div id="content_1"></div>
+<!--gj--><!--http://video.chinanews.com/tvmining//News/MP4ZXW300/DongNanHD/2019/03/14/oo81vjq_1552542552183_3D93oUw_1180.mp4|http://video.chinanews.com/tvmining//News/M3U8/DongNanHD/2019/03/14/oo81vjq_1552542552183_3D93oUw_2955.m3u8--><!--gj--><!--   883-4-807422 http://i2.chinanews.com/simg/tvmimg/2019/03-14/1238576_sm.jpg-->
+<script>
+function topnav1(){
+  var _show = null;
+  var _hideTimer = null;
+  var planItems = $('ul.c-fl-ul li.division');
+  planItems.each(function(index) {
+    var li = $(this);
+    var div = li.find('div.navshow_div');
+    div.css("display", "none");
+    li.bind('mouseenter', function() {
+      if (_show != null) {
+        clearTimeout(_show);
+      }
+      _show = setTimeout(function() {
+        $('ul.nav_navcon li').addClass('');
+
+        li.addClass('topnav_sel');
+      }, 0);
+    });
+    li.bind('mouseleave', function() {
+      if (_show != null) {
+        clearTimeout(_show);
+      }
+      _hideTimer = setTimeout(function() {
+        li.removeClass('topnav_sel');
+
+      }, 0);
+    });
+  });
+};
+function search_select(id) {
+   document.getElementById("id7").className="dii7"+id;
+}
+function weibo(id) {
+  document.getElementById("id8").className="dii8"+id;
+}
+function closelight(){
+  alert($(".videoplay").css("visibility"));
+  alert($(".videoplay").css("visibility")!="hidden");
+  if($(".videoplay").css("visibility")!="hidden"){
+    $("body").css("background","#000");
+    $(".index-nav").css("visibility","hidden");
+    $("#index_topa").css("visibility","hidden");
+    $(".videoplay").css("visibility","hidden");
+    $(".videoplay #dgqlayer").css("visibility","visible");
+    $(".tbtj,.ad,.pinglun,.spphb1,.pagebottom").css("visibility","hidden");
+  }else{
+     $("body").css("background","#fbfbfb");
+    $(".index-nav").css("visibility","visible");
+    $("#index_topa").css("visibility","visible");
+    $(".videoplay").css("visibility","visible");
+    $(".videoplay #dgqlayer").css("visibility","visible");
+    $(".tbtj,.ad,.pinglun,.spphb1,.pagebottom").css("visibility","visible");
+  }
+}
+</script>
+<!-- -->
+
+</body></html>

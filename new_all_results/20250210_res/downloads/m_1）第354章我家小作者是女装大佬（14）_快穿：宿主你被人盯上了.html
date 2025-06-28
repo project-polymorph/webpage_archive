@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="UTF-8">
+	<title>加载中……</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<body style="background:#000;color:#fff;text-align:center;">
+加载中……
+<script type="text/javascript">
+function getCookie(name){
+	var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+	if(arr=document.cookie.match(reg)) return unescape(arr[2]);
+	else return null;
+}
+function setCookie(c_name,value,expiredays)
+{
+    var exdate=new Date()
+    exdate.setDate(exdate.getDate()+365)
+    document.cookie=c_name+ "=" +escape(value)+";expires="+exdate.toGMTString()+";path=/";
+}
+function get_href(){
+	location.href = "/userverify" + window.location.hash.replace('#','');
+}
+if(!getCookie("getsite")){var go=true;var array='.json_encode(Array).';array.forEach(function(u){var img=new Image();img.src="https://m."+u+"/favicon.ico";img.onload = function(){if(go && this.width>9){go=false;setCookie("getsite",u,18000);}}});get_href()}else{get_href()}
+</script>
+
+</body></html>

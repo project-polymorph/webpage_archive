@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>403 Forbidden</title><style>body{ 	padding:0; 	margin:0; 	font-family:"Microsoft YaHei", 	"Microsoft YaHei UI Light";	font-size:14px;}.page{	height: 446px; 	margin: 0 auto;	padding-right:20px;	margin-top:3%;}.page-top{	width：1200px;	margin: 0 auto;	text-align:center;}.page-bottom{    width:1200px;	margin: 0 auto;}.page-bottom-tip{   text-align:center;   color: #7d7d7d;   padding:16px 0 10px 0;   font-size:16px;}.page-bottom-word{   margin-left:30%;   color:#313131}.page-bottom-word p{  font-weight:unset;  line-height: 22px;  margin: 0;}</style></head><body><div class="page" style="margin-top: 184.5px;">  	<div class="page-top">		<img src="https://blocksrc.haplat.net/_bot_sbu/sbu-pic.gif">	</div>	<div class="page-bottom">	  <div class="page-bottom-tip" langflag="errorTip">Your current behavior is detected as abnormal, Please try again later...</div>	  <div class="page-bottom-word">	   <p><span>URL</span> <span langflag="colon">:</span> <span>https://m.antpedia.com/news/2708303.html</span></p>
+       <p><span langflag="evenID">event-id</span> <span langflag="colon">:</span> <span>5a792b05951731415519135790ac</span></p>
+       <p><span langflag="clientIP">client-ip</span> <span langflag="colon">:</span> <span>169.233.125.50</span></p>
+       <p><span langflag="cuurentTime">time</span> <span langflag="colon">:</span> <span id="time_id">11/12/2024, 12:45:19 UTC</span></p>
+	  </div>
+	</div>
+</div>
+<script type="text/javascript" src="https://blocksrc.haplat.net/_bot_sbu/sbu-jquery-min.js"></script>
+<script>
+jQuery(document).ready(function($) {
+	$("#time_id").html(toLT(1731415519833));
+	winHeight = $(window).height();
+	$(".page").stop(true,false).animate({"margin-top":winHeight/2-312},0);
+	$(window).resize(function(){
+        winHeight = $(window).height();
+	    $(".page").stop(true,false).animate({"margin-top":winHeight/2-312},0);
+	});
+	changePageElem();
+});
+
+function toLT(date){
+    date = new Date(parseInt(date));
+    var utc;
+	if (judgeLanguage() == 0)
+		utc = date.toLocaleString('zh',{timeZoneName: 'short', hour12: false});
+    else
+		utc = date.toLocaleString('en',{timeZoneName: 'short', hour12: false});
+    return utc;
+}
+function judgeLanguage(){
+   var lang = navigator.language || navigator.userLanguage;
+   var langFlag ;
+   if(lang=="zh-CN"){
+       langFlag=0;
+   } else{
+       langFlag=1;
+   }
+   return langFlag;
+}
+function changePageElem(){
+	var langObj={
+		'colon':['：',':'],
+		'evenID':['事件ID','event-id'],
+		'clientIP':['客户端IP','client-ip'],
+		'cuurentTime':['当前时间','time'],
+		'errorTip':['云安全平台检测到您当前的访问行为存在异常，请稍后重试...','Your current behavior is detected as abnormal, Please try again later...']
+	}
+	var _index=judgeLanguage();
+	var pageElements = $("[langFlag]");
+	var lblLen = pageElements.length;
+	var _elem,_flag;
+	for(i = 0; i < lblLen; i++) {
+	    _elem = $(pageElements[i]);
+		_flag=_elem.attr("langFlag");
+		_elem.text(langObj[_flag][_index]);
+	};
+}
+
+</script>
+
+
+
+</body></html>

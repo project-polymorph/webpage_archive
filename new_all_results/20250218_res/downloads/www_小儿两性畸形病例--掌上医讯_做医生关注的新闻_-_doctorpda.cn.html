@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>小儿两性畸形病例--掌上医讯 | 做医生关注的新闻</title>
+<meta name="description" content="小儿两性畸形病例">
+<meta name="keywords" content="小儿两性畸形病例">
+<link type="text/css" rel="stylesheet" href="/templets/www/css/style-1.css">
+<link type="text/css" rel="stylesheet" href="/templets/www/css/weiquan.css">
+<link type="text/css" rel="stylesheet" href="/templets/www/css/layout.css">
+	<link href="/js/lib/validform/css/style.css" type="text/css" rel="stylesheet">
+
+<script src="/templets/www/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="/templets/www/js/showLogin.js" type="text/javascript"></script>
+<script type="text/javascript">
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+</script>
+</head>
+
+<body style="">
+<div class="top">
+
+
+<div class="top-shang">
+<div class="top-shang-left">
+<ul>
+<li class="homea"><a href="http://www.doctorpda.cn">掌上医讯</a></li>
+<li class="duana"><a href="/app/down">客户端下载</a></li>
+<!-- <li class="baoa"><a href="http://shop108401802.taobao.com/" target="_blank">手机报订阅</a></li> -->
+<li class="tonga"><a href="http://c.doctorpda.cn" target="_blank">医会通</a></li>
+<li class="binga"><a href="/case" "="">病例</a></li>
+<li class="baoa"><a href="/video/" target="_blank">视频</a></li>
+<li class="tonga"><a href="http://yqt.doctorpda.cn" target="_blank">医企通</a></li>
+<!-- <li><a href="#" onclick="AddFavorite(window.location,document.title);">加入收藏</a></li> -->
+
+
+</ul>
+</div>
+<div class="top-shang-right">
+<div class="top-shang-right">
+<div class="denglu">
+<ul>
+<li class="zhuce"><a href="/reg">注册</a></li>
+<li onmouseout="changeClass()" onclick="showLogin()"><span id="_login" class="landing landing_change">登录</span></li>
+
+</ul>
+
+</div>
+<div class="clear"></div>
+<div id="showLogin" class="landing_biaodan" onmousemove="changeFlag()" style="display: none;">
+<form action="/api/login" method="get" id="login_form">
+<ul class="landing_biaodan_list">
+
+<li class="laning_tishi" onmousemove="changeFlag()">已注册用户直接登录</li>
+<li class="lan_ku">
+<input datatype="m|e" errormsg="请填写准确的手机号" tip="请输入手机号" value="" id="login_id" name="login_id" onfocus="OnFocusFun(this,'手机号码')" class="landing_kuang" placeholder="请输入手机号码">
+</li>
+<li><input type="password" name="password" id="password" datatype="*6-16" errormsg="密码范围在6~16位之间" onfocus="OnFocusFun(this,'密 码')" class="landing_key" placeholder="请输入密码"></li>
+<li class="lan_wenzi">
+<span class="lan_wenzi_left"><input type="checkbox" name="remember_me" value="true" class="landing_input"> 一月免登录</span>
+<span class="lan_wenzi_right"><a href="/find_pwd/">忘记密码 ?</a></span>
+<div class="clear"></div>
+</li>
+
+<li class="denglu_bg"><input type="submit" value="登录" name="log" class="denglu_input"></li>
+
+
+
+</ul>
+
+
+</form>
+
+
+
+</div>
+
+</div>
+<link href="/js/lib/subModal/subModal.css" type="text/css" rel="stylesheet">
+<link href="/js/lib/validform/css/style.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="/js/lib/subModal/common.js"></script>
+<script type="text/javascript" src="/js/lib/subModal/subModal.js"></script>
+<script type="text/javascript" src="/js/lib/jquery.form.js"></script>
+<script type="text/javascript" src="/js/lib/validform/Validform_v5.3.2_min.js"></script>
+
+<script type="text/javascript">
+//得到焦点时触发事件
+function OnFocusFun(element,elementvalue)
+{
+	if(element.value==elementvalue)
+	{
+	element.value="";
+	element.style.color="#666";
+	}
+}
+//离开输入框时触发事件
+function OnBlurFun(element,elementvalue)
+{
+	if(element.value==""||element.value.replace(/s/g,"")=="")
+	{
+	element.value=elementvalue;
+	element.style.color="#666";
+	}
+}
+$("#login_form").Validform({
+	ajaxPost : true,
+	tiptype : function(msg,o,cssctl){
+ 		if(!o.obj.is("form")){//验证表单元素时o.obj为该表单元素，全部验证通过提交表单时o.obj为该表单对象;
+ 			if(o.type!=2){
+ 				$('.laning_tishi').html(msg);
+ 				//$.Showmsg(msg);
+ 			}
+ 		
+ 		}
+ 	},
+	callback : function(data) {
+		if (data.status == "success") {
+			//用户登录成功进入文章首页
+			setTimeout(function() {
+				window.location.href=window.location.href;
+			}, 500);
+		} else {
+			setTimeout(function() {
+				$('.laning_tishi').html(data.msg);
+			}, 500);
+
+		}
+	}
+});
+
+</script>
+
+<script type="text/javascript" language="JavaScript">
+<!--
+    function AddFavorite(sURL, sTitle) {
+        try {
+            window.external.addFavorite(sURL, sTitle);
+        }
+        catch (e) {
+            try {
+                window.sidebar.addPanel(sTitle, sURL, "");
+            }
+            catch (e) {
+                alert("加入收藏失败，请使用Ctrl+D进行添加");
+            }
+        }
+    }
+    function SetHome(obj, vrl) {
+        try {
+            obj.style.behavior = 'url(#default#homepage)'; obj.setHomePage(vrl);
+        }
+        catch (e) {
+            if (window.netscape) {
+                try {
+                    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                }
+                catch (e) {
+                    alert("此操作被浏览器拒绝！/n请在浏览器地址栏输入“about:config”并回车/n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+                }
+                var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                prefs.setCharPref('browser.startup.homepage', vrl);
+            }
+        }
+    }
+//-->
+</script>
+<script>
+document.domain='doctorpda.cn';
+function gotoCase(){
+	var user = '';
+	if(user == null || user == ""){
+		showLogin();
+	}else{
+		window.location.href="/case";
+	}
+}
+</script>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div style="height:40px; width:100%"></div><div onclick="hideDiv()">
+
+<!--top end-->
+<div style="height: 15px;"></div>
+<div class="middle_two">
+<!--logo end-->
+<div class="mingci_head_wrap">
+		<div class="mingci_head">
+					<span class="mingci">小儿两性畸形 
+						<em>( pediatric hermaphroditism )</em></span>
+					</div>
+					<div class="mingci_centont">
+						别名：
+						  	<span class="other_name">小儿两性畸形；pediatric ambiguous genitalia；小儿雌雄同体性；小儿两性人；小儿两性生殖器；小儿两性同体；小儿雌雄同体</span>
+					</div>
+					
+	<!--分享组件放置位置  -->				
+<div class="baike_fenxiang"><!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share?uid=1952693" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {
+		url:"http://www.doctorpda.cn/baike/小儿两性畸形",
+	  	title:"小儿两性畸形",
+	    summary:'
+                    
+                     概述：
+                     两性畸形又称两性人，它包括各种因
+                     染色体异常、
+                     性腺发育异常和内分泌紊乱所引起的内、外生殖器官及第二性征的
+                     发育畸形。
+                     
+                    
+                     &nbsp;&nbsp;&nbsp; 
+                     两性畸形(hermaphroditism 或ambiguous genitalia)是
+                     性分化异常的结果，是指表型性别呈不能确定的间性状态或是表型性别与性腺性别或遗传性别呈矛盾表现。从病理角度分为性腺和外生殖分化异常，
+                     两性畸形病因分类是基于前述性分化的三个基本成分和阶段中不同的环节缺陷。
+                     两性畸形可分为—
+                     真两性畸形―和—假
+                     两性畸形―人。真与假之分，是根据体内的主性腺来判断的。—
+                     真两性畸形―人是在同一个人身体上，既有男性睾丸，又有女性卵巢的畸形现象。体内所具卵巢和睾丸皆可有内分泌功能，即体内同时有雌激素和雄激素，但常以其中一种激素占优势。外生殖器多为性别不明，也可能表现为女性，也可能表现为男性，而第二性征的发育往往随占优势的激素而定。—假
+                     两性畸形―与—
+                     真两性畸形―不同之处在于，这种人体内实际只有一种性腺，或者是男性性腺，或者是女性性腺。具有男性性腺者，其外生殖器的外观是女性特征；具有女性性腺者，其外生殖器的外观却是男性特征。因而出现貌似女性，实为男性，或貌似男性，实为女性的假
+                     两性畸形人。
+                    '
+	    };
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1369010086640783" charset="utf-8"></script>
+<!-- JiaThis Button END --></div>        
+
+</div>
+
+
+<div class="huiyi_two_list_f1 clearfix" style=" margin-top: 0;">
+<div class="huiyi_two_list_left" style="float:right;padding-left:50px;padding-right: 0;">
+
+                 <!--病例列表开始-->
+                 <div class="huiyi_left_content">
+                         <div class="bingli_list clearfix">
+                         <!--瀑布流布局左侧-->
+                           <div class="bingli_list_left" id="l_html">
+                                     <!--组1结束-->
+
+                         </div>
+                             
+                        <!--瀑布流布局右侧-->
+                        <div class="bingli_list_right" id="r_html">
+                         </div>
+                         </div>
+                        <!--加载更多代码开始-->
+                         <div><a href="javascript:showMore()" class="jiazai">加载更多</a></div>   
+
+                </div> 
+</div>
+<div class="huiyi_two_list_right" style=" float:left;margin-top: 20px; padding: 0;">
+<!--  <h2 class="hot_name">小儿两性畸形</h2> -->
+ <ul class="hot_daohang_list clearfix">
+    <li><a href="/baike/小儿两性畸形?tp=exp">名词解释</a></li>
+    <li><a href="/baike/news/小儿两性畸形?tp=news">医学资讯</a></li>
+    <li><a href="/baike/guide/小儿两性畸形">医学指南</a></li>
+    <li><a href="/baike/video/小儿两性畸形?tp=video">医学视频</a></li>
+    <li class="hot_daohang_cur"><a href="/baike/cases/小儿两性畸形">医学病例</a></li>
+ </ul>
+ 
+ <h3 style=" margin-top:20px; font-size: 14px; list-style: none;font-style: normal;">相关关键词</h3>
+<div class="clear"></div>
+</div>
+</div>
+
+<!--会议2 结束-->
+
+
+
+<!--middle end-->
+<div class="bottom">
+<ul>
+
+<li><a href="http://www.doctorpda.cn/about/us" target="_blank">关于我们</a></li>
+<li>|</li>
+<li><a href="http://www.dajie.com/corp/4049274" target="_blank">人才招聘</a></li>
+<li>|</li>
+<li><a href="http://mp.doctorpda.cn/" target="_blank">云媒体平台</a></li>
+<li>|</li>
+<li><a href="http://www.doctorpda.cn/news/" target="_blank">医学新闻</a></li>
+<li>|</li>
+<li><a href="http://c.doctorpda.cn/account/apply" target="_blank">申请会议收录</a></li>
+<li>|</li>
+<li><a href="#" target="_blank">联系电话：400-1199-330</a></li>
+</ul>
+<p>上海医师在线信息技术有限公司 版权所有 ©&nbsp;&nbsp;&nbsp;<a href="http://www.miibeian.gov.cn/" target="_blank">沪ICP备12005625号-1</a></p><br>
+<a href="http://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&amp;entyId=20130418140350182" target="_blank"><img src="/templets/www/images/bottom/icon.gif" border="0"></a>
+</div>
+</div>
+		<script type="text/javascript" src="/js/lib/kindeditor/4.1.7/lang/zh_CN.js"></script>
+		<script type="text/javascript" src="/js/lib/kindeditor/4.1.7/kindeditor-all-min.js"></script>
+		<script type="text/javascript" src="/js/lib/jquery.form.js"></script>
+		<script type="text/javascript" src="/js/lib/validform/Validform_v5.3.2_min.js"></script>
+<div style="display:none;">
+<script type="text/javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fbc9d4fa6469686fe63002104880688b1' type='text/javascript'%3E%3C/script%3E"));
+</script><script src=" https://hm.baidu.com/h.js?bc9d4fa6469686fe63002104880688b1" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=bc9d4fa6469686fe63002104880688b1" target="_blank"><img border="0" src="https://hmcdn.baidu.com/static/hmt/icon/21.gif" width="20" height="20"></a>
+
+<script src="http://s4.cnzz.com/z_stat.php?id=1258602822&amp;web_id=1258602822" language="JavaScript"></script>
+</div>
+
+<script>
+var _page = 1;
+ function showMore(){
+	 _page += 1;
+	 $.post('/case/bList',{key:'camel.plugin.yx.model.Keyword@721d27c3 {thumb:null, name:小儿两性畸形, alias:小儿两性畸形；pediatric ambiguous genitalia；小儿雌雄同体性；小儿两性人；小儿两性生殖器；小儿两性同体；小儿雌雄同体, name_explain:
+                    
+                     概述：
+                     两性畸形又称两性人，它包括各种因
+                     染色体异常、
+                     性腺发育异常和内分泌紊乱所引起的内、外生殖器官及第二性征的
+                     发育畸形。
+                     
+                    
+                     &nbsp;&nbsp;&nbsp; 
+                     两性畸形(hermaphroditism 或ambiguous genitalia)是
+                     性分化异常的结果，是指表型性别呈不能确定的间性状态或是表型性别与性腺性别或遗传性别呈矛盾表现。从病理角度分为性腺和外生殖分化异常，
+                     两性畸形病因分类是基于前述性分化的三个基本成分和阶段中不同的环节缺陷。
+                     两性畸形可分为—
+                     真两性畸形―和—假
+                     两性畸形―人。真与假之分，是根据体内的主性腺来判断的。—
+                     真两性畸形―人是在同一个人身体上，既有男性睾丸，又有女性卵巢的畸形现象。体内所具卵巢和睾丸皆可有内分泌功能，即体内同时有雌激素和雄激素，但常以其中一种激素占优势。外生殖器多为性别不明，也可能表现为女性，也可能表现为男性，而第二性征的发育往往随占优势的激素而定。—假
+                     两性畸形―与—
+                     真两性畸形―不同之处在于，这种人体内实际只有一种性腺，或者是男性性腺，或者是女性性腺。具有男性性腺者，其外生殖器的外观是女性特征；具有女性性腺者，其外生殖器的外观却是男性特征。因而出现貌似女性，实为男性，或貌似男性，实为女性的假
+                     两性畸形人。
+                    , id:43324, sub_count:0, english_name:pediatric hermaphroditism}',page:_page,limit:'2'},function(data){
+		 if(data.json != null && data.json.length != 0){
+			 var l_hight = 0;
+			 var r_hight = 0;
+			 $.each(data.json,function(i){
+	     		 r_hight = $("#r_html").height();
+	     		 l_hight = $("#l_html").height();
+	     		 var picture = eval("("+this.pictures+")");
+				 var html = '';
+				 html +='<div class="bingli_list_con">';
+				 html += '<div class="bingli_list_con_img"><a href="/case/'+this.id+'" target="_blank" class="bingli_list_con_text"><img src="'+picture[0].picture+'}" width="320" alt="病例图片"/></a></div>';			
+                 html += '<div class="bingli_list_con_top">';
+                 html += '<a href="/case/'+this.id+'" target="_blank" class="bingli_list_con_text"><p class="bingli_jianjie">'+this.content+'</p></a>';
+                 html += '<div class="bingli_keyword">';
+                 if(this.tags != null)
+					 $.each(this.tags.toString().split(","),function(i,val){
+						 if(val != null && val.trim() != ''){
+							 html += '<a href="http://www.doctorpda.cn/baike/cases/'+val+'?tp=case" target="_blank">'+val+'</a>';
+							 }
+					});
+				 html += '</div></div><div class="bingli_list_con_bottom clearfix">';
+                 html += '<span class="fl">'+(this.author==null?'未注册用户':this.author)+'</span>';     
+                 html += '<span class="fr bingli_jiaohu">';  
+                 html += '<a href="javascript:void(0)" ><span class="pinglu_bingli" title="评论数">'+this.comments+'</span></a>';
+                 html += '<a href="javascript:void(0)" ><span class="shoucang_bingli" title="收藏数">'+this.favorite_count+'</span></a>';
+                 html += '</span></div></div>';  
+                 if(r_hight > l_hight)
+                	 $("#l_html").append(html); 
+    			 else
+     				$("#r_html").append(html); 
+			 });
+		 }else{
+			 alert("只有这些了^_^");
+		 }
+	 });
+ }
+ 
+ function byTime(){
+	 window.location.href = '?q=camel.plugin.yx.model.Keyword@721d27c3 {thumb:null, name:小儿两性畸形, alias:小儿两性畸形；pediatric ambiguous genitalia；小儿雌雄同体性；小儿两性人；小儿两性生殖器；小儿两性同体；小儿雌雄同体, name_explain:
+                    
+                     概述：
+                     两性畸形又称两性人，它包括各种因
+                     染色体异常、
+                     性腺发育异常和内分泌紊乱所引起的内、外生殖器官及第二性征的
+                     发育畸形。
+                     
+                    
+                     &nbsp;&nbsp;&nbsp; 
+                     两性畸形(hermaphroditism 或ambiguous genitalia)是
+                     性分化异常的结果，是指表型性别呈不能确定的间性状态或是表型性别与性腺性别或遗传性别呈矛盾表现。从病理角度分为性腺和外生殖分化异常，
+                     两性畸形病因分类是基于前述性分化的三个基本成分和阶段中不同的环节缺陷。
+                     两性畸形可分为—
+                     真两性畸形―和—假
+                     两性畸形―人。真与假之分，是根据体内的主性腺来判断的。—
+                     真两性畸形―人是在同一个人身体上，既有男性睾丸，又有女性卵巢的畸形现象。体内所具卵巢和睾丸皆可有内分泌功能，即体内同时有雌激素和雄激素，但常以其中一种激素占优势。外生殖器多为性别不明，也可能表现为女性，也可能表现为男性，而第二性征的发育往往随占优势的激素而定。—假
+                     两性畸形―与—
+                     真两性畸形―不同之处在于，这种人体内实际只有一种性腺，或者是男性性腺，或者是女性性腺。具有男性性腺者，其外生殖器的外观是女性特征；具有女性性腺者，其外生殖器的外观却是男性特征。因而出现貌似女性，实为男性，或貌似男性，实为女性的假
+                     两性畸形人。
+                    , id:43324, sub_count:0, english_name:pediatric hermaphroditism}&is_hot=false';
+ }
+ 
+ function byHot(){
+	 window.location.href = '?q=camel.plugin.yx.model.Keyword@721d27c3 {thumb:null, name:小儿两性畸形, alias:小儿两性畸形；pediatric ambiguous genitalia；小儿雌雄同体性；小儿两性人；小儿两性生殖器；小儿两性同体；小儿雌雄同体, name_explain:
+                    
+                     概述：
+                     两性畸形又称两性人，它包括各种因
+                     染色体异常、
+                     性腺发育异常和内分泌紊乱所引起的内、外生殖器官及第二性征的
+                     发育畸形。
+                     
+                    
+                     &nbsp;&nbsp;&nbsp; 
+                     两性畸形(hermaphroditism 或ambiguous genitalia)是
+                     性分化异常的结果，是指表型性别呈不能确定的间性状态或是表型性别与性腺性别或遗传性别呈矛盾表现。从病理角度分为性腺和外生殖分化异常，
+                     两性畸形病因分类是基于前述性分化的三个基本成分和阶段中不同的环节缺陷。
+                     两性畸形可分为—
+                     真两性畸形―和—假
+                     两性畸形―人。真与假之分，是根据体内的主性腺来判断的。—
+                     真两性畸形―人是在同一个人身体上，既有男性睾丸，又有女性卵巢的畸形现象。体内所具卵巢和睾丸皆可有内分泌功能，即体内同时有雌激素和雄激素，但常以其中一种激素占优势。外生殖器多为性别不明，也可能表现为女性，也可能表现为男性，而第二性征的发育往往随占优势的激素而定。—假
+                     两性畸形―与—
+                     真两性畸形―不同之处在于，这种人体内实际只有一种性腺，或者是男性性腺，或者是女性性腺。具有男性性腺者，其外生殖器的外观是女性特征；具有女性性腺者，其外生殖器的外观却是男性特征。因而出现貌似女性，实为男性，或貌似男性，实为女性的假
+                     两性畸形人。
+                    , id:43324, sub_count:0, english_name:pediatric hermaphroditism}&is_hot=true';
+ }
+ 
+</script></div><div id="popupMask"></div><div id="popupContainer"><div id="popupInner"><div id="popupTitleBar"><div id="popupTitle"></div><div id="popupControls"><img src="/js/lib/subModal/close.gif" onclick="hidePopWin(false);" id="popCloseBox"></div></div><iframe src="/js/lib/subModal/loading.html" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" allowtransparency="true" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe></div></div></body></html>

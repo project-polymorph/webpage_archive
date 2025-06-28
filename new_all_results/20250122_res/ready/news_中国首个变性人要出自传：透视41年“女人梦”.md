@@ -1,0 +1,42 @@
+# 中国首个变性人要出自传：透视41年“女人梦”
+
+![张克沙](//n.sinaimg.cn/sinakd10203/238/w119h119/20221208/7ed3-a58e018751ed10b2d3ef2d3808732c16.jpg)
+
+## 新华网
+
+新华网官方账号 2003.06.08 18:33
+
+20年隐姓埋名、宁肯漂泊他乡而最不愿以真实身份示人的中国变性第一人张克沙要出自传《女人梦》了，张克沙说：“我想让一切大白于天下！”
+
+据张克沙介绍，1982年12月，他到北京的北医三医院，找到了王大玫教授，王教授仔细地询问了他的心理状况，又做了全面的身体检查。1983年的1月10日早上，他被推进了手术预备室。他全身赤裸，让摄影师为他留下了他作为男人的最后的一张相片。然后他被推进了手术室……“手术共做了整整12个钟头。当我醒来时我告诉自己，从今天开始，我就是真正的女人了！”
+
+做梦都想有个家
+
+现在作为一个女人的张克沙不止一次地对记者说，“女人一生中最重要的就是婚姻。”变成女人后，张克沙从来没有停止对爱情的追求，但命运似乎又在和这个追求了41年“女人梦”的她作梗：比她大32岁的香港丈夫去世了，随后在台湾那个比她小10岁的男友也身陷囹圄。张克沙说，身边并不缺乏追求者，从十几岁的大学生到50多岁的工程师，选择余地极广。但经历了颇多情感磨难后自己在这一方面显得很慎重，几乎每一段感情的矛盾都集中在自己不能生孩子，这让她非常难受。这也是自己现在没有安定下来的一个重要原因。
+
+《女人梦》细述悲惨遭遇
+
+据张克沙介绍，自传《女人梦》主要讲述自己1995年前的生活经历，其间包括自己变性前后的思想斗争，自己的感情遭遇以及自己被勒索的恐怖经历。十几万字的自述足足耗费了她8年的心血。她说，出这本书是一种解脱。“以前我就是不愿把自己的经历公开，而被一些别有用心的人抓住‘辫子’狠狠地勒索了，弄得我人财两空。现在我想开了，我不要戴着面具活，我要把我的一切公之于众，我甚至要去告当年勒索我的那两个人。”
+
+据张克沙介绍，目前有好几家电视台都想买断《女人梦》的电视改编权，但现在还没有做最后决定。“我肯定不会在里面出演，因为妈妈跟我说过，你谁都能演就是不能演自己。”（文／顾小萍）（来源：今日早报）
+
+![相关视频](//n.sinaimg.cn/default/2fb77759/20151125/320X320.png)
+
+## 相关视频
+
+![造成52死30伤 梅大高速塌方灾害主要原因公布](https://z0.sinaimg.cn/auto/crop?img=https://n.sinaimg.cn/vmsri/orj480/007ZwuKJly1hxtr4yq9nxj30zk0k00u0.jpg&size=370_207&bgf=1&bgc=%23000000)
+
+![福建舰航母首弹空警600成功](https://z0.sinaimg.cn/auto/crop?img=https://n.sinaimg.cn/vmsri/orj480/007ZwuKJly1hxtpxi39hqj30nq0dcaam.jpg&size=370_207&bgf=1&bgc=%23000000)
+
+![梅拉尼娅时刻监督川普会不会像拜登那样睡着](https://z0.sinaimg.cn/auto/crop?img=https://n.sinaimg.cn/sinakd20250122ac/321/w480h641/20250122/9702-13629532bc550b37d942610e7aaa7701.jpg&size=370_207&bgf=1&bgc=%23000000)
+
+## 相关新闻点击查看更多
+
+![“董明珠被停职”？格力通报：已处罚](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACAQMAAACnuvRZAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjAAIAAAQAASDSLW8AAAAASUVORK5CYII=)
+
+![四大星座即将迎来幸运时刻，财气上升，事业蒸蒸日上，幸福常伴！](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACAQMAAACnuvRZAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjAAIAAAQAASDSLW8AAAAASUVORK5CYII=)
+
+![山东轰然倒下，CBA爆出大冷！林葳24分7板兑现天赋，辽宁第3有望](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACAQMAAACnuvRZAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjAAIAAAQAASDSLW8AAAAASUVORK5CYII=)
+
+![狗：进家不能打了！进家不能打了！](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACAQMAAACnuvRZAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjAAIAAAQAASDSLW8AAAAASUVORK5CYII=)
+

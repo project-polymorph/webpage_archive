@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <title>系统发生错误</title>
+    <meta name="robots" content="noindex,nofollow">
+    <style>
+        /* Base */
+        body {
+            color: #333;
+            font: 16px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+        .echo table {
+            width: 100%;
+        }
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        .echo pre > pre {
+            padding: 0;
+            margin: 0;
+        }
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑",serif;
+        }
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+            font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana,serif;
+            padding-left: 40px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+            font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑",serif;
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+            font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑",serif;
+        }
+        .exception .trace h2:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas, "Liberation Mono", Courier, "微软雅黑",serif;
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .cms_copyright{
+            margin-top: 24px;
+            padding: 10px 0 0 0;
+        }
+        .copyright{
+            margin-top: 10px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    </style>
+<script async="" src="//cdn.bootcss.com/prettify/r298/prettify.min.js"></script></head>
+<body>
+<div class="exception">
+    <div class="message">
+        <div class="info">
+            <div>
+                <h2>#0 [0]<abbr title="think\exception\HttpException">HttpException</abbr> in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/route/dispatch/Url.php line 62">Url.php line 62</a></h2>
+            </div>
+            <div><h1>控制器不存在:m=home</h1></div>
+        </div>
+    </div>
+        <div class="source-code">
+        <pre class="prettyprint lang-php prettyprinted" style=""><ol start="53"><li class="line-0-53"><code><span class="pln">        $path </span><span class="pun">=</span><span class="pln"> $this</span><span class="pun">-&gt;</span><span class="pln">rule</span><span class="pun">-&gt;</span><span class="pln">parseUrlPath</span><span class="pun">(</span><span class="pln">$url</span><span class="pun">);</span><span class="pln">
+</span></code></li><li class="line-0-54"><code><span class="pln">        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$path</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span></code></li><li class="line-0-55"><code><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">[</span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">];</span><span class="pln">
+</span></code></li><li class="line-0-56"><code><span class="pln">        </span><span class="pun">}</span><span class="pln">
+</span></code></li><li class="line-0-57"><code><span class="pln">
+</span></code></li><li class="line-0-58"><code><span class="pln">        </span><span class="com">// 解析控制器</span><span class="pln">
+</span></code></li><li class="line-0-59"><code><span class="pln">        $controller </span><span class="pun">=</span><span class="pln"> </span><span class="pun">!</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$path</span><span class="pun">)</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> array_shift</span><span class="pun">(</span><span class="pln">$path</span><span class="pun">)</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span><span class="pln">
+</span></code></li><li class="line-0-60"><code><span class="pln">
+</span></code></li><li class="line-0-61"><code><span class="pln">        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$controller </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">!</span><span class="pln">preg_match</span><span class="pun">(</span><span class="str">'/^[A-Za-z0-9][\w|\.]*$/'</span><span class="pun">,</span><span class="pln"> $controller</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span></code></li><li class="line-0-62 line-error"><code><span class="pln">            </span><span class="kwd">throw</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">HttpException</span><span class="pun">(</span><span class="lit">404</span><span class="pun">,</span><span class="pln"> </span><span class="str">'controller not exists:'</span><span class="pln"> </span><span class="pun">.</span><span class="pln"> $controller</span><span class="pun">);</span><span class="pln">
+</span></code></li><li class="line-0-63"><code><span class="pln">        </span><span class="pun">}</span><span class="pln">
+</span></code></li><li class="line-0-64"><code><span class="pln">
+</span></code></li><li class="line-0-65"><code><span class="pln">        </span><span class="com">// 解析操作</span><span class="pln">
+</span></code></li><li class="line-0-66"><code><span class="pln">        $action </span><span class="pun">=</span><span class="pln"> </span><span class="pun">!</span><span class="pln">empty</span><span class="pun">(</span><span class="pln">$path</span><span class="pun">)</span><span class="pln"> </span><span class="pun">?</span><span class="pln"> array_shift</span><span class="pun">(</span><span class="pln">$path</span><span class="pun">)</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">;</span><span class="pln">
+</span></code></li><li class="line-0-67"><code><span class="pln">        $var    </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span><span class="pln">
+</span></code></li><li class="line-0-68"><code><span class="pln">
+</span></code></li><li class="line-0-69"><code><span class="pln">        </span><span class="com">// 解析额外参数</span><span class="pln">
+</span></code></li><li class="line-0-70"><code><span class="pln">        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$path</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span></code></li><li class="line-0-71"><code><span class="pln">            preg_replace_callback</span><span class="pun">(</span><span class="str">'/(\w+)\|([^\|]+)/'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$match</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">use</span><span class="pln"> </span><span class="pun">(&amp;</span><span class="pln">$var</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span></code></li></ol></pre>
+    </div>
+        <div class="trace">
+        <h2 data-expand="0">Call Stack (折叠)</h2>
+        <ol style="display: block;">
+            <li>in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/route/dispatch/Url.php line 62">Url.php line 62</a></li>
+                        <li>
+                at <abbr title="think\route\dispatch\Url">Url</abbr>-&gt;parseUrl() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/route/dispatch/Url.php line 31">Url.php line 31</a>            </li>
+                        <li>
+                at <abbr title="think\route\dispatch\Url">Url</abbr>-&gt;__construct() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Route.php line 857">Route.php line 857</a>            </li>
+                        <li>
+                at <abbr title="think\Route">Route</abbr>-&gt;url() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Route.php line 815">Route.php line 815</a>            </li>
+                        <li>
+                at <abbr title="think\Route">Route</abbr>-&gt;check() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Route.php line 775">Route.php line 775</a>            </li>
+                        <li>
+                at <abbr title="think\Route">Route</abbr>-&gt;dispatch() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Http.php line 216">Http.php line 216</a>            </li>
+                        <li>
+                at <abbr title="think\Http">Http</abbr>-&gt;dispatchToRoute() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Http.php line 206">Http.php line 206</a>            </li>
+                        <li>
+                at <abbr title="think\Http">Http</abbr>-&gt;think\{closure}() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Pipeline.php line 59">Pipeline.php line 59</a>            </li>
+                        <li>
+                at <abbr title="think\Pipeline">Pipeline</abbr>-&gt;think\{closure}() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/think-multi-app/src/MultiApp.php line 71">MultiApp.php line 71</a>            </li>
+                        <li>
+                at <abbr title="think\app\MultiApp">MultiApp</abbr>-&gt;think\app\{closure}() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Pipeline.php line 59">Pipeline.php line 59</a>            </li>
+                        <li>
+                at <abbr title="think\Pipeline">Pipeline</abbr>-&gt;think\{closure}() in <a class="toggle" title="/www/wwwroot/website.com/app/common/middleware/LoadLangPack.php line 98">LoadLangPack.php line 98</a>            </li>
+                        <li>
+                at <abbr title="app\common\middleware\LoadLangPack">LoadLangPack</abbr>-&gt;handle()            </li>
+                        <li>
+                at call_user_func() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Middleware.php line 142">Middleware.php line 142</a>            </li>
+                        <li>
+                at <abbr title="think\Middleware">Middleware</abbr>-&gt;think\{closure}() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Pipeline.php line 85">Pipeline.php line 85</a>            </li>
+                        <li>
+                at <abbr title="think\Pipeline">Pipeline</abbr>-&gt;think\{closure}() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Pipeline.php line 66">Pipeline.php line 66</a>            </li>
+                        <li>
+                at <abbr title="think\Pipeline">Pipeline</abbr>-&gt;then() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/think-multi-app/src/MultiApp.php line 72">MultiApp.php line 72</a>            </li>
+                        <li>
+                at <abbr title="think\app\MultiApp">MultiApp</abbr>-&gt;handle()            </li>
+                        <li>
+                at call_user_func() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Middleware.php line 142">Middleware.php line 142</a>            </li>
+                        <li>
+                at <abbr title="think\Middleware">Middleware</abbr>-&gt;think\{closure}() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Pipeline.php line 85">Pipeline.php line 85</a>            </li>
+                        <li>
+                at <abbr title="think\Pipeline">Pipeline</abbr>-&gt;think\{closure}() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/middleware/SessionInit.php line 67">SessionInit.php line 67</a>            </li>
+                        <li>
+                at <abbr title="think\middleware\SessionInit">SessionInit</abbr>-&gt;handle()            </li>
+                        <li>
+                at call_user_func() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Middleware.php line 142">Middleware.php line 142</a>            </li>
+                        <li>
+                at <abbr title="think\Middleware">Middleware</abbr>-&gt;think\{closure}() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Pipeline.php line 85">Pipeline.php line 85</a>            </li>
+                        <li>
+                at <abbr title="think\Pipeline">Pipeline</abbr>-&gt;think\{closure}() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Pipeline.php line 66">Pipeline.php line 66</a>            </li>
+                        <li>
+                at <abbr title="think\Pipeline">Pipeline</abbr>-&gt;then() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Http.php line 207">Http.php line 207</a>            </li>
+                        <li>
+                at <abbr title="think\Http">Http</abbr>-&gt;runWithRequest() in <a class="toggle" title="/www/wwwroot/website.com/vendor/topthink/framework/src/think/Http.php line 170">Http.php line 170</a>            </li>
+                        <li>
+                at <abbr title="think\Http">Http</abbr>-&gt;run() in <a class="toggle" title="/www/wwwroot/website.com/public/index.php line 24">index.php line 24</a>            </li>
+                    </ol>
+    </div>
+</div>
+
+
+<div class="exception-var">
+    <h2>Environment Variables</h2>
+        <table>
+                <caption>GET Data</caption>
+        <tbody>
+                <tr>
+            <td>wap</td>
+            <td>View</td>
+        </tr>
+                <tr>
+            <td>a</td>
+            <td>index</td>
+        </tr>
+                <tr>
+            <td>aid</td>
+            <td>494433.doc</td>
+        </tr>
+                </tbody>
+            </table>
+        <table>
+                <caption>POST Data<small>empty</small></caption>
+            </table>
+        <table>
+                <caption>Files<small>empty</small></caption>
+            </table>
+        <table>
+                <caption>Cookies<small>empty</small></caption>
+            </table>
+        <table>
+                <caption>Session<small>empty</small></caption>
+            </table>
+        <table>
+                <caption>Server/Request Data</caption>
+        <tbody>
+                <tr>
+            <td>USER</td>
+            <td>www</td>
+        </tr>
+                <tr>
+            <td>HOME</td>
+            <td>/home/www</td>
+        </tr>
+                <tr>
+            <td>HTTP_ACCEPT_LANGUAGE</td>
+            <td>en-US,en;q=0.9</td>
+        </tr>
+                <tr>
+            <td>HTTP_ACCEPT_ENCODING</td>
+            <td>gzip, deflate</td>
+        </tr>
+                <tr>
+            <td>HTTP_ACCEPT</td>
+            <td>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</td>
+        </tr>
+                <tr>
+            <td>HTTP_USER_AGENT</td>
+            <td>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/131.0.0.0 Safari/537.36</td>
+        </tr>
+                <tr>
+            <td>HTTP_UPGRADE_INSECURE_REQUESTS</td>
+            <td>1</td>
+        </tr>
+                <tr>
+            <td>HTTP_CONNECTION</td>
+            <td>keep-alive</td>
+        </tr>
+                <tr>
+            <td>HTTP_HOST</td>
+            <td>51rumo.com</td>
+        </tr>
+                <tr>
+            <td>PATH_INFO</td>
+            <td></td>
+        </tr>
+                <tr>
+            <td>REDIRECT_STATUS</td>
+            <td>200</td>
+        </tr>
+                <tr>
+            <td>SERVER_NAME</td>
+            <td>website.com</td>
+        </tr>
+                <tr>
+            <td>SERVER_PORT</td>
+            <td>80</td>
+        </tr>
+                <tr>
+            <td>SERVER_ADDR</td>
+            <td>172.16.13.114</td>
+        </tr>
+                <tr>
+            <td>REMOTE_PORT</td>
+            <td>52360</td>
+        </tr>
+                <tr>
+            <td>REMOTE_ADDR</td>
+            <td>67.180.163.209</td>
+        </tr>
+                <tr>
+            <td>SERVER_SOFTWARE</td>
+            <td>nginx/1.22.1</td>
+        </tr>
+                <tr>
+            <td>GATEWAY_INTERFACE</td>
+            <td>CGI/1.1</td>
+        </tr>
+                <tr>
+            <td>REQUEST_SCHEME</td>
+            <td>http</td>
+        </tr>
+                <tr>
+            <td>SERVER_PROTOCOL</td>
+            <td>HTTP/1.1</td>
+        </tr>
+                <tr>
+            <td>DOCUMENT_ROOT</td>
+            <td>/www/wwwroot/website.com/public</td>
+        </tr>
+                <tr>
+            <td>DOCUMENT_URI</td>
+            <td>/index.php</td>
+        </tr>
+                <tr>
+            <td>REQUEST_URI</td>
+            <td>/m=home&amp;wap=View&amp;a=index&amp;aid=494433.doc</td>
+        </tr>
+                <tr>
+            <td>SCRIPT_NAME</td>
+            <td>/index.php</td>
+        </tr>
+                <tr>
+            <td>CONTENT_LENGTH</td>
+            <td></td>
+        </tr>
+                <tr>
+            <td>CONTENT_TYPE</td>
+            <td></td>
+        </tr>
+                <tr>
+            <td>REQUEST_METHOD</td>
+            <td>GET</td>
+        </tr>
+                <tr>
+            <td>QUERY_STRING</td>
+            <td>s=/m=home&amp;wap=View&amp;a=index&amp;aid=494433.doc</td>
+        </tr>
+                <tr>
+            <td>SCRIPT_FILENAME</td>
+            <td>/www/wwwroot/website.com/public/index.php</td>
+        </tr>
+                <tr>
+            <td>FCGI_ROLE</td>
+            <td>RESPONDER</td>
+        </tr>
+                <tr>
+            <td>PHP_SELF</td>
+            <td>/index.php</td>
+        </tr>
+                <tr>
+            <td>REQUEST_TIME_FLOAT</td>
+            <td>1739260540.3963</td>
+        </tr>
+                <tr>
+            <td>REQUEST_TIME</td>
+            <td>1739260540</td>
+        </tr>
+                </tbody>
+            </table>
+    </div>
+
+<div class="cms_copyright">
+    <span>HkCms V2.2.4，尊敬的用户：为了让我们HkCms更完善，你可以加入QQ群或问答社区，把错误信息反馈给我们。</span>
+</div>
+<div class="copyright">
+    <span><a title="官方网站" href="http://www.hkcms.cn/" target="_blank">官方网站</a></span>
+    <span>- <a title="官方手册" href="https://www.kancloud.cn/hkcms/hkcms_tp6/2252597" target="_blank">官方手册</a></span>
+    <span>- <a title="官方问答社区" href="https://www.hkcms.cn/help/" target="_blank">官方问答社区</a></span>
+    <span>- <a title="QQ群808251031" href="https://jq.qq.com/?_wv=1027&amp;k=8YzV4elJ" target="_blank">QQ群808251031</a></span>
+</div>
+<script>
+    function $(selector, node){
+        var elements;
+
+        node = node || document;
+        if(document.querySelectorAll){
+            elements = node.querySelectorAll(selector);
+        } else {
+            switch(selector.substr(0, 1)){
+                case '#':
+                    elements = [node.getElementById(selector.substr(1))];
+                    break;
+                case '.':
+                    if(document.getElementsByClassName){
+                        elements = node.getElementsByClassName(selector.substr(1));
+                    } else {
+                        elements = get_elements_by_class(selector.substr(1), node);
+                    }
+                    break;
+                default:
+                    elements = node.getElementsByTagName();
+            }
+        }
+        return elements;
+
+        function get_elements_by_class(search_class, node, tag) {
+            var elements = [], eles,
+                pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+            node = node || document;
+            tag  = tag  || '*';
+
+            eles = node.getElementsByTagName(tag);
+            for(var i = 0; i < eles.length; i++) {
+                if(pattern.test(eles[i].className)) {
+                    elements.push(eles[i])
+                }
+            }
+
+            return elements;
+        }
+    }
+
+    $.getScript = function(src, func){
+        var script = document.createElement('script');
+
+        script.async  = 'async';
+        script.src    = src;
+        script.onload = func || function(){};
+
+        $('head')[0].appendChild(script);
+    }
+
+    ;(function(){
+        var files = $('.toggle');
+        var ol    = $('ol', $('.prettyprint')[0]);
+        var li    = $('li', ol[0]);
+
+        // 短路径和长路径变换
+        for(var i = 0; i < files.length; i++){
+            files[i].ondblclick = function(){
+                var title = this.title;
+
+                this.title = this.innerHTML;
+                this.innerHTML = title;
+            }
+        }
+
+        (function () {
+            var expand = function (dom, expand) {
+                var ol = $('ol', dom.parentNode)[0];
+                expand = undefined === expand ? dom.attributes['data-expand'].value === '0' : undefined;
+                if (expand) {
+                    dom.attributes['data-expand'].value = '1';
+                    ol.style.display = 'none';
+                    dom.innerText = 'Call Stack (展开)';
+                } else {
+                    dom.attributes['data-expand'].value = '0';
+                    ol.style.display = 'block';
+                    dom.innerText = 'Call Stack (折叠)';
+                }
+            };
+            var traces = $('.trace');
+            for (var i = 0; i < traces.length; i ++) {
+                var h2 = $('h2', traces[i])[0];
+                expand(h2);
+                h2.onclick = function () {
+                    expand(this);
+                };
+            }
+        })();
+
+        $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+            prettyPrint();
+        });
+    })();
+</script>
+
+
+
+</body></html>

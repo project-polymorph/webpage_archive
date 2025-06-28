@@ -1,0 +1,469 @@
+<html class=""><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="content-language" content="zh">
+  <title>NTUMC+ Open Multilingual Wordnet 0.9</title>
+  <link href="../tag-wn.css" rel="stylesheet" type="text/css">
+  <script src="../tag-wn.js" language="javascript"></script>
+
+
+  <!-- KICKSTART -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+  </script>
+  <script src="../HTML-KickStart-master/js/kickstart.js"></script>
+  <link rel="stylesheet" href="../HTML-KickStart-master/css/kickstart.css" media="all"> 
+
+
+  <!-- NTUMC COMMON STYLES -->
+  <link href="../ntumc-common.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+  <!-- FANCYBOX -->
+  <!-- Needs jQuery library -->
+  <!-- Add fancyBox main JS and CSS files -->
+  <script type="text/javascript" src="../fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+  <link rel="stylesheet" type="text/css" href="../fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen">
+  <script type="text/javascript" src="../fancybox-ready.js"></script>
+
+
+
+   <!-- TOGGLE DIV VISIBILITY OF COLUMNS BY ID -->
+   <script type="text/javascript">
+
+     <!-- HIDE ALL ROWS BY POS  -->
+     function toggleRowsByClass(c) {
+       var ids = document.getElementsByClassName(c);
+       for (i = 0; i < ids.length; i++) {
+         togglecol(ids[i].id);
+       }
+     }
+
+
+
+     <!-- SHOW ONLY ROWS BY POS  -->
+     function showOnlyRowsByClass(c) {
+
+       var allPOS  = ['n', 'v', 'a', 'r'];
+       var index = allPOS.indexOf(c);
+       if (index > -1) {
+         allPOS.splice(index, 1);
+       }
+
+
+       showallunder('ss_table');
+
+       for (i = 0; i < allPOS.length; i++) {
+     
+         var ids = document.getElementsByClassName(allPOS[i]);
+         for (z = 0; z < ids.length; z++) {
+           togglecol(ids[z].id);
+         }
+       }
+     }
+
+
+
+      function togglecol(id1) {
+          if (window.document.getElementById(id1).style.visibility == "collapse") {
+              window.document.getElementById(id1).style.display = "table-row";
+              window.document.getElementById(id1).style.visibility = "visible";
+
+          } else {
+              window.document.getElementById(id1).style.visibility = "collapse";
+              window.document.getElementById(id1).style.display = "none";
+
+             var element = document.getElementById('ss_table');
+             var allElements = element.getElementsByTagName("*");
+             var allIds = [];
+             for (var i = 0, n = allElements.length; i < n; ++i) {
+               var el = allElements[i];
+               if (el.id) { allIds.push(el.id); }
+             }
+
+             for (index = 0; index < allIds.length; index++) {
+               tableids = allIds[index];
+               window.document.getElementById(tableids).style.boxSizing = "content-box";
+       }
+
+          }
+      }
+   </script>
+
+
+
+   <!-- SHOW ALL UNDER ID -->
+   <script type="text/javascript">
+     function showallunder(myNode) {
+       var element = document.getElementById(myNode);
+       var allElements = element.getElementsByTagName("*");
+       var allIds = [];
+       for (var i = 0, n = allElements.length; i < n; ++i) {
+         var el = allElements[i];
+         if (el.id) { allIds.push(el.id); }
+       }
+
+       for (index = 0; index < allIds.length; index++) {
+         id = allIds[index];
+         if (window.document.getElementById(id).style.visibility == "collapse") {
+              subElement = window.document.getElementById(id);
+              removeClass(subElement, 'lightrow')
+              subElement.style.display = "table-row";
+              subElement.style.visibility = "visible";
+         }
+       } 
+     }
+
+
+
+      <!-- TOGGLE CLASS IN ELEMENT, USES hasClass underneath -->
+      function addClass(el, className) {
+        var classes = el.className.match(/\S+/g) || [];  
+        if (!hasClass(el, className)) {
+          classes.push(className);
+        } else { var index = classes.indexOf(className);
+                 classes.splice(index, 1);
+               }
+        el.className = classes.join(' ');
+      }
+      function removeClass(el, className) {
+        var classes = el.className.match(/\S+/g) || [];  
+        if (!hasClass(el, className)) {
+        } else { var index = classes.indexOf(className);
+                 classes.splice(index, 1);
+               }
+        el.className = classes.join(' ');
+      }
+      function hasClass(element, classNameToTestFor) {
+          var classNames = element.className.split(' ');
+          for (var i = 0; i < classNames.length; i++) {
+              if (classNames[i].toLowerCase() == classNameToTestFor.toLowerCase()) {
+                  return true;
+              }
+          }
+          return false;
+      }
+
+   </script>
+
+
+  <!-- TO SHOW / HIDE BY ID (FOR DIVs)-->
+  <script type="text/javascript">
+   function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+   }
+  </script>
+
+
+
+   <style>
+      /* lightrow is a faded yellow */
+     .lightrow {
+          background-color: #FFFFCC;
+     }
+
+
+      .hoverTable{
+      }
+      .hoverTable td{ 
+      }
+      /* Define the default color for all the table rows */
+      .hoverTable tr{
+      }
+      /* Define the hover highlight color for the table row */
+      .hoverTable tr:hover {
+          background-color: #FFFFCC;
+      }
+
+  </style>
+
+  <style>
+    hr{
+      padding: 0px;
+      margin: 10px;    
+    }
+  </style>
+
+
+  <style>
+  blockquote {
+  font: 14px/20px italic Times, serif;
+  padding-left: 20px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  border: none;
+  margin: 0px;
+  text-indent: 20px;
+  }
+  </style>
+
+<style type="text/css">.fancybox-margin{margin-right:0px;}</style></head>
+<body>
+<span style="display: inline-block; float:right">
+                  <ul class="button-bar"><li class="first"><a title="Invalid User" disabled=""><span style="color: #bc5847;">
+                        <i class="icon-user"></i></span></a></li> <li class="last"><a title="Go to Dashboard" href="dashboard.cgi"><span style="color: #4D99E0;">
+                   <i class="icon-home"></i></span></a></li></ul></span>
+<font size="+1"><b>10726031-n</b> </font> 'someone who adopts the dress or manner typical of another gender <sub>(melissa)</sub>'; 
+          
+<span style="float:right;">
+<form method="post" style="display: inline-block" title="search for a word  —  'word'
+or pattern  — '[wW]ord*' (using sqlite GLOB)
+or synset-id  — '06286395-n'
+or a pattern in a definition — 'def::*word*' (using sqlite GLOB)" id="newquery" action="wn-gridx.cgi?gridmode=ntumcgrid">
+                  <span style="font-size: 90%">
+                  <input style="font-size: 90%" type="text" name="lemma" value="" size="8" maxlength="50">
+
+        <button class="small"> <a href="javascript:{}" onclick="document.getElementById('newquery').submit(); 
+           return false;"><span title="Search">
+           <span style="color: #4D99E0;"><i class="icon-search"></i>
+           </span></span></a></button>
+ 
+         <strong> </strong><select name="lang" size="1" style="font-size: 90%" onchange="if(this.value == 'showmore') 
+               toggle_visibility('langselect');">
+          <option value="eng">英语
+                        </option><option value="ind">Indonesian
+                        </option><option value="zsm">Malaysian
+                        </option><option value="jpn">日语
+                        </option><option value="cmn" selected="">汉语
+                        </option><option value="ita">Italian
+                        </option><option value="ces">Czech
+                        </option><option value="yue">Yue Chinese
+                        </option><option value="showmore">More...</option></select><select name="lang2" style="font-size: 90%" title="backoff language" size="1" onchange="if(this.value == 'showmore') 
+               toggle_visibility('langselect');"><option value="eng" selected="">英语
+                        </option><option value="ind">Indonesian
+                        </option><option value="zsm">Malaysian
+                        </option><option value="jpn">日语
+                        </option><option value="cmn">汉语
+                        </option><option value="ita">Italian
+                        </option><option value="ces">Czech
+                        </option><option value="yue">Yue Chinese
+                        </option><option value="showmore">More...</option></select></span></form>
+&nbsp;</span> 
+<table width="100%">
+<tbody><tr bgcolor="#ededed" class="alt first">
+  <td><strong>汉语</strong></td>
+<td><i><span title="source: cmn:mwe
+conf: 0.99;
+" style="opacity: 0.690000" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=好 穿 异性 服装 的&amp;lang=cmn&amp;lang2=eng">好 穿 异性 服装 的</a> </span> 
+                      , <span title="source: cmn:mwe
+conf: 0.99;
+" style="opacity: 0.690000" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=作异性 打扮者&amp;lang=cmn&amp;lang2=eng">作异性 打扮者</a> </span> 
+                      , <span title="source: cmn:mwe
+conf: 0.99;
+" style="opacity: 0.690000" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=异性 服装 癖者&amp;lang=cmn&amp;lang2=eng">异性 服装 癖者</a> </span> 
+                      , <span title="source: cmn:mwe
+conf: 0.99;
+" style="opacity: 0.690000" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=异性 模仿 癖者&amp;lang=cmn&amp;lang2=eng">异性 模仿 癖者</a> </span> 
+                      , <span title="source: bow
+conf: 0.91;
+" style="opacity: 0.610000" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=好穿异性服装的&amp;lang=cmn&amp;lang2=eng">好穿异性服装的</a> </span> 
+                      , <span title="source: bow
+conf: 0.91;
+" style="opacity: 0.610000" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=异性模仿癖者&amp;lang=cmn&amp;lang2=eng">异性模仿癖者</a> </span> 
+                      , <span title="source: bow
+conf: 0.91;
+" style="opacity: 0.610000" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=异性服装癖者&amp;lang=cmn&amp;lang2=eng">异性服装癖者</a> </span> 
+                      , <span title="source: wikt
+conf: 0.90;
+" style="opacity: 0.600000" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=易装癖&amp;lang=cmn&amp;lang2=eng">易装癖</a> </span> 
+                      , <span title="source: wikt
+conf: 0.90;
+" style="opacity: 0.600000" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=人妖&amp;lang=cmn&amp;lang2=eng">人妖</a> </span> 
+                      , <span title="source: sew
+conf: 0.81;
+" style="opacity: 0.510000" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=作异性打扮者&amp;lang=cmn&amp;lang2=eng">作异性打扮者</a> </span> 
+                      </i>
+<div style="display:block; float:right;">
+                     <a class="largefancybox fancybox.iframe" href="showcorpus.cgi?searchlang=cmn&amp;concept=10726031-n&amp;langs2=eng">
+                     <span title="NTUMC Examples"><span style="color: #4D99E0;">
+                     <i class="icon-book"></i>
+                    </span></span></a></div>
+</td></tr>
+<tr>
+  <td><strong>英语</strong></td>
+<td><i><span title="source: eng30
+conf: 1.00;
+" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=transvestite&amp;lang=eng&amp;lang2=eng">transvestite</a> </span> <font size="-1">(
+                        <a title="derv: transvestite (01202813-a)" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;synset=01202813-a&amp;lang=eng">⊳</a>
+                         
+                        <a title="derv: transvestic (01202813-a)" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;synset=01202813-a&amp;lang=eng">⊳</a>
+                        )</font>
+                      , <span title="source: eng30
+conf: 1.00;
+" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=cross-dresser&amp;lang=eng&amp;lang2=eng">cross-dresser</a> </span> <font size="-1">(
+                        <a title="derv: cross-dress (00051637-v)" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;synset=00051637-v&amp;lang=eng">⊳</a>
+                        )</font>
+                      </i>
+<div style="display:block; float:right;">
+                     <a class="largefancybox fancybox.iframe" href="showcorpus.cgi?searchlang=eng&amp;concept=10726031-n&amp;langs2=eng">
+                     <span title="NTUMC Examples"><span style="color: #4D99E0;">
+                     <i class="icon-book"></i>
+                    </span></span></a></div>
+</td></tr>
+<tr bgcolor="#ededed" class="alt">
+  <td><strong>Indonesian</strong></td>
+<td><i><span title="source: msa
+conf: 1.00;
+" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=transvestit&amp;lang=ind&amp;lang2=eng">transvestit</a> </span> 
+                      , <span title="source: msa
+conf: 1.00;
+" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=pondan&amp;lang=ind&amp;lang2=eng">pondan</a> </span> 
+                      , <span title="source: msa
+conf: 1.00;
+" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=banci&amp;lang=ind&amp;lang2=eng">banci</a> </span> 
+                      </i>
+<div style="display:block; float:right;">
+                     <a class="largefancybox fancybox.iframe" href="showcorpus.cgi?searchlang=ind&amp;concept=10726031-n&amp;langs2=eng">
+                     <span title="NTUMC Examples"><span style="color: #4D99E0;">
+                     <i class="icon-book"></i>
+                    </span></span></a></div>
+</td></tr>
+<tr>
+  <td><strong>Italian</strong></td>
+<td><i><span title="source: iwn;mwn;wikt
+conf: 1.00;
+" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=travestito&amp;lang=ita&amp;lang2=eng">travestito</a> </span> 
+                      </i>
+<div style="display:block; float:right;">
+                     <a class="largefancybox fancybox.iframe" href="showcorpus.cgi?searchlang=ita&amp;concept=10726031-n&amp;langs2=eng">
+                     <span title="NTUMC Examples"><span style="color: #4D99E0;">
+                     <i class="icon-book"></i>
+                    </span></span></a></div>
+</td></tr>
+<tr bgcolor="#ededed" class="alt">
+  <td><strong>日语</strong></td>
+<td><i><span title="source: jpn
+conf: 1.00;
+" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=ミスターレディー&amp;lang=jpn&amp;lang2=eng">ミスターレディー</a> </span> 
+                      </i>
+<div style="display:block; float:right;">
+                     <a class="largefancybox fancybox.iframe" href="showcorpus.cgi?searchlang=jpn&amp;concept=10726031-n&amp;langs2=eng">
+                     <span title="NTUMC Examples"><span style="color: #4D99E0;">
+                     <i class="icon-book"></i>
+                    </span></span></a></div>
+</td></tr>
+<tr class="last">
+  <td><strong>Malaysian</strong></td>
+<td><i><span title="source: msa
+conf: 1.00;
+" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=transvestit&amp;lang=zsm&amp;lang2=eng">transvestit</a> </span> 
+                      , <span title="source: msa
+conf: 1.00;
+" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=pondan&amp;lang=zsm&amp;lang2=eng">pondan</a> </span> 
+                      , <span title="source: msa
+conf: 1.00;
+" '=""><a style="color:black;text-decoration:none;" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;lemma=banci&amp;lang=zsm&amp;lang2=eng">banci</a> </span> 
+                      </i>
+</td></tr>
+</tbody></table>
+<div id="line"><span>Definitions</span></div>
+
+<dl>
+<dt><strong>英语</strong>
+</dt><dd>
+someone who adopts the dress or manner typical of another gender <sub>(melissa)</sub><br>
+ 
+</dd><dt><strong>日语</strong>
+</dt><dd>
+異性の服装や態度や性的役割などを採用する人<br>
+ 
+</dd></dl>
+<div id="line"><span>Relations</span></div>
+
+<table>
+<tbody><tr class="alt first"><td valign="top"><strong>Hypernym:</strong></td>
+<td>
+<a title="00007846-n" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;synset=00007846-n&amp;lang=cmn&amp;lang2=eng">person</a>
+<a title="80002139-n" href="wn-gridx.cgi?gridmode=ntumcgrid&amp;synset=80002139-n&amp;lang=cmn&amp;lang2=eng">LGBTQ+</a>
+</td></tr>
+<tr class="last"><td valign="top"><strong>
+             <span title="lexnames">Semantic Field:</span></strong></td>
+             <td valign="top"><span title="18: nouns denoting people">person<sub>n</sub></span></td>
+          
+</tr></tbody></table>
+
+<div id="line"><span>External Links</span></div>
+
+<form method="post" style="display: inline-block; 
+               margin: 0px; padding: 0px;" id="editss10726031-n" action="annot-gridx.cgi?usrname=guest&amp;synset=10726031-n"><a href="javascript:{}" onclick="document.getElementById('editss10726031-n').submit(); 
+                        return false;">
+               <span title="Edit 10726031-n (add lemmas, defs, etc.)"><i class="icon-edit"></i></span></a>
+               </form>
+<form method="post" style="display: inline-block; 
+               margin: 0px; padding: 0px;" id="newss10726031-n" action="addnew.cgi">
+               <input type="hidden" name="synset" value="10726031-n">
+               <a href="javascript:{}" style="text-decoration:none;" onclick="document.getElementById('newss10726031-n').submit(); 
+               return false;"><span class="tooltip mainColor" title="">
+               <i class="icon-plus-sign"></i> </span></a></form>
+<div class="clear">&nbsp;</div><hr><p>
+</p><form method="post" style="display: inline-block" title="search for a word  —  'word'
+or pattern  — '[wW]ord*' (using sqlite GLOB)
+or synset-id  — '06286395-n'
+or a pattern in a definition — 'def::*word*' (using sqlite GLOB)" id="newquery" action="wn-gridx.cgi?gridmode=ntumcgrid">
+                  <span style="font-size: 90%">
+                  <input style="font-size: 90%" type="text" name="lemma" value="" size="8" maxlength="50">
+
+        <button class="small"> <a href="javascript:{}" onclick="document.getElementById('newquery').submit(); 
+           return false;"><span title="Search">
+           <span style="color: #4D99E0;"><i class="icon-search"></i>
+           </span></span></a></button>
+ 
+         <strong>Langs: </strong><select name="lang" size="1" style="font-size: 90%" onchange="if(this.value == 'showmore') 
+               toggle_visibility('langselect');">
+          <option value="eng">英语
+                        </option><option value="ind">Indonesian
+                        </option><option value="zsm">Malaysian
+                        </option><option value="jpn">日语
+                        </option><option value="cmn" selected="">汉语
+                        </option><option value="ita">Italian
+                        </option><option value="ces">Czech
+                        </option><option value="yue">Yue Chinese
+                        </option><option value="showmore">More...</option></select><select name="lang2" style="font-size: 90%" title="backoff language" size="1" onchange="if(this.value == 'showmore') 
+               toggle_visibility('langselect');"><option value="eng" selected="">英语
+                        </option><option value="ind">Indonesian
+                        </option><option value="zsm">Malaysian
+                        </option><option value="jpn">日语
+                        </option><option value="cmn">汉语
+                        </option><option value="ita">Italian
+                        </option><option value="ces">Czech
+                        </option><option value="yue">Yue Chinese
+                        </option><option value="showmore">More...</option></select></span></form>
+<div class="clear">&nbsp;</div><hr><div style="font-size:90%;color:grey;float:right">
+<a onclick="toggle_visibility('langselect');">
+                   <i class="icon-wrench"></i> Preferences</a><div id="langselect" style="display: none"><span style="color: #4D99E0;display: inline-block; 
+                    float:right">
+             <a href="javascript:{}" onclick="document.getElementById('langselection').submit(); 
+             return false;"><span title="Update Language Selection">
+             Update Language Selection
+             </span></a></span><br><span style="color: #4D99E0;display: inline-block; 
+                    float:right"><input type="checkbox" onclick="for(c in document.getElementsByName('langselect[]')) 
+             document.getElementsByName('langselect[]').item(c).checked 
+             = this.checked" ;="" class="checkbox"> Select All/None</span><h6>Language Selection</h6>
+                   <form method="post" action="wn-gridx.cgi?gridmode=ntumcgrid" id="langselection"><table><tbody><tr class="alt first"><td><input type="checkbox" name="langselect[]" value="ces" checked="" class="checkbox"> Czech</td>
+                        <td><input type="checkbox" name="langselect[]" value="cmn" checked="" class="checkbox"> Chinese (simplified)</td>
+                        <td><input type="checkbox" name="langselect[]" value="eng" checked="" class="checkbox"> English</td>
+                        <td><input type="checkbox" name="langselect[]" value="ind" checked="" class="checkbox"> Indonesian</td>
+                        <td><input type="checkbox" name="langselect[]" value="ita" checked="" class="checkbox"> Italian</td>
+                        </tr><tr class="last"><td><input type="checkbox" name="langselect[]" value="jpn" checked="" class="checkbox"> Japanese</td>
+                        <td><input type="checkbox" name="langselect[]" value="yue" checked="" class="checkbox"> Yue Chinese</td>
+                        <td><input type="checkbox" name="langselect[]" value="zsm" checked="" class="checkbox"> Malaysian</td>
+                        </tr></tbody></table><a href="javascript:{}" onclick="document.getElementById('langselection').submit(); 
+             return false;"><span title="Update Language Selection" style="display: inline-block; float:right">
+             <span style="color: #4D99E0;">Update Language Selection
+             </span></span></a></form></div>
+<br><span style="font-size:80%;color:grey;">(0.03242 seconds)</span></div>
+<nobr><a href="https://omwn.org/omw1.html">More detail about the NTUMC+ Open Multilingual Wordnet (0.9)</a></nobr>
+<br>This project is now integrated in the 
+             <a href="https://omwn.org/omw1.html"> Extended Open Multilingual Wordnet (0.9)</a>
+<br>Maintainer: <a href="https://fcbond.github.io/">
+             Francis Bond</a>
+&lt;<a href="mailto:bond@ieee.org">bond@ieee.org</a>&gt;
+  
+
+<div id="tiptip_holder" style="max-width:300px;"><div id="tiptip_arrow"><div id="tiptip_arrow_inner"></div></div><div id="tiptip_content"></div></div></body></html>

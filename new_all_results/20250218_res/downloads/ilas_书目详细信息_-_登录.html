@@ -1,0 +1,4185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+    <base href="https://ilas.szclib.org.cn:443/ILASOPAC/">
+    <title>书目详细信息</title>
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="This is my page">
+    <meta name="referrer" content="no-referrer">
+
+    <link type="text/css" rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" media="print" href="style/print.css">
+
+    <script type="text/javascript" src="style/jquery.js"></script>
+    <script type="text/javascript" src="style/jquery-migrate.js"></script>
+    
+    
+
+
+<script>
+
+!window.jQuery && document.write("<script src=\"/ILASOPAC/i18n/jquery-3.5.1.min.js\">"+"</scr"+"ipt>");
+</script>
+<script type="text/javascript" src="/ILASOPAC/i18n/jquery.i18n.properties-min.js"></script>
+
+<script type="text/javascript">
+	
+	$trans = $.i18n.prop;
+	var lang = 'null';
+	if(lang==null || lang=="null") {
+		//lang="zh";
+		
+		$.ajax({
+			url:"getSystemLanguage.do",
+			type:"GET"
+		}).done(function(data){
+			lang = data;
+		}).fail(function(){
+			lang = "zh";
+		});
+		
+		$.i18n.properties({
+		    name:'Messages', 
+		    path:'i18n/language/', 
+		    mode:'both',
+		    language: lang,  
+		    callback: function() {
+	    	
+// 		    	console.log($.i18n.prop("msg_world","哈哈"));
+// 		    	console.log($trans("msg_world"));
+		    }
+		});
+	}else{
+		$.i18n.properties({
+		    name:'Messages', 
+		    path:'i18n/language/', 
+		    mode:'both',
+		    language: lang,  
+		    callback: function() {
+		    	
+	// 		    	console.log($.i18n.prop("msg_world","哈哈"));
+	// 		    	console.log($trans("msg_world"));
+			    }
+			});
+	}
+	
+	
+</script>
+
+    <script type="text/javascript" src="style/jquery.uniform.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="style/colorbox.css">
+    <script type="text/javascript" src="style/jquery.colorbox.js"></script>
+    <script type="text/javascript" src="style/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="style/jquery.cycle.all.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="style/idangerous.swiper.css">
+    <script type="text/javascript" src="style/idangerous.swiper.min.js"></script>
+    <script type="text/javascript" src="JS/amcharts.js"></script>
+    <script type="text/javascript" src="JS/serial.js"></script>
+    <script type="text/javascript" src="style/boot.js"></script><script src="https://ilas.szclib.org.cn/ILASOPAC/style/miniui/miniui.js" type="text/javascript"></script><link href="https://ilas.szclib.org.cn/ILASOPAC/style/miniui/themes/default/miniui.css" rel="stylesheet" type="text/css"><link href="https://ilas.szclib.org.cn/ILASOPAC/style/miniui/themes/icons.css" rel="stylesheet" type="text/css">
+
+    <script src="src/sigma.core.js"></script>
+    <script src="src/conrad.js"></script>
+    <script src="src/utils/sigma.utils.js"></script>
+    <script src="src/utils/sigma.polyfills.js"></script>
+    <script src="src/sigma.settings.js"></script>
+    <script src="src/classes/sigma.classes.dispatcher.js"></script>
+    <script src="src/classes/sigma.classes.configurable.js"></script>
+    <script src="src/classes/sigma.classes.graph.js"></script>
+    <script src="src/classes/sigma.classes.camera.js"></script>
+    <script src="src/classes/sigma.classes.quad.js"></script>
+    <script src="src/classes/sigma.classes.edgequad.js"></script>
+    <script src="src/captors/sigma.captors.mouse.js"></script>
+    <script src="src/captors/sigma.captors.touch.js"></script>
+    <script src="src/renderers/sigma.renderers.canvas.js"></script>
+    <script src="src/renderers/sigma.renderers.webgl.js"></script>
+    <script src="src/renderers/sigma.renderers.svg.js"></script>
+    <script src="src/renderers/sigma.renderers.def.js"></script>
+    <script src="src/renderers/webgl/sigma.webgl.nodes.def.js"></script>
+    <script src="src/renderers/webgl/sigma.webgl.nodes.fast.js"></script>
+    <script src="src/renderers/webgl/sigma.webgl.edges.def.js"></script>
+    <script src="src/renderers/webgl/sigma.webgl.edges.fast.js"></script>
+    <script src="src/renderers/webgl/sigma.webgl.edges.arrow.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.labels.def.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.hovers.def.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.nodes.def.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.edges.def.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.edges.curve.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.edges.arrow.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.edges.curvedArrow.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.edgehovers.def.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.edgehovers.curve.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.edgehovers.arrow.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js"></script>
+    <script src="src/renderers/canvas/sigma.canvas.extremities.def.js"></script>
+    <script src="src/renderers/svg/sigma.svg.utils.js"></script>
+    <script src="src/renderers/svg/sigma.svg.nodes.def.js"></script>
+    <script src="src/renderers/svg/sigma.svg.edges.def.js"></script>
+    <script src="src/renderers/svg/sigma.svg.edges.curve.js"></script>
+    <script src="src/renderers/svg/sigma.svg.labels.def.js"></script>
+    <script src="src/renderers/svg/sigma.svg.hovers.def.js"></script>
+    <script src="src/middlewares/sigma.middlewares.rescale.js"></script>
+    <script src="src/middlewares/sigma.middlewares.copy.js"></script>
+    <script src="src/misc/sigma.misc.animation.js"></script>
+    <script src="src/misc/sigma.misc.bindEvents.js"></script>
+    <script src="src/misc/sigma.misc.bindDOMEvents.js"></script>
+    <script src="src/misc/sigma.misc.drawHovers.js"></script>
+    <!-- END SIGMA IMPORTS -->
+    <script src="plugins/sigma.renderers.customShapes/shape-library.js"></script>
+    <script src="plugins/sigma.renderers.customShapes/sigma.renderers.customShapes.js"></script>
+    <!-- huanghuang add 20161104 分数插件 -->
+    <script type="text/javascript" src="JS/score.js"></script>
+    
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=zc0rNYOp924ONTkh1F8vw7kBn3lRaXbI"></script>
+    <style type="text/css">
+        .infoshow {
+            background-color: white;
+        }
+
+        #cboxOverlay{
+            display: none !important;
+        }
+        #colorbox{
+            display: none !important;;
+        }
+
+        #graph-container {
+            top: 30;
+            bottom: 0;
+            left: 70%;
+            right: 0;
+            color: #000;
+            background: #fff;
+            height: 200px;
+            position: absolute;
+            border: 1px solid #1f95df;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            width: 280px;
+        }
+
+        .label {
+            border: 1px solid #1f95df;
+            margin-left: 68%;
+            color: #000;
+            position: absolute;
+            top: 0px;
+            left: 20px;
+            width: 260px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            padding: 3px 9px 3px 10px;
+            z-index: 1;
+            font-family: sans-serif;
+            border-bottom: 0;
+        }
+
+        #douinfo {
+            border: 1px solid #1f95df;
+            margin-left: 68%;
+            color: #000;
+            position: absolute;
+            top: 238px;
+            left: 20px;
+            width: 260px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            padding: 3px 10px 3px 10px;
+            z-index: 1;
+            font-family: sans-serif;
+        }
+
+        .bibloan {
+            border: 1px solid #1f95df;
+            margin-left: 68%;
+            color: #000;
+            position: absolute;
+            top: 300px;
+            left: 20px;
+            width: 260px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            padding: 3px 10px 3px 10px;
+            z-index: 1;
+            font-family: sans-serif;
+        }
+
+        .datalink {
+            border: 1px solid #1f95df;
+            margin-left: 68%;
+            color: #000;
+            position: absolute;
+            top: 290px;
+            left: 20px;
+            width: 260px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            padding: 3px 10px 3px 10px;
+            z-index: 1;
+            font-family: sans-serif;
+
+        }
+
+        .bntShowInfo {
+            border: 1px solid #c0d7e9;
+            width: 70px;
+            padding: 4px;
+            background-color: #1f95df;
+            color: #fff;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* *{margin:0;padding:0;font-size:13px;} add by huanghuang 20161104 */
+        ul, li {
+            list-style: none;
+        }
+
+        .star {
+            position: relative;
+            width: 100%;
+            height: 24px;
+            margin-left: 0px;
+        }
+
+        .star span {
+            float: left;
+            height: 19px;
+            line-height: 19px;
+        }
+
+        .star ul {
+            margin: 5px 10px;
+        }
+
+        .star li {
+            float: left;
+            width: 24px;
+            height: 22px;
+            text-indent: -9999px;
+            background: url('images/star1.png') no-repeat;
+            cursor: pointer;
+        }
+
+        .star li.on {
+            background: url('images/star2.png') no-repeat;
+        }
+
+        .star p {
+            padding: 10px 10px 0;
+            position: absolute;
+            top: 20px;
+            width: 159px;
+            height: 60px;
+            z-index: 100;
+        }
+
+        .star p em {
+            color: #FF6600;
+            display: block;
+            font-style: normal;
+        }
+
+        .star strong {
+            color: #ff6600;
+            padding-left: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .infotitle {
+            min-width: 1115px;
+        }
+
+        .infotitle li {
+            min-width: 20px;
+        }
+
+        .infotitle li a {
+            width: auto;
+            padding: 1px 11px 0 11px;
+            display: block;
+            float: left;
+            height: 25px;
+            line-height: 25px;
+            margin: 3px 0 0 10px;
+        }
+
+        .infotitle li.cur a, .infotitle li a:hover {
+            background: none;
+        }
+
+
+        .infotitle li.cur a, .infotitle a:hover {
+            background: #f7fdff;
+            border: 1px solid #a8c2d1;
+            border-bottom: none;
+            height: 26px;
+            padding: 0px 10px 0 10px;
+        }
+
+        .form-left {
+            border: 1px solid #ccc;
+            display: inline-block;
+            width: 240px;
+            height: 300px;
+            margin-top: 10px;
+            margin-left: 20px;
+            padding-left: 10px;
+            overflow: auto;
+        }
+
+        .form-left label {
+            display: block;
+        }
+
+        .form-right {
+            display: inline-block;
+            width: 440px;
+            height: 300px;
+            margin-left: 10px;
+        }
+
+
+        #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //找到标签2效果对应的三个标签，注册鼠标点击事件
+            $("#tag li").each(function (index) {
+                $(this).click(function () {
+                    $("#tag li.tabin").removeClass("tabin");
+                    $(this).addClass("tabin");
+                    if (index == 0) {
+                        $("#BookHolding").show();
+                        $("#SeriseRegist").hide();
+
+                    } else if (index == 1) {
+                        $("#BookHolding").hide();
+                        $("#SeriseRegist").show();
+                    }
+                });
+            });
+
+            
+            $("#tag li:eq(1)").trigger("click");
+        });
+
+
+
+        function BackHistory() {
+            if (window.history.go(-1) == undefined) {
+                window.opener = null;
+                window.open('', '_self');
+                window.close();
+
+            } else {
+                window.history.go(-1);
+            }
+
+        }
+
+    </script>
+
+    <style type="text/css">
+
+        #tag li {
+            float: left;
+            width: 100px;
+            height: 36px;
+            line-height: 36px;
+            background: #4c72aa url(images/shade_1.png) repeat-x left 0;
+            font-size: 14px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+
+        }
+
+        #tag li:hover {
+            margin-right: 1px;
+            margin-left: 1px;
+            background: #73b22f;
+            width: 98px;
+        }
+
+        #tag li.tabin {
+            background: #73b22f;
+        }
+
+    </style>
+    <!--[if IE]>
+    <link rel="stylesheet" href="style/ie.css"/>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="style/html5.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="style/DD_belatedPNG.js"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix();
+    </script>
+    <![endif]-->
+
+</head>
+
+<body><div id="cboxOverlay" style="opacity: 0.5; cursor: pointer; display: block;"></div><div id="colorbox" class="" style="padding-bottom: 20px; padding-right: 20px; display: none; width: 480px; height: 675.1px; top: 148.95px; left: 702.5px;"><div id="cboxWrapper" style="height: 695.1px; width: 500px;"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left; width: 480px;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear:left"><div id="cboxMiddleLeft" style="float: left; height: 675.1px;"></div><div id="cboxContent" style="float: left; width: 480px; height: 675.1px;"><div id="cboxLoadedContent" style="width: 470px; overflow: auto; height: 665.1px;"></div><div id="cboxLoadingOverlay" class="" style="height: 675.1px; display: none;"></div><div id="cboxLoadingGraphic" class="" style="height: 675.1px; display: none;"></div><div id="cboxTitle" class="" style=""></div><div id="cboxCurrent" class="" style="display: none;"></div><div id="cboxNext" class="" style="display: none;"></div><div id="cboxPrevious" class="" style="display: none;"></div><div id="cboxSlideshow" class="" style="display: none;"></div><div id="cboxClose" class="">close</div></div><div id="cboxMiddleRight" style="float: left; height: 675.1px;"></div></div><div style="clear:left"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left; width: 480px;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div>
+
+<section class="wrapper">
+
+    <!--顶部-->
+    <div>
+        
+        
+            
+
+
+
+
+
+
+  
+    <base href="https://ilas.szclib.org.cn:443/ILASOPAC/">
+    
+    <title></title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	
+	
+	
+    <link type="text/css" rel="stylesheet" href="/ILASOPAC/CSS/ilas-common.css?v=201805040">
+<style>
+
+.show-libs {
+	display: none;
+	z-index: 999;
+	width: 50rem;
+	height: 30rem;
+	background-color: #F2FDFF;
+	border: 1px solid #4B71AA;
+	position:fixed;
+	margin:auto;
+	left:0;
+	right:0;
+	top:0; 
+	bottom:0;
+}
+
+.show-libs .title-libs {
+	height: 2rem;
+	line-height: 2rem;
+	padding: 0px 0;
+	background-color: #4B71AA;
+	color: #E9F5F5;
+	padding-left: 1rem;
+}
+
+.show-libs .title-libs .close{
+	float:right;
+	padding-right: 10px;
+	color: #fff;
+}
+
+.show-libs .title-libs .close:HOVER{
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.show-libs .search-libs {
+	height: 2.5rem;
+	padding: 0.5rem 0 0 0;
+	color: #E9F5F5;
+	padding-left: 1rem;
+}
+
+.show-libs .content-libs {
+	height: 23.9rem;
+	padding: 0.5rem;
+	overflow: auto;
+}
+
+.content-libs li {
+/* 	display: inline-block; */
+/* 	min-width: 25%; */
+	margin: 3px 0;
+	float: left;
+	padding: 0.2rem 0.5rem;
+/* 	border: 1px solid red; */
+	box-sizing: border-box;
+}
+
+.content-libs li span:HOVER {
+	border: 1px solid #4B71AA;
+	background-color: #4B71AA;
+	color: #fff;
+}
+
+.content-libs li span {
+	display: inline-block;
+	padding: 0.2rem 0.5rem;
+	border-radius: 5px;
+	border: 1px solid #4B71AA;
+	background-color: #fff;
+	box-sizing: border-box;
+	color: #4B71AA;
+	cursor: pointer;
+}
+
+.navbar-content-box dl dt,.navbar-content-box dl dd {
+	border-left: 1px solid red;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;	
+}
+
+.navbar-content-box dl dt a {
+	display: inline-block;
+	width: 100%;
+}
+
+.navbar-content-box dl dd a {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+	width: 100%;
+}
+
+</style>
+  
+  
+  
+
+	<div class="navbar-wrapper">
+		<div class="wgt-navbar">
+			<div class="navbar-bg">
+				<div class="navbar-bg-top">
+					<div class="navbar-content layout">
+						<div class="navbar-content-box">
+							<dl class="index ">
+								<dt class="user ">
+									<a href="Index?target=0" title="首页">
+									首页</a>
+								</dt>
+							</dl>
+							<dl class="user ">
+								<dt class="user ">
+
+								
+
+								
+
+	                            
+
+		                       
+			                          <a href="search.do?target=1&amp;menu1=102" title="特色检索">
+			                          特色检索</a>
+	                            
+								</dt>
+								<dd>
+									<div id="classNoShow" style="">
+										<a id="RetrievalSearch3" onclick="javascipt:NTRetrievalSearch('RetrievalSearch3');" title="中图分类法">
+										中图分类法</a>
+									</div>
+									<div>
+										<a href="search.do?target=1&amp;menu1=102" title="高级检索">
+										高级检索 </a>
+									</div>
+
+								      <div id="booktag" style="">
+										<a href="showBookTagList.do?target=1&amp;menu1=103" title="书签列表">
+			                               书签列表
+			                          </a>
+									</div>
+								</dd>
+							</dl>
+						
+							
+							<dl id="newBookNotice" style="" class="user ">
+								<dt class="user ">
+										
+	                            		
+		                            
+				                          <a id="NTShowNewBook2" onclick="javascipt:NTShowNewBook('NTShowNewBook2');" title="新书通报">
+				                          新书通报</a>
+		                            
+
+								</dt>
+							
+								<dd>
+									<div>
+										<a id="NTShowNewBook3" onclick="javascipt:NTShowNewBook('NTShowNewBook3');" title="新书通报">
+										新书通报</a>
+									</div>
+									<div id="seriesreview" style="">
+										<a id="NTShowNewSeries2" onclick="javascipt:NTShowNewSeries('NTShowNewSeries2');" title="新刊通报">
+										新刊通报</a>
+									</div>
+									
+
+
+
+
+								</dd>
+							</dl>
+							
+							
+							<dl id="hotRank" style="" class="user ">
+								<dt class="user ">
+			                    	
+			                            <a href="HotTopList.do?target=2&amp;menu2=201" title="热点排行">
+			                                 热点排行
+			                            </a>
+	                            		
+	                            
+	                                
+	                                
+								</dt>
+								<dd>
+									<div>
+										<a id="NTBookTopList2" onclick="javascipt:NTBookTopList('NTBookTopList2');" title="借阅排行榜">
+			                                借阅排行榜
+			                            </a>
+									</div>
+									<div>
+										<a href="HotTopList.do?target=2&amp;menu2=201" title=" 热点排行">
+			                                 热点排行
+			                            </a>
+									</div>
+								
+								</dd>
+							</dl>
+							
+							<dl id="beforeQuestion" style="display: none;" class="user ">
+								<dt class="user ">
+									 <a href="QuestionPage.do?target=3" title="咨询中心">
+			                                 咨询中心
+			                             </a>
+								</dt>
+								<dd>
+									<div>
+										 <a href="QuestionPage.do?target=3" title="咨询中心">
+			                                 咨询中心
+			                             </a>
+									</div>
+								</dd>
+							</dl>
+							
+							<dl id="information" style="" class="user ">
+								<dt class="user ">
+									 <a href="bookReturnInform.do?target=info" title="信息公告">
+			                                 信息公告
+			                             </a>
+								</dt>
+								<dd>
+									<div id="libraryInform" style="display:none;">
+										 <a href="information.do?target=info" title=" 通知公告">
+			                                 通知公告
+			                             </a>
+									</div>
+									<div id="returnInform" style="">
+										<a href="bookReturnInform.do?target=info" title=" 全馆催还通知">
+											全馆催还通知
+										</a>
+									</div>
+								</dd>
+
+							</dl>
+							
+							<dl id="linkSearch" class="user " style="display: none;">
+								<dt class="user ">
+									<a href="ShowJson.do?target=4" title="使用帮助">
+									使用帮助</a>
+								</dt>
+								<dd>
+									<div>
+									    <a href="ShowJson.do?target=4" title="使用帮助">
+									    使用帮助</a>
+									</div>
+									
+								</dd>
+							</dl>
+							
+							<dl id="uptodate" class="index " style="display:none;">
+								<dt class="user ">
+									<a href="http://www.uptodate.com/contents/search" target="_blank">UpToDate</a>
+								</dt>
+							</dl>
+							
+							<dl id="moreElectic" class="index " style="display:none;">
+								<dt class="user ">
+									<a href="test.jsp" target="_blank">更多电子资源</a>
+								</dt>
+							</dl>
+							
+							<dl class="user">
+								<dt>
+									<a>语种</a>
+								</dt>
+								<dd>
+									<div>
+										<a href="language?language=zh_CN">中文</a>
+									</div>
+									<div>
+										<a href="language?language=en_US">英文</a>
+									</div>
+								</dd>
+							</dl>
+							<dl class="user">
+								<dt>
+									<a href="about.jsp">关于</a>
+								</dt>
+							</dl>
+
+							
+							<div class="usercenter">
+								    <div>
+										<a id="jumpMyLib" href="javascript:void(0)">
+										<em class="cmn-icon cmn-icons cmn-icons_navbar-usercenter"></em>
+										我的图书馆</a>
+									</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<div class="show-libs">
+		<div class="title-libs">选择图书馆<span class="close">关闭</span></div>
+		<div class="search-libs">
+			<input name="" id="libname" class="input" style="width:30rem;margin-left:0.5rem;">
+			<input id="libFilter" style="height:2.2rem;line-height:2rem; padding: 0  1rem;margin: 0;" value="筛选" class="vipsearch" type="button">
+			<input id="libClear" style="height:2.2rem;line-height:2rem; padding: 0  1rem;margin: 0;" value="清空" class="vipsearch" type="button">
+		</div>
+		<div class="content-libs">
+			<ul><li><span data-id="BABM">深圳宝安区宝民小学</span></li><li><span data-id="BAHG">宝安海港学校</span></li><li><span data-id="BALG">深圳市宝安区利锦小学</span></li><li><span data-id="BAQT">深圳市宝安区桥头学校</span></li><li><span data-id="BJLC">深圳市龙岗区麓城外国语小学</span></li><li><span data-id="DBYE">深圳市第八幼儿园</span></li><li><span data-id="DDJY">深圳市龙岗区大地教育培训中心</span></li><li><span data-id="DPZR">大鹏新区自然童书馆</span></li><li><span data-id="FHJD">福海街道图书馆</span></li><li><span data-id="FTBH">深圳市明德实验学校碧海校区</span></li><li><span data-id="FTFN">福田区福南小学</span></li><li><span data-id="FTFT">深圳市福田区福田小学</span></li><li><span data-id="FTFX">福田区福新小学</span></li><li><span data-id="FTFY">福田区福苑小学</span></li><li><span data-id="FTHF">福田区华富小学</span></li><li><span data-id="FTHG">深圳市福田区皇岗小学</span></li><li><span data-id="FTJP">福田区景鹏小学</span></li><li><span data-id="FTLH">福田区莲花中学南校区</span></li><li><span data-id="FTLY">福田荔园小学</span></li><li><span data-id="FTMH">深圳市福田区梅华小学</span></li><li><span data-id="FTMX">深圳市福田区深圳中学梅香学校</span></li><li><span data-id="FTNH">深圳市南华小学</span></li><li><span data-id="FTQX">深圳市福田区实验教育集团侨香学校</span></li><li><span data-id="FTSL">福田区狮岭小学</span></li><li><span data-id="FTXS">福田区新沙小学</span></li><li><span data-id="FTXZ">福田新洲小学</span></li><li><span data-id="FTYL">福田区园岭小学</span></li><li><span data-id="FTYT">福田区益田小学</span></li><li><span data-id="FTZF">福田众孚小学</span></li><li><span data-id="GMAH">光明爱华小学</span></li><li><span data-id="GMBB">深圳市光明区宝滨小学</span></li><li><span data-id="GMCZ">光明公明长圳小学</span></li><li><span data-id="GMDY">光明公明第一小学</span></li><li><span data-id="GMDZ">光明区东周小学</span></li><li><span data-id="GMF">光明凤凰小学</span></li><li><span data-id="GMGM">光明光明小学</span></li><li><span data-id="GMJH">光明精华学校</span></li><li><span data-id="GMLC">光明公明楼村小学</span></li><li><span data-id="GMLS">光明区李松蓢学校</span></li><li><span data-id="GMPY">光明培英文武实验学校</span></li><li><span data-id="GMQCD">华中师范大学附属光明勤诚达学校</span></li><li><span data-id="GMSE">光明区图书馆少儿分馆</span></li><li><span data-id="GMSY">光明新区实验学校</span></li><li><span data-id="GMWG">深圳市光明区外国语学校</span></li><li><span data-id="GMXC">光明公明下村小学</span></li><li><span data-id="GMYL">光明公明玉律小学</span></li><li><span data-id="GMZY">光明公明中英文学校</span></li><li><span data-id="HF">华富幼儿园</span></li><li><span data-id="HFLB">荟芳园图书室</span></li><li><span data-id="HHSY">洪湖公园荷合书院</span></li><li><span data-id="HSYW">双月湾</span></li><li><span data-id="JKYSY_GM">深圳市教育科学研究院实验学校(光明)</span></li><li><span data-id="JQCX">深圳市崛起诚信实验学校</span></li><li><span data-id="KCDE">大鹏区葵涌第二小学</span></li><li><span data-id="KXGZLG">深圳科学高中龙岗分校</span></li><li><span data-id="LGDF">深圳市龙岗区东方半岛小学</span></li><li><span data-id="LGFE">深圳市龙岗区妇女儿童活动中心</span></li><li><span data-id="LGLCP">深圳市龙岗区龙城小学</span></li><li><span data-id="LGLL">深圳市龙岗区龙岭学校</span></li><li><span data-id="LGQL">龙岗清林小学</span></li><li><span data-id="LGQLS">深圳龙岗区千林山小学</span></li><li><span data-id="LGST">龙岗区沙塘布社区</span></li><li><span data-id="LGSTB">龙岗区南湾沙塘布学校</span></li><li><span data-id="LGSZ">深圳中学龙岗小学</span></li><li><span data-id="LGWGY">深圳市龙岗区外国语学校</span></li><li><span data-id="LGXC">龙岗区坂田新城学校</span></li><li><span data-id="LGYC">深圳龙岗区怡翠实验学校</span></li><li><span data-id="LHBB">深圳市碧波小学</span></li><li><span data-id="LHBC">深圳市百草园小学</span></li><li><span data-id="LHBS">罗湖百仕达小学</span></li><li><span data-id="LHBX">深圳市布心小学</span></li><li><span data-id="LHCB">罗湖区翠北小学</span></li><li><span data-id="LHCP">罗湖区草埔小学</span></li><li><span data-id="LHCY">深圳市翠茵学校</span></li><li><span data-id="LHDC">罗湖区东昌小学</span></li><li><span data-id="LHGLDE">深圳市龙华区观澜第二小学</span></li><li><span data-id="LHHH">深圳市洪湖小学</span></li><li><span data-id="LHHL">罗湖区华丽小学</span></li><li><span data-id="LHHN">深圳市龙华区华南实验学校</span></li><li><span data-id="LHHP">龙华区和平实验学校</span></li><li><span data-id="LHHY">深圳市华育小学</span></li><li><span data-id="LHJT">罗湖区锦田小学</span></li><li><span data-id="LHJX">深圳市靖轩小学</span></li><li><span data-id="LHJY">深圳市罗湖区景亿幼儿园</span></li><li><span data-id="LHKK">龙华库坑小学</span></li><li><span data-id="LHLH">罗湖区罗湖小学</span></li><li><span data-id="LHLN">罗湖区莲南小学</span></li><li><span data-id="LHLW">深圳市罗外教育集团罗湖外语小学</span></li><li><span data-id="LHLY">深圳市龙华区六一学校</span></li><li><span data-id="LHNS">罗湖区诺思外国语实验学校</span></li><li><span data-id="LHST">深圳市水田小学</span></li><li><span data-id="LHSY">深圳市龙华新区中英文实验学校幼儿</span></li><li><span data-id="LHSZ">深圳小学</span></li><li><span data-id="LHSZN">深圳小学北校区</span></li><li><span data-id="LHTJ">罗湖区淘金山小学</span></li><li><span data-id="LHTS">龙华新区同胜学校</span></li><li><span data-id="LHTY">深圳市罗湖区桃园小学</span></li><li><span data-id="LHWY">深圳市龙华区外国语学校</span></li><li><span data-id="LHXHJ">深圳市新华中学</span></li><li><span data-id="LHXX">罗湖区新秀小学</span></li><li><span data-id="LHYHE">深圳市罗湖未来学校</span></li><li><span data-id="LHYHSY">银湖实验小学</span></li><li><span data-id="LYBJ">荔园小学班级图书馆</span></li><li><span data-id="MDXM">深圳明德实验学校香蜜校区</span></li><li><span data-id="NSBH">南山外国语集团滨海小学</span></li><li><span data-id="NSHF">南山区荟芳园图书馆</span></li><li><span data-id="NSHH">南山区后海小学</span></li><li><span data-id="NSHL">深圳南山海伦幼儿园</span></li><li><span data-id="NSHQ">深圳市南山区华侨城小学</span></li><li><span data-id="NSJS">深圳市南山区君尚百货</span></li><li><span data-id="NSKY">南山外国语学校科苑小学</span></li><li><span data-id="NSLW">深圳市南山区荔湾小学</span></li><li><span data-id="NSNH">南山实验南海中学</span></li><li><span data-id="NSNK">南山区南科大一小</span></li><li><span data-id="NSNT">南山实验教育集团南头小学</span></li><li><span data-id="NSQH">深圳市南山区前海小学</span></li><li><span data-id="NSSHP">深圳市南山区沙河小学</span></li><li><span data-id="NSXS">南山区香山里小学</span></li><li><span data-id="NSYC">蛇口育才教育集团育才实验学校</span></li><li><span data-id="NSYD">南山实验教育集团园丁学校</span></li><li><span data-id="NSYG">南山区阳光小学</span></li><li><span data-id="NSZG">南山区珠光小学</span></li><li><span data-id="NSZK">南山区中科先进院实验学校</span></li><li><span data-id="NSZY">南山卓雅小学</span></li><li><span data-id="PSTX">深圳市坪山区同心外国语学校</span></li><li><span data-id="QLSZ">麒麟山疗养院分馆</span></li><li><span data-id="SDFSW">深圳大学附属教育集团外国语小学</span></li><li><span data-id="SDQF">深圳市珊蒂泉外国语学校</span></li><li><span data-id="SEYEY">深圳市第十二幼儿园</span></li><li><span data-id="SST">深少儿馆</span></li><li><span data-id="SWBA">深圳外国语学校(集团)宝安学校</span></li><li><span data-id="SWLH">深圳外国语学校龙华学校</span></li><li><span data-id="SZEW">深圳第二外国语学校</span></li><li><span data-id="SZGJ">深圳市高级中学</span></li><li><span data-id="SZGMSG">深圳小学光明学校(集团)曙光校区</span></li><li><span data-id="SZGX">深圳市福田区红岭科技小学</span></li><li><span data-id="SZTJ">深圳特警分馆</span></li><li><span data-id="SZTYYD">深圳市体育运动学校</span></li><li><span data-id="SZXT">深圳市仙桐实验小学</span></li><li><span data-id="SZYD">深圳亚迪学校</span></li><li><span data-id="SZYS">深圳艺术学校</span></li><li><span data-id="SZYY">深圳银鹰第一幼儿园</span></li><li><span data-id="WLKJ">深圳微力量教育科技有限公司</span></li><li><span data-id="YLTR">深圳艺林泰然学校</span></li><li><span data-id="YPTX">深圳元平特殊教育学校</span></li><li><span data-id="YTJG">盐田区机关幼儿园</span></li><li><span data-id="YTLQ">盐田区乐群小学</span></li><li><span data-id="YTTX">盐田田心小学</span></li><li><span data-id="YWPS">深圳市园岭外国语小学</span></li><li><span data-id="ZASY">深圳市桃源居中澳实验学校</span></li><li><span data-id="ZFGJ">深圳市住房公积金管理中心</span></li><li><span data-id="ZKFG">中科院深圳理工大学附属实验高中</span></li><li><span data-id="xlx">新莲</span></li></ul>
+		</div>
+	</div>
+
+
+
+ <script type="text/javascript" src="/ILASOPAC/JS/mod_4302fe0.js"></script>
+<script type="text/javascript" src="/ILASOPAC/JS/jquery_1.11.1_dfce600.js"></script>
+<script type="text/javascript" src="/ILASOPAC/JS/jquery.mousewheel_4fde694.js"></script>
+<script type="text/javascript" src="/ILASOPAC/JS/jquery_2d56800.js"></script>
+<script type="text/javascript" src="/ILASOPAC/JS/ilas-common.js"></script>
+
+ <script type="text/javascript">
+
+	 $(document).on("click","#jumpMyLib", function(){
+		 var lib = localStorage.getItem("library")
+		 if (lib == 'XMGS') {
+			 window.location.href = '/ILASOPAC/gongShangLogin.do'
+			 return
+		 }
+		 window.location.href = '/ILASOPAC/NTRdrLogin.do'
+	 });
+
+
+
+!function(){ 
+	showORhide();
+    var $ = require('wiki-common:widget/lib/jquery/jquery');
+
+    var timer = '';
+
+	$('.wgt-navbar').on('mouseenter', 'dl', function() {
+		clearTimeout(timer);
+		timer = setTimeout(function() {
+			$('.wgt-navbar').addClass('wgt-navbar-hover');
+		}, 300);
+	}).on('mouseleave', function() {
+		clearTimeout(timer);
+		$('.wgt-navbar').removeClass('wgt-navbar-hover');
+	}).on('click', 'a', function() {
+		clearTimeout(timer);
+		$('.wgt-navbar').removeClass('wgt-navbar-hover');
+	});
+}();
+
+	
+	 function showORhide(){
+		 $.post("/ILASOPAC/questionWay.do",{},function(data){
+		 for(var newdata in data){//遍历json对象的每个key/value对,newdata为key
+			var id = "#"+newdata;
+			if($.trim(data[newdata])=="true")
+				$(id).show();
+		 }
+		 });
+	 };
+	 
+	 
+	 	
+		var librariesObj = []
+		
+	 	
+		$(document).on("click",".show-libs .close",function(){
+			$(".show-libs").hide();
+		});
+		
+		
+		$(document).on("click","#libidName", function(){
+			$("#libname").val("");
+			doLibnameFilter();
+			$(".show-libs").show();
+			$("#libname").select();
+			$("#libname").focus();
+		});
+		
+		
+		$(document).on("click",".show-libs .content-libs span", function(){
+			$("#libid").val($(this).attr("data-id"))
+			$("#libidName").val($(this).html())
+			$(".show-libs").hide();
+		});
+		
+		$(document).on("keypress","#libname",function(e){
+			if(e.keyCode==13) {
+				doLibnameFilter();
+			}
+		})
+		
+		
+		$(document).on("click","#libFilter", function(){
+			doLibnameFilter();
+		});
+		
+		
+		$(document).on("click","#libClear", function(){
+			$("#libid").val("");
+			$("#libidName").val("");
+			$(".show-libs").hide();
+		});
+		
+		function doLibnameFilter(){
+			var libname = $("#libname").val();
+			var html = "";
+			if(librariesObj && librariesObj.length>0) {
+				var list = librariesObj;
+				if(libname=="") {
+					for(var i=0; i<list.length; i++) {
+						var item = list[i];
+                        if(item.libid == "center") {
+                            continue;
+                        }
+						html += "<li><span data-id=\""+item.libid+"\">"+item.libname+"</span></li>";
+					}
+				}else{
+					for(var i=0; i<list.length; i++) {
+						var item = list[i];
+                        if(item.libid == "center") {
+                            continue;
+                        }
+						if(item.libname.indexOf(libname)>-1) {
+							html += "<li><span data-id=\""+item.libid+"\">"+item.libname+"</span></li>";
+						}
+					}
+				}
+			}
+			$(".show-libs ul").html(html);
+		}
+		
+		
+		function queryAllLib(){
+			$.ajax({
+				url:"/ILASOPAC/getAllLibraries.do",
+				type:"post",
+				data:{}
+			}).done(function(data){
+				librariesObj = [];
+				var html = "";
+				if(data && data.state=='200') {
+					if(data.result && data.result.length>0) {
+						var list = data.result;
+						librariesObj = list;
+						for(var i=0; i<list.length; i++) {
+							var item = list[i];
+							if(item.libid == "center") {
+							    continue;
+							}
+							html += "<li><span data-id=\""+item.libid+"\">"+item.libname+"</span></li>";
+							// 默认选中 与更换选中
+							var ylibrary = $("#libid").val();
+							if(item.libid == library && ylibrary ==""){
+								$("#libid").val(item.libid);
+								$("#libidName").val(item.libname);
+							}else if(item.libid == ylibrary){
+								$("#libid").val(item.libid);
+								$("#libidName").val(item.libname);
+							}
+						}
+					}
+				}
+				$(".show-libs ul").html(html);
+			});
+		}
+		
+	    // 获得链接上传来library
+		var library = '';
+		$(function(){
+		    // 放入在本地存储 里		    
+		    if(library == "" || library == undefined){
+		    	library = localStorage.getItem("library");
+		    }else{
+		    	localStorage.setItem("library",library);
+		    }
+			queryAllLib();
+
+		});
+			
+	    
+	 /* function Trim(str)
+     { 
+         return str.replace(/(^\s*)|(\s*$)/g, ""); 
+     } */
+	 function NTRetrievalSearch(id) {
+         var url = "/ILASOPAC/NTRetrievalSearch.do?target=1&menu1=101&libid="+localStorage.getItem("library");
+         var a = document.getElementById(id);
+         a.href = url;
+         a.click("return false");
+     }
+     function NTShowNewBook(id) {
+         var url = "/ILASOPAC/NTShowNewBook.do?target=5&menu5=501&libid="+localStorage.getItem("library");
+         var a = document.getElementById(id);
+         a.href = url;
+         a.click("return false");
+     }
+     function NTShowNewSeries(id) {
+         var url = "/ILASOPAC/NTShowNewSeries.do?target=5&menu5=502&libid="+localStorage.getItem("library");
+         var a = document.getElementById(id);
+         a.href = url;
+         a.click("return false");
+     }
+     function NTBookTopList(id) {
+         var url = "/ILASOPAC/NTBookTopList.do?target=2&type=2&menu2=202&libid="+localStorage.getItem("library");
+         var a = document.getElementById(id);
+         a.href = url;
+         a.click("return false");
+     }
+	</script> 
+
+
+
+        
+
+    
+
+    <div class="content content_1" style="padding-bottom: 0; margin-bottom: 0;">
+        <div class="mainwidth">
+            <div class="location">
+                当前位置
+                &gt;
+                
+                
+                &gt;书目详细信息
+            </div>
+        </div>
+
+        
+        
+        
+        
+        
+        <div class="condetailbox">
+            <div class="con_top">
+                
+                
+                
+                    <a href="javascript:history.back(-1)" class="return"><span>返回列表</span></a>
+                
+            </div>
+
+            <div class="booksinfo">
+                
+                <h3 class="title"><a href="NTRdrBookRetr.do;jsessionid=685FC2C01A92ABD40A27C70B4F6C7125?SearchType=name&amp;SearchKey=纠正上帝的错误：“中国变性手术之父”何清濂的非常记忆&amp;PageNum=10&amp;searchWay=searchWayPrv&amp;ResearchSearchType=null&amp;researchSearchKey=null">纠正上帝的错误：“中国变性手术之父”何清濂的非常记忆</a>/<a href="NTRdrBookRetr.do?SearchType=author&amp;SearchKey=吴兴人著&amp;PageNum=10&amp;searchWay=searchWayPrv&amp;ResearchSearchType=null&amp;researchSearchKey=null">吴兴人著</a>
+                </h3>
+                
+
+                <div class="infocon">
+                    <div class="infoleft">
+
+                        
+                        <div id="infoleft" class="weixin" style="margin-left: -10px;">
+                            <img class="img" src="images/imgdefault.png" onerror="src=&quot;images/imgdefault.png&quot;" alt="" isbn="7532128881" style="width: 150px;height: 207px; margin-left: 24px;">
+                            <img src="ZxingImages/153109.jpg" alt="">
+
+                        </div>
+
+                    </div>
+                    <div class="inforight" style="margin-bottom: 80px;">
+
+                        <div class="label">
+                            借阅相关度情况关系图
+                        </div>
+                        <div id="graph-container"><canvas class="sigma-scene" width="282px" height="202px" style="position: absolute; width: 282px; height: 202px;"></canvas><canvas class="sigma-mouse" width="282px" height="202px" style="position: absolute; width: 282px; height: 202px;"></canvas></div>
+
+                        <div id="douinfo" style="display: none;">
+                            <div><strong>豆瓣评分(<font color="red"><span id="average">0</span></font>)</strong>
+                                <span id="douxingxing"><span style="width:100px;height:20px; background:url(Imagess/xingxing.png) no-repeat 0px -150px">
+                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                     </span></span>
+
+                            </div>
+                            <div>
+                                <span id="numRaters">0人评论</span>
+                            </div>
+                        </div>
+                        
+
+                        <div id="datalink" class="datalink" style="">资源链接:
+                            <div style="padding: 4px;">
+                                <a href="http://www.douban.com/subject_search?search_text=纠正上帝的错误：“中国变性手术之父”何清濂的非常记忆" target="_blank">
+                                    <img src="Imagess/douban.jpg" style="border: 0; height: 20px; cursor: pointer;" title="去douban搜索图书">
+                                </a>
+                            </div>
+                            <div style="padding: 4px;">
+                                <a href="http://search.cnki.net/search.aspx?q=纠正上帝的错误：“中国变性手术之父”何清濂的非常记忆" target="_blank">
+                                    <img src="Imagess/NKI.GIF" style="border: 0; height: 20px; cursor: pointer;" title="去CNKI搜索图书">
+                                </a>
+                            </div>
+                            
+                            <div style="padding: 4px;">
+                                <a href="https://www.baidu.com/s?wd=纠正上帝的错误：“中国变性手术之父”何清濂的非常记忆&amp;ie=UTF-8" target="_blank">
+                                    <img src="Imagess/baidu.gif" style="border: 0; height: 20px; cursor: pointer;" title="去百度搜索">
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <ul>
+                            <li>作者：<a href="NTRdrBookRetr.do;jsessionid=685FC2C01A92ABD40A27C70B4F6C7125?SearchType=author&amp;SearchKey=吴兴人著&amp;PageNum=10&amp;searchWay=searchWayPrv&amp;ResearchSearchType=null&amp;researchSearchKey=null">吴兴人著</a>
+                            </li>
+                            <li>出版社：
+                                
+                                
+                                    <a href="NTRdrBookRetr.do;jsessionid=685FC2C01A92ABD40A27C70B4F6C7125?SearchType=publish&amp;SearchKey=上海文艺出版社&amp;PageNum=10&amp;searchWay=searchWayPrv&amp;ResearchSearchType=null&amp;researchSearchKey=null">上海文艺出版社</a>
+                                
+
+                            </li>
+                            <li>出版日期：2005</li>
+                            <li>出版地：上海</li>
+                            <li>尺寸：21cm</li>
+                            <li>ISBN/ISSN：<a href="NTRdrBookRetr.do?SearchType=isbn&amp;SearchKey=7-5321-2888-1&amp;PageNum=10&amp;searchWay=searchWayPrv&amp;ResearchSearchType=null&amp;researchSearchKey=null">7-5321-2888-1</a>
+                            </li>
+                            <li>分类号：<a href="NTRdrBookRetr.do?SearchType=classno&amp;SearchKey=I253.6&amp;PageNum=10&amp;searchWay=searchWayPrv&amp;ResearchSearchType=null&amp;researchSearchKey=null">I253.6</a>
+                            </li>
+                            <li>主题词：<a href="NTRdrBookRetr.do;jsessionid=685FC2C01A92ABD40A27C70B4F6C7125?SearchType=subject&amp;SearchKey=报告文学&amp;PageNum=10&amp;searchWay=searchWayPrv&amp;ResearchSearchType=null&amp;researchSearchKey=null">报告文学-中国-现代</a>
+                            </li>
+                            <li>丛书：</li>
+                            <li>页码：380页</li>
+                            <li>价格：CNY22.00</li>
+                            <!-- 添加书签  add by huanghuang 20161206 -->
+                            
+                            <li><font color="red">书签：</font>&nbsp;&nbsp;
+                                
+                                &nbsp;&nbsp;<a href="JavaScript:writeBookTag('')"><font color="#1f95df">添加书签</font></a></li>
+                            
+                            <il>
+                                <div style="padding:10px 0px 10px 0px; ">
+                                    <a id="Bookreview" class="vipsearch" href="JavaScript:bookreview('/ILASOPAC/ShowBookReviewList.do;jsessionid=685FC2C01A92ABD40A27C70B4F6C7125')" style="padding: 4px 12px; margin-right: 6px;">查看图书评论</a>
+                                    <a id="Bookshelf" class="vipsearch" href="JavaScript:bookshelf('/ILASOPAC/PutInBookShelf.do;jsessionid=685FC2C01A92ABD40A27C70B4F6C7125')" style="padding: 4px 12px; margin-right: 6px;">放入我的书架</a>
+                                    <a id="resevatjump" class="vipsearch showOrder" style="">预借</a>
+                                    <a id="Bookcatalog" class="vipsearch" href="JavaScript:bookcatalog()" style="display: none;padding: 4px 12px 4px 12px;margin-left: 6px;margin-right: 6px;">图书目录</a>
+                                    <a id="BookSummary" class="vipsearch" href="JavaScript:booksummary()" style="display: none; padding: 4px 12px 4px 12px;margin-right: 6px;">图书简介</a>
+                                </div>
+                            </il>
+                            <il>
+                                <div style="padding:10px 0px 10px 0px; ">
+                                    <a id="BookProbation" class="vipsearch" href="JavaScript:bookprobation()" style="display: none; padding: 4px 12px 4px 12px;margin-right: 6px;">图书试读</a>
+                                </div>
+                            </il>
+                        </ul>
+
+                        <div>
+
+                            <div class="infotip">
+                                <strong>附注提要</strong>
+                                <div class="text" style="width: 66%;">
+                                    其他题名：中国变性手术之父何清濂的非常记忆
+                                </div>
+                            </div>
+
+                            
+                            
+                            
+                            
+                            <div id="ckepop" style="display: none;">
+                                分享到：
+                                <div class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到微信" class="bshare-weixin"></a><a title="分享到QQ好友" class="bshare-qqim"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div>
+                                <script type="text/javascript" charset="utf-8" src="#"></script>
+                                <script type="text/javascript" charset="utf-8" src="#"></script>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="ShowBookReview" style="cursor:pointer;width:60%;height:auto; display:none;OVERFLOW-Y:auto;height:400px; top:140px; left:20%; position:absolute;z-index:997;
+    	border:1px solid #c0d7e9;
+	    border-radius:8px;
+	    background:#f2feff url(images/bodybg.jpg);padding: 20px; ">
+
+        <div style="border-bottom:1px solid  #4b71aa; ">书评列表</div>
+        <div id="BookReviewList" style="OVERFLOW-Y:auto;height:330px;border-bottom:1px solid  #4b71aa;">暂无书评</div>
+        <div style="text-align: center;margin-top: 10px;">
+            <span style="margin-right: 6px;"><a style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:onBookReviewProc('/ILASOPAC/putInBookReview.do;jsessionid=685FC2C01A92ABD40A27C70B4F6C7125')">我要评论</a></span>
+            <span><a style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:hidebookreview()">关闭窗口</a></span>
+        </div>
+    </div>
+
+    <!-- 图书目录 20180528 llq add start-->
+    <div id="ShowBookCatalog" style="cursor:pointer;width:50%;height:auto; display:none;OVERFLOW-Y:auto;height:400px; top:140px; left:20%; position:absolute;z-index:997;
+    	border:1px solid #c0d7e9;
+	    border-radius:8px;
+	    background:#f2feff url(images/bodybg.jpg);padding: 20px; ">
+
+        <div style="border-bottom:1px solid  #4b71aa; ">图书目录</div>
+        <div id="BookCatalogList" style="OVERFLOW-Y:auto;height:330px;border-bottom:1px solid  #4b71aa;"></div>
+        <div style="text-align: center;margin-top: 10px;">
+
+            <span><a style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:hidebookcatalog()">关闭窗口</a></span>
+        </div>
+    </div>
+    <!-- 图书目录 20180528 llq add end-->
+
+    <!-- 图书简介 20180528 llq add start-->
+    <div id="ShowBookSummary" style="cursor:pointer;width:50%;height:auto; display:none;OVERFLOW-Y:auto;height:400px; top:140px; left:20%; position:absolute;z-index:997;
+    	border:1px solid #c0d7e9;
+	    border-radius:8px;
+	    background:#f2feff url(images/bodybg.jpg);padding: 20px; ">
+
+        <div style="border-bottom:1px solid  #4b71aa; ">图书简介</div>
+        <div id="BookSummaryList" style="OVERFLOW-Y:auto;height:330px;border-bottom:1px solid  #4b71aa;"></div>
+        <div style="text-align: center;margin-top: 10px;">
+
+            <span><a style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:hidebooksummary()">关闭窗口</a></span>
+        </div>
+    </div>
+    <!-- 图书简介 20180528 llq add end-->
+
+    <!-- 图书试读 20180531 llq add start-->
+    <div id="ShowBookProbation" style="cursor:pointer;width:50%;height:auto; display:none;OVERFLOW-Y:auto;height:400px; top:140px; left:20%; position:absolute;z-index:997;
+    	border:1px solid #c0d7e9;
+	    border-radius:8px;
+	    background:#f2feff url(images/bodybg.jpg);padding: 20px; ">
+
+        <div style="border-bottom:1px solid  #4b71aa; ">图书试读</div>
+        <div id="BookProbationList" style="OVERFLOW-Y:auto;height:330px;border-bottom:1px solid  #4b71aa;"></div>
+        <div style="text-align: center;margin-top: 10px;">
+
+            <span><a style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:hidebookprobation()">关闭窗口</a></span>
+        </div>
+    </div>
+    <!-- 图书试读  20180531 llq add end-->
+
+    <div id="WriteBookReview" style="cursor:pointer;width:60%;height:auto; display:none;OVERFLOW-Y:auto; height:250px; top:140px; left:20%; position:absolute;z-index:997;
+    	border:1px solid #c0d7e9;
+	    border-radius:8px;
+	    background:#f2feff url(images/bodybg.jpg);padding: 20px; ">
+
+        <div style="border-bottom:1px solid  #4b71aa;">追加书评</div>
+        <div style="padding: 4px;"><span>标题名称:</span>
+        </div>
+        <div style="padding: 4px;"><input onkeyup="ChkTextareaMaxLength(this)" type="text" maxlength="100" id="BookReviewTitle" style="width:100%;"></div>
+        <div style="padding: 4px;"><span>评论内容:</span>
+        </div>
+        <div style="padding: 4px;"><textarea onkeyup="ChkTextareaMaxLength(this)" maxlength="900" id="BookReviewContent" style="width:100%; height: 100px;"></textarea></div>
+        <div class="parentCls" style="position:relative"><div class="star"><span>请不要吝啬您的分数:</span>
+            <ul id="starUL">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        <span class="desc"></span><p class="star-p hidden"></p></div></div>
+        <div style="text-align: center;margin-top: 10px;padding: 4px;">
+            <span style="margin-right: 6px;"><a style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:onWriteBookReviewProc('/ILASOPAC/WiterBookReview.do;jsessionid=685FC2C01A92ABD40A27C70B4F6C7125')">保存</a></span>
+            <span><a style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:writebookreview()">关闭</a></span>
+        </div>
+    </div>
+
+    <div id="WriteBookTag" style="cursor:pointer;width:60%;height:auto; display:none;OVERFLOW-Y:auto; height:250px; top:140px; left:20%; position:absolute;z-index:997;
+    	border:1px solid #c0d7e9;
+	    border-radius:8px;
+	    background:#f2feff url(images/bodybg.jpg);padding: 20px; ">
+        <div style="border-bottom:1px solid  #4b71aa;">添加书签</div>
+        <div style="padding: 4px;"><span>书签名称:</span></div>
+        <div style="padding: 4px;"><input onkeyup="ChkTextareaMaxLength(this)" type="text" maxlength="100" id="bookTagName" style="width:100%;"></div>
+        <div style="padding: 4px;"><span>备注:</span></div>
+        <div style="padding: 4px;"><textarea onkeyup="ChkTextareaMaxLength(this)" maxlength="900" id="bookTagNote" style="width:100%; height: 100px;"></textarea></div>
+        <div style="text-align: center;margin-top: 10px;padding: 4px;">
+            <span style="margin-right: 6px;"><a style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:addBookTag()">保存</a></span>
+            <span><a style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:closeBookTag()">关闭</a></span>
+        </div>
+    </div>
+
+
+    
+    <div id="showCadal" style="width: 97%; display:none;  margin-top: 40px; margin-left: 40px; margin-bottom: 60px;">
+        <div class="infolist1" style="">
+            <div class="infoslide1">
+                <div class="infoshow1">
+                    <div class="tab_4_show">
+                        <div class="tab_4_text">
+                            <span class="">
+                            <!-- <span>可外借馆藏</span> -->
+                               <span style="display: inline-block;
+                               background-color: #F7FDFF;
+                               border-left: 1px solid #C4D7E1;
+                               border-right: 1px solid #C4D7E1;
+                               border-top: 1px solid #C4D7E1;
+                               padding-left: 10px;
+                               padding-right: 10px;
+                               padding-top: 5px;
+                               margin-bottom: 1px;
+                               ">
+                                   CADAL数字图书
+                               </span>
+                            </span>
+                            <table width="100%" cellpadding="0" cellspacing="0" class="table">
+                                <thead>
+                                <tr>
+                                    <th>标题</th>
+                                    <th>ISBN</th>
+                                    <th>出版社</th>
+                                    <th>作者</th>
+                                    <th>页数</th>
+                                    <th>描述</th>
+                                    <th>详情</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div style="width:97%; margin-top:10px;margin-left: 40px;">
+        
+
+        <div style=" margin-bottom: 10px;">
+            <span><a href="JavaScript:OnshowYearCountList()" style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;">按年统计</a> </span>
+            <span><a href="JavaScript:OnshowMonthCountList()" style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;">按月统计</a> </span>
+        </div>
+
+        <div id="year">
+            <div id="chartYear" style="width: 100%; height: 150px; margin-top: 10px; overflow: hidden; text-align: left;"><div style="position: relative;"><div style="overflow: hidden; position: relative; text-align: left; width: 1848px; height: 150px; cursor: default;"><svg version="1.1" style="position: absolute; width: 1848px; height: 150px;"><g><path cs="100,100" d="M0.5,0.5 L1847.5,0.5 L1847.5,149.5 L0.5,149.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0"></path><path cs="100,100" d="M0.5,0.5 L1793.5,0.5 L1793.5,64.5 L0.5,64.5 L0.5,0.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0" transform="translate(54,50)"></path></g><g><g transform="translate(54,50)"><g><path cs="100,100" d="M224.5,0.5 L224.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,64)"></path><path cs="100,100" d="M224.5,64.5 L224.5,64.5 L224.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M672.5,0.5 L672.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,64)"></path><path cs="100,100" d="M672.5,64.5 L672.5,64.5 L672.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M1121.5,0.5 L1121.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,64)"></path><path cs="100,100" d="M1121.5,64.5 L1121.5,64.5 L1121.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M1569.5,0.5 L1569.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,64)"></path><path cs="100,100" d="M1569.5,64.5 L1569.5,64.5 L1569.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g></g><g transform="translate(54,50)" visibility="visible"><g><path cs="100,100" d="M0.5,64.5 L5.5,64.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(-6,0)"></path><path cs="100,100" d="M0.5,64.5 L0.5,64.5 L1793.5,64.5" fill="none" stroke-width="1" stroke-dasharray="5" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M0.5,43.5 L5.5,43.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(-6,0)"></path><path cs="100,100" d="M0.5,43.5 L0.5,43.5 L1793.5,43.5" fill="none" stroke-width="1" stroke-dasharray="5" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M0.5,21.5 L5.5,21.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(-6,0)"></path><path cs="100,100" d="M0.5,21.5 L0.5,21.5 L1793.5,21.5" fill="none" stroke-width="1" stroke-dasharray="5" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M0.5,0.5 L5.5,0.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(-6,0)"></path><path cs="100,100" d="M0.5,0.5 L0.5,0.5 L1793.5,0.5" fill="none" stroke-width="1" stroke-dasharray="5" stroke-opacity="0.15" stroke="#000000"></path></g></g></g><g></g><g></g><g></g><g></g><g><g transform="translate(54,50)"><g></g><g></g><g clip-path="url(#AmChartsEl-6)"><path cs="100,100" d="M224.5,21.5 L672.5,53.5 L1121.5,53.5 L1569.5,53.5 M0,0 L0,0" fill="none" stroke-width="1" stroke-dasharray="3" stroke-opacity="1" stroke="#7717D7"></path></g><clipPath id="AmChartsEl-6"><rect x="0" y="0" width="1795" height="66" rx="0" ry="0" stroke-width="0"></rect></clipPath></g></g><g clip-path="url(#AmChartsEl-5)"></g><g><g transform="translate(54,50)"><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(224,82)"><tspan y="6" x="0">2018年</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(672,82)"><tspan y="6" x="0">2019年</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(1121,82)"><tspan y="6" x="0">2020年</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(1569,82)"><tspan y="6" x="0">2021年</tspan></text></g><g transform="translate(54,50)" visibility="visible"><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="end" transform="translate(-12,62)"><tspan y="6" x="0">2</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="end" transform="translate(-12,41)"><tspan y="6" x="0">4</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="end" transform="translate(-12,19)"><tspan y="6" x="0">6</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="end" transform="translate(-12,-2)"><tspan y="6" x="0">8</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="12" opacity="1" font-weight="bold" text-anchor="middle" transform="translate(-34,32) rotate(-90)"><tspan y="6" x="0">图书借阅趋势图</tspan></text></g></g><g><path cs="100,100" d="M0.5,0.5 L1793.5,0.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(54,114)"></path><path cs="100,100" d="M0.5,0.5 L0.5,64.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(54,50)" visibility="visible"></path></g><g><g transform="translate(54,50)" visibility="hidden"><path cs="100,100" d="M0.5,0.5 L0.5,0.5 L0.5,64.5" fill="none" stroke-width="1" stroke-opacity="0" stroke="#CC0000" visibility="hidden"></path></g></g><g></g><g><g transform="translate(54,50)"><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(224,21)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(672,53)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(1121,53)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(1569,53)"></circle></g></g><g><g></g></g><g></g><g><g transform="translate(1796,58)" visibility="hidden"><rect x="0.5" y="0.5" width="60" height="26" rx="0" ry="0" stroke-width="1" fill="#e5e5e5" stroke="#e5e5e5" fill-opacity="1" stroke-opacity="1" opacity="0" transform="translate(-8,-8)"></rect><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="start" transform="translate(0,6)"><tspan y="6" x="0">Show all</tspan></text></g></g><g></g><clipPath id="AmChartsEl-5"><rect x="54" y="50" width="1793" height="64" rx="0" ry="0" stroke-width="0"></rect></clipPath></svg><a href="http://www.amcharts.com/javascript-charts/" title="" style="position: absolute; text-decoration: none; color: rgb(0, 0, 0); font-family: Verdana; font-size: 11px; opacity: 0.7; display: block; left: 59px; top: 55px;"></a></div></div></div>
+        </div>
+
+        <div id="month" style="display: none;">
+
+            <select id="selectShowYaer" onchange="SelectYaer('/ILASOPAC/BibLoanShowYaer.do;jsessionid=685FC2C01A92ABD40A27C70B4F6C7125',1)" style="width:80px; font-size: 12px;
+			  padding: 2px;
+			  padding-right: 0px; background-color: #eaf2ff;
+			  color: #000000;  background-color: #ffffff;
+			  color: #000000;">
+            <option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option><option value="1986">1986</option><option value="1985">1985</option><option value="1984">1984</option><option value="1983">1983</option><option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option><option value="1979">1979</option><option value="1978">1978</option><option value="1977">1977</option><option value="1976">1976</option><option value="1975">1975</option><option value="1974">1974</option><option value="1973">1973</option><option value="1972">1972</option><option value="1971">1971</option><option value="1970">1970</option><option value="1969">1969</option><option value="1968">1968</option><option value="1967">1967</option><option value="1966">1966</option><option value="1965">1965</option><option value="1964">1964</option><option value="1963">1963</option><option value="1962">1962</option><option value="1961">1961</option><option value="1960">1960</option><option value="1959">1959</option><option value="1958">1958</option><option value="1957">1957</option><option value="1956">1956</option><option value="1955">1955</option><option value="1954">1954</option><option value="1953">1953</option><option value="1952">1952</option><option value="1951">1951</option><option value="1950">1950</option></select>:图书借阅趋势图
+
+            <div id="chartdiv" style="width: 100%; height: 150px; margin-top: 10px; overflow: hidden; text-align: left;"><div style="position: relative;"><div style="overflow: hidden; position: relative; text-align: left; width: 1848px; height: 150px; cursor: default;"><svg version="1.1" style="position: absolute; width: 1848px; height: 150px;"><g><path cs="100,100" d="M0.5,0.5 L1847.5,0.5 L1847.5,149.5 L0.5,149.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0"></path><path cs="100,100" d="M0.5,0.5 L1787.5,0.5 L1787.5,104.5 L0.5,104.5 L0.5,0.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0" transform="translate(60,10)"></path></g><g><g transform="translate(60,10)"><g><path cs="100,100" d="M74.5,0.5 L74.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M74.5,104.5 L74.5,104.5 L74.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M223.5,0.5 L223.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M223.5,104.5 L223.5,104.5 L223.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M372.5,0.5 L372.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M372.5,104.5 L372.5,104.5 L372.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M521.5,0.5 L521.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M521.5,104.5 L521.5,104.5 L521.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M670.5,0.5 L670.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M670.5,104.5 L670.5,104.5 L670.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M819.5,0.5 L819.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M819.5,104.5 L819.5,104.5 L819.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M968.5,0.5 L968.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M968.5,104.5 L968.5,104.5 L968.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M1117.5,0.5 L1117.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M1117.5,104.5 L1117.5,104.5 L1117.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M1266.5,0.5 L1266.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M1266.5,104.5 L1266.5,104.5 L1266.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M1415.5,0.5 L1415.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M1415.5,104.5 L1415.5,104.5 L1415.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M1564.5,0.5 L1564.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M1564.5,104.5 L1564.5,104.5 L1564.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M1713.5,0.5 L1713.5,5.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(0,104)"></path><path cs="100,100" d="M1713.5,104.5 L1713.5,104.5 L1713.5,0.5" fill="none" stroke-width="1" stroke-opacity="0.15" stroke="#000000"></path></g></g><g transform="translate(60,10)" visibility="visible"><g><path cs="100,100" d="M0.5,104.5 L5.5,104.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(-6,0)"></path><path cs="100,100" d="M0.5,104.5 L0.5,104.5 L1787.5,104.5" fill="none" stroke-width="1" stroke-dasharray="5" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M0.5,52.5 L5.5,52.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(-6,0)"></path><path cs="100,100" d="M0.5,52.5 L0.5,52.5 L1787.5,52.5" fill="none" stroke-width="1" stroke-dasharray="5" stroke-opacity="0.15" stroke="#000000"></path></g><g><path cs="100,100" d="M0.5,0.5 L5.5,0.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(-6,0)"></path><path cs="100,100" d="M0.5,0.5 L0.5,0.5 L1787.5,0.5" fill="none" stroke-width="1" stroke-dasharray="5" stroke-opacity="0.15" stroke="#000000"></path></g></g></g><g></g><g></g><g></g><g></g><g><g transform="translate(60,10)"><g></g><g></g><g clip-path="url(#AmChartsEl-3)"><path cs="100,100" d="M74.5,104.5 L223.5,104.5 L372.5,104.5 L521.5,104.5 L670.5,104.5 L819.5,104.5 L968.5,104.5 L1117.5,104.5 L1266.5,104.5 L1415.5,104.5 L1564.5,104.5 L1713.5,104.5 M0,0 L0,0" fill="none" stroke-width="1" stroke-dasharray="3" stroke-opacity="1" stroke="#7717D7"></path></g><clipPath id="AmChartsEl-3"><rect x="0" y="0" width="1789" height="106" rx="0" ry="0" stroke-width="0"></rect></clipPath></g></g><g clip-path="url(#AmChartsEl-2)"></g><g><g transform="translate(60,10)"><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(74,122)"><tspan y="6" x="0">2025年1月</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(223,122)"><tspan y="6" x="0">2025年2月</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(372,122)"><tspan y="6" x="0">2025年3月</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(521,122)"><tspan y="6" x="0">2025年4月</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(670,122)"><tspan y="6" x="0">2025年5月</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(819,122)"><tspan y="6" x="0">2025年6月</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(968,122)"><tspan y="6" x="0">2025年7月</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(1117,122)"><tspan y="6" x="0">2025年8月</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(1266,122)"><tspan y="6" x="0">2025年9月</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(1415,122)"><tspan y="6" x="0">2025年10月</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(1564,122)"><tspan y="6" x="0">2025年11月</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="middle" transform="translate(1713,122)"><tspan y="6" x="0">2025年12月</tspan></text></g><g transform="translate(60,10)" visibility="visible"><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="end" transform="translate(-12,102)"><tspan y="6" x="0">0</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="end" transform="translate(-12,50)"><tspan y="6" x="0">5</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="end" transform="translate(-12,-2)"><tspan y="6" x="0">10</tspan></text><text y="6" fill="#000000" font-family="Verdana" font-size="12" opacity="1" font-weight="bold" text-anchor="middle" transform="translate(-40,52) rotate(-90)"><tspan y="6" x="0">图书借阅趋势图</tspan></text></g></g><g><path cs="100,100" d="M0.5,104.5 L1787.5,104.5 L1787.5,104.5" fill="none" stroke-width="1" stroke-dasharray="5" stroke-opacity="0.3" stroke="#000000" transform="translate(60,10)"></path><path cs="100,100" d="M0.5,0.5 L1787.5,0.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(60,114)"></path><path cs="100,100" d="M0.5,0.5 L0.5,104.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#000000" transform="translate(60,10)" visibility="visible"></path></g><g><g transform="translate(60,10)" visibility="hidden"><path cs="100,100" d="M0.5,0.5 L0.5,0.5 L0.5,104.5" fill="none" stroke-width="1" stroke-opacity="0" stroke="#CC0000" visibility="hidden"></path></g></g><g></g><g><g transform="translate(60,10)"><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(74,104)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(223,104)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(372,104)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(521,104)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(670,104)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(819,104)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(968,104)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(1117,104)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(1266,104)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(1415,104)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(1564,104)"></circle><circle r="4" cx="0" cy="0" fill="#7717D7" stroke="#7717D7" fill-opacity="1" stroke-width="2" stroke-opacity="0" transform="translate(1713,104)"></circle></g></g><g><g></g></g><g></g><g><g transform="translate(1796,18)" visibility="hidden"><rect x="0.5" y="0.5" width="60" height="26" rx="0" ry="0" stroke-width="1" fill="#e5e5e5" stroke="#e5e5e5" fill-opacity="1" stroke-opacity="1" opacity="0" transform="translate(-8,-8)"></rect><text y="6" fill="#000000" font-family="Verdana" font-size="11" opacity="1" text-anchor="start" transform="translate(0,6)"><tspan y="6" x="0">Show all</tspan></text></g></g><g></g><clipPath id="AmChartsEl-2"><rect x="60" y="10" width="1787" height="104" rx="0" ry="0" stroke-width="0"></rect></clipPath></svg><a href="http://www.amcharts.com/javascript-charts/" title="" style="position: absolute; text-decoration: none; color: rgb(0, 0, 0); font-family: Verdana; font-size: 11px; opacity: 0.7; display: block; left: 65px; top: 15px;"></a></div></div></div>
+        </div>
+    </div>
+    
+    
+
+
+    
+    <div class="mini-panel mini-window mini-window-drag" tabindex="0" id="editWindow" style="border-width: 0px; width: 750px; display: none; height: 450px; padding: 0px;"><div class="mini-panel-border"><div class="mini-panel-header"><div class="mini-panel-header-inner"><span class="mini-panel-icon " style="display: none;"></span><div class="mini-panel-title">Window</div><div class="mini-tools"><span id="0" class="mini-tools-collapse " style=";display:none;"></span><span id="1" class="mini-tools-min " style=";display:none;"></span><span id="2" class="mini-tools-max " style=";display:none;"></span><span id="3" class="mini-tools-close " style=";"></span></div></div></div><div class="mini-panel-viewport"><div class="mini-panel-toolbar" style="display: none;"></div><div class="mini-panel-body">
+        <div id="editform" class="form">
+            <input type="hidden" class="mini-hidden" id="bookBarcode">
+            <table style="width:100%;">
+                <tbody><tr>
+                    <td style="width:100px; text-align: right;">预借截止日期：</td>
+                    <td style="width:150px;"><span class="mini-buttonedit mini-datepicker mini-popupedit mini-buttonedit-noInput" id="reservatDate" style="border-width: 0px;"><span class="mini-buttonedit-border"><input type="text" class="mini-buttonedit-input" autocomplete="off" placeholder="" id="reservatDate$text" readonly=""><span class="mini-buttonedit-buttons"><span class="mini-buttonedit-close"></span><span class="mini-buttonedit-button" onmouseover="o11ll(this,'mini-buttonedit-button-hover');" onmouseout="OoO1ol(this,'mini-buttonedit-button-hover');"><span class="mini-buttonedit-icon"></span></span></span></span><input name="reservatDate" type="hidden" id="reservatDate$value" value=""></span></td>
+                    <td style="width:100px; text-align: right;">通知方式：</td>
+                    <td style="width:150px;"><span class="mini-buttonedit mini-combobox mini-popupedit" id="noticeType" style="border-width: 0px;"><span class="mini-buttonedit-border"><input type="text" class="mini-buttonedit-input" autocomplete="off" placeholder="" readonly="" id="noticeType$text"><span class="mini-buttonedit-buttons"><span class="mini-buttonedit-close"></span><span class="mini-buttonedit-button" onmouseover="o11ll(this,'mini-buttonedit-button-hover');" onmouseout="OoO1ol(this,'mini-buttonedit-button-hover');"><span class="mini-buttonedit-icon"></span></span></span></span><input name="name" type="hidden" id="noticeType$value"></span></td>
+                    <td style="width:100px; text-align: right;" id="noticeText">EMAIL地址：</td>
+                    <td style="width:150px;"><span class="mini-textbox" id="noticeInfo" style="border-width: 0px;"><span class="mini-textbox-border"><input type="text" class="mini-textbox-input" autocomplete="off" placeholder="" id="noticeInfo$text" name="noticeInfo"></span><input type="hidden"></span></td>
+                </tr>
+            </tbody></table>
+
+            <div>
+                <div class="form-left" id="localList">
+                    <ul>
+                        
+                        
+                        
+
+                    </ul>
+                </div>
+                <div class="form-right">
+                    <div id="allmap"></div>
+                </div>
+            </div>
+
+            <div style="text-align: center;margin-top: 10px;">
+                <span style="margin-right: 6px;">
+                    <a id="OkReservat" style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:submitReservat()">
+                        <label name="">提交</label></a>
+                </span>
+                <span><a style="padding:4px 10px 4px 10px; border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:closeEditWindow()">
+                    关闭</a>
+                </span>
+            </div>
+
+
+        </div>
+    </div><div class="mini-panel-footer" style="display: none;"></div><div class="mini-resizer-trigger"></div></div></div></div>
+
+
+    
+    <div id="ShowBookTitle" style="cursor:pointer;width:500px;height:auto; display:none;OVERFLOW-Y:auto;
+	    top: 50%; left: 50%; transform: translate(-50%,-50%); position: fixed; z-index:999;  border:1px solid #c0d7e9;
+	    border-radius:8px;  background:#f2feff url(images/bodybg.jpg);padding: 20px; ">
+        
+        <input type="hidden" value="" id="reserveLibid">
+        <div style="border:1px solid  #4b71aa; padding: 4px;color: #4b71aa;	color:#015fa6; font-size:16px;
+                font-weight:bold;  display:block; height:24px; overflow:hidden; ">
+            读者<label name="reservat_type"></label>
+        </div>
+
+        <div style="padding: 2px;">
+            请输入<label name="reservat_type"></label> 截止日期,截止日期格式如:
+            <label id="FLD_ReseMes"></label>
+        </div>
+
+        <div style="padding: 2px;">
+            <span style="width: 200px;text-align:right;display: inline-block;"><label name="reservat_type"></label>截止日期</span>
+            <input type="text" id="barocode" style="width:200px;display:none;">
+            <span class="mini-buttonedit mini-datepicker mini-popupedit mini-buttonedit-noInput" id="ReseEndDate" style="border-width: 0px; width: 200px; padding: 0px;"><span class="mini-buttonedit-border"><input type="text" class="mini-buttonedit-input" autocomplete="off" placeholder="" id="ReseEndDate$text" readonly=""><span class="mini-buttonedit-buttons"><span class="mini-buttonedit-close"></span><span class="mini-buttonedit-button" onmouseover="o11ll(this,'mini-buttonedit-button-hover');" onmouseout="OoO1ol(this,'mini-buttonedit-button-hover');"><span class="mini-buttonedit-icon"></span></span></span></span><input name="" type="hidden" id="ReseEndDate$value" value=""></span>
+        </div>
+        <div style="padding: 2px;">
+            <span style="width: 200px;text-align:right;display: inline-block;"><label name="reservat_type"></label>通知方式</span>
+            <select id="ReseNoticesType" onchange="changeType()" style="width:200px; font-size: 12px;
+		  padding: 2px;
+		  padding-right: 0px; background-color: #eaf2ff;
+		  color: #000000;  background-color: #ffffff;
+		  color: #000000;">
+                <option value="1">EMail</option>
+                <option value="2" id="phoneNotice" style="">
+                    电话</option>
+                <option value="3">网上查看</option>
+            </select>
+        </div>
+
+
+        <div id="DivReseKey">
+            <span id="ReseShowEmail" style="width: 200px;text-align:right;display: inline-block;margin-right: 2px;">您的Email地址</span>
+            <span id="ReseShowTel" style="width: 200px;display: none;text-align:right;">你的电话号码</span>
+            <input type="text" id="ReseKey" class="easyui-textbox" style="width:200px;">
+
+            <div id="showReseLocal" style="padding: 2px;">
+                <span style="width: 200px;text-align:right;display: inline-block;"><label name="reservat_type"></label>取书地点</span>
+
+
+                
+                    
+                    <select id="ReseLocal" style="width:200px; font-size: 12px;
+                              padding: 2px;  padding-right: 0px;  background-color: #ffffff; color: #000000;">
+                        
+                        
+                        
+                    </select>
+            </div>
+
+            <div id="showReseSlectType" style="padding: 2px;display:none;">
+                <span style="width: 200px;text-align:right;display: inline-block;">预约方式</span>
+                <select id="ReseSlectType" style="width:200px; font-size: 12px;
+		  padding: 2px;
+		  padding-right: 0px; background-color: #eaf2ff;
+		  color: #000000;  background-color: #ffffff;
+		  color: #000000;">
+                    <option value="1">按种预约</option>
+                    <option value="2">按册预约</option>
+                </select>
+            </div>
+        </div>
+
+        <div style="text-align: center;margin-top: 10px;">
+            <span style="margin-right: 6px;">
+                <a id="OkReservat" style="padding:4px 10px 4px 10px;  border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:onReservatProc('/ILASOPAC/NTRdrReservat.do;jsessionid=685FC2C01A92ABD40A27C70B4F6C7125')">
+                    <label name="reservat_type"></label></a>
+            </span>
+            <span><a style="padding:4px 10px 4px 10px; border:1px solid #4b71aa;border-radius:4px;color: #4b71aa;" href="javascript:HideReservat()">
+                关闭</a>
+            </span>
+        </div>
+    </div>
+
+    
+    <div id="BookHolding" style="width:97%; margin-top:40px;margin-left: 40px;">
+
+        
+            <div><font style="color: red;">提示:</font>如果您要进行预约/预借操作，需要登录我的图书馆，查看此馆是否开通了 预约/预借功能。
+            </div>
+        
+
+
+        
+            <div class="infolist">
+                <div class="infotitle">
+                    <div class="jcarousel-container jcarousel-container-horizontal" style="position: relative; display: block;"><div class="jcarousel-clip jcarousel-clip-horizontal" style="overflow: hidden; position: relative;"><ul class="jcarousel-list jcarousel-list-horizontal" style="overflow: hidden; position: relative; top: 0px; margin: 0px; padding: 0px; left: 0px; width: 178px;">
+                        
+                        
+                            <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="float: left; list-style: none;"><a>已借出(1)</a>
+                            </li>
+                        
+                            
+                    </ul></div><div class="jcarousel-prev jcarousel-prev-horizontal jcarousel-prev-disabled jcarousel-prev-disabled-horizontal" disabled="disabled" style="display: block;"></div><div class="jcarousel-next jcarousel-next-horizontal jcarousel-next-disabled jcarousel-next-disabled-horizontal" disabled="disabled" style="display: block;"></div></div>
+
+                </div>
+
+
+                <div class="infoslide">
+
+                    
+
+
+                    
+                        <div class="infoshow">
+                            <div class="tab_4_show">
+                                <div class="tab_4_text">
+			    <span class="title_1">
+				<span>已外借馆藏</span>
+				</span>
+                                    <table width="100%" cellpadding="0" cellspacing="0" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>条码号</th>
+                                            <th>索书号</th>
+                                            <th>当前所在馆</th>
+                                            <th>当前所在地点</th>
+                                            <th>馆藏状态</th>
+                                            <th>流通类别</th>
+                                                
+                                            <th style="" class="showReservation">
+                                                预约
+                                            </th>
+                                            <th>卷册说明</th>
+                                            
+                                            
+                                                <th>架位号</th>
+                                            
+                                            
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        
+                                            
+                                            <tr>
+                                                <td>0290963</td>
+                                                <td>I523/505</td>
+                                                <td>
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+                                                            深少儿馆
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                        
+
+                                                    
+                                                </td>
+                                                <td>
+
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                            保存
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                </td>
+                                                <td>
+                                                    
+                                                    
+                                                        借出
+                                                    
+                                                </td>
+
+                                                <td>
+                                                    
+                                                        
+                                                            中文书
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                        
+                                                    
+                                                </td>
+                                                    
+                                                <td style="" class="showReservation">
+                                                    
+                                                </td>
+                                                <td>
+                                                        
+                                                </td>
+                                                
+                                                
+                                                    <td></td>
+                                                
+                                                
+                                            </tr>
+                                            
+
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                </div>
+            </div>
+        
+        
+    </div>
+
+    <!-- 期刊 -->
+
+    <div id="SeriseRegist" style="display: none;">
+        <div id="equalize" class="retrievalcon" style="width:97%; margin-top:10px;margin-left: 40px;">
+            
+        </div>
+    </div>
+
+    <div id="bookreviews" style="display:none;padding:0px 90px 0px 90px;">
+    </div>
+
+    <div>
+        
+
+
+
+
+  
+    <base href="https://ilas.szclib.org.cn:443/ILASOPAC/">
+    
+    <title>My JSP 'FootPage.jsp' starting page</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+
+
+  
+  
+    <footer class="footer">
+		<div class="addr_tell">
+
+			<span class="addr"></span>
+<!-- 			<span class="tell">电话：0755-83674700</span> -->
+		</div>
+		
+
+		
+	</footer>
+  
+  	<script type="text/javascript">
+ /*  	$(function(){
+  		 $.ajax({
+		        url:'FootPage.do',
+		 		method: 'POST',
+		 		contentType: "application/json",
+		 		data:"",
+		 	    dataType: 'json',
+		 	    error: function(){alert("error");
+		 	    },
+		 	    success : function(data, textStatus, jqXHR)
+		 	     {     
+		                var result = data.msg;
+		                $(".addr").html(data.tip);  
+		         }                     
+		         });
+  	 }); */
+
+</script>
+
+
+    </div>
+</section>
+<div id="cover" style="position:fixed; top: 0px; right:0px; bottom:0px;filter: alpha(opacity=60); background-color: #333;
+	z-index: 700; left: 0px; display:none;
+	opacity:0.5; -moz-opacity:0.5;"></div>
+
+
+<script type="text/javascript">
+    var tempEnddate = null;
+
+    function onDrawDate(e) {
+        var date = e.date;
+        var d = new Date();
+        d.setFullYear(d.getFullYear(), d.getMonth(), d.getDate() - 1);
+        if (date.getTime() <= d.getTime()) {
+            e.allowSelect = false;
+        }
+
+        if (tempEnddate) {
+            if (date.getTime() > tempEnddate.getTime()) {
+                e.allowSelect = false;
+            }
+        }
+
+
+    }
+
+    $("#resevatjump").click(function () {
+        $("html, body").animate({
+            scrollTop: $("#BookHolding").offset().top
+        }, {duration: 500, easing: "swing"});
+        return false;
+    });
+
+    function showRegist(Id) {
+        var table_hide = $("#table_hide").find("tbody");
+        var tbody = $("#table_show").find("tbody");
+        var row = table_hide[0].children;
+        for (var i = 0; i < row.length; i++) {
+            var trRow = row[i];
+            if (trRow.className != Id)
+                row[i].style.display = 'none';
+            else
+                row[i].style.display = '';
+        }
+        /* 		$(".show"+Id+"").show();
+                $("#showTr").hide(); */
+    }
+
+    function OnshowYearCountList() {
+
+        $("#year").show();
+        $("#month").hide();
+    }
+
+    function OnshowMonthCountList() {
+
+        $("#year").hide();
+        $("#month").show();
+    }
+
+    function onShowb() {
+        if ($(".showAllHoldInfo").css("display") == "none") {
+            $(".showAllHoldInfo").show();
+//     		$("#onShowb").text("显示全部");
+            $("#onShowb").text($trans("ntrdrbookretrinfo.text1", "显示全部"));
+
+
+        } else {
+            $(".showAllHoldInfo").hide();
+//     		$("#onShowb").text("只显示在馆");
+            $("#onShowb").text($trans("ntrdrbookretrinfo.text2", "只显示在馆"));
+        }
+    }
+
+    function ChkTextareaMaxLength(oInObj) {
+        var iMaxLen = parseInt(oInObj.getAttribute('maxlength'));
+        var iCurLen = oInObj.value.length;
+
+        if (oInObj.getAttribute && iCurLen > iMaxLen) {
+            oInObj.value = oInObj.value.substring(0, iMaxLen);
+            return false;
+        }
+    }
+
+    function onWriteBookReviewProc(url) {
+        var bonus = 0;
+        bonus = $("#bonus").val() * 2;
+        var bookTilte = $("#BookReviewTitle").val();
+        var bookContent = $("#BookReviewContent").val();
+        //简单验证输入内容  by huanghuang
+        if (bookTilte.replace(/^\s+|\s+$/g, "").length < 1) {
+//     		alert("您还未输入标题名称");
+            alert($trans("ntrdrbookretrinfo.text3", "您还未输入标题名称"));
+            return;
+        }
+        if (bookContent.replace(/^\s+|\s+$/g, "").length < 1) {
+//     		alert("您还未输入评论内容");
+            alert($trans("ntrdrbookretrinfo.text4", "您还未输入评论内容"));
+            return;
+        }
+        $.ajax({
+            url: url + '?recno=' +153109,
+            method: 'POST',
+            contentType: "application/x-www-form-urlencoded",
+            data: "bookTilte=" + bookTilte + "&bookContent=" + bookContent + "&bonus=" + bonus + "",
+            dataType: 'json',
+            error: function () {
+                alert("error");
+            },
+            success: function (data, textStatus, jqXHR) {
+                var result = data.msg;
+                if (result == "success") {
+                    alert(data.tip);
+                    writebookreview();
+                } else {
+                    alert(data.tip);
+                    window.location.href = "NTRdrLogin.do";
+                }
+                //评论对话框去除时，分数置空 by huanghuang
+                $("#starUL li").removeClass("on");
+                $(".desc").html("");
+
+            }
+        });
+    }
+
+
+    function onBookReviewProc(url) {
+        $.ajax({
+            url: url + '?recno=' +153109,
+            method: 'POST',
+            contentType: "application/json",
+            data: "",
+            dataType: 'json',
+            error: function () {
+                alert("error");
+            },
+            success: function (data, textStatus, jqXHR) {
+                var result = data.msg;
+                if (result == "success")
+                    writebookreview();
+                else {
+                    alert(data.tip);
+                    window.location.href = "NTRdrLogin.do";
+                }
+
+            }
+        });
+    }
+
+    function writebookreview() {
+
+
+        $("#BookReviewTitle").val("");
+        $("#BookReviewContent").val("");
+        $("#ShowBookReview").hide();
+        $("#ShowBookTitle").hide();
+        var ShowBookTitle = document.getElementById("WriteBookReview").style.display;
+
+        if (ShowBookTitle == "none")
+            $("#WriteBookReview").show();
+        else
+            $("#WriteBookReview").hide();
+        //评论对话框取消时，分数置空
+        $("#starUL li").removeClass("on");
+        $(".desc").html("");
+
+    }
+
+
+    function hidebookreview() {
+
+        $("#ShowBookReview").hide();
+    }
+
+    function bookreview(url) {
+
+
+        $.ajax({
+            url: url + '?recno=' +153109,
+            method: 'POST',
+            contentType: "application/json",
+            data: "",
+            dataType: 'json',
+            error: function () {
+                alert("error");
+            },
+            success: function (data, textStatus, jqXHR) {
+                var showBookReviewListhtml = "";
+                var text5 = $trans("ntrdrbookretrinfo.text5", "标题名称");
+                var text6 = $trans("ntrdrbookretrinfo.text6", "评论内容");
+                //分数结果回显 by huanghuang
+                for (var i = 0; i < data.length; i++) {
+                    var starNum = data[i].brmark;
+                    showBookReviewListhtml += "<div style=\"border-bottom:1px dashed  #4b71aa;\" class=\"star\"><span>等级评分结果:</span> <ul>";
+                    for (var j = 1; j <= 5; j++) {
+                        if (j <= starNum)
+                            showBookReviewListhtml += "<li style=\"background:url('images/star2.png') no-repeat;\"></li>";
+                        else
+                            showBookReviewListhtml += "<li style=\"background:url('images/star1.png') no-repeat;\"></li>";
+                    }
+                    showBookReviewListhtml += "</ul></div>";
+                    showBookReviewListhtml += "<div style=\"border-bottom:1px dashed  #4b71aa;\">" + text5 + ":" + data[i].brtitle + "<span style=\"margin-left: 20px;\">时间:<span>" + data[i].brdate + "  " + data[i].brtime.substring(0, 2) + ":" + data[i].brtime.substring(2, 4) + ":" + data[i].brtime.substring(4, 6) + "</div>";
+                    showBookReviewListhtml += "<div style=\"border-bottom:1px solid  #4b71aa;\">" + text6 + ":" + data[i].brcontent + "</div>";
+
+                }
+
+
+                $("#BookReviewList").html(showBookReviewListhtml);
+                $("#WriteBookReview").hide();
+                $("#ShowBookTitle").hide();
+                $("#ShowBookReview").show();
+
+
+            }
+        });
+
+
+    }
+
+    function bookshelf(url) {
+
+        $.ajax({
+            url: url + '?recno=' +153109,
+            method: 'POST',
+            contentType: "application/json",
+            data: "",
+            dataType: 'json',
+            error: function () {
+                alert("error");
+            },
+            success: function (data, textStatus, jqXHR) {
+                var result = data.msg;
+                if (result == "success") {
+                    alert(data.tip);
+                } else {
+                    alert(data.tip);
+                    window.location.href = "NTRdrLogin.do";
+                }
+
+            }
+        });
+    }
+
+    var getEmail;
+    var gettelno;
+
+    function changeType() {
+        if ($('#ReseNoticesType option:selected').val() == "1") {
+            $("#ReseKey").css("display", "");
+            $("#ReseKey").val(getEmail);
+            $('#ReseShowEmail').css("display", "inline-block");
+            $('#ReseShowTel').css("display", "none");
+            $('#DivReseKey').css("display", "");
+        } else if ($('#ReseNoticesType option:selected').val() == "2") {
+            $("#ReseKey").css("display", "");
+            $("#ReseKey").val(gettelno);
+            $('#ReseShowEmail').css("display", "none");
+            $('#ReseShowTel').css("display", "inline-block");
+            $('#DivReseKey').css("display", "");
+        } else if ($('#ReseNoticesType option:selected').val() == "3") {
+            $("#ReseKey").css("display", "none");
+            $('#ReseShowEmail').css("display", "none");
+            $('#ReseShowTel').css("display", "none");
+            $('#DivReseKey').css("display", "");
+        }
+
+
+        //alert($('#ReseNoticesType option:selected').val());
+    }
+
+    /**
+     *
+     * @param urlPage
+     * @param barcode
+     * @param type
+     * @param curloacl
+     */
+    function showNewReservat(urlPage, barcode, type, curlocal, libid) {
+        $("#bookBarcode").val(barcode);
+        $.ajax({
+            ///NTRdrReservat.do
+            url: '' + urlPage + '?cmd=CheckLogin&barcode=' + barcode + '&type=' + type,
+            method: 'POST',
+            contentType: "application/json",
+            data: "",
+            dataType: 'json',
+            error: function () {
+            },
+            success: function (data, textStatus, jqXHR) {
+                var holdDays = data.enddate;
+                var result = data.msg;
+                if (result == "success") {
+
+                    // 判断这个条码号的图书是否 可以走这种模式
+                    $.post("/ILASOPAC/address/checkO2OEnabled", {libid: libid}, function (data) {
+                        if (data && data.state == '200') {
+                            getEmail = data.noteway; //email
+                            gettelno = data.reseKey; //telno
+                            mini.get("noticeInfo").setValue(getEmail);
+                            var noretudates = holdDays;
+                            var nowDate = new Date();
+                            nowDate.setDate(nowDate.getDate() + holdDays);
+                            mini.get("reservatDate").setValue(nowDate);
+                            tempEnddate = nowDate;
+
+
+                            // 打开窗口
+                            var editWindow = mini.get("editWindow");
+                            var noticeType = mini.get("noticeType")
+                            var data = [
+                                {id: 1, text: "E-Mail"},
+                                {id: 2, text: "电话"},
+                                {id: 3, text: "网上查看"}
+                            ]
+                            noticeType.setData(data);
+                            noticeType.setValue(1);
+                            editWindow.set({
+                                title: "预借",
+                            })
+                            editWindow.show();
+                        } else {
+                            mini.alert(data.message);
+                        }
+                    })
+                } else {
+                    alert(data.tip);
+                    window.location.href = "NTRdrLogin.do";
+                }
+
+            }
+        });
+
+
+    }
+
+    function noticeTypeChanged(e) {
+        var val = e.value;
+        if ("1" == val) {
+            $("#noticeText").html("EMAIL地址：");
+            mini.get("noticeInfo").show();
+            mini.get("noticeInfo").setValue("");
+        }
+        if ("2" == val) {
+            $("#noticeText").html("手机号码：");
+            mini.get("noticeInfo").show();
+            mini.get("noticeInfo").setValue("");
+        }
+        if ("3" == val) {
+            $("#noticeText").html("");
+            mini.get("noticeInfo").hide();
+            mini.get("noticeInfo").setValue("");
+        }
+    }
+
+    // 取消预借
+    function closeEditWindow() {
+        var editWindow = mini.get("editWindow");
+        editWindow.hide();
+    }
+
+    // 提交预借
+    function submitReservat() {
+        var editWindow = mini.get("editWindow");
+        // editWindow.hide();
+
+        var local = $(".form-left :radio[name='local']:checked").val();
+        if (local == null) {
+            alert("请选择取书地点！");
+            return;
+        }
+
+        var reservatDate = mini.get("reservatDate").getFormValue();
+        var noticeInfo = mini.get("noticeInfo").getValue();
+        var noticeType = mini.get("noticeType").getValue();
+        var barcode = $("#bookBarcode").val();
+
+        var param = {
+            reservatDate: reservatDate,
+            noticeInfo: noticeInfo,
+            noticeType: noticeType,
+            barcode: barcode,
+            local: local
+        };
+
+        console.log(param)
+
+        $.post("/ILASOPAC/address/o2oReservat", param, function (data) {
+            if (data && data.state == "200") {
+                mini.alert("预借成功")
+            } else if (data.message == "请先登录") {
+                alert("请先登录");
+                window.location.href = "NTRdrLogin.do";
+            } else {
+                mini.alert(data.message);
+            }
+        })
+    }
+
+    //设置标记
+    function markMap(lng, lat, title, remark) {
+        if (map) {
+            map.clearOverlays(); //清除
+            if (lng == null || lng == "" || lat == null || lat == "") {
+                return;
+            }
+
+            var point = new BMap.Point(lng, lat);
+            map.centerAndZoom(point, 15);
+            var marker = new BMap.Marker(point);  // 创建标注
+            map.addOverlay(marker);               // 将标注添加到地图中
+
+            var opts = {
+                width: 100,     // 信息窗口宽度
+                height: 80,     // 信息窗口高度
+                title: title, // 信息窗口标题
+                enableMessage: false,//设置允许信息窗发送短息
+                message: ""
+            }
+            var infoWindow = new BMap.InfoWindow(remark, opts);  // 创建信息窗口对象
+            map.openInfoWindow(infoWindow, point); //开启信息窗口
+            marker.addEventListener("click", function () {
+                map.openInfoWindow(infoWindow, point); //开启信息窗口
+            });
+
+        }
+    }
+
+    // 判断是否使用o2o
+    function confirmType(urlPage, barcode, type, curlocal, libid) {
+        if ("J" == type && "true" == "false") {
+            mini.confirm("是否送书到馆外服务点？", "请选择", function (e) {
+                if ("ok" == e) {
+                    showNewReservat(urlPage, barcode, type, curlocal, libid);
+                } else {
+                    ShowReservat(urlPage, barcode, type, curlocal,libid);
+                }
+            })
+        } else {
+            ShowReservat(urlPage, barcode, type, curlocal,libid);
+        }
+
+    }
+
+
+    // 预约预借
+    function ShowReservat(urlPage, barcode, type, curlocal,libid) {
+        // 是否启用新的预借页面
+        
+        
+        
+        
+
+
+        $.ajax({
+            url: '' + urlPage + '?cmd=CheckLogin&barcode=' + barcode + '&type=' + type,
+            method: 'POST',
+            contentType: "application/json",
+            data: "",
+            dataType: 'json',
+            error: function () {//alert("error");
+            },
+            success: function (data, textStatus, jqXHR) {
+                console.log(data)
+                var holdDays = data.enddate;
+                var result = data.msg;
+                if (result == "success") {
+                    getEmail = data.noteway; //email
+                    gettelno = data.reseKey; //telno
+
+                    if ($('#ReseNoticesType option:selected').val() == "1") {
+                        $("#ReseKey").val(getEmail);
+                    } else if ($('#ReseNoticesType option:selected').val() == "2") {
+                        $("#ReseKey").val(gettelno);
+                    }
+                    $("#reserveLibid").val(libid);
+
+
+                    $("#WriteBookReview").hide();
+                    $("#ShowBookReview").hide();
+
+                    var noretudates = holdDays;
+                    var nowDate = new Date();
+                    nowDate.setDate(nowDate.getDate() + holdDays);
+                    mini.get("ReseEndDate").setValue(nowDate);
+                    tempEnddate = nowDate;
+                    var ShowBookTitle = document.getElementById("ShowBookTitle").style.display;
+                    var ShowCover = document.getElementById("ShowBookTitle").style.display;
+                    if (ShowBookTitle == "none") {
+                        $("#ShowBookTitle").show();
+                    } else {
+                        $("#ShowBookTitle").hide();
+                    }
+
+
+                    if (ShowCover == "none")
+                        $("#cover").show();
+                    else
+                        $("#cover").hide();
+                    $("#barocode").val(barcode);
+
+                    document.getElementById('FLD_ReseMes').innerText = getAddDateYMD(parseInt(noretudates));
+
+// 		              var reservat_type="预约";
+                    var reservat_type = $trans("ntrdrbookretrinfo.text7", "预约");
+
+                    //$("#showReseSlectType").show();
+                    if (type == 'Y') {
+                        $("#showReseSlectType").show();
+                    } else {
+                        $("#showReseSlectType").hide();
+                    }
+
+
+                    $("#ReseLocal").val(curlocal);
+
+                    if (type == 'J') {
+
+// 		            	  reservat_type="预借";
+                        reservat_type = $trans("ntrdrbookretrinfo.text8", "预借");
+                        //$("#showReseSlectType").hide();
+
+
+                    }
+
+
+                    document.getElementsByName('reservat_type')[0].innerText = reservat_type;
+                    document.getElementsByName('reservat_type')[1].innerText = reservat_type;
+                    document.getElementsByName('reservat_type')[2].innerText = reservat_type;
+                    document.getElementsByName('reservat_type')[3].innerText = reservat_type;
+                    document.getElementsByName('reservat_type')[4].innerText = reservat_type;
+                    document.getElementsByName('reservat_type')[5].innerText = reservat_type;
+                } else {
+                    alert(data.tip);
+                    window.location.href = "NTRdrLogin.do";
+                }
+
+            }
+        });
+
+
+    }
+
+    function HideReservat() {
+        $("#cover").hide();
+        $("#ShowBookTitle").hide();
+    }
+
+    function onReservatProc(urlPage) {
+        var tparam = [];
+        tparam.push($("#barocode").val());
+        tparam.push(document.getElementsByName('reservat_type')[0].innerText);
+        var confirmText = $trans("ntrdrbookretrinfo.text9", "你确定要对条码号为[{0}]的书目进行{1}吗？", tparam);
+        var vreseloc = $("#ReseLocal").val();
+        if (vreseloc == "" || vreseloc == null) {
+            alert("取书地点不能为空！");
+            return;
+        }
+
+//        if(confirm("你确定要对条码号为["+$("#barocode").val()+"]的书目进行"+document.getElementsByName('reservat_type')[0].innerText+"吗？")){
+        if (confirm(confirmText)) {
+
+            var type = "Y";
+            if (document.getElementsByName('reservat_type')[0].innerText.indexOf('借') > -1)
+                type = "J";
+
+            var reseEndDate = mini.get("ReseEndDate").getFormValue();
+            var reseKey = $("#ReseKey").val();
+            var reseNoticesType = $("#ReseNoticesType").val();
+
+            var reseReseLocal = $("#ReseLocal").val();//地点
+            var reseReseSlectType = $("#ReseSlectType").val();//预约类型
+            var holdLibid =   $("#reserveLibid").val();
+
+
+            $.ajax({
+                url: '' + urlPage + '?cmd=ReseProc&barcode=' + $("#barocode").val() + '&type=' + type + '&reseEndDate=' + reseEndDate
+                    + '&reseKey=' + reseKey + '&reseNoticesType=' + reseNoticesType
+                    + '&reseReseLocal=' + reseReseLocal
+                    + '&reseReseSlectType=' + reseReseSlectType
+                    + '&holdLibid=' + holdLibid,
+                //  NTRdrReservat.do
+                method: 'POST',
+                contentType: "application/json",
+                data: "",
+                dataType: 'json',
+                error: function () {//alert("error");
+                },
+                success: function (data, textStatus, jqXHR) {
+                    var result = data.msg;
+                    if (result == "success") {
+                        alert(data.tip);
+                        HideReservat();
+                    } else
+                        alert(data.tip);
+                }
+            });
+
+
+        }
+
+
+    }
+
+    function getAddDateYMD(value) {
+        var date = new Date();
+        date.setDate(date.getDate() + value);
+        return date.getFullYear().toString() +
+            ChangeTo2Digital(date.getMonth() + 1).toString() +
+            ChangeTo2Digital(date.getDate()).toString();
+    }
+
+    function ChangeTo2Digital(value) {
+        if (value < 10)
+            return '0' + value;
+
+        return value;
+    }
+
+    function onChartYear(url) {
+        var chart;
+        var chartData = "";
+
+        $.ajax({
+            url: url + '?cmd=CheckLogin&recno=' +153109,
+            method: 'POST',
+            contentType: "application/json",
+            data: "",
+            dataType: 'json',
+            error: function () {
+                alert("error");
+            },
+            success: function (data, textStatus, jqXHR) {
+
+                chartData = data;
+                // generate some random data first
+                // SERIAL CHART
+                chart = new AmCharts.AmSerialChart();
+                chart.marginLeft = 0;
+                chart.marginRight = 0;
+                chart.marginTop = 50;
+                chart.dataProvider = chartData;
+                chart.categoryField = "date";
+                // AXES
+                // category
+                var categoryAxis = chart.categoryAxis;
+                // value axis
+                var valueAxis = new AmCharts.ValueAxis();
+//                                valueAxis.title = "图书借阅趋势图";
+                valueAxis.title = $trans("ntrdrbookretrinfo.text10", "图书借阅趋势图");
+
+                valueAxis.dashLength = 5;
+                chart.addValueAxis(valueAxis);
+
+                // GRAPH
+                var graph = new AmCharts.AmGraph();
+                graph.dashLength = 3;
+                graph.lineColor = "#7717D7";
+                graph.valueField = "visits";
+                graph.dashLength = 3;
+                graph.bullet = "round";
+                chart.addGraph(graph);
+
+                // CURSOR
+                var chartCursor = new AmCharts.ChartCursor();
+                chartCursor.cursorAlpha = 0;
+                chart.addChartCursor(chartCursor);
+
+                // WRITE
+                chart.write("chartYear");
+
+
+            }
+        });
+
+    }
+
+    function SelectYaer(url, ntype) {
+        var chart;
+        var chartData = "";
+
+        $.ajax({
+            url: url + '?cmd=CheckLogin&Yaer=' + $("#selectShowYaer").val() + '&recno=' +153109,
+            method: 'POST',
+            contentType: "application/json",
+            data: "",
+            dataType: 'json',
+            error: function () {
+                alert("error");
+            },
+            success: function (data, textStatus, jqXHR) {
+
+                chartData = data;
+                // generate some random data first
+                // SERIAL CHART
+                chart = new AmCharts.AmSerialChart();
+                chart.marginLeft = 0;
+                chart.marginRight = 0;
+                chart.marginTop = 10;
+                chart.dataProvider = chartData;
+                chart.categoryField = "date";
+                // AXES
+                // category
+                var categoryAxis = chart.categoryAxis;
+                // value axis
+                var valueAxis = new AmCharts.ValueAxis();
+//                             valueAxis.title = "图书借阅趋势图";
+                valueAxis.title = $trans("ntrdrbookretrinfo.text10", "图书借阅趋势图");
+                valueAxis.dashLength = 5;
+                chart.addValueAxis(valueAxis);
+
+                // GRAPH
+                var graph = new AmCharts.AmGraph();
+                graph.dashLength = 3;
+                graph.lineColor = "#7717D7";
+                graph.valueField = "visits";
+                graph.dashLength = 3;
+                graph.bullet = "round";
+                chart.addGraph(graph);
+
+                // CURSOR
+                var chartCursor = new AmCharts.ChartCursor();
+                chartCursor.cursorAlpha = 0;
+                chart.addChartCursor(chartCursor);
+
+                // WRITE
+                chart.write("chartdiv");
+                if (ntype == 0)
+                    $("#month").hide();
+
+
+            }
+        });
+
+    }
+
+    $(function () {
+        //对外公开的功能	by huanghuang
+        $.post("/ILASOPAC/showORhide.do", {}, function (data) {
+            for (var newdata in data) {//遍历json对象的每个key/value对,newdata为key
+                var id = "#" + newdata;
+
+                var isbn = '7-5321-2888-1';
+                var probation = ["7-5043-4966-6", "7-5043-4972-0", "7-80665-107-1", "978-7-5057-2797-7"];
+                if (data[newdata] == "true") {
+
+                    if (newdata == "showOrder" || newdata == "showReservation") {
+                        $("." + newdata).show();
+                        continue;
+                    }
+                    if (newdata == "BookProbation" && $.inArray(isbn, probation) > -1) {
+                        $(id).show();
+                    }
+                    if (newdata != "BookProbation") {
+                        $(id).show();
+                    }
+                }
+
+            }
+            /* if(data.Bookshelf=="true"){
+                $("#shelfview").show();
+                $("#Bookshelf").show();
+            }
+            if(data.Bookreview=="true"){
+                $("#shelfview").show();
+                $("#Bookreview").show();
+            }
+            if(data.datalink=="true"){
+                $("#datalink").show();
+            }
+            if(data.ckepop=="true"){
+                $("#ckepop").show();
+            }
+            if(data.infoleft=="true"){
+                $("#infoleft").show();
+            } */
+
+        });
+        //初始化评分插件
+        var score = new Score({
+            callback: function (cfg) {
+                // console.log(cfg.starAmount);
+            }
+        });
+
+        var sel = document.getElementById("selectShowYaer");
+        var d = new Date();
+        var nowYear = d.getFullYear();
+
+        for (var i = nowYear; i >= 1950; i--) {
+
+            var option = new Option(i, i);
+            sel.options.add(option);
+        }
+
+        /*      //接口停用
+
+                $.ajax({
+                    // url:'NTGetBookImagesInfo.do?listValue=7-5321-2888-1',
+            // 20180528 llq modify start
+            url: 'getImgURLByISBN.do?listValue=7-5321-2888-1',
+            // end
+            method: 'POST',
+            contentType: "application/json",
+            data: "",
+            dataType: 'json',
+            error: function () {
+                //alert("error");
+            },
+            success: function (data, textStatus, jqXHR) {
+                $(".infoleft  .img ").each(function (index, element) {
+//                 element.alt = "加载完成";
+                    element.alt = $trans("ntrdrbookretrinfo.text11", "加载完成");
+                    element.src = data[index].imageUrl;
+                    if ($(".text").html().trim().length == 0)
+                        $(".text").html(data[index].name)
+                    if (data[index].callno > 0) {
+                        var dnum = data[index].callno;
+                        $("#average").html(dnum);
+                        var ntop = 0;
+                        if (dnum >= 9 && dnum <= 10)
+                            ntop = -15;
+                        if (dnum >= 8 && dnum <= 9)
+                            ntop = -30;
+                        if (dnum >= 7 && dnum <= 8)
+                            ntop = -45;
+                        if (dnum >= 6 && dnum <= 7)
+                            ntop = -60;
+                        if (dnum >= 5 && dnum <= 6)
+                            ntop = -75;
+                        if (dnum >= 4 && dnum <= 5)
+                            ntop = -90;
+                        if (dnum >= 3 && dnum <= 4)
+                            ntop = -105;
+                        if (dnum >= 2 && dnum <= 3)
+                            ntop = -120;
+                        if (dnum >= 1 && dnum <= 2)
+                            ntop = -135;
+                        if (dnum >= 0 && dnum <= 1)
+                            ntop = -150;
+
+                        $("#douxingxing").html("<span style=\"width:100px;height:20px; background:url(Imagess/xingxing.png) no-repeat 0px " + ntop + "px\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>");
+
+                    }
+
+                    if (data[index].classno > 0) {
+// 					var text = data[index].classno+"人评论";
+                        var tparam = [];
+                        tparam.push(data[index].classno);
+                        var text = $trans("ntrdrbookretrinfo.text12", "{0}人评论", tparam);
+                        $("#numRaters").html("<a href=\"https://book.douban.com/subject/" + data[index].id + "/\"  target=\"_blank\">" + text + "</a>");
+                    }
+
+
+                    /!*   	   $("#bookreviews")[0].innerHTML=bookreviewsResult; *!/
+
+
+                });
+            }
+        });
+*/
+
+        /*         //接口停用
+
+                $.ajax({
+                    url: 'getBookReviews.do?ISBN=7-5321-2888-1',
+            method: 'POST',
+            contentType: "application/json",
+            data: "",
+            dataType: 'json',
+            error: function () {
+                //alert("error");
+            },
+            success: function (data, textStatus, jqXHR) {
+                if (data != null && data != undefined && data.length > 0) {
+// 					var text = "热门书评";
+                    var text = $trans("ntrdrbookretrinfo.text13", "热门书评");
+                    var bookreviewsResult = "<div class=\"infotip\">";
+                    bookreviewsResult += "<div style=\"border-bottom:1px dashed  #4b71aa;\"><strong>" + text + "</strong></div>";
+
+                    var text14 = $trans("ntrdrbookretrinfo.text14", "回应");
+                    var text15 = $trans("ntrdrbookretrinfo.text15", "有用");
+                    for (var i = 0; i < data.length; i++) {
+
+                        /!*		<id>http://api.douban.com/review/2684300</id>
+                         <title>说说《红楼梦魇》</title>
+                         <author>
+                         <link href="http://api.douban.com/people/1221476" rel="self"/>
+                         <link href="http://www.douban.com/people/silentwater/" rel="alternate"/>
+                         <link href="http://img3.doubanio.com/icon/u1221476-8.jpg" rel="icon"/>
+                         <name>青衣</name>
+                         <uri>http://api.douban.com/people/1221476</uri>
+                         </author>
+                         <published>2009-11-02T20:49:20+08:00</published>
+                         <updated>2016-03-31T19:03:36+08:00</updated>
+                         <link href="http://api.douban.com/review/2684300" rel="self"/>
+                         <link href="http://www.douban.com/review/2684300/" rel="alternate"/>
+                         <link href="http://api.douban.com/book/subject/2008406" rel="http://www.douban.com/2007#subject"/>
+                         <summary>《红楼梦魇》是张爱玲到美国以后针对《红楼梦》做的考据工作集锦。“梦魇...</summary>
+                         <*!/
+                        var dnum = data[i]["rating"];
+                        var ntop = 0;
+                        if (dnum == 5)
+                            ntop = 0;
+                        if (dnum == 4)
+                            ntop = -30;
+                        if (dnum == 3)
+                            ntop = -60;
+                        if (dnum == 2)
+                            ntop = -90;
+                        if (dnum == 1)
+                            ntop = -120;
+                        if (dnum == 0)
+                            ntop = -150;
+
+                        var ndouxingxing = "<div style=\"margin-top:-10px;padding:0px;width:100px;line-height:16px;background:url(Imagess/xingxing.png) no-repeat 0px " + ntop + "px\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>";
+
+                        bookreviewsResult += "<div style=\"padding:8px 8px 8px 8px;color:#ff5e0f;height:40px;line-height:40px;\">";
+                        bookreviewsResult += "<div style=\"float:left; color:#0071b4;\"><img src=" + data[i]["authoricon"] + " style=\"height:40px;margin-right:10px;\"></div>";
+
+                        bookreviewsResult += "<div style=\"float:left; color:#0071b4;\">";
+
+                        bookreviewsResult += "<div style=\"margin-top:-10px;padding:0;\"><a href=" + data[i]["alternate"] + " target=‘_blank’>" + data[i]["title"] + "</a>/<a href=" + data[i]["authoralternate"] + " target=‘_blank’>" + data[i]["name"] + "</a></div>";
+
+                        bookreviewsResult += ndouxingxing;
+
+
+                        bookreviewsResult += "</div>";
+                        bookreviewsResult += "</div>";
+
+                        bookreviewsResult += "<div style=\" padding:8px; border-bottom:1px solid #dce0e8;border-top:1px dotted #dce0e8;\">" + data[i]["summary"] + "<span style=\"margin-left:20px;\">(" + data[i]["comments"] + text14 + ")<span>";
+                        bookreviewsResult += "<div style=\" padding:8px;\">" + data[i]["published"] + "   " + data[i]["votes"] + "/" + (parseInt(data[i]["votes"]) + parseInt(data[i]["useless"])) + text15 + "</div>";
+// 		        	    bookreviewsResult+="<div style=\" padding:8px; border-bottom:1px solid #dce0e8;border-top:1px dotted #dce0e8;\">"+data[i]["summary"]+"<span style=\"margin-left:20px;\">(" +data[i]["comments"]+"回应)<span>";
+// 		        	    bookreviewsResult+="<div style=\" padding:8px;\">"+data[i]["published"]+"   "+data[i]["votes"]+"/"+(parseInt(data[i]["votes"])+parseInt(data[i]["useless"]))+"有用</div>";
+                        bookreviewsResult += "</div>";
+
+                    }
+                    bookreviewsResult += "</div>";
+                    $("#bookreviews").html(bookreviewsResult);
+                }
+
+
+            }
+        });
+*/
+
+
+        var $div = $("div#ShowBookTitle");
+        /* 绑定鼠标左键按住事件 */
+        $div.bind("mousedown", function (event) {
+            /* 获取需要拖动节点的坐标 */
+            var offset_x = $(this)[0].offsetLeft;//x坐标
+            var offset_y = $(this)[0].offsetTop;//y坐标
+            /* 获取当前鼠标的坐标 */
+            var mouse_x = event.pageX;
+            var mouse_y = event.pageY;
+
+            /* 绑定拖动事件 */
+            /* 由于拖动时，可能鼠标会移出元素，当前所以应该使用全局（document）元素 */
+            $(document).bind("mousemove", function (ev) {
+                /* 计算鼠标移动了的位置 */
+                var _x = ev.pageX - mouse_x;
+                var _y = ev.pageY - mouse_y;
+
+                /* 设置移动后的元素坐标 */
+                var now_x = (offset_x + _x) + "px";
+                var now_y = (offset_y + _y) + "px";
+                /* 改变目标元素的位置 */
+                $div.css({
+                    top: now_y,
+                    left: now_x
+                });
+            });
+        });
+
+
+        var ShowBookReview = $("div#ShowBookReview");
+        /* 绑定鼠标左键按住事件 */
+        ShowBookReview.bind("mousedown", function (event) {
+            /* 获取需要拖动节点的坐标 */
+            var offset_x = $(this)[0].offsetLeft;//x坐标
+            var offset_y = $(this)[0].offsetTop;//y坐标
+            /* 获取当前鼠标的坐标 */
+            var mouse_x = event.pageX;
+            var mouse_y = event.pageY;
+
+            /* 绑定拖动事件 */
+            /* 由于拖动时，可能鼠标会移出元素，当前所以应该使用全局（document）元素 */
+            $(document).bind("mousemove", function (ev) {
+                /* 计算鼠标移动了的位置 */
+                var _x = ev.pageX - mouse_x;
+                var _y = ev.pageY - mouse_y;
+
+                /* 设置移动后的元素坐标 */
+                var now_x = (offset_x + _x) + "px";
+                var now_y = (offset_y + _y) + "px";
+                /* 改变目标元素的位置 */
+                ShowBookReview.css({
+                    top: now_y,
+                    left: now_x
+                });
+            });
+        });
+
+
+        var WriteBookReview = $("div#WriteBookReview");
+
+        /* 绑定鼠标左键按住事件 */
+        WriteBookReview.bind("mousedown", function (event) {
+            /* 获取需要拖动节点的坐标 */
+            var offset_x = $(this)[0].offsetLeft;//x坐标
+            var offset_y = $(this)[0].offsetTop;//y坐标
+            /* 获取当前鼠标的坐标 */
+            var mouse_x = event.pageX;
+            var mouse_y = event.pageY;
+
+            /* 绑定拖动事件 */
+            /* 由于拖动时，可能鼠标会移出元素，当前所以应该使用全局（document）元素 */
+            $(document).bind("mousemove", function (ev) {
+                /* 计算鼠标移动了的位置 */
+                var _x = ev.pageX - mouse_x;
+                var _y = ev.pageY - mouse_y;
+
+                /* 设置移动后的元素坐标 */
+                var now_x = (offset_x + _x) + "px";
+                var now_y = (offset_y + _y) + "px";
+                /* 改变目标元素的位置 */
+                WriteBookReview.css({
+                    top: now_y,
+                    left: now_x
+                });
+            });
+        });
+
+        /* 当鼠标左键松开，接触事件绑定 */
+        $(document).bind("mouseup", function () {
+            $(this).unbind("mousemove");
+        });
+        $(".login_lib a").colorbox();
+
+        $(".infoleft .zoom").colorbox();
+
+        $('.seecont').colorbox({inline: true, width: "500", height: $(window).height() * 0.7});
+
+        $(".tab_4_title a").click(function () {
+            var i = $(this).parent(".tab_4_title").find('a').index(this);
+            $(this).parent('.tab_4_title').find('a').eq(i).addClass('cur').siblings().removeClass('cur');
+            $(this).parent('.tab_4_title').next('.tab_4_show').find('.tab_4_text').eq(i).show().siblings().hide();
+
+            var tabheight = $(this).parents('.tab_4_title').next('.tab_4_show').height() + $(this).parents('.tab_4_title').height() + 10;
+            $(this).parents('.infoshow').height(tabheight);
+            $(this).parents('.infoslide').height(tabheight);
+            return false;
+        }).focus(function () {
+            this.blur();
+        });
+
+
+        $('.infotitle ul').jcarousel({
+            scroll: 1,
+            itemFallbackDimension:588
+        });
+
+        $('.infotitle li a').click(function () {
+            $(this).parent().addClass('cur').siblings().removeClass('cur');
+            return false;
+        })
+        $('.infoslide').cycle({
+            fx: 'scrollHorz',
+            timeout: 0,
+            pager: '.infotitle',
+            activePagerClass: 'activeSlide',
+            pagerAnchorBuilder: function (idx, slide) {
+                return '.infotitle li a:eq(' + idx + ')';
+            },
+            before: function (curr, next, opts) {
+            },
+            after: function (curr, next, opts) {
+                var slideheight = $('.infoshow:eq(' + opts.currSlide + ') .tab_4_show').height() + $('.infoshow:eq(' + opts.currSlide + ') .tab_4_title').height() + 10;
+                $('.infoslide, .infoshow:eq(' + opts.currSlide + ')').height(slideheight);
+            }
+        });
+
+        onChartYear("BibLoanShowYaer.do", 0);
+        SelectYaer("BibLoanShowYaer.do", 0);
+    })
+</script>
+
+
+<script>
+    /**
+     * IMPORTANT: This only works with the canvas renderer. TBD in the future
+     * will also support the WebGL renderer.
+     */
+    sigma.utils.pkg('sigma.canvas.nodes');
+
+    // generate a random graph
+    var i,
+        s,
+        img,
+        N = 10,
+        E = 50,
+        g = {
+            nodes: [],
+            edges: []
+        },
+
+        colors = [
+            '#617db4',
+            '#668f3c',
+            '#c6583e',
+            '#b956af'
+        ];
+
+    // Generate a random graph, going through the different shapes
+    for (i = 0; i < N; i++) {
+
+        var NodeName = "";
+        if (i == 0) {
+            NodeName = "红楼梦";
+        } else if (i == 1) {
+            NodeName = "西游记";
+
+        } else if (i == 2) {
+            NodeName = "忠诚的流浪狗";
+
+        } else if (i == 3) {
+            NodeName = "漫画派对";
+
+        } else if (i == 4) {
+
+            NodeName = "南腔北调";
+        } else if (i == 5) {
+            NodeName = "骆驼王子";
+
+        } else if (i == 6) {
+            NodeName = "米老鼠";
+
+        } else if (i == 7) {
+
+            NodeName = "千与千寻";
+        } else if (i == 8) {
+            NodeName = "贝克和舒坦";
+
+        } else if (i == 9) {
+            NodeName = "三国演义";
+
+        }
+        var node = {
+            id: 'n' + i,
+            label: NodeName,
+            x: Math.random(),
+            y: Math.random(),
+            size: Math.random(),
+            color: colors[Math.floor(Math.random() * colors.length)]
+        };
+
+
+        switch (node.type) {
+            case "equilateral":
+                node.equilateral = {
+                    rotate: Math.random() * 45, // random rotate up to 45 deg
+                    numPoints: Math.round(5 + Math.random() * 3)
+                }
+                break;
+
+            case "circle":
+                break;
+            case "cross":
+                node.cross = {
+                    lineWeight: Math.round(Math.random() * 5)
+                }
+                break;
+        }
+        g.nodes.push(node);
+    }
+
+
+    for (i = 0; i < E; i++)
+        g.edges.push({
+            id: 'e' + i,
+            source: 'n' + (Math.random() * N | 0),
+            target: 'n' + (Math.random() * N | 0),
+            size: Math.random()
+        });
+
+    s = new sigma({
+        graph: g,
+        renderer: {
+            // IMPORTANT:
+            // This works only with the canvas renderer, so the
+            // renderer type set as "canvas" is necessary here.
+            container: document.getElementById('graph-container'),
+            type: 'canvas'
+        },
+        settings: {
+            minNodeSize: 8,
+            maxNodeSize: 8,
+        }
+    });
+    CustomShapes.init(s);
+    s.refresh();
+
+    function writeBookTag(userNo) {
+        if (userNo == "" || userNo == null) {
+// 		alert("添加书签时，请先登录！");
+            alert($trans("ntrdrbookretrinfo.text16", "添加书签时，请先登录！"));
+            return;
+        }
+        $("#WriteBookTag").show();
+    }
+
+    function closeBookTag() {
+        clearBookTagVal();
+        $("#WriteBookTag").hide();
+    }
+
+    function clearBookTagVal() {
+        $("#bookTagName").val("");
+        $("#bookTagNote").val("");
+    }
+
+    function addBookTag() {
+        var bookTagName = $("#bookTagName").val();
+        var bookTagNote = $("#bookTagNote").val();
+        //简单验证输入内容  by huanghuang
+        if (bookTagName.replace(/^\s+|\s+$/g, "").length < 1) {
+// 		alert("您还未输入书签名称");
+            alert($trans("ntrdrbookretrinfo.text17", "您还未输入书签名称"));
+            return;
+        }
+        if (bookTagName.replace(/^\s+|\s+$/g, "").length > 100) {
+// 		alert("输入的书签名称过长");
+            alert($trans("ntrdrbookretrinfo.text18", "输入的书签名称过长"));
+            return;
+        }
+        if (bookTagNote.replace(/^\s+|\s+$/g, "").length > 200) {
+// 		alert("输入的书签 备注过长");
+            alert($trans("ntrdrbookretrinfo.text19", "输入的书签 备注过长"));
+            return;
+        }
+        var url = "/ILASOPAC/addBookTag.do";
+        var brecno = 153109;
+        $.post(url, {"bibrecno": brecno, "bookTagName": bookTagName, "bookTagNote": bookTagNote}, function (data) {
+            var result = data.msg;
+            if (result == "success") {
+                alert(data.tip);
+                clearBookTagVal();
+                $("#WriteBookTag").hide();
+            } else {
+                alert(data.tip);
+            }
+        });
+
+
+    }
+
+    function findDetailBook(bookTagName) {
+        var bn = window.encodeURI(window.encodeURI(bookTagName));
+        var url = "/ILASOPAC/showDetailBook.do?bookTagName=" + bn;
+        window.location.href = url;
+    }
+
+    //20180528 llq add
+    function bookcatalog() {
+
+        var isbn = '7-5321-2888-1';
+        /*      $.ajax({
+                    url:"https://api.douban.com/v2/book/isbn/"+isbn,
+                    dataType:'jsonp',
+                    error: function () {
+                        alert("error");
+                    },
+                    success:function(data){
+                        //alert(data.catalog);
+                        var html = data.catalog.replace(new RegExp("\n","gm"),"<br/>");
+                         $("#BookCatalogList").html(html);
+                        $("#WriteBookReview").hide();
+                        $("#ShowBookTitle").hide();
+                        $("#ShowBookReview").hide();
+                        $("#ShowBookCatalog").show();
+                    }
+                }); */
+        $.ajax({
+            url: "/ILASOPAC/getBookCatalog.do?isbn=" + isbn,
+            dataType: 'json',
+            contentType: "application/json",
+            error: function () {
+                var html = "";
+                $("#BookCatalogList").html(html);
+                $("#WriteBookReview").hide();
+                $("#ShowBookTitle").hide();
+                $("#ShowBookReview").hide();
+                $("#ShowBookCatalog").hide();
+                $("#ShowBookSummary").hide();
+                $("#ShowBookCatalog").show();
+            },
+            success: function (data, textStatus, jqXHR) {
+                //alert(data.catalog);
+                var html = data.catalog.replace(new RegExp("\n", "gm"), "<br/>");
+                $("#BookCatalogList").html(html);
+                $("#WriteBookReview").hide();
+                $("#ShowBookTitle").hide();
+                $("#ShowBookReview").hide();
+                $("#ShowBookSummary").hide();
+                $("#ShowBookCatalog").show();
+            }
+        });
+
+    }
+
+    function hidebookcatalog() {
+
+        $("#ShowBookCatalog").hide();
+    }
+
+    //20180528 llq add
+    function booksummary() {
+
+        var isbn = '7-5321-2888-1';
+        /*      $.ajax({
+                    url:"https://api.douban.com/v2/book/isbn/"+isbn,
+                    dataType:'jsonp',
+                    error: function () {
+                        alert("error");
+                    },
+                    success:function(data, textStatus, jqXHR){
+                        //alert(data.catalog);
+                        var html = data.summary.replace(new RegExp("\n","gm"),"<br/>");
+                         $("#BookSummaryList").html(html);
+                        $("#WriteBookReview").hide();
+                        $("#ShowBookTitle").hide();
+                        $("#ShowBookReview").hide();
+                        $("#ShowBookCatalog").hide();
+                        $("#ShowBookSummary").show();
+                    }
+                }); */
+
+        $.ajax({
+            url: "/ILASOPAC/getBookCatalog.do?isbn=" + isbn,
+            dataType: 'json',
+            contentType: "application/json",
+            error: function () {
+                var html = "";
+                $("#BookSummaryList").html(html);
+                $("#WriteBookReview").hide();
+                $("#ShowBookTitle").hide();
+                $("#ShowBookReview").hide();
+                $("#ShowBookCatalog").hide();
+                $("#ShowBookSummary").show();
+            },
+            success: function (data, textStatus, jqXHR) {
+                //alert(data.catalog);
+                var html = data.summary.replace(new RegExp("\n", "gm"), "<br/>");
+                $("#BookSummaryList").html(html);
+                $("#WriteBookReview").hide();
+                $("#ShowBookTitle").hide();
+                $("#ShowBookReview").hide();
+                $("#ShowBookCatalog").hide();
+                $("#ShowBookSummary").show();
+            }
+        });
+
+    }
+
+    function hidebooksummary() {
+
+        $("#ShowBookSummary").hide();
+    }
+
+    function bookprobation() {
+        var isbn = '7-5321-2888-1';
+
+        $.ajax({
+            url: '/ILASOPAC/getBookProbation.do?isbn=' + isbn,
+            method: 'POST',
+            contentType: "application/json",
+            scriptCharset: 'utf-8',
+            data: "",
+            dataType: 'json',
+            error: function () {
+                var html = "";
+                $("#BookProbationList").html(html);
+                $("#WriteBookReview").hide();
+                $("#ShowBookTitle").hide();
+                $("#ShowBookReview").hide();
+                $("#ShowBookCatalog").hide();
+                $("#ShowBookSummary").hide();
+                $("#ShowBookProbation").show();
+            },
+            success: function (data, textStatus, jqXHR) {
+                var html = data.msg;
+                $("#BookProbationList").html(html);
+                $("#WriteBookReview").hide();
+                $("#ShowBookTitle").hide();
+                $("#ShowBookReview").hide();
+                $("#ShowBookCatalog").hide();
+                $("#ShowBookSummary").hide();
+                $("#ShowBookProbation").show();
+            }
+        });
+    }
+
+    function hidebookprobation() {
+        $("#ShowBookProbation").hide();
+    }
+
+    var map = null;
+
+    //初始化百度地图
+    function initMap() {
+        // 百度地图API功能
+        map = new BMap.Map("allmap");    // 创建Map实例
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+        // 全景-----
+        var stCtrl = new BMap.PanoramaControl(); //构造全景控件
+        stCtrl.setOffset(new BMap.Size(20, 200));
+        map.addControl(stCtrl);//添加全景控件
+
+        // 比例尺
+        var top_right_navigation = new BMap.NavigationControl({
+            anchor: BMAP_ANCHOR_TOP_RIGHT,
+            type: BMAP_NAVIGATION_CONTROL_SMALL
+        }); //右上角，仅包含平移和缩放按钮
+        map.addControl(top_right_navigation);
+
+    }
+
+    initMap();
+
+    function addBookCart(bibrecno, libid, barcode) {
+
+        $.post("/ILASOPAC/address/insertBookCart", {recno: bibrecno, libid: libid, barcode: barcode}, function (data) {
+            if (data && data.state == "200") {
+                mini.alert("添加成功，请到个人中心-我的书车中进行查看")
+            } else if (data.message == "请先登录") {
+                alert("请先登录");
+                window.location.href = "NTRdrLogin.do";
+            } else {
+                mini.alert(data.message);
+            }
+        })
+    }
+
+
+    function queryAllDevice() {
+        $.post("/ILASOPAC/address/queryAllDevice", {}, function (data) {
+            var html = "";
+            if (data && data.state == "200") {
+                var list = data.result;
+                if (list && list.length > 0) {
+                    for (var i = 0; i < list.length; i++) {
+                        var item = list[i];
+                        var COORDINATE = item.COORDINATE;
+                        var lng = null;
+                        var lat = null;
+                        if (COORDINATE && COORDINATE.split(",").length > 1) {
+                            lng = COORDINATE.split(",")[0];
+                            lat = COORDINATE.split(",")[1];
+                        }
+                        if (!item.ADDRESS) {
+                            item.ADDRESS = "";
+                        }
+                        html += '<li>' +
+                            '<label><input type="radio" name="local" value="' + item.ADDRESS + '" onclick="markMap(' + lng + ',' + lat + ',\'' + item.DEVICENAME + '\',\'' + item.ADDRESS + '\')">' + item.DEVICENAME + '</label>' +
+                            '</li>';
+                    }
+                }
+            }
+            $("#localList").html(html);
+        });
+    }
+
+    $(function () {
+        queryAllDevice();
+
+        var isbn = "7-5321-2888-1";
+
+        queryCadalList(isbn);
+    })
+
+
+    // 延迟加载图片
+    $(window).load(function(){
+        var isbnList = ",7-5321-2888-1"
+        setTimeout(function(){
+            console.log(isbnList)
+            var imgUrl = "https://book-resource.dataesb.com/websearch/metares?glc=P2GD020003&cmdACT=getImages&type=0&isbns="+isbnList+"&callback=showCovers&jsoncallback=?"
+            $.ajax({
+                type: 'get',
+                url: imgUrl,
+                dataType:'json',
+                success: function (res) {
+                    // 获取的结果会跳转到showCovers
+                }
+            });
+        },1000);
+    })
+
+    function showCovers(data) {
+        data = JSON.parse(JSON.stringify(data.result))
+        if (data.length > 0) {
+            for (var i=0; i<data.length; i++) {
+                var imgSrc = $("img[isbn="+data[i].isbn+"]").attr("src");
+                if (imgSrc == 'images/imgdefault.png') {
+                    $("img[isbn="+data[i].isbn+"]").attr("src",data[i].coverlink)
+                }
+            }
+        }
+    }
+
+
+    function queryCadalList(isbn) {
+        if (isbn == null || isbn == '') {
+            return;
+        }
+        $.ajax({
+            url: '/ILASOPAC/queryCadalList.do',
+            data: {
+                isbn: isbn
+            }
+        }).done(function (data) {
+            /*
+            BookNo: "06395759"
+            BookType: "modern"
+            CharCreateTime: ""
+            ContentLanguage: "chi"
+            Contributor: "林骧华"
+            Coverage: ""
+            CreateDate: ""
+            Creator: "著：（美）威廉·斯泰伦"
+            Description: "书本页面本身深浅不一，扫描无法扫清晰。"
+            Format: "Image/Djvu(.djvu)"
+            ISBN: "7900000488"
+            Identifier: "7-900000-48-8"
+            Page: "301
+            "
+            Publisher: "百家出版社·上海"
+            Relation: ""
+            Rights: ""
+            Source: ""
+            Subject: ""
+            Title: "苏菲的抉择"
+            Type: "普通图书"
+             */
+            if (data && data.state == '200') {
+                $("#showCadal").show();
+                var list = data.result;
+                if (list && list.length > 0) {
+                    var html = "";
+                    for (var i = 0; i < list.length; i++) {
+                        var item = list[i];
+                        console.log(item)
+                        var isbn = item.ISBN || '';
+                        html += '<tr>';
+                        html += '<td>' + item.Title + '</td>';
+                        html += '<td>' + isbn + '</td>';
+                        html += '<td>' + item.Publisher + '</td>';
+                        html += '<td>' + item.Creator + '</td>';
+                        html += '<td>' + item.Page + '</td>';
+                        html += '<td>' + item.Description + '</td>';
+                        html += '<td><a target="_blank" href="/ILASOPAC/queryCadalDetail?BookNo=' + item.BookNo + '">查看详情</a></td>';
+                        html += '</tr>';
+                    }
+                    $("#showCadal tbody").html(html);
+                }
+            }
+        })
+    }
+</script>
+
+
+</body></html>

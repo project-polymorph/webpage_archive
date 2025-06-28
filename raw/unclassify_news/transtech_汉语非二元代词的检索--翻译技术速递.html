@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="zh"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0," name="viewport">
+    <meta name="keywords" content="翻译技术，机器翻译">
+    <meta name="description" content="随着企业努力接触更广泛的受众，性别包容的语言已变得势在必行。企业已经认识到，任何与偏见、种族主义或性别歧视的联系，无论多么无意，甚至是好意，都可能损害品牌形象，...">
+    <meta name="baidu_union_verify" content="db3b45206a15d12250486456573307a8">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="dbTs2HTS6ONkkrUjKH1lIJXoLbMPg9nUDDwMRkNR">
+    <base target="_blank">
+
+    <title>    汉语非二元代词的检索--翻译技术速递
+</title>
+    
+    <link rel="shortcut icon" href=" /favicon.ico">
+    
+        
+    
+        
+    
+    <link rel="icon" type="image/x-icon" href="http://transtech.lingosail.com/static/img/frontend/logos/logo.png">
+    
+    <!-- Styles -->
+    
+    <link href="http://transtech.lingosail.com/assets/bootstrap-investank/css/bootstrap_2.0.2.css" rel="stylesheet">
+    <link href="http://transtech.lingosail.com/assets/toastr/toastr_2.0.1.css" rel="stylesheet">
+    <link href="http://transtech.lingosail.com/assets/iconfont/iconfont.css" rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="144x144" href="http://transtech.lingosail.com/static/img/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://transtech.lingosail.com/static/img/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://transtech.lingosail.com/static/img/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon" href="http://transtech.lingosail.com/static/img/ico/apple-touch-icon-57-precomposed.png">
+    <style>
+        @media (min-width: 1060px) {
+            .big-container {
+                width: 1170px;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            .big-container .container {
+                float: right;
+                /*margin-left: 150px;*/
+            }
+        }
+        .navbar .container,.more-data {
+            float: none;
+        }
+        .index_search {
+            margin-top: 7px;
+            display: inline-block;
+            padding: 6px 0;
+            border-top: 1px solid #EEEEEE;
+            border-bottom: 1px solid #EEEEEE;
+            text-align: right;
+        }
+    </style>
+
+
+        
+    <link rel="stylesheet/less" href="http://transtech.lingosail.com/css/news/detail_2.2.0.less?v=2.3.6"><style type="text/css" id="less:css-news-detail_2:2:0:less-v-2:3:6">button {
+  padding: 0;
+  outline: none;
+  border: none;
+}
+input {
+  -web-kit-appearance: none;
+  -moz-appearance: none;
+  outline: 0;
+}
+li {
+  list-style: none;
+}
+* {
+  cursor: default;
+  margin: 0;
+  padding: 0;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover {
+  color: #57a8ee;
+}
+div,
+p,
+img,
+span,
+a {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.investank-nav {
+  height: 15px;
+  line-height: 15px;
+}
+.investank-nav li {
+  height: 30px;
+  float: left;
+}
+.investank-nav > li > a.current {
+  color: #f1d30b;
+  background-color: transparent;
+  border-bottom: 3px solid #f1d30b;
+}
+.research-nav,
+.data-nav {
+  width: 100%;
+  height: 70px;
+  text-align: left;
+  padding: 20px 0;
+  background-color: #0080ee;
+}
+.research-nav > div.con,
+.data-nav > div.con {
+  width: 1060px;
+  margin: 0 auto;
+  line-height: 35px;
+}
+.research-nav > div.con a,
+.data-nav > div.con a {
+  color: #191919;
+  text-decoration: none;
+}
+.research-nav > div.con a.current,
+.data-nav > div.con a.current {
+  border-bottom: 3px solid #191919;
+  padding: 0 5px 21px;
+}
+.research-nav img,
+.data-nav img {
+  width: 135px;
+  float: left;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.research-nav ul,
+.data-nav ul {
+  margin: 0;
+  float: left;
+}
+.research-nav ul li,
+.data-nav ul li {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #191919;
+  margin: 0 18px;
+}
+.research-nav .search-login,
+.data-nav .search-login {
+  float: right;
+}
+.research-nav .search-login .research-nav-search,
+.data-nav .search-login .research-nav-search {
+  display: inline-block;
+  width: 66px;
+  height: 25px;
+  background: #191919;
+  border: 1px solid #191919;
+  border-radius: 13px;
+  text-align: center;
+  line-height: 23px;
+  margin-right: 10px;
+}
+.research-nav .search-login .research-nav-search a,
+.data-nav .search-login .research-nav-search a {
+  font-size: 14px;
+  color: #0080ee;
+}
+.research-nav .search-login span.investank-nav-dropdown,
+.data-nav .search-login span.investank-nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+.research-nav .search-login span.investank-nav-dropdown > a,
+.data-nav .search-login span.investank-nav-dropdown > a {
+  font-size: 16px;
+  color: #191919;
+}
+.investank-login {
+  min-width: 124px;
+  position: absolute;
+  left: 930px;
+}
+.investank-login li {
+  width: auto;
+  list-style: none;
+  float: left;
+  height: 31px;
+  line-height: 31px;
+  text-align: right;
+}
+.multiline_text {
+  position: relative;
+  margin: 0px auto;
+  overflow: hidden;
+}
+.multiline_text-after:after {
+  content: "...";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-left: 40px;
+  background: -webkit-linear-gradient(left, transparent, #fff 55%);
+  background: -moz-linear-gradient(left, transparent, #fff 55%);
+  background: -o-linear-gradient(left, transparent, #fff 55%);
+  background: linear-gradient(to right, transparent, #fff 55%);
+}
+/*搜索控件*/
+.investank-nav-form {
+  width: 226px;
+  height: 21px;
+  float: left;
+  /*position: relative;*/
+  position: absolute;
+  top: 25px;
+  /* left: 104px; */
+  /*right: 100px;*/
+  border-radius: 2px;
+  overflow: hidden;
+}
+.investank-nav-form input {
+  width: 170px;
+  height: 22px;
+  border: none;
+  padding: 1px 0 1px 16px;
+  font-size: 12px;
+}
+.investank-nav-form .investank-nav-search {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  width: 56px;
+  height: 22px;
+  /*line-height: 22px;*/
+  position: absolute;
+  top: 0;
+  left: 170px;
+  background-color: #f1d30b;
+}
+/*二级菜单*/
+.investank-nav-dropdown-list {
+  display: none;
+  padding: 0 10px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  list-style: none;
+  background-color: #353433;
+}
+.investank-nav-dropdown-list li {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  width: 100%;
+}
+.investank-nav-dropdown-list a {
+  color: #fff;
+  background-color: #353433;
+  text-decoration: none;
+  padding: 4px 11px;
+}
+.investank-nav-dropdown-list a:focus,
+.investank-nav-dropdown-list a:hover {
+  color: #000;
+  background-color: #f1d30b;
+}
+.feedback-and-to-top {
+  display: none;
+  width: 90px;
+  height: 290px;
+  position: fixed;
+  background-color: #fff;
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid #f1d30b;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.feedback-and-to-top img {
+  width: 70px;
+  /* height: 104px; */
+  background-color: #ccc;
+  display: inline-block;
+  margin: 15px 0 10px;
+}
+.feedback-and-to-top p {
+  font-size: 14px;
+  padding-bottom: 8px;
+  margin: 0 10px;
+  border-bottom: 1px solid #f1d30b;
+}
+.feedback-and-to-top i {
+  cursor: pointer;
+  color: #f1d30b;
+  display: inline-block;
+  font-size: 36px;
+  height: 37px;
+  line-height: 37px;
+  width: 100%;
+  padding-top: 5px;
+}
+.more-data {
+  display: none;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  height: 63px;
+  line-height: 63px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.more-data > span {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  top: 0;
+}
+.more-data .left-line {
+  left: 0;
+  background-color: #353433;
+}
+.more-data .right-line {
+  right: 0;
+  background-color: #0080ee;
+}
+.more-data .logo img {
+  float: left;
+  width: 70px;
+  margin-top: 14px;
+  margin-right: 15px;
+}
+.more-data ul {
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+.more-data li {
+  float: left;
+}
+.more-data a {
+  color: #333;
+  text-decoration: none;
+  padding: 20px 14px;
+}
+.more-data a:hover,
+.more-data a.current {
+  font-size: 16px;
+  border-bottom: 3px solid #f1d30b;
+}
+#footer {
+  min-width: 1060px;
+  background-color: #353433;
+  color: #999;
+  margin-top: 100px;
+}
+.investank-footer li {
+  width: 880px;
+}
+.investank-footer li a {
+  color: #999;
+  margin-right: 6px;
+  text-decoration: none;
+}
+.footer_screen {
+  width: 100%;
+  background-color: #353433;
+  margin-top: 130px;
+}
+.footer_screen a {
+  color: #FFFFFF;
+}
+.footer_screen a:hover {
+  text-decoration: none;
+  color: #F1D30B;
+}
+.footer_screen .footer-context {
+  width: 1060px;
+  height: 235px;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+.footer_screen .footer-context .footer-first-row {
+  width: 235px;
+  display: inline-block;
+  text-align: center;
+}
+.footer_screen .footer-context .footer-first-row img {
+  width: 120px;
+}
+.footer_screen .footer-context .footer-first-row .footer-code {
+  width: 235px;
+  text-align: -webkit-auto;
+}
+.footer_screen .footer-context .footer-first-row .footer-code img {
+  width: 78px;
+  margin-left: 81px;
+  margin-top: 38px;
+}
+.footer_screen .footer-context .footer-first-row .footer-code span {
+  display: block;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 14px;
+  margin-top: 13px;
+}
+.footer_screen .footer-context .footer-right {
+  display: inline-block;
+  width: 820px;
+  float: right;
+}
+.footer_screen .footer-context .footer-right .footer-second-row,
+.footer_screen .footer-context .footer-right .footer-third-row,
+.footer_screen .footer-context .footer-right .footer-fourth-row {
+  float: left;
+  display: inline-block;
+  vertical-align: top;
+  width: 160px;
+}
+.footer_screen .footer-context .footer-right .footer-second-row ul li,
+.footer_screen .footer-context .footer-right .footer-third-row ul li,
+.footer_screen .footer-context .footer-right .footer-fourth-row ul li {
+  color: white;
+  line-height: 20px;
+  text-align: left;
+  font-size: 12px;
+}
+.footer_screen .footer-context .footer-right .footer-second-row .about,
+.footer_screen .footer-context .footer-right .footer-third-row .about,
+.footer_screen .footer-context .footer-right .footer-fourth-row .about {
+  color: #F1D30B;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.footer_screen .footer-context .footer-right .footer-fifth-row {
+  float: left;
+  display: inline-block;
+  vertical-align: top;
+  width: 740px;
+}
+.footer_screen .footer-context .footer-right .footer-fifth-row p {
+  text-align: left;
+  margin-bottom: 0;
+}
+.footer_screen .footer-context .footer-right .footer-fifth-row .link {
+  color: #F1D30B;
+  font-size: 14px;
+  width: 200px;
+  margin-bottom: 5px;
+}
+.footer_screen .footer-context .footer-right .footer-fifth-row span {
+  color: #FFFFFF;
+  font-size: 12px;
+  display: inline-block;
+  text-align: left;
+}
+.footer_screen .footer-context .footer-right .footer-fifth-row .other {
+  margin-left: 13px;
+}
+.footer_screen .footer-bottom {
+  margin-top: -28px;
+  border-top: 1px solid #444;
+  padding: 12px 0 1px;
+}
+.footer_screen .footer-bottom p {
+  text-align: center;
+  color: #8F8F94;
+  font-size: 12px!important;
+}
+/*模态框样式*/
+/*公共样式*/
+.login-and-register-modal.modal .modal-content {
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-top-left-radius: inherit;
+  border-top-right-radius: unset;
+  padding: 3px 30px;
+}
+.login-and-register-modal.modal .modal-content > span {
+  position: absolute;
+  width: 199px;
+  height: 3px;
+  top: 0;
+}
+.login-and-register-modal.modal .modal-content .left-border {
+  left: 0;
+  background-color: #353433;
+}
+.login-and-register-modal.modal .modal-content .right-border {
+  right: 0;
+  background-color: #0080ee;
+}
+.login-and-register-modal.modal .modal-head {
+  height: 70px;
+  line-height: 70px;
+}
+.login-and-register-modal.modal .modal-head button.close {
+  margin-top: 20px;
+}
+.login-and-register-modal.modal .modal-head h4 {
+  margin: 0;
+  height: 70px;
+  line-height: 70px;
+  font-size: 18px;
+}
+.login-and-register-modal.modal .modal-head a {
+  margin-top: 24px;
+}
+.login-and-register-modal.modal .modal-body {
+  padding: 0 0 10px;
+}
+.login-and-register-modal.modal .modal-body span {
+  cursor: pointer;
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+}
+.login-and-register-modal.modal .modal-body span.forget-password {
+  position: absolute;
+  height: 14px;
+  line-height: 14px;
+  right: 0;
+}
+.login-and-register-modal.modal .modal-body .control-group {
+  position: relative;
+}
+.login-and-register-modal.modal .modal-body input {
+  -web-kit-appearance: none;
+  -moz-appearance: none;
+  outline: 0;
+  width: 100%;
+  height: 37px;
+  padding-left: 22px;
+  border: 1px solid #eee;
+  margin: 10px 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.login-and-register-modal.modal .modal-body button {
+  outline: none;
+  border: none;
+  padding: 0 12px;
+  height: 29px;
+  line-height: 29px;
+  color: #0080ee;
+  background-color: #353433;
+  border-radius: 6px;
+  position: absolute;
+  top: 15px;
+  left: 240px;
+}
+.login-and-register-modal.modal .modal-body img {
+  height: 37px;
+  position: absolute;
+  top: 10px;
+  left: 241px;
+}
+.login-and-register-modal.modal .modal-footer {
+  border: none;
+  padding: 17px 0 30px;
+  text-align: center;
+}
+.login-and-register-modal.modal .modal-footer button {
+  outline: none;
+  border: none;
+  font-size: 18px;
+  height: 39px;
+  line-height: 39px;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  color: #0080ee;
+  background-color: #353433;
+}
+.login-and-register-modal.modal .modal-footer button.login-to-register {
+  color: #333;
+  background-color: #fff;
+}
+.login-and-register-modal.modal .modal-footer .login-by-other-path {
+  border-top: 1px solid #eee;
+  position: relative;
+  padding-top: 30px;
+  margin-top: 7px;
+}
+.login-and-register-modal.modal .modal-footer .login-by-other-path span {
+  position: absolute;
+  top: -11px;
+  left: 130px;
+  padding: 0 5px;
+  color: #999;
+  background-color: #fff;
+}
+.login-and-register-modal.modal .modal-footer .login-by-other-path i {
+  width: 42px;
+  height: 42px;
+  background-color: #353433;
+  color: #0080ee;
+  display: inline-block;
+  font-size: 28px;
+  border-radius: 50%;
+  padding: 2px 7px;
+}
+.vip-modal.modal p {
+  margin: 0;
+  padding: 0;
+}
+.vip-modal.modal .modal-content {
+  width: 1062px;
+  position: absolute;
+  left: 50%;
+  top: 410px;
+  transform: translate(-50%, 0);
+  border-top-left-radius: inherit;
+  border-top-right-radius: unset;
+  padding: 3px 0;
+}
+.vip-modal.modal .modal-content .member-guide-container {
+  background-color: #fff;
+}
+.vip-modal.modal .modal-content .vip-guide-module {
+  margin-bottom: 40px;
+}
+.vip-modal.modal .modal-content .customer-type ul li {
+  border: 1px solid #eee;
+  margin-top: 40px;
+}
+.vip-modal.modal .modal-head {
+  padding: 15px 15px 0;
+  height: 40px;
+  line-height: 40px;
+}
+.vip-modal.modal .modal-head h4 {
+  margin: 0;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  text-align: center;
+}
+.vip-modal.modal .modal-body {
+  padding: 0;
+}
+.vip-modal.modal .modal-body .pay-for-atlas,
+.vip-modal.modal .modal-body .pay-for-vip {
+  width: 50%;
+  float: left;
+}
+.vip-modal.modal .modal-body .modal-body-title {
+  position: relative;
+  width: 85px;
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+}
+.vip-modal.modal .modal-body .modal-body-title p {
+  font-size: 16px;
+}
+.vip-modal.modal .modal-body .modal-body-title > span {
+  position: absolute;
+  width: 49%;
+  height: 1px;
+  bottom: 0;
+}
+.vip-modal.modal .modal-body .modal-body-title .left-border {
+  left: 0;
+  background-color: #353433;
+}
+.vip-modal.modal .modal-body .modal-body-title .right-border {
+  right: 0;
+  background-color: #0080ee;
+}
+.vip-modal.modal .modal-body .modal-body-content {
+  margin: 0 auto;
+  text-align: center;
+}
+.vip-modal.modal .modal-body .modal-body-content img {
+  position: unset;
+  width: 138px;
+  height: 138px;
+}
+.vip-modal.modal .modal-body .modal-body-content .price {
+  color: red;
+  font-size: 22px;
+  margin: 8px 0 12px;
+}
+.vip-modal.modal .modal-body .modal-body-content .add-service {
+  position: relative;
+}
+.vip-modal.modal .modal-body .modal-body-content .add-service img {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 30px;
+  left: 108px;
+  display: none;
+}
+.vip-modal.modal .modal-body .modal-body-content .add-service p {
+  margin-top: 12px;
+  cursor: pointer;
+  color: #0971db;
+}
+.vip-modal.modal .modal-body .modal-body-content.has-coupon {
+  color: #999;
+  line-height: 30px;
+}
+.vip-modal.modal .modal-body .modal-body-content.has-coupon .original-price {
+  text-decoration: line-through;
+  margin: -13px 0 20px;
+}
+.vip-modal.modal .modal-body .modal-body-content.has-coupon .not-use-coupon {
+  color: #666;
+}
+.vip-modal.modal .modal-body .modal-body-content.has-coupon .not-use-coupon span {
+  width: 17px;
+  height: 17px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  line-height: 1;
+  top: 3px;
+  margin-right: 4px;
+}
+.vip-modal.modal .modal-body .modal-body-content.has-coupon .not-use-coupon span i {
+  display: none;
+}
+.vip-modal.modal .modal-body .modal-body-content.has-coupon .not-use-coupon span.active i {
+  display: inline;
+  position: relative;
+  left: 3px;
+  top: -1px;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1;
+}
+.vip-modal.modal .modal-footer {
+  border: none;
+  padding: 17px 0 30px;
+  text-align: center;
+}
+.vip-modal.modal .modal-footer .btn {
+  outline: none;
+  border: none;
+  font-size: 18px;
+  height: 39px;
+  line-height: 39px;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  color: #0080ee;
+  background-color: #353433;
+}
+.only-pay.vip-modal.modal .modal-content {
+  width: 319px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.only-pay.vip-modal.modal .modal-head {
+  height: 0;
+  padding: 0;
+}
+.only-pay.vip-modal.modal .modal-head button.close {
+  z-index: 1;
+  position: absolute;
+  top: 32px;
+  right: 20px;
+}
+.only-pay.vip-modal.modal .modal-body .modal-body-title {
+  margin: 20px auto 10px;
+}
+.only-pay.vip-modal.modal .modal-body .modal-body-title p {
+  font-size: 18px;
+}
+.only-pay.vip-modal.modal .modal-footer {
+  padding: 8px;
+}
+.guide-authentication-modal.modal .modal-content {
+  width: 678px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3px 60px;
+}
+.guide-authentication-modal.modal .modal-head {
+  line-height: 50px;
+  text-align: center;
+  padding: 10px 15px 0;
+}
+.guide-authentication-modal.modal .modal-head button.close {
+  margin: 15px -35px 0 0;
+}
+.guide-authentication-modal.modal .modal-head i {
+  color: #0080ee;
+  background-color: #353433;
+  border-radius: 50%;
+  padding: 6px;
+}
+.guide-authentication-modal.modal .modal-head h4 {
+  margin: 0;
+  line-height: 30px;
+  font-size: 14px;
+}
+.guide-authentication-modal.modal .modal-body img {
+  width: 20px;
+  margin: -5px 6px 0 0;
+}
+.guide-authentication-modal.modal .modal-body .table {
+  margin-bottom: 0;
+}
+.guide-authentication-modal.modal .modal-body .table > thead > tr > th {
+  border: none;
+  padding: 0;
+}
+.guide-authentication-modal.modal .modal-body .table > tbody > tr > td {
+  line-height: 26px;
+  border: none;
+}
+.guide-authentication-modal.modal .modal-footer {
+  border: none;
+  padding-bottom: 25px;
+  text-align: center;
+}
+.guide-authentication-modal.modal .modal-footer button,
+.guide-authentication-modal.modal .modal-footer a {
+  outline: none;
+  border: none;
+  font-size: 16px;
+  height: 39px;
+  /* line-height: 39px; */
+  width: 155px;
+  border-radius: 8px;
+  margin: 0 45px;
+  padding: 8px;
+  color: #0080ee;
+  background-color: #353433;
+}
+.guide-authentication-modal.modal .modal-footer button:first-child,
+.guide-authentication-modal.modal .modal-footer a:first-child {
+  color: #333;
+  background-color: #eee;
+}
+/*19.03新版登录注册模态框*/
+#registerByWX .modal-head,
+#registerByPhone .modal-head,
+#loginByWX .modal-head,
+#loginByPhone .modal-head,
+#bindPhone .modal-head {
+  height: 55px;
+  line-height: 55px;
+}
+#registerByWX .modal-head h4,
+#registerByPhone .modal-head h4,
+#loginByWX .modal-head h4,
+#loginByPhone .modal-head h4,
+#bindPhone .modal-head h4 {
+  margin: 0;
+  /* height: 70px; */
+  /* line-height: 70px; */
+  font-size: 16px;
+}
+#registerByWX .modal-body,
+#registerByPhone .modal-body,
+#loginByWX .modal-body,
+#loginByPhone .modal-body,
+#bindPhone .modal-body {
+  width: 100%;
+  height: 215px;
+  text-align: center;
+}
+#registerByWX .modal-body button,
+#registerByPhone .modal-body button,
+#loginByWX .modal-body button,
+#loginByPhone .modal-body button,
+#bindPhone .modal-body button {
+  color: #333;
+  background-color: #0080ee;
+}
+#registerByWX .help-block,
+#registerByPhone .help-block,
+#loginByWX .help-block,
+#loginByPhone .help-block,
+#bindPhone .help-block {
+  display: none;
+  color: red;
+  margin: -5px 0 0;
+  padding-left: 2px;
+  /* width: 100%; */
+  text-align: left;
+  font-size: 12px;
+}
+#registerByWX .modal-footer,
+#registerByPhone .modal-footer,
+#loginByWX .modal-footer,
+#loginByPhone .modal-footer,
+#bindPhone .modal-footer {
+  padding: 0 0 15px;
+  position: relative;
+  z-index: 100;
+}
+#registerByWX .modal-footer span,
+#registerByPhone .modal-footer span,
+#loginByWX .modal-footer span,
+#loginByPhone .modal-footer span,
+#bindPhone .modal-footer span {
+  cursor: pointer;
+}
+#registerByWX .modal-footer button,
+#registerByPhone .modal-footer button,
+#loginByWX .modal-footer button,
+#loginByPhone .modal-footer button,
+#bindPhone .modal-footer button {
+  color: #333;
+  background-color: #0080ee;
+}
+#registerByWX .modal-body .register-step,
+#registerByPhone .modal-body .register-step {
+  display: flex;
+  margin-bottom: -15px;
+}
+#registerByWX .modal-body .register-step li,
+#registerByPhone .modal-body .register-step li {
+  flex: 1;
+  position: relative;
+}
+#registerByWX .modal-body .register-step li span,
+#registerByPhone .modal-body .register-step li span {
+  text-align: center;
+  font-size: 12px;
+}
+#registerByWX .modal-body .register-step li span:first-child,
+#registerByPhone .modal-body .register-step li span:first-child {
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  border-radius: 50%;
+  background-color: #eee;
+  position: relative;
+  z-index: 1;
+}
+#registerByWX .modal-body .register-step li span.line,
+#registerByPhone .modal-body .register-step li span.line {
+  background-color: #eee;
+  height: 3px;
+  position: absolute;
+  left: 50%;
+  top: 10px;
+}
+#registerByWX .modal-body .register-step li.active span.active,
+#registerByPhone .modal-body .register-step li.active span.active,
+#registerByWX .modal-body .register-step li.active span.line.active,
+#registerByPhone .modal-body .register-step li.active span.line.active {
+  background-color: #0080ee;
+}
+#registerByPhone .modal-body {
+  height: 190px;
+}
+#registerByPhone .modal-body .register-step {
+  margin-bottom: 5px;
+}
+#loginByWX .modal-footer span.vertical-line,
+#loginByPhone .modal-footer span.vertical-line {
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  width: 2px;
+  height: 14px;
+  margin: 0 3px;
+  /* padding-top: 2px; */
+  background-color: #999;
+}
+#loginByPhone .modal-body,
+#bindPhone .modal-body {
+  height: 165px;
+  padding-top: 10px;
+}
+.hidden {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.fixedSubNav {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff !important;
+  box-shadow: 0 0  10px 5px #eee;
+}
+.top-anchors {
+  width: 100%;
+  background-color: #f5f5f5;
+}
+.top-anchors ul {
+  margin: 0 auto !important;
+  padding: 12px 10px 2px !important;
+  width: 1060px;
+}
+.top-anchors li {
+  float: left;
+  list-style: none;
+  padding: 0 5px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.top-anchors li.active {
+  background-color: #0080ee;
+  box-sizing: initial;
+}
+.top-anchors a {
+  color: #333;
+  text-decoration: none;
+}
+.anchors {
+  float: left;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  text-align: right;
+  left: 0;
+}
+.anchors a {
+  color: #333;
+  text-decoration: none;
+}
+.anchors a.current {
+  border-bottom: 2px solid #0080ee;
+  font-weight: 600;
+}
+.anchors a.index_search {
+  font-size: 15px;
+  font-weight: bold;
+}
+.anchors a.index_search .glyphicon {
+  top: 2px;
+  margin-right: 4px;
+}
+.anchors h4 {
+  font-weight: 700;
+  text-align: right;
+  margin: 5px 0 0;
+  padding: 7px 0 4px;
+  line-height: 1;
+}
+.anchors h4.current {
+  background-color: #0080ee;
+}
+.anchors ul {
+  width: auto;
+  margin-bottom: 0;
+  margin-top: 5px;
+  /*display: flex;*/
+  /*justify-content: space-around;*/
+}
+.anchors ul li {
+  width: 33%;
+  display: inline-block;
+  height: 22px;
+}
+.anchors ul li a {
+  color: #666666;
+}
+.anchors ul li a.current {
+  color: #333;
+}
+.anchors_line {
+  float: right;
+  margin: 3px 0;
+  width: 73px;
+  height: 1px;
+  background: #eeeeee;
+}
+.small_header,
+.small_content,
+.small-label,
+.small-image,
+.small-look-more,
+.small_bottom_message,
+.small_footer,
+.my_read_time {
+  display: none;
+}
+.container.nav_tab,
+.huizhong100_hd_container {
+  display: none !important;
+}
+.news-container {
+  background-color: #fff;
+  margin-bottom: 100px;
+}
+.header {
+  padding: 20px 0 5px;
+}
+.header > div {
+  float: left;
+  padding: 0 20px;
+}
+.header .title {
+  width: 840px;
+  font-size: 18px;
+}
+.header .logos {
+  width: 219px;
+  height: 75px;
+  border-left: 1px solid #eee;
+  display: flex;
+  display: -webkit-flex;
+  /* Safari */
+  flex-direction: column;
+}
+.header .logos a {
+  flex: 1;
+  text-decoration: none;
+  display: block;
+}
+.header .logos span {
+  cursor: pointer;
+  color: #666;
+}
+.header .logos img {
+  cursor: pointer;
+  width: 80px;
+  margin-left: 15px;
+}
+.header .other-information {
+  color: #666;
+  width: 100%;
+  line-height: 30px;
+}
+.header .other-information .auth-name,
+.header .other-information .time {
+  margin-right: 5px;
+}
+.header .other-information .source {
+  display: none;
+}
+.header .other-information a {
+  text-decoration: underline;
+  padding: 2px 6px;
+  margin: 0 15px;
+  color: #0080ee;
+}
+.header .other-information p.readingMode {
+  width: 178px;
+}
+.header .flow-agree {
+  margin-top: 10px;
+}
+.header .flow-agree p {
+  margin: 0;
+}
+.header .flow-agree .graphic {
+  float: left;
+  width: 125px;
+  line-height: 26px;
+}
+.header .flow-agree .graphic p span {
+  float: left;
+  height: 8px;
+  border-radius: 4px;
+}
+.header .flow-agree .graphic p span:first-child {
+  background-color: #0080ee;
+}
+.header .flow-agree .graphic p span:last-child {
+  background-color: #353433;
+}
+.header .flow-agree .module-content-bottom {
+  float: left;
+  padding-top: 20px;
+  padding-left: 8px;
+}
+.header .flow-agree .module-content-bottom span {
+  cursor: pointer;
+}
+.header .flow-agree .module-content-bottom span img {
+  cursor: pointer;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  margin: 0 3px 3px 10px;
+}
+.header .flow-agree .module-content-bottom span.active img {
+  border: none;
+}
+.content > div {
+  float: left;
+  width: 50%;
+  padding: 20px;
+  line-height: 26px;
+}
+.content p {
+  margin-bottom: 25px;
+  color: #666;
+}
+.content .read-original {
+  width: 100%;
+  text-align: center;
+}
+.content .read-original p {
+  font-size: 12px;
+  color: #999;
+}
+.content .read-original a {
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #333;
+  padding: 5px 15px;
+  border-radius: 6px;
+}
+.content .read-original a:hover {
+  color: #57a8ee;
+  border: 1px solid #57a8ee;
+}
+</style>
+    <script src="https://hm.baidu.com/hm.js?1967b87708516e9af3338a41572147ea"></script><script src="/assets/less/less.min.js" type="text/javascript"></script>
+    <style>
+        .highlight {
+            background: yellow;
+        }
+    </style>
+    
+    <script>
+        var winWidth = window.screen.width
+        var url = "\/news\/detail"
+//        var phoneUrls = ['/home', '/vote',
+//                    '/news/detail','/news/index',
+//                    '/news/hemp','/news/subHemp',
+//                    '/news/huizhong100','/news/subHuizhong100',
+//                    '/subject/index','/subject/detail',
+//                    '/invest/trade','/h5/auth/login',
+//                    '/h5/aboutUs','/personal/h5/authForm']
+        var phoneUrls = ['/home',
+            '/news/detail','/news/index','/original/index','/original/detail','/home/search']
+        if (phoneUrls.indexOf( url) == -1&& winWidth < 768) {
+            window.location.href = '/'
+        }
+//        if (url != '/news/detail' && url != '/home' && winWidth < 768) {
+//            window.location.href = '/'
+//        }
+        //        百度统计代码
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?1967b87708516e9af3338a41572147ea";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+            </script>
+
+
+
+    
+    
+        
+        
+            
+            
+            
+            
+        
+    
+</head>
+<body style="">
+
+
+    
+
+    <div id="" style="background-color: #ffffff">
+                
+        <nav class="navbar navbar-default navbar-static-top" style="min-height: 15px;">
+    <div class="container" style="
+     height: 15px;            padding: 0; ">
+
+        <div class="collapse navbar-collapse" id="app-navbar-collapse" style="  position: relative; display:block;">
+            <!-- Left Side Of Navbar -->
+                        
+                        <ul class="nav navbar-nav investank-nav" style="">
+                            </ul>
+
+            
+        <!-- Right Side Of Navbar -->
+                            <ul class="nav navbar-nav" style="display: none">
+                    <!-- Authentication Links -->
+                                            <ul class="investank-login" style="margin-right: -40px;  left: 1014px; ">
+                            
+                            <li style="">
+                                <a href="#loginByPhone" role="button" class="" data-toggle="modal" style="                                           color: #fff;
+                                    font-size: 14px;">登录</a>
+                            </li>
+                            <li style="width: 1px;height: 18px;margin: 0 8px;"></li>
+                            <li style="">
+                                <a href="#registerByWX" role="button" class="" data-toggle="modal" style="                                           color: #fff;
+                                    font-size: 14px;">注册</a></li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </ul>
+                                    </ul>
+            
+        </div>
+    </div>
+</nav>
+        
+                
+        
+        
+            
+
+        
+        
+        <div id="loginByWX" class="login-and-register-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-content">
+        <span class="left-border"></span>
+        <span class="right-border"></span>
+        <div class="modal-head">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4>微信登录</h4>
+        </div>
+        <div class="modal-body">
+            <div id="login_container" style=""></div>
+            
+        </div>
+        <div class="modal-footer">
+            <span class="login-by-phone">手机号登录</span>
+            <span class="vertical-line"></span>
+            <span class="login-to-register">立即注册</span>
+        </div>
+    </div>
+</div>
+
+
+<div id="loginByPhone" class="login-and-register-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-content">
+        <span class="left-border"></span>
+        <span class="right-border"></span>
+        <div class="modal-head">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4>手机号登录</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <input id="login-by-sms-phone" type="text" name="user-phone" placeholder="请输入手机号码">
+                    <p class="help-block error-message phone-error">请输入正确手机号</p>
+                </div>
+                <div class="control-group">
+                    <input id="login-by-sms-code" type="text" name="verify-code" placeholder="请输入验证码">
+                    <button class="login-get-verify-code get-verify-code">获取验证码</button>
+                    <p class="help-block error-message code-error">请输入验证码</p>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="login-submit login-by-sms-submit">登录</button>
+            <span class="login-by-wx">微信登录</span>
+            <span class="vertical-line"></span>
+            <span class="login-to-register">立即注册</span>
+        </div>
+    </div>
+</div>
+
+
+<div id="registerByWX" class="login-and-register-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-content">
+        <span class="left-border"></span>
+        <span class="right-border"></span>
+        <div class="modal-head">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4>注册</h4>
+        </div>
+        <div class="modal-body">
+            <ul class="register-step clearfix">
+                <li class="active"><span class="active">1</span><span>微信扫码</span><span class="line active"></span></li>
+                <li><span>2</span><span>手机绑定</span><span class="line"></span></li>
+                <li><span>3</span><span>完成注册</span></li>
+            </ul>
+            <div id="register_container" style=""></div>
+            
+        </div>
+        <div class="modal-footer">
+            <span class="register-to-login">已有账号？登录</span>
+        </div>
+    </div>
+</div>
+
+
+<div id="registerByPhone" class="login-and-register-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-content">
+        <span class="left-border"></span>
+        <span class="right-border"></span>
+        <div class="modal-head">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4>注册</h4>
+        </div>
+        <div class="modal-body">
+            <ul class="register-step clearfix">
+                <li class="active"><span class="active">1</span><span>微信扫码</span><span class="line active"></span></li>
+                <li class="active"><span class="active">2</span><span>手机绑定</span><span class="line active"></span></li>
+                <li><span>3</span><span>完成注册</span></li>
+            </ul>
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <input id="register-user-phone" type="text" name="user-phone" placeholder="请输入手机号码">
+                    <p class="help-block error-message phone-error">请输入正确手机号</p>
+                </div>
+                <div class="control-group">
+                    <input id="register-verify-code" type="text" name="verify-code" placeholder="请输入验证码">
+                    <button class="get-verify-code register-get-verify-code">获取验证码</button>
+                    <p class="help-block error-message code-error">请输入验证码</p>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="register-submit">绑定并登录</button>
+            <span class="register-to-login">已有账号？登录</span>
+        </div>
+    </div>
+</div>
+
+
+<div id="bindPhone" class="login-and-register-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-content">
+        <span class="left-border"></span>
+        <span class="right-border"></span>
+        <div class="modal-head">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4>绑定手机号</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <input id="wx-bind-phone" type="text" name="user-phone" placeholder="请输入手机号码">
+                    <p class="help-block error-message phone-error">请输入正确手机号</p>
+                </div>
+                <div class="control-group">
+                    <input id="bind-phone-code" type="text" name="verify-code" placeholder="请输入验证码">
+                    <button class="bind-get-verify-code get-verify-code">获取验证码</button>
+                    <p class="help-block error-message code-error">请输入验证码</p>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="login-submit bind-phone-submit">登录</button>
+        </div>
+    </div>
+</div>
+
+
+
+    
+    
+    
+    
+
+
+        
+                
+        
+        
+        <div class="feedback-and-to-top" style="display: none;">
+            <div class="to-phone">
+                <img src="http://transtech.lingosail.com/static/img/frontend/to-phone-introduce.png" alt="">
+                <p class="">关于我们</p>
+            </div>
+            <img src="http://transtech.lingosail.com/static/img/frontend/feedback.jpg" alt="">
+            <p class="feedback">意见反馈</p>
+            <i class="iconfont icon-arrowUpAdd back-to-the-top" style=""></i>
+        </div>
+
+            
+            <div class=" big-container  clearfix">
+                
+                                    
+                    <div class="anchors">
+        <a target="_blank" href="/">
+            <img src="http://transtech.lingosail.com/static/img/frontend/logos/logo.png" style="width: 77%;
+                                margin: 10px 0 15px;
+            " alt=""><i style="display: inline-block;font-size: 16px;font-weight: 700;color: #0080ee;">翻译技术速递</i></a>
+        
+                                                        <div class="anchors_line"></div>
+                    <h4>
+                        <a target="_blank" href="/news/index?field_id=113">机器翻译</a>
+                    </h4>
+                    <ul>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=117">机器翻译技术</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=118">机器翻译质量</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=119">译后编辑</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=121">机器翻译趋势</a>
+                            </li>
+                                            </ul>
+                                    <div class="anchors_line"></div>
+                    <h4>
+                        <a target="_blank" href="/news/index?field_id=114">工具</a>
+                    </h4>
+                    <ul>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=122">CAT工具</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=123">术语工具</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=124">语料库工具</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=125">其他工具</a>
+                            </li>
+                                            </ul>
+                                    <div class="anchors_line"></div>
+                    <h4>
+                        <a target="_blank" href="/news/index?field_id=115">翻译管理</a>
+                    </h4>
+                    <ul>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=126">项目管理</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=127">质量管理</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=128">内容管理</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=129">技术写作</a>
+                            </li>
+                                            </ul>
+                                    <div class="anchors_line"></div>
+                    <h4>
+                        <a target="_blank" href="/news/index?field_id=116">本地化</a>
+                    </h4>
+                    <ul>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=130">游戏本地化</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=131">网站本地化</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=132">软件本地化</a>
+                            </li>
+                                                    <li style="width: 100%;">
+                                <a target="_blank" href="/news/index?field_id=133">本地化动态</a>
+                            </li>
+                                            </ul>
+                                            <a class="index_search" href="/search"><span class="glyphicon glyphicon-search"></span>搜索</a>
+    </div>
+
+                                        <div class="container news-container" style="padding: 0">
+        <div class="header clearfix">
+            <div class="title new-id" data-id="188108">
+                <p class="original-title">The Search for Non-Binary Pronouns in Chinese</p>
+                <p class="translation-title">汉语非二元代词的检索</p>
+            </div>
+            <div class="logos">
+                <a href="https://multilingual.com/the-search-for-non-binary-pronouns-in-chinese/">
+                    <span>原文来源</span>
+                    <img src="/static/img/frontend/news/source-logos/multilingual.png" alt="">
+                </a>
+                <a href="http://nmt.shangque.com/finance.html">
+                    <span>机器翻译</span>
+                    <img src="http://transtech.lingosail.com/static/img/frontend/news/shangque-logo.png" alt="">
+                </a>
+            </div>
+            <div class="other-information">
+                <p class="pull-left">
+                    
+                    <span class="time">2021-07-26 10:52</span>
+                    <span class="source">multilingual</span>
+                    
+                        
+                            
+                        
+                    
+                </p>
+                <p class="my_read_time">
+                    <img src="http://transtech.lingosail.com/static/img/frontend/phone/read-time.png">
+                    本文共<span class="word-count">1122</span>个字，阅读需<span class="read-time">12分钟</span>
+                    
+                </p>
+                <p class="readingMode pull-right">
+                    <span>阅读模式</span>
+                    <a href="/news/detail/188108/cn">切换至中文</a>
+                </p>
+            </div>
+        </div>
+        <div class="content clearfix">
+            
+            <div class="original-content"><p>As businesses strive to reach wider audiences, gender-inclusive language has become imperative. Businesses have learned that any association to bigotry, racism, or sexism, however unintentional or even well-intentioned, could tarnish brand image and hinder product success. The use of gender-inclusive language in localization nevertheless creates new sets of challenges language industry experts are eager to solve. This essay focuses on the challenges associated with localizing non-binary pronouns in Chinese.</p><p>Contemporary Mandarin Chinese uses 他 (tā) for he/him and 她 (tā) for she/her. The accusative of “he” and “she” in Chinese does not take a different form, and the possessive merely adds an additional letter (的 de) to the pronouns, so neither objective nor possessive pronouns cause issues.</p><p>The use of contemporary Chinese pronouns is relatively new. In Romance of the Three Kingdoms, a novel published in the early 14th century, 他 was used as a third-person pronoun, denoting any third person. Similar usages can be found in the Dream of the Red Chamber, another novel first published in the mid-18th century, where both male and female characters would be referred to as 他 in the third person.</p><p>Along with the practical examples above, from a character etymological perspective, 他 was originally constructed to be gender-neutral. Its radical, or indexing component, 人, carries the meaning of “human.” Hence, one can say that 他 was not exclusively a male pronoun—until around 1920.</p><p>After the Qing Dynasty was overthrown, Chinese intellectuals embraced Western culture during the New Cultural Movement. This included language. In 1920, Liu Bannong wrote a poem called “How Can I Not Think of Her.” He borrowed 她, a variant for a character that means “older sister” but otherwise defunct, and used it to denote the female third person. This was part of the effort to emancipate Chinese women from Confucian patriarchy.</p><p>Translators had been struggling to translate she/her into Chinese: they wanted separate pronouns instead of a pronoun agnostic to genders. The logic was straightforward. As a genderless language, Chinese cannot be as precise as most indo-european languages. In addition, not having female pronouns reflects the lack of recognition of female accomplishment in Chinese culture; hence, the Chinese language would benefit from the adoption of female pronouns.</p><p>Not everyone agreed. Some male critics pointed out that 他 already encompassed both genders: inventing new pronouns would introduce a new linguistic distinction between men and women. Other female critics went further to argue that by replacing the radical for human (人) with the radical for women (女), 她 would imply that women are less human than men. Still, 她 emerged as the definitive character for the third person female pronoun, while 他 transitioned from a universal third person pronoun to a more exclusive male pronoun.</p><p>As previously noted, translators from the last century were more concerned about the accuracy of the Chinese language, but as realities change and values progress, the challenge today is about making the language more inclusive, which has become a prominent value in the West. As a result, localization also involves the introduction of Western values to different cultures, including cultures wanting in the reality that nourished these values.</p><p>The transgender community in China is still not widely recognized. A 2016 survey showed that 43% of the respondents surveyed in China consider being trans as having a form of mental illness. Although there are notable exceptions such as Jin Xing, her recognition is accompanied by a total embrace of traditional gender norms. One might say that transitioning from one gender to another in China is less problematic — as long as the norms of the other gender are still observed. When non-binary people consider themselves to be binary, non-binary pronouns become a less urgent issue.</p><p>There isn’t a universally agreed-upon non-binary third person pronoun among Chinese-speaking transgender communities, but there are candidates. Some have replaced the radicals of 人 and 女 with X, making a new word “x也.” This is a viable option once font major software companies add it to the list of Chinese characters, but this would have to be a top down process since all tech companies in China have to answer to the government.</p><p>The Transgender Resource Center in Hong Kong advocates using “TA,” also pronounced “tā,” as the non-binary pronoun in Mandarin Chinese. The origin of “TA” as a gender-neutral pronoun is rather obscure. It is speculated that “TA” emerged as internet slang for contexts where gender information is considered either irrelevant or too revealing. Merits of this candidate include its pronunciation — identical to that of male and female third-person pronouns. In addition, many Chinese netizens already use it.</p><p>As much as “TA” is a sound candidate, it comes with several challenges. The first challenge is its register: “TA” is internet slang absent from formal discourse. A second challenge is its linguistic origins: “TA” is not a Chinese character. The third and perhaps most serious challenge is that while Chinese netizens use it extensively, we cannot say for certain that “TA” is the preferred pronoun of the majority of non-binary Chinese people. This is partly because the development of their communities is still relatively nascent.</p><p>If non-binary Chinese communities have not reached a consensus on their preferred pronouns, no foreign agent is in the position to tell them what to use. The tricky part is that requiring non-binary pronouns to be localized into Chinese is akin to seeking a solution where one does not exist.</p><p>Advocates of gender-neutral pronouns often argue that the binary understanding of gender is associated with Western colonialism. The problem of requiring non-Western languages, like Chinese, to adopt gender-inclusive language, is that it compels other cultures to confront their own treatment of non-binary persons, which can be an invasive process. Given that domestic LGBTQ+ rights groups in China are already at risk of being branded as agents of foreign influence, businesses that intend to profit from the Chinese market cannot bear the risk of being charged as Western agents working to subvert the nation’s values and social order. After all, if the Chinese government ever decides to add LGBTQ+ to its ban-list, companies would face the dilemma of either giving up their profits in China or dropping LGBTQ+ content but alienating customers from other locales.</p><p>There is a way out of this dilemma: allow users to customize their own pronouns, especially when the local audience has not developed any definitive pronouns. One concern is that trolls might abuse this mechanism. But trolls have been abusing self-naming mechanisms forever, and the gaming industry has developed mitigating practices that may help when it comes to customizing pronouns. In the end, we must be versatile when it comes to solving dilemmas in the language industry.</p></div>
+            <div class="translation-content"><p style="height: 208px;">随着企业努力接触更广泛的受众，性别包容的语言已变得势在必行。企业已经认识到，任何与偏见、种族主义或性别歧视的联系，无论多么无意，甚至是好意，都可能损害品牌形象，阻碍产品成功。然而，在本土化过程中使用性别包容性语言也带来了语言行业专家迫切希望解决的一系列新挑战。本文主要探讨汉语非二元代词本地化所面临的挑战。</p><p style="height: 130px;">当代汉语使用他(tā)他/他和她(tā)因为她/她。宾格的“他”和“她”在中国不采取不同的形式,和所有格只是增加了一个额外的信(de)的代名词,所以既不客观,也不物主代词引起问题。</p><p style="height: 182px;">当代汉语代词的使用相对较新。在14世纪初出版的小说《三国演义》中，被用作第三人称代词，表示任何第三人称。在18世纪中叶出版的另一部小说《红楼梦》中也可以找到类似的用法，在这部小说中，男性和女性人物都被称为第三人称。</p><p style="height: 130px;">从文字词源学的角度来看，除了上面的实际例子外，最早也是不分性别的。它的部首，或索引成分，带有“人”的意思。因此，可以说，直到1920年前后，这并不是男性的专属代名词。</p><p style="height: 182px;">清朝被推翻后，中国知识分子在新文化运动中接受了西方文化。这包括语言。1920年，刘班农写了一首诗，名叫《我怎能不思念她》。他借了她,一个变种角色意味着“姐姐”,但否则破产,和用它来表示女性第三人。这是将中国妇女从儒家父权制中解放出来的努力的一部分。</p><p style="height: 182px;">翻译工作者在将“她/她”翻译成中文时一直在努力:他们想要独立的代词，而不是性别不可知的代词。逻辑很简单。作为一种没有性别的语言，汉语不能像大多数印欧语系语言那样精确。此外，没有女性代词也反映了中国文化对女性素养的认识不足;因此，使用女性代词对汉语有益。</p><p style="height: 208px;">不是每个人都同意了。一些男性批评人士指出,他已经包含两性:发明新代词将引入一个新的语言区分男性和女性。其他女性批评家更进一步认为,代替人类(人)的激进的激进的女性(女),她会暗示人类女性低于男性。不过,她成为女性第三人称代词的角色,而他从普遍的第三人称代词更独家男性代词。</p><p style="height: 182px;">如前所述，上个世纪的翻译工作者更关心汉语的准确性，但随着现实的变化和价值观的进步，今天的挑战是如何使汉语更具包容性，这在西方已成为一个突出的价值。因此，本土化还包括将西方价值观引入不同的文化，包括现实中滋养这些价值观的文化需求。</p><p style="height: 234px;">跨性别群体在中国还没有得到广泛的认可。2016年的一项调查显示，43%的中国受访者认为变性人患有某种精神疾病。虽然也有像金星这样的例外，但对她的认可是伴随着对传统性别规范的全面接受。有人可能会说，在中国，从一种性别到另一种性别的转变问题不大——只要另一种性别的规范仍然被遵守。当非二元性的人认为自己是二元性的时候，非二元性代词就不那么紧迫了。</p><p style="height: 182px;">在讲汉语的跨性别群体中，没有一个公认的非二元性别第三人称代词，但也有一些候选词。一些已经取代了人的激进分子和女X,使一个新单词“X也。”这是一个可行的选择，一旦字体大的软件公司把它添加到汉字列表中，但这将是一个自上而下的过程，因为所有中国的科技公司都必须回答政府。</p><p style="height: 208px;">香港的跨性别资源中心(Transgender Resource Center)主张使用“TA”作为普通话中的非二元代词，发音也为“tā”。“TA”作为一个中性代词的起源是相当模糊的。据推测，“TA”一词最初是作为网络俚语出现的，用来指代那些性别信息被认为不相关或过于暴露的语境。该词的优点包括其发音——与男性和女性第三人称代词的发音相同。此外，许多中国网民已经在使用它。</p><p style="height: 208px;">尽管“TA”是一个不错的候选人，但它也伴随着一些挑战。第一个挑战是它的语体:“TA”是正式话语中不存在的网络俚语。第二个挑战是它的语言来源:“TA”不是一个汉字。第三个，或许也是最严重的一个挑战是，虽然中国网民广泛使用TA，但我们不能确定TA是否是大多数非二元性别中国人的首选代词。这在一定程度上是因为他们的社区发展相对来说还处于初级阶段。</p><p style="height: 130px;">如果非二元对立的华人社区还没有就他们喜欢的代词达成一致意见，就没有外国代理人能够告诉他们应该使用什么代词。棘手的是，要求非二元代词本地化成中文，就像在一个不存在的地方寻找解决方案一样。</p><p style="height: 338px;">中性代词的拥护者经常认为，对性别的二元理解与西方殖民主义有关。要求非西方语言(如汉语)采用性别包容性语言的问题在于，它迫使其他文化面对自己对待非二元性别者的方式，这可能是一个侵入性的过程。考虑到中国国内的LGBTQ+权利组织已经面临被打上外国影响力代理人的风险，想要从中国市场获利的企业不能承担被指控为颠覆国家价值观和社会秩序的西方代理人的风险。毕竟，如果中国政府决定将LGBTQ+添加到禁止名单中，公司将面临两难的选择:要么放弃在中国的利润，要么放弃LGBTQ+内容，但疏远其他地区的客户。</p><p style="height: 208px;">有一个方法可以摆脱这种困境:允许用户自定义他们自己的代词，特别是当当地的受众还没有形成任何明确的代词时。一个担忧是喷子可能会滥用这一机制。但是，喷子们一直在滥用自我命名机制，游戏行业已经开发出了可能有助于自定义代词的缓和做法。最后，在解决语言行业的困境时，我们必须多才多艺。</p><p>译后编辑：罗朝婷(西北民族大学)</p><p>微信关注沙龙君，网罗翻译行业资讯</p><img src="http://transtech.lingosail.com/static/img/frontend/news/shalongwechatCode.jpg" alt="" width="100" height="100"></div>
+            <div class="read-original">
+                <p>以上中文文本为机器翻译，存在不同程度偏差和错误，请理解并参考英文原文阅读。</p>
+                <a href="https://multilingual.com/the-search-for-non-binary-pronouns-in-chinese/">阅读原文</a>
+            </div>
+        </div>
+    </div>
+                </div>
+        
+            
+                            
+                <div class="footer_screen ft-setting">
+    
+        
+            
+            
+                
+                
+            
+        
+        
+            
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                
+            
+            
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                
+                    
+                    
+                    
+                
+            
+            
+                
+                    
+                    
+                    
+                    
+                
+            
+            
+                
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+            
+        
+    
+    <div class="footer-bottom">
+        
+    </div>
+</div>                    
+
+    </div>
+
+    <!-- Scripts -->
+    
+    <script src="//res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+    <script src="http://transtech.lingosail.com/assets/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="http://transtech.lingosail.com/assets/bootstrap-investank/js/bootstrap.min.js"></script>
+    <script src="http://transtech.lingosail.com/assets/toastr/toastr.js"></script>
+    <script src="http://transtech.lingosail.com/js/filter.js"></script>
+
+    <script>
+        var locationUrl = location.origin
+//        var stateUrl = location.pathname + location.search
+        
+        /**
+         * 微信登录二维码-模态框iframe
+         */
+        var appId = "wx313b605358ad2967";
+        var wxQRCode = 'data:text/css;base64,LmltcG93ZXJCb3ggLnRpdGxlIHsNCiAgICBkaXNwbGF5OiBub25lOw0KfQ0KLmltcG93ZXJCb3ggLnFyY29kZSB7DQogICAgd2lkdGg6IDEyMnB4Ow0KICAgIGhlaWdodDogMTIycHg7DQogICAgYm9yZGVyOiBub25lOw0KfQ0KLmltcG93ZXJCb3ggLnN0YXR1cyB7DQogICAgcGFkZGluZzogMCAxNHB4Ow0KfQ0KLmltcG93ZXJCb3ggLnN0YXR1cyBwIHsNCiAgICBmb250LXNpemU6IDEycHg7DQp9DQouaW1wb3dlckJveCAuc3RhdHVzIHA6bGFzdC1jaGlsZCB7DQogICAgZGlzcGxheTogbm9uZTsNCn0='
+        /**
+         * 微信登录模态框显示事件-获取二维码
+         */
+        var getWechartQRCode = function (eleId) {
+            // 执行一些动作...
+            var obj = new WxLogin({
+                id: eleId,
+                appid: appId,
+                scope: "snsapi_login",
+                redirect_uri: locationUrl + "/wechat/login",
+                response_type: "code",
+                state:  "Li2n5vleds3tMavnZkG_Vk0eYyWlsLzE4ODEwOAO0O0OO0O0O",
+                style: "120px",//这个是二维码样式
+                href: wxQRCode
+            });
+        }
+        $('#loginByWX').on('show.bs.modal',function(){
+            getWechartQRCode('login_container')
+        })
+        $('#registerByWX').on('show.bs.modal',function(){
+            getWechartQRCode('register_container')
+        })
+        /**
+         * 是否已登录-登录状态监测
+         * 是否已绑定手机--区分新老用户
+         */
+        var hasLogin = false
+        var mustLogin = false
+        var getLoginStep = "";
+        var getNewUser = "";
+        var getUID = "";
+        //        console.log('haslogin',hasLogin)
+
+        if(hasLogin){   //已登录--保存用户信息
+//            console.log('已登录')
+            var authUser = ""
+            var userInfo = JSON.stringify(authUser);
+            localStorage.setItem('userInfo', userInfo);
+//            console.log('authUser',authUser)
+//        }else if(mustLogin && getLoginStep == '') {   //未登录且该页面强制登录--弹出微信登录框
+////            console.log('先登录')
+////            $('#loginSMS').modal('show');
+//            // 微信强制登录-页面跳转
+////                login.weChat();
+//            $('#loginByPhone').modal('show');
+//        }else if(getLoginStep == 2 && getNewUser == ''){    //微信扫码登录成功未绑定手机--弹出绑定手机框
+//            $('#bindPhone').modal('show');
+//        }else if(getLoginStep == 2 && getNewUser == 1){    //微信扫码注册成功未绑定手机--弹出注册第二步绑定手机框
+//            $('#registerByPhone').modal('show');
+        }
+
+
+        // 提示消息初始化
+//        toastr.options.positionClass = 'toast-top-center';
+        toastr.options = {
+            positionClass: 'toast-top-center',
+            maxOpened: 0,
+            timeOut: 1500,
+        }
+        // 60s倒计时
+        function invokeSettime(obj){
+            var countdown=60;
+            settime(obj);
+            function settime(obj) {
+                if (countdown == 0) {
+                    $(obj).attr("disabled",false);
+                    $(obj).addClass("active").removeClass('not-active');
+                    $(obj).text("获取验证码");
+                    countdown = 60;
+                    return;
+                } else {
+                    $(obj).attr("disabled",true);
+                    $(obj).addClass("not-active").removeClass('active');
+                    if(countdown<10){
+                        countdown_text = "0" + countdown;
+                    }else {
+                        countdown_text = countdown;
+                    }
+                    $(obj).text("(" + countdown_text + ") s 重发");
+                    countdown--;
+                }
+                setTimeout(function() {
+                            settime(obj) }
+                        ,1000)
+            }
+        }
+
+    </script>
+    <script src="http://transtech.lingosail.com/js/scroll.js"></script>
+    <script src="http://transtech.lingosail.com/js/layout/common-scroll_2.2.0.js?v=2.3.6"></script>
+    <script src="http://transtech.lingosail.com/js/layout/app_2.2.0.js?v=2.3.6"></script>
+
+    <script src="http://transtech.lingosail.com/js/layout/register-login_2.2.0.js?v=2.3.6"></script>
+
+
+
+    
+
+
+        <script>
+        var data = [{"id":188108,"title":"\u6c49\u8bed\u975e\u4e8c\u5143\u4ee3\u8bcd\u7684\u68c0\u7d22","lang":"1","extend":"{\"title\": \"\u6c49\u8bed\u975e\u4e8c\u5143\u4ee3\u8bcd\u7814\u7a76\", \"content\": \"\u968f\u7740\u4f01\u4e1a\u52aa\u529b\u63a5\u89e6\u66f4\u5e7f\u6cdb\u7684\u53d7\u4f17\uff0c\u6027\u522b\u5305\u5bb9\u7684\u8bed\u8a00\u5df2\u6210\u4e3a\u5f53\u52a1\u4e4b\u6025\u3002\u4f01\u4e1a\u5df2\u7ecf\u8ba4\u8bc6\u5230\uff0c\u4efb\u4f55\u4e0e\u504f\u6267\uff0c\u79cd\u65cf\u4e3b\u4e49\u6216\u6027\u522b\u6b67\u89c6\u7684\u8054\u7cfb\uff0c\u4e0d\u7ba1\u662f\u65e0\u610f\u7684\uff0c\u751a\u81f3\u662f\u5584\u610f\u7684\uff0c\u90fd\u53ef\u80fd\u73b7\u6c61\u54c1\u724c\u5f62\u8c61\uff0c\u963b\u788d\u4ea7\u54c1\u7684\u6210\u529f\u3002\u7136\u800c\uff0c\u5728\u672c\u5730\u5316\u8fc7\u7a0b\u4e2d\u4f7f\u7528\u6027\u522b\u5305\u5bb9\u7684\u8bed\u8a00\u5374\u5e26\u6765\u4e86\u4e00\u7cfb\u5217\u65b0\u7684\u6311\u6218\uff0c\u8bed\u8a00\u884c\u4e1a\u7684\u4e13\u5bb6\u4eec\u6025\u5207\u5730\u60f3\u8981\u89e3\u51b3\u8fd9\u4e9b\u6311\u6218\u3002\u672c\u6587\u4e3b\u8981\u63a2\u8ba8\u6c49\u8bed\u975e\u4e8c\u5143\u4ee3\u8bcd\u672c\u5730\u5316\u7684\u95ee\u9898\u3002\\n\u73b0\u4ee3\u6c49\u8bed\u7528(ta)\u8868\u793ahe\/him\uff0c\u7528(ta)\u8868\u793ashe\/her\u3002\u6c49\u8bed\u4e2d\u7684\u5bbe\u683c\u201c\u4ed6\u201d\u548c\u201c\u5979\u201d\u6ca1\u6709\u4e0d\u540c\u7684\u5f62\u5f0f\uff0c\u6240\u6709\u683c\u53ea\u662f\u5728\u4ee3\u8bcd\u4e0a\u52a0\u4e86\u4e00\u4e2a\u5b57\u6bcd\uff08\u7684\uff09\uff0c\u6240\u4ee5\u5bbe\u683c\u548c\u6240\u6709\u683c\u4ee3\u8bcd\u90fd\u4e0d\u4f1a\u5f15\u8d77\u95ee\u9898\u3002\\n\u5f53\u4ee3\u6c49\u8bed\u4ee3\u8bcd\u7684\u4f7f\u7528\u76f8\u5bf9\u8f83\u65b0\u3002\u572814\u4e16\u7eaa\u521d\u51fa\u7248\u7684\u5c0f\u8bf4\u300a\u4e09\u56fd\u6f14\u4e49\u300b\u4e2d\uff0c\u88ab\u7528\u4f5c\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\uff0c\u8868\u793a\u4efb\u4f55\u7b2c\u4e09\u4eba\u79f0\u3002\u572818\u4e16\u7eaa\u4e2d\u53f6\u51fa\u7248\u7684\u53e6\u4e00\u90e8\u5c0f\u8bf4\u300a\u7ea2\u697c\u68a6\u300b\u4e2d\u4e5f\u53ef\u4ee5\u627e\u5230\u7c7b\u4f3c\u7684\u7528\u6cd5\uff0c\u5728\u8fd9\u90e8\u5c0f\u8bf4\u4e2d\uff0c\u7537\u6027\u548c\u5973\u6027\u4eba\u7269\u90fd\u88ab\u79f0\u4e3a\u7b2c\u4e09\u4eba\u79f0\u3002\\n\u4ece\u6587\u5b57\u8bcd\u6e90\u5b66\u7684\u89d2\u5ea6\u6765\u770b\uff0c\u9664\u4e86\u4e0a\u9762\u7684\u5b9e\u9645\u4f8b\u5b50\u5916\uff0c\u6700\u65e9\u4e5f\u662f\u4e0d\u5206\u6027\u522b\u7684\u3002\u5b83\u7684\u90e8\u9996\uff0c\u6216\u7d22\u5f15\u6210\u5206\uff0c\u5e26\u6709\u201c\u4eba\u201d\u7684\u610f\u601d\u3002\u56e0\u6b64\uff0c\u53ef\u4ee5\u8bf4\uff0c\u76f4\u52301920\u5e74\u524d\u540e\uff0c\u8fd9\u5e76\u4e0d\u662f\u7537\u6027\u7684\u4e13\u5c5e\u4ee3\u540d\u8bcd\u3002\\n\u6e05\u671d\u88ab\u63a8\u7ffb\u540e\uff0c\u4e2d\u56fd\u77e5\u8bc6\u5206\u5b50\u5728\u65b0\u6587\u5316\u8fd0\u52a8\u4e2d\u62e5\u62b1\u897f\u65b9\u6587\u5316\u3002\u8fd9\u5305\u62ec\u8bed\u8a00\u30021920\u5e74\uff0c\u5218\u534a\u519c\u5199\u4e86\u4e00\u9996\u8bd7\u300a\u6211\u600e\u80fd\u4e0d\u60f3\u5979\u300b\uff0c\u4ed6\u501f\u7528\u4e86\u4e00\u4e2a\u5b57\u7684\u53d8\u4f53\uff0c\u610f\u601d\u662f\u201c\u59d0\u59d0\u201d\uff0c\u4f46\u5728\u5176\u4ed6\u65b9\u9762\u5df2\u7ecf\u4e0d\u5b58\u5728\u4e86\uff0c\u7528\u5b83\u6765\u8868\u793a\u5973\u6027\u7684\u7b2c\u4e09\u4eba\u79f0\u3002\u8fd9\u662f\u628a\u4e2d\u56fd\u5987\u5973\u4ece\u5112\u5bb6\u7236\u6743\u5236\u4e2d\u89e3\u653e\u51fa\u6765\u7684\u52aa\u529b\u7684\u4e00\u90e8\u5206\u3002\\n\u7ffb\u8bd1\u4eba\u5458\u4e00\u76f4\u5728\u52aa\u529b\u5c06she\/her\u7ffb\u8bd1\u6210\u4e2d\u6587\uff1a\u4ed6\u4eec\u60f3\u8981\u5355\u72ec\u7684\u4ee3\u8bcd\uff0c\u800c\u4e0d\u662f\u4e00\u4e2a\u5bf9\u6027\u522b\u4e0d\u53ef\u77e5\u8bba\u7684\u4ee3\u8bcd\u3002\u903b\u8f91\u5f88\u7b80\u5355\u3002\u4f5c\u4e3a\u4e00\u79cd\u65e0\u6027\u522b\u7684\u8bed\u8a00\uff0c\u6c49\u8bed\u4e0d\u53ef\u80fd\u50cf\u5927\u591a\u6570\u5370\u6b27\u8bed\u7cfb\u8bed\u8a00\u90a3\u6837\u7cbe\u786e\u3002\u6b64\u5916\uff0c\u6ca1\u6709\u5973\u6027\u4ee3\u8bcd\u53cd\u6620\u4e86\u4e2d\u56fd\u6587\u5316\u5bf9\u5973\u6027\u7d20\u517b\u7684\u7f3a\u4e4f\u8ba4\u540c\uff1b\u56e0\u6b64\uff0c\u6c49\u8bed\u5c06\u53d7\u76ca\u4e8e\u5973\u6027\u4ee3\u8bcd\u7684\u4f7f\u7528\u3002\\n\u4e0d\u662f\u6bcf\u4e2a\u4eba\u90fd\u540c\u610f\u3002\u4e00\u4e9b\u7537\u6027\u6279\u8bc4\u5bb6\u6307\u51fa\uff0c\u8fd9\u5df2\u7ecf\u5305\u62ec\u4e86\u4e24\u6027\uff1a\u53d1\u660e\u65b0\u7684\u4ee3\u8bcd\u5c06\u5f15\u5165\u7537\u5973\u4e4b\u95f4\u65b0\u7684\u8bed\u8a00\u533a\u522b\u3002\u53e6\u4e00\u4e9b\u5973\u6027\u6279\u8bc4\u5bb6\u5219\u8fdb\u4e00\u6b65\u8bba\u8bc1\u8bf4\uff0c\u7528\u504f\u65c1\u7684\u5973\u6027\uff08\uff09\u53d6\u4ee3\u504f\u65c1\u7684\u4eba\u7c7b\uff08\uff09\uff0c\u5c06\u610f\u5473\u7740\u5973\u6027\u4e0d\u5982\u7537\u6027\u66f4\u6709\u4eba\u60c5\u5473\u3002\u540c\u65f6\u4e5f\u4ece\u4e00\u4e2a\u666e\u904d\u7684\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\u8fc7\u6e21\u5230\u4e00\u4e2a\u66f4\u6392\u4ed6\u6027\u7684\u7537\u6027\u4ee3\u8bcd\u3002\\n\u5982\u524d\u6240\u8ff0\uff0c\u4e0a\u4e2a\u4e16\u7eaa\u7684\u8bd1\u8005\u66f4\u5173\u5fc3\u6c49\u8bed\u7684\u51c6\u786e\u6027\uff0c\u4f46\u968f\u7740\u73b0\u5b9e\u7684\u53d8\u5316\u548c\u4ef7\u503c\u89c2\u7684\u8fdb\u6b65\uff0c\u4eca\u5929\u7684\u6311\u6218\u662f\u5982\u4f55\u4f7f\u6c49\u8bed\u66f4\u5177\u5305\u5bb9\u6027\uff0c\u8fd9\u5728\u897f\u65b9\u5df2\u6210\u4e3a\u4e00\u4e2a\u7a81\u51fa\u7684\u4ef7\u503c\u89c2\u3002\u56e0\u6b64\uff0c\u672c\u571f\u5316\u4e5f\u6d89\u53ca\u5230\u5c06\u897f\u65b9\u4ef7\u503c\u89c2\u5f15\u5165\u4e0d\u540c\u7684\u6587\u5316\uff0c\u5305\u62ec\u90a3\u4e9b\u7f3a\u4e4f\u6ecb\u517b\u8fd9\u4e9b\u4ef7\u503c\u89c2\u7684\u73b0\u5b9e\u7684\u6587\u5316\u3002\\n\u4e2d\u56fd\u7684\u53d8\u6027\u4eba\u7fa4\u4f53\u4ecd\u672a\u5f97\u5230\u5e7f\u6cdb\u8ba4\u53ef\u30022016\u5e74\u7684\u4e00\u9879\u8c03\u67e5\u663e\u793a\uff0c43%\u7684\u4e2d\u56fd\u53d7\u8bbf\u8005\u8ba4\u4e3a\u53d8\u6027\u662f\u4e00\u79cd\u7cbe\u795e\u75be\u75c5\u3002\u867d\u7136\u4e5f\u6709\u91d1\u661f\u8fd9\u6837\u503c\u5f97\u6ce8\u610f\u7684\u4f8b\u5916\uff0c\u4f46\u5979\u7684\u8ba4\u53ef\u4f34\u968f\u7740\u5bf9\u4f20\u7edf\u6027\u522b\u89c4\u8303\u7684\u5168\u9762\u62e5\u62b1\u3002\u4eba\u4eec\u53ef\u80fd\u4f1a\u8bf4\uff0c\u5728\u4e2d\u56fd\uff0c\u4ece\u4e00\u79cd\u6027\u522b\u8fc7\u6e21\u5230\u53e6\u4e00\u79cd\u6027\u522b\u7684\u95ee\u9898\u8f83\u5c0f--\u53ea\u8981\u53e6\u4e00\u79cd\u6027\u522b\u7684\u89c4\u8303\u4ecd\u7136\u5f97\u5230\u9075\u5b88\u3002\u5f53\u975e\u4e8c\u5143\u7684\u4eba\u8ba4\u4e3a\u81ea\u5df1\u662f\u4e8c\u5143\u7684\u65f6\u5019\uff0c\u975e\u4e8c\u5143\u4ee3\u8bcd\u5c31\u6210\u4e86\u4e00\u4e2a\u4e0d\u90a3\u4e48\u7d27\u8feb\u7684\u95ee\u9898\u3002\\n\u5728\u8bb2\u6c49\u8bed\u7684\u8de8\u6027\u522b\u7fa4\u4f53\u4e2d\uff0c\u8fd8\u6ca1\u6709\u4e00\u4e2a\u666e\u904d\u8ba4\u540c\u7684\u975e\u4e8c\u5143\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\uff0c\u4f46\u8fd8\u662f\u6709\u5019\u9009\u7684\u3002\u4e00\u4e9b\u516c\u53f8\u5c06and\u7684\u90e8\u9996\u66ff\u6362\u4e3aX\uff0c\u5f62\u6210\u4e86\u4e00\u4e2a\u65b0\u7684\u5355\u8bcd\u201cX\u201d\u3002\u4e00\u65e6\u5927\u578b\u8f6f\u4ef6\u516c\u53f8\u5c06\u5176\u52a0\u5165\u5230\u6c49\u5b57\u5217\u8868\u4e2d\uff0c\u8fd9\u662f\u4e00\u4e2a\u53ef\u884c\u7684\u9009\u62e9\uff0c\u4f46\u8fd9\u5fc5\u987b\u662f\u4e00\u4e2a\u81ea\u4e0a\u800c\u4e0b\u7684\u8fc7\u7a0b\uff0c\u56e0\u4e3a\u4e2d\u56fd\u6240\u6709\u7684\u79d1\u6280\u516c\u53f8\u90fd\u5fc5\u987b\u5bf9\u653f\u5e9c\u8d1f\u8d23\u3002\\n\u9999\u6e2f\u53d8\u6027\u8005\u8d44\u6e90\u4e2d\u5fc3\u63d0\u5021\u4f7f\u7528\u201cta\u201d\uff08\u4e5f\u8bfb\u4f5c\u201ctaa\u201d\uff09\u4f5c\u4e3a\u6c49\u8bed\u666e\u901a\u8bdd\u4e2d\u7684\u975e\u4e8c\u5143\u4ee3\u8bcd\u3002\u201cta\u201d\u4f5c\u4e3a\u4e00\u4e2a\u4e2d\u6027\u4ee3\u8bcd\u7684\u6765\u6e90\u76f8\u5f53\u6a21\u7cca\u3002\u636e\u63a8\u6d4b\uff0c\u201cta\u201d\u662f\u4f5c\u4e3a\u7f51\u7edc\u4fda\u8bed\u51fa\u73b0\u7684\uff0c\u6307\u7684\u662f\u6027\u522b\u4fe1\u606f\u88ab\u8ba4\u4e3a\u4e0d\u76f8\u5173\u6216\u8fc7\u4e8e\u66b4\u9732\u7684\u60c5\u51b5\u3002\u8fd9\u4e2a\u5019\u9009\u8bcd\u7684\u4f18\u70b9\u5305\u62ec\u5b83\u7684\u53d1\u97f3--\u4e0e\u7537\u6027\u548c\u5973\u6027\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\u76f8\u540c\u3002\u6b64\u5916\uff0c\u5f88\u591a\u4e2d\u56fd\u7f51\u6c11\u5df2\u7ecf\u5728\u4f7f\u7528\u5b83\u3002\\n\u867d\u7136\u201cTA\u201d\u662f\u4e00\u4e2a\u5f88\u597d\u7684\u5019\u9009\u4eba\uff0c\u4f46\u5b83\u4e5f\u5e26\u6765\u4e86\u4e00\u4e9b\u6311\u6218\u3002\u7b2c\u4e00\u4e2a\u6311\u6218\u662f\u5b83\u7684\u8bed\u57df\uff1a\u201cTA\u201d\u662f\u4e00\u4e2a\u6ca1\u6709\u51fa\u73b0\u5728\u6b63\u5f0f\u8bdd\u8bed\u4e2d\u7684\u7f51\u7edc\u4fda\u8bed\u3002\u7b2c\u4e8c\u4e2a\u6311\u6218\u662f\u5b83\u7684\u8bed\u8a00\u6765\u6e90\uff1a\u201cTA\u201d\u4e0d\u662f\u6c49\u5b57\u3002\u7b2c\u4e09\u4e2a\uff0c\u4e5f\u8bb8\u4e5f\u662f\u6700\u4e25\u5cfb\u7684\u6311\u6218\u662f\uff0c\u5728\u4e2d\u56fd\u7f51\u6c11\u5927\u91cf\u4f7f\u7528\u5b83\u7684\u540c\u65f6\uff0c\u6211\u4eec\u4e0d\u80fd\u80af\u5b9a\u5730\u8bf4\u201cTA\u201d\u662f\u5927\u591a\u6570\u975e\u4e8c\u5143\u4e2d\u56fd\u4eba\u7684\u9996\u9009\u4ee3\u540d\u8bcd\u3002\u8fd9\u5728\u4e00\u5b9a\u7a0b\u5ea6\u4e0a\u662f\u56e0\u4e3a\u4ed6\u4eec\u793e\u533a\u7684\u53d1\u5c55\u76f8\u5bf9\u6765\u8bf4\u4ecd\u5904\u4e8e\u521d\u7ea7\u9636\u6bb5\u3002\\n\u5982\u679c\u975e\u4e8c\u5143\u7684\u534e\u4eba\u793e\u533a\u8fd8\u6ca1\u6709\u5c31\u4ed6\u4eec\u504f\u7231\u7684\u4ee3\u8bcd\u8fbe\u6210\u5171\u8bc6\uff0c\u4efb\u4f55\u5916\u56fd\u4ee3\u7406\u4eba\u90fd\u6ca1\u6709\u8d44\u683c\u544a\u8bc9\u4ed6\u4eec\u8be5\u7528\u4ec0\u4e48\u3002\u68d8\u624b\u7684\u662f\uff0c\u8981\u6c42\u975e\u4e8c\u5143\u4ee3\u8bcd\u6c49\u5316\u5c31\u50cf\u662f\u5728\u4e0d\u5b58\u5728\u7684\u60c5\u51b5\u4e0b\u5bfb\u627e\u89e3\u51b3\u65b9\u6848\u3002\\n\u63d0\u5021\u6027\u522b\u4e2d\u7acb\u4ee3\u8bcd\u7684\u4eba\u7ecf\u5e38\u8fa9\u79f0\uff0c\u5bf9\u6027\u522b\u7684\u4e8c\u5143\u7406\u89e3\u4e0e\u897f\u65b9\u6b96\u6c11\u4e3b\u4e49\u6709\u5173\u8054\u3002\u8981\u6c42\u6c49\u8bed\u7b49\u975e\u897f\u65b9\u8bed\u8a00\u91c7\u7528\u6027\u522b\u5305\u5bb9\u8bed\u8a00\u7684\u95ee\u9898\u5728\u4e8e\uff0c\u5b83\u8feb\u4f7f\u5176\u4ed6\u6587\u5316\u9762\u5bf9\u81ea\u5df1\u5bf9\u5f85\u975e\u4e8c\u5143\u4eba\u7684\u65b9\u5f0f\uff0c\u8fd9\u53ef\u80fd\u662f\u4e00\u4e2a\u4fb5\u5165\u6027\u7684\u8fc7\u7a0b\u3002\u9274\u4e8e\u4e2d\u56fd\u56fd\u5185\u7684LGBTQ+\u7ef4\u6743\u56e2\u4f53\u5df2\u7ecf\u9762\u4e34\u88ab\u6253\u4e0a\u5916\u56fd\u52bf\u529b\u4ee3\u7406\u4eba\u7684\u70d9\u5370\u7684\u98ce\u9669\uff0c\u6709\u610f\u4ece\u4e2d\u56fd\u5e02\u573a\u83b7\u5229\u7684\u4f01\u4e1a\u65e0\u6cd5\u627f\u62c5\u88ab\u6307\u63a7\u4e3a\u98a0\u8986\u56fd\u5bb6\u4ef7\u503c\u89c2\u548c\u793e\u4f1a\u79e9\u5e8f\u7684\u897f\u65b9\u4ee3\u7406\u4eba\u7684\u98ce\u9669\u3002\u6bd5\u7adf\uff0c\u5982\u679c\u4e2d\u56fd\u653f\u5e9c\u51b3\u5b9a\u5c06LGBTQ+\u5217\u5165\u7981\u6b62\u540d\u5355\uff0c\u4f01\u4e1a\u5c06\u9762\u4e34\u4e24\u96be\u9009\u62e9\uff1a\u8981\u4e48\u653e\u5f03\u5728\u4e2d\u56fd\u7684\u5229\u6da6\uff0c\u8981\u4e48\u653e\u5f03LGBTQ+\u5185\u5bb9\uff0c\u4f46\u5374\u758f\u8fdc\u4e86\u5176\u4ed6\u5730\u533a\u7684\u5ba2\u6237\u3002\\n\u6709\u4e00\u4e2a\u529e\u6cd5\u53ef\u4ee5\u8d70\u51fa\u8fd9\u4e2a\u56f0\u5883\uff1a\u5141\u8bb8\u7528\u6237\u81ea\u5b9a\u4e49\u4ed6\u4eec\u81ea\u5df1\u7684\u4ee3\u8bcd\uff0c\u7279\u522b\u662f\u5f53\u672c\u5730\u89c2\u4f17\u8fd8\u6ca1\u6709\u5f00\u53d1\u51fa\u4efb\u4f55\u786e\u5b9a\u7684\u4ee3\u8bcd\u65f6\u3002\u4e00\u4e2a\u62c5\u5fe7\u662f\u5de8\u9b54\u53ef\u80fd\u4f1a\u6ee5\u7528\u8fd9\u4e2a\u673a\u5236\u3002\u4f46\u662f\u5de8\u9b54\u4eec\u4e00\u76f4\u4ee5\u6765\u90fd\u5728\u6ee5\u7528\u81ea\u6211\u547d\u540d\u673a\u5236\uff0c\u6e38\u620f\u884c\u4e1a\u5df2\u7ecf\u5f00\u53d1\u51fa\u4e86\u4e00\u4e9b\u7f13\u89e3\u7684\u505a\u6cd5\uff0c\u5f53\u6d89\u53ca\u5230\u5b9a\u5236\u4ee3\u8bcd\u65f6\uff0c\u8fd9\u4e9b\u505a\u6cd5\u53ef\u80fd\u4f1a\u6709\u6240\u5e2e\u52a9\u3002\u6700\u540e\uff0c\u5728\u89e3\u51b3\u8bed\u8a00\u884c\u4e1a\u7684\u4e24\u96be\u95ee\u9898\u65f6\uff0c\u6211\u4eec\u5fc5\u987b\u591a\u624d\u591a\u827a\u3002\", \"summary\": \"\"}","content":"As businesses strive to reach wider audiences, gender-inclusive language has become imperative. Businesses have learned that any association to bigotry, racism, or sexism, however unintentional or even well-intentioned, could tarnish brand image and hinder product success. The use of gender-inclusive language in localization nevertheless creates new sets of challenges language industry experts are eager to solve. This essay focuses on the challenges associated with localizing non-binary pronouns in Chinese.\nContemporary Mandarin Chinese uses \u4ed6 (t\u0101) for he\/him and \u5979 (t\u0101) for she\/her. The accusative of \u201che\u201d and \u201cshe\u201d in Chinese does not take a different form, and the possessive merely adds an additional letter (\u7684 de) to the pronouns, so neither objective nor possessive pronouns cause issues.\nThe use of contemporary Chinese pronouns is relatively new. In Romance of the Three Kingdoms, a novel published in the early 14th century, \u4ed6 was used as a third-person pronoun, denoting any third person. Similar usages can be found in the Dream of the Red Chamber, another novel first published in the mid-18th century, where both male and female characters would be referred to as \u4ed6 in the third person.\nAlong with the practical examples above, from a character etymological perspective, \u4ed6 was originally constructed to be gender-neutral. Its radical, or indexing component, \u4eba, carries the meaning of \u201chuman.\u201d Hence, one can say that \u4ed6 was not exclusively a male pronoun\u2014until around 1920.\nAfter the Qing Dynasty was overthrown, Chinese intellectuals embraced Western culture during the New Cultural Movement. This included language. In 1920, Liu Bannong wrote a poem called \u201cHow Can I Not Think of Her.\u201d He borrowed \u5979, a variant for a character that means \u201colder sister\u201d but otherwise defunct, and used it to denote the female third person. This was part of the effort to emancipate Chinese women from Confucian patriarchy.\nTranslators had been struggling to translate she\/her into Chinese: they wanted separate pronouns instead of a pronoun agnostic to genders. The logic was straightforward. As a genderless language, Chinese cannot be as precise as most indo-european languages. In addition, not having female pronouns reflects the lack of recognition of female accomplishment in Chinese culture; hence, the Chinese language would benefit from the adoption of female pronouns.\nNot everyone agreed. Some male critics pointed out that \u4ed6 already encompassed both genders: inventing new pronouns would introduce a new linguistic distinction between men and women. Other female critics went further to argue that by replacing the radical for human (\u4eba) with the radical for women (\u5973), \u5979 would imply that women are less human than men. Still, \u5979 emerged as the definitive character for the third person female pronoun, while \u4ed6 transitioned from a universal third person pronoun to a more exclusive male pronoun.\nAs previously noted, translators from the last century were more concerned about the accuracy of the Chinese language, but as realities change and values progress, the challenge today is about making the language more inclusive, which has become a prominent value in the West. As a result, localization also involves the introduction of Western values to different cultures, including cultures wanting in the reality that nourished these values.\nThe transgender community in China is still not widely recognized. A 2016 survey showed that 43% of the respondents surveyed in China consider being trans as having a form of mental illness. Although there are notable exceptions such as Jin Xing, her recognition is accompanied by a total embrace of traditional gender norms. One might say that transitioning from one gender to another in China is less problematic \u2014 as long as the norms of the other gender are still observed. When non-binary people consider themselves to be binary, non-binary pronouns become a less urgent issue.\nThere isn\u2019t a universally agreed-upon non-binary third person pronoun among Chinese-speaking transgender communities, but there are candidates. Some have replaced the radicals of \u4eba and \u5973 with X, making a new word \u201cx\u4e5f.\u201d This is a viable option once font major software companies add it to the list of Chinese characters, but this would have to be a top down process since all tech companies in China have to answer to the government.\nThe Transgender Resource Center in Hong Kong advocates using \u201cTA,\u201d also pronounced \u201ct\u0101,\u201d as the non-binary pronoun in Mandarin Chinese. The origin of \u201cTA\u201d as a gender-neutral pronoun is rather obscure. It is speculated that \u201cTA\u201d emerged as internet slang for contexts where gender information is considered either irrelevant or too revealing. Merits of this candidate include its pronunciation \u2014 identical to that of male and female third-person pronouns. In addition, many Chinese netizens already use it.\nAs much as \u201cTA\u201d is a sound candidate, it comes with several challenges. The first challenge is its register: \u201cTA\u201d is internet slang absent from formal discourse. A second challenge is its linguistic origins: \u201cTA\u201d is not a Chinese character. The third and perhaps most serious challenge is that while Chinese netizens use it extensively, we cannot say for certain that \u201cTA\u201d is the preferred pronoun of the majority of non-binary Chinese people. This is partly because the development of their communities is still relatively nascent.\nIf non-binary Chinese communities have not reached a consensus on their preferred pronouns, no foreign agent is in the position to tell them what to use. The tricky part is that requiring non-binary pronouns to be localized into Chinese is akin to seeking a solution where one does not exist.\nAdvocates of gender-neutral pronouns often argue that the binary understanding of gender is associated with Western colonialism. The problem of requiring non-Western languages, like Chinese, to adopt gender-inclusive language, is that it compels other cultures to confront their own treatment of non-binary persons, which can be an invasive process. Given that domestic LGBTQ+ rights groups in China are already at risk of being branded as agents of foreign influence, businesses that intend to profit from the Chinese market cannot bear the risk of being charged as Western agents working to subvert the nation\u2019s values and social order. After all, if the Chinese government ever decides to add LGBTQ+ to its ban-list, companies would face the dilemma of either giving up their profits in China or dropping LGBTQ+ content but alienating customers from other locales.\nThere is a way out of this dilemma: allow users to customize their own pronouns, especially when the local audience has not developed any definitive pronouns. One concern is that trolls might abuse this mechanism. But trolls have been abusing self-naming mechanisms forever, and the gaming industry has developed mitigating practices that may help when it comes to customizing pronouns. In the end, we must be versatile when it comes to solving dilemmas in the language industry.","link":"https:\/\/multilingual.com\/the-search-for-non-binary-pronouns-in-chinese\/","source":"multilingual","create_time":"2021-07-26 10:52:42","field_ids":"","check_user":null,"compile":null,"update_summary":"\u968f\u7740\u4f01\u4e1a\u52aa\u529b\u63a5\u89e6\u66f4\u5e7f\u6cdb\u7684\u53d7\u4f17\uff0c\u6027\u522b\u5305\u5bb9\u7684\u8bed\u8a00\u5df2\u53d8\u5f97\u52bf\u5728\u5fc5\u884c\u3002\u4f01\u4e1a\u5df2\u7ecf\u8ba4\u8bc6\u5230\uff0c\u4efb\u4f55\u4e0e\u504f\u89c1\u3001\u79cd\u65cf\u4e3b\u4e49\u6216\u6027\u522b\u6b67\u89c6\u7684\u8054\u7cfb\uff0c\u65e0\u8bba\u591a\u4e48\u65e0\u610f\uff0c\u751a\u81f3\u662f\u597d\u610f\uff0c\u90fd\u53ef\u80fd\u635f\u5bb3\u54c1\u724c\u5f62\u8c61\uff0c\u963b\u788d\u4ea7\u54c1\u6210\u529f\u3002\u7136\u800c\uff0c...","button_json":[],"market_id":"","top":0,"choice":1,"choice_list":0,"show":1,"subject_id":null,"postEditor":"\u7f57\u671d\u5a77(\u897f\u5317\u6c11\u65cf\u5927\u5b66)","title_pe":"\u6c49\u8bed\u975e\u4e8c\u5143\u4ee3\u8bcd\u7684\u68c0\u7d22","content_pe":"\u968f\u7740\u4f01\u4e1a\u52aa\u529b\u63a5\u89e6\u66f4\u5e7f\u6cdb\u7684\u53d7\u4f17\uff0c\u6027\u522b\u5305\u5bb9\u7684\u8bed\u8a00\u5df2\u53d8\u5f97\u52bf\u5728\u5fc5\u884c\u3002\u4f01\u4e1a\u5df2\u7ecf\u8ba4\u8bc6\u5230\uff0c\u4efb\u4f55\u4e0e\u504f\u89c1\u3001\u79cd\u65cf\u4e3b\u4e49\u6216\u6027\u522b\u6b67\u89c6\u7684\u8054\u7cfb\uff0c\u65e0\u8bba\u591a\u4e48\u65e0\u610f\uff0c\u751a\u81f3\u662f\u597d\u610f\uff0c\u90fd\u53ef\u80fd\u635f\u5bb3\u54c1\u724c\u5f62\u8c61\uff0c\u963b\u788d\u4ea7\u54c1\u6210\u529f\u3002\u7136\u800c\uff0c\u5728\u672c\u571f\u5316\u8fc7\u7a0b\u4e2d\u4f7f\u7528\u6027\u522b\u5305\u5bb9\u6027\u8bed\u8a00\u4e5f\u5e26\u6765\u4e86\u8bed\u8a00\u884c\u4e1a\u4e13\u5bb6\u8feb\u5207\u5e0c\u671b\u89e3\u51b3\u7684\u4e00\u7cfb\u5217\u65b0\u6311\u6218\u3002\u672c\u6587\u4e3b\u8981\u63a2\u8ba8\u6c49\u8bed\u975e\u4e8c\u5143\u4ee3\u8bcd\u672c\u5730\u5316\u6240\u9762\u4e34\u7684\u6311\u6218\u3002\r\n\u5f53\u4ee3\u6c49\u8bed\u4f7f\u7528\u4ed6(t\u0101)\u4ed6\/\u4ed6\u548c\u5979(t\u0101)\u56e0\u4e3a\u5979\/\u5979\u3002\u5bbe\u683c\u7684\u201c\u4ed6\u201d\u548c\u201c\u5979\u201d\u5728\u4e2d\u56fd\u4e0d\u91c7\u53d6\u4e0d\u540c\u7684\u5f62\u5f0f,\u548c\u6240\u6709\u683c\u53ea\u662f\u589e\u52a0\u4e86\u4e00\u4e2a\u989d\u5916\u7684\u4fe1(de)\u7684\u4ee3\u540d\u8bcd,\u6240\u4ee5\u65e2\u4e0d\u5ba2\u89c2,\u4e5f\u4e0d\u7269\u4e3b\u4ee3\u8bcd\u5f15\u8d77\u95ee\u9898\u3002\r\n\u5f53\u4ee3\u6c49\u8bed\u4ee3\u8bcd\u7684\u4f7f\u7528\u76f8\u5bf9\u8f83\u65b0\u3002\u572814\u4e16\u7eaa\u521d\u51fa\u7248\u7684\u5c0f\u8bf4\u300a\u4e09\u56fd\u6f14\u4e49\u300b\u4e2d\uff0c\u88ab\u7528\u4f5c\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\uff0c\u8868\u793a\u4efb\u4f55\u7b2c\u4e09\u4eba\u79f0\u3002\u572818\u4e16\u7eaa\u4e2d\u53f6\u51fa\u7248\u7684\u53e6\u4e00\u90e8\u5c0f\u8bf4\u300a\u7ea2\u697c\u68a6\u300b\u4e2d\u4e5f\u53ef\u4ee5\u627e\u5230\u7c7b\u4f3c\u7684\u7528\u6cd5\uff0c\u5728\u8fd9\u90e8\u5c0f\u8bf4\u4e2d\uff0c\u7537\u6027\u548c\u5973\u6027\u4eba\u7269\u90fd\u88ab\u79f0\u4e3a\u7b2c\u4e09\u4eba\u79f0\u3002\r\n\u4ece\u6587\u5b57\u8bcd\u6e90\u5b66\u7684\u89d2\u5ea6\u6765\u770b\uff0c\u9664\u4e86\u4e0a\u9762\u7684\u5b9e\u9645\u4f8b\u5b50\u5916\uff0c\u6700\u65e9\u4e5f\u662f\u4e0d\u5206\u6027\u522b\u7684\u3002\u5b83\u7684\u90e8\u9996\uff0c\u6216\u7d22\u5f15\u6210\u5206\uff0c\u5e26\u6709\u201c\u4eba\u201d\u7684\u610f\u601d\u3002\u56e0\u6b64\uff0c\u53ef\u4ee5\u8bf4\uff0c\u76f4\u52301920\u5e74\u524d\u540e\uff0c\u8fd9\u5e76\u4e0d\u662f\u7537\u6027\u7684\u4e13\u5c5e\u4ee3\u540d\u8bcd\u3002\r\n\u6e05\u671d\u88ab\u63a8\u7ffb\u540e\uff0c\u4e2d\u56fd\u77e5\u8bc6\u5206\u5b50\u5728\u65b0\u6587\u5316\u8fd0\u52a8\u4e2d\u63a5\u53d7\u4e86\u897f\u65b9\u6587\u5316\u3002\u8fd9\u5305\u62ec\u8bed\u8a00\u30021920\u5e74\uff0c\u5218\u73ed\u519c\u5199\u4e86\u4e00\u9996\u8bd7\uff0c\u540d\u53eb\u300a\u6211\u600e\u80fd\u4e0d\u601d\u5ff5\u5979\u300b\u3002\u4ed6\u501f\u4e86\u5979,\u4e00\u4e2a\u53d8\u79cd\u89d2\u8272\u610f\u5473\u7740\u201c\u59d0\u59d0\u201d,\u4f46\u5426\u5219\u7834\u4ea7,\u548c\u7528\u5b83\u6765\u8868\u793a\u5973\u6027\u7b2c\u4e09\u4eba\u3002\u8fd9\u662f\u5c06\u4e2d\u56fd\u5987\u5973\u4ece\u5112\u5bb6\u7236\u6743\u5236\u4e2d\u89e3\u653e\u51fa\u6765\u7684\u52aa\u529b\u7684\u4e00\u90e8\u5206\u3002\r\n\u7ffb\u8bd1\u5de5\u4f5c\u8005\u5728\u5c06\u201c\u5979\/\u5979\u201d\u7ffb\u8bd1\u6210\u4e2d\u6587\u65f6\u4e00\u76f4\u5728\u52aa\u529b:\u4ed6\u4eec\u60f3\u8981\u72ec\u7acb\u7684\u4ee3\u8bcd\uff0c\u800c\u4e0d\u662f\u6027\u522b\u4e0d\u53ef\u77e5\u7684\u4ee3\u8bcd\u3002\u903b\u8f91\u5f88\u7b80\u5355\u3002\u4f5c\u4e3a\u4e00\u79cd\u6ca1\u6709\u6027\u522b\u7684\u8bed\u8a00\uff0c\u6c49\u8bed\u4e0d\u80fd\u50cf\u5927\u591a\u6570\u5370\u6b27\u8bed\u7cfb\u8bed\u8a00\u90a3\u6837\u7cbe\u786e\u3002\u6b64\u5916\uff0c\u6ca1\u6709\u5973\u6027\u4ee3\u8bcd\u4e5f\u53cd\u6620\u4e86\u4e2d\u56fd\u6587\u5316\u5bf9\u5973\u6027\u7d20\u517b\u7684\u8ba4\u8bc6\u4e0d\u8db3;\u56e0\u6b64\uff0c\u4f7f\u7528\u5973\u6027\u4ee3\u8bcd\u5bf9\u6c49\u8bed\u6709\u76ca\u3002\r\n\u4e0d\u662f\u6bcf\u4e2a\u4eba\u90fd\u540c\u610f\u4e86\u3002\u4e00\u4e9b\u7537\u6027\u6279\u8bc4\u4eba\u58eb\u6307\u51fa,\u4ed6\u5df2\u7ecf\u5305\u542b\u4e24\u6027:\u53d1\u660e\u65b0\u4ee3\u8bcd\u5c06\u5f15\u5165\u4e00\u4e2a\u65b0\u7684\u8bed\u8a00\u533a\u5206\u7537\u6027\u548c\u5973\u6027\u3002\u5176\u4ed6\u5973\u6027\u6279\u8bc4\u5bb6\u66f4\u8fdb\u4e00\u6b65\u8ba4\u4e3a,\u4ee3\u66ff\u4eba\u7c7b(\u4eba)\u7684\u6fc0\u8fdb\u7684\u6fc0\u8fdb\u7684\u5973\u6027(\u5973),\u5979\u4f1a\u6697\u793a\u4eba\u7c7b\u5973\u6027\u4f4e\u4e8e\u7537\u6027\u3002\u4e0d\u8fc7,\u5979\u6210\u4e3a\u5973\u6027\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\u7684\u89d2\u8272,\u800c\u4ed6\u4ece\u666e\u904d\u7684\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\u66f4\u72ec\u5bb6\u7537\u6027\u4ee3\u8bcd\u3002\r\n\u5982\u524d\u6240\u8ff0\uff0c\u4e0a\u4e2a\u4e16\u7eaa\u7684\u7ffb\u8bd1\u5de5\u4f5c\u8005\u66f4\u5173\u5fc3\u6c49\u8bed\u7684\u51c6\u786e\u6027\uff0c\u4f46\u968f\u7740\u73b0\u5b9e\u7684\u53d8\u5316\u548c\u4ef7\u503c\u89c2\u7684\u8fdb\u6b65\uff0c\u4eca\u5929\u7684\u6311\u6218\u662f\u5982\u4f55\u4f7f\u6c49\u8bed\u66f4\u5177\u5305\u5bb9\u6027\uff0c\u8fd9\u5728\u897f\u65b9\u5df2\u6210\u4e3a\u4e00\u4e2a\u7a81\u51fa\u7684\u4ef7\u503c\u3002\u56e0\u6b64\uff0c\u672c\u571f\u5316\u8fd8\u5305\u62ec\u5c06\u897f\u65b9\u4ef7\u503c\u89c2\u5f15\u5165\u4e0d\u540c\u7684\u6587\u5316\uff0c\u5305\u62ec\u73b0\u5b9e\u4e2d\u6ecb\u517b\u8fd9\u4e9b\u4ef7\u503c\u89c2\u7684\u6587\u5316\u9700\u6c42\u3002\r\n\u8de8\u6027\u522b\u7fa4\u4f53\u5728\u4e2d\u56fd\u8fd8\u6ca1\u6709\u5f97\u5230\u5e7f\u6cdb\u7684\u8ba4\u53ef\u30022016\u5e74\u7684\u4e00\u9879\u8c03\u67e5\u663e\u793a\uff0c43%\u7684\u4e2d\u56fd\u53d7\u8bbf\u8005\u8ba4\u4e3a\u53d8\u6027\u4eba\u60a3\u6709\u67d0\u79cd\u7cbe\u795e\u75be\u75c5\u3002\u867d\u7136\u4e5f\u6709\u50cf\u91d1\u661f\u8fd9\u6837\u7684\u4f8b\u5916\uff0c\u4f46\u5bf9\u5979\u7684\u8ba4\u53ef\u662f\u4f34\u968f\u7740\u5bf9\u4f20\u7edf\u6027\u522b\u89c4\u8303\u7684\u5168\u9762\u63a5\u53d7\u3002\u6709\u4eba\u53ef\u80fd\u4f1a\u8bf4\uff0c\u5728\u4e2d\u56fd\uff0c\u4ece\u4e00\u79cd\u6027\u522b\u5230\u53e6\u4e00\u79cd\u6027\u522b\u7684\u8f6c\u53d8\u95ee\u9898\u4e0d\u5927\u2014\u2014\u53ea\u8981\u53e6\u4e00\u79cd\u6027\u522b\u7684\u89c4\u8303\u4ecd\u7136\u88ab\u9075\u5b88\u3002\u5f53\u975e\u4e8c\u5143\u6027\u7684\u4eba\u8ba4\u4e3a\u81ea\u5df1\u662f\u4e8c\u5143\u6027\u7684\u65f6\u5019\uff0c\u975e\u4e8c\u5143\u6027\u4ee3\u8bcd\u5c31\u4e0d\u90a3\u4e48\u7d27\u8feb\u4e86\u3002\r\n\u5728\u8bb2\u6c49\u8bed\u7684\u8de8\u6027\u522b\u7fa4\u4f53\u4e2d\uff0c\u6ca1\u6709\u4e00\u4e2a\u516c\u8ba4\u7684\u975e\u4e8c\u5143\u6027\u522b\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\uff0c\u4f46\u4e5f\u6709\u4e00\u4e9b\u5019\u9009\u8bcd\u3002\u4e00\u4e9b\u5df2\u7ecf\u53d6\u4ee3\u4e86\u4eba\u7684\u6fc0\u8fdb\u5206\u5b50\u548c\u5973X,\u4f7f\u4e00\u4e2a\u65b0\u5355\u8bcd\u201cX\u4e5f\u3002\u201d\u8fd9\u662f\u4e00\u4e2a\u53ef\u884c\u7684\u9009\u62e9\uff0c\u4e00\u65e6\u5b57\u4f53\u5927\u7684\u8f6f\u4ef6\u516c\u53f8\u628a\u5b83\u6dfb\u52a0\u5230\u6c49\u5b57\u5217\u8868\u4e2d\uff0c\u4f46\u8fd9\u5c06\u662f\u4e00\u4e2a\u81ea\u4e0a\u800c\u4e0b\u7684\u8fc7\u7a0b\uff0c\u56e0\u4e3a\u6240\u6709\u4e2d\u56fd\u7684\u79d1\u6280\u516c\u53f8\u90fd\u5fc5\u987b\u56de\u7b54\u653f\u5e9c\u3002\r\n\u9999\u6e2f\u7684\u8de8\u6027\u522b\u8d44\u6e90\u4e2d\u5fc3(Transgender Resource Center)\u4e3b\u5f20\u4f7f\u7528\u201cTA\u201d\u4f5c\u4e3a\u666e\u901a\u8bdd\u4e2d\u7684\u975e\u4e8c\u5143\u4ee3\u8bcd\uff0c\u53d1\u97f3\u4e5f\u4e3a\u201ct\u0101\u201d\u3002\u201cTA\u201d\u4f5c\u4e3a\u4e00\u4e2a\u4e2d\u6027\u4ee3\u8bcd\u7684\u8d77\u6e90\u662f\u76f8\u5f53\u6a21\u7cca\u7684\u3002\u636e\u63a8\u6d4b\uff0c\u201cTA\u201d\u4e00\u8bcd\u6700\u521d\u662f\u4f5c\u4e3a\u7f51\u7edc\u4fda\u8bed\u51fa\u73b0\u7684\uff0c\u7528\u6765\u6307\u4ee3\u90a3\u4e9b\u6027\u522b\u4fe1\u606f\u88ab\u8ba4\u4e3a\u4e0d\u76f8\u5173\u6216\u8fc7\u4e8e\u66b4\u9732\u7684\u8bed\u5883\u3002\u8be5\u8bcd\u7684\u4f18\u70b9\u5305\u62ec\u5176\u53d1\u97f3\u2014\u2014\u4e0e\u7537\u6027\u548c\u5973\u6027\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\u7684\u53d1\u97f3\u76f8\u540c\u3002\u6b64\u5916\uff0c\u8bb8\u591a\u4e2d\u56fd\u7f51\u6c11\u5df2\u7ecf\u5728\u4f7f\u7528\u5b83\u3002\r\n\u5c3d\u7ba1\u201cTA\u201d\u662f\u4e00\u4e2a\u4e0d\u9519\u7684\u5019\u9009\u4eba\uff0c\u4f46\u5b83\u4e5f\u4f34\u968f\u7740\u4e00\u4e9b\u6311\u6218\u3002\u7b2c\u4e00\u4e2a\u6311\u6218\u662f\u5b83\u7684\u8bed\u4f53:\u201cTA\u201d\u662f\u6b63\u5f0f\u8bdd\u8bed\u4e2d\u4e0d\u5b58\u5728\u7684\u7f51\u7edc\u4fda\u8bed\u3002\u7b2c\u4e8c\u4e2a\u6311\u6218\u662f\u5b83\u7684\u8bed\u8a00\u6765\u6e90:\u201cTA\u201d\u4e0d\u662f\u4e00\u4e2a\u6c49\u5b57\u3002\u7b2c\u4e09\u4e2a\uff0c\u6216\u8bb8\u4e5f\u662f\u6700\u4e25\u91cd\u7684\u4e00\u4e2a\u6311\u6218\u662f\uff0c\u867d\u7136\u4e2d\u56fd\u7f51\u6c11\u5e7f\u6cdb\u4f7f\u7528TA\uff0c\u4f46\u6211\u4eec\u4e0d\u80fd\u786e\u5b9aTA\u662f\u5426\u662f\u5927\u591a\u6570\u975e\u4e8c\u5143\u6027\u522b\u4e2d\u56fd\u4eba\u7684\u9996\u9009\u4ee3\u8bcd\u3002\u8fd9\u5728\u4e00\u5b9a\u7a0b\u5ea6\u4e0a\u662f\u56e0\u4e3a\u4ed6\u4eec\u7684\u793e\u533a\u53d1\u5c55\u76f8\u5bf9\u6765\u8bf4\u8fd8\u5904\u4e8e\u521d\u7ea7\u9636\u6bb5\u3002\r\n\u5982\u679c\u975e\u4e8c\u5143\u5bf9\u7acb\u7684\u534e\u4eba\u793e\u533a\u8fd8\u6ca1\u6709\u5c31\u4ed6\u4eec\u559c\u6b22\u7684\u4ee3\u8bcd\u8fbe\u6210\u4e00\u81f4\u610f\u89c1\uff0c\u5c31\u6ca1\u6709\u5916\u56fd\u4ee3\u7406\u4eba\u80fd\u591f\u544a\u8bc9\u4ed6\u4eec\u5e94\u8be5\u4f7f\u7528\u4ec0\u4e48\u4ee3\u8bcd\u3002\u68d8\u624b\u7684\u662f\uff0c\u8981\u6c42\u975e\u4e8c\u5143\u4ee3\u8bcd\u672c\u5730\u5316\u6210\u4e2d\u6587\uff0c\u5c31\u50cf\u5728\u4e00\u4e2a\u4e0d\u5b58\u5728\u7684\u5730\u65b9\u5bfb\u627e\u89e3\u51b3\u65b9\u6848\u4e00\u6837\u3002\r\n\u4e2d\u6027\u4ee3\u8bcd\u7684\u62e5\u62a4\u8005\u7ecf\u5e38\u8ba4\u4e3a\uff0c\u5bf9\u6027\u522b\u7684\u4e8c\u5143\u7406\u89e3\u4e0e\u897f\u65b9\u6b96\u6c11\u4e3b\u4e49\u6709\u5173\u3002\u8981\u6c42\u975e\u897f\u65b9\u8bed\u8a00(\u5982\u6c49\u8bed)\u91c7\u7528\u6027\u522b\u5305\u5bb9\u6027\u8bed\u8a00\u7684\u95ee\u9898\u5728\u4e8e\uff0c\u5b83\u8feb\u4f7f\u5176\u4ed6\u6587\u5316\u9762\u5bf9\u81ea\u5df1\u5bf9\u5f85\u975e\u4e8c\u5143\u6027\u522b\u8005\u7684\u65b9\u5f0f\uff0c\u8fd9\u53ef\u80fd\u662f\u4e00\u4e2a\u4fb5\u5165\u6027\u7684\u8fc7\u7a0b\u3002\u8003\u8651\u5230\u4e2d\u56fd\u56fd\u5185\u7684LGBTQ+\u6743\u5229\u7ec4\u7ec7\u5df2\u7ecf\u9762\u4e34\u88ab\u6253\u4e0a\u5916\u56fd\u5f71\u54cd\u529b\u4ee3\u7406\u4eba\u7684\u98ce\u9669\uff0c\u60f3\u8981\u4ece\u4e2d\u56fd\u5e02\u573a\u83b7\u5229\u7684\u4f01\u4e1a\u4e0d\u80fd\u627f\u62c5\u88ab\u6307\u63a7\u4e3a\u98a0\u8986\u56fd\u5bb6\u4ef7\u503c\u89c2\u548c\u793e\u4f1a\u79e9\u5e8f\u7684\u897f\u65b9\u4ee3\u7406\u4eba\u7684\u98ce\u9669\u3002\u6bd5\u7adf\uff0c\u5982\u679c\u4e2d\u56fd\u653f\u5e9c\u51b3\u5b9a\u5c06LGBTQ+\u6dfb\u52a0\u5230\u7981\u6b62\u540d\u5355\u4e2d\uff0c\u516c\u53f8\u5c06\u9762\u4e34\u4e24\u96be\u7684\u9009\u62e9:\u8981\u4e48\u653e\u5f03\u5728\u4e2d\u56fd\u7684\u5229\u6da6\uff0c\u8981\u4e48\u653e\u5f03LGBTQ+\u5185\u5bb9\uff0c\u4f46\u758f\u8fdc\u5176\u4ed6\u5730\u533a\u7684\u5ba2\u6237\u3002\r\n\u6709\u4e00\u4e2a\u65b9\u6cd5\u53ef\u4ee5\u6446\u8131\u8fd9\u79cd\u56f0\u5883:\u5141\u8bb8\u7528\u6237\u81ea\u5b9a\u4e49\u4ed6\u4eec\u81ea\u5df1\u7684\u4ee3\u8bcd\uff0c\u7279\u522b\u662f\u5f53\u5f53\u5730\u7684\u53d7\u4f17\u8fd8\u6ca1\u6709\u5f62\u6210\u4efb\u4f55\u660e\u786e\u7684\u4ee3\u8bcd\u65f6\u3002\u4e00\u4e2a\u62c5\u5fe7\u662f\u55b7\u5b50\u53ef\u80fd\u4f1a\u6ee5\u7528\u8fd9\u4e00\u673a\u5236\u3002\u4f46\u662f\uff0c\u55b7\u5b50\u4eec\u4e00\u76f4\u5728\u6ee5\u7528\u81ea\u6211\u547d\u540d\u673a\u5236\uff0c\u6e38\u620f\u884c\u4e1a\u5df2\u7ecf\u5f00\u53d1\u51fa\u4e86\u53ef\u80fd\u6709\u52a9\u4e8e\u81ea\u5b9a\u4e49\u4ee3\u8bcd\u7684\u7f13\u548c\u505a\u6cd5\u3002\u6700\u540e\uff0c\u5728\u89e3\u51b3\u8bed\u8a00\u884c\u4e1a\u7684\u56f0\u5883\u65f6\uff0c\u6211\u4eec\u5fc5\u987b\u591a\u624d\u591a\u827a\u3002","version":1,"expect_time":"","introduction":"\u968f\u7740\u4f01\u4e1a\u52aa\u529b\u63a5\u89e6\u66f4\u5e7f\u6cdb\u7684\u53d7\u4f17\uff0c\u6027\u522b\u5305\u5bb9\u7684\u8bed\u8a00\u5df2\u53d8\u5f97\u52bf\u5728\u5fc5\u884c\u3002\u4f01\u4e1a\u5df2\u7ecf\u8ba4\u8bc6\u5230\uff0c\u4efb\u4f55\u4e0e\u504f\u89c1\u3001\u79cd\u65cf\u4e3b\u4e49\u6216\u6027\u522b\u6b67\u89c6\u7684\u8054\u7cfb\uff0c\u65e0\u8bba\u591a\u4e48\u65e0\u610f\uff0c\u751a\u81f3\u662f\u597d\u610f\uff0c\u90fd\u53ef\u80fd\u635f\u5bb3\u54c1\u724c\u5f62\u8c61\uff0c\u963b\u788d\u4ea7\u54c1\u6210\u529f\u3002\u7136\u800c\uff0c...","full_time":"2021-07-26 10:52:42","market_names":[],"field_names":[],"enTitle":"The Search for Non-Binary Pronouns in Chinese","ch_content":"\u968f\u7740\u4f01\u4e1a\u52aa\u529b\u63a5\u89e6\u66f4\u5e7f\u6cdb\u7684\u53d7\u4f17\uff0c\u6027\u522b\u5305\u5bb9\u7684\u8bed\u8a00\u5df2\u53d8\u5f97\u52bf\u5728\u5fc5\u884c\u3002\u4f01\u4e1a\u5df2\u7ecf\u8ba4\u8bc6\u5230\uff0c\u4efb\u4f55\u4e0e\u504f\u89c1\u3001\u79cd\u65cf\u4e3b\u4e49\u6216\u6027\u522b\u6b67\u89c6\u7684\u8054\u7cfb\uff0c\u65e0\u8bba\u591a\u4e48\u65e0\u610f\uff0c\u751a\u81f3\u662f\u597d\u610f\uff0c\u90fd\u53ef\u80fd\u635f\u5bb3\u54c1\u724c\u5f62\u8c61\uff0c\u963b\u788d\u4ea7\u54c1\u6210\u529f\u3002\u7136\u800c\uff0c\u5728\u672c\u571f\u5316\u8fc7\u7a0b\u4e2d\u4f7f\u7528\u6027\u522b\u5305\u5bb9\u6027\u8bed\u8a00\u4e5f\u5e26\u6765\u4e86\u8bed\u8a00\u884c\u4e1a\u4e13\u5bb6\u8feb\u5207\u5e0c\u671b\u89e3\u51b3\u7684\u4e00\u7cfb\u5217\u65b0\u6311\u6218\u3002\u672c\u6587\u4e3b\u8981\u63a2\u8ba8\u6c49\u8bed\u975e\u4e8c\u5143\u4ee3\u8bcd\u672c\u5730\u5316\u6240\u9762\u4e34\u7684\u6311\u6218\u3002\r\n\u5f53\u4ee3\u6c49\u8bed\u4f7f\u7528\u4ed6(t\u0101)\u4ed6\/\u4ed6\u548c\u5979(t\u0101)\u56e0\u4e3a\u5979\/\u5979\u3002\u5bbe\u683c\u7684\u201c\u4ed6\u201d\u548c\u201c\u5979\u201d\u5728\u4e2d\u56fd\u4e0d\u91c7\u53d6\u4e0d\u540c\u7684\u5f62\u5f0f,\u548c\u6240\u6709\u683c\u53ea\u662f\u589e\u52a0\u4e86\u4e00\u4e2a\u989d\u5916\u7684\u4fe1(de)\u7684\u4ee3\u540d\u8bcd,\u6240\u4ee5\u65e2\u4e0d\u5ba2\u89c2,\u4e5f\u4e0d\u7269\u4e3b\u4ee3\u8bcd\u5f15\u8d77\u95ee\u9898\u3002\r\n\u5f53\u4ee3\u6c49\u8bed\u4ee3\u8bcd\u7684\u4f7f\u7528\u76f8\u5bf9\u8f83\u65b0\u3002\u572814\u4e16\u7eaa\u521d\u51fa\u7248\u7684\u5c0f\u8bf4\u300a\u4e09\u56fd\u6f14\u4e49\u300b\u4e2d\uff0c\u88ab\u7528\u4f5c\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\uff0c\u8868\u793a\u4efb\u4f55\u7b2c\u4e09\u4eba\u79f0\u3002\u572818\u4e16\u7eaa\u4e2d\u53f6\u51fa\u7248\u7684\u53e6\u4e00\u90e8\u5c0f\u8bf4\u300a\u7ea2\u697c\u68a6\u300b\u4e2d\u4e5f\u53ef\u4ee5\u627e\u5230\u7c7b\u4f3c\u7684\u7528\u6cd5\uff0c\u5728\u8fd9\u90e8\u5c0f\u8bf4\u4e2d\uff0c\u7537\u6027\u548c\u5973\u6027\u4eba\u7269\u90fd\u88ab\u79f0\u4e3a\u7b2c\u4e09\u4eba\u79f0\u3002\r\n\u4ece\u6587\u5b57\u8bcd\u6e90\u5b66\u7684\u89d2\u5ea6\u6765\u770b\uff0c\u9664\u4e86\u4e0a\u9762\u7684\u5b9e\u9645\u4f8b\u5b50\u5916\uff0c\u6700\u65e9\u4e5f\u662f\u4e0d\u5206\u6027\u522b\u7684\u3002\u5b83\u7684\u90e8\u9996\uff0c\u6216\u7d22\u5f15\u6210\u5206\uff0c\u5e26\u6709\u201c\u4eba\u201d\u7684\u610f\u601d\u3002\u56e0\u6b64\uff0c\u53ef\u4ee5\u8bf4\uff0c\u76f4\u52301920\u5e74\u524d\u540e\uff0c\u8fd9\u5e76\u4e0d\u662f\u7537\u6027\u7684\u4e13\u5c5e\u4ee3\u540d\u8bcd\u3002\r\n\u6e05\u671d\u88ab\u63a8\u7ffb\u540e\uff0c\u4e2d\u56fd\u77e5\u8bc6\u5206\u5b50\u5728\u65b0\u6587\u5316\u8fd0\u52a8\u4e2d\u63a5\u53d7\u4e86\u897f\u65b9\u6587\u5316\u3002\u8fd9\u5305\u62ec\u8bed\u8a00\u30021920\u5e74\uff0c\u5218\u73ed\u519c\u5199\u4e86\u4e00\u9996\u8bd7\uff0c\u540d\u53eb\u300a\u6211\u600e\u80fd\u4e0d\u601d\u5ff5\u5979\u300b\u3002\u4ed6\u501f\u4e86\u5979,\u4e00\u4e2a\u53d8\u79cd\u89d2\u8272\u610f\u5473\u7740\u201c\u59d0\u59d0\u201d,\u4f46\u5426\u5219\u7834\u4ea7,\u548c\u7528\u5b83\u6765\u8868\u793a\u5973\u6027\u7b2c\u4e09\u4eba\u3002\u8fd9\u662f\u5c06\u4e2d\u56fd\u5987\u5973\u4ece\u5112\u5bb6\u7236\u6743\u5236\u4e2d\u89e3\u653e\u51fa\u6765\u7684\u52aa\u529b\u7684\u4e00\u90e8\u5206\u3002\r\n\u7ffb\u8bd1\u5de5\u4f5c\u8005\u5728\u5c06\u201c\u5979\/\u5979\u201d\u7ffb\u8bd1\u6210\u4e2d\u6587\u65f6\u4e00\u76f4\u5728\u52aa\u529b:\u4ed6\u4eec\u60f3\u8981\u72ec\u7acb\u7684\u4ee3\u8bcd\uff0c\u800c\u4e0d\u662f\u6027\u522b\u4e0d\u53ef\u77e5\u7684\u4ee3\u8bcd\u3002\u903b\u8f91\u5f88\u7b80\u5355\u3002\u4f5c\u4e3a\u4e00\u79cd\u6ca1\u6709\u6027\u522b\u7684\u8bed\u8a00\uff0c\u6c49\u8bed\u4e0d\u80fd\u50cf\u5927\u591a\u6570\u5370\u6b27\u8bed\u7cfb\u8bed\u8a00\u90a3\u6837\u7cbe\u786e\u3002\u6b64\u5916\uff0c\u6ca1\u6709\u5973\u6027\u4ee3\u8bcd\u4e5f\u53cd\u6620\u4e86\u4e2d\u56fd\u6587\u5316\u5bf9\u5973\u6027\u7d20\u517b\u7684\u8ba4\u8bc6\u4e0d\u8db3;\u56e0\u6b64\uff0c\u4f7f\u7528\u5973\u6027\u4ee3\u8bcd\u5bf9\u6c49\u8bed\u6709\u76ca\u3002\r\n\u4e0d\u662f\u6bcf\u4e2a\u4eba\u90fd\u540c\u610f\u4e86\u3002\u4e00\u4e9b\u7537\u6027\u6279\u8bc4\u4eba\u58eb\u6307\u51fa,\u4ed6\u5df2\u7ecf\u5305\u542b\u4e24\u6027:\u53d1\u660e\u65b0\u4ee3\u8bcd\u5c06\u5f15\u5165\u4e00\u4e2a\u65b0\u7684\u8bed\u8a00\u533a\u5206\u7537\u6027\u548c\u5973\u6027\u3002\u5176\u4ed6\u5973\u6027\u6279\u8bc4\u5bb6\u66f4\u8fdb\u4e00\u6b65\u8ba4\u4e3a,\u4ee3\u66ff\u4eba\u7c7b(\u4eba)\u7684\u6fc0\u8fdb\u7684\u6fc0\u8fdb\u7684\u5973\u6027(\u5973),\u5979\u4f1a\u6697\u793a\u4eba\u7c7b\u5973\u6027\u4f4e\u4e8e\u7537\u6027\u3002\u4e0d\u8fc7,\u5979\u6210\u4e3a\u5973\u6027\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\u7684\u89d2\u8272,\u800c\u4ed6\u4ece\u666e\u904d\u7684\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\u66f4\u72ec\u5bb6\u7537\u6027\u4ee3\u8bcd\u3002\r\n\u5982\u524d\u6240\u8ff0\uff0c\u4e0a\u4e2a\u4e16\u7eaa\u7684\u7ffb\u8bd1\u5de5\u4f5c\u8005\u66f4\u5173\u5fc3\u6c49\u8bed\u7684\u51c6\u786e\u6027\uff0c\u4f46\u968f\u7740\u73b0\u5b9e\u7684\u53d8\u5316\u548c\u4ef7\u503c\u89c2\u7684\u8fdb\u6b65\uff0c\u4eca\u5929\u7684\u6311\u6218\u662f\u5982\u4f55\u4f7f\u6c49\u8bed\u66f4\u5177\u5305\u5bb9\u6027\uff0c\u8fd9\u5728\u897f\u65b9\u5df2\u6210\u4e3a\u4e00\u4e2a\u7a81\u51fa\u7684\u4ef7\u503c\u3002\u56e0\u6b64\uff0c\u672c\u571f\u5316\u8fd8\u5305\u62ec\u5c06\u897f\u65b9\u4ef7\u503c\u89c2\u5f15\u5165\u4e0d\u540c\u7684\u6587\u5316\uff0c\u5305\u62ec\u73b0\u5b9e\u4e2d\u6ecb\u517b\u8fd9\u4e9b\u4ef7\u503c\u89c2\u7684\u6587\u5316\u9700\u6c42\u3002\r\n\u8de8\u6027\u522b\u7fa4\u4f53\u5728\u4e2d\u56fd\u8fd8\u6ca1\u6709\u5f97\u5230\u5e7f\u6cdb\u7684\u8ba4\u53ef\u30022016\u5e74\u7684\u4e00\u9879\u8c03\u67e5\u663e\u793a\uff0c43%\u7684\u4e2d\u56fd\u53d7\u8bbf\u8005\u8ba4\u4e3a\u53d8\u6027\u4eba\u60a3\u6709\u67d0\u79cd\u7cbe\u795e\u75be\u75c5\u3002\u867d\u7136\u4e5f\u6709\u50cf\u91d1\u661f\u8fd9\u6837\u7684\u4f8b\u5916\uff0c\u4f46\u5bf9\u5979\u7684\u8ba4\u53ef\u662f\u4f34\u968f\u7740\u5bf9\u4f20\u7edf\u6027\u522b\u89c4\u8303\u7684\u5168\u9762\u63a5\u53d7\u3002\u6709\u4eba\u53ef\u80fd\u4f1a\u8bf4\uff0c\u5728\u4e2d\u56fd\uff0c\u4ece\u4e00\u79cd\u6027\u522b\u5230\u53e6\u4e00\u79cd\u6027\u522b\u7684\u8f6c\u53d8\u95ee\u9898\u4e0d\u5927\u2014\u2014\u53ea\u8981\u53e6\u4e00\u79cd\u6027\u522b\u7684\u89c4\u8303\u4ecd\u7136\u88ab\u9075\u5b88\u3002\u5f53\u975e\u4e8c\u5143\u6027\u7684\u4eba\u8ba4\u4e3a\u81ea\u5df1\u662f\u4e8c\u5143\u6027\u7684\u65f6\u5019\uff0c\u975e\u4e8c\u5143\u6027\u4ee3\u8bcd\u5c31\u4e0d\u90a3\u4e48\u7d27\u8feb\u4e86\u3002\r\n\u5728\u8bb2\u6c49\u8bed\u7684\u8de8\u6027\u522b\u7fa4\u4f53\u4e2d\uff0c\u6ca1\u6709\u4e00\u4e2a\u516c\u8ba4\u7684\u975e\u4e8c\u5143\u6027\u522b\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\uff0c\u4f46\u4e5f\u6709\u4e00\u4e9b\u5019\u9009\u8bcd\u3002\u4e00\u4e9b\u5df2\u7ecf\u53d6\u4ee3\u4e86\u4eba\u7684\u6fc0\u8fdb\u5206\u5b50\u548c\u5973X,\u4f7f\u4e00\u4e2a\u65b0\u5355\u8bcd\u201cX\u4e5f\u3002\u201d\u8fd9\u662f\u4e00\u4e2a\u53ef\u884c\u7684\u9009\u62e9\uff0c\u4e00\u65e6\u5b57\u4f53\u5927\u7684\u8f6f\u4ef6\u516c\u53f8\u628a\u5b83\u6dfb\u52a0\u5230\u6c49\u5b57\u5217\u8868\u4e2d\uff0c\u4f46\u8fd9\u5c06\u662f\u4e00\u4e2a\u81ea\u4e0a\u800c\u4e0b\u7684\u8fc7\u7a0b\uff0c\u56e0\u4e3a\u6240\u6709\u4e2d\u56fd\u7684\u79d1\u6280\u516c\u53f8\u90fd\u5fc5\u987b\u56de\u7b54\u653f\u5e9c\u3002\r\n\u9999\u6e2f\u7684\u8de8\u6027\u522b\u8d44\u6e90\u4e2d\u5fc3(Transgender Resource Center)\u4e3b\u5f20\u4f7f\u7528\u201cTA\u201d\u4f5c\u4e3a\u666e\u901a\u8bdd\u4e2d\u7684\u975e\u4e8c\u5143\u4ee3\u8bcd\uff0c\u53d1\u97f3\u4e5f\u4e3a\u201ct\u0101\u201d\u3002\u201cTA\u201d\u4f5c\u4e3a\u4e00\u4e2a\u4e2d\u6027\u4ee3\u8bcd\u7684\u8d77\u6e90\u662f\u76f8\u5f53\u6a21\u7cca\u7684\u3002\u636e\u63a8\u6d4b\uff0c\u201cTA\u201d\u4e00\u8bcd\u6700\u521d\u662f\u4f5c\u4e3a\u7f51\u7edc\u4fda\u8bed\u51fa\u73b0\u7684\uff0c\u7528\u6765\u6307\u4ee3\u90a3\u4e9b\u6027\u522b\u4fe1\u606f\u88ab\u8ba4\u4e3a\u4e0d\u76f8\u5173\u6216\u8fc7\u4e8e\u66b4\u9732\u7684\u8bed\u5883\u3002\u8be5\u8bcd\u7684\u4f18\u70b9\u5305\u62ec\u5176\u53d1\u97f3\u2014\u2014\u4e0e\u7537\u6027\u548c\u5973\u6027\u7b2c\u4e09\u4eba\u79f0\u4ee3\u8bcd\u7684\u53d1\u97f3\u76f8\u540c\u3002\u6b64\u5916\uff0c\u8bb8\u591a\u4e2d\u56fd\u7f51\u6c11\u5df2\u7ecf\u5728\u4f7f\u7528\u5b83\u3002\r\n\u5c3d\u7ba1\u201cTA\u201d\u662f\u4e00\u4e2a\u4e0d\u9519\u7684\u5019\u9009\u4eba\uff0c\u4f46\u5b83\u4e5f\u4f34\u968f\u7740\u4e00\u4e9b\u6311\u6218\u3002\u7b2c\u4e00\u4e2a\u6311\u6218\u662f\u5b83\u7684\u8bed\u4f53:\u201cTA\u201d\u662f\u6b63\u5f0f\u8bdd\u8bed\u4e2d\u4e0d\u5b58\u5728\u7684\u7f51\u7edc\u4fda\u8bed\u3002\u7b2c\u4e8c\u4e2a\u6311\u6218\u662f\u5b83\u7684\u8bed\u8a00\u6765\u6e90:\u201cTA\u201d\u4e0d\u662f\u4e00\u4e2a\u6c49\u5b57\u3002\u7b2c\u4e09\u4e2a\uff0c\u6216\u8bb8\u4e5f\u662f\u6700\u4e25\u91cd\u7684\u4e00\u4e2a\u6311\u6218\u662f\uff0c\u867d\u7136\u4e2d\u56fd\u7f51\u6c11\u5e7f\u6cdb\u4f7f\u7528TA\uff0c\u4f46\u6211\u4eec\u4e0d\u80fd\u786e\u5b9aTA\u662f\u5426\u662f\u5927\u591a\u6570\u975e\u4e8c\u5143\u6027\u522b\u4e2d\u56fd\u4eba\u7684\u9996\u9009\u4ee3\u8bcd\u3002\u8fd9\u5728\u4e00\u5b9a\u7a0b\u5ea6\u4e0a\u662f\u56e0\u4e3a\u4ed6\u4eec\u7684\u793e\u533a\u53d1\u5c55\u76f8\u5bf9\u6765\u8bf4\u8fd8\u5904\u4e8e\u521d\u7ea7\u9636\u6bb5\u3002\r\n\u5982\u679c\u975e\u4e8c\u5143\u5bf9\u7acb\u7684\u534e\u4eba\u793e\u533a\u8fd8\u6ca1\u6709\u5c31\u4ed6\u4eec\u559c\u6b22\u7684\u4ee3\u8bcd\u8fbe\u6210\u4e00\u81f4\u610f\u89c1\uff0c\u5c31\u6ca1\u6709\u5916\u56fd\u4ee3\u7406\u4eba\u80fd\u591f\u544a\u8bc9\u4ed6\u4eec\u5e94\u8be5\u4f7f\u7528\u4ec0\u4e48\u4ee3\u8bcd\u3002\u68d8\u624b\u7684\u662f\uff0c\u8981\u6c42\u975e\u4e8c\u5143\u4ee3\u8bcd\u672c\u5730\u5316\u6210\u4e2d\u6587\uff0c\u5c31\u50cf\u5728\u4e00\u4e2a\u4e0d\u5b58\u5728\u7684\u5730\u65b9\u5bfb\u627e\u89e3\u51b3\u65b9\u6848\u4e00\u6837\u3002\r\n\u4e2d\u6027\u4ee3\u8bcd\u7684\u62e5\u62a4\u8005\u7ecf\u5e38\u8ba4\u4e3a\uff0c\u5bf9\u6027\u522b\u7684\u4e8c\u5143\u7406\u89e3\u4e0e\u897f\u65b9\u6b96\u6c11\u4e3b\u4e49\u6709\u5173\u3002\u8981\u6c42\u975e\u897f\u65b9\u8bed\u8a00(\u5982\u6c49\u8bed)\u91c7\u7528\u6027\u522b\u5305\u5bb9\u6027\u8bed\u8a00\u7684\u95ee\u9898\u5728\u4e8e\uff0c\u5b83\u8feb\u4f7f\u5176\u4ed6\u6587\u5316\u9762\u5bf9\u81ea\u5df1\u5bf9\u5f85\u975e\u4e8c\u5143\u6027\u522b\u8005\u7684\u65b9\u5f0f\uff0c\u8fd9\u53ef\u80fd\u662f\u4e00\u4e2a\u4fb5\u5165\u6027\u7684\u8fc7\u7a0b\u3002\u8003\u8651\u5230\u4e2d\u56fd\u56fd\u5185\u7684LGBTQ+\u6743\u5229\u7ec4\u7ec7\u5df2\u7ecf\u9762\u4e34\u88ab\u6253\u4e0a\u5916\u56fd\u5f71\u54cd\u529b\u4ee3\u7406\u4eba\u7684\u98ce\u9669\uff0c\u60f3\u8981\u4ece\u4e2d\u56fd\u5e02\u573a\u83b7\u5229\u7684\u4f01\u4e1a\u4e0d\u80fd\u627f\u62c5\u88ab\u6307\u63a7\u4e3a\u98a0\u8986\u56fd\u5bb6\u4ef7\u503c\u89c2\u548c\u793e\u4f1a\u79e9\u5e8f\u7684\u897f\u65b9\u4ee3\u7406\u4eba\u7684\u98ce\u9669\u3002\u6bd5\u7adf\uff0c\u5982\u679c\u4e2d\u56fd\u653f\u5e9c\u51b3\u5b9a\u5c06LGBTQ+\u6dfb\u52a0\u5230\u7981\u6b62\u540d\u5355\u4e2d\uff0c\u516c\u53f8\u5c06\u9762\u4e34\u4e24\u96be\u7684\u9009\u62e9:\u8981\u4e48\u653e\u5f03\u5728\u4e2d\u56fd\u7684\u5229\u6da6\uff0c\u8981\u4e48\u653e\u5f03LGBTQ+\u5185\u5bb9\uff0c\u4f46\u758f\u8fdc\u5176\u4ed6\u5730\u533a\u7684\u5ba2\u6237\u3002\r\n\u6709\u4e00\u4e2a\u65b9\u6cd5\u53ef\u4ee5\u6446\u8131\u8fd9\u79cd\u56f0\u5883:\u5141\u8bb8\u7528\u6237\u81ea\u5b9a\u4e49\u4ed6\u4eec\u81ea\u5df1\u7684\u4ee3\u8bcd\uff0c\u7279\u522b\u662f\u5f53\u5f53\u5730\u7684\u53d7\u4f17\u8fd8\u6ca1\u6709\u5f62\u6210\u4efb\u4f55\u660e\u786e\u7684\u4ee3\u8bcd\u65f6\u3002\u4e00\u4e2a\u62c5\u5fe7\u662f\u55b7\u5b50\u53ef\u80fd\u4f1a\u6ee5\u7528\u8fd9\u4e00\u673a\u5236\u3002\u4f46\u662f\uff0c\u55b7\u5b50\u4eec\u4e00\u76f4\u5728\u6ee5\u7528\u81ea\u6211\u547d\u540d\u673a\u5236\uff0c\u6e38\u620f\u884c\u4e1a\u5df2\u7ecf\u5f00\u53d1\u51fa\u4e86\u53ef\u80fd\u6709\u52a9\u4e8e\u81ea\u5b9a\u4e49\u4ee3\u8bcd\u7684\u7f13\u548c\u505a\u6cd5\u3002\u6700\u540e\uff0c\u5728\u89e3\u51b3\u8bed\u8a00\u884c\u4e1a\u7684\u56f0\u5883\u65f6\uff0c\u6211\u4eec\u5fc5\u987b\u591a\u624d\u591a\u827a\u3002","recommend_invest":[{"id":49776,"company_id":119686,"money_type":1338,"create_time":"2018-10-14","company_name":"\u535a\u96c5\u5e72\u7ec6\u80de","content":"\u535a\u96c5\u5e72\u7ec6\u80de\u662f\u4e00\u5bb6\u5e72\u7ec6\u80de\u751f\u7269\u6280\u672f\u7814\u7a76\u673a\u6784\uff0c\u4e13\u6ce8\u4e8e\u5229\u7528\u81ea\u4f53\u5e72\u7ec6\u80de\u6280\u672f\uff0c\u6cbb\u7597\u4e25\u91cd\u80a2\u4f53\u7f3a\u8840\u75c7\u3002","logo":"\/static\/upload\/system\/201810\/109509.jpg","roundName":"","introduction":"\u5e72\u7ec6\u80de\u751f\u7269\u6280\u672f\u7814\u7a76\u673a\u6784","money":"\u6682\u4e0d\u900f\u9732","city":"\u65e0\u9521\u5e02","fields":[{"name":"\u827e\u6ecb\u75c5","id":5429}]}],"read_time":12,"word_count":1122}]
+        var reNew = []
+       // console.log(data,'data');
+//                console.log(reNew);
+        if(data[0]['lang'] == 1) {
+            var content = data[0]['content']
+            var ch_content = data[0]['ch_content']
+            //        document.write(content + "<br />")
+            //                content = strContent.replace(/\r\n/g, '<br/>'); //IE9、FF、chrome
+            //                content = strContent.replace(/\n/g, '<br/>'); //IE7-8
+            //                content = strContent.replace(/\s/g, ' '); //空格处理
+            /**
+             * 文本格式处理
+             */
+            var getFormatCode = function (en_content, ch_content) {
+           // console.log(en_content,ch_content,ch_content.indexOf("\r\n"),ch_content.indexOf("\n"))
+                if ((en_content.indexOf("\r\n") != -1 || en_content.indexOf("\n") != -1) && (ch_content.indexOf("\r\n") != -1 || ch_content.indexOf("\n") != -1)) {
+                    en_content = en_content.replace(/(\r\n)+/g, '<br/>')
+                            .replace(/(\n)+/g, '<br/>')
+                            .replace(/(\s)+/g, ' ')
+                            .replace(/(<br\/>)+(\s)+/g, '<br/>')
+                            .replace(/(<br\/>)+/g, '</p><p>');
+                    ch_content = ch_content.replace(/(\r\n)+/g, '<br/>')
+                            .replace(/(\n)+/g, '<br/>')
+                            .replace(/(\s)+/g, ' ')
+                            .replace(/(<br\/>)+(\s)+/g, '<br/>')
+                            .replace(/(<br\/>)+/g, '</p><p>');
+//                console.log(ch_content.slice(ch_content.indexOf('</p><p>')+1).indexOf('</p><p>'))
+                    if (ch_content.slice(ch_content.indexOf('</p><p>') + 1).indexOf('</p><p>') == -1) {
+                        en_content = en_content.replace(/(<\/p>)(\s)*(<p>)/g, ' ')
+                    }
+                    return {
+                        en_content: en_content,
+                        ch_content: ch_content,
+                    }
+                } else {
+                    return {
+                        en_content: en_content,
+                        ch_content: ch_content,
+                    }
+                }
+            }
+            var content = getFormatCode(content, ch_content)
+                            // console.log(content)
+            var winWidth = window.screen.width
+            if (winWidth >= 768) {
+                $('.original-content').html('<p>' + content.en_content + '</p>')
+                var translationContent = '<p>' + content.ch_content + '</p>'
+                if (data[0]['postEditor']) {
+                    translationContent += '<p>译后编辑：'+data[0]['postEditor']+'</p>'
+                }
+                translationContent += '<p>微信关注沙龙君，网罗翻译行业资讯</p><img src="http://transtech.lingosail.com/static/img/frontend/news/shalongwechatCode.jpg" alt="" width="100" height="100">';
+                $('.translation-content').html(translationContent)
+                $.each($('.original-content p'), function (index, ele) {
+//            console.log(ele,index)
+                    if ($(ele).html() == "") {
+                        $(ele).remove()
+                    }
+                })
+                $.each($('.translation-content p'), function (index, ele) {
+//            console.log(ele,index)
+                    if ($(ele).html() == "") {
+                        $(ele).remove()
+                    }
+                })
+            }else {
+                var en_content_array = content.en_content.split('<p>')
+                var ch_content_array = content.ch_content.split('<p>')
+                var new_content = ''
+//                if(en_content_array.length >= ch_content_array.length){
+                    $.each(en_content_array, function (index, ele) {
+                        new_content += '<p class="en_content">' + ele + '<p class="ch_content">' + ch_content_array[index]
+                    })
+//                }else {
+//                    $.each(ch_content_array, function (index, ele) {
+//                        new_content +=  '<p class="ch_content">' + ele + '<p class="en_content">' + en_content_array[index]
+//                    })
+//                }
+                $('.small_content').html(new_content)
+                $.each($('.small_content p'), function (index, ele) {
+                    if ($(ele).html() == "" || $(ele).html() == "undefined") {
+                        $(ele).remove()
+                    }
+                })
+            }
+        } else {
+
+        }
+
+
+
+    </script>
+    <script src="http://transtech.lingosail.com/js/news/detail_2.2.0.js?v=2.3.6"></script>
+    
+
+</body></html>

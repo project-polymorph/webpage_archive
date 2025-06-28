@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title>潜派旅行</title>
+    <meta charset="UTF-8">
+    <!-- 页面关键词 keywords -->
+    <meta name="keywords" content="潜派旅行,环球影城">
+    <!-- 页面描述内容 description -->
+    <meta name="description" content="潜派旅行,环球影城">
+    <!-- 定义网页作者 author -->
+    <meta name="author" content="gtalpha,gtalpha@163.com">
+    <!-- 定义网页搜索引擎索引方式，robotterms 是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。 -->
+    <meta name="robots" content="index,follow">
+    <meta name="renderer" content="webkit">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/static/index/images/divepai1.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script>
+        //全局上传文件端口
+        var UPLOAD_FILE_URL = "/admin/upload_files/upload.html";
+        //全局选择文件端口
+        var SELECT_FILE_URL = "/admin/upload_files/select.html";
+    </script>
+
+    <script src="/static/admin/js/jquery-2.0.0.min.js"></script>
+    <script src="/static/admin/js/common.js"></script>
+    <script src="/static/admin/js/upload.js"></script>
+    <script src="/static/admin/js/webuploader.min.js"></script>
+    <script src="/static/wechat/jssdk.js"></script>
+    
+    <link rel="stylesheet" href="/static/admin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/admin/style/layuiAdmin.css" media="all">
+    <link rel="stylesheet" href="/static/admin/style/base.css" media="all">
+    <link rel="stylesheet" href="/static/fans/style/base.css" media="all">
+    
+<link type="text/css" rel="stylesheet" href="/static/index/css/login.css">
+<link type="text/css" rel="stylesheet" href="/static/index/css/common_1.2login.css">
+<style>
+    .header
+    {
+        width: 100%;
+        padding:5px 40px;
+        box-sizing: border-box;
+    }
+    .newBar
+    {
+        width: 94%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .newBar .logo img{height:32px;}
+    .newBar .logo_right img{height:26px;}
+    .qrcode
+    {
+        width: 200px;
+        position: fixed;
+        /*bottom:120px;*/
+        top:460px;
+        right: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+</style>
+
+<link id="layuicss-laydate" rel="stylesheet" href="https://mp.divepai.com/static/admin/layui/css/modules/laydate/default/laydate.css?v=5.3.1" media="all"><link id="layuicss-layer" rel="stylesheet" href="https://mp.divepai.com/static/admin/layui/css/modules/layer/default/layer.css?v=3.5.1" media="all"><link id="layuicss-skincodecss" rel="stylesheet" href="https://mp.divepai.com/static/admin/layui/css/./modules/code.css?v=2" media="all"></head>
+<body style="">
+
+<div class="header">
+    <div class="newBar">
+        <div class="logo">
+            <img src="/static/index/images/logo.png" alt="潜派旅行">
+        </div>
+        <div class="logo_right">
+            <!--<img src="/static/index/images/logo_right.png" alt="潜派旅行">-->
+            <!--<button class="layui-btn layui-btn-primary" id="demo1">-->
+                <!--产品列表-->
+                <!--<i class="layui-icon layui-icon-down layui-font-12"></i>-->
+            <!--</button>-->
+            <!--<button class="area layui-btn layui-btn-primary">-->
+                <!--目的地-->
+            <!--</button>-->
+            <!--<button class="strategy layui-btn layui-btn-primary">-->
+                <!--亲子记录片-->
+            <!--</button>-->
+            <button class="clubmed layui-btn layui-btn-primary">
+                CLUBMED合集
+            </button>
+            <button class="maldives layui-btn layui-btn-primary">
+                马尔代夫选岛
+            </button>
+            <button class="semporna layui-btn layui-btn-primary">
+                仙本那直采
+            </button>
+        </div>
+    </div>
+</div>
+<!--大图背景和悬浮框-->
+<div class="loginBackground" style="background: url('/static/index/images/loginBackground.jpg') no-repeat;">
+    <div class="loginContainer">
+        <div class="flyText" style="background: url('/static/index/images/flyText.png') no-repeat;">
+            <i style="background: url('/static/index/images/fly.png') no-repeat"></i>
+        </div>
+
+    </div>
+</div>
+<div class="qrcode">
+    <div><img src="/static/index/images/wechat_divepai.jpg" style="width: 110px;" alt="潜派旅行"> </div>
+    <div style="margin-top: 10px;color: white">关注潜派旅行，开启精彩之旅</div>
+</div>
+<div class="copyRight">
+    <a href="/sitemap.xml">网站地图</a>
+    <a href="http://www.alexa.cn/divepai.com">ALEXA</a>
+    Copyright © 2021 divepai.com All rights reserved. (<a href="https://beian.miit.gov.cn/" target="_blank">津ICP备14005812号-1</a>)
+    <a target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010402001480"><img src="/static/index/images/beian_0.png" style="margin-left: 10px;width: 14px;" alt="潜派旅行"><span style="height:32px;line-height:32px;margin: 0px 0px 0px 5px;">津公网安备 12010402001480号</span></a>
+</div>
+
+<script src="/static/admin/layui/layui.js"></script>
+<script src="/static/admin/js/admin.js"></script>
+
+<script>
+    layui.use('dropdown', function(){
+        var dropdown = layui.dropdown
+        dropdown.render({
+            elem: '#demo1' //可绑定在任意元素中，此处以上述按钮为例
+            ,data: [{
+                title: '酒店度假'
+                ,id: 100
+                ,href: '/index/product/lists/type/1012.html'
+            },{
+                title: '游轮邮轮'
+                ,id: 101
+                ,href: '/index/product/lists/type/1022.html' //开启超链接
+                //,target: '_blank' //新窗口方式打开
+            },{
+                title: '冬夏令营'
+                ,id: 102
+                ,href: '/index/product/lists/type/1023.html' //开启超链接
+                //,target: '_blank' //新窗口方式打开
+            },{
+                title: '旅游线路'
+                ,id: 103
+                ,href: '/index/product/lists/type/1018.html' //开启超链接
+                //,target: '_blank' //新窗口方式打开
+            }]
+            ,id: 'demo1'
+            //菜单被点击的事件
+            ,click: function(obj){
+                console.log(obj);
+                layer.msg('回调返回的参数已显示再控制台');
+            }
+        });
+
+        $(".clubmed").click(function(){
+            window.location.href="/index/clubmed/index";
+        })
+
+        $(".maldives").click(function(){
+            window.location.href="/index/maldive/index";
+        })
+
+        $(".semporna").click(function(){
+            window.location.href="/index/semporna/index";
+        })
+    });
+</script>
+
+
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+<script>
+    /*
+     * 注意：
+     * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+     * 2. 如果发现在 Android 不能分享自定义内容，请到官网下载最新的包覆盖安装，Android 自定义分享接口需升级至 6.0.2.58 版本及以上。
+     * 3. 常见问题及完整 JS-SDK 文档地址：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+     *
+     * 开发中遇到问题详见文档“附录5-常见错误及解决办法”解决，如仍未能解决可通过以下渠道反馈：
+     * 邮箱地址：weixin-open@qq.com
+     * 邮件主题：【微信JS-SDK反馈】具体问题
+     * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
+     */
+    wx.config({
+        debug: false,
+        appId: "",
+        timestamp: "",
+        nonceStr: "",
+        signature: "",
+        jsApiList: [
+            'onMenuShareAppMessage', 'onMenuShareTimeline'
+        ]
+    });
+    wx.ready(function () {
+        wx.ready(function () {
+            wx.checkJsApi({
+                jsApiList: [
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage'
+                ],
+            });
+
+            var shareData = {
+
+                title: "",
+                desc: "",
+                link: "",
+                imgUrl: "",
+            };
+            wx.onMenuShareAppMessage(shareData);  //分享给朋友
+            wx.onMenuShareTimeline(shareData); //分享朋友圈
+        });
+    });
+</script></body></html>

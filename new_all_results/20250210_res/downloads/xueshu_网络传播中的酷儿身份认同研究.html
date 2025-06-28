@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="zh"><head><script src="https://hm.baidu.com/hm.js?20c5d09058effeaad8703343e5fa9c95"></script>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <link rel="dns-prefetch" href="//s1.bdstatic.com">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="any" mask="" href="//www.baidu.com/img/baidu.svg">
+    <script src="/lib/static/scholar/cache/global_30/js/md5.min_fcadbf5.js"></script>
+    <script>var token = 'd7ae619c97a98057dadfa150216017b444b23f7799419e7fb102e6fb7592d6d8'</script>
+    <title>网络传播中的酷儿身份认同研究 - 百度学术</title>
+
+    
+<link rel="stylesheet" href="/lib/static/scholar/cache/paper/css/show_b3ef4a7.css">
+
+    
+<script src="/lib/static/scholar/cache/jquery/jquery-1.10.2.min_45ac1eb.js"></script>
+<script src="/lib/static/scholar/cache/global_30/js/env_4700266.js"></script>
+<script type="text/javascript">
+var plat = 'pc';
+var from = uaMatch(navigator.userAgent);
+from = from.platformid;
+// 传入 js 中的字段
+var bds = {
+    se: {},
+    util: {},
+    comm: {
+        // 是否为高级感
+        gj: '1',
+        // bs token
+        bsToken: 'the fisrt two args should be string type:0,1!',
+        // 用户名
+        user: '',
+        username: '',
+        // 登录之后的行为数组
+        loginAction: [],
+        // host
+        host: window.location.host,
+        // 埋点
+        qid:'2576943101',
+        // ppv domain
+        ppvDomain: 'https://gss3.baidu.com/94oOeTu80BF3otqbppnN2DJv',
+        // 标识是学术的哪个模块
+        tn: 'ae_xueshu_paper',
+        // 标识是学术的哪个页面
+        fr: 'detailpage',
+        // 同一个页面的不同模式，用于图书馆
+        mod: '',
+        // 如果是论文详情，或者期刊详情，需要传
+        wd: 'paperid:(bd65b5f5414a41e7c259672ba48de822)',
+        // 结果页搜索url参数，统一为 &tn=SE_baiduxueshu_c1gjeupa&ie=utf-8
+        scUrlComponent: '&tn=SE_baiduxueshu_c1gjeupa&ie=utf-8',
+        sid: ''
+    }
+};
+
+// 百度统计JS-API部署(http://tongji.baidu.com/open/api/more?p=guide_overview)
+// 方便进行定制化的百度统计开发
+var _hmt = _hmt || [];
+
+/**
+ * 增加xueshu nsclick统计
+ *
+ * @param {Object} q 字段集合
+ * @return {Boolean} 当发送成功时返回true
+ */
+function ns_c_xs(q){
+    // 图书馆模式针对二级机构的打点延迟
+    if (bds.comm && bds.comm.lib) {
+        if (!bds.comm.subMod) {
+            //没有识别到subMod，延迟等会
+            setTimeout(function() {
+                logFun(q)
+            }, 800);
+        }
+        else {
+            logFun(q)
+        }
+    }
+    else {
+        logFun(q)
+    }
+    return true;
+}
+
+/**
+ * nsclick统计原函数
+ *
+ * @param {Object} q 字段集合
+ * @return {Boolean} 当发送成功时返回true
+ */
+ function logFun(q){
+    var img = window['BD_PS_C' + (new Date()).getTime()] = new Image();
+    var wd = encodeURIComponent('paperid:(' + bds.comm.paperid + ')');
+    // uda打点新增固定参数
+    // 产品id
+    q['bid'] = 1;
+    // 终端渠道标识
+    q['from'] = from;
+    // 平台
+    q['plat'] = plat;
+    // sQ
+    var sQ = '';
+    var sV = '';
+    for (v in q) {
+        switch (v) {
+            case 'title':
+                sV = encodeURIComponent(q[v].replace(/<[^<>]+>/g, ''));
+                break;
+            case 'url':
+                sV = encodeURIComponent(q[v]);
+                break;
+            default:
+                sV = q[v]
+        }
+        sQ += v + '=' + sV + '&';
+    }
+
+    img.src = ''
+        + 'https://sp1.baidu.com/8qUJcD3n0sgCo2Kml5_Y_D3/v.gif'
+        // 产品线id，固定值201
+        + '?pid=201'
+        // 产品线标识，固定值mp_xueshu
+        + '&pj=mp_xueshu'
+        // 服务器产生的logID
+        + '&qid=' + bds.comm.qid
+        // 当前时间戳
+        + "&t=" + new Date().getTime()
+        // 当前地址的url
+        + "&path=" + encodeURIComponent(window.document.location.href)
+        + "&refer=" + encodeURIComponent(window.document.referrer)
+        // 频道标识
+        + "&tn=" + bds.comm.tn
+        // 具体论文/期刊，如果是论文: paperuri:(paperid), 如果是期刊: journaluri(journalid)
+        + '&wd=' + bds.comm.wd
+        // 统计来自哪个页面
+        + '&fr=' + bds.comm.fr
+        // 同一个页面的不同模式，可标识图书馆，lib_图书馆名称
+        + '&mod=' + bds.comm.mod
+        // 自定义字段内容
+        // rsv_xpath: 交互的具体dom
+        // title: 标题
+        // url: 所点击的链接的url
+        // act_block: 模块作用
+        // fm: 日志标识
+        // - se：检索日志(详情页loading)
+        // - as：点击日志(跳转到结果页，详情页，原地址，收藏引用等按钮)
+        // - beha：交互日志(不跳转的切换，求助全文中的按钮)
+        // - show：展现日志(新增)
+        // longsign: paperid
+        + "&ua=" + navigator.userAgent
+        // 小流量id
+        + "&sid=" + bds.comm.sid
+        + "&" + sQ;
+        // 当前页数，暂不提供
+        // + '&pn=' + bds.comm.pn
+        // 暂不提供
+        // + "&oq=" + bds.comm.oq
+        // 暂不提供
+        // + "&rsp=" + bds.comm.rsp
+        // sid，后端暂未提供
+        // + '&rsv_sid=' + bds.comm.sid
+        // 暂不提供
+        // + "f=" + bds.comm.f
+    return true;
+ }
+</script>
+<script type="text/javascript">
+
+	var list = {
+        "graph.baidu.com": "https://sp0.baidu.com/-aYHfD0a2gU2pMbgoY3K",
+		"p.qiao.baidu.com":"https://sp0.baidu.com/5PoXdTebKgQFm2e88IuM_a",
+		"vse.baidu.com":"https://sp3.baidu.com/6qUDsjip0QIZ8tyhnq",
+		"hdpreload.baidu.com":"https://sp3.baidu.com/7LAWfjuc_wUI8t7jm9iCKT-xh_",
+		"lcr.open.baidu.com":"https://sp2.baidu.com/8LUYsjW91Qh3otqbppnN2DJv",
+		"kankan.baidu.com":"https://sp3.baidu.com/7bM1dzeaKgQFm2e88IuM_a",
+		"xapp.baidu.com":"https://sp2.baidu.com/yLMWfHSm2Q5IlBGlnYG",
+		"dr.dh.baidu.com":"https://sp0.baidu.com/-KZ1aD0a2gU2pMbgoY3K",
+		"xiaodu.baidu.com":"https://sp0.baidu.com/yLsHczq6KgQFm2e88IuM_a",
+		"sensearch.baidu.com":"https://sp1.baidu.com/5b11fzupBgM18t7jm9iCKT-xh_",
+		"s1.bdstatic.com":"https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K",
+		"olime.baidu.com":"https://sp0.baidu.com/8bg4cTva2gU2pMbgoY3K",
+		"app.baidu.com":"https://sp2.baidu.com/9_QWsjip0QIZ8tyhnq",
+		"i.baidu.com":"https://sp0.baidu.com/74oIbT3kAMgDnd_",
+		"c.baidu.com":"https://sp0.baidu.com/9foIbT3kAMgDnd_",
+		"sclick.baidu.com":"https://sp0.baidu.com/5bU_dTmfKgQFm2e88IuM_a",
+		"nsclick.baidu.com":"https://sp1.baidu.com/8qUJcD3n0sgCo2Kml5_Y_D3",
+		"sestat.baidu.com":"https://sp1.baidu.com/5b1ZeDe5KgQFm2e88IuM_a",
+		"eclick.baidu.com":"https://sp3.baidu.com/-0U_dTmfKgQFm2e88IuM_a",
+		"api.map.baidu.com":"https://sp2.baidu.com/9_Q4sjOpB1gCo2Kml5_Y_D3",
+		"ecma.bdimg.com":"https://ss1.bdstatic.com/-0U0bXSm1A5BphGlnYG",
+		"ecmb.bdimg.com":"https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG",
+        "t1.baidu.com":"https://ss0.baidu.com/6ON1bjeh1BF3odCf",
+        "t2.baidu.com":"https://ss1.baidu.com/6OZ1bjeh1BF3odCf",
+        "t3.baidu.com":"https://ss2.baidu.com/6OV1bjeh1BF3odCf",
+		"t10.baidu.com":"https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq",
+		"t11.baidu.com":"https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq",
+		"t12.baidu.com":"https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq",
+		"i7.baidu.com":"https://ss0.baidu.com/73F1bjeh1BF3odCf",
+		"i8.baidu.com":"https://ss0.baidu.com/73x1bjeh1BF3odCf",
+		"i9.baidu.com":"https://ss0.baidu.com/73t1bjeh1BF3odCf",
+		"b1.bdstatic.com":"https://ss0.bdstatic.com/9uN1bjq8AAUYm2zgoY3K",
+		"ss.bdimg.com":"https://ss1.bdstatic.com/5aV1bjqh_Q23odCf",
+		"opendata.baidu.com":"https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv",
+		"api.open.baidu.com":"https://sp0.baidu.com/9_Q4sjW91Qh3otqbppnN2DJv",
+		"tag.baidu.com":"https://sp1.baidu.com/6LMFsjip0QIZ8tyhnq",
+		"f3.baidu.com":"https://sp2.baidu.com/-uV1bjeh1BF3odCf",
+		"s.share.baidu.com":"https://sp0.baidu.com/5foZdDe71MgCo2Kml5_Y_D3",
+		"bdimg.share.baidu.com":"https://ss1.baidu.com/9rA4cT8aBw9FktbgoI7O1ygwehsv",
+        "1.su.bdimg.com":"https://ss0.bdstatic.com/k4oZeXSm1A5BphGlnYG",
+        "2.su.bdimg.com":"https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG",
+        "3.su.bdimg.com":"https://ss2.bdstatic.com/kfoZeXSm1A5BphGlnYG",
+        "4.su.bdimg.com":"https://ss3.bdstatic.com/lPoZeXSm1A5BphGlnYG",
+        "5.su.bdimg.com":"https://ss0.bdstatic.com/l4oZeXSm1A5BphGlnYG",
+        "6.su.bdimg.com":"https://ss1.bdstatic.com/kvoZeXSm1A5BphGlnYG",
+        "7.su.bdimg.com":"https://ss2.bdstatic.com/lfoZeXSm1A5BphGlnYG",
+        "8.su.bdimg.com":"https://ss3.bdstatic.com/iPoZeXSm1A5BphGlnYG",
+        "hiphotos.baidu.com":"https://ss3.baidu.com/7LsWdDW5_xN3otqbppnN2DJv",
+        "xueshu.baidu.com":"https://sp0.baidu.com/yK1Dfz_6KgQFm2e88IuM_a",
+        "baidu.bigan.net":"https://ss1.bdstatic.com/9rM4aCva2g5Ho2HgnImD",
+		"a.xueshu.baidu.com":"https://gss3.baidu.com/94oOeTu80BF3otqbppnN2DJv",
+		"ps-scholar-static.bj.bcebos.com":"https://ps-scholar-static.bj.bcebos.com",
+		"newclient.map.baidu.com":"https://newclient.map.baidu.com",
+		"bj.bcebos.com":"https://bj.bcebos.com"
+	};
+//https域名转换工具
+bds.util = bds.util || {};
+bds.util.domain = (function(){
+
+
+var get = function(url) {
+	    // 避免线下测试因数据不全产生异常
+	    if (url == null || url.indexOf('http') === -1) {
+			return url;
+		}
+		if(location.protocol === "http") {
+			return url;
+		}
+
+		var reg = /^(http[s]?:\/\/)?([^\/]+)(.*)/,
+			reg2 = /^(http[s]?:\/\/)?(s1.bdstatic.com\/r\/www\/cache\/mid\/static)(.*)/,
+		matches = url.match(reg),
+		//s1.bdstatic.com静态域名特殊处理
+		matches2 = url.match(reg2);
+		if(matches2){
+			url = "https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/mid/static/protocol/https"+ matches2[3];
+			return url;
+		}else{
+			//判断传入参数是域名还是地址，分别做处理
+			url = list.hasOwnProperty(matches[2])&&(list[matches[2]] + matches[3]) || url;
+			return url;
+		}
+	},
+	set = function(kdomain,vdomain) {
+		list[kdomain] = vdomain;
+	};
+	return {
+		get : get,
+		set : set
+	}
+})();
+</script>
+<script>
+$.extend(bds.comm, {
+    // 是否为学术图书馆
+    lib: '',
+    // 简搜扫码模式
+    jiansou: '0',
+    // 引用走势
+    citedYear: '[{"year":"2016","cited":"1","total":1},{"year":"2017","cited":"1","total":2}]',
+    paperid: 'bd65b5f5414a41e7c259672ba48de822',
+    orgTitleUrl: 'https://www.zhangqiaokeyan.com/academic-degree-domestic_mphd_thesis/020313077681.html',
+    // 来源信息
+    typeDescId: '',
+    typeDescName: '《南京师范大学》',
+    // 论文年份
+    publishedYear: '2014',
+    // 和结果页顶部hint阿拉丁有关
+    isTransShow: 0,
+    // 论文类型
+    paperType: '2',
+    // 是否图书馆已购
+    isPurchase: '0',
+    // 是否图书馆馆藏
+    isCollection: '0',
+    // 期刊issn
+    journal_issn: '',
+    // 是否支持ppv
+    isSupportPpv: false});
+</script>
+
+    
+        <script type="text/javascript">
+bds = bds || {};
+bds.cf = {};
+bds.cf.ts = "1739272776";
+bds.cf.token = "d7ae619c97a98057dadfa150216017b444b23f7799419e7fb102e6fb7592d6d8";
+bds.cf.sign = "e028b43fab83daa19574bf2bcbf55e36";
+
+function getCfStr() {
+    var ts = parseInt(new Date / 1000, 10);
+    return "&_ts=" + ts
+        + "&_token=" + bds.cf.token 
+        + "&_sign=" + md5(ts +  bds.cf.token + '3b6e2e87fcce6eea8337eeac83b478f5');
+}
+
+function getCfObj() {
+    var ts = parseInt(new Date / 1000, 10);
+    return {
+            '_ts' : ts,
+            '_token' : bds.cf.token,
+            '_sign' : md5(ts +  bds.cf.token + '3b6e2e87fcce6eea8337eeac83b478f5')
+        }
+}
+</script>
+    
+<link rel="stylesheet" href="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/mid/static/protocol/https/xueshu_mt/css/message_5d7c4a8a.css" type="text/css" id="messagelink"></head>
+
+<body class="" style="">
+    
+    <div id="wrapper">
+    
+        
+
+                                                                                
+
+<div id="head_wr" class="gj "><div id="head" class="LOG_WR gj " data-log="{'actblock': 'head'}"><div class="headCont "><div id="u" class="gj "><span id="setting"><a class="settingicon" href="javascript:;"><i style="font-size:18px;" class="iconfont  head-icon-set-gray"></i></a><div class="menuarrow"><i class="head-icon head-icon-menu-triangle"></i></div><div id="setMenu" class="menuDropList"><div><a href="javascript:;" class="feedback">意见反馈</a></div></div></span><a id="lb" href="https://passport.baidu.com/v2/?login&amp;tpl=xueshu&amp;u=http%3A%2F%2Fxueshu.baidu.com%2F">登录</a><a href="https://passport.baidu.com/v2/?reg&amp;regType=1&amp;tpl=xueshu&amp;u=https%3A%2F%2Fxueshu.baidu.com%2Fusercenter%2Fpaper%2Fshow%3Fpaperid%3Dbd65b5f5414a41e7c259672ba48de822" target="_blank" class="reg">注册</a></div>
+
+                            <a href="/" class="s_logo">
+                    <div class="s_logo_img" alt="到学术首页" title="到学术首页"></div>
+                </a>
+            
+            <div class="s_form_wr">
+                <form class="fm" id="form" action="//xueshu.baidu.com/s">
+                    <div class="s_ipt_wr">
+                        <input name="wd" autocomplete="off" id="kw" value="" maxlength="256">
+                    </div>
+
+                                        <div class="sc_adv_search_btn">
+                        <input type="submit" value="百度一下">
+                    </div>
+                    
+                    <input type="hidden" name="ie" value="utf-8">
+<input type="hidden" name="tn" value="SE_baiduxueshu_c1gjeupa">
+<input type="hidden" name="sc_from" value="">
+<input type="hidden" name="sc_as_para" value="sc_lib:">
+
+
+                                    <div class="sug-container"></div></form>
+
+<div class="sc_adv_triangle_down gj">
+            <span class="sc_adv_btn">高级搜索</span>
+    </div>
+
+<div id="sc_adv">
+<form action="//xueshu.baidu.com/s" id="sc_adv_frm">
+    <div class="sc_adv_hatr">
+        <span class="sc_adv_label">包含全部检索词</span>
+        <span><input type="text" placeholder="" data-type="all" data-name="" class="sc_adv_keyword_ipt sc-input sc_adv_keyword1" maxlength="100" value=""></span>
+    </div>
+    <div class="sc_adv_hatr">
+        <span class="sc_adv_label">包含精确检索词</span>
+        <span><input type="text" placeholder="多个检索词以逗号，分隔" data-type="precise" data-name="" class="sc_adv_keyword_ipt sc-input sc_adv_keyword2" maxlength="100" value=""></span>
+    </div>
+    <div class="sc_adv_hatr">
+        <span class="sc_adv_label">包含至少一个检索词</span>
+        <span><input type="text" placeholder="多个检索词以逗号，分隔" data-type="or" data-name="" class="sc_adv_keyword_ipt sc-input" maxlength="100" value=""></span>
+    </div>
+    <div class="sc_adv_hatr">
+        <span class="sc_adv_label">不包含检索词</span>
+        <span><input type="text" placeholder="多个检索词以逗号，分隔" data-type="not" data-name="" class="sc_adv_keyword_ipt sc-input" maxlength="100" value=""></span>
+    </div>
+    <div class="sc_adv_hatr" style="margin-bottom:23px;">
+        <span class="sc_adv_label">出现检索词的位置</span>
+        <span class="sc_adv_keyword_pos">
+            <div class="sc_adv_dropdown_btn">
+                <span class="sc_adv_dropdown_text">
+                                    <a href="javascript:;" data-name="">文章任何位置</a>
+                                </span>
+                <i class="sc_adv-icon c-icon-arrow-down-gray"></i>
+                <div class="sc_adv_dropdown_group sc_adv_dropdown_group1 sc_adv_dropgroup_title" data-index="1">
+                                    <a href="javascript:;" data-name="intitle">位于文章标题</a>
+                                </div>
+            </div>
+        </span>
+    </div>
+    <div class="sc_adv_hatr">
+        <span class="sc_adv_label">作者</span>
+        <span><input type="text" placeholder="请输入作者名字" data-name="author" class="sc_adv_txin sc-input sc_adv_author" maxlength="50" value=""></span>
+    </div>
+    <div class="sc_adv_hatr">
+        <span class="sc_adv_label">机构</span>
+        <span><input type="text" placeholder="请输入机构名称" data-name="affs" class="sc_adv_txin sc-input sc_adv_affs" maxlength="50" value=""></span>
+    </div>
+    <div class="sc_adv_hatr">
+        <span class="sc_adv_label">出版物</span>
+        <span class="sc_adv_jour_conf">
+            <span class="sc_adv_dropdown_btn">
+                <span class="sc_adv_dropdown_text">
+                                        <a href="javascript:;" data-name="journal" data-holder="请输入期刊名称">期刊</a>
+                                    </span>
+                <i class="sc_adv-icon c-icon-arrow-down-gray"></i>
+                <div class="sc_adv_dropdown_group sc_adv_dropgroup_pub" data-index="2">
+                                        <a href="javascript:;" data-name="conference" data-holder="请输入会议名称">会议</a>
+                                    </div>
+            </span>
+            <input type="text" placeholder="请输入期刊名称" data-name="journal" class="sc-input sc_adv_txin sc_adv_pubipt" maxlength="100" value="">
+        </span>
+    </div>
+    <div class="sc_adv_hatr">
+        <span class="sc_adv_label">发表时间</span>
+        <span class="sc_adv_year">
+        <input type="text" data-nolog="1" pattern="[0-9]*" size="4" placeholder="年" maxlength="4" name="" class="sc-input sc-input-xmini sc_adv_input_ylo" value="">&nbsp;-&nbsp;<input type="text" data-nolog="1" pattern="[0-9]*" size="4" placeholder="年" maxlength="4" name="" class="sc-input sc-input-xmini sc_adv_input_yhi" value="">
+        </span>
+    </div>
+    <div class="sc_adv_hatr">
+        <span class="sc_adv_label">语言检索范围</span>
+                    <span class="sc_adv_dropdown_btn">
+                <span class="sc_adv_dropdown_text sc_adv_lang_sel">
+                    <a href="javascript:;" data-id="0">不限</a>
+                </span>
+                <i class="sc_adv-icon c-icon-arrow-down-gray"></i>
+                <div class="sc_adv_dropdown_group sc_adv_dropgroup_lang">
+                                        <a href="javascript:;" data-id="0" class="sc_adv_lang_hide">不限</a>
+                                        <a href="javascript:;" data-id="1">英文</a>
+                                        <a href="javascript:;" data-id="2">中文</a>
+                                    </div>
+            </span>
+            </div>
+    <span class="sc_adv_wd_hidden"></span>
+    <input type="hidden" name="ie" value="utf-8">
+    <input type="hidden" name="bcp" value="2">
+    <input type="hidden" name="tn" value="SE_baiduxueshu_c1gjeupa">
+    <input type="hidden" name="sc_f_para" value="sc_tasktype={firstAdvancedSearch}">
+    <input type="hidden" name="sc_from" value="">
+    <input type="hidden" name="sc_as_para" value="sc_lib:">
+
+    <span class="sc_adv_sub s_btn_wr"><input type="submit" value="搜索" class="sc_adv_sub_btn s_btn"></span>
+</form>
+</div>
+
+                                            </div>
+        </div>
+    </div>
+</div>
+
+
+        
+
+        <div id="container">
+            
+                
+<div id="left_menu_content" class="LOG_WR gj" data-log="{'actblock':'menu'}">
+    <div class="left_menu_logo">
+        <a href="/">
+        <div class="sologan onlyOn"></div>
+        <i class="iconfont onlyOff logosim"></i>
+        </a>
+    </div>
+    <div class="main_menu_wr">
+        <div class="sch_main_menu">
+            <div class="menu_listitem">
+                <a href="/" class="active" data-log="{'type':'xueshu_sch'}" target="_blank">
+                    <i class="iconfont i-wx"></i><span>文献</span>
+                </a>
+            </div>
+            <div class="menu_listitem">
+                <a href="/usercenter/journal/navigation?language=1" class="" data-log="{'type':'journal'}">
+                <i class="iconfont i-qk"></i><span>期刊</span>
+                </a>
+            </div>
+            <div class="menu_listitem dotPromote">
+                <a href="/usercenter/data/authorchannel?cmd=frontpage" data-log="{'type':'authorchannel'}" class="">
+                <i class="iconfont i-xz"></i><span>学者</span>
+                </a>
+            </div>
+            <div class="splite-line"></div>
+            <div class="menu_listitem">
+                <a href="/usercenter/" data-log="{'type':'mymessage'}" class="need-login ">
+                    <i class="iconfont i-dy"></i><span>订阅</span><i id="msimsg"></i>
+                </a>
+            </div>
+
+            <div class="menu_listitem">
+                <a href="/usercenter/?tab=collect" data-log="{'type':'mycollect'}" class="need-login ">
+                    <i class="iconfont i-sc"></i><span>收藏</span>
+                </a>
+            </div>
+            <div class="menu_listitem dotPapaecheck" style="display: block;">
+                <a href="/usercenter/papercheck/index" data-log="{'type':'papercheck'}" class="paperCheck ">
+                    <i class="iconfont i-lwck"></i><span>论文查重</span>
+                    <em class="dot_tag">首单免费</em>
+                    <i class="iconfont redDot"></i>
+                </a>
+            </div>
+            <div class="menu_listitem stanardPapaecheck" style="display: none;">
+                <a href="/usercenter/papercheck/index" data-log="{'type':'papercheck'}" class="paperCheck ">
+                    <i class="iconfont i-lwck"></i><span>论文查重</span>
+                </a>
+            </div>
+            <div class="menu_listitem">
+                <a href="/u/biye/?tag=paper" class="" data-log="{'type':'ktfx'}">
+                    <i class="iconfont i-ktfx"></i><span>开题分析</span>
+                </a>
+            </div>
+            <div class="menu_listitem">
+                <a href="/u/ppv" data-log="{'type':'ppv'}" class="">
+                    <i class="iconfont i-dpgm"></i><span>单篇购买</span>
+                </a>
+            </div>
+            <div class="menu_listitem">
+                <a href="/u/paperhelp" data-log="{'type':'paperhelp'}" class="">
+                    <i class="iconfont i-wxhz"></i><span>文献互助</span>
+                </a>
+            </div>
+            <div class="splite-line"></div>
+            <div class="menu_listitem">
+                <a href="/u/user" class="need-login " data-log="{'type':'user'}">
+                    <i class="iconfont i-yhzx"></i><span>用户中心</span><i id="ucimsg"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.sch_main_menu a').on('click', function(event) {
+            var btn_tp = $(this).attr('data-log');
+            if (!btn_tp) {
+                return;
+            }
+            btn_tp = btn_tp.replace(/'/g, '"');
+            btn_tp = JSON.parse(btn_tp);
+            ns_c_xs({
+                'fm' : 'as',
+                'act_block': 'left_nav',
+                'button_tp' : btn_tp.type
+            });
+        });
+    });
+</script>
+
+
+                <div id="right_content" class="content_wr">
+                
+                    <div class="right_content_main">
+                    
+<div id="dtl_main" class="xpath-log" data-click="{'fm':'as','longsign':'bd65b5f5414a41e7c259672ba48de822'}">
+    <div id="dtl_l">
+        
+
+
+
+<div class="main-info">
+<h3>
+        <a href="https://www.zhangqiaokeyan.com/academic-degree-domestic_mphd_thesis/020313077681.html" target="_blank" data-click="{'act_block':'main','button_tp':'title','ch':3,'act_id':'100001','partner_id':'64','pub_name':'www.zhangqiaokeyan.com'}">
+        网络传播中的酷儿身份认同研究
+    </a>
+        </h3>
+<div class="c_content" data-click="{'act_block': 'main'}">
+    <div class="love_wr">
+                <div class="label-ll">
+            <span>来自</span>
+            <a href="https://www.zhangqiaokeyan.com/academic-degree-domestic_mphd_thesis/020313077681.html" target="_blank" data-click="{'button_tp':'from_nm','ch':3,'act_id':'100001','partner_id':'64','pub_name':'www.zhangqiaokeyan.com'}">
+                掌桥科研
+            </a>
+            <span class="love_wr_distr"></span>
+        </div>
+                <div class="label-l">
+            <a href="javascript:;" class="love-wr-link" data-click="{'button_tp': 'like', 'fm': 'beha'}">
+                <i class="iconfont love-wr-icon"></i>
+                <span class="like-amount-txt">喜欢</span>
+                <span class="like-amount-num">0</span>
+            </a>
+        </div>
+        <div class="label-r">
+            <p class="">阅读量：</p>
+            <p>467</p>
+        </div>
+    </div>
+            <!-- 学位论文 -->
+
+<div class="author_wr" data-shorth="">
+    <p class="label_s">作者：</p>
+    <p class="author_text kw_main_s">
+                <span><a href="//xueshu.baidu.com/usercenter/data/author?cmd=authoruri&amp;wd=authoruri%3A%285846a6e5be2924b%29%20author%3A%28%E6%9D%8E%E7%94%9C%E7%94%9C%29%20" target="_blank" class="" data-click="{'button_tp':'author'}">李甜甜</a></span>
+    </p>
+    <p class="author_more OP_LOG_BTN" data-open="1" data-click="{'button_tp':'author_more','fm':'beha'}"><span>展开</span><i class="iconfont"></i></p>
+</div>
+
+<div class="abstract_wr" data-shorth="120" style="height: 120px;">
+    <p class="label_s">摘要：</p>
+    <p class="abstract kw_main_s" data-sign="">新媒体的发展深刻地改变了群体的互动方式,网络消弭了时间和空间的界限,建构出一种虚拟的交往空间.网络改变了社会形态,传统的身份识别系统和认同体系在网络传播中失效,使得网络环境中的个体存在,认知,互动呈现出与现实不同的一种逻辑. 这种背景下,本研究将酷儿群体放置到网络语境中,关注日常生活世界中的身份问题,身份政治的社会运动,探讨现代社会尤其是互联网秩序中如何重新审视身份与身份认同.从研究目的的角度来说,是社会现象的描述性研究,而非解释性研究.从研究性质的角度来说,是经验研究与理论研究的结合.运用以参与式观察法为主的研究方法,对酷儿群体的性别身份认同机制进行一次全面和深入的观照,探讨媒介使用与受众身份认同建构之间的关系. 本研究通过分析酷儿群体的性别认同过程,分析社会化媒体中身份认同建构的过程,有效论证酷儿理论视角纳入传播学研究的合法性.将男女同性恋者,双性恋者,跨性别者作为研究对象和酷儿的典型代表,不只因为关注其边缘身份,也关注其独特的网络传播机制背后的生命体验,探讨网络和现实中酷儿现身之后面临的生存困境.通过梳理性别理论的概念和内在逻辑,大大丰富了社会性别的样本和内涵,反思僵化的二元对立性别模式,提倡用多元性别视角关注差异个体的生存.</p>
+    <p class="abstract_more OP_LOG_BTN" data-open="1" data-click="{'button_tp':'abstract_more','fm':'beha'}" style="display: block;"><span>展开</span><i class="iconfont"></i></p>
+</div>
+
+<div class="kw_wr">
+    <p class="label_s">关键词：</p>
+    <p class="kw_main_s" data-click="{'button_tp':'keyword'}">
+                        <span><a href="//xueshu.baidu.com/s?wd=%E8%BA%AB%E4%BB%BD%E8%AE%A4%E5%90%8C&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" class="">身份认同</a></span>
+                        <span><a href="//xueshu.baidu.com/s?wd=%E9%85%B7%E5%84%BF&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" class="">酷儿</a></span>
+                        <span><a href="//xueshu.baidu.com/s?wd=%E6%80%A7%E5%88%AB%E7%A0%94%E7%A9%B6&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" class="">性别研究</a></span>
+                        <span><a href="//xueshu.baidu.com/s?wd=%E7%BD%91%E7%BB%9C%E4%BC%A0%E6%92%AD&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" class="">网络传播</a></span>
+            </p>
+</div>
+
+
+<div class="common_wr" data-shorth="">
+    <p class="label_s">学位级别：</p>
+    <p class="kw_main_s" data-click="{'button_tp':'degree_name'}">
+        硕士
+    </p>
+</div>
+
+<div class="common_wr">
+    <p class="label_s">学位年度：</p>
+    <p class="kw_main_s" data-click="{'button_tp':'degree_time'}">
+        2014
+    </p>
+</div>
+
+<div class="doi_wr">
+    <p class="label_s">DOI：</p>
+    <p class="kw_main_s" data-click="{'button_tp':'doi'}">
+        10.7666/d.Y2625030
+    </p>
+</div>
+
+<div class="ref_wr">
+    <p class="label_s">被引量：</p>
+    <p class="ref-wr-num">
+                                <a href="//xueshu.baidu.com/s?wd=refpaperuri:(bd65b5f5414a41e7c259672ba48de822)&amp;sc_f_para=sc_cita%3D%7B%E7%BD%91%E7%BB%9C%E4%BC%A0%E6%92%AD%E4%B8%AD%E7%9A%84%E9%85%B7%E5%84%BF%E8%BA%AB%E4%BB%BD%E8%AE%A4%E5%90%8C%E7%A0%94%E7%A9%B6%2C2%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" class="sc_cite_cont" data-click="{'button_tp':'sc_cited'}">
+                2
+        </a>    </p>
+</div>
+    </div>
+<div class="dtl_subinfo" data-click="{'act_block': 'main'}">
+    <div class="subinfo_tool">
+        <a class="paper_collect" href="#" target="_blank" data-url="" data-click="{'button_tp':'collect'}" data-paperid="bd65b5f5414a41e7c259672ba48de822" data-urlmd="1be6d8e73d43747b72baf23cbd93bd9e">
+            <i class="iconfont icon-heart"></i>收藏
+        </a>
+                <a class="paper_q" href="javascript:;" data-link="" data-sign="" data-click="{'button_tp':'cite'}">
+            <i class="iconfont icon-cite"></i>引用
+        </a>
+
+        <a target="_blank" class="sc_batch" href="javascript:;" data-click="{'button_tp':'batch'}" urlmd="1be6d8e73d43747b72baf23cbd93bd9e" data-added="0" data-nolog="0" title="批量引用"><i class="iconfont icon-piliang"></i>批量引用</a>
+                <a href="javascript:;" class="feedback" onmousedown="return ns_c_xs({'fm':'behs','tab':'tj_feedback'})"><i class="iconfont icon-piliang"></i>报错</a>
+        <a class="paper_share" href="javascript:;" data-link="" data-sign="" data-click="{'button_tp':'share'}">
+            <i class="iconfont icon-paper-share"></i>分享
+            <div class="sc_share_box_content" style="display: none;">
+                <div class="sc_share_box"></div>
+            </div>
+        </a>
+    </div>
+</div>
+</div>
+        <div class="paper_src_wr">
+                                                                                                    
+                                                            
+                    
+    
+    <div class="paper_src_tab OP_LOG_BTN" data-click="{'fm':'beha','button_tp':'tab'}">
+                <a href="javascript:;" class="src_tabitem paper-source-tar tab_cur" data-target="allversion_wr" data-click="{'act_block':'paper_source'}">
+            全部来源        </a>
+                    <a href="javascript:;" class="src_tabitem paperhelp-tar" data-target="help_r" data-click="{'act_block':'paperhelp'}">求助全文</a>
+                </div>
+
+    <div class="paper_src_content">
+    
+<div id="allversion_wr" class="src_container" data-click="{'act_block':'paper_source'}" style="display:block">
+    <div class="allversion_content">
+                                                <span class="dl_item_span ">
+                <a class="dl_item " target="_blank" href="https://d.wanfangdata.com.cn/thesis/Y2625030" data-url="https://d.wanfangdata.com.cn/thesis/Y2625030" data-embed="0" data-isclick="2" data-click="{'button_tp':'down_link','libbuy':'0', 'pub_name':'d.wanfangdata.com.cn'}">
+
+                        <span class="dl_icon"><img src="https://bj.bcebos.com/ps-scholar/xueshu/1582281974/51489/f8a6d5ebf2c1e45c2133f6613912e290.jpg" width="16" height="16"></span>
+            
+                            <span class="dl_source" title="万方">万方</span>
+                    </a>
+
+            
+                    </span>
+                                                        <span class="dl_item_span ">
+                <a class="dl_item " target="_blank" href="https://www.zhangqiaokeyan.com/academic-degree-domestic_mphd_thesis/020313077681.html" data-url="https://www.zhangqiaokeyan.com/academic-degree-domestic_mphd_thesis/020313077681.html" data-embed="0" data-isclick="2" data-click="{'button_tp':'down_link','libbuy':'0','ch':3,'act_id':'100001','partner_id':'64','pub_name':'www.zhangqiaokeyan.com'}">
+
+                        <span class="dl_icon"><img src="https://bj.bcebos.com/v1/ps-scholar-amis/archived/2020-1/1578562692820/zqkj.png" width="16" height="16"></span>
+            
+                            <span class="dl_source" title="掌桥科研">掌桥科研</span>
+                    </a>
+
+            
+                    </span>
+                                                        <span class="dl_item_span ">
+                <a class="dl_item " target="_blank" href="http://cdmd.cnki.com.cn/Article/CDMD-10319-1014348032.htm" data-url="http://cdmd.cnki.com.cn/Article/CDMD-10319-1014348032.htm" data-embed="0" data-isclick="2" data-click="{'button_tp':'down_link','libbuy':'0', 'pub_name':'cdmd.cnki.com.cn'}">
+
+                        <span class="dl_icon"><img src="https://bj.bcebos.com/ps-scholar/xueshu/1582281975/47595/a5d78dd13b7d91cd9e47c2e48aa8c07b.jpg" width="16" height="16"></span>
+            
+                            <span class="dl_source" title="知网">知网</span>
+                    </a>
+
+            
+                    </span>
+                <input type="hidden" id="log-all-sources-init-value" value="d.wanfangdata.com.cn|www.zhangqiaokeyan.com|cdmd.cnki.com.cn">
+            </div>
+</div>
+
+<i class="reqdata" style="display:none;" urlmd="1be6d8e73d43747b72baf23cbd93bd9e" url="https://www.zhangqiaokeyan.com/academic-degree-domestic_mphd_thesis/020313077681.html" longsign="bd65b5f5414a41e7c259672ba48de822" diversion=""></i>
+
+    
+
+    <div id="help_r" class="src_container" data-title="网络传播中的酷儿身份认同研究" ata-author="" data-click="{'act_block':'paperhelp'}" data-tagid="">
+    <div class="help_content">
+        <p>通过<a href="//xueshu.baidu.com/u/paperhelp" target="_blank" data-click="{'button_tp':'help_link','fm':'beha'}">文献互助</a>平台发起求助，成功后即可免费获取论文全文。</p>
+    </div>
+        <div class="help_login">请先登入</div>
+    </div>
+
+        <div id="purchase_wr" class="src_container" data-click="{'act_block':'purchased'}" style="display: none;">
+	<div class="purchase_content">
+		<p>我们已与文献出版商建立了直接购买合作。</p>
+		<p class="info1">你可以通过身份认证进行实名认证，认证成功后本次下载的费用将由您所在的图书馆支付</p>
+		<p class="info2">您可以直接购买此文献，1~5分钟即可下载全文，部分资源由于网络原因可能需要更长时间，请您耐心等待哦~</p>
+
+	</div>
+	<a href="javascript:;" target="_blank" class="sc_bind getbind" data-click="{'button_tp':'bind_btn','fm':'beha'}" data-longsign="bd65b5f5414a41e7c259672ba48de822" data-title="网络传播中的酷儿身份认同研究" data-author="">
+        <span>身份认证</span>
+    </a>
+    <a href="javascript:;" target="_blank" class="sc_download getdownload" data-click="{'button_tp':'download_btn','fm':'beha'}" data-longsign="bd65b5f5414a41e7c259672ba48de822" data-title="网络传播中的酷儿身份认同研究" data-author="">
+        <span>全文购买</span>
+	</a>
+	</div>
+        </div>
+</div>
+<div class="list-tab-site"></div>
+<div class="list-tab-out" style="display: block;">
+    <div class="list_tab OP_LOG_BTN" data-click="{'fm':'beha','button_tp':'top_tab'}" style="position: relative; top: 0px;">
+        <p class="list_tab_item rel_tab select" type="related" data-click="{'act_block':'related_recm'}" style="display: block;">相似文献</p>
+        <p class="list_tab_item ref_tab" type="reference" data-click="{'act_block':'reference_recm'}" style="display: block;">参考文献</p>
+        <p class="list_tab_item cit_tab" type="citation" data-click="{'act_block':'citation_recm'}" style="display: block;">引证文献</p>
+        <span class="more-tab-bor" style="width: 96px; left: 0px;"></span>         
+    </div>
+</div>
+
+<div class="relative_content" style="display: block;">
+    <div class="con_related" data-click="{'act_block':'related_recm'}" style=""><ul class="related_lists"><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=a63a0172cea8f45091277aa1e3fc00f8" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">"酷儿"视角下的城市性和空间政治</a></p><p class="rel_abstract">围绕城市与同性恋的主题,本文从现代性的视角回顾了同性恋作为一个"社会群体"在城市中的出现和发展,强调了同性恋身份认同本质上的城市属性.文章揭示了同性恋研究在城市...</p><p class="sc_message"><a class="sc_info_a c_underline" href="//xueshu.baidu.com/usercenter/data/author?cmd=authoruri&amp;wd=authoruri%3A(b5d5b5255d57e7cc)%20author%3A(%E9%AD%8F%E4%BC%9F)%20%E5%8D%8E%E4%B8%9C%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6%E7%A4%BE%E4%BC%9A%E5%8F%91%E5%B1%95%E5%AD%A6%E9%99%A2" target="_blank" data-click="{'button_tp':'author'}">魏伟</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(8acaf294c0beb51a)%20%E3%80%8A%E4%BA%BA%E6%96%87%E5%9C%B0%E7%90%86%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《人文地理》" data-click="{'button_tp':'publish'}">《人文地理》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(a63a0172cea8f45091277aa1e3fc00f8)&amp;sc_f_para=sc_cita%3D%7B%22%E9%85%B7%E5%84%BF%22%E8%A7%86%E8%A7%92%E4%B8%8B%E7%9A%84%E5%9F%8E%E5%B8%82%E6%80%A7%E5%92%8C%E7%A9%BA%E9%97%B4%E6%94%BF%E6%B2%BB%2C43%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">43</a></span><span class="sc_year"><span>发表:&nbsp;</span>2011年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=af6e4d8d8a2fe0f55f182b1e62c5f868" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">生存现状、话语演变和异质的声音——90年代以来的同性恋研究</a></p><p class="rel_abstract">身份认同全球化90年代末以来,在"酷儿全球化"趋势下,中国同性恋从"疾病","变态","政治上不正确的性关系"转变成"非病理化"和"非罪化"的主体问人格关系.作为...</p><p class="sc_message"><a class="sc_info_a c_underline" href="//xueshu.baidu.com/usercenter/data/author?cmd=authoruri&amp;wd=authoruri%3A(b56f15fca04758db)%20author%3A(%E7%8E%8B%E6%99%B4%E9%94%8B)%20%E4%B8%AD%E5%A4%AE%E6%B0%91%E6%97%8F%E5%A4%A7%E5%AD%A6%E4%B8%96%E7%95%8C%E6%B0%91%E6%97%8F%E5%AD%A6%E4%BA%BA%E7%B1%BB%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%AD%E5%BF%83" target="_blank" data-click="{'button_tp':'author'}">王晴锋</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(bdda8876c9f81925)%20%E3%80%8A%E9%9D%92%E5%B9%B4%E7%A0%94%E7%A9%B6%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《青年研究》" data-click="{'button_tp':'publish'}">《青年研究》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(af6e4d8d8a2fe0f55f182b1e62c5f868)&amp;sc_f_para=sc_cita%3D%7B%E7%94%9F%E5%AD%98%E7%8E%B0%E7%8A%B6%E3%80%81%E8%AF%9D%E8%AF%AD%E6%BC%94%E5%8F%98%E5%92%8C%E5%BC%82%E8%B4%A8%E7%9A%84%E5%A3%B0%E9%9F%B3%E2%80%94%E2%80%9490%E5%B9%B4%E4%BB%A3%E4%BB%A5%E6%9D%A5%E7%9A%84%E5%90%8C%E6%80%A7%E6%81%8B%E7%A0%94%E7%A9%B6%2C17%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">17</a></span><span class="sc_year"><span>发表:&nbsp;</span>2011年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=6a5c232faf4247a91e292940ca81e005" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">"酷儿地理学"视角下中国同性恋空间演化与变迁研究</a></p><p class="rel_abstract">文章揭示了中国同性恋空间主要经历了从传统性公共空间,商业性公共空间到政治权利性公共空间的演化与变迁,在同性恋身份认同,社会交往和权利意识觉醒中发挥重要作用,反映...</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=authoruri%3A(9971182ac8f5defd)%20author%3A(%E8%BE%B9%E9%98%B2)%20%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%A6%E5%9F%8E%E5%B8%82%E4%B8%8E%E7%8E%AF%E5%A2%83%E5%AD%A6%E9%99%A2&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson&amp;sort=sc_cited" target="_blank" data-click="{'button_tp':'author'}">边防</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(9bd94dc75efd184b)%20%E3%80%8A%E4%B8%AD%E5%9B%BD%E6%80%A7%E7%A7%91%E5%AD%A6%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《中国性科学》" data-click="{'button_tp':'publish'}">《中国性科学》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(6a5c232faf4247a91e292940ca81e005)&amp;sc_f_para=sc_cita%3D%7B%22%E9%85%B7%E5%84%BF%E5%9C%B0%E7%90%86%E5%AD%A6%22%E8%A7%86%E8%A7%92%E4%B8%8B%E4%B8%AD%E5%9B%BD%E5%90%8C%E6%80%A7%E6%81%8B%E7%A9%BA%E9%97%B4%E6%BC%94%E5%8C%96%E4%B8%8E%E5%8F%98%E8%BF%81%E7%A0%94%E7%A9%B6%2C3%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">3</a></span><span class="sc_year"><span>发表:&nbsp;</span>2015年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=5815686bdc163119dfd9d1f977769f7a" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">论新世纪以来台湾青春电影中的身份建构</a></p><p class="rel_abstract">新世纪以来的台湾青春电影的类型风格及其精神意蕴有着丰富的历史,政治,文化内涵,不仅显示出台湾本土社会人文风气的变化,也反映了台湾新世代的身份意识和认同观.为讨论...</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=authoruri%3A(149e42420d2ffc06)%20author%3A(%E5%90%B4%E4%BD%A9%E5%A9%B5)%20%E6%9A%A8%E5%8D%97%E5%A4%A7%E5%AD%A6&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson&amp;sort=sc_cited" target="_blank" data-click="{'button_tp':'author'}">吴佩婵</a>&nbsp;-&nbsp;暨南大学</p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(5815686bdc163119dfd9d1f977769f7a)&amp;sc_f_para=sc_cita%3D%7B%E8%AE%BA%E6%96%B0%E4%B8%96%E7%BA%AA%E4%BB%A5%E6%9D%A5%E5%8F%B0%E6%B9%BE%E9%9D%92%E6%98%A5%E7%94%B5%E5%BD%B1%E4%B8%AD%E7%9A%84%E8%BA%AB%E4%BB%BD%E5%BB%BA%E6%9E%84%2C3%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">3</a></span><span class="sc_year"><span>发表:&nbsp;</span>0年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=1w4u0jv0n51f00y0ac3v0m80uf175412" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">酷儿电影中的跨性别身份认同——以《男孩别哭》为主要考察对象</a></p><p class="rel_abstract">跨性别身份认同是酷儿电影表现的重要主题.跨性别者的身份认同往往以身体建构为基础,通过言行实践参与到社会生活中,并有着独特的情感表达方式.但是在与外界的交往互动...</p><p class="sc_message"><a class="sc_info_a c_underline" href="//xueshu.baidu.com/usercenter/data/author?cmd=authoruri&amp;wd=authoruri%3A(69cdd7e3ac9eb38b)%20author%3A(%E5%8D%95%E5%B0%8F%E6%9B%A6)%20%E5%B9%BF%E8%A5%BF%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6%E6%96%87%E5%AD%A6%E9%99%A2" target="_blank" data-click="{'button_tp':'author'}">单小曦</a>，<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=authoruri%3A(25a4f2445c3032b9)%20author%3A(%E8%91%A3%E4%BD%B3%E6%85%A7)%20%E6%9D%AD%E5%B7%9E%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson&amp;sort=sc_cited" target="_blank" data-click="{'button_tp':'author'}">董佳慧</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(cff46c788358d0dd)%20%E3%80%8A%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E7%BE%8E%E5%AD%A6%E7%A0%94%E7%A9%B6%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《马克思主义美学研究》" data-click="{'button_tp':'publish'}">《马克思主义美学研究》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(1w4u0jv0n51f00y0ac3v0m80uf175412)&amp;sc_f_para=sc_cita%3D%7B%E9%85%B7%E5%84%BF%E7%94%B5%E5%BD%B1%E4%B8%AD%E7%9A%84%E8%B7%A8%E6%80%A7%E5%88%AB%E8%BA%AB%E4%BB%BD%E8%AE%A4%E5%90%8C%E2%80%94%E2%80%94%E4%BB%A5%E3%80%8A%E7%94%B7%E5%AD%A9%E5%88%AB%E5%93%AD%E3%80%8B%E4%B8%BA%E4%B8%BB%E8%A6%81%E8%80%83%E5%AF%9F%E5%AF%B9%E8%B1%A1%2C0%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">0</a></span><span class="sc_year"><span>发表:&nbsp;</span>2020年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=1m3r0pe07r6v0eb05m7u0gp058275294" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">酷儿电影中的跨性别身份认同——以《男孩别哭》为主要考察对象</a></p><p class="rel_abstract">跨性别身份认同是酷儿电影表现的重要主题.跨性别者的身份认同往往以身体建构为基础,通过言行实践参与到社会生活中,并有着独特的情感表达方式.但是在与外界的交往互动...</p><p class="sc_message"><a class="sc_info_a c_underline" href="//xueshu.baidu.com/usercenter/data/author?cmd=authoruri&amp;wd=authoruri%3A(69cdd7e3ac9eb38b)%20author%3A(%E5%8D%95%E5%B0%8F%E6%9B%A6)%20%E5%B9%BF%E8%A5%BF%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6%E6%96%87%E5%AD%A6%E9%99%A2" target="_blank" data-click="{'button_tp':'author'}">单小曦</a>，<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=authoruri%3A(25a4f2445c3032b9)%20author%3A(%E8%91%A3%E4%BD%B3%E6%85%A7)%20%E6%9D%AD%E5%B7%9E%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson&amp;sort=sc_cited" target="_blank" data-click="{'button_tp':'author'}">董佳慧</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(cff46c788358d0dd)%20%E3%80%8A%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E7%BE%8E%E5%AD%A6%E7%A0%94%E7%A9%B6%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《马克思主义美学研究》" data-click="{'button_tp':'publish'}">《马克思主义美学研究》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(1m3r0pe07r6v0eb05m7u0gp058275294)&amp;sc_f_para=sc_cita%3D%7B%E9%85%B7%E5%84%BF%E7%94%B5%E5%BD%B1%E4%B8%AD%E7%9A%84%E8%B7%A8%E6%80%A7%E5%88%AB%E8%BA%AB%E4%BB%BD%E8%AE%A4%E5%90%8C%E2%80%94%E2%80%94%E4%BB%A5%E3%80%8A%E7%94%B7%E5%AD%A9%E5%88%AB%E5%93%AD%E3%80%8B%E4%B8%BA%E4%B8%BB%E8%A6%81%E8%80%83%E5%AF%9F%E5%AF%B9%E8%B1%A1%2C0%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">0</a></span><span class="sc_year"><span>发表:&nbsp;</span>2020年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=ffb4ba20dbfe71c78be5ea5e03b465cd" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">酷儿空间和社区建构:基于武汉同志社群的一项个案研究</a></p><p class="rel_abstract">本文以深度访谈的质性研究方法考察了直接或间接参与武汉当地的同志运动组织"武汉Rainbow LGBT工作组"的男女同志.通过对他们自我认同,身份公开,社会交往和参与同志运动...</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=author%3A(%E8%94%A1%E8%9E%8D%E8%9E%8D)&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson" target="_blank" data-click="{'button_tp':'author'}">蔡融融</a>&nbsp;-&nbsp;酷儿空间和社区建构:基于武汉同志社群的一项个案研究</p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(ffb4ba20dbfe71c78be5ea5e03b465cd)&amp;sc_f_para=sc_cita%3D%7B%E9%85%B7%E5%84%BF%E7%A9%BA%E9%97%B4%E5%92%8C%E7%A4%BE%E5%8C%BA%E5%BB%BA%E6%9E%84%3A%E5%9F%BA%E4%BA%8E%E6%AD%A6%E6%B1%89%E5%90%8C%E5%BF%97%E7%A4%BE%E7%BE%A4%E7%9A%84%E4%B8%80%E9%A1%B9%E4%B8%AA%E6%A1%88%E7%A0%94%E7%A9%B6%2C0%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">0</a></span><span class="sc_year"><span>发表:&nbsp;</span>0年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=ce61e1fb20dfc4e75e4cb15754d01d04" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">《莫里斯》和《奥兰多》中的酷儿形象</a></p><p class="rel_abstract">爱德华摩根福斯特和弗吉尼亚伍尔夫是二十世纪早期英国文学的代表人物。他们同是伦敦文学界的核心人物,同时也是布卢姆茨伯里派(Bloomsbury Group)的成员。他们的作品都...</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=author%3A(%E4%B8%81%E7%BE%8E%E6%9D%B0)&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson" target="_blank" data-click="{'button_tp':'author'}">丁美杰</a>&nbsp;-&nbsp;安徽大学</p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(ce61e1fb20dfc4e75e4cb15754d01d04)&amp;sc_f_para=sc_cita%3D%7B%E3%80%8A%E8%8E%AB%E9%87%8C%E6%96%AF%E3%80%8B%E5%92%8C%E3%80%8A%E5%A5%A5%E5%85%B0%E5%A4%9A%E3%80%8B%E4%B8%AD%E7%9A%84%E9%85%B7%E5%84%BF%E5%BD%A2%E8%B1%A1%2C0%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">0</a></span><span class="sc_year"><span>发表:&nbsp;</span>0年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=1m6008105y7m0pr01y600pu0r4196483" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">Queer Diaspora and Alternative Kinship in Jackie Kay's Trumpet</a></p><p class="rel_abstract">了他的飘浪认同身份,也将他镶嵌在跨国移动的集体过去之中.本文主张,藉由重要的理论家巴特勒,伍德尧,高比娜丝,魏丝铃,普尔等近年来在酷儿理论及离散研究领域的理论...</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=author%3A(%E8%AE%B8%E7%94%84%E5%80%9A(Jen-Yi%20Hsu))&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson" target="_blank" data-click="{'button_tp':'author'}">许甄倚(Jen-Yi Hsu)</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(f52b93a525c57808)%20%E3%80%8ANTU%20Studies%20in%20Language%20and%20Literature%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《NTU Studies in Language and Literature》" data-click="{'button_tp':'publish'}">《NTU Studies in Language and Literature》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(1m6008105y7m0pr01y600pu0r4196483)&amp;sc_f_para=sc_cita%3D%7BQueer%20Diaspora%20and%20Alternative%20Kinship%20in%20Jackie%20Kay's%20Trumpet%2C0%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">0</a></span><span class="sc_year"><span>发表:&nbsp;</span>2015年</span></div></li></ul><div class="dl_more more_btn OP_LOG_BTN" data-click="{'button_tp':'more','fm':'beha'}" data-type="related" data-pn="2"><p class="request_situ">加载更多</p></div></div>
+    <div class="con_reference" data-click="{'act_block':'reference_recm'}" style="display:none;"><ul class="reference_lists"><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=29aa3552c588cd2faab0497345952881" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">Saint Foucault: Towards a Gay Hagiography</a></p><p class="rel_abstract">Blasius reviews "Saint Foucoult: Towards a Gay Hagiography" by David M. Halperin.</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=author%3A(Blasius%2C%20Mark)&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson" target="_blank" data-click="{'button_tp':'author'}">M Blasius</a>，<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=author%3A(Halperin%2C%20David%20M.)&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson" target="_blank" data-click="{'button_tp':'author'}">DM Halperin</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(406be516e30932ea)%20%E3%80%8AContemporary%20Sociology%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《Contemporary Sociology》" data-click="{'button_tp':'publish'}">《Contemporary Sociology》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(29aa3552c588cd2faab0497345952881)&amp;sc_f_para=sc_cita%3D%7BSaint%20Foucault%3A%20Towards%20a%20Gay%20Hagiography%2C841%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">841</a></span><span class="sc_year"><span>发表:&nbsp;</span>1997年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=70f06f70420aac7b8b99496bedf47266" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">酷儿理论面面观</a></p><p class="rel_abstract">酷儿理论(Queer Theory)是20世纪90年代在西方兴起的一个新的性理论."酷儿"这一概念作为对一个社会群体的指称,包括了所有在性倾向方面与主流文化和占统治地位的社会性...</p><p class="sc_message"><a class="sc_info_a c_underline" href="//xueshu.baidu.com/usercenter/data/author?cmd=authoruri&amp;wd=authoruri%3A(fd145f985458972d)%20author%3A(%E6%9D%8E%E9%93%B6%E6%B2%B3)%20%E4%B8%AD%E5%9B%BD%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6%E9%99%A2%E7%A4%BE%E4%BC%9A%E5%AD%A6%E6%89%80" target="_blank" data-click="{'button_tp':'author'}">李银河</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(677e903ad703cae5)%20%E3%80%8A%E5%9B%BD%E5%A4%96%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《国外社会科学》" data-click="{'button_tp':'publish'}">《国外社会科学》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(70f06f70420aac7b8b99496bedf47266)&amp;sc_f_para=sc_cita%3D%7B%E9%85%B7%E5%84%BF%E7%90%86%E8%AE%BA%E9%9D%A2%E9%9D%A2%E8%A7%82%2C283%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">283</a></span><span class="sc_year"><span>发表:&nbsp;</span>2002年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=252ed7066dce535b26e9135f3b4ac1dd" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">The Internet in China: Cyberspace and Civil Society</a></p><p class="rel_abstract">The Internet in China examines the cultural and political ramifications of the Internet for Chinese society. The rapid growth of the Internet has been enthusiastically embraced by the Chinese government, but the government has also rushe...</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=author%3A(Zixue%20Tai)&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson" target="_blank" data-click="{'button_tp':'author'}">Z Tai</a>&nbsp;-&nbsp;Routledge</p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(252ed7066dce535b26e9135f3b4ac1dd)&amp;sc_f_para=sc_cita%3D%7BThe%20Internet%20in%20China%3A%20Cyberspace%20and%20Civil%20Society%2C278%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">278</a></span><span class="sc_year"><span>发表:&nbsp;</span>2006年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=ae5166423fe40379650bd7d40cf8a6db" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">集体行动理论化系谱:从社会运动理论到抗争政治理论</a></p><p class="rel_abstract">文章简要地描述了国际学术界在过去几十年中有关集体行动的研究成果,并对主要性理论进行评价.集体行动的理论发展主要经历了三大阶段:社会运动,革命和抗争政治,并形成了...</p><p class="sc_message"><a class="sc_info_a c_underline" href="//xueshu.baidu.com/usercenter/data/author?cmd=authoruri&amp;wd=authoruri%3A(5ae2e9780812dd9b)%20author%3A(%E8%B0%A2%E5%B2%B3)%20%E4%B8%8A%E6%B5%B7%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6%E5%9B%BD%E9%99%85%E4%B8%8E%E5%85%AC%E5%85%B1%E4%BA%8B%E5%8A%A1%E5%AD%A6%E9%99%A2" target="_blank" data-click="{'button_tp':'author'}">谢岳</a>，<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=authoruri%3A(c1e584387729dfb8)%20author%3A(%E6%9B%B9%E5%BC%80%E9%9B%84)%20%E4%B8%8A%E6%B5%B7%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6%E5%9B%BD%E9%99%85%E4%B8%8E%E5%85%AC%E5%85%B1%E4%BA%8B%E5%8A%A1%E5%AD%A6%E9%99%A2&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson&amp;sort=sc_cited" target="_blank" data-click="{'button_tp':'author'}">曹开雄</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(ae3bd98789034cd9)%20%E3%80%8A%E4%B8%8A%E6%B5%B7%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6%E5%AD%A6%E6%8A%A5(%E5%93%B2%E5%AD%A6%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6%E7%89%88)%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《上海交通大学学报(哲学社会科学版)》" data-click="{'button_tp':'publish'}">《上海交通大学学报(哲学社会科学版)》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(ae5166423fe40379650bd7d40cf8a6db)&amp;sc_f_para=sc_cita%3D%7B%E9%9B%86%E4%BD%93%E8%A1%8C%E5%8A%A8%E7%90%86%E8%AE%BA%E5%8C%96%E7%B3%BB%E8%B0%B1%3A%E4%BB%8E%E7%A4%BE%E4%BC%9A%E8%BF%90%E5%8A%A8%E7%90%86%E8%AE%BA%E5%88%B0%E6%8A%97%E4%BA%89%E6%94%BF%E6%B2%BB%E7%90%86%E8%AE%BA%2C184%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">184</a></span><span class="sc_year"><span>发表:&nbsp;</span>2009年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=031fb10c139fec53bdbe7dd9450a02ae" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">Sain Foucault: Towards a Gay Hagiography</a></p><p class="rel_abstract">By David Halperin. New York: Oxford University Press, 1995. I Andrew Sullivan's book has received a lot of attention. As the openly gay former editor of Th...</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=author%3A(Morris%20B.%20Kaplan)&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson" target="_blank" data-click="{'button_tp':'author'}">MB Kaplan</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(031fb10c139fec53bdbe7dd9450a02ae)&amp;sc_f_para=sc_cita%3D%7BSain%20Foucault%3A%20Towards%20a%20Gay%20Hagiography%2C75%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">75</a></span><span class="sc_year"><span>发表:&nbsp;</span>1997年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=70657337e3665e6c84d07a27869f1437" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">认同的概念辨析</a></p><p class="rel_abstract">认同的定义有不同的角度,从心理学,社会学的角度对认同做一辨析,对认同的分类自我认同和社会认同做一说明,对认同和自我,角色做一比较辨析.</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=authoruri%3A(8bd8ddcb691431b2)%20author%3A(%E5%BC%A0%E5%90%91%E4%B8%9C)%20%E6%B2%B3%E5%8D%97%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6%E9%9D%92%E5%B0%91%E5%B9%B4%E9%97%AE%E9%A2%98%E7%A0%94%E7%A9%B6%E4%B8%AD%E5%BF%83&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson&amp;sort=sc_cited" target="_blank" data-click="{'button_tp':'author'}">张向东</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(6840a0b3d68ecca1)%20%E3%80%8A%E6%B9%96%E5%8D%97%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《湖南社会科学》" data-click="{'button_tp':'publish'}">《湖南社会科学》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(70657337e3665e6c84d07a27869f1437)&amp;sc_f_para=sc_cita%3D%7B%E8%AE%A4%E5%90%8C%E7%9A%84%E6%A6%82%E5%BF%B5%E8%BE%A8%E6%9E%90%2C198%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">198</a></span><span class="sc_year"><span>发表:&nbsp;</span>2006年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=345daaf0069a757afc1d71955de9dc13" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">酷儿理论探析</a></p><p class="rel_abstract">酷儿理论是20世纪90年代在西方兴起的一个新的性理论。酷儿包含了所有在性倾向方面与主流文化和占统治地位的社会性别规范或性规范不相符的人。酷儿理论的出现,对于解构...</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=authoruri%3A(6a059e8f19c462c1)%20author%3A(%E6%9B%B9%E6%B1%A0%E6%85%A7)%20%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E5%BD%B1%E8%A7%86%E8%89%BA%E6%9C%AF%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2%E4%B8%8A%E6%B5%B7%E4%B8%9C%E6%96%B9%E7%94%B5%E8%A7%86%E5%8F%B0%E8%89%BA%E6%9C%AF%E4%BA%BA%E6%96%87%E4%B8%AD%E5%BF%83&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson&amp;sort=sc_cited" target="_blank" data-click="{'button_tp':'author'}">曹池慧</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(2b77a284e9938e9d)%20%E3%80%8A%E9%95%BF%E6%B1%9F%E5%A4%A7%E5%AD%A6%E5%AD%A6%E6%8A%A5(%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6%E7%89%88)%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《长江大学学报(社会科学版)》" data-click="{'button_tp':'publish'}">《长江大学学报(社会科学版)》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(345daaf0069a757afc1d71955de9dc13)&amp;sc_f_para=sc_cita%3D%7B%E9%85%B7%E5%84%BF%E7%90%86%E8%AE%BA%E6%8E%A2%E6%9E%90%2C20%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">20</a></span><span class="sc_year"><span>发表:&nbsp;</span>2014年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=c77a0705bd6af807936dae332551c640" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">酷儿理论探析</a></p><p class="rel_abstract">本文围绕性,性别与性相三个概念的关系,勾勒了酷儿及酷儿理论的内涵,并简要介绍了几位酷儿理论家的主要贡献.同时,通过与国外及台湾等地区酷儿理论的研究现状相比较,指...</p><p class="sc_message"><a class="sc_info_a c_underline" href="//xueshu.baidu.com/usercenter/data/author?cmd=authoruri&amp;wd=authoruri%3A(4921070c9cba4461)%20author%3A(%E6%9D%A8%E6%B4%81)%20%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E5%A4%A7%E5%AD%A6" target="_blank" data-click="{'button_tp':'author'}">杨洁</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(80264999bf8f122d)%20%E3%80%8A%E6%B2%B3%E5%8C%97%E5%AD%A6%E5%88%8A%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《河北学刊》" data-click="{'button_tp':'publish'}">《河北学刊》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(c77a0705bd6af807936dae332551c640)&amp;sc_f_para=sc_cita%3D%7B%E9%85%B7%E5%84%BF%E7%90%86%E8%AE%BA%E6%8E%A2%E6%9E%90%2C118%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">118</a></span><span class="sc_year"><span>发表:&nbsp;</span>2007年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=0e910cf256480a7a21973ea8512077ff" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">互联网对中国集体行动的影响</a></p><p class="rel_abstract">互联网在中国近20年的发展对集体行动的影响巨大。本文详细分析了互联网对集体行动产生的具体影响及其影响机制,并探讨了互联网的发展趋势及其对集体行动未来可能产生的...</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=authoruri%3A(f0814d6466448621)%20author%3A(%E6%A1%82%E5%8B%87)%20%E5%A4%8D%E6%97%A6%E5%A4%A7%E5%AD%A6%E7%A4%BE%E4%BC%9A%E7%B3%BB&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson&amp;sort=sc_cited" target="_blank" data-click="{'button_tp':'author'}">桂勇</a>，<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=authoruri%3A(321d6286d077ab3d)%20author%3A(%E7%8E%8B%E6%AD%A3%E8%8A%AC)%20%E5%A4%8D%E6%97%A6%E5%A4%A7%E5%AD%A6%E7%A4%BE%E4%BC%9A%E7%B3%BB&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson&amp;sort=sc_cited" target="_blank" data-click="{'button_tp':'author'}">王正芬</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(6ea1cee1bd327c49)%20%E3%80%8A%E6%96%B0%E9%97%BB%E8%AE%B0%E8%80%85%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《新闻记者》" data-click="{'button_tp':'publish'}">《新闻记者》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(0e910cf256480a7a21973ea8512077ff)&amp;sc_f_para=sc_cita%3D%7B%E4%BA%92%E8%81%94%E7%BD%91%E5%AF%B9%E4%B8%AD%E5%9B%BD%E9%9B%86%E4%BD%93%E8%A1%8C%E5%8A%A8%E7%9A%84%E5%BD%B1%E5%93%8D%2C17%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">17</a></span><span class="sc_year"><span>发表:&nbsp;</span>2014年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=71062a3b7f8be87a84f54170ca3a5f5a" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">挑战与颠覆——论西方文化研究视野中的怪异理论思潮</a></p><p class="rel_abstract">"怪异"理论是西方90年代以来性政治活动和学术界兴起的新理论范畴.它继承各种同性恋文化研究,从60年代的后结构主义尤其是福柯的有关论述中汲取了大量营养,创造出一种奇...</p><p class="sc_message"><a class="sc_info_a c_underline" href="//xueshu.baidu.com/usercenter/data/author?cmd=authoruri&amp;wd=authoruri%3A(c404a929aa98f7b)%20author%3A(%E5%8D%AB%E5%8D%8E)%20%E6%B9%96%E5%8D%97%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank" data-click="{'button_tp':'author'}">卫华</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(7fba6847d7c6d694)%20%E3%80%8A%E6%B5%99%E6%B1%9F%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《浙江社会科学》" data-click="{'button_tp':'publish'}">《浙江社会科学》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(71062a3b7f8be87a84f54170ca3a5f5a)&amp;sc_f_para=sc_cita%3D%7B%E6%8C%91%E6%88%98%E4%B8%8E%E9%A2%A0%E8%A6%86%E2%80%94%E2%80%94%E8%AE%BA%E8%A5%BF%E6%96%B9%E6%96%87%E5%8C%96%E7%A0%94%E7%A9%B6%E8%A7%86%E9%87%8E%E4%B8%AD%E7%9A%84%E6%80%AA%E5%BC%82%E7%90%86%E8%AE%BA%E6%80%9D%E6%BD%AE%2C16%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">16</a></span><span class="sc_year"><span>发表:&nbsp;</span>2007年</span></div></li></ul><div class="dl_more more_btn OP_LOG_BTN" data-click="{'button_tp':'more','fm':'beha'}" data-type="reference" data-pn="2"><p class="request_situ">加载更多</p></div></div>
+    <div class="con_citation" data-click="{'act_block':'citation_recm'}" style="display: none; height: auto;"><ul class="citation_lists"><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=7ea6620e42e1d11d04566f2bd0e26e42" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">女同性恋群体的网络化生存</a></p><p class="rel_abstract">同性恋现象在中国已经有几千年的历史,但是同性恋群体一直不被主流社会接受,他们长期游离在社会边缘,承受着巨大的压力。2015年6月26日,美国最高法院通过了同性婚姻在美...</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=authoruri%3A(345b6be40bf08c9b)%20author%3A(%E9%83%91%E6%A2%A6%E7%90%9B)%20%E5%AE%89%E5%BE%BD%E5%A4%A7%E5%AD%A6&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson&amp;sort=sc_cited" target="_blank" data-click="{'button_tp':'author'}">郑梦琛</a>&nbsp;-&nbsp;安徽大学</p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(7ea6620e42e1d11d04566f2bd0e26e42)&amp;sc_f_para=sc_cita%3D%7B%E5%A5%B3%E5%90%8C%E6%80%A7%E6%81%8B%E7%BE%A4%E4%BD%93%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8C%96%E7%94%9F%E5%AD%98%2C3%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">3</a></span><span class="sc_year"><span>发表:&nbsp;</span>2016年</span></div></li><li><p class="rel_title"><a href="/usercenter/paper/show?paperid=c84004d2ebb0738fbfff47eda6c6b9d7" class="relative_title" target="_blank" data-click="{'button_tp':'title'}">中国语境下的性别与传播研究(1995—2014)</a></p><p class="rel_abstract">1995年第四届世界妇女大会在北京召开,中国性别与传播研究由此发端.本文对1995至2014年中国重要新闻传播期刊和女性研究期刊上该领域的184篇论文和107篇硕博学位论文进...</p><p class="sc_message"><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=authoruri%3A(aa5bcfbf5b75695b)%20author%3A(%E9%BB%84%E9%9B%85%E5%85%B0)%20%E6%9A%A8%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%96%B0%E9%97%BB%E4%B8%8E%E4%BC%A0%E6%92%AD%E5%AD%A6%E9%99%A2&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dperson&amp;sort=sc_cited" target="_blank" data-click="{'button_tp':'author'}">黄雅兰</a>&nbsp;-&nbsp;<a class="sc_info_a" href="//xueshu.baidu.com/s?wd=journaluri%3A(819c5207c736f780)%20%E3%80%8A%E6%96%B0%E9%97%BB%E6%98%A5%E7%A7%8B%E3%80%8B&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8&amp;sc_f_para=sc_hilight%3Dpublish&amp;sort=sc_cited" target="_blank" title="《新闻春秋》" data-click="{'button_tp':'publish'}">《新闻春秋》</a></p><div class="sc_info"><span class="sc_cited"><span>被引量:&nbsp;</span><a class="sc_info_a" href="//xueshu.baidu.com/s?wd=refpaperuri%3A(c84004d2ebb0738fbfff47eda6c6b9d7)&amp;sc_f_para=sc_cita%3D%7B%E4%B8%AD%E5%9B%BD%E8%AF%AD%E5%A2%83%E4%B8%8B%E7%9A%84%E6%80%A7%E5%88%AB%E4%B8%8E%E4%BC%A0%E6%92%AD%E7%A0%94%E7%A9%B6(1995%E2%80%942014)%2C1%7D&amp;sort=sc_cited&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" target="_blank" data-click="{'button_tp':'sc_cited'}">1</a></span><span class="sc_year"><span>发表:&nbsp;</span>2017年</span></div></li></ul></div>
+</div>
+
+<i class="reqdata" style="display:none;" urlmd="1be6d8e73d43747b72baf23cbd93bd9e" url="https://www.zhangqiaokeyan.com/academic-degree-domestic_mphd_thesis/020313077681.html" longsign="bd65b5f5414a41e7c259672ba48de822" diversion=""></i>
+
+
+    </div>
+    <div id="dtl_r">
+                    
+<div class="dtl_r_item">
+    <div class="dtl_journal" data-click="{'act_block':'dtl_journal'}">
+        <h3>来源学校</h3>
+        <div class="dtl_journal_container">
+            <div class="container_left">
+                                    <div class="default_img">
+                        <div class="icon"></div>
+                    </div>
+                            </div>
+            <div class="container_right">
+                                    <div class="journal_title" title="《南京师范大学》">《南京师范大学》</div>
+                                <div class="journal_content" title="2014年">2014年</div>
+                            </div>
+        </div>
+    </div>
+</div>
+                            <div class="dtl_r_item">
+    <div class="dtl_search_word">
+        <h3>研究点推荐</h3>
+        <div>
+        <!--
+                -->
+                    <a href="https://xueshu.baidu.com/s?wd=%E8%BA%AB%E4%BB%BD%E8%AE%A4%E5%90%8C&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" data-click="{'button_tp':'sc_search'}" target="_blank" title="身份认同">
+                <!--
+                <i class="iconfont dtl-right-research-icon">&#xe627;</i>身份认同
+                -->
+                身份认同
+            </a>
+                    <a href="https://xueshu.baidu.com/s?wd=%E6%80%A7%E5%88%AB%E8%AE%A4%E5%90%8C&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" data-click="{'button_tp':'sc_search'}" target="_blank" title="性别认同">
+                <!--
+                <i class="iconfont dtl-right-research-icon">&#xe628;</i>性别认同
+                -->
+                性别认同
+            </a>
+                    <a href="https://xueshu.baidu.com/s?wd=%E7%BD%91%E7%BB%9C%E4%BC%A0%E6%92%AD&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" data-click="{'button_tp':'sc_search'}" target="_blank" title="网络传播">
+                <!--
+                <i class="iconfont dtl-right-research-icon">&#xe629;</i>网络传播
+                -->
+                网络传播
+            </a>
+                    <a href="https://xueshu.baidu.com/s?wd=%E6%80%A7%E5%88%AB%E8%BA%AB%E4%BB%BD%E8%AE%A4%E5%90%8C&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" data-click="{'button_tp':'sc_search'}" target="_blank" title="性别身份认同">
+                <!--
+                <i class="iconfont dtl-right-research-icon">&#xe627;</i>性别身份认同
+                -->
+                性别身份认同
+            </a>
+                    <a href="https://xueshu.baidu.com/s?wd=%E6%80%A7%E5%88%AB%E7%A0%94%E7%A9%B6&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" data-click="{'button_tp':'sc_search'}" target="_blank" title="性别研究">
+                <!--
+                <i class="iconfont dtl-right-research-icon">&#xe628;</i>性别研究
+                -->
+                性别研究
+            </a>
+                    <a href="https://xueshu.baidu.com/s?wd=%E9%85%B7%E5%84%BF&amp;tn=SE_baiduxueshu_c1gjeupa&amp;ie=utf-8" data-click="{'button_tp':'sc_search'}" target="_blank" title="酷儿">
+                <!--
+                <i class="iconfont dtl-right-research-icon">&#xe629;</i>酷儿
+                -->
+                酷儿
+            </a>
+                </div>
+    </div>
+</div>
+                <div class="dtl_r_item">
+    <div class="dtl_cite_map" style="overflow: visible;">
+        <h3>引用走势</h3>
+        <div id="cited_map_wrapper" class="line_map_wrapper">
+            <div class="line_map_container" id="cited_map_container">
+                <canvas width="260" height="130" id="cited_bgCanvas" class="line_map_canvas" style="width: 260px; height: 130px; z-index: 80;"></canvas>
+                <canvas width="260" height="130" id="cited_circleCanvas" class="line_map_canvas" style="width: 260px; height: 130px; z-index: 99;"></canvas>
+                <canvas width="260" height="130" id="cited_routeCanvas" class="line_map_canvas" style="width: 260px; height: 130px; z-index: 90;"></canvas>
+                <canvas width="20" height="20" id="cited_hoverCanvas" class="hoverCanvas" style="left: -5px; top: -5px; display: inline;"></canvas>
+            <div class="textTips" style="left: 13px; top: 22px; position: absolute; display: block; background-color: rgb(51, 51, 51); color: rgb(255, 255, 255);"><div class="textTips_cite_year">2016</div><div class="textTips_cite_num">被引量：1</div></div><div class="lineTips" style="background-image: linear-gradient(rgba(83, 116, 255, 0.4) 0%, rgba(79, 110, 242, 0.1) 100%); left: 4px; height: 110px; bottom: 7px; display: block;"></div></div>
+        </div>
+    </div>
+</div>
+
+                <div class="dtl_r_item" style=""><div class="dtl_banner"><h3>站内活动</h3><div class="banner_list xpath-log"><div class="OP_LOG_BTN paper-banner" id="paper-banner-lunwenchachong" data-isclick="2" data-click="{'act_id':'100007', 'ch':3, 'fm':'as', 'banner_id': 'paper-banner-lunwenchachong'}"><a class="paper-banner-link" href="https://xueshu.baidu.com/usercenter/papercheck/index?site=index_links" onclick="_hmt.push(['_trackEvent', 'paperbanner', 'click', 'paper-banner-lunwenchachong'])"><img class="paper-banner-img" src="https://bj.bcebos.com/v1/ps-scholar-amis-standard/2023-11/1699512827547/e226657ee31e2b7ae115a35a8.png?authorization=bce-auth-v1%2F2409bd2f17c148a791a3742ee5fa569f%2F2023-11-09T06%3A53%3A47Z%2F1800%2Fhost%2Fa040f658330d3d09af2fa7fa3ec0ee247db2dfb06ac20a07451afcf5646aa796"></a><span class="gj-icon-x-bold paper-banner-close" data-click="{'act_id':'100007', 'ch':3, 'fm':'beha', 'banner_id': 'paper-banner-lunwenchachong'}"></span></div></div></div></div></div></div><div class="batch-container"><div id="citeBlock"></div><div class="batch-btn-wr"><div class="batch-btn btn-accessibility"><i class="icon i-auxiliary"></i><p class="tip">辅助模式</p></div><div class="batch-btn btn-collect"><div><i class="icon gj-icon-batch-add"></i><span class="num">0</span><p class="tip">引用</p></div></div><div class="batch-btn i-toup btn-up"><i class="icon i-toup gj-icon-uniE604"></i></div><div class="batch-btn-tip"><p class="tip">文献可以<span>批量引用</span>啦~<br>欢迎点我试用！</p><p></p></div></div></div>
+                    </div>
+                
+                </div>
+                
+                
+                
+                <div class="footer_dy">
+    <span class="footer_close">
+        <i class="gj-icon-x"></i>
+    </span>
+    <a href="https://xueshu.baidu.com/usercenter/activity/yearend2021#/?site=xfq" target="_blank">
+        <img src="https://bj.bcebos.com/v1/ps-scholar-amis-standard/2021-12/1640226104569/keyan.png" style="width: 100%;">
+    </a>
+</div>
+<div class="pagefoot gj" style=""><div class="footcon"><span class="lawinfo"><h4>关于我们</h4><p>百度学术集成海量学术资源，融合人工智能、深度学习、大数据分析等技术，为科研工作者提供全面快捷的学术服务。在这里我们保持学习的态度，不忘初心，砥砺前行。<br><a href="/usercenter/show/baiducas?cmd=page" target="_blank" style="color: #38f;">了解更多&gt;&gt;</a></p></span><span class="yqLink"><h4>友情链接</h4><div class="innerCont"><a href="https://cloud.baidu.com/" target="_blank"><img src="https://bj.bcebos.com/v1/ps-scholar-amis-standard/2020-11/1606363009781/baiduyun.png" alt="百度云"></a><a href="https://fanyi.baidu.com/?hmsr=1&amp;hmpl=&amp;hmcu=&amp;hmkw=&amp;hmci=" target="_blank"><img src="https://bj.bcebos.com/v1/ps-scholar-amis-standard/2021-5/1621326465289/baidufanyi.png" alt="百度翻译"></a></div></span><span class="contact"><h4>联系我们</h4><div class="innerCont"><a href="http://weibo.com/baiduxueshu" target="_blank"><p class="wb"><span class="qrcode webocode"></span></p></a><p class="wx"><span class="qrcode weixincode"></span></p><a href="mailto:xueshu_support@baidu.com" target="_blank"><p class="help"></p></a></div></span><span class="moreinfo"><h4>合作与服务</h4><span class="moreinfo_item"> <a href="//xueshu.baidu.com/usercenter/show/baiducas?cmd=journal" target="_blank">期刊合作</a></span><span class="moreinfo_item"> <a href="//xueshu.baidu.com/usercenter/show/baiducas?cmd=library" target="_blank">图书馆合作</a></span><span class="moreinfo_item"> <a href="https://bj.bcebos.com/v1/ps-scholar-amis-standard/archived/2021-4/1617263148292/BaiduScholar-20210401.pdf" target="_blank">下载产品手册</a></span><span class="moreinfo_item"><a href="javascript:;" class="feedback">意见反馈</a></span></span></div><p class="foottext">©2025 Baidu 百度学术声明 <a href="https://www.baidu.com/duty/" target="_blank">使用百度前必读</a></p></div>                
+            
+        </div>
+        <div class="dialog_bg hover-screen"></div>
+    <div id="sc_md_s" style="display: none;"></div></div>
+
+    
+<script>
+bds.comm.libNavNum = '0';
+bds.comm.sc_wkfrom = '';
+// 显示的第一个tab名称
+bds.comm.firstTab = 'allversion';
+</script>
+<script src="/lib/static/scholar/cache/library/js/template_404a564.js"></script>
+<script src="/lib/static/scholar/cache/paper/js/show_10039aa.js"></script><div id="sc_quote_bg"></div><div id="sc_quote_wr"><div class="sc_quote_top"><a href="javascript:;" class="sc_md_cls c-icon-close-hover"><i class="gj-icon-x"></i></a><h3 class="sc_quote_title">引用</h3></div><div class="sc_quote_content"></div></div>
+<!-- 论文详情页引入智瞳爬虫流量监控 -->
+<script>
+    window['__abbaidu_2053_subidgetf'] = function () {
+        return 'ae_xueshu_paper';
+    }
+    window['__abbaidu_2053_cb'] = function (responseData) {
+        var data = JSON.parse(responseData);
+        var d = new Date();
+        d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+        var expires = ";expires="+ d.toUTCString();
+        document.cookie = "antispam_data=" + data.data + expires + ";path=/;";
+        document.cookie = "antispam_key_id=" + data.key_id + expires + ";path=/;";
+        document.cookie = "antispam_sign=" + data.sign + expires + ";path=/;";
+        document.cookie = "antispam_site=ae_xueshu_paper" + expires + ";path=/;";
+    }
+</script>
+<script async="" src="https://dlswbr.baidu.com/heicha/mw/abclite-2053-s.js"> </script>
+
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?20c5d09058effeaad8703343e5fa9c95";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    
+</script><script type="text/javascript" charset="utf-8" src="https://xueshu.baidu.com/lib/static/scholar/cache/wza/_aria.js?appid=c890648bf4dd00d05eb9751dd0548c30"></script>
+
+
+</body></html>

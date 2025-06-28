@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html><head>
+    <!-- fragBegin: withOutDynamicConfig -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<!-- fragBegin: withOutViewPort -->
+
+<meta charset="UTF-8">
+<!-- Released by: AcDeployment System -->
+
+<!-- 百度站长工具校验代码 -->
+<meta name="baidu-site-verification" content="iCOfamZT3B">
+
+<!-- 关闭iOS电话号码识别、配置状态栏效果 -->
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+
+<!-- iOS主屏&书签图标 -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="//gtimg.ac.qq.com/h5/public/images/touch-icon-iphone-114.png?v=35ef6fea80e50951">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="//gtimg.ac.qq.com/h5/public/images/touch-icon-iphone-114.png?v=35ef6fea80e50951">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//gtimg.ac.qq.com/h5/public/images/touch-icon-ipad-144.png?v=784fdda39985ba20">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="//gtimg.ac.qq.com/h5/public/images/touch-icon-ipad-144.png?v=784fdda39985ba20">
+<link rel="shortcut icon" href="//gtimg.ac.qq.com/h5/public/images/touch-icon-iphone-114.png?v=35ef6fea80e50951">
+<link rel="shortcut icon" sizes="196x196" href="//gtimg.ac.qq.com/h5/public/images/touch-icon-iphone-196.png?v=271259d431f48a94">
+
+<!-- QQ浏览器锁定竖屏、全屏、应用模式 -->
+<!--<meta name="x5-orientation" content="portrait"/>-->
+<!--<meta name="x5-fullscreen" content="true"/>-->
+<meta name="x5-pagetype" content="webapp">
+
+<!-- UC浏览器锁定竖屏、全屏、应用模式 -->
+<!--<meta name="screen-orientation" content="portrait"/>-->
+<!--<meta name="full-screen" content="yes"/>-->
+<!--<meta name="browsermode" content="application"/>-->
+
+<!-- 分享信息 -->
+<meta itemprop="image" content="https://gtimg.ac.qq.com/h5/public/images/share-icon.png?v=7ee367fb9d2965dc">
+<meta itemprop="name" content="腾讯动漫">
+<meta name="description" itemprop="description" content="中国最大最权威的正版动漫网站，连载众多原创国漫，原创动画，正版日漫等海内外最热正版动漫内容">
+
+<!--运营商限制-->
+<meta http-equiv="Content-Security-Policy" content="default-src *.qq.com *.gtimg.com *.gtimg.cn *.qpic.cn *.qlogo.cn *.idqqimg.com 'self' data: callclient: txcomic: txcomicin: txcomicout: mtt: jsbridge: TcsJSBridge: 'unsafe-inline' 'unsafe-eval' https:; img-src *.qq.com *.gtimg.com *.gtimg.cn *.qpic.cn *.qlogo.cn *.idqqimg.com 'self' data: callclient: txcomic: txcomicin: txcomicout: mtt: jsbridge: TcsJSBridge: 'unsafe-inline' 'unsafe-eval' https:; media-src http: https:">
+
+
+<meta name="page-name" content="ask_detail">
+
+<!-- 通用样式与脚本 -->
+<link rel="stylesheet" href="//gtimg.ac.qq.com/h5/public/css/core.css?v=4ef6dd05e5c7c44e">
+<script src="https://hm.baidu.com/hm.js?ec3f5ac09e24d85ebdb0954b1670c12b"></script><script>
+  window.CLIENT_URL_ANDROID = '';
+  window.CLIENT_URL_IOS = '';
+
+  window.pageAction = window.pageAction || {};
+window.presetPageAction = window.presetPageAction || {};
+;
+  /**
+ * Created by krimeshu on 2016/6/6.
+ */
+
+(function () {
+    function Blocker(opts) {
+        opts = opts || {};
+        var timeKey = opts.timeKey || 'default';
+
+        this.KEY = 'H5_BLOCKER-' + timeKey;
+        this.EXPIRE_DAYS = 2;
+        // this.BLOCK_TIME = ['00:00', '23:59'];
+    }
+
+    Blocker.prototype = {
+        check: function () {
+            var isPad = this.isPad(),
+                hasBlocked = this.getCookie(this.KEY),
+                // now = new Date(),
+                // today = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+                // blockTimeStart = new Date(today + ' ' + this.BLOCK_TIME[0]),
+                // blockTimeEnd = new Date(today + ' ' + this.BLOCK_TIME[1]),
+                // isBlockTime = now >= blockTimeStart && now < blockTimeEnd;
+                isBlockTime = true;
+            return (!isPad && !hasBlocked && isBlockTime);
+        },
+        checkAndGo: function () {
+            if (this.check()) {
+                this.rememberBlocked();
+                this.goBlockPage();
+            }
+        },
+        checkAndDialog: function () {
+            if (this.check()) {
+                this.rememberBlocked();
+                this.showBlockDialog();
+            }
+        },
+        rememberBlocked: function () {
+            var expire = this.EXPIRE_DAYS * 24 * 60;
+            this.setCookie(this.KEY, new Date().getTime(), expire, '.m.ac.qq.com', '/');
+        },
+        goBlockPage: function () {
+            var channelIDs = { 'index': 1 },
+                channelID = channelIDs['ask_detail'];
+            window.location.href = '/block.html?retUrl=' + encodeURIComponent(window.location.href) +
+                (channelID ? '&channelID=' + channelID : '');
+        },
+        showBlockDialog: function () {
+            var self = this,
+                dialog = window.blockDialog;
+            if (dialog) {
+                dialog.open();
+            } else {
+                window.setTimeout(function () {
+                    self.showBlockDialog();
+                }, 50);
+            }
+        },
+        getCookie: function (key) {
+            var allcookies = document.cookie;
+            var cookiesReg = new RegExp('(^|;)\\s*' + key + '\\s*(=\\s*([^;$]*?))?(;|$)');
+            var groups = cookiesReg.exec(allcookies);
+            return decodeURIComponent(groups ? (groups[3] || '') : '');
+        },
+        setCookie: function (key, value, expires, domain, path) {
+            var values = [key + '=' + encodeURIComponent(value)];
+            if (expires) {
+                if (typeof expires === 'number') {
+                    var expiresTime = new Date();
+                    expiresTime.setMinutes(expiresTime.getMinutes() + expires);
+                    values.push('expires=' + expiresTime.toGMTString());
+                } else {
+                    values.push('expires=' + expires);
+                }
+            }
+            values.push('domain=' + (domain || '.ac.qq.com'));
+            values.push('path=' + (path || '/'));
+            document.cookie = values.join(';');
+        },
+        isPad: function () {
+            var ua = window.navigator.userAgent;
+            return /(^| |\()iPad(;| |\/|$)/.test(ua);
+        }
+    };
+
+    window.Blocker = Blocker;
+})();;
+</script>
+<!-- fragEnd: withOutDynamicConfig -->
+
+
+  <script>
+    window.CLIENT_URL_ANDROID = 'http://m.ac.qq.com/apkSet/qqcomic_android_dm5004.apk';
+    window.CLIENT_URL_IOS = 'https://itunes.apple.com/app/apple-store/id569387346?pt=604140&ct=h5zhuzhan1&mt=8';
+
+    (function autoBlock() {
+      // 拦截类型：页面、忽略、对话框（默认）
+      var specBlockType = {
+        'index': 'ignore',
+        'chapter': 'ignore',
+        'comic_info': 'ignore'
+      };
+      // 根据页面名称确定拦截类型，并做处理
+      var blockType = specBlockType['ask_detail'];
+      // 微博里不适合跳转拦截页，强制改为弹窗
+      if (/(^| )(Weibo)( |\/|$|\()/i.test(navigator.userAgent)) {
+        blockType = null;
+      }
+      switch (blockType) {
+        case 'page':
+          new Blocker().checkAndGo();
+          break;
+        case 'ignore':
+          break;
+        default:
+          new Blocker().checkAndDialog();
+          break;
+      }
+    })();
+  </script>
+  <!-- fragEnd: withOutViewPort -->
+    <title>一句话概括狐妖小红娘的故事 - 腾讯动漫</title>
+
+    <meta name="keywords" content="一句话概括狐妖小红娘的故事, 漫画问答, 动漫问答">
+        <meta name="description" content="《狐妖小红娘》讲述了在人妖混居的现代社会，以涂山苏苏和白月初为代表的狐妖们担任红娘为前世的人妖恋人牵红线，期间展现了多对人妖情侣如涂山红红与东方月初等跨越时空的爱恋故事，这些故事融入大量中国神话、传统...">
+    <meta name="robots" content="all">
+    <meta name="googlebot" content="all">
+    <meta name="baiduspider" content="all">
+
+    <link href="//gtimg.ac.qq.com/h5/ask/css/ask.css?v=04a028571acbe9b7" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- 顶栏 -->
+<header class="top-bar #bar_style#">
+    <a class="btn-top back">[返回]</a>
+
+    <h1 class="top-title">一句话概括狐妖小红娘的故事</h1>
+
+    <div class="top-logo">[腾讯动漫LOGO]</div>
+
+    <div class="padding"></div>
+    <a class="btn-top search" href="/search/index">[搜索]</a>
+    <a class="btn-top menu">[菜单]</a>
+</header>
+<!-- 导航菜单 -->
+<div class="nav-menu-box">
+    <div class="nav-menu-bg"></div>
+    <div class="nav-menu">
+        <ul class="nav-list">
+            <li class="item" data-name="index" data-button-id="10031">
+                <a class="link" href="/">
+                    <i class="icon index">[首页]</i>
+                    <span class="name">首页</span>
+                </a>
+            </li>
+            <li class="item" data-name="category" data-button-id="10006">
+                <a class="link" href="/category/index">
+                    <i class="icon category">[分]</i>
+                    <span class="name">分类</span>
+                </a>
+            </li>
+            <li class="item" data-name="rank" data-button-id="10007">
+                <a class="link" href="/rank/index?type=rise">
+                    <i class="icon rank">[奖]</i>
+                    <span class="name">排行</span>
+                </a>
+            </li>
+            <li class="item" data-name="bookshelf" data-button-id="10003">
+                <a class="link top-bar-collect" href="javascript:void(0)">
+                    <i class="icon collect">[袋]</i>
+                    <span class="name">收藏</span>
+                </a>
+            </li>
+            <li class="item" data-name="history" data-button-id="10004">
+                <a class="link" href="/bookshelf/index?type=his">
+                    <i class="icon history">[钟]</i>
+                    <span class="name">历史</span>
+                </a>
+            </li>
+            <li class="item" data-name="support" data-button-id="10008">
+                <a class="link support" href="javascript:void(0);">
+                    <i class="icon feedback">[反馈]</i>
+                    <span class="name">反馈</span>
+                </a>
+            </li>
+        </ul>
+        <a class="btn-home" href="javascript:void(0)" data-button-id="10009">[个人中心]</a>
+    </div>
+</div>
+<article class="main under-top-bar">
+    <div class="wrap question_content ask-question-main is-m" id="">
+        <div class="async-ddl">
+            <a href="javascript:" class="home-download auto-report jsDownloadLink" data-channel-id="104025010">
+                <i class="dm-logo"></i>
+                <p>腾讯动漫App<span>海量正版漫画畅快看</span></p>
+                <em>立即下载</em>
+            </a>
+        </div>
+        <div class="question_head">
+        <h1>一句话概括狐妖小红娘的故事</h1>
+        <p class="author"><span class="time">2024年10月10日 12:07</span></p>
+        <div class="meta clearfix answer-count">
+            <span>
+            <img class="svg-answer" src="//gtimg.ac.qq.com/h5/ask/images/icon-comment.png?v=16f86a1944c2682c" alt="">
+            1个回答
+            </span>
+        </div>
+        </div>
+        <div class="topic-list topic-list_collapse">
+                        <div class="answer-list" data-bks="W3sibmFtZSI6Ilx1NzJkMFx1NTk5Nlx1NWMwZlx1N2VhMlx1NWExOCIsImNiaWQiOiIxNTEyNjI1ODcwNTM4MzYwNiIsImNzYmlkIjoiMjY2MzA5NzEiLCJxZGJpZCI6IjEwMTY2MzA5NzIiLCJjb21pY0lkIjoiNTE4MzMzIiwiY2hhbm5lbHMiOlsicXFib29rIiwicWQiLCJ4eHN5IiwiY29taWMiXX1d">
+                <div class="topic-list__card" data-aid="214336" data-time="2024年10月10日 12:07" data-l3="peurclmicl">
+                    <div class="author">
+                        <div class="author__link author-more">
+                            <img class="author-user jsGoToUserPage" src="https://manhua.acimg.cn/operation/0/24_11_00_385b5034c61a844b02cf38fdee09d876_1721790015402.png/0">
+                            <div>
+                                <span class="author__name jsGoToUserPage">星云女巫</span>
+                                <span class="time">2024年10月10日 12:07</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="answer-box"><a href="/chapter/index/id/518333/seqno/1?flag=ask_share" class="a-link" target="_blank" rel="nofollow">《狐妖小红娘》</a>讲述了在人妖混居的现代社会，以涂山苏苏和白月初为代表的狐妖们担任红娘为前世的人妖恋人牵红线，期间展现了多对人妖情侣如涂山红红与东方月初等跨越时空的爱恋故事，这些故事融入大量中国神话、传统文化元素以及中国多民族的地貌和人文风情。
+
+ 等待电视剧的同时，也可以点击下方链接来阅读<a href="/chapter/index/id/518333/seqno/1?flag=ask_share" class="a-link" target="_blank" rel="nofollow">《狐妖小红娘》</a>原著提前了解剧情了！</p>
+                    <div class="no-ssr-placeholder"></div>
+                    <p class="feedback">
+                        答案问题点击
+                        <span class="feedback-entry j_feedback" data-aindex="0" data-aid="214336">举报反馈</span>
+                        <span class="feedback-tip"></span>
+                    </p>
+                                        <div class="ask-question-mention" data-l3="foyccl">
+                    <p class="mention-title">提到的作品</p>
+                    <ul class="mention-ul">
+                                                <li class="mention-li" data-bid="518333"><a target="_blank" rel="nofollow" href="/chapter/index/id/518333/seqno/1?flag=ask_share"><img class="mention-cover" src="https://manhua.acimg.cn/vertical/0/17_16_12_cd4e6fe51036f100d5f2c1eb1289788e.jpg/420" alt="封面"><p class="mention-name">狐妖小红娘</p><p class="mention-infos">小新 · 古风 · 妖怪</p><p class="mention-desc">【月红篇 阅读指路86-142话】
+迷糊萝莉小狐妖，正太道士没节操。自古人妖生死恋，千载孽缘一线牵。（每周周四更新。）</p></a></li>
+                                            </ul>
+                    </div><!-- END: .ask-question-mention -->
+                                    </div>
+                <!-- <div class="ask-banner" id="middleBanner">
+                    <a href="adLink" target="_blank" style="border: navajowhite; margin-top: 0.75rem;" class="auto-report" data-showeid="mqd_W6" data-eid="mqd_W6" data-showl1="advertisement" data-l1="advertisement">
+                        <img src="" alt="banner" style="width: 100%;" />
+                    </a>
+                </div> -->
+            </div>
+                    </div>
+        <div class="async-ddl">
+            <a href="javascript:" class="home-download auto-report jsDownloadLink" data-channel-id="104025010">
+                <i class="dm-logo"></i>
+                <p>腾讯动漫App<span>海量正版漫画畅快看</span></p>
+                <em>立即下载</em>
+            </a>
+        </div>
+
+        <div class="wrap clearfix relate-questions ask-question-relate">
+            <div class="topic-list topic-list_collapse topic-list_1">
+                <div class="section-title">相关问答</div>
+                
+                                <div class="topic-list__card">
+                    <a href="/ask/detail/aid/peosnjwzos" class="title">
+                    元尊故事详细概括                    
+                    <div class="answer-content">
+                        <p>《元尊》主要讲述了大周皇子周元的故事。周元天生拥有圣龙气运，但被敌国武王以亿万大周子民为要挟夺走气运，蟒雀吞龙的同时周元还身中怨龙毒，这使得他多年无法修炼，并且需要母亲年复一年输血来压制怨龙毒。
+
+周...</p>
+                    </div>
+                    <div class="meta clearfix">
+                        <span class="answer-count">
+                            <img class="svg-answer" src="//gtimg.ac.qq.com/h5/ask/images/icon-comment.png?v=16f86a1944c2682c" alt="">
+                            1 个回答
+                        </span>
+                        <span class="time">2024年11月04日 16:56</span>
+                    </div>
+                    </a>
+                </div>
+                                <div class="topic-list__card">
+                    <a href="/ask/detail/aid/peosmiskpe" class="title">
+                    狐妖小红娘概括全集                    
+                    <div class="answer-content">
+                        <p>《狐妖小红娘》的剧情包含多个篇章。远古时代，人妖诞生于傲来国，起初人族弱小，后形成修行体系和发现法宝，才与妖族分庭抗礼。傲来国与圈外生物大战，三少爷画圈划分圈内圈外并消灭圈内圈外生物，之后发现苦情树并...</p>
+                    </div>
+                    <div class="meta clearfix">
+                        <span class="answer-count">
+                            <img class="svg-answer" src="//gtimg.ac.qq.com/h5/ask/images/icon-comment.png?v=16f86a1944c2682c" alt="">
+                            1 个回答
+                        </span>
+                        <span class="time">2024年11月02日 04:37</span>
+                    </div>
+                    </a>
+                </div>
+                                <div class="topic-list__card">
+                    <a href="/ask/detail/aid/peosiqbpur" class="title">
+                    狐妖小红娘内容概括                    
+                    <div class="answer-content">
+                        <p>《狐妖小红娘》是一部玄幻恋爱类作品，其漫画于2012年5月4日开始连载。故事发生在一个人妖混居的现代社会，以小狐妖涂山苏苏为成为红线仙，与白月初为前世的人妖恋人牵红线过程中发生的一系列神秘故事为主线。...</p>
+                    </div>
+                    <div class="meta clearfix">
+                        <span class="answer-count">
+                            <img class="svg-answer" src="//gtimg.ac.qq.com/h5/ask/images/icon-comment.png?v=16f86a1944c2682c" alt="">
+                            1 个回答
+                        </span>
+                        <span class="time">2024年10月17日 13:20</span>
+                    </div>
+                    </a>
+                </div>
+                                <div class="topic-list__card">
+                    <a href="/ask/detail/aid/peurclmicl" class="title">
+                    一句话概括狐妖小红娘的故事                    
+                    <div class="answer-content">
+                        <p>《狐妖小红娘》讲述了在人妖混居的现代社会，以涂山苏苏和白月初为代表的狐妖们担任红娘为前世的人妖恋人牵红线，期间展现了多对人妖情侣如涂山红红与东方月初等跨越时空的爱恋故事，这些故事融入大量中国神话、传统...</p>
+                    </div>
+                    <div class="meta clearfix">
+                        <span class="answer-count">
+                            <img class="svg-answer" src="//gtimg.ac.qq.com/h5/ask/images/icon-comment.png?v=16f86a1944c2682c" alt="">
+                            1 个回答
+                        </span>
+                        <span class="time">2024年10月10日 12:07</span>
+                    </div>
+                    </a>
+                </div>
+                                <div class="topic-list__card">
+                    <a href="/ask/detail/aid/peurjddype" class="title">
+                    狐妖小红娘的故事结局                    
+                    <div class="answer-content">
+                        <p>在《狐妖小红娘月红篇》的结局中，存在多种不同的情况。
+
+一种结局是涂山红红为救六域吸收了太多的恨意成就了另一个黑化的涂山红红，黑狐强大，涂山红红不敌，东方月初牺牲自己守护六域和涂山红红，涂山红红因消耗...</p>
+                    </div>
+                    <div class="meta clearfix">
+                        <span class="answer-count">
+                            <img class="svg-answer" src="//gtimg.ac.qq.com/h5/ask/images/icon-comment.png?v=16f86a1944c2682c" alt="">
+                            1 个回答
+                        </span>
+                        <span class="time">2024年09月19日 03:10</span>
+                    </div>
+                    </a>
+                </div>
+                                <div class="topic-list__card">
+                    <a href="/ask/detail/aid/pefotulwos" class="title">
+                    狐妖小红娘南国篇内容概括                    
+                    <div class="answer-content">
+                        <p>狐妖小红娘南国篇主要讲述了：根据古典小说记载，世上有人有妖，妖会与人相恋，妖寿命千万年，人的寿命有限，人死了会投胎转世，但投胎后不记得上辈子的爱。妖若痴情，可找狐妖购买服务让投胎转世的人回忆起前世的爱...</p>
+                    </div>
+                    <div class="meta clearfix">
+                        <span class="answer-count">
+                            <img class="svg-answer" src="//gtimg.ac.qq.com/h5/ask/images/icon-comment.png?v=16f86a1944c2682c" alt="">
+                            1 个回答
+                        </span>
+                        <span class="time">2024年08月31日 04:33</span>
+                    </div>
+                    </a>
+                </div>
+                                <div class="topic-list__card">
+                    <a href="/ask/detail/aid/pefodyvxpe" class="title">
+                    狐妖小红娘的剧情概括                    
+                    <div class="answer-content">
+                        <p>《狐妖小红娘》主要讲述了以红娘为职业的狐妖在为前世恋人牵红线过程当中发生的一系列有趣、神秘的故事。其改编自庹新科创作的同名漫画作品，由腾讯动漫和夏天岛工作室联合打造。
+
+其中，《狐妖小红娘·月红篇》改...</p>
+                    </div>
+                    <div class="meta clearfix">
+                        <span class="answer-count">
+                            <img class="svg-answer" src="//gtimg.ac.qq.com/h5/ask/images/icon-comment.png?v=16f86a1944c2682c" alt="">
+                            1 个回答
+                        </span>
+                        <span class="time">2024年08月19日 21:01</span>
+                    </div>
+                    </a>
+                </div>
+                                <div class="topic-list__card">
+                    <a href="/ask/detail/aid/peenlwqbgt" class="title">
+                    狐妖小红娘全剧情概括经过                    
+                    <div class="answer-content">
+                        <p>《狐妖小红娘》的剧情包含多个篇章，远古时代，人妖诞生于傲来国，起初人族弱小，后形成修行体系和发现法宝，与妖族分庭抗礼。傲来国与圈外生物大战，三少爷画圈划分圈内圈外并消灭圈内圈外生物。之后三少爷发现苦情...</p>
+                    </div>
+                    <div class="meta clearfix">
+                        <span class="answer-count">
+                            <img class="svg-answer" src="//gtimg.ac.qq.com/h5/ask/images/icon-comment.png?v=16f86a1944c2682c" alt="">
+                            1 个回答
+                        </span>
+                        <span class="time">2024年08月19日 00:26</span>
+                    </div>
+                    </a>
+                </div>
+                                <div class="topic-list__card">
+                    <a href="/ask/detail/aid/peenendydy" class="title">
+                    狐妖小红娘背后的故事                    
+                    <div class="answer-content">
+                        <p>《狐妖小红娘》作为超高人气国漫 IP，讲述了以红娘为职业的狐妖帮助恋人们在相思树下签订契约，实现转世续缘的故事。根据古典小说记载，世上有人有妖，妖会与人相恋，妖寿命千万年，人的寿命有限，人死了，妖活着...</p>
+                    </div>
+                    <div class="meta clearfix">
+                        <span class="answer-count">
+                            <img class="svg-answer" src="//gtimg.ac.qq.com/h5/ask/images/icon-comment.png?v=16f86a1944c2682c" alt="">
+                            1 个回答
+                        </span>
+                        <span class="time">2024年08月11日 05:40</span>
+                    </div>
+                    </a>
+                </div>
+                                <div class="topic-list__card">
+                    <a href="/ask/detail/aid/peendyurbp" class="title">
+                    狐妖小红娘背后的故事                    
+                    <div class="answer-content">
+                        <p>在《狐妖小红娘》的世界里，很久以前人和妖同时诞生，人自认为是万物之灵，妖也认为自己是天生灵物，双方将彼此视为异类，常起争端。后来人类发现打不过拥有妖力的妖怪，但找到了抗击妖怪的法宝，人和妖因此进入全面...</p>
+                    </div>
+                    <div class="meta clearfix">
+                        <span class="answer-count">
+                            <img class="svg-answer" src="//gtimg.ac.qq.com/h5/ask/images/icon-comment.png?v=16f86a1944c2682c" alt="">
+                            1 个回答
+                        </span>
+                        <span class="time">2024年08月03日 10:58</span>
+                    </div>
+                    </a>
+                </div>
+                            </div>
+        </div>
+
+        <div class="hot-ask">
+            <h2 class="section-title">热门问答</h2>
+            <div class="hot-ask-list">
+            <ol>
+                                    <li><a href="/ask/detail/aid/zfyctuwzen">
+                        <span>1 </span>
+                        仙逆孙云为什么叛出师门                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfyctuwzvx">
+                        <span>2 </span>
+                        超级养殖户                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxavx">
+                        <span>3 </span>
+                        开局一座山漫画土豪漫画免费观看                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfyctuwzam">
+                        <span>4 </span>
+                        我家山头通古代                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfyctuwzlw">
+                        <span>5 </span>
+                        我的昆仑山(原唱)                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxalw">
+                        <span>6 </span>
+                        神豪我有超级种田系统                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfyctuwzcl">
+                        <span>7 </span>
+                        主角在欧洲开农场的小说推荐                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxacl">
+                        <span>8 </span>
+                        都市之神级农牧场                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxahv">
+                        <span>9 </span>
+                        姬天道和谁在一起了的大结局                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfyctuwzsk">
+                        <span>10 </span>
+                        《叛徒》                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxask">
+                        <span>11 </span>
+                        铸剑神匠短剧免费观看                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxatu">
+                        <span>12 </span>
+                        最强反派大师兄 缤纷九月                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfyctuwznj">
+                        <span>13 </span>
+                        一觉醒来徒弟全叛出师门                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxanj">
+                        <span>14 </span>
+                        穿书后我渣了反派大佬免费                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxajd">
+                        <span>15 </span>
+                        我徒弟都是大反派最新章节                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfyctuwzmi">
+                        <span>16 </span>
+                        电影叛徒与英雄免费看                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxami">
+                        <span>17 </span>
+                        姬天道陆州小说                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxayc">
+                        <span>18 </span>
+                        初盘是什么意思                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxarh">
+                        <span>19 </span>
+                        我的徒弟是反派百度百科                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxaqb">
+                        <span>20 </span>
+                        6漫画免费下拉式六漫开局一坐山                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvqbqb">
+                        <span>21 </span>
+                        开局一条木筏by簌簌吹雪                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxakg">
+                        <span>22 </span>
+                        叛出师门后                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxaxa">
+                        <span>23 </span>
+                        免费1-100集短剧无敌半生                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvqbxa">
+                        <span>24 </span>
+                        开局荒岛求生游戏                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxazf">
+                        <span>25 </span>
+                        空间大渔民                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfyctuwzwz">
+                        <span>26 </span>
+                        开局一座荒岛txt百度云                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxawz">
+                        <span>27 </span>
+                        我白捡了个最强师傅动漫免费全集                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxape">
+                        <span>28 </span>
+                        叛出宗门100集免费播放完整版                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfyctuwzdy">
+                        <span>29 </span>
+                        初盘和即时盘怎么分析                    </a></li>
+                                    <li><a href="/ask/detail/aid/zfychvxady">
+                        <span>30 </span>
+                        叛变的意思是什么                    </a></li>
+                            </ol>
+            </div>
+        </div>
+
+    </div>
+</article>
+
+<script src="//gtimg.ac.qq.com/h5/public/js/core.js?v=d09e804a93458f24" crossorigin=""></script><style>@charset "UTF-8";html{font-size:20px}html{font-size:10px}@media screen and (min-width:320px){html{font-size:17px}}@media screen and (min-width:360px){html{font-size:19.2px}}@media screen and (min-width:375px){html{font-size:20px}}@media screen and (min-width:414px){html{font-size:22px}}body{font-size:14px}
+/*! Pile Dialog Styles */
+.pile-dialog-wrap{-webkit-tap-highlight-color:transparent}.pile-dialog-wrap.default .dialog-box{border-radius:.2rem;background-color:#fff;-webkit-box-shadow:0 0 .375rem rgba(0,0,0,.3);box-shadow:0 0 .375rem rgba(0,0,0,.3);margin:0 .4rem;min-width:40%}.pile-dialog-wrap.default .dialog-box .dialog-title{height:2.75rem;line-height:2.75rem;margin:0;padding-left:1.05rem;padding-right:1.05rem;border-radius:.2rem .2rem 0 0;border-bottom:1px solid #dadada;background-color:#fff;color:#333;font-size:.75rem}.pile-dialog-wrap.default .dialog-box .dialog-close-btn{width:1.9rem;height:1.9rem;padding:.375rem .425rem .475rem .425rem}.pile-dialog-wrap.default .dialog-box .dialog-close-btn::after{content:"";display:block;width:1.9rem;height:1.9rem;border-radius:.1rem;background:url("data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAA51BMVEUAAABRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVHw6GZRUVHu5mbo4GXj3GTf2GRtbFVhYVPs5GXJw2FmZVReXVPb1GPX0GOMiVmIhVh4dlZqaVRxb1Xl3mXUzWLRy2K8tl+no1yPjFmFglh/fFd0clZaWlJXV1JSUlGgnFyZllrOx2HCvWC9t1+qpl2VklqRjlmBf1dDolf5AAAAJXRSTlMAKcMmvKscFu7Vt7Kvh08hEAJvDAf69enizMelnUEaYNypejYx4/ITWwAAAgdJREFUSMft1NlS8kAQBeBJlEhYJYAKKK45ypKIBFwAF8Bd3/95/plM/1pWOgbLC284F1SK4atMNXVaLLPM71PIm3mLP7LkUSHObUMmbXBHRhoy27wrYj7xB6gajKti4E/mKLJwF4HrHl9jw4i4DVwfu26A3Rj45koZIL0SuWcgnfsGh4UGZiMlB9j8Ilc2MVBuNIMRN5zelZI32AoluS3cKHfVU8Phk0KvL3/i3WKv+DGyPdx68st+DykWkeyeaWkXydnanXXJ8SnltDwZwrbC/93G8ES7XEl8k0oWp20ta5Z0Ne3ap8hWxLcpZ0jeod5s1nFHLlMWCVlfxXlLyQuYJi6Ua51jdT2BadlRstXB/wfGcVmTL7oMXxS++rIDcy3JkKzrK7bb+sr1BZ0aph6KHlLN+kGjMR9rOJ6j8BOHF5fygsXlDjBRxvfV5wTYWdjdh242C+X9gvKQ3OMUmD6qpwfgMNkdAQ+uzGiKRgPTEcmjJGdU8Uq1bQjRoGq/MiuMWUu6tvtCZl9Vm11h/Frqh7WlaocyiCxcZi1RbT+rzawwmchaotp+rTatMDYlG+9etLYVqrb3DrvEwjyGHtVWO0pZVjuUQ+RZaML/rC1XbR8mC3N4ptoy1e7Iaj8jx0IH3fGTdpx8GnfhCDZZyJhN7qhpQiYrYuKkMgdxZweZlCOWWebv8g9gBmPlYiejIwAAAABJRU5ErkJggg==") no-repeat center center;background-size:1.4rem 1.4rem}.pile-dialog-wrap.default .dialog-box .dialog-close-btn:active::after{background-color:#dcdcd6}.pile-dialog-wrap.default .dialog-box .dialog-content{padding-bottom:1.25rem;border-radius:.2rem .2rem 0 0;background-color:#fff;color:#333;font-size:.7rem}.pile-dialog-wrap.default .dialog-box .dialog-content .weak{color:#868686}.pile-dialog-wrap.default .dialog-box .dialog-content .small{font-size:.6rem}.pile-dialog-wrap.default .dialog-box .dialog-content .del{text-decoration:line-through}.pile-dialog-wrap.default .dialog-box .dialog-content .em{font-style:normal;text-shadow:0 0 4px #fcf988}.pile-dialog-wrap.default .dialog-box .dialog-content .link{display:inline-block;padding:.1rem 0;color:#e65d52;border-bottom:1px solid #e65d52}.pile-dialog-wrap.default .dialog-box .dialog-para{margin:1.25rem 1.05rem 0 1.05rem;padding:0}.pile-dialog-wrap.default .dialog-box .dialog-btn{margin:1.25rem 1.05rem 0 1.05rem;padding:0 .5rem;height:2rem;line-height:2rem;border-radius:.15rem;border:2px solid #767676;background-color:#fdf986;color:#545253;font-size:.75rem;text-align:center}.pile-dialog-wrap.default .dialog-box .dialog-btn:active,.pile-dialog-wrap.default .dialog-box .dialog-btn.active{background-color:#827e02}.pile-dialog-wrap.default .dialog-box .dialog-btn[disabled],.pile-dialog-wrap.default .dialog-box .dialog-btn.disabled{background-color:#c5c5c5}.pile-dialog-wrap.light-salmon .dialog-box{border-radius:.2rem;background-color:#fff;-webkit-box-shadow:0 0 .375rem rgba(0,0,0,.3);box-shadow:0 0 .375rem rgba(0,0,0,.3);margin:0 .4rem;min-width:40%}.pile-dialog-wrap.light-salmon .dialog-box .dialog-title{height:2.75rem;line-height:2.75rem;margin:0;padding-left:1.05rem;padding-right:1.05rem;border-radius:.2rem .2rem 0 0;border-bottom:1px solid #dadada;background-color:#fff;color:#333;font-size:.75rem}.pile-dialog-wrap.light-salmon .dialog-box .dialog-close-btn{width:1.9rem;height:1.9rem;padding:.375rem .425rem .475rem .425rem}.pile-dialog-wrap.light-salmon .dialog-box .dialog-close-btn::after{content:"";display:block;width:1.9rem;height:1.9rem;border-radius:.1rem;background:url("data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAADgAAAA4BAMAAABaqCYtAAAAElBMVEUAAAD/mmr/mmr/mmr/mmr/mmpfN+OxAAAABXRSTlMAnM2GSc5Tm0cAAACTSURBVDjL7dTNDYAgDIZh/wbw4t3EBYwTuAKH7r+KBw1tfRO+BeiJFh6jSBl6fLEc/8p11+Fka54bba/j2Uqe3OyMyZphQYa1nmIpc0IvEHoF0EuEoA5JHYI6JE2Q1CFpgKQBkgZISshJ/Vj9QvwUvQl6+/TG85cRgspjwgNGSCoPNdtBNJJowUbzirZvXBg93ngA5lQopdA864gAAAAASUVORK5CYII=") no-repeat center center;background-size:1.4rem 1.4rem}.pile-dialog-wrap.light-salmon .dialog-box .dialog-close-btn:active::after{background-color:#dcdcd6}.pile-dialog-wrap.light-salmon .dialog-box .dialog-content{padding-bottom:1.25rem;border-radius:.2rem .2rem 0 0;background-color:#fff;color:#333;font-size:.7rem}.pile-dialog-wrap.light-salmon .dialog-box .dialog-content .weak{color:#868686}.pile-dialog-wrap.light-salmon .dialog-box .dialog-content .small{font-size:.6rem}.pile-dialog-wrap.light-salmon .dialog-box .dialog-content .del{text-decoration:line-through}.pile-dialog-wrap.light-salmon .dialog-box .dialog-content .em{font-style:normal;text-shadow:0 0 4px #ff7737}.pile-dialog-wrap.light-salmon .dialog-box .dialog-content .link{display:inline-block;padding:.1rem 0;color:#eb6056;border-bottom:1px solid #eb6056}.pile-dialog-wrap.light-salmon .dialog-box .dialog-para{margin:1.25rem 1.05rem 0 1.05rem;padding:0}.pile-dialog-wrap.light-salmon .dialog-box .dialog-btn{margin:1.25rem 1.05rem 0 1.05rem;padding:0 .5rem;height:2.15rem;line-height:2.15rem;border-radius:.15rem;background-color:#ff9a6a;color:#fff;font-size:.75rem;text-align:center}.pile-dialog-wrap.light-salmon .dialog-box .dialog-btn:active,.pile-dialog-wrap.light-salmon .dialog-box .dialog-btn.active{background-color:#ff7737}.pile-dialog-wrap.light-salmon .dialog-box .dialog-btn[disabled],.pile-dialog-wrap.light-salmon .dialog-box .dialog-btn.disabled{background-color:#c5c5c5}.pile-dialog-wrap.flat{top:auto;bottom:0;-webkit-box-align:end;-webkit-align-items:flex-end;-ms-flex-align:end;-ms-grid-row-align:flex-end;align-items:flex-end}.pile-dialog-wrap.flat .dialog-box{background-color:#fff;width:100%}.pile-dialog-wrap.flat .dialog-box .dialog-title{height:2.5rem;line-height:2.5rem;color:#333;text-align:center;font-size:.8rem}.pile-dialog-wrap.flat .dialog-box .dialog-close-btn{display:none}.pile-dialog-wrap.flat .dialog-box .dialog-content{color:#535252;font-size:.7rem}.pile-dialog-wrap.flat .dialog-box .dialog-content .weak{color:#969696}.pile-dialog-wrap.flat .dialog-box .dialog-content .small{font-size:.6rem}.pile-dialog-wrap.flat .dialog-box .dialog-content .del{text-decoration:line-through}.pile-dialog-wrap.flat .dialog-box .dialog-content .em{font-style:normal;text-shadow:0 0 4px #e86a3e}.pile-dialog-wrap.flat .dialog-box .dialog-para{margin:1.25rem 1.75rem 0 1.75rem;padding:0}.pile-dialog-wrap.flat .dialog-box .dialog-btn{margin:1.25rem 0 0 0;padding:0;height:3rem;line-height:3rem;border-top:1px solid #c5c5c5;background-color:#f5f5ee;color:#535252;font-size:.8rem;text-align:center}.pile-dialog-wrap.toast{top:auto;bottom:3.75rem;height:auto}.pile-dialog-wrap.toast .dialog-box{display:inline-block;background-color:rgba(40,40,40,.95);border-radius:2.5rem;margin:0 auto}.pile-dialog-wrap.toast .dialog-box .dialog-title{height:2.5rem;line-height:2.5rem;color:#333;text-align:center;font-size:.8rem}.pile-dialog-wrap.toast .dialog-box .dialog-close-btn{display:none}.pile-dialog-wrap.toast .dialog-box .dialog-content{color:#c5c5c5;font-size:.65rem}.pile-dialog-wrap.toast .dialog-box .dialog-content .weak{color:#969696}.pile-dialog-wrap.toast .dialog-box .dialog-content .small{font-size:.6rem}.pile-dialog-wrap.toast .dialog-box .dialog-content .del{text-decoration:line-through}.pile-dialog-wrap.toast .dialog-box .dialog-content .em{font-style:normal;text-shadow:0 0 4px #e86a3e}.pile-dialog-wrap.toast .dialog-box .dialog-para{height:2.5rem;line-height:2.5rem;padding:0 1.75rem}.pile-dialog-wrap{display:none;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;-ms-grid-row-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;position:fixed;top:0;left:0;z-index:1000000;width:100%;height:100%;text-align:center;pointer-events:none}.pile-dialog-wrap.open{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}.pile-dialog-wrap .dialog-box,.pile-dialog-wrap .dialog-cover{pointer-events:auto}.dialog-cover{position:fixed;z-index:1000001;top:0;left:0;width:100%;height:100%;background-color:#000;-webkit-transition:opacity 300ms ease;transition:opacity 300ms ease;opacity:0}.dialog-cover.show{opacity:.25}.dialog-box{position:relative;z-index:1000002;overflow:hidden;-webkit-transition:opacity 300ms ease,-webkit-transform 300ms ease;transition:opacity 300ms ease,-webkit-transform 300ms ease;transition:transform 300ms ease,opacity 300ms ease;transition:transform 300ms ease,opacity 300ms ease,-webkit-transform 300ms ease;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0);opacity:0;text-align:left}.dialog-box.show{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);opacity:1}.dialog-box .dialog-title{-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}.dialog-box .dialog-close-btn{display:block;position:absolute;top:0;right:0;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);cursor:pointer}.dialog-box .dialog-content{position:relative;overflow:hidden;text-overflow:ellipsis}.dialog-box .dialog-para{display:block;line-height:1.4}.dialog-box .dialog-btn{display:block;text-align:center;cursor:pointer}.dialog-box .dialog-row{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}</style>
+
+<script>
+
+    window.HOT_TAG_ROOT = 'h5_v3.';
+
+    ek.share.setShare({
+        link: ek.url.appendQueryString(window.location.href, {'shared': 1}),
+        img_url: $('meta[itemprop="image"]').attr('content'),
+        title: $('meta[itemprop="name"]').attr('content'),
+        desc: $('meta[itemprop="description"]').attr('content'),
+        callback: function (res) {
+            console.log('分享结果：', res);
+        }
+    });
+
+    ek.ping.init({
+        androidAppUrl: CLIENT_URL_ANDROID || 'http://m.ac.qq.com/apkSet/qqcomic_android_dm2309.apk',
+        iOSAppUrl: CLIENT_URL_IOS || 'https://itunes.apple.com/us/app/teng-xun-wei-man/id569387346?ls=1&mt=8',
+        virtualUrl: function () {
+            var pathName = ek.url.getPathName();
+            var pathArgs = pathName.split('/');
+            if (/^\/Chapter\/index/i.test(pathName)) {
+                // 浏览页特殊处理
+                pathArgs[1] = 'Comic';
+                pathArgs[2] = 'view';
+            } else if (/^\/Bookshelf\/index/i.test(pathName)) {
+                // 书架特殊处理
+                var type = ek.url.getQueryString('type') || 'fav';  // 只做统计，不输出、不执行
+                pathArgs[1] += '_' + type;
+            } else if (!pathArgs[1] && !pathArgs[2]) {
+                // 首页补全处理
+                pathArgs = '/Index/index'.split('/');
+            } else if (!pathArgs[2]) {
+                // 其它补全处理
+                pathArgs.push('index');
+            }
+            // 掌火特殊处理
+            // 合作渠道页面全部下线   20190731  janwardchen
+            // var isCfApp = /CfApp( |\/|$)/i.test(window.navigator.userAgent);
+            // var client = isCfApp ? 'cfApp' : ek.clientType;
+            var client = ek.clientType;
+            pathArgs.splice(3, 0, 'client');
+            pathArgs.splice(4, 0, client);
+            return pathArgs.join('/');
+        },
+        virtualDomain: 'm.ac.qq.com',
+        downAppTag: function () {
+            // 根据页面名称生成下载的按键统计标记
+            var pageName = $('meta[name="page-name"]').attr('content');
+            return ['h5_v3_app_down', pageName, ek.clientType, ek.os].join('.');
+        },
+        // 初始化完毕后上报页面访问URL
+        reportVisit: true
+    });
+
+// 百度统计
+(function () {
+    window._hmt = window._hmt || [];
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?ec3f5ac09e24d85ebdb0954b1670c12b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+
+</script>
+
+<script type="text/javascript">
+    var pg_AskDetail = new BIU.Page({
+        name: 'pg_AskDetail'
+    });
+
+    Zepto(function ($) {
+        ek.ping.reportBeacon({
+            eventName: 'OnPage',
+            page_id: 110
+        });
+    });
+</script>
+<script type="text/javascript" src="//gtimg.ac.qq.com/h5/ask/js/ask.js?v=6f53b6b354b3d124"></script>
+
+
+
+
+<div class="pile-dialog-wrap toast"><div class="dialog-cover" style="display: none;"></div>
+<div class="dialog-box">
+    <p class="dialog-title" style="display: none;"></p>
+    <a class="dialog-close-btn" style="display: none;"></a>
+
+    <div class="dialog-content"><p class="dialog-para"></p></div>
+</div>
+</div><div class="pile-dialog-wrap light-salmon"><div class="dialog-cover" style="display: block;"></div>
+<div class="dialog-box">
+    <p class="dialog-title"></p>
+    <a class="dialog-close-btn" style="display: block;"></a>
+
+    <div class="dialog-content"><a class="dialog-btn">确定</a></div>
+</div>
+</div><div class="pile-dialog-wrap light-salmon"><div class="dialog-cover" style="display: block;"></div>
+<div class="dialog-box">
+    <p class="dialog-title"></p>
+    <a class="dialog-close-btn" style="display: block;"></a>
+
+    <div class="dialog-content"><div class="dialog-row"><a class="dialog-btn" style="flex: 1 1 0%;">取消</a><a class="dialog-btn" style="flex: 1 1 0%; margin-left: 0px;">确定</a></div></div>
+</div>
+</div><script type="text/javascript" src="https://3gimg.qq.com/mig_op/beacon/js/beacon_release_s.js?appkey=JS0XQBWK31SRVJ&amp;vc=1.0.1"></script></body></html>

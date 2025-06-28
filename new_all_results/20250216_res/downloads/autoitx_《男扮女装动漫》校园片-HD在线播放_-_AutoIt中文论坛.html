@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html class=" widthauto"><head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>AutoIt中文论坛|acn|au3|软件汉化|au3中文|au3中文论坛 -  Powered by Discuz!</title>
+
+<meta name="keywords" content="AutoIt中文论坛|acn|au3|软件汉化|au3中文|au3中文论坛">
+<meta name="description" content="AUTOIT脚本交流,软件汉化技术论坛 ">
+<meta name="generator" content="Discuz! X3.5">
+<meta name="author" content="Discuz! Team and Comsenz UI Team">
+<meta name="copyright" content="2001-2024 Discuz! Team.">
+<meta name="MSSmartTagsPreventParsing" content="True">
+<meta http-equiv="MSThemeCompatible" content="Yes">
+<base href="https://autoitx.com/"><link rel="stylesheet" type="text/css" href="data/cache/style_1_common.css?qxa"><link rel="stylesheet" type="text/css" href="data/cache/style_1_forum_index.css?qxa"><link rel="stylesheet" id="css_extstyle" type="text/css" href="./template/default/style/t5/style.css?qxa"><!--[if IE]><link rel="stylesheet" type="text/css" href="data/cache/style_1_iefix.css?qxa" /><![endif]--><script type="text/javascript">var STYLEID = '1', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'qxa', charset = 'utf-8', discuz_uid = '0', cookiepre = 'royO_2132_', cookiedomain = '', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'usergroups|task', creditnotice = '1|威望|点,2|金钱|块,3|贡献|分', defaultstyle = './template/default/style/t5', REPORTURL = 'aHR0cHM6Ly9hdXRvaXR4LmNvbS9pbmRleC5waHA/c2hvd29sZGV0YWlscz15ZXM=', SITEURL = 'https://autoitx.com/', JSPATH = 'data/cache/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
+<script src="data/cache/common.js?qxa" type="text/javascript"></script>
+<meta name="application-name" content="AUTOIT CN">
+<meta name="msapplication-tooltip" content="AUTOIT CN">
+<meta name="msapplication-task" content="name=论坛;action-uri=https://autoitx.com/forum.php;icon-uri=https://autoitx.com/static/image/common/bbs.ico">
+<meta name="msapplication-task" content="name=家园;action-uri=https://autoitx.com/home.php;icon-uri=https://autoitx.com/static/image/common/home.ico"><link rel="archives" title="AUTOIT CN" href="https://autoitx.com/archiver/">
+<link rel="stylesheet" id="css_widthauto" type="text/css" href="data/cache/style_1_widthauto.css?qxa">
+<script type="text/javascript">HTMLNODE.className += ' widthauto'</script>
+<script src="data/cache/forum.js?qxa" type="text/javascript"></script>
+</head>
+
+<body id="nv_forum" class="pg_index" onkeydown="if(event.keyCode==27) return false;">
+<div id="append_parent"><div id="ls_fastloginfield_ctrl_menu" class="sltm" style="display: none; width: 40px;"><ul><li class="current">用户名</li><li>Email</li></ul></div></div><div id="ajaxwaitid"></div>
+<div id="toptb" class="cl">
+<div class="wp">
+<div class="z"></div>
+<div class="y">
+<a id="switchblind" href="javascript:;" onclick="toggleBlind(this)" title="开启辅助访问" class="switchblind"></a>
+</div>
+</div>
+</div>
+
+<div id="qmenu_menu" class="p_pop blk" style="display: none;">
+<div class="ptm pbw hm">
+请 <a href="javascript:;" class="xi2" onclick="lsSubmit()"><strong>登录</strong></a> 后使用快捷导航<br>没有账号？<a href="member.php?mod=register" class="xi2 xw1">加入</a>
+</div>
+<div id="fjump_menu" class="btda"></div></div><div class="wp a_h"><a href="http://www.2345.com/?k29535065" target="_blank"><font color="#ff0000"><b>支持论坛请将此链接设置为主页</b></font></a></div><div id="hd">
+<div class="wp">
+<div class="hdc cl"><h2><a href="./" title="AUTOIT CN"><img src="data/attachment/common/template/boardimg_20231129d2ah2aom.png" alt="AUTOIT CN" class="boardlogo" id="boardlogo" border="0"></a></h2><script src="data/cache/logging.js?qxa" type="text/javascript"></script>
+<form method="post" autocomplete="off" id="lsform" action="member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;infloat=yes&amp;lssubmit=yes" onsubmit="return lsSubmit();">
+<div class="fastlg cl">
+<span id="return_ls" style="display:none"></span>
+<div class="y pns">
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td>
+<span class="ftid">
+<select name="fastloginfield" id="ls_fastloginfield" width="40" selecti="0" style="display: none;">
+
+
+<option value="username"></option></select><a href="javascript:;" id="ls_fastloginfield_ctrl" style="width:40px">用户名</a>
+</span>
+<script type="text/javascript">simulateSelect('ls_fastloginfield')</script>
+</td>
+<td><input type="text" name="username" id="ls_username" autocomplete="off" class="px vm"></td>
+<td class="fastlg_l"><label for="ls_cookietime"><input type="checkbox" name="cookietime" id="ls_cookietime" class="pc" value="2592000">自动登录</label></td>
+<td>&nbsp;<a href="javascript:;" onclick="showWindow('login', 'member.php?mod=logging&amp;action=login&amp;viewlostpw=1')">找回密码</a></td>
+</tr>
+<tr>
+<td><label for="ls_password" class="z psw_w">密码</label></td>
+<td><input type="password" name="password" id="ls_password" class="px vm" autocomplete="off"></td>
+<td class="fastlg_l"><button type="submit" class="pn vm" style="width: 75px;"><em>登录</em></button></td>
+<td>&nbsp;<a href="member.php?mod=register" class="xi2 xw1">加入</a></td>
+</tr>
+</tbody></table>
+<input type="hidden" name="formhash" value="c40e7dd2">
+<input type="hidden" name="quickforward" value="yes">
+<input type="hidden" name="handlekey" value="ls">
+</div>
+</div>
+</form>
+</div>
+
+<div id="nv_ph"><div id="nv">
+<a href="javascript:;" id="qmenu" onmouseover="delayShow(this, function () {showMenu({'ctrlid':'qmenu','pos':'34!','ctrlclass':'a','duration':2});showForummenu();})">快捷导航</a>
+<ul><li class="a" id="mn_forum"><a href="forum.php" hidefocus="true" title="BBS" style="color: orange">论坛<span>BBS</span></a></li><li id="mn_N562c"><a href="http://www.autoitscript.com/forum/" hidefocus="true" target="_blank">英文</a></li><li id="mn_Nfb6f"><a href="/Doc" hidefocus="true" target="_blank">Doc</a></li><li id="mn_N1b1c"><a href="/UDF" hidefocus="true" target="_blank">UDF</a></li><li id="mn_Nc220"><a href="thread-73606-1-1.html" hidefocus="true">下载</a></li><li id="mn_N406d"><a href="https://www.autoitx.com/thread-56447-1-1.html" hidefocus="true" style="font-weight: bold;color: orange">论坛赞助</a></li><li id="mn_N76d3"><a href="thread-39875-1-1.html" hidefocus="true" style="font-weight: bold;">书籍</a></li></ul>
+</div></div>
+<div id="mu" class="cl">
+</div><div id="scbar" class="cl">
+<form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($('scbar_txt'))" action="search.php?searchsubmit=yes" target="_blank">
+<input type="hidden" name="mod" id="scbar_mod" value="search">
+<input type="hidden" name="formhash" value="c40e7dd2">
+<input type="hidden" name="srchtype" value="title">
+<input type="hidden" name="srhfid" value="">
+<input type="hidden" name="srhlocality" value="forum::index">
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="scbar_icon_td"></td>
+<td class="scbar_txt_td"><input type="text" name="srchtxt" id="scbar_txt" value="请输入搜索内容" autocomplete="off" x-webkit-speech="" speech="" class=" xg1" placeholder="请输入搜索内容"></td>
+<td class="scbar_type_td"><a href="javascript:;" id="scbar_type" class="xg1 showmenu" onclick="showMenu(this.id)" hidefocus="true">搜索</a></td>
+<td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true"><strong class="xi2">搜索</strong></button></td>
+<td class="scbar_hot_td">
+<div id="scbar_hot">
+</div>
+</td>
+</tr>
+</tbody></table>
+</form>
+</div>
+<ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="user">用户</a></li></ul>
+<script type="text/javascript">
+initSearchmenu('scbar', '');
+</script>
+</div>
+</div>
+
+
+<div id="wp" class="wp">
+<div id="pt" class="bm cl">
+<div class="z">
+<a href="./" class="nvhm" title="首页">AUTOIT CN</a><em>»</em><a href="forum.php">论坛</a></div>
+<div class="z"></div>
+</div>
+
+
+
+<style id="diy_style" type="text/css"></style>
+
+<div class="wp">
+<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+</div>
+
+<div id="ct" class="wp cl ct2">
+<div id="chart" class="bm bw0 cl">
+<p class="chart z">今日: <em>6</em><span class="pipe">|</span>昨日: <em>11</em><span class="pipe">|</span>帖子: <em>644166</em><span class="pipe">|</span>会员: <em>40890</em><span class="pipe">|</span>欢迎新会员: <em><a href="space-username-savc.html" target="_blank" class="xi2">savc</a></em></p>
+<div class="y">
+<a href="forum.php?mod=guide&amp;view=new" title="最新回复" class="xi2">最新回复</a></div>
+</div>
+<!--[diy=diy_chart]--><div id="diy_chart" class="area"></div><!--[/diy]-->
+<div class="mn">
+
+<!-- index four grid -->
+<div class="fl bm">
+<div class="bm bmw cl">
+<div id="category_grid" class="bm_c">
+<table cellspacing="0" cellpadding="0"><tbody><tr>
+<td valign="top" class="category_l1">
+<div class="newimgbox">
+<h4><span class="tit_newimg"></span>最新图片</h4>
+    <div class="module cl slidebox_grid" style="width:220px">
+<script type="text/javascript">
+var slideSpeed = 5000;
+var slideImgsize = [220,200];
+var slideBorderColor = '#C2D5E3';
+var slideBgColor = '#F2F2F2';
+var slideImgs = new Array();
+var slideImgLinks = new Array();
+var slideImgTexts = new Array();
+var slideSwitchColor = '#666666';
+var slideSwitchbgColor = '#F2F2F2';
+var slideSwitchHiColor = '#C2D5E3';slideImgs[1] = 'data/attachment/forum/202502/08/143718uvpkk9z90jnvushs.jpg';
+slideImgLinks[1] = 'forum.php?mod=viewthread&tid=73781';
+slideImgTexts[1] = '新手学习AU3疑问，关于GUICtrlCr ...';slideImgs[2] = 'data/attachment/forum/202501/25/081740nuhvf21v2hvqvykv.jpg';
+slideImgLinks[2] = 'forum.php?mod=viewthread&tid=73778';
+slideImgTexts[2] = '小说下载工具 WebView2';slideImgs[3] = 'data/attachment/forum/202501/23/205309g2ckiv33r1nhsanc.png';
+slideImgLinks[3] = 'forum.php?mod=viewthread&tid=73776';
+slideImgTexts[3] = 'AutoIt3 正则表达式测试工具 ...';slideImgs[4] = 'data/attachment/forum/202501/19/182806m1gsv5tmyvvsv5yl.png';
+slideImgLinks[4] = 'forum.php?mod=viewthread&tid=73775';
+slideImgTexts[4] = '使用curl程序给企业微信机器人发 ...';slideImgs[5] = 'data/attachment/forum/202501/17/221212rfbpqqz4fqlpp644.jpg';
+slideImgLinks[5] = 'forum.php?mod=viewthread&tid=73774';
+slideImgTexts[5] = '代码向导为什么在后续的Autoit版 ...';slideImgs[6] = 'data/attachment/forum/202501/17/134742yffzx1dd7kuu8k8m.png';
+slideImgLinks[6] = 'forum.php?mod=viewthread&tid=73773';
+slideImgTexts[6] = '请问 编码应该在哪里转换 ...';slideImgs[7] = 'data/attachment/forum/202501/15/132830mg1nhgpietddbnze.jpg';
+slideImgLinks[7] = 'forum.php?mod=viewthread&tid=73771';
+slideImgTexts[7] = '在桌面显示一个秒针可以转动的动 ...';slideImgs[8] = 'data/attachment/forum/202501/19/202754wojq67cqonwocrup.jpg';
+slideImgLinks[8] = 'forum.php?mod=viewthread&tid=73769';
+slideImgTexts[8] = '【Modbus】自定义串口报文工具 ...';slideImgs[9] = 'data/attachment/forum/202412/30/222326n3m11761131zz79m.png';
+slideImgLinks[9] = 'forum.php?mod=viewthread&tid=73767';
+slideImgTexts[9] = 'Au3游戏之连连看';slideImgs[10] = 'data/attachment/forum/202412/10/222728awwg9zygny9x8n1q.jpeg';
+slideImgLinks[10] = 'forum.php?mod=viewthread&tid=73761';
+slideImgTexts[10] = '修改QEMU标题';</script>
+<script src="data/cache/forum_slide.js?qxa" type="text/javascript"></script><div class="slideouter" id="outer_0.520864023064179" style="cursor:pointer;position:absolute;width:218px;height:198px;border:1px solid #C2D5E3"></div><table cellspacing="0" cellpadding="0" style="cursor:pointer;width:220px;height:200px;table-layout:fixed;overflow:hidden;background:#F2F2F2;text-align:center"><tbody><tr><td valign="middle" style="padding:0" class="slideimage" id="slide_0.520864023064179"><img src="data/attachment/forum/202501/25/081740nuhvf21v2hvqvykv.jpg" height="200" width="291" title="小说下载工具 WebView2"></td></tr></tbody></table><div id="switch_0.520864023064179" style="position:absolute;margin-left:1px;margin-top:-18px"><div id="switch_1_0.520864023064179" class="slideswitch" style="opacity: 0.7; float: left; cursor: pointer; width: 17px; height: 17px; overflow: hidden; font-weight: bold; text-align: center; font-size: 9px; color: rgb(102, 102, 102); border-right: 1px solid rgb(194, 213, 227); border-top: 1px solid rgb(194, 213, 227); background-color: rgb(242, 242, 242);">1</div><div id="switch_2_0.520864023064179" class="slideswitch" style="opacity: 0.7; float: left; cursor: pointer; width: 17px; height: 17px; overflow: hidden; font-weight: bold; text-align: center; font-size: 9px; color: rgb(102, 102, 102); border-right: 1px solid rgb(194, 213, 227); border-top: 1px solid rgb(194, 213, 227); background-color: rgb(194, 213, 227);">2</div><div id="switch_3_0.520864023064179" class="slideswitch" style="opacity: 0.7; float: left; cursor: pointer; width: 17px; height: 17px; overflow: hidden; font-weight: bold; text-align: center; font-size: 9px; color: rgb(102, 102, 102); border-right: 1px solid rgb(194, 213, 227); border-top: 1px solid rgb(194, 213, 227); background-color: rgb(242, 242, 242);">3</div><div id="switch_4_0.520864023064179" class="slideswitch" style="opacity: 0.7; float: left; cursor: pointer; width: 17px; height: 17px; overflow: hidden; font-weight: bold; text-align: center; font-size: 9px; color: rgb(102, 102, 102); border-right: 1px solid rgb(194, 213, 227); border-top: 1px solid rgb(194, 213, 227); background-color: rgb(242, 242, 242);">4</div><div id="switch_5_0.520864023064179" class="slideswitch" style="opacity: 0.7; float: left; cursor: pointer; width: 17px; height: 17px; overflow: hidden; font-weight: bold; text-align: center; font-size: 9px; color: rgb(102, 102, 102); border-right: 1px solid rgb(194, 213, 227); border-top: 1px solid rgb(194, 213, 227); background-color: rgb(242, 242, 242);">5</div><div id="switch_6_0.520864023064179" class="slideswitch" style="opacity: 0.7; float: left; cursor: pointer; width: 17px; height: 17px; overflow: hidden; font-weight: bold; text-align: center; font-size: 9px; color: rgb(102, 102, 102); border-right: 1px solid rgb(194, 213, 227); border-top: 1px solid rgb(194, 213, 227); background-color: rgb(242, 242, 242);">6</div><div id="switch_7_0.520864023064179" class="slideswitch" style="opacity: 0.7; float: left; cursor: pointer; width: 17px; height: 17px; overflow: hidden; font-weight: bold; text-align: center; font-size: 9px; color: rgb(102, 102, 102); border-right: 1px solid rgb(194, 213, 227); border-top: 1px solid rgb(194, 213, 227); background-color: rgb(242, 242, 242);">7</div><div id="switch_8_0.520864023064179" class="slideswitch" style="opacity: 0.7; float: left; cursor: pointer; width: 17px; height: 17px; overflow: hidden; font-weight: bold; text-align: center; font-size: 9px; color: rgb(102, 102, 102); border-right: 1px solid rgb(194, 213, 227); border-top: 1px solid rgb(194, 213, 227); background-color: rgb(242, 242, 242);">8</div><div id="switch_9_0.520864023064179" class="slideswitch" style="opacity: 0.7; float: left; cursor: pointer; width: 17px; height: 17px; overflow: hidden; font-weight: bold; text-align: center; font-size: 9px; color: rgb(102, 102, 102); border-right: 1px solid rgb(194, 213, 227); border-top: 1px solid rgb(194, 213, 227); background-color: rgb(242, 242, 242);">9</div><div id="switch_10_0.520864023064179" class="slideswitch" style="opacity: 0.7; float: left; cursor: pointer; width: 17px; height: 17px; overflow: hidden; font-weight: bold; text-align: center; font-size: 9px; color: rgb(102, 102, 102); border-right: 1px solid rgb(194, 213, 227); border-top: 1px solid rgb(194, 213, 227); background-color: rgb(242, 242, 242);">10</div></div>
+</div>
+</div>
+</td>
+<td valign="top" class="category_l2">
+<div class="subjectbox">
+<h4><span class="tit_subject"></span>最新主题</h4>
+        <ul class="category_newlist">
+                	<li><a href="thread-73786-1-1.html" tip="标题: <strong>有没有简单地合并两个EXE程序方法？</strong><br/>作者: msold5 (1&nbsp;小时前)<br/>查看/回复: 0/0" onmouseover="showTip(this)" target="_blank">有没有简单地合并两个EXE程序方 ...</a></li>
+        	<li><a href="thread-73785-1-1.html" tip="标题: <strong>关于删除文件与目录的删除提示！请教【已解决】</strong><br/>作者: ttmv2019sx (前天&nbsp;09:11)<br/>查看/回复: 41/4" onmouseover="showTip(this)" target="_blank">关于删除文件与目录的删除提示！ ...</a></li>
+        	<li><a href="thread-73784-1-1.html" tip="标题: <strong>问一个问题，备份最新文件的问题</strong><br/>作者: 668674 (6&nbsp;天前)<br/>查看/回复: 93/6" onmouseover="showTip(this)" target="_blank">问一个问题，备份最新文件的问题 ...</a></li>
+        	<li><a href="thread-73783-1-1.html" tip="标题: <strong>ControlClick问题请教</strong><br/>作者: 240141043 (2025-2-9)<br/>查看/回复: 95/5" onmouseover="showTip(this)" target="_blank">ControlClick问题请教</a></li>
+        	<li><a href="thread-73782-1-1.html" tip="标题: <strong>WM_DEVICECHANGE能检测USB网卡插入和删除吗？</strong><br/>作者: sunkiss (2025-2-9)<br/>查看/回复: 48/1" onmouseover="showTip(this)" target="_blank">WM_DEVICECHANGE能检测USB网卡插 ...</a></li>
+        	<li><a href="thread-73781-1-1.html" tip="标题: <strong>新手学习AU3疑问，关于GUICtrlCreateTreeViewItem函数，读取状态的变化值</strong><br/>作者: life999 (2025-2-8)<br/>查看/回复: 93/8" onmouseover="showTip(this)" target="_blank">新手学习AU3疑问，关于GUICtrlCr ...</a></li>
+        	<li><a href="thread-73780-1-1.html" tip="标题: <strong>GUICtrlSetState状态中的$GUI_INDETERMINATE有什么作用啊</strong><br/>作者: life999 (2025-2-6)<br/>查看/回复: 31/7" onmouseover="showTip(this)" target="_blank">GUICtrlSetState状态中的$GUI_IN ...</a></li>
+        	<li><a href="thread-73779-1-1.html" tip="标题: <strong>AU3有MD5校验的进度条显示吗。</strong><br/>作者: life999 (2025-1-28)<br/>查看/回复: 109/8" onmouseover="showTip(this)" target="_blank">AU3有MD5校验的进度条显示吗。 ...</a></li>
+        	<li><a href="thread-73778-1-1.html" tip="标题: <strong>小说下载工具 WebView2</strong><br/>作者: user3000 (2025-1-25)<br/>查看/回复: 167/4" onmouseover="showTip(this)" target="_blank">小说下载工具 WebView2</a></li>
+        	<li><a href="thread-73777-1-1.html" tip="标题: <strong>如何返回文件生成的毫秒？</strong><br/>作者: ac5474012 (2025-1-24)<br/>查看/回复: 12/1" onmouseover="showTip(this)" target="_blank">如何返回文件生成的毫秒？ ...</a></li>
+         </ul>
+         </div>
+</td>
+<td valign="top" class="category_l3">
+<div class="replaybox">
+<h4><span class="tit_replay"></span>最新回复</h4>
+        <ul class="category_newlist">
+                	<li><a href="forum.php?mod=redirect&amp;tid=4168&amp;goto=lastpost#lastpost" tip="标题: <strong>AUTOIT CN 每日签到贴！</strong><br/>作者: athland5013 (2008-12-11)<br/>查看/回复: 2518906/24113" onmouseover="showTip(this)" target="_blank">AUTOIT CN 每日签到贴！</a></li>
+        	<li><a href="forum.php?mod=redirect&amp;tid=73784&amp;goto=lastpost#lastpost" tip="标题: <strong>问一个问题，备份最新文件的问题</strong><br/>作者: 668674 (6&nbsp;天前)<br/>查看/回复: 93/6" onmouseover="showTip(this)" target="_blank">问一个问题，备份最新文件的问题 ...</a></li>
+        	<li><a href="forum.php?mod=redirect&amp;tid=73785&amp;goto=lastpost#lastpost" tip="标题: <strong>关于删除文件与目录的删除提示！请教【已解决】</strong><br/>作者: ttmv2019sx (前天&nbsp;09:11)<br/>查看/回复: 41/4" onmouseover="showTip(this)" target="_blank">关于删除文件与目录的删除提示！ ...</a></li>
+        	<li><a href="forum.php?mod=redirect&amp;tid=73772&amp;goto=lastpost#lastpost" tip="标题: <strong>WebView2 控件的 UDF, 类似操作IE,欢迎拿去拓展</strong><br/>作者: user3000 (2025-1-17)<br/>查看/回复: 96/5" onmouseover="showTip(this)" target="_blank">WebView2 控件的 UDF, 类似操作I ...</a></li>
+        	<li><a href="forum.php?mod=redirect&amp;tid=72966&amp;goto=lastpost#lastpost" style="font-weight: bold;" tip="标题: <strong>AU3操作谷歌Chrome浏览器XPATH示例</strong><br/>作者: 绿色风 (2022-4-29)<br/>查看/回复: 1254/156" onmouseover="showTip(this)" target="_blank">AU3操作谷歌Chrome浏览器XPATH示 ...</a></li>
+        	<li><a href="forum.php?mod=redirect&amp;tid=73507&amp;goto=lastpost#lastpost" tip="标题: <strong>RapidOCR</strong><br/>作者: 繁星 (2023-11-20)<br/>查看/回复: 2350/43" onmouseover="showTip(this)" target="_blank">RapidOCR</a></li>
+        	<li><a href="forum.php?mod=redirect&amp;tid=73775&amp;goto=lastpost#lastpost" tip="标题: <strong>使用curl程序给企业微信机器人发消息的例子</strong><br/>作者: smallan (2025-1-19)<br/>查看/回复: 101/14" onmouseover="showTip(this)" target="_blank">使用curl程序给企业微信机器人发 ...</a></li>
+        	<li><a href="forum.php?mod=redirect&amp;tid=73606&amp;goto=lastpost#lastpost" style="font-weight: bold;" tip="标题: <strong>Autoit3.3.13.12(本论坛推荐版)2024.03.23更新</strong><br/>作者: haijie1223 (2024-3-22)<br/>查看/回复: 30067/576" onmouseover="showTip(this)" target="_blank">Autoit3.3.13.12(本论坛推荐版)2 ...</a></li>
+        	<li><a href="forum.php?mod=redirect&amp;tid=73755&amp;goto=lastpost#lastpost" tip="标题: <strong>Win10已经原生支持SFTP了，哪位大神可以开发一个sFTP的UDF[已解决]</strong><br/>作者: kemyliu (2024-11-28)<br/>查看/回复: 218/4" onmouseover="showTip(this)" target="_blank">Win10已经原生支持SFTP了，哪位 ...</a></li>
+        	<li><a href="forum.php?mod=redirect&amp;tid=55690&amp;goto=lastpost#lastpost" tip="标题: <strong>SQLite - 增、删、改、查，操作示例。</strong><br/>作者: 水木子 (2017-7-25)<br/>查看/回复: 1066/126" onmouseover="showTip(this)" target="_blank">SQLite - 增、删、改、查，操作 ...</a></li>
+         </ul>
+         </div>
+</td>
+<td valign="top" class="category_l3">
+<div class="hottiebox">
+<h4><span class="tit_hottie"></span>热帖</h4>
+        <ul class="category_newlist">
+                	<li><a href="thread-4168-1-1.html" tip="标题: <strong>AUTOIT CN 每日签到贴！</strong><br/>作者: athland5013 (2008-12-11)<br/>查看/回复: 2518906/24113" onmouseover="showTip(this)" target="_blank">AUTOIT CN 每日签到贴！</a></li>
+        	<li><a href="thread-73784-1-1.html" tip="标题: <strong>问一个问题，备份最新文件的问题</strong><br/>作者: 668674 (6&nbsp;天前)<br/>查看/回复: 93/6" onmouseover="showTip(this)" target="_blank">问一个问题，备份最新文件的问题 ...</a></li>
+        	<li><a href="thread-73772-1-1.html" tip="标题: <strong>WebView2 控件的 UDF, 类似操作IE,欢迎拿去拓展</strong><br/>作者: user3000 (2025-1-17)<br/>查看/回复: 96/5" onmouseover="showTip(this)" target="_blank">WebView2 控件的 UDF, 类似操作I ...</a></li>
+        	<li><a href="thread-72966-1-1.html" style="font-weight: bold;" tip="标题: <strong>AU3操作谷歌Chrome浏览器XPATH示例</strong><br/>作者: 绿色风 (2022-4-29)<br/>查看/回复: 1254/156" onmouseover="showTip(this)" target="_blank">AU3操作谷歌Chrome浏览器XPATH示 ...</a></li>
+        	<li><a href="thread-73507-1-1.html" tip="标题: <strong>RapidOCR</strong><br/>作者: 繁星 (2023-11-20)<br/>查看/回复: 2350/43" onmouseover="showTip(this)" target="_blank">RapidOCR</a></li>
+        	<li><a href="thread-73775-1-1.html" tip="标题: <strong>使用curl程序给企业微信机器人发消息的例子</strong><br/>作者: smallan (2025-1-19)<br/>查看/回复: 101/14" onmouseover="showTip(this)" target="_blank">使用curl程序给企业微信机器人发 ...</a></li>
+        	<li><a href="thread-73606-1-1.html" style="font-weight: bold;" tip="标题: <strong>Autoit3.3.13.12(本论坛推荐版)2024.03.23更新</strong><br/>作者: haijie1223 (2024-3-22)<br/>查看/回复: 30067/576" onmouseover="showTip(this)" target="_blank">Autoit3.3.13.12(本论坛推荐版)2 ...</a></li>
+        	<li><a href="thread-73755-1-1.html" tip="标题: <strong>Win10已经原生支持SFTP了，哪位大神可以开发一个sFTP的UDF[已解决]</strong><br/>作者: kemyliu (2024-11-28)<br/>查看/回复: 218/4" onmouseover="showTip(this)" target="_blank">Win10已经原生支持SFTP了，哪位 ...</a></li>
+        	<li><a href="thread-55690-1-1.html" tip="标题: <strong>SQLite - 增、删、改、查，操作示例。</strong><br/>作者: 水木子 (2017-7-25)<br/>查看/回复: 1066/126" onmouseover="showTip(this)" target="_blank">SQLite - 增、删、改、查，操作 ...</a></li>
+        	<li><a href="thread-71782-1-1.html" tip="标题: <strong>设置系统用户名和密码</strong><br/>作者: gzh888666 (2020-1-6)<br/>查看/回复: 339/46" onmouseover="showTip(this)" target="_blank">设置系统用户名和密码</a></li>
+         </ul>
+         </div>
+</td>
+</tr></tbody></table>
+</div>
+</div>
+</div>
+<!-- index four grid end -->
+
+<div class="fl bm">
+<div class="bm bmw  cl">
+<div class="bm_h cl">
+<span class="o">
+<em id="category_3_img" class="tg_no" title="收起/展开" onclick="toggle_collapse('category_3');"></em>
+</span>
+<span class="y">分区版主: <a href="space-username-zldfsz.html" class="notabs" c="1" mid="card_1957">zldfsz</a>, <a href="space-username-kk_lee69.html" class="notabs" c="1" mid="card_9891">kk_lee69</a></span><h2><a href="forum.php?gid=3" style="">AU3交流</a></h2>
+</div>
+<div id="category_3" class="bm_c" style="">
+<table cellspacing="0" cellpadding="0" class="fl_tb">
+<tbody><tr><td class="fl_icn">
+<a href="forum-4-1.html" title="『 提问交流 』"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</td>
+<td>
+<h2><a href="forum-4-1.html">『 提问交流 』</a><em class="xw0 xi1" title="今日"> (1)</em></h2>
+<p class="xg2">您有问题,我来回答.提问之前请先搜索一下论坛有没有相关的问题<br>
+<font color="Red"><strong>【善于搜索，让学习更有效率！】</strong></font></p><p>子版块: <a href="forum-15-1.html">已解决问题区</a>, <a href="forum-20-1.html">无意义问题区</a></p><p>版主: <span class="xi2"><a href="space-username-gooker.html" class="notabs" c="1" mid="card_5320"><strong>gooker</strong></a>, <a href="space-username-%25E6%25BC%25A0%25E5%258C%2597%25E9%259B%25AA~%25E7%258B%25BC.html" class="notabs" c="1" mid="card_9105"><strong>漠北雪~狼</strong></a>, <a href="space-username-renren.html" class="notabs" c="1" mid="card_9125"><strong>renren</strong></a>, <a href="space-username-jhwl.html" class="notabs" c="1" mid="card_68"><strong>jhwl</strong></a>, <a href="space-username-pusofalse.html" class="notabs" c="1" mid="card_2017"><strong>pusofalse</strong></a>, <a href="space-username-kn007.html" class="notabs" c="1" mid="card_4036"><strong>kn007</strong></a></span></p></td>
+<td class="fl_i">
+<span class="xi2"><span title="26996">2万</span></span><span class="xg1"> / <span title="207265">20万</span></span></td>
+<td class="fl_by">
+<div>
+<a href="forum.php?mod=redirect&amp;tid=73786&amp;goto=lastpost#lastpost" class="xi2">有没有简单地合并两个EXE程序方 ...</a> <cite><span title="2025-2-20 10:34">1&nbsp;小时前</span> <a href="space-username-msold5.html">msold5</a></cite>
+</div>
+</td>
+</tr>
+<tr class="fl_row">
+<td class="fl_icn">
+<a href="forum-5-1.html" title="『 中文资料 』"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</td>
+<td>
+<h2><a href="forum-5-1.html">『 中文资料 』</a></h2>
+<p class="xg2">AutoIt的资料都是英文的?来这里!</p><p>版主: <span class="xi2"><a href="space-username-cfanpc.html" class="notabs" c="1" mid="card_8782">cfanpc</a></span></p></td>
+<td class="fl_i">
+<span class="xi2">822</span><span class="xg1"> / <span title="73168">7万</span></span></td>
+<td class="fl_by">
+<div>
+<a href="forum.php?mod=redirect&amp;tid=73606&amp;goto=lastpost#lastpost" class="xi2">Autoit3.3.13.12(本论坛推荐版)2 ...</a> <cite><span title="2025-2-18 04:31">前天&nbsp;04:31</span> <a href="space-username-zhouhaijin.html">zhouhaijin</a></cite>
+</div>
+</td>
+</tr>
+<tr class="fl_row">
+<td class="fl_icn">
+<a href="forum-16-1.html" title="『 作品展览 』"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</td>
+<td>
+<h2><a href="forum-16-1.html">『 作品展览 』</a></h2>
+<p class="xg2">想看看au3能做些什么吗？来这里看看吧~</p><p>版主: <span class="xi2"><a href="space-username-hzxymkb.html" class="notabs" c="1" mid="card_4024">hzxymkb</a></span></p></td>
+<td class="fl_i">
+<span class="xi2">1286</span><span class="xg1"> / <span title="51603">5万</span></span></td>
+<td class="fl_by">
+<div>
+<a href="forum.php?mod=redirect&amp;tid=43148&amp;goto=lastpost#lastpost" class="xi2">公司用的客户端软件（参考360/金 ...</a> <cite>2025-2-11 16:28 <a href="space-username-523012023.html">523012023</a></cite>
+</div>
+</td>
+</tr>
+<tr class="fl_row">
+<td class="fl_icn">
+<a href="forum-13-1.html" title="『 软件安装 』"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</td>
+<td>
+<h2><a href="forum-13-1.html">『 软件安装 』</a></h2>
+<p class="xg2">原自动安装区,这里您可以提出各类软件安装的应用.</p><p>版主: <span class="xi2"><a href="space-username-%25E5%25BF%2597%25E8%2589%25BA%25E9%25A3%258E%25E4%25BA%2591.html" class="notabs" c="1" mid="card_3334">志艺风云</a></span></p></td>
+<td class="fl_i">
+<span class="xi2">438</span><span class="xg1"> / <span title="13836">1万</span></span></td>
+<td class="fl_by">
+<div>
+<a href="forum.php?mod=redirect&amp;tid=14128&amp;goto=lastpost#lastpost" class="xi2">批量装机软件安装器-可以选择一 ...</a> <cite>2024-10-17 16:58 <a href="space-username-yqshafei.html">yqshafei</a></cite>
+</div>
+</td>
+</tr>
+<tr class="fl_row">
+<td class="fl_icn">
+<a href="forum-26-1.html" title="『 GUI 交流 』"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</td>
+<td>
+<h2><a href="forum-26-1.html">『 GUI 交流 』</a></h2>
+<p class="xg2">关于GUI界面的讨论区，另外这里的附件是免费的哦！</p><p>子版块: <a href="forum-30-1.html">皮肤发布与下载</a>, <a href="forum-29-1.html">GUI 特殊效果</a>, <a href="forum-28-1.html">GDI 相关特效</a></p><p>版主: <span class="xi2"><a href="space-username-kn007.html" class="notabs" c="1" mid="card_4036"><strong>kn007</strong></a>, <a href="space-username-guland.html" class="notabs" c="1" mid="card_1956"><strong>guland</strong></a></span></p></td>
+<td class="fl_i">
+<span class="xi2">308</span><span class="xg1"> / <span title="10829">1万</span></span></td>
+<td class="fl_by">
+<div>
+<a href="forum.php?mod=redirect&amp;tid=28704&amp;goto=lastpost#lastpost" class="xi2">360界面放送,20111115更新</a> <cite>2025-1-12 11:23 <a href="space-username-2166166.html">2166166</a></cite>
+</div>
+</td>
+</tr>
+<tr class="fl_row">
+<td class="fl_icn">
+<a href="forum-24-1.html" title="『 脚本交易 』"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</td>
+<td>
+<h2><a href="forum-24-1.html">『 脚本交易 』</a></h2>
+<p class="xg2">交易区试运行</p><p>版主: <span class="xi2"><a href="space-username-wln.html" class="notabs" c="1" mid="card_2839">wln</a></span></p></td>
+<td class="fl_i">
+<span class="xi2">580</span><span class="xg1"> / 3564</span></td>
+<td class="fl_by">
+<div>
+<a href="forum.php?mod=redirect&amp;tid=73764&amp;goto=lastpost#lastpost" class="xi2">预备 写两个脚本</a> <cite>2024-12-23 17:06 <a href="space-username-sen_yc.html">sen_yc</a></cite>
+</div>
+</td>
+</tr>
+<tr class="fl_row">
+</tr>
+</tbody></table>
+</div>
+</div><div class="bm bmw  flg cl">
+<div class="bm_h cl">
+<span class="o">
+<em id="category_38_img" class="tg_no" title="收起/展开" onclick="toggle_collapse('category_38');"></em>
+</span>
+<h2><a href="forum.php?gid=38" style="">其它语言交流区</a></h2>
+</div>
+<div id="category_38" class="bm_c" style="">
+<table cellspacing="0" cellpadding="0" class="fl_tb">
+<tbody><tr><td class="fl_g" width="24.9%">
+<div class="fl_icn_g">
+<a href="forum-45-1.html" title="其他"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-45-1.html">其他</a></dt>
+<dd><em>主题: 0</em>, <em>帖数: 0</em></dd><dd>
+从未
+</dd>
+</dl>
+</td>
+<td class="fl_g" width="24.9%">
+<div class="fl_icn_g">
+<a href="forum-44-1.html" title="易语言"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-44-1.html">易语言</a></dt>
+<dd><em>主题: 2</em>, <em>帖数: 12</em></dd><dd>
+<a href="forum.php?mod=redirect&amp;tid=73415&amp;goto=lastpost#lastpost">最后发表: 2025-1-28 17:24</a>
+</dd>
+</dl>
+</td>
+<td class="fl_g" width="24.9%">
+<div class="fl_icn_g">
+<a href="forum-43-1.html" title="js/php"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-43-1.html">js/php</a></dt>
+<dd><em>主题: 1</em>, <em>帖数: 10</em></dd><dd>
+<a href="forum.php?mod=redirect&amp;tid=73621&amp;goto=lastpost#lastpost">最后发表: 2024-5-7 16:12</a>
+</dd>
+</dl>
+</td>
+<td class="fl_g" width="24.9%">
+<div class="fl_icn_g">
+<a href="forum-42-1.html" title="java"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-42-1.html">java</a></dt>
+<dd><em>主题: 2</em>, <em>帖数: 9</em></dd><dd>
+<a href="forum.php?mod=redirect&amp;tid=73690&amp;goto=lastpost#lastpost">最后发表: 2024-7-30 23:54</a>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="fl_row">
+<td class="fl_g" width="24.9%">
+<div class="fl_icn_g">
+<a href="forum-41-1.html" title="c#"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-41-1.html">c#</a></dt>
+<dd><em>主题: 1</em>, <em>帖数: 7</em></dd><dd>
+<a href="forum.php?mod=redirect&amp;tid=73714&amp;goto=lastpost#lastpost">最后发表: 2024-9-13 16:23</a>
+</dd>
+</dl>
+</td>
+<td class="fl_g" width="24.9%">
+<div class="fl_icn_g">
+<a href="forum-40-1.html" title="python"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-40-1.html">python</a></dt>
+<dd><em>主题: 2</em>, <em>帖数: 8</em></dd><dd>
+<a href="forum.php?mod=redirect&amp;tid=73584&amp;goto=lastpost#lastpost">最后发表: 2024-8-1 23:57</a>
+</dd>
+</dl>
+</td>
+<td class="fl_g" width="24.9%">
+<div class="fl_icn_g">
+<a href="forum-39-1.html" title="C/C++"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-39-1.html">C/C++</a></dt>
+<dd><em>主题: 0</em>, <em>帖数: 0</em></dd><dd>
+从未
+</dd>
+</dl>
+</td>
+<td width="24.9%">&nbsp;</td></tr>
+</tbody></table>
+</div>
+</div><div class="bm bmw  flg cl">
+<div class="bm_h cl">
+<span class="o">
+<em id="category_31_img" class="tg_no" title="收起/展开" onclick="toggle_collapse('category_31');"></em>
+</span>
+<span class="y">分区版主: <a href="space-username-chishingchan.html" class="notabs" c="1" mid="card_3791">chishingchan</a></span><h2><a href="forum.php?gid=31" style="">软件汉化</a></h2>
+</div>
+<div id="category_31" class="bm_c" style="">
+<table cellspacing="0" cellpadding="0" class="fl_tb">
+<tbody><tr><td class="fl_g" width="32.9%">
+<div class="fl_icn_g">
+<a href="forum-33-1.html" title="优秀の免费软件"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-33-1.html">优秀の免费软件</a></dt>
+<dd><em>主题: 126</em>, <em>帖数: 2882</em></dd><dd>
+<a href="forum.php?mod=redirect&amp;tid=44867&amp;goto=lastpost#lastpost">最后发表: 2025-2-12 02:15</a>
+</dd>
+</dl>
+</td>
+<td class="fl_g" width="32.9%">
+<div class="fl_icn_g">
+<a href="forum-34-1.html" title="汉化作品发布区"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-34-1.html">汉化作品发布区</a></dt>
+<dd><em>主题: 46</em>, <em>帖数: 1690</em></dd><dd>
+<a href="forum.php?mod=redirect&amp;tid=36433&amp;goto=lastpost#lastpost">最后发表: 2025-1-27 21:08</a>
+</dd>
+</dl>
+</td>
+<td width="32.9%">&nbsp;</td></tr>
+</tbody></table>
+</div>
+</div><div class="bm bmw  flg cl">
+<div class="bm_h cl">
+<span class="o">
+<em id="category_7_img" class="tg_no" title="收起/展开" onclick="toggle_collapse('category_7');"></em>
+</span>
+<span class="y">分区版主: <a href="space-username-heroxianf.html" class="notabs" c="1" mid="card_3520">heroxianf</a></span><h2><a href="forum.php?gid=7" style="">休闲娱乐</a></h2>
+</div>
+<div id="category_7" class="bm_c" style="">
+<table cellspacing="0" cellpadding="0" class="fl_tb">
+<tbody><tr><td class="fl_g" width="32.9%">
+<div class="fl_icn_g">
+<a href="forum-8-1.html" title="『 谈天说地 』"><svg width="31" height="29"><path fill="#fdc910" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-8-1.html">『 谈天说地 』</a><em class="xw0 xi1" title="今日"> (5)</em></dt>
+<dd><em>主题: 1843</em>, <em>帖数: <span title="52803">5万</span></em></dd><dd>
+<a href="forum.php?mod=redirect&amp;tid=4168&amp;goto=lastpost#lastpost">最后发表: <span title="2025-2-20 11:30">25&nbsp;分钟前</span></a>
+</dd>
+</dl>
+</td>
+<td width="32.9%">&nbsp;</td><td width="32.9%">&nbsp;</td></tr>
+</tbody></table>
+</div>
+</div><div class="bm bmw  flg cl">
+<div class="bm_h cl">
+<span class="o">
+<em id="category_9_img" class="tg_no" title="收起/展开" onclick="toggle_collapse('category_9');"></em>
+</span>
+<span class="y">分区版主: <a href="space-username-sanhen.html" class="notabs" c="1" mid="card_9389">sanhen</a></span><h2><a href="forum.php?gid=9" style="">站务管理</a></h2>
+</div>
+<div id="category_9" class="bm_c" style="">
+<table cellspacing="0" cellpadding="0" class="fl_tb">
+<tbody><tr><td class="fl_g" width="32.9%">
+<div class="fl_icn_g">
+<a href="forum-10-1.html" title="『 论坛问题及建议 』"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-10-1.html">『 论坛问题及建议 』</a></dt>
+<dd><em>主题: 495</em>, <em>帖数: 3068</em></dd><dd>
+<a href="forum.php?mod=redirect&amp;tid=73681&amp;goto=lastpost#lastpost">最后发表: 2024-7-17 10:59</a>
+</dd>
+</dl>
+</td>
+<td class="fl_g" width="32.9%">
+<div class="fl_icn_g">
+<a href="forum-14-1.html" title="『 软件BUG及建议 』"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-14-1.html">『 软件BUG及建议 』</a></dt>
+<dd><em>主题: 355</em>, <em>帖数: 2098</em></dd><dd>
+<a href="forum.php?mod=redirect&amp;tid=23187&amp;goto=lastpost#lastpost">最后发表: 2022-8-28 23:11</a>
+</dd>
+</dl>
+</td>
+<td class="fl_g" width="32.9%">
+<div class="fl_icn_g">
+<a href="forum-11-1.html" title="『 论坛官方の公告 』"><svg width="31" height="29"><path fill="#c9c9c9" d="M31 13c0-7.2-6.9-13-15.5-13S0 5.8 0 13s6.9 13 15.5 13c1.6 0 3.2-.2 4.6-.6L27 28l-1.7-5c3.5-2.4 5.7-6 5.7-10z"></path></svg></a>
+</div>
+<dl>
+<dt><a href="forum-11-1.html">『 论坛官方の公告 』</a></dt>
+<dd><em>主题: 30</em>, <em>帖数: 1394</em></dd><dd>
+<a href="forum.php?mod=redirect&amp;tid=56447&amp;goto=lastpost#lastpost">最后发表: 2025-1-25 22:10</a>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+
+<div class="wp mtn">
+<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+</div>
+
+<div id="online" class="bm oll">
+<div class="bm_h">
+<span class="o"><a href="forum.php?showoldetails=no#online" title="收起/展开"><em class="tg_no" title="收起/展开"></em></a></span>
+<h3>
+<strong><a href="home.php?mod=space&amp;do=friend&amp;view=online&amp;type=member">在线会员</a></strong>
+<span class="xs1">- <strong>559</strong> 人在线
+- <strong>1</strong> 会员(<strong>0</strong> 隐身),
+<strong>558</strong> 位游客
+- 最高记录是 <strong>11990</strong> 于 <strong>2018-9-17</strong>.</span>
+</h3>
+</div>
+<dl id="onlinelist" class="bm_c">
+<dt class="ptm pbm bbda"><img src="static/image/common/online_admin.gif"> Administrator &nbsp; &nbsp; &nbsp; <img src="static/image/common/online_supermod.gif"> 超级版主 &nbsp; &nbsp; &nbsp; <img src="static/image/common/online_moderator.gif"> 版主 &nbsp; &nbsp; &nbsp; <img src="static/image/common/online_member.gif"> 会员 &nbsp; &nbsp; &nbsp; <img src="static/image/common/online_guest.gif"> 路人 &nbsp; &nbsp; &nbsp; </dt>
+<dd class="ptm pbm">
+<ul class="cl">
+<li title="时间: 11:53">
+<img src="static/image/common/online_member.gif" alt="icon">
+<a href="space-uid-7634143.html">holley</a>
+</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+<li title="时间: 11:55">
+<img src="static/image/common/online_guest.gif" alt="icon">
+路人</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="bm lk">
+<div id="category_lk" class="bm_c ptm">
+<ul class="m mbn cl"><li class="lk_logo mbm bbda cl"><img src="images/link/autoit.jpg" border="0" alt="AUTOIT官方"><div class="lk_content z"><h5><a href="http://www.autoitscript.com" target="_blank">AUTOIT官方</a></h5><p>AUTOIT官方</p></div></li><li class="lk_logo mbm bbda cl"><img src="https://www.suujee.com/wp-content/themes/zibll/img/logo_blue.png" border="0" alt="搜集网"><div class="lk_content z"><h5><a href="https://www.suujee.com/" target="_blank">搜集网</a></h5><p>专注于优质软件、资源、教程分享！</p></div></li></ul>
+<ul class="x mbm cl">
+<li><a href="http://www.wmzos.com" target="_blank" title="完美者博客">完美者博客</a></li><li><a href="http://www.flighty.cn/" target="_blank" title="轻狂志博客">轻狂志博客</a></li><li><a href="http://slsup.com" target="_blank" title="深蓝防逃费">深蓝防逃费</a></li><li><a href="http://www.jianyiit.com/" target="_blank" title="简易工作室">简易工作室</a></li><li><a href="https://www.yrxitong.com/" target="_blank" title="小鱼儿yr系统">小鱼儿yr系统</a></li><li><a href="http://www.cnit.net.cn" target="_blank" title="小哥'S blog">小哥'S blog</a></li><li><a href="http://www.nsisfans.com/" target="_blank" title="NSIS中文论坛">NSIS中文论坛</a></li><li><a href="https://mengniuge.com/" target="_blank" title="猛牛哥">猛牛哥</a></li><li><a href="http://kn007.net" target="_blank" title="kn007的个人博客">kn007的个人博客</a></li><li><a href="https://www.xueyu521.cn/" target="_blank" title="雪域工作室">雪域工作室</a></li></ul>
+</div>
+</div>
+
+</div>
+
+<div id="sd" class="sd">
+<div class="drag">
+<!--[diy=diy2]--><div id="diy2" class="area"><div id="frameT9Gz68" class="frame move-span cl frame-1"><div class="title frame-title"><span class="titletext">今日排行</span></div><div id="frameT9Gz68_left" class="column frame-1-c"><div id="frameT9Gz68_left_temp" class="move-span temp"></div><div id="portal_block_42" class="block move-span"><div id="portal_block_42_content" class="dxb_bc"><div class="module cl xl xl1">
+<ol><li><em>13025</em><img class="vm" src="https://www.autoitx.com/uc_server/avatar.php?uid=7644923&amp;size=small" width="16" height="16" alt="afan"> <a href="space-uid-7644923.html" title="afan" c="1" target="_blank" mid="card_4445">afan</a></li><li><em>2509</em><img class="vm" src="https://www.autoitx.com/uc_server/avatar.php?uid=7661038&amp;size=small" width="16" height="16" alt="txen548"> <a href="space-uid-7661038.html" title="txen548" c="1" target="_blank" mid="card_9900">txen548</a></li><li><em>1482</em><img class="vm" src="https://www.autoitx.com/uc_server/avatar.php?uid=7666595&amp;size=small" width="16" height="16" alt="zghwelcome"> <a href="space-uid-7666595.html" title="zghwelcome" c="1" target="_blank" mid="card_5929">zghwelcome</a></li><li><em>1319</em><img class="vm" src="https://www.autoitx.com/uc_server/avatar.php?uid=7633082&amp;size=small" width="16" height="16" alt="tarcy118"> <a href="space-uid-7633082.html" title="tarcy118" c="1" target="_blank" mid="card_3080">tarcy118</a></li><li><em>1134</em><img class="vm" src="https://www.autoitx.com/uc_server/avatar.php?uid=7669665&amp;size=small" width="16" height="16" alt="lufeng"> <a href="space-uid-7669665.html" title="lufeng" c="1" target="_blank" mid="card_5173">lufeng</a></li></ol>
+</div></div></div></div></div><div id="frame48Q51w" class="frame move-span cl frame-1"><div class="title frame-title"><span class="titletext">本周排行</span></div><div id="frame48Q51w_left" class="column frame-1-c"><div id="frame48Q51w_left_temp" class="move-span temp"></div><div id="portal_block_43" class="block move-span"><div id="portal_block_43_content" class="dxb_bc"><div class="module cl xl xl1">
+<ol><li><em>13025</em><img class="vm" src="https://www.autoitx.com/uc_server/avatar.php?uid=7644923&amp;size=small" width="16" height="16" alt="afan"> <a href="space-uid-7644923.html" title="afan" c="1" target="_blank" mid="card_4445">afan</a></li><li><em>2509</em><img class="vm" src="https://www.autoitx.com/uc_server/avatar.php?uid=7661038&amp;size=small" width="16" height="16" alt="txen548"> <a href="space-uid-7661038.html" title="txen548" c="1" target="_blank" mid="card_9900">txen548</a></li><li><em>1482</em><img class="vm" src="https://www.autoitx.com/uc_server/avatar.php?uid=7666595&amp;size=small" width="16" height="16" alt="zghwelcome"> <a href="space-uid-7666595.html" title="zghwelcome" c="1" target="_blank" mid="card_5929">zghwelcome</a></li><li><em>1319</em><img class="vm" src="https://www.autoitx.com/uc_server/avatar.php?uid=7633082&amp;size=small" width="16" height="16" alt="tarcy118"> <a href="space-uid-7633082.html" title="tarcy118" c="1" target="_blank" mid="card_3080">tarcy118</a></li><li><em>1299</em><img class="vm" src="https://www.autoitx.com/uc_server/avatar.php?uid=7628642&amp;size=small" width="16" height="16" alt="nmgwddj"> <a href="space-uid-7628642.html" title="nmgwddj" c="1" target="_blank" mid="card_8165">nmgwddj</a></li></ol>
+</div></div></div></div></div><div id="frameIeZ7sB" class="frame move-span cl frame-1"><div class="title frame-title"><span class="titletext">活跃会员</span></div><div id="frameIeZ7sB_left" class="column frame-1-c"><div id="frameIeZ7sB_left_temp" class="move-span temp"></div><div id="portal_block_44" class="block move-span"><div id="portal_block_44_content" class="dxb_bc"><div class="module cl ml mls">
+<ul><li>
+	<a href="space-uid-7644923.html" c="1" target="_blank" mid="card_4445"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7644923&amp;size=small" width="48" height="48" alt="afan"></a>
+	<p><a href="space-uid-7644923.html" title="afan" target="_blank">afan</a></p>
+</li><li>
+	<a href="space-uid-7653969.html" c="1" target="_blank" mid="card_7790"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7653969&amp;size=small" width="48" height="48" alt="haijie1223"></a>
+	<p><a href="space-uid-7653969.html" title="haijie1223" target="_blank">haijie1223</a></p>
+</li><li>
+	<a href="space-uid-161.html" c="1" target="_blank" mid="card_5867"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=161&amp;size=small" width="48" height="48" alt="131738"></a>
+	<p><a href="space-uid-161.html" title="131738" target="_blank">131738</a></p>
+</li><li>
+	<a href="space-uid-7644076.html" c="1" target="_blank" mid="card_9074"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7644076&amp;size=small" width="48" height="48" alt="kn007"></a>
+	<p><a href="space-uid-7644076.html" title="kn007" target="_blank">kn007</a></p>
+</li><li>
+	<a href="space-uid-7655419.html" c="1" target="_blank" mid="card_1572"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7655419&amp;size=small" width="48" height="48" alt="xms77"></a>
+	<p><a href="space-uid-7655419.html" title="xms77" target="_blank">xms77</a></p>
+</li><li>
+	<a href="space-uid-7641577.html" c="1" target="_blank" mid="card_6567"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7641577&amp;size=small" width="48" height="48" alt="kk_lee69"></a>
+	<p><a href="space-uid-7641577.html" title="kk_lee69" target="_blank">kk_lee69</a></p>
+</li><li>
+	<a href="space-uid-7658741.html" c="1" target="_blank" mid="card_1521"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7658741&amp;size=small" width="48" height="48" alt="chzj589"></a>
+	<p><a href="space-uid-7658741.html" title="chzj589" target="_blank">chzj589</a></p>
+</li><li>
+	<a href="space-uid-201.html" c="1" target="_blank" mid="card_9033"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=201&amp;size=small" width="48" height="48" alt="redapple2008"></a>
+	<p><a href="space-uid-201.html" title="redapple2008" target="_blank">redapple2008</a></p>
+</li><li>
+	<a href="space-uid-7630264.html" c="1" target="_blank" mid="card_8082"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7630264&amp;size=small" width="48" height="48" alt="menfan1"></a>
+	<p><a href="space-uid-7630264.html" title="menfan1" target="_blank">menfan1</a></p>
+</li><li>
+	<a href="space-uid-7661038.html" c="1" target="_blank" mid="card_9900"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7661038&amp;size=small" width="48" height="48" alt="txen548"></a>
+	<p><a href="space-uid-7661038.html" title="txen548" target="_blank">txen548</a></p>
+</li><li>
+	<a href="space-uid-7656262.html" c="1" target="_blank" mid="card_3744"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7656262&amp;size=small" width="48" height="48" alt="user3000"></a>
+	<p><a href="space-uid-7656262.html" title="user3000" target="_blank">user3000</a></p>
+</li><li>
+	<a href="space-uid-7644217.html" c="1" target="_blank" mid="card_255"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7644217&amp;size=small" width="48" height="48" alt="水木子"></a>
+	<p><a href="space-uid-7644217.html" title="水木子" target="_blank">水木子</a></p>
+</li><li>
+	<a href="space-uid-7648183.html" c="1" target="_blank" mid="card_4992"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7648183&amp;size=small" width="48" height="48" alt="weeks1"></a>
+	<p><a href="space-uid-7648183.html" title="weeks1" target="_blank">weeks1</a></p>
+</li><li>
+	<a href="space-uid-1003.html" c="1" target="_blank" mid="card_9580"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=1003&amp;size=small" width="48" height="48" alt="lynfr8"></a>
+	<p><a href="space-uid-1003.html" title="lynfr8" target="_blank">lynfr8</a></p>
+</li><li>
+	<a href="space-uid-7634069.html" c="1" target="_blank" mid="card_8002"><img src="https://www.autoitx.com/uc_server/avatar.php?uid=7634069&amp;size=small" width="48" height="48" alt="pusofalse"></a>
+	<p><a href="space-uid-7634069.html" title="pusofalse" target="_blank">pusofalse</a></p>
+</li></ul>
+</div></div></div></div></div></div><!--[/diy]-->
+</div>
+</div>
+</div>
+
+<script>fixed_top_nv();</script>	</div>
+<div id="ft" class="wp cl">
+<div id="flk" class="y">
+<p>
+<a href="//wpa.qq.com/msgrd?v=3&amp;uin=29535065&amp;site=AUTOIT CN&amp;menu=yes&amp;from=discuz" target="_blank" title="QQ"><img src="static/image/common/site_qq.jpg" alt="QQ"></a><span class="pipe">|</span><a href="forum.php?showmobile=yes">手机版</a><span class="pipe">|</span><a href="forum.php?mod=misc&amp;action=showdarkroom">小黑屋</a><span class="pipe">|</span><strong><a href="https://www.autoitx.com/" target="_blank">AUTOIT CN</a></strong>
+( <a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备19019924号-1</a> )<a href="sitemap_index.xml">谷歌</a>
+<a href="sitemap_baidu.xml">百度</a>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="https://ssl.google-analytics.com/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-13253440-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+ </p>
+<p class="xs0">
+GMT+8, 2025-2-20 11:55<span id="debuginfo">, Updated at 2025-02-20 11:55:40, Processed in 0.000125 second(s).</span>
+</p>
+</div>
+<div id="frt">
+<p>Powered by <strong><a href="https://www.discuz.vip/" target="_blank">Discuz!</a></strong> <em>X3.5</em> <a href="https://license.discuz.vip/?pid=1&amp;host=autoitx.com" target="_blank">Licensed</a></p>
+<p class="xs0">© 2001-2024 <a href="https://code.dismall.com/" target="_blank">Discuz! Team</a>.</p>
+</div></div>
+<script src="home.php?mod=misc&amp;ac=sendmail&amp;rand=1740023740" type="text/javascript"></script>
+
+<div id="scrolltop">
+<span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa"><b>返回顶部</b></a></span>
+</div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+<script type="text/javascript">$("debuginfo") ? $("debuginfo").innerHTML = ", Updated at 2025-02-20 11:55:40, Processed in 0.000125 second(s)." : "";</script></body></html>

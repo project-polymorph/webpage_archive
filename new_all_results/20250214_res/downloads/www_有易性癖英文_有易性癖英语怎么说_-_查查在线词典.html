@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html><head id="Head1"><meta charset="utf-8"><meta http-equiv="Content-Language" content="zh-CN"><meta name="apple-touch-fullscreen" content="yes"><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><meta name="applicable-device" content="mobile"><meta name="MobileOptimized" content="360"><meta name="HandheldFriendly" content="true"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta http-equiv="Cache-Control" content="no-transform"><meta name="applicable-device" content="mobile"><link rel="icon" href="/favicon.ico" type="/image/x-icon"><link rel="shortcut icon" href="/favicon.ico" type="/image/x-icon">    
+
+<style>
+html,body,form,input,span,p,button,h1,ul{margin:0;padding:0}
+html{height:100%;min-height:350px}
+body{width:100%;height:100%;min-height:350px;font-family:Helvetica,STHeiti,Droid Sans Fallback;font-size:16px;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+a,a:visited{text-decoration:none;color:#328af4}a{outline:0;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+.msb{position:relative;width:100%}.msfo{padding-right:36px;padding-right:38px}.msfi{background-color:#fff!important;border-color:#c7d6f7;border-style:solid;border-width:2px 1px 2px 2px;border-right:0;margin-top:-1px;padding:0;height:35px;border:1px solid #d9d9d9!important;border-right:none!important;border-top:1px solid silver!important;padding-right:0;-webkit-transition: all .15s}
+.cb{display:none;height:30px;position:absolute;right:42px;width:24px;z-index:7;background:0;color:#d9d9d9;font-size:24px;line-height:30px;text-align:center;top:2px;vertical-align:middle;width:30px}
+.lsbb{background:#eee;border:1px solid #999;border-top-color:#ccc;border-left-color:#ccc;height:30px;-webkit-border-radius:0;-webkit-border-bottom-right-radius:5px;-webkit-border-top-right-radius:5px;border-color:#c7d6f7;border-style:solid;border-width:2px 2px 2px 1px;height:42px;padding:0;position:absolute;right:0;top:0;width:40px;background-color:#4d90fe;background:-webkit-gradient(linear,left top,left bottom,from(#4d90fe),to(#4787ed))!important;border:1px solid #3079ed;box-sizing:border-box;-webkit-border-bottom-right-radius:2px;-webkit-border-top-right-radius:2px;height:37px;width:38px}
+.sbico{background:url(/images/search_btn.png) no-repeat;color:transparent;display:inline-block;height:13px;margin:0 auto;margin-top:1px;width:14px}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+.lst{float:left;float:none;-webkit-box-sizing:border-box;-moz-box-sizing:content-box;padding:1px 7px;padding:0;padding-right:6px;padding-left:6px;width:100%;height:100%;border:0;-webkit-border-radius:0;border-radius:0;background:#fff;background-color:transparent;color:#000;vertical-align:top;font:17px arial,sans-serif;font-size:18px;line-height:normal;-webkit-tap-highlight-color:rgba(255,0,0,0);-webkit-appearance:none}
+.msfi input{-webkit-transition:background-color .2s ease-out}.msfi input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none}header{background-color:#f1f1f1;background-image:-webkit-gradient(radial,100 36,0,100 -40,120,from(#fafafa),to(#f1f1f1));border-bottom:1px solid #666;border-color:#e5e5e5}#tsf{background:#f1f1f1;height:32px;padding:6px}#mlogo{background-size:78px 34px;color:transparent;height:34px;left:7px;position:absolute;text-align:center;top:2px;width:78px}@media only screen and (-webkit-min-device-pixel-ratio:2){#mlogo{background-image:url(/images/logom.gif)}}.content{padding:0 7px}.content h1{font-size:23px;font-weight:700;color:green;float:none;padding-top:3px}.phonetic span{padding-right:30px}.laba{position:relative;top:4px;display:inline-block;width:22px;padding-left:8px;height:18px;background:url(/images/laba.png) no-repeat 8px 0;background-size:22px 18px;-webkit-background-size:22px 18px;-webkit-touch-callout:none}.play{background-image:url(/images/laba_ani.gif)}.base{clear:both;margin-top:5px;border: 1px solid #ccd5ff;height:auto;background-color: #F6F6F6;overflow:hidden;color:#454545;}.base p{clear:both;padding-top:4px;}.base p .pos{width:35px;font-size:90%;color:#999;display:inline-block;line-height:18px;vertical-align:middle;text-align:right;margin-right:15px;font-weight:700}.base p .def{display:inline-block;line-height:20px;vertical-align:top;font-size:1.1em;padding:5px 2px 5px 2px}.base p .def a{color:#333}.shape{clear:both;padding:18px 0;overflow:hidden}.shape li{white-space:nowrap;margin-bottom:7px;float:left;padding-right:10px;list-style:none}.shape a{padding:0 .25em}h3{font-size:11pt;position:relative;margin:0 0 .7em 0;height:26px;line-height:26px;border-bottom:2px solid #ddd}.tabs a,.cur{font-weight:normal;text-decoration:none;display:inline-block;border-bottom:2px solid #fff;height:26px;_position:relative;_top:2px}.tabs a span{cursor:pointer}.tabs a.cur{cursor:default}.tabs a.cur span{cursor:default;color:#434343;font-weight:bold;height:25px}.tabs a span,.cur span{display:inline-block;padding:0 20px;height:26px;border-bottom:2px solid #bfbfbf;margin-right:2px;_position:relative;_top:2px}h3 .cur span{border-bottom:2px solid #328af4;color:#328af4;font-weight:bold}
+.labawb {
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    width: 16px;
+    margin-left: 6px;
+    height: 16px;
+    background: url(/images/laba.svg) no-repeat 1px 0;
+    background-size: 16px 16px;
+    -webkit-background-size: 16px 16px;
+    -webkit-touch-callout: none
+}
+.jkbox ol{padding-left:25px}.jkbox li{font-size:14px;margin-bottom:5px;line-height:25px}input[type="search"]:focus{background-color:transparent}.zy{color:#ff7800!important;font-style:normal}.hot{color:red!important;font-style:normal}
+.sugbox ol{padding-left:18px}.sugbox li{font-size:11px;margin-bottom:5px;line-height:13px;float:left;padding-right:25px;}input[type="search"]:focus{background-color:transparent}.zy{color:#ff7800!important;font-style:normal}.hot{color:red!important;font-style:normal}
+.tab_icon_open {
+	background: url(/images/icobg.png) no-repeat;
+	background-position: -290px -116px;
+	padding-left: 18px;
+	cursor: pointer;
+	font-weight:bold;
+}
+.tab_icon_close {
+	background: url(/images/icobg.png) no-repeat;
+	background-position: -290px -145px;
+	padding-left: 18px;
+	cursor: pointer;
+	font-weight:bold;
+}
+.fbarh{background:#f2f2f2;bottom:0;left:0;right:0}
+.fbar{border-top:1px solid #e4e4e4;line-height:35px;padding:10px 0;text-align:center}
+.fbar p{color:#777;display:inline}
+.fbar a{color:#777;text-decoration:none;white-space:nowrap}
+
+.moreTagClass {
+    color: #328af4;
+    cursor: pointer;
+    font-weight: bold;
+    font-size:18px;
+}
+
+@charset "utf-8";
+	body {
+	margin:0
+}
+
+.s_card{background:#fff;border-bottom:.2rem solid #e8e8e8;background-origin:border-box;position:relative;margin-bottom:0}
+.m_f_a:last-child{border:0}.m_f_a,.m_f_a_r{box-sizing:border-box;-webkit-box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:.22rem 0;margin:0 .2rem;position:relative;-webkit-tap-highlight-color:rgba(0,0,0,.1);border-bottom:1px solid #e4e4e4;clear:both}
+.bmf_c1.mini,.m_f_div,.m_f_div_book,.m_f_div_weibo{display:block;width:2rem;height:1.34rem;background-size:.64rem .5rem!important;position:relative;margin-right:.26rem;overflow:hidden}
+.m_f_con,.m_f_div img{height:inherit} .m_f_div .img_width{width:100%;height:100%}
+.m_f_con{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1 1;-webkit-box-orient:vertical;-webkit-box-pack:justify;display:-webkit-box;width:0}
+.m_f_con_t{margin-top:-.04rem}
+.cm_tit{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-all}.cm_tit,.cm_tit_solo{box-sizing:border-box;-webkit-box-sizing:border-box;font-size:.34rem;color:#1a1a1a;line-height:.48rem;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis}
+h2{font-size:100%;font-weight:400}
+.cm_f_ic{width:100%;line-height:1.1;color:#888;font-size:.22rem;position:relative}.cm_f_ic:empty{display:none}.cm_f_ic:after{content:" ";display:block;height:0;clear:both}
+.m_f_con_n{line-height:1.4}.m_f_con_n,.m_f_a_r .m_f_con_n{margin-right:.1rem}
+address,cite,em,i,mark,u{font-style:normal}
+.cm_f_ic .m_f_con_add,.m_f_a_r .m_f_con_add{margin:0 .1rem 0 0;display:inline-block;max-width:1.7rem;white-space:nowrap;-o-text-overflow:ellipsis;text-overflow:ellipsis;overflow:hidden;line-height:1.4;vertical-align:middle;padding-right:.04rem}
+.card_tit {font-size: .3rem;letter-spacing: .1rem;font-weight: 600;text-indent: .34rem;border-top: .36rem solid transparent!important;margin: .3rem 0 .1rem;border: 0!important;}
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,fieldset,figcaption,figure,footer,form,h1,h2,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,p,pre,q,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;outline:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+html{font-family:Microsoft YaHei,Helvetica Neue,Helvetica,STHeiTi,Arial,sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-size:50px;line-height:1.5}
+.fluidAd{border-bottom: 1px solid #e4e4e4;margin-left:.2rem;}
+.mlogo{width:78px;height:34px;}
+.jkbox{padding-bottom:10px;}
+.snapup {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+
+    .snapup .shelf2 {
+        margin-left: -30px;
+        text-align: left;
+        width: 100%;
+    }
+
+    .snapup .shelfcell {
+        margin-left: 30px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+        .snapup .shelfcell .title {
+            color: #328af4;
+            margin-bottom: 6px;
+            margin-left: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+    .snapup .arrow {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        top: 50%;
+        margin: 0 auto;
+    }
+
+
+.section02 .shelfcell .subtitel {
+    color: #666;
+    font-size: 14px;
+    margin-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.h01 {
+    background: #f0f0f0;
+    height: 1px;
+}
+.fresh-article-wrap {
+    margin: -80px 0 0 0;
+    z-index: 30;
+    position: relative;
+}
+.icon2-bottom-arrow {
+    position: absolute;
+    top: 38px;
+    width: 16px;
+    height: 16px;
+    /*background-position: -2.375rem .25rem;*/
+    left: 50%;
+    margin-left: -8px;
+    z-index:1;
+}
+.icon2 {
+    display: inline-block;
+    vertical-align: text-bottom;
+    background: url(/images/down.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+.fresh-article-wrap .span-bg {
+    background: -webkit-linear-gradient(top,rgba(246,246,246,0) 0,rgba(246,246,246,.2) 5%,rgba(246,246,246,.4) 10%,rgba(246,246,246,.8) 20%,rgba(246,246,246,1) 50%);
+    height: 80px;
+}
+.fresh-article-box {
+    position: relative;
+    text-align: center;
+    background:#f6f6f6;
+    margin:-30px;
+}
+.btn-join-vip.active {
+    color: #ff6060;
+    border-color: #ff6060;
+}
+.btn-join-vip {
+    display: inline-block;
+    height: 22px;
+    border-radius: 18px;
+    padding-left:12px;
+    padding-right:12px;
+    margin: 0 auto;
+    line-height: 22px;
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #1d1d1d;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.border-radius-1 {
+    border-radius: 16px!important;
+}
+
+.alert-frame-wrap {
+    position: fixed;
+    /*max-width: 640px;*/
+    width: 100%;
+    z-index: 1001;
+    top: 0;
+    height: 100vh;
+    background-color: rgba(0,0,0,.7);
+}
+.flex-justifyCenter {
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.flex-alignCenter {
+    -webkit-align-items: center;
+    align-items: center;
+}
+.flexBox {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.alert-frame-wrap .alert-frame {
+    width: 280px;
+    cursor: pointer;
+    position: relative;
+    border-radius: .5rem;
+    background-position: 2.3rem .65rem;
+    background-repeat: no-repeat;
+    z-index: 100;
+}
+.bgW {
+    background: #fff;
+}
+.alert-frame-wrap .go-to-app-text {
+    font-size: 17px;
+    padding: 28px 38px;
+    text-align: center;
+}
+.c30 {
+    color: #303030;
+}
+.alert-frame-wrap .down-app-btn-box {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 26px;
+}
+.down-app-btn-box .cancel-go-btn {
+    background-color: #fff;
+    border: 1px solid #ff6060;
+}
+.down-app-btn-box .btn {
+    text-align: center;
+    width: 106px;
+    font-size: 15px;
+    padding: 8px;
+    border-radius: 18px;
+}
+.c-f60, .c3 {
+    color: #ff6060;
+}
+
+.b1, .bg-f60 {
+    background: #ff6060;
+}
+.cf {
+    color: #fff;
+}
+.hide {
+    display: none!important;
+}
+.app-btns {
+    display: block;
+    height: 48px;
+    margin-bottom: 10px;
+    font-family: PingFangSC-Medium;
+    font-size: 17px;
+    line-height: 48px;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+    background: #00cecf;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202502130101/reactive_library.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-Y68VMCKWM6&amp;cx=c&amp;_slc=1"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202502130101/show_ads_impl.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "name": "查查词典",
+  "alternateName": "ICHACHA",
+  "url": "https://www.ichacha.net/m/"
+}
+</script>
+
+
+<script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+<script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+    googletag.cmd.push(function () {
+        googletag.defineSlot('/77594741/video_1x1', [1, 1], 'div-gpt-ad-1565896581203-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+        googletag.enableServices();
+    });
+</script>
+
+
+
+<script type="text/javascript" src="/App_Themes/jquery-1.2.6.pack.js"></script>
+
+<title>
+	有易性癖英文_有易性癖英语怎么说
+</title><meta name="description" content="有易性癖的英文翻译：transsexualism...，查阅有易性癖英文怎么说，有易性癖的英语读音和详细解释。"><meta name="keywords" content="有易性癖的英文,有易性癖的翻译,有易性癖的意思,有易性癖的解释,有易性癖的汉语英语释义"><link rel="canonical" href="https://www.ichacha.net/有易性癖.html"><link rel="alternate" hreflang="zh" href="https://www.ichacha.net/m/有易性癖.html"><link rel="alternate" hreflang="en" href="https://eng.ichacha.net/m/有易性癖.html"><link rel="alternate" hreflang="zh-Hant" href="https://tw.ichacha.net/m/有易性癖.html"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script src="https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202502130101/pubads_impl.js" async=""></script><link href="https://securepubads.g.doubleclick.net/pagead/managed/dict/m202502180101/gpt" rel="compression-dictionary"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script async="" src="https://fundingchoicesmessages.google.com/i/ca-pub-3629292215446789?href=https%3A%2F%2Fwww.ichacha.net%2Fm%2F%25E6%259C%2589%25E6%2598%2593%25E6%2580%25A7%25E7%2599%2596.html&amp;ers=2"></script><script async="" src="https://fundingchoicesmessages.google.com/f/AGSKWxUOlnD9ZWfw3i9xYx_LaSIHnItG4SILLcvWFUMdhENgijjaNd7pbQCl8ert_gAzd4ck5Oh-RJsf1C5wg8uvopPG8g1Xk-4V0JQYvO_eDuhvPe3HNOUAxYc6NXCnyginrF6E71GBww==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzM5OTA1ODMxLDg1OTAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzddXSwiaHR0cHM6Ly93d3cuaWNoYWNoYS5uZXQvbS8lRTYlOUMlODklRTYlOTglOTMlRTYlODAlQTclRTclOTklOTYuaHRtbCIsbnVsbCxbWzgsImwtNzNNR3NyeFRNIl0sWzksImVuLVVTIl0sWzIzLCIxNzM5OTA1ODMxIl0sWzE5LCIyIl0sWzE3LCJbMF0iXSxbMjQsIiJdXV0"></script><script async="" src="https://fundingchoicesmessages.google.com/f/AGSKWxXPRxq5Xg-3uN0lVj8wAnKL6r4ehboQS4hyBqHZg2-onDjCOatiQSoKAP6ceGVa3WyZjgKOprNafxFKdj5Q9vXVBmL_mpUKR-RyHDFKZa3q5deKpSgwFyhdBPxNMSTIBXCOZOnbvw==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzM5OTA1ODMxLDkxNzAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzcsOV0sbnVsbCwyLG51bGwsImVuIl0sImh0dHBzOi8vd3d3LmljaGFjaGEubmV0L20vJUU2JTlDJTg5JUU2JTk4JTkzJUU2JTgwJUE3JUU3JTk5JTk2Lmh0bWwiLG51bGwsW1s4LCJsLTczTUdzcnhUTSJdLFs5LCJlbi1VUyJdLFsyMywiMTczOTkwNTgzMSJdLFsxOSwiMiJdLFsxNywiWzBdIl0sWzI0LCIiXV1d"></script><script async="" src="https://fundingchoicesmessages.google.com/f/AGSKWxVD63zfzlRZmbHHPu1jS3gnXH2a_du1iRxKWOFHs4sH2qkGHQEsCuLM2mVdHhjuf2Xte3QdfXjaL3lsEuHV4ID3p_XElCXMoMPEkYb5yIIV3SC8Mdz4AU0K45mXPFnvj4Zl0QMfaQ==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzM5OTA1ODMyLDY0MzAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzcsOSw2XSxudWxsLDIsbnVsbCwiZW4iLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCwxXSwiaHR0cHM6Ly93d3cuaWNoYWNoYS5uZXQvbS8lRTYlOUMlODklRTYlOTglOTMlRTYlODAlQTclRTclOTklOTYuaHRtbCIsbnVsbCxbWzgsImwtNzNNR3NyeFRNIl0sWzksImVuLVVTIl0sWzIzLCIxNzM5OTA1ODMxIl0sWzE5LCIyIl0sWzE3LCJbMF0iXSxbMjQsIiJdXV0"></script></head>
+<body aria-hidden="false">
+
+    <div id="downloadAndroid" style="display:none;position:relative;left: 0px; z-index: 201; width: 100%; height: 55px; opacity: 0.96; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px 0px;">
+        <img src="/images/logo_en_100.png" style="position: absolute;display: block;width: 42px;height: 42px;margin: 0;padding: 0;left: 16px;top: 6.5px;">
+        <div style="position: absolute;font-family: PingFangSC-Medium;font-size: 16px;color: #3B424C;line-height: 16px;top: 12px;left: 67px">查查英汉词典Android版</div>
+        <div style="position: absolute;font-family: PingFangSC-Medium;font-size: 11px;color: #B8BCC2;line-height: 11px;top: 32px;left: 67px">随时随地查词翻译</div>
+        <a onclick="submitFn()">
+            <button style="position: absolute;display: block;top: 11.5px;right: 8.5px;height: 31px;background: #F03744;border-radius: 4px;border:0;padding: 0 14.5px;margin: 0"><span style="display: block;font-family: PingFangSC-Medium;font-size: 13px;color: #FFFFFF;line-height: 13px;">打开</span></button>
+        </a>
+    </div>
+    <div id="downloadIOS" style="display:none;position:relative;left:0px; z-index: 201; width: 100%; height: 55px; opacity: 0.96; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px 0px;">
+        <img src="/images/logo_en_100.png" style="position: absolute;display: block;width: 42px;height: 42px;margin: 0;padding: 0;left: 16px;top: 6.5px;">
+        <div style="position: absolute;font-family: PingFangSC-Medium;font-size: 16px;color: #3B424C;line-height: 16px;top: 12px;left: 67px">查查英汉词典iPhone版</div>
+        <div style="position: absolute;font-family: PingFangSC-Medium;font-size: 11px;color: #B8BCC2;line-height: 11px;top: 32px;left: 67px">随时随地查词翻译</div>
+        <a onclick="submitFn()">
+            <button style="position: absolute;display: block;top: 11.5px;right: 8.5px;height: 31px;background: #F03744;border-radius: 4px;border:0;padding: 0 14.5px;margin: 0"><span style="display: block;font-family: PingFangSC-Medium;font-size: 13px;color: #FFFFFF;line-height: 13px;">打开</span></button>
+        </a>
+    </div>
+    <header>
+        <div style="background: none" id="tsf">
+        <div id="tmsb" class="msb">
+            <div class="msfo">
+                <a id="mlogo" style="background:url(/images/logom.gif) no-repeat;" href="/m/"></a>
+                
+                <div style="position: relative; zoom: 1; margin-left: 90px" id="tsfi" class="msfi">
+                    <input id="q" type="text" autocapitalize="off" autocorrect="off" autocomplete="off" size="41" title="Search" maxlength="2048" name="q" class="lst lst-tbb" placeholder="有易性癖">
+                    <input id="search_type_input" type="hidden" name="l" value="en">
+                </div>
+                <div id="cbtn" class="cb" style="display: block">
+                    ×</div>
+            </div>
+            <button value="" type="submit" id="tsbb" class="lsbb gbil" onclick="do_search()">
+                <span class="sbico"></span></button>
+        </div>
+        </div>
+    </header>
+
+<div class="content" style="height: auto !important;">
+<h1>有易性癖<span style="color:#000;font-size:18px">的英文</span></h1>
+<div class="phonetic"><span><a href="/mfayin/有易性癖.html" title="有易性癖发音怎么读" style="color:black">发音</a>:<i class="laba" onclick="playMp3('sound')"></i><audio preload="none" id="sound" src="https://twjp.ichacha.net/audio.aspx?q=有易性癖&amp;l=en"></audio> &nbsp;&nbsp;<a href="/mzj/有易性癖.html">用"有易性癖"造句</a></span></div>
+<div id="baseDiv" class="base">
+<section style="padding-left:8px;">
+<article><ul id="mainTranslation"><li>transsexualism</li></ul><ul class="compo_list" style="padding:0 0 5px 0;"><li style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/有.html" title="有 英文"><span class="style5" style="font-size:14px;">有</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;5年 fifteen years</li><li style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/易.html" title="易 英文"><span class="style5" style="font-size:14px;">易</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;easy</li><li style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/性.html" title="性 英文"><span class="style5" style="font-size:14px;">性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;nature; character; dispositi ...</li><li style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/癖.html" title="癖 英文"><span class="style5" style="font-size:14px;">癖</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;addiction; weakness for</li><li style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/易性癖.html" title="易性癖 英文"><span class="style5" style="font-size:14px;">易性癖</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;transexualism; transsexualism</li></ul><div id="momAd" style="margin-bottom:8px;"></div><div style="font-weight:bold;margin:0 0 8px 0px"><span style="color:red"><a href="http://down.ichacha.net/net.ichacha.cn.eng.apk" style="color:red">下载手机词典</a></span>可随时随地查词查翻译</div><div id="momAd" style="margin-bottom:8px;"></div><div style="font-weight:bold;margin:0 0 8px 0px">关注微信公众号：<span style="color:red">chachacidian</span>，回复:有易性癖，即可在微信中查询翻译</div></article>
+</section>
+</div>
+
+<center>
+<div style="font-weight:bold;margin:38px 0 8px 0px;height:280px"><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+ <!-- 移动自适应第一个 -->
+ <ins class="adsbygoogle" style="display: block; height: 280px;" data-full-width-responsive="true" data-ad-client="ca-pub-3629292215446789" data-ad-slot="5723247408" data-ad-format="auto" data-adsbygoogle-status="done" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 280px; width: 1200px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;"><iframe id="aswift_0" name="aswift_0" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:1200px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1200" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3629292215446789&amp;output=html&amp;h=280&amp;slotname=5723247408&amp;adk=1037974722&amp;adf=365604495&amp;pi=t.ma~as.5723247408&amp;w=1200&amp;abgtt=11&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739905830&amp;rafmt=1&amp;format=1200x280&amp;url=https%3A%2F%2Fwww.ichacha.net%2Fm%2F%25E6%259C%2589%25E6%2598%2593%25E6%2580%25A7%25E7%2599%2596.html&amp;fwr=0&amp;fwrattr=true&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739905830849&amp;bpp=3&amp;bdt=475&amp;idt=74&amp;shv=r20250213&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie_enabled=1&amp;eoidce=1&amp;correlator=7462704137132&amp;frm=20&amp;pv=2&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=353&amp;ady=383&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=4437577538583794&amp;tmod=806772158&amp;uas=0&amp;nvt=1&amp;fc=896&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7CEe%7C&amp;abl=CS&amp;pfx=0&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=92" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CJ-bgaj2zYsDFSyrjggd_GsVQA" data-load-complete="true"></iframe></div></ins>
+ <script>
+ (adsbygoogle = window.adsbygoogle || []).push({});
+ </script></div>
+</center>
+
+ 
+<center>
+<section id="gapDiv" style="margin-top:18px;">
+
+</section>
+</center>
+     
+     
+
+<section class="sugbox" style="padding:18px 0 0 0"><h3><span class="tabs"><a rel="#related" class="cur"><span style="font-size:18px">相关词汇</span></a></span></h3><ol style="list-style-type:circle"><ul class="compo_list" style="padding:0 0 5px 0;"><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/有.html" title="有英文翻译"><span class="style5" style="font-size:14px;">有</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;5年 fifteen years</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/易.html" title="易英文翻译"><span class="style5" style="font-size:14px;">易</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;easy</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/性.html" title="性英文翻译"><span class="style5" style="font-size:14px;">性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;nature; character; dispositi ...</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/癖.html" title="癖英文翻译"><span class="style5" style="font-size:14px;">癖</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;addiction; weakness for</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/易性癖.html" title="易性癖英文翻译"><span class="style5" style="font-size:14px;">易性癖</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;transexualism; transsexualism</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/性癖.html" title="性癖英文翻译"><span class="style5" style="font-size:14px;">性癖</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;disposition; leaning; ply; tendency; transsexuals</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/易性.html" title="易性英文翻译"><span class="style5" style="font-size:14px;">易性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;transsexualism</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/以有易无.html" title="以有易无英文翻译"><span class="style5" style="font-size:14px;">以有易无</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;exchange what one has for what one has not</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/扮异性癖.html" title="扮异性癖英文翻译"><span class="style5" style="font-size:14px;">扮异性癖</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;transvestism; transvestitism</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/异性癖者.html" title="异性癖者英文翻译"><span class="style5" style="font-size:14px;">异性癖者</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;transsexual</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/变易性.html" title="变易性英文翻译"><span class="style5" style="font-size:14px;">变易性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;variability</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/和易性.html" title="和易性英文翻译"><span class="style5" style="font-size:14px;">和易性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;peaceability</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/互易性.html" title="互易性英文翻译"><span class="style5" style="font-size:14px;">互易性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;reciprocity</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/易性症.html" title="易性症英文翻译"><span class="style5" style="font-size:14px;">易性症</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;tra exualism; transsexualism</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/有易于健康的.html" title="有易于健康的英文翻译"><span class="style5" style="font-size:14px;">有易于健康的</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;healthful</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/不可对易性.html" title="不可对易性英文翻译"><span class="style5" style="font-size:14px;">不可对易性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;non-commutability</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/倒易性，可逆性.html" title="倒易性，可逆性英文翻译"><span class="style5" style="font-size:14px;">倒易性，可逆性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;reciprocity</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/倒易性失效.html" title="倒易性失效英文翻译"><span class="style5" style="font-size:14px;">倒易性失效</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;reciprocity failure</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/定域对易性.html" title="定域对易性英文翻译"><span class="style5" style="font-size:14px;">定域对易性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;local commutativity</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/非倒易性.html" title="非倒易性英文翻译"><span class="style5" style="font-size:14px;">非倒易性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;noreciprocity</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/非互易性.html" title="非互易性英文翻译"><span class="style5" style="font-size:14px;">非互易性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;nonreciprocity</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/高和易性.html" title="高和易性英文翻译"><span class="style5" style="font-size:14px;">高和易性</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;high workability</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/和易性测量.html" title="和易性测量英文翻译"><span class="style5" style="font-size:14px;">和易性测量</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;workability measurement</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/和易性定义.html" title="和易性定义英文翻译"><span class="style5" style="font-size:14px;">和易性定义</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;workability definition</ol><ol style="font-size:14px;padding:5px 0 0 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/m/和易性好的.html" title="和易性好的英文翻译"><span class="style5" style="font-size:14px;">和易性好的</span></a>:&nbsp;&nbsp;&nbsp;&nbsp;workable</ol></ul></ol></section><div style="clear:both"></div>     
+<section class="sugbox" style="padding:18px 0 0 0"><h3><span class="tabs"><a rel="#foreign" class="cur"><span style="font-size:18px">其他语言</span></a></span></h3><ol style="list-style-type:circle"><div data-nosnippet=""><ul class="compo_list"><ol style="font-size:14px;padding:5px 0px 0px 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="/mfr/有易性癖.html">有易性癖的法语</a>：transsexualisme transsexualisme</ol></ul></div></ol></section><div style="clear:both"></div>   
+<section class="sugbox" style="padding:18px 0 0 0"><h3><span class="tabs"><a rel="#related" class="cur"><span style="font-size:18px">相邻词汇</span></a></span></h3><ol style="list-style-type:circle;"><li><a href="/m/有艺术地.html" title="有艺术地的英文翻译">"有艺术地"英文</a></li><li><a href="/m/有艺术修养.html" title="有艺术修养的英文翻译">"有艺术修养"英文</a></li><li><a href="/m/有抑扬的.html" title="有抑扬的的英文翻译">"有抑扬的"英文</a></li><li><a href="/m/有抑郁症病征.html" title="有抑郁症病征的英文翻译">"有抑郁症病征"英文</a></li><li><a href="/m/有抑制性的.html" title="有抑制性的的英文翻译">"有抑制性的"英文</a></li><li><a href="/m/有易于健康的.html" title="有易于健康的的英文翻译">"有易于健康的"英文</a></li><li><a href="/m/有疫病的籽粒.html" title="有疫病的籽粒的英文翻译">"有疫病的籽粒"英文</a></li><li><a href="/m/有疫情的船.html" title="有疫情的船的英文翻译">"有疫情的船"英文</a></li><li><a href="/m/有疫情的港口.html" title="有疫情的港口的英文翻译">"有疫情的港口"英文</a></li><li><a href="/m/有意.html" title="有意的英文翻译">"有意"英文</a></li></ol></section><div style="clear:both"></div>     
+</div><div class="google-auto-placed" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-3629292215446789" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_2_host" style="border: none; height: 0px; width: 1200px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_2" name="aswift_2" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 1200px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1200" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-3629292215446789&amp;output=html&amp;h=280&amp;adk=3809598800&amp;adf=3132389021&amp;pi=t.aa~a.3268156040~rp.4&amp;w=1200&amp;abgtt=11&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739905831&amp;rafmt=1&amp;to=qs&amp;pwprc=5170605093&amp;format=1200x280&amp;url=https%3A%2F%2Fwww.ichacha.net%2Fm%2F%25E6%259C%2589%25E6%2598%2593%25E6%2580%25A7%25E7%2599%2596.html&amp;fwr=0&amp;pra=3&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=40&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739905831539&amp;bpp=1&amp;bdt=1165&amp;idt=-M&amp;shv=r20250213&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3De5559880963f20e8%3AT%3D1739905831%3ART%3D1739905831%3AS%3DALNI_Mb2yOQkazYMuhZczafGESZ9J9lh4A&amp;gpic=UID%3D000010532dd2b28d%3AT%3D1739905831%3ART%3D1739905831%3AS%3DALNI_MY0sUU42gQkElCVAhpkbUm-iCSLCg&amp;eo_id_str=ID%3D988227794e800090%3AT%3D1739905831%3ART%3D1739905831%3AS%3DAA-Afja2iYErr5NeNb_6Pk-uL7tX&amp;prev_fmts=1200x280%2C0x0&amp;nras=2&amp;correlator=7462704137132&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=353&amp;ady=1558&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=4437577538583794&amp;tmod=806772158&amp;uas=0&amp;nvt=1&amp;fc=896&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=4&amp;uci=a!4&amp;btvi=1&amp;fsb=1&amp;dtd=323" data-google-container-id="a!4" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CJDStqj2zYsDFR-bjggdTcgwtw" data-load-complete="true"></iframe></div></ins></div>
+<script type="text/javascript">
+    function toggle(headid, cntid) {
+        if (document.getElementById(headid).className == "tab_icon_open") {
+            document.getElementById(headid).className = "tab_icon_close";
+            document.getElementById(cntid).style.display = 'none';
+        }
+        else if (document.getElementById(headid).className == "tab_icon_close") {
+            document.getElementById(headid).className = "tab_icon_open";
+            document.getElementById(cntid).style.display = 'block';
+        }
+        return false;
+    }
+
+    function toggleMore() {
+        document.getElementById('moreToggle').style.display = "none";
+        document.getElementById('moreContent').style.display = 'inline';
+        if (document.getElementById('moreContentList')) {
+            document.getElementById('moreContentList').style.display = 'inline';
+        }
+    }
+
+
+    function do_search() {
+        var kw = document.getElementById("q").value;
+        if (kw == "") return;
+        var lang = document.getElementById("search_type_input").value;
+        var subdir = "m";
+        if (lang == "jp") subdir = "mjp";
+        if (lang == "fr") subdir = "mfr";
+        if (lang == "ru") subdir = "mru";
+        if (lang == "kr") subdir = "mkr";
+        if (lang == "hy") subdir = "mhy";
+        if (lang == "zj") subdir = "mzj";
+        if (lang == "zjfr") subdir = "mzjfr";
+        var src = "/" + subdir + "/" + kw + ".html";
+        window.location = src;
+    }
+    var lang = "en";
+    var subdir = "m";
+    var reg = new RegExp("&l=([^&\\s\\#]+)", "i");
+    var regdir = new RegExp("ichacha.net/(\\w+?)/", "i");
+    if (reg.test(location.href)) lang = unescape(RegExp.$1);
+    if (regdir.test(location.href)) subdir = unescape(RegExp.$1);
+    if (subdir == "mjp") {
+        document.getElementById("search_type_input").value = "jp";
+    }
+    else if (subdir == "mfr") {
+        document.getElementById("search_type_input").value = "fr";
+    }
+    else if (subdir == "mru") {
+        document.getElementById("search_type_input").value = "ru";
+    }
+    else if (subdir == "mkr") {
+        document.getElementById("search_type_input").value = "kr";
+    }
+    else if (subdir == "mhy") {
+        document.getElementById("search_type_input").value = "hy";
+    }
+    else if (subdir == "mzj") {
+        document.getElementById("search_type_input").value = "zj";
+    }
+    else if (subdir == "mzjfr") {
+        document.getElementById("search_type_input").value = "zjfr";
+    }
+    else {
+        document.getElementById("search_type_input").value = "en";
+        if (lang != "" || lang != null)
+            document.getElementById("search_type_input").value = lang;
+    }
+
+    function goBaike(url, lang) {
+        //alert(url);
+        url = "https://" + lang + ".wikipedia.org/wiki/" + url;
+        window.location.href = url;
+    }
+
+
+</script>
+
+
+
+
+
+
+
+<section>
+<div style="padding-left:8px;padding-bottom:18px;"><a href="/有易性癖.html" title="有易性癖 英文">桌面版</a><a href="https://tw.ichacha.net/m/有易性癖.html" title="有易性癖 英文" style="margin:18px 0 8px 18px"><i class="scb"></i>繁體版</a><a href="https://eng.ichacha.net/m/有易性癖.html" title="有易性癖 meaning in English" style="margin:18px 0 8px 18px"><i class="scb"></i>English</a></div>
+</section>
+
+
+
+
+
+<script type="text/javascript" src="/App_Themes/jquery-1.11.1.min.js"></script>
+
+
+
+<div id="jquery_yuyin"></div>
+
+<style>
+.wap-shadowbox {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9000;
+    display: none;
+}
+.wap-shadowbox .app-box {
+    width: 362px;
+    height: 178px;
+    background: #fff;
+    border: 1px solid #979797;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-size: .34rem;
+    margin: auto;
+    margin-bottom: 75%;
+    border-radius: 6px;
+}
+.wap-shadowbox .app-box .tip-massege {
+    text-align: center;
+    line-height: 36px;
+    color: #222226;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 25px;
+}
+.wap-shadowbox .app-box .tip-text {
+    font-size: 16px;
+    margin-top: 8px;
+    line-height: 18px;
+    text-align: center;
+}
+.wap-shadowbox .app-box .button-box {
+    margin-top: 30px;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0 38px;
+}
+.wap-shadowbox .app-box .app-bt-cance, .wap-shadowbox .app-box .app-ab-cance {
+    height: 35px;
+    color: #fc5531;
+    text-align: center;
+    font-size: 18px;
+    line-height: 35px;
+    width: 121px;
+    display: inline-block;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #fc5531;
+}
+.wap-shadowbox .app-box .button-box #wap_open_app_btn {
+    width: 121px;
+}
+.wap-shadowbox .app-box .button-box.button-box-new .app-bt-sure {
+    width: 2.64rem;
+}
+.wap-shadowbox .app-box .button-box .app-bt-sure {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 35px;
+    border-radius: 16px;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 35px;
+    text-align: center;
+    background: #fc5531;
+    color: #fff;
+}
+.read_more_mask{
+    height:28px;
+    /*background: -webkit-gradient(linear,0 top,0 bottom,from(rgba(255,255,255,0)),to(#fff));*/
+    background-image: linear-gradient(0deg,red,transparent);
+}
+.displayNone {
+    display:none;
+}
+.displayBlock{
+    display:block;
+}
+</style>
+
+<script type="text/javascript">
+
+    //$('article').readmore({
+    //    collapsedHeight: 480,
+    //    heightMargin:28,
+    //    moreLink: '<div class="app-btns">点击展开全文</div>',
+    //    lessLink: '',
+    //    beforeToggle: function (trigger, element, expanded) {
+    //        openShadowBox();
+    //    }
+    //});
+
+
+
+    document.onkeydown = function (event) {
+        event = event ? event : (window.event ? window.event : null);
+        var botton = document.getElementById('tsbb');
+        if (event.keyCode == 13 && null != botton) {
+            botton.click();
+        }
+    }
+
+    function playMp3(audioId) {
+        var audio = document.getElementById(audioId);
+        audio.play();
+        return false;
+    };
+
+    
+    function getCookie(name)
+    {
+        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+        if(arr=document.cookie.match(reg))
+            return unescape(arr[2]);
+        else
+            return null;
+    };
+
+    function setCookie(name,val,min){
+        var now=new Date();
+        now.setMinutes(now.getMinutes() + min);
+        document.cookie = name + '=' + val + ';expires=' + now.toUTCString();
+    };
+
+     var ua = navigator.userAgent.toLowerCase();
+     var isWeixin = ua.indexOf('micromessenger') != -1;
+     var isAndroid = ua.indexOf('android') != -1;
+     var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
+     var d = new Date();
+     var t0 = 0;
+     $(".open_app_channelCode").click(function () {
+         submitFn();
+        var obj = document.getElementById('shadowbox');
+        obj.style.display = "none";
+    });
+
+    //$(".read_more_btn").click(function () {
+    //    var obj = document.getElementById('shadowbox');
+    //    obj.style.display = "none";
+    //    //$("shadowbox").className='displayNone';
+    //    setCookie('openAppBox', 'no', 60);
+    //});
+
+    //function openShadowBox() {
+    //    if (getCookie('openAppBox') == 'no') return;
+    //    if (/ichacha\.net\/m\//gi.test(window.location.href)) {
+    //        var obj = document.getElementById('shadowbox');
+    //        obj.style.display = "block";
+    //    }
+    //};
+
+
+function submitFn(){
+    //判断浏览器
+    var u = navigator.userAgent;
+    if(/MicroMessenger/gi.test(u)) {
+       // 引导用户在浏览器中打开
+        alert('请在浏览器中打开');
+        return;
+    }
+
+    var d = new Date();
+    var t0 = d.getTime();
+    var query = "";
+    if (/\/m\/(.+)\.html/.test(window.location.href)) {
+        query = RegExp.$1;
+    }
+    else return;
+    if (isAndroid) {
+        //Android
+        if(wakeApp("ichacha:\/\/?en=" + query)){
+            wakeApp('ichacha:\/\/?en=' + query);
+        }else{
+            //由于打开需要1～2秒，利用这个时间差来处理－－打开app后，返回h5页面会出现页面变成app下载页面，影响用户体验
+            var delay = setInterval(function(){
+                 var d = new Date();
+                 var t1 = d.getTime();
+                 if( t1-t0<3000 && t1-t0>2000){
+                     window.location.href = "http://down.ichacha.net/net.ichacha.cn.eng.apk";
+                 }
+                 if(t1-t0>=3000){
+                      clearInterval(delay);
+                 }
+            },1000);
+        }
+    } else if (isIos) {
+        //IOS
+        if(wakeApp('https://cneng.ichacha.net/m/' + query + '.html')){
+            wakeApp('https://cneng.ichacha.net/m/' + query + '.html');
+        } else {
+            var delay = setInterval(function(){
+                var d = new Date();
+                var t1 = d.getTime();
+                if( t1-t0<3000 && t1-t0>2000){
+                    window.location.href = "https://apps.apple.com/cn/app/查查英汉词典/id1560415291";
+                }
+                if(t1-t0>=3000){
+                    clearInterval(delay);
+                }
+            },1000);
+        }
+    }
+};
+
+function wakeApp(src) {
+// 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
+// 否则打开a标签的href链接
+     var ifr = document.createElement('iframe');
+     ifr.src = src;
+     ifr.style.display = 'none';
+     document.body.appendChild(ifr);
+     window.setTimeout(function(){
+          document.body.removeChild(ifr);
+     },2000);
+}
+</script>
+
+
+
+
+
+<section class="s_card j_tianyi" id="j_tianyi" data-lang="en" style="height: auto !important;">
+ <h2 class="card_tit">相关阅读</h2>
+ <a class="m_f_a" href="/mlearning/297.html">
+<figure class="m_f_div i_bg">
+<img data-direct="true" src="http://images.ichacha.net/images/297_sbn.jpeg" class="img_width finpic" alt="男子高铁涉嫌猥亵女儿，警方却终止调查！ （双语版）">
+</figure><aside class="m_f_con"><h2 class="m_f_con_t cm_tit">男子高铁涉嫌猥亵女儿，警方却终止调查！ （双语版）</h2>
+<blockquote class="cm_f_ic cm_f_ic_l">
+<em class="m_f_con_n">2019-02-16</em>
+<cite class="m_f_con_add">英语学习</cite>
+</blockquote></aside></a><div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-3629292215446789" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_3_host" style="border: none; height: 0px; width: 1200px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_3" name="aswift_3" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 1200px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1200" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-3629292215446789&amp;output=html&amp;h=90&amp;adk=2916632579&amp;adf=2425485751&amp;pi=t.aa~a.2050855153~rp.4&amp;w=1200&amp;abgtt=11&amp;fwrn=1&amp;fwrnh=100&amp;lmt=1739905831&amp;rafmt=1&amp;to=qs&amp;pwprc=5170605093&amp;format=1200x90&amp;url=https%3A%2F%2Fwww.ichacha.net%2Fm%2F%25E6%259C%2589%25E6%2598%2593%25E6%2580%25A7%25E7%2599%2596.html&amp;fwr=0&amp;fwrattr=false&amp;pra=3&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=40&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739905831539&amp;bpp=1&amp;bdt=1164&amp;idt=-M&amp;shv=r20250213&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3De5559880963f20e8%3AT%3D1739905831%3ART%3D1739905831%3AS%3DALNI_Mb2yOQkazYMuhZczafGESZ9J9lh4A&amp;gpic=UID%3D000010532dd2b28d%3AT%3D1739905831%3ART%3D1739905831%3AS%3DALNI_MY0sUU42gQkElCVAhpkbUm-iCSLCg&amp;eo_id_str=ID%3D988227794e800090%3AT%3D1739905831%3ART%3D1739905831%3AS%3DAA-Afja2iYErr5NeNb_6Pk-uL7tX&amp;prev_fmts=1200x280%2C0x0%2C1200x280&amp;nras=3&amp;correlator=7462704137132&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=353&amp;ady=2033&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=4437577538583794&amp;tmod=806772158&amp;uas=0&amp;nvt=1&amp;fc=896&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=5&amp;uci=a!5&amp;btvi=2&amp;fsb=1&amp;dtd=325" data-google-container-id="a!5" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CN_3tqj2zYsDFdebjggdk4kXRg" data-load-complete="true"></iframe></div></ins></div>
+<a class="m_f_a" href="/mlearning/214.html">
+<figure class="m_f_div i_bg">
+<img data-direct="true" src="http://images.ichacha.net/images/214_sbn.jpeg" class="img_width finpic" alt="“无手机恐惧症”你有吗？ （双语）">
+</figure><aside class="m_f_con"><h2 class="m_f_con_t cm_tit">“无手机恐惧症”你有吗？ （双语）</h2>
+<blockquote class="cm_f_ic cm_f_ic_l">
+<em class="m_f_con_n">2018-07-27</em>
+<cite class="m_f_con_add">英语学习</cite>
+</blockquote></aside></a><div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-3629292215446789" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_4_host" style="border: none; height: 0px; width: 1200px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_4" name="aswift_4" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 1200px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1200" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-3629292215446789&amp;output=html&amp;h=90&amp;adk=2916632579&amp;adf=1049079839&amp;pi=t.aa~a.2050856104~rp.4&amp;w=1200&amp;abgtt=11&amp;fwrn=1&amp;fwrnh=100&amp;lmt=1739905831&amp;rafmt=1&amp;to=qs&amp;pwprc=5170605093&amp;format=1200x90&amp;url=https%3A%2F%2Fwww.ichacha.net%2Fm%2F%25E6%259C%2589%25E6%2598%2593%25E6%2580%25A7%25E7%2599%2596.html&amp;fwr=0&amp;fwrattr=false&amp;pra=3&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=40&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739905831539&amp;bpp=1&amp;bdt=1164&amp;idt=-M&amp;shv=r20250213&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3De5559880963f20e8%3AT%3D1739905831%3ART%3D1739905831%3AS%3DALNI_Mb2yOQkazYMuhZczafGESZ9J9lh4A&amp;gpic=UID%3D000010532dd2b28d%3AT%3D1739905831%3ART%3D1739905831%3AS%3DALNI_MY0sUU42gQkElCVAhpkbUm-iCSLCg&amp;eo_id_str=ID%3D988227794e800090%3AT%3D1739905831%3ART%3D1739905831%3AS%3DAA-Afja2iYErr5NeNb_6Pk-uL7tX&amp;prev_fmts=1200x280%2C0x0%2C1200x280%2C1200x90&amp;nras=4&amp;correlator=7462704137132&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=353&amp;ady=2233&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=4437577538583794&amp;tmod=806772158&amp;uas=0&amp;nvt=1&amp;fc=896&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=6&amp;uci=a!6&amp;btvi=3&amp;fsb=1&amp;dtd=327" data-google-container-id="a!6" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CJGbt6j2zYsDFTGpjggdVzIa4g" data-load-complete="true"></iframe></div></ins></div>
+<a class="m_f_a" href="/mlearning/120.html">
+<figure class="m_f_div i_bg">
+<img data-direct="true" src="http://images.ichacha.net/images/120_sbn.jpeg" class="img_width finpic" alt="可以避免的口语小错误，你都知道吗？">
+</figure><aside class="m_f_con"><h2 class="m_f_con_t cm_tit">可以避免的口语小错误，你都知道吗？</h2>
+<blockquote class="cm_f_ic cm_f_ic_l">
+<em class="m_f_con_n">2018-07-27</em>
+<cite class="m_f_con_add">英语学习</cite>
+</blockquote></aside></a>
+<a class="m_f_a" href="/mlearning/69.html">
+<figure class="m_f_div i_bg">
+<img data-direct="true" src="http://images.ichacha.net/images/69_sbn.jpeg" class="img_width finpic" alt="人类神秘失踪的15个地方  到这些地方旅游一定要三思！">
+</figure><aside class="m_f_con"><h2 class="m_f_con_t cm_tit">人类神秘失踪的15个地方  到这些地方旅游一定要三思！</h2>
+<blockquote class="cm_f_ic cm_f_ic_l">
+<em class="m_f_con_n">2018-07-12</em>
+<cite class="m_f_con_add">英语学习</cite>
+</blockquote></aside></a><div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-3629292215446789" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_5_host" style="border: none; height: 0px; width: 1200px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_5" name="aswift_5" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 1200px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1200" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-3629292215446789&amp;output=html&amp;h=60&amp;adk=739190607&amp;adf=251410538&amp;pi=t.aa~a.2050845914~rp.4&amp;w=1200&amp;abgtt=11&amp;fwrn=1&amp;fwrnh=100&amp;lmt=1739905831&amp;rafmt=1&amp;to=qs&amp;pwprc=5170605093&amp;format=1200x60&amp;url=https%3A%2F%2Fwww.ichacha.net%2Fm%2F%25E6%259C%2589%25E6%2598%2593%25E6%2580%25A7%25E7%2599%2596.html&amp;fwr=0&amp;fwrattr=false&amp;pra=3&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=40&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739905831539&amp;bpp=1&amp;bdt=1164&amp;idt=-M&amp;shv=r20250213&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3De5559880963f20e8%3AT%3D1739905831%3ART%3D1739905831%3AS%3DALNI_Mb2yOQkazYMuhZczafGESZ9J9lh4A&amp;gpic=UID%3D000010532dd2b28d%3AT%3D1739905831%3ART%3D1739905831%3AS%3DALNI_MY0sUU42gQkElCVAhpkbUm-iCSLCg&amp;eo_id_str=ID%3D988227794e800090%3AT%3D1739905831%3ART%3D1739905831%3AS%3DAA-Afja2iYErr5NeNb_6Pk-uL7tX&amp;prev_fmts=1200x280%2C0x0%2C1200x280%2C1200x90%2C1200x90&amp;nras=5&amp;correlator=7462704137132&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=353&amp;ady=2523&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=4437577538583794&amp;tmod=806772158&amp;uas=0&amp;nvt=1&amp;fc=896&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=7&amp;uci=a!7&amp;btvi=4&amp;fsb=1&amp;dtd=330" data-google-container-id="a!7" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CK7Ut6j2zYsDFUyGjggdlhcsTA" data-load-complete="true"></iframe></div></ins></div>
+<a class="m_f_a" href="/mlearning/317.html">
+<figure class="m_f_div i_bg">
+<img data-direct="true" src="http://images.ichacha.net/images/317_sbn.jpeg" class="img_width finpic" alt="2017年英语四级翻译模拟：北京胡同">
+</figure><aside class="m_f_con"><h2 class="m_f_con_t cm_tit">2017年英语四级翻译模拟：北京胡同</h2>
+<blockquote class="cm_f_ic cm_f_ic_l">
+<em class="m_f_con_n">2019-02-16</em>
+<cite class="m_f_con_add">英语学习</cite>
+</blockquote></aside></a>
+</section>
+     
+
+<script type="text/javascript">
+var exceptions = '';
+var lan = '';
+var l = '';
+var reg = new RegExp('\/(m.*?)\/');
+var r = decodeURIComponent(window.location.href).match(reg);
+if (r != null) l = r[1];
+if (l == 'm') lan = 'english';
+if (l == 'mjp') lan = 'japanese';
+if (l == 'mkr') lan = 'korean';
+if (l == 'mfr') lan = 'french';
+if (l == 'mru') lan = 'russian';
+if (l == 'mhy') lan = 'chinese';
+if (l == 'mzj') lan = 'chinese';
+function loadArticles(count)
+{
+    var str = '';
+    var param = {loadcount: count, exception: exceptions, language: lan };
+    $.ajax({
+        type: 'POST',
+        url: '/autoload.asmx/loadItems',
+        dataType: 'json',
+        async: true,
+        data: JSON.stringify(param),
+        contentType: 'application/json; charset=utf-8',
+        dataFilter: function(data) { return data; },
+        success: function(data) {
+            str = data.d;
+            str = str.replace(/\"\/learning\/images\//g, "\"http:\/\/images.ichacha.net\/images/");
+            str = str.replace(/\"\/learning\/japanese\/images\//g, "\"http:\/\/images.ichacha.net\/japanese\/images/");
+            str = str.replace(/\"\/learning\/french\/images\//g, "\"http:\/\/images.ichacha.net\/french\/images/");
+             var idExp = /\/mlearning\/([0-9]+?)\.html/g;
+            var match = idExp.exec(str);
+            while (match != null)
+            {
+                if (exceptions == '')
+                    exceptions += match[1];
+                else
+                    exceptions += ',' + match[1];
+                match = idExp.exec(str);
+            }
+            $('#j_tianyi').append(str);
+        },
+        error: function(data) {
+        }
+    })
+}
+loadArticles(5);
+</script>
+ 
+
+
+
+
+
+
+
+
+
+
+
+    <div class="fbarh" style="text-align:center;line-height: 33px;">
+        <div class="fbar">
+            <p>
+                Copyright © 2025 <a href="http://www.wordtech.com.cn">WordTech</a> Co.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+<!-- /77594741/video_1x1 -->
+<div id="div-gpt-ad-1565896581203-0" style="width: 1px; height: 1px; display: none;" data-google-query-id="CLTQgKj2zYsDFStXCAQd9q8uVw">
+  <script>
+      googletag.cmd.push(function () { googletag.display('div-gpt-ad-1565896581203-0'); });
+  </script>
+<div id="google_ads_iframe_/77594741/video_1x1_0__container__" style="border: 0pt none;"></div></div>
+
+
+
+
+
+
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+    var sc_project = 8357978;
+    var sc_invisible = 1;
+    var sc_security = "e968510b"; 
+</script>
+<script type="text/javascript" async="async" src="//www.statcounter.com/counter/counter.js"></script>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-5203544-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_1_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_1" name="aswift_1" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3629292215446789&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;abgtt=11&amp;lmt=1739905830&amp;plat=3%3A16%2C4%3A16%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.ichacha.net%2Fm%2F%25E6%259C%2589%25E6%2598%2593%25E6%2580%25A7%25E7%2599%2596.html&amp;pra=7&amp;wgl=1&amp;aihb=0&amp;asro=0&amp;ailel=1~2~4~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24~29~30~34&amp;aiael=1~2~3~4~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24~29~30~34&amp;aicel=33~38&amp;aifxl=29_18~30_19&amp;aiixl=29_5~30_6&amp;aiapm=0.15&amp;aiapmi=0.33938&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739905830853&amp;bpp=8&amp;bdt=478&amp;idt=92&amp;shv=r20250213&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie_enabled=1&amp;eoidce=1&amp;prev_fmts=1200x280&amp;nras=1&amp;correlator=7462704137132&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=4437577538583794&amp;tmod=806772158&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=896&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=2&amp;uci=a!2&amp;fsb=1&amp;dtd=100" data-google-container-id="a!2" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><iframe name="googlefcPresent" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="__tcfapiLocator" src="about:blank" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcInactive" src="about:blank" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcLoaded" src="about:blank" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe src="https://ep2.adtrafficquality.google/sodar/sodar2/232/runner.html" width="0" height="0" style="display: none;"></iframe><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20250213/r20190131/zrt_lookup.html" style="display: none;"></iframe><iframe name="goog_topics_frame" src="https://securepubads.g.doubleclick.net/static/topics/topics_frame.html" style="display: none;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true"><div id="aswift_6_host" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_6" name="aswift_6" browsingtopics="true" style="width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="" height="" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20250213/r20190131/zrt_lookup.html#RS-0-&amp;adk=1812271808&amp;client=ca-pub-3629292215446789&amp;fa=8&amp;ifi=8&amp;uci=a!8" data-google-container-id="a!8" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CIWggaj2zYsDFXubjggdjzo1eg" data-load-complete="true"></iframe></div></ins></html>

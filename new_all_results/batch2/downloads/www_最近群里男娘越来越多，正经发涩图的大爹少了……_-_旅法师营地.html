@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html><head><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style>
+    <meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1"><meta data-n-head="ssr" name="applicable-device" content="pc"><meta data-n-head="ssr" name="bytedance-verification-code" content="o9Rb5yTu4WPSPytuwJuE"><meta data-n-head="ssr" data-hid="Author" name="Author" content="旅法师营地"><meta data-n-head="ssr" data-hid="keywords" name="keywords" content="玩家杂谈,"><meta data-n-head="ssr" data-hid="description" name="description" content="要说去年大众认知度最高的学者，波伏娃应该是其中之一，她的《第二性》不知多少次冲进微信读书首页推荐。&nbsp;但真正看过原著的远比..."><title>最近群里男娘越来越多，正经发涩图的大爹少了……-许仙许宣-旅法师营地</title><link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://pic.iyingdi.com/yingdi_pc/logo.png"><link data-n-head="ssr" data-hid="alternate" rel="alternate" media="only screen and (max-width: 640px)" href="https://mob.iyingdi.com/post/5350168"><link data-n-head="ssr" data-hid="handheld" rel="alternate" media="handheld" href="https://mob.iyingdi.com/post/5350168"><link rel="stylesheet" href="/_nuxt/css/87.2d33c442008f1fe7ebae.css"><link rel="stylesheet" href="/_nuxt/css/88.bc3afc48e68d23d0f220.css"><link rel="stylesheet" href="/_nuxt/css/85.c64ef5686e9ec2767875.css"><link rel="stylesheet" href="/_nuxt/css/13.c59fe1b8d0edd2b74ecb.css"><link rel="stylesheet" href="/_nuxt/css/12.fbde2f457b658e747c02.css"><link rel="stylesheet" href="/_nuxt/css/54.fcc9f4f9e995a092611a.css"><link rel="stylesheet" href="/_nuxt/css/0.c80283b01fd1ab5800a2.css"><link rel="stylesheet" href="/_nuxt/css/55.61ad8e47ba022e0a1ba7.css"><link rel="stylesheet" href="/_nuxt/css/56.19beb18125fc00cf1dd4.css">
+  <style>/*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
+/*
+	Styles for basic PhotoSwipe functionality (sliding area, open/close transitions)
+*/
+/* pswp = photoswipe */
+.pswp {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  touch-action: none;
+  z-index: 1500;
+  -webkit-text-size-adjust: 100%;
+  /* create separate layer, to avoid paint on window.onscroll in webkit/blink */
+  -webkit-backface-visibility: hidden;
+  outline: none; }
+  .pswp * {
+    box-sizing: border-box; }
+  .pswp img {
+    max-width: none; }
+
+/* style is added when JS option showHideOpacity is set to true */
+.pswp--animate_opacity {
+  /* 0.001, because opacity:0 doesn't trigger Paint action, which causes lag at start of transition */
+  opacity: 0.001;
+  will-change: opacity;
+  /* for open/close transition */
+  -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp--open {
+  display: block; }
+
+.pswp--zoom-allowed .pswp__img {
+  /* autoprefixer: off */
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: zoom-in; }
+
+.pswp--zoomed-in .pswp__img {
+  /* autoprefixer: off */
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab; }
+
+.pswp--dragging .pswp__img {
+  /* autoprefixer: off */
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing; }
+
+/*
+	Background is added as a separate element.
+	As animating opacity is much faster than animating rgba() background-color.
+*/
+.pswp__bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  will-change: opacity; }
+
+.pswp__scroll-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.pswp__container,
+.pswp__zoom-wrap {
+  touch-action: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+/* Prevent selection and tap highlights */
+.pswp__container,
+.pswp__img {
+  -webkit-user-select: none;
+      user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none; }
+
+.pswp__zoom-wrap {
+  position: absolute;
+  width: 100%;
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+  /* for open/close transition */
+  -webkit-transition: -webkit-transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: -webkit-transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: transform 333ms cubic-bezier(0.4, 0, 0.22, 1), -webkit-transform 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp__bg {
+  will-change: opacity;
+  /* for open/close transition */
+  -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp--animated-in .pswp__bg,
+.pswp--animated-in .pswp__zoom-wrap {
+  -webkit-transition: none;
+  transition: none; }
+
+.pswp__container,
+.pswp__zoom-wrap {
+  -webkit-backface-visibility: hidden; }
+
+.pswp__item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden; }
+
+.pswp__img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 0;
+  left: 0; }
+
+/*
+	stretched thumbnail or div placeholder element (see below)
+	style is added to avoid flickering in webkit/blink when layers overlap
+*/
+.pswp__img--placeholder {
+  -webkit-backface-visibility: hidden; }
+
+/*
+	div element that matches size of large image
+	large image loads on top of it
+*/
+.pswp__img--placeholder--blank {
+  background: #222; }
+
+.pswp--ie .pswp__img {
+  width: 100% !important;
+  height: auto !important;
+  left: 0;
+  top: 0; }
+
+/*
+	Error message appears when image is not loaded
+	(JS option errorMsg controls markup)
+*/
+.pswp__error-msg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: -8px;
+  color: #CCC; }
+
+.pswp__error-msg a {
+  color: #CCC;
+  text-decoration: underline; }
+</style><style>/*! PhotoSwipe Default UI CSS by Dmitry Semenov | photoswipe.com | MIT license */
+/*
+
+	Contents:
+
+	1. Buttons
+	2. Share modal and links
+	3. Index indicator ("1 of X" counter)
+	4. Caption
+	5. Loading indicator
+	6. Additional styles (root element, top bar, idle state, hidden state, etc.)
+
+*/
+/*
+	
+	1. Buttons
+
+ */
+/* <button> css reset */
+.pswp__button {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  background: none;
+  cursor: pointer;
+  overflow: visible;
+  -webkit-appearance: none;
+  display: block;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  float: right;
+  opacity: 0.75;
+  -webkit-transition: opacity 0.2s;
+          transition: opacity 0.2s;
+  box-shadow: none; }
+  .pswp__button:focus, .pswp__button:hover {
+    opacity: 1; }
+  .pswp__button:active {
+    outline: none;
+    opacity: 0.9; }
+  .pswp__button::-moz-focus-inner {
+    padding: 0;
+    border: 0; }
+
+/* pswp__ui--over-close class it added when mouse is over element that should close gallery */
+.pswp__ui--over-close .pswp__button--close {
+  opacity: 1; }
+
+.pswp__button,
+.pswp__button--arrow--left:before,
+.pswp__button--arrow--right:before {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAABYCAQAAACjBqE3AAAB6klEQVR4Ae3bsWpUQRTG8YkkanwCa7GzVotsI/gEgk9h4Vu4ySLYmMYgbJrc3lrwZbJwC0FMt4j7F6Y4oIZrsXtgxvx/1c0ufEX4cnbmLCmSJEmSJEmSJEmSJP3XCBPvbJU+8doWmDFwyZpLBmYlNJebz0KwzykwsuSYJSNwykEJreV2BaBMaLIQZ2xYcFgqDlmw4ayE/FwL0dDk4Qh4W37DAjgqIT+3HRbigjH+iikVdxgZStgyN0Su2sXIeTwTT+esdpcbIlfNAuZ/TxresG4zV8kYWSZNiKUTokMMSWeIwTNEn4fK2TW3gRNgVkJLuVksROA9G+bEvoATNlBCa7nZXEwdxEZxzpKRKFh+bsv8LmPFmhX1OwfIz81jIRJQ5eeqG9B+riRJkiRJkiRJkiRJkiRJkiRJUkvA/8RQoEpKlJWINFkJ62AlrEP/mNBibnv2yz/A3t7Uq3LcpoxP8COjC1T5vxoAD5VdoEqdDrd5QuW1swtUSaueh3zkiuBiqgtA2OlkeMcP/uDqugsJdbjHF65VdPMKwS0+WQc/MgKvrIOHysB9vgPwk8+85hmPbnQdvHZyDMAFD7L3EOpgMcVdvnHFS0/vlatrXvCVx0U9gt3fxvnA0/hB4nmRJEmSJEmSJEmSJGmHfgFLaDPoMu5xWwAAAABJRU5ErkJggg==) 0 0 no-repeat;
+  background-size: 264px 88px;
+  width: 44px;
+  height: 44px; }
+
+@media (-webkit-min-device-pixel-ratio: 1.1), (-webkit-min-device-pixel-ratio: 1.09375), (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
+  /* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi */
+  .pswp--svg .pswp__button,
+  .pswp--svg .pswp__button--arrow--left:before,
+  .pswp--svg .pswp__button--arrow--right:before {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjY0IiBoZWlnaHQ9Ijg4IiB2aWV3Qm94PSIwIDAgMjY0IDg4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0aXRsZT5kZWZhdWx0LXNraW4gMjwvdGl0bGU+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48Zz48cGF0aCBkPSJNNjcuMDAyIDU5LjV2My43NjhjLTYuMzA3Ljg0LTkuMTg0IDUuNzUtMTAuMDAyIDkuNzMyIDIuMjItMi44MyA1LjU2NC01LjA5OCAxMC4wMDItNS4wOThWNzEuNUw3MyA2NS41ODUgNjcuMDAyIDU5LjV6IiBpZD0iU2hhcGUiIGZpbGw9IiNmZmYiLz48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTMgMjl2LTVoMnYzaDN2MmgtNXpNMTMgMTVoNXYyaC0zdjNoLTJ2LTV6TTMxIDE1djVoLTJ2LTNoLTN2LTJoNXpNMzEgMjloLTV2LTJoM3YtM2gydjV6IiBpZD0iU2hhcGUiLz48L2c+PGcgZmlsbD0iI2ZmZiI+PHBhdGggZD0iTTYyIDI0djVoLTJ2LTNoLTN2LTJoNXpNNjIgMjBoLTV2LTJoM3YtM2gydjV6TTcwIDIwdi01aDJ2M2gzdjJoLTV6TTcwIDI0aDV2MmgtM3YzaC0ydi01eiIvPjwvZz48cGF0aCBkPSJNMjAuNTg2IDY2bC01LjY1Ni01LjY1NiAxLjQxNC0xLjQxNEwyMiA2NC41ODZsNS42NTYtNS42NTYgMS40MTQgMS40MTRMMjMuNDE0IDY2bDUuNjU2IDUuNjU2LTEuNDE0IDEuNDE0TDIyIDY3LjQxNGwtNS42NTYgNS42NTYtMS40MTQtMS40MTRMMjAuNTg2IDY2eiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xMTEuNzg1IDY1LjAzTDExMCA2My41bDMtMy41aC0xMHYtMmgxMGwtMy0zLjUgMS43ODUtMS40NjhMMTE3IDU5bC01LjIxNSA2LjAzeiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xNTIuMjE1IDY1LjAzTDE1NCA2My41bC0zLTMuNWgxMHYtMmgtMTBsMy0zLjUtMS43ODUtMS40NjhMMTQ3IDU5bDUuMjE1IDYuMDN6IiBmaWxsPSIjZmZmIi8+PGc+PHBhdGggaWQ9IlJlY3RhbmdsZS0xMSIgZmlsbD0iI2ZmZiIgZD0iTTE2MC45NTcgMjguNTQzbC0zLjI1LTMuMjUtMS40MTMgMS40MTQgMy4yNSAzLjI1eiIvPjxwYXRoIGQ9Ik0xNTIuNSAyN2MzLjAzOCAwIDUuNS0yLjQ2MiA1LjUtNS41cy0yLjQ2Mi01LjUtNS41LTUuNS01LjUgMi40NjItNS41IDUuNSAyLjQ2MiA1LjUgNS41IDUuNXoiIGlkPSJPdmFsLTEiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTUwIDIxaDV2MWgtNXoiLz48L2c+PGc+PHBhdGggZD0iTTExNi45NTcgMjguNTQzbC0xLjQxNCAxLjQxNC0zLjI1LTMuMjUgMS40MTQtMS40MTQgMy4yNSAzLjI1eiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xMDguNSAyN2MzLjAzOCAwIDUuNS0yLjQ2MiA1LjUtNS41cy0yLjQ2Mi01LjUtNS41LTUuNS01LjUgMi40NjItNS41IDUuNSAyLjQ2MiA1LjUgNS41IDUuNXoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTA2IDIxaDV2MWgtNXoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTA5LjA0MyAxOS4wMDhsLS4wODUgNS0xLS4wMTcuMDg1LTV6Ii8+PC9nPjwvZz48L2c+PC9zdmc+); }
+  .pswp--svg .pswp__button--arrow--left,
+  .pswp--svg .pswp__button--arrow--right {
+    background: none; } }
+
+.pswp__button--close {
+  background-position: 0 -44px; }
+
+.pswp__button--share {
+  background-position: -44px -44px; }
+
+.pswp__button--fs {
+  display: none; }
+
+.pswp--supports-fs .pswp__button--fs {
+  display: block; }
+
+.pswp--fs .pswp__button--fs {
+  background-position: -44px 0; }
+
+.pswp__button--zoom {
+  display: none;
+  background-position: -88px 0; }
+
+.pswp--zoom-allowed .pswp__button--zoom {
+  display: block; }
+
+.pswp--zoomed-in .pswp__button--zoom {
+  background-position: -132px 0; }
+
+/* no arrows on touch screens */
+.pswp--touch .pswp__button--arrow--left,
+.pswp--touch .pswp__button--arrow--right {
+  visibility: hidden; }
+
+/*
+	Arrow buttons hit area
+	(icon is added to :before pseudo-element)
+*/
+.pswp__button--arrow--left,
+.pswp__button--arrow--right {
+  background: none;
+  top: 50%;
+  margin-top: -50px;
+  width: 70px;
+  height: 100px;
+  position: absolute; }
+
+.pswp__button--arrow--left {
+  left: 0; }
+
+.pswp__button--arrow--right {
+  right: 0; }
+
+.pswp__button--arrow--left:before,
+.pswp__button--arrow--right:before {
+  content: '';
+  top: 35px;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 30px;
+  width: 32px;
+  position: absolute; }
+
+.pswp__button--arrow--left:before {
+  left: 6px;
+  background-position: -138px -44px; }
+
+.pswp__button--arrow--right:before {
+  right: 6px;
+  background-position: -94px -44px; }
+
+/*
+
+	2. Share modal/popup and links
+
+ */
+.pswp__counter,
+.pswp__share-modal {
+  -webkit-user-select: none;
+      user-select: none; }
+
+.pswp__share-modal {
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  z-index: 1600;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease-out;
+          transition: opacity 0.25s ease-out;
+  -webkit-backface-visibility: hidden;
+  will-change: opacity; }
+
+.pswp__share-modal--hidden {
+  display: none; }
+
+.pswp__share-tooltip {
+  z-index: 1620;
+  position: absolute;
+  background: #FFF;
+  top: 56px;
+  border-radius: 2px;
+  display: block;
+  width: auto;
+  right: 44px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  -webkit-transform: translateY(6px);
+          transform: translateY(6px);
+  -webkit-transition: -webkit-transform 0.25s;
+          transition: -webkit-transform 0.25s;
+          transition: transform 0.25s;
+          transition: transform 0.25s, -webkit-transform 0.25s;
+  -webkit-backface-visibility: hidden;
+  will-change: transform; }
+  .pswp__share-tooltip a {
+    display: block;
+    padding: 8px 12px;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 18px; }
+    .pswp__share-tooltip a:hover {
+      text-decoration: none;
+      color: #000; }
+    .pswp__share-tooltip a:first-child {
+      /* round corners on the first/last list item */
+      border-radius: 2px 2px 0 0; }
+    .pswp__share-tooltip a:last-child {
+      border-radius: 0 0 2px 2px; }
+
+.pswp__share-modal--fade-in {
+  opacity: 1; }
+  .pswp__share-modal--fade-in .pswp__share-tooltip {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+
+/* increase size of share links on touch devices */
+.pswp--touch .pswp__share-tooltip a {
+  padding: 16px 12px; }
+
+a.pswp__share--facebook:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -12px;
+  right: 15px;
+  border: 6px solid transparent;
+  border-bottom-color: #FFF;
+  -webkit-pointer-events: none;
+  -moz-pointer-events: none;
+  pointer-events: none; }
+
+a.pswp__share--facebook:hover {
+  background: #3E5C9A;
+  color: #FFF; }
+  a.pswp__share--facebook:hover:before {
+    border-bottom-color: #3E5C9A; }
+
+a.pswp__share--twitter:hover {
+  background: #55ACEE;
+  color: #FFF; }
+
+a.pswp__share--pinterest:hover {
+  background: #CCC;
+  color: #CE272D; }
+
+a.pswp__share--download:hover {
+  background: #DDD; }
+
+/*
+
+	3. Index indicator ("1 of X" counter)
+
+ */
+.pswp__counter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 44px;
+  font-size: 13px;
+  line-height: 44px;
+  color: #FFF;
+  opacity: 0.75;
+  padding: 0 10px; }
+
+/*
+	
+	4. Caption
+
+ */
+.pswp__caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 44px; }
+  .pswp__caption small {
+    font-size: 11px;
+    color: #BBB; }
+
+.pswp__caption__center {
+  text-align: left;
+  max-width: 420px;
+  margin: 0 auto;
+  font-size: 13px;
+  padding: 10px;
+  line-height: 20px;
+  color: #CCC; }
+
+.pswp__caption--empty {
+  display: none; }
+
+/* Fake caption element, used to calculate height of next/prev image */
+.pswp__caption--fake {
+  visibility: hidden; }
+
+/*
+
+	5. Loading indicator (preloader)
+
+	You can play with it here - http://codepen.io/dimsemenov/pen/yyBWoR
+
+ */
+.pswp__preloader {
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -22px;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease-out;
+          transition: opacity 0.25s ease-out;
+  will-change: opacity;
+  direction: ltr; }
+
+.pswp__preloader__icn {
+  width: 20px;
+  height: 20px;
+  margin: 12px; }
+
+.pswp__preloader--active {
+  opacity: 1; }
+  .pswp__preloader--active .pswp__preloader__icn {
+    /* We use .gif in browsers that don't support CSS animation */
+    background: url(data:image/gif;base64,R0lGODlhFAAUAPMIAIeHhz8/P1dXVycnJ8/Pz7e3t5+fn29vb////wAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFBwAIACwAAAAAFAAUAEAEUxDJSatFxtwaggWAdIyHJAhXoRYSQUhDPGx0TbmujahbXGWZWqdDAYEsp5NupLPkdDwE7oXwWVasimzWrAE1tKFHErQRK8eL8mMUlRBJVI307uoiACH5BAUHAAgALAEAAQASABIAAAROEMkpS6E4W5upMdUmEQT2feFIltMJYivbvhnZ3R0A4NMwIDodz+cL7nDEn5CH8DGZh8MtEMBEoxkqlXKVIgQCibbK9YLBYvLtHH5K0J0IACH5BAUHAAgALAEAAQASABIAAAROEMkpjaE4W5spANUmFQX2feFIltMJYivbvhnZ3d1x4BNBIDodz+cL7nDEn5CH8DGZAsFtMMBEoxkqlXKVIgIBibbK9YLBYvLtHH5K0J0IACH5BAUHAAgALAEAAQASABIAAAROEMkpAaA4W5vpOdUmGQb2feFIltMJYivbvhnZ3Z0g4FNRIDodz+cL7nDEn5CH8DGZgcCNQMBEoxkqlXKVIgYDibbK9YLBYvLtHH5K0J0IACH5BAUHAAgALAEAAQASABIAAAROEMkpz6E4W5upENUmAQD2feFIltMJYivbvhnZ3V0Q4JNhIDodz+cL7nDEn5CH8DGZg8GtUMBEoxkqlXKVIggEibbK9YLBYvLtHH5K0J0IACH5BAUHAAgALAEAAQASABIAAAROEMkphaA4W5tpCNUmHQf2feFIltMJYivbvhnZ3d0w4BMAIDodz+cL7nDEn5CH8DGZBMLNYMBEoxkqlXKVIgoFibbK9YLBYvLtHH5K0J0IACH5BAUHAAgALAEAAQASABIAAAROEMkpQ6A4W5vpGNUmCQL2feFIltMJYivbvhnZ3R1B4NNxIDodz+cL7nDEn5CH8DGZhcINAMBEoxkqlXKVIgwGibbK9YLBYvLtHH5K0J0IACH5BAUHAAcALAEAAQASABIAAANCeLo6wzA6FxkhbaoQ4L3ZxnXLh0EjWZ4RV71VUcCLIByyTNt2PsO8m452sBGJBsNxkUwuD03lAQBASqnUJ7aq5UYSADs=) 0 0 no-repeat; }
+
+.pswp--css_animation .pswp__preloader--active {
+  opacity: 1; }
+  .pswp--css_animation .pswp__preloader--active .pswp__preloader__icn {
+    -webkit-animation: clockwise 500ms linear infinite;
+            animation: clockwise 500ms linear infinite; }
+  .pswp--css_animation .pswp__preloader--active .pswp__preloader__donut {
+    -webkit-animation: donut-rotate 1000ms cubic-bezier(0.4, 0, 0.22, 1) infinite;
+            animation: donut-rotate 1000ms cubic-bezier(0.4, 0, 0.22, 1) infinite; }
+
+.pswp--css_animation .pswp__preloader__icn {
+  background: none;
+  opacity: 0.75;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  margin: 0; }
+
+.pswp--css_animation .pswp__preloader__cut {
+  /* 
+			The idea of animating inner circle is based on Polymer ("material") loading indicator 
+			 by Keanu Lee https://blog.keanulee.com/2014/10/20/the-tale-of-three-spinners.html
+		*/
+  position: relative;
+  width: 7px;
+  height: 14px;
+  overflow: hidden; }
+
+.pswp--css_animation .pswp__preloader__donut {
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #FFF;
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: none;
+  margin: 0; }
+
+@media screen and (max-width: 1024px) {
+  .pswp__preloader {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0;
+    float: right; } }
+
+@-webkit-keyframes clockwise {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes clockwise {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@-webkit-keyframes donut-rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+  50% {
+    -webkit-transform: rotate(-140deg);
+            transform: rotate(-140deg); }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); } }
+
+@keyframes donut-rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+  50% {
+    -webkit-transform: rotate(-140deg);
+            transform: rotate(-140deg); }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); } }
+
+/*
+	
+	6. Additional styles
+
+ */
+/* root element of UI */
+.pswp__ui {
+  -webkit-font-smoothing: auto;
+  visibility: visible;
+  opacity: 1;
+  z-index: 1550; }
+
+/* top black bar with buttons and "1 of X" indicator */
+.pswp__top-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 44px;
+  width: 100%; }
+
+.pswp__caption,
+.pswp__top-bar,
+.pswp--has_mouse .pswp__button--arrow--left,
+.pswp--has_mouse .pswp__button--arrow--right {
+  -webkit-backface-visibility: hidden;
+  will-change: opacity;
+  -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+          transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+/* pswp--has_mouse class is added only when two subsequent mousemove events occur */
+.pswp--has_mouse .pswp__button--arrow--left,
+.pswp--has_mouse .pswp__button--arrow--right {
+  visibility: visible; }
+
+.pswp__top-bar,
+.pswp__caption {
+  background-color: rgba(0, 0, 0, 0.5); }
+
+/* pswp__ui--fit class is added when main image "fits" between top bar and bottom bar (caption) */
+.pswp__ui--fit .pswp__top-bar,
+.pswp__ui--fit .pswp__caption {
+  background-color: rgba(0, 0, 0, 0.3); }
+
+/* pswp__ui--idle class is added when mouse isn't moving for several seconds (JS option timeToIdle) */
+.pswp__ui--idle .pswp__top-bar {
+  opacity: 0; }
+
+.pswp__ui--idle .pswp__button--arrow--left,
+.pswp__ui--idle .pswp__button--arrow--right {
+  opacity: 0; }
+
+/*
+	pswp__ui--hidden class is added when controls are hidden
+	e.g. when user taps to toggle visibility of controls
+*/
+.pswp__ui--hidden .pswp__top-bar,
+.pswp__ui--hidden .pswp__caption,
+.pswp__ui--hidden .pswp__button--arrow--left,
+.pswp__ui--hidden .pswp__button--arrow--right {
+  /* Force paint & create composition layer for controls. */
+  opacity: 0.001; }
+
+/* pswp__ui--one-slide class is added when there is just one item in gallery */
+.pswp__ui--one-slide .pswp__button--arrow--left,
+.pswp__ui--one-slide .pswp__button--arrow--right,
+.pswp__ui--one-slide .pswp__counter {
+  display: none; }
+
+.pswp__element--disabled {
+  display: none !important; }
+
+.pswp--minimal--dark .pswp__top-bar {
+  background: none; }
+</style><script src="https://zz.bdstatic.com/linksubmit/push.js"></script><script>(function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();</script><script src="https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?98de144edb5ebabdb7cf2b3fe1821a7b9a9a6b302e07b7ba174cb8b01e100bd130632485602430134f60bc55ca391050b680e2741bf7233a8f1da9902314a3fa" id="ttzz"></script><script>(function(){var el = document.createElement("script");el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?98de144edb5ebabdb7cf2b3fe1821a7b9a9a6b302e07b7ba174cb8b01e100bd130632485602430134f60bc55ca391050b680e2741bf7233a8f1da9902314a3fa";el.id = "ttzz";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(el, s);})(window)</script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-T6WM4EV118");</script><script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><script src="https://www.googletagmanager.com/gtag/js?id=G-T6WM4EV118"></script><script src="https://hm.baidu.com/hm.js?d8df04a6febf13b5f9ff26531fece72c"></script><script charset="utf-8" src="/_nuxt/js/2.de02ba2eecbe02ddc795.js"></script><link rel="preload" as="style" href="/_nuxt/css/11.6b9e0861aaa18569ebd7.css"><script charset="utf-8" src="/_nuxt/js/11.4cc8657a382e11ebf93a.js"></script><script charset="utf-8" src="/_nuxt/js/5.c53ecdb02f233a405f74.js"></script><script type="text/javascript" src="https://pic.iyingdi.com/yingdi_pc/static/js/plugin/qrcode.min.js"></script><link rel="preload" as="style" href="/_nuxt/css/1.fefb2a331750cc506491.css"><script charset="utf-8" src="/_nuxt/js/1.a7b1857c7c3813499ce7.js"></script><link rel="preload" as="style" href="/_nuxt/css/8.6a1963d92c72fc95c578.css"><script charset="utf-8" src="/_nuxt/js/8.c19e6df574a99b7e3d30.js"></script><link rel="preload" as="style" href="/_nuxt/css/28.424503b4b0d67766d20b.css"><script charset="utf-8" src="/_nuxt/js/28.de069c7e33250c3f3ad4.js"></script><link rel="preload" as="style" href="/_nuxt/css/40.4fefcca7ad84cf43150c.css"><script charset="utf-8" src="/_nuxt/js/40.3206bc65af3791c036bd.js"></script><link rel="preload" as="style" href="/_nuxt/css/61.552e8f5c3e585ab734bf.css"><script charset="utf-8" src="/_nuxt/js/61.31a492e3525eaddeec9b.js"></script><link rel="preload" as="style" href="/_nuxt/css/9.226472bf660e1d848a43.css"><script charset="utf-8" src="/_nuxt/js/9.58ba313278dcee886a02.js"></script><link rel="preload" as="style" href="/_nuxt/css/48.04f1f07722695b305c7f.css"><script charset="utf-8" src="/_nuxt/js/48.011777ed1c7e7a386ab2.js"></script><link rel="preload" as="style" href="/_nuxt/css/3.b28d2dcf36f1fcf45aaa.css"><script charset="utf-8" src="/_nuxt/js/3.7f7b93eed746cc5e92ca.js"></script><link rel="preload" as="style" href="/_nuxt/css/4.323c7de58c72d737a917.css"><script charset="utf-8" src="/_nuxt/js/4.08a4518d7babc6b96204.js"></script><link rel="preload" as="style" href="/_nuxt/css/51.d90fdf20219eb258f086.css"><script charset="utf-8" src="/_nuxt/js/51.ef47ee8205a9785678da.js"></script><link rel="preload" as="style" href="/_nuxt/css/52.c9a0a8e4d3a406917cfa.css"><script charset="utf-8" src="/_nuxt/js/52.5dbabc9149bf8179f681.js"></script></head>
+  <body><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; width: 0; height: 0" aria-hidden="true" id="__SVG_SPRITE_NODE__"><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" id="icon-android"><path d="M2.76 9.799c0 .928.871 1.68 1.759 1.68v1.68c0 .464.404.841.887.841s.887-.377.887-.84v-1.662h1.71v1.662c0 .463.403.84.887.84.483 0 .887-.377.887-.84v-1.68c1.758 0 1.758-.753 1.758-1.681V5.296H2.761V9.8zm10.36-4.201c-.482 0-.878.375-.878.84v3.36c0 .464.396.841.879.841s.879-.377.879-.84V6.438c0-.465-.396-.84-.88-.84zm-12.24 0c-.484 0-.88.375-.88.84v3.36c0 .464.396.841.88.841.482 0 .878-.377.878-.84V6.438c0-.465-.396-.84-.879-.84zm10.626-1.352c0-1.007-.555-1.895-1.386-2.395V0h-.905v1.49a3.023 3.023 0 00-.326-.053c-.006-.111-.152-.434-.477-.434H5.805c-.326 0-.44.327-.443.436-.085.01-.169.023-.251.04V0h-.905v1.816c-.864.494-1.445 1.4-1.445 2.43v.176h8.745v-.176zM5.098 3.111h-.879v-.843h.879v.843zm4.995-.036h-.878v-.838h.878v.838z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" id="icon-arrow"><defs><style></style></defs><path d="M752.03 414.26l-60.944 60.942-241.36-241.359L510.67 172.9z"></path><path d="M269.148 414.155l60.943 60.943 241.36-241.36-60.944-60.943z"></path><path d="M554.41 256v597.333h-85.333V256z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" id="icon-baike"><path d="M811.8 238a129.3 129.3 0 0 0-31.8-4.1h-12.5v-14.7a93.9 93.9 0 0 0-30.7-70 84.3 84.3 0 0 0-73.2-20.7 365 365 0 0 0-151.7 73.4A362.3 362.3 0 0 0 360 128.5a84.3 84.3 0 0 0-73.2 20.7 93.9 93.9 0 0 0-30.7 70v14.7h-12.3a173 173 0 0 0-32.7 4.1 110.7 110.7 0 0 0-83.2 110v345.4a121.4 121.4 0 0 0 8.2 45.3 108.9 108.9 0 0 0 90 70A585.5 585.5 0 0 1 450 880.8a125.1 125.1 0 0 0 123.3 0 587.8 587.8 0 0 1 223-72.2A105.3 105.3 0 0 0 840 795.5a116.7 116.7 0 0 0 56.4-100.8v-347a111.1 111.1 0 0 0-84.6-109.7zM330 196.7a21.3 21.3 0 0 1 14.3-5.8 25.8 25.8 0 0 1 3.9 0A305.7 305.7 0 0 1 480 258.4v432.1a363.2 363.2 0 0 0-137.7-47.2 26.8 26.8 0 0 1-21.7-28.1v-396a30 30 0 0 1 9.4-22.5z m364 0a30 30 0 0 1 9.5 22.5v396a26.9 26.9 0 0 1-21.8 28.1A365 365 0 0 0 544 690V258.3a305.5 305.5 0 0 1 131.8-67 21.1 21.1 0 0 1 18.2 5.4z m138 498A52.5 52.5 0 0 1 807.3 740a43 43 0 0 1-17.3 5 652.9 652.9 0 0 0-248.1 80 62.6 62.6 0 0 1-60.8 0 652 652 0 0 0-250-80 44.3 44.3 0 0 1-36.4-30 56.4 56.4 0 0 1-3.5-21.4V347.7A46.5 46.5 0 0 1 226.8 300a140 140 0 0 1 17-2.1h12.7v317.3a90.7 90.7 0 0 0 78.6 91.7 309.3 309.3 0 0 1 125.7 46.7 94.7 94.7 0 0 0 102.3 0 308.7 308.7 0 0 1 125.8-46.7 90.7 90.7 0 0 0 78.6-91.7V297.9H780a65.6 65.6 0 0 1 15.9 2.1 47.3 47.3 0 0 1 35.8 47.7z" fill="#333333"></path><path d="M403.8 280.7a32 32 0 1 0-27.6 57.8l23 11a32 32 0 0 0 27.6-57.8zM426.8 412.2l-23-11a32 32 0 1 0-27.6 57.8l23 11a32 32 0 0 0 27.6-57.8zM426.8 532.7l-23-11A32 32 0 0 0 376.2 580l23 11a32 32 0 1 0 27.6-57.8zM620 280.7l-23 11A32 32 0 0 0 624.8 350l23-11A32 32 0 1 0 620 280.7zM620 401.2l-23 11A32 32 0 0 0 624.8 470l23-11A32 32 0 0 0 620 401.2zM620 521.7l-23 11a32 32 0 0 0 27.6 57.8l23-11A32 32 0 0 0 620 521.7z" fill="#333333"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" id="icon-ballotcorrectopt"><path d="M997.888 70.144C686.592 261.12 460.8 502.272 358.912 623.104L110.08 428.032 0 516.608l429.568 437.248C503.296 764.416 737.792 394.24 1024 131.072l-26.112-60.928m0 0z" p-id="33882"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" id="icon-ballotcorrectopt2"><path d="M18 0c9.941 0 18 8.059 18 18s-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0zm5.478 11.5l-7.372 7.239h-.051l-3.853-3.765v.046c-.587-.429-1.171-.333-1.758.237l-1.904 1.86c-.538.522-.685 1.047-.39 1.572l3.758 3.762 3.127 3.048c.685.668 1.365.668 2.1 0L27.486 15.4c.685-.714.685-1.38 0-2.049L25.578 11.5c-.685-.669-1.366-.664-2.1 0z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" id="icon-ballotmistakeopt"><path d="M886.784 746.496q29.696 30.72 43.52 56.32t-4.608 58.368q-4.096 6.144-11.264 14.848t-14.848 16.896-15.36 14.848-12.8 9.728q-25.6 15.36-60.416 8.192t-62.464-34.816l-43.008-43.008-57.344-57.344-67.584-67.584-73.728-73.728-131.072 131.072q-60.416 60.416-98.304 99.328-38.912 38.912-77.312 48.128t-68.096-17.408l-7.168-7.168-11.264-11.264-11.264-11.264q-6.144-6.144-7.168-8.192-11.264-14.336-13.312-29.184t2.56-29.184 13.824-27.648 20.48-24.576q9.216-8.192 32.768-30.72l55.296-57.344q33.792-32.768 75.264-73.728t86.528-86.016q-49.152-49.152-93.696-93.184t-79.872-78.848-57.856-56.832-27.648-27.136q-26.624-26.624-27.136-52.736t17.92-52.736q8.192-10.24 23.552-24.064t21.504-17.92q30.72-20.48 55.296-17.92t49.152 28.16l31.744 31.744q23.552 23.552 58.368 57.344t78.336 76.288 90.624 88.576q38.912-38.912 76.288-75.776t69.632-69.12 58.368-57.856 43.52-43.008q24.576-23.552 53.248-31.232t55.296 12.8q1.024 1.024 6.656 5.12t11.264 9.216 10.752 9.728 7.168 5.632q27.648 26.624 27.136 57.856t-27.136 57.856q-18.432 18.432-45.568 46.08t-60.416 60.416-70.144 69.632l-77.824 77.824q37.888 36.864 74.24 72.192t67.584 66.048 56.32 56.32 41.472 41.984z" p-id="4233"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 38" id="icon-comment"><path d="M18.5 0C8.173 0-.055 7.628 0 17.5c.04 6.687 3.773 12.1 9.867 16.054C14.227 36.38 19.868 38.28 22.023 38c1.276-.155 1.806-.825 1.806-1.963v-2.713C31.533 31.484 37 24.889 37 17.494 37 7.811 28.7 0 18.5 0zm-.2 3.127c7.849 0 15.449 6.212 15.449 14.137 0 6.18-4.982 11.738-11.614 13.03a.92.92 0 00-.73.912v3.267l-.087.01c-1.5.198-6.493-1.309-10.18-3.726-5.128-3.362-7.733-8.014-7.763-13.498C3.327 9.171 10.452 3.127 18.3 3.127zm-6.031 17.2c-.532 0-.963.512-.963 1.142 0 .63.43 1.142.963 1.142h13.49c.532 0 .963-.511.963-1.142 0-.63-.431-1.142-.963-1.142zm0-7.994c-.532 0-.963.512-.963 1.142 0 .63.43 1.142.963 1.142h13.49c.532 0 .963-.511.963-1.142 0-.63-.431-1.142-.963-1.142z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 20" id="icon-community"><path d="M13.063 0H1.937A1.943 1.943 0 000 1.938v16.125C0 19.128.872 20 1.937 20L7.5 16.5l5.563 3.5A1.943 1.943 0 0015 18.062V1.938A1.943 1.943 0 0013.063 0zm-2.564 9h-2v2c0 .556-.447 1.006-1 1.006-.552 0-1-.45-1-1.006V9h-2a.993.993 0 01-.86-.5 1.005 1.005 0 010-1 .99.99 0 01.86-.5h2V5c0-.556.448-1.006 1-1.006.553 0 1 .45 1 1.006v2h2c.55 0 .995.448.995 1s-.446 1-.995 1z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17" id="icon-compete"><path d="M8.5 17a8.47 8.47 0 01-6.01-2.489A8.469 8.469 0 010 8.5a8.469 8.469 0 012.49-6.01A8.47 8.47 0 018.5 0c1.149 0 2.261.224 3.309.667A8.501 8.501 0 0114.51 2.49 8.469 8.469 0 0117 8.499c0 1.148-.224 2.26-.667 3.308a8.5 8.5 0 01-1.822 2.702A8.47 8.47 0 018.5 17zM1.422 7.119a7.22 7.22 0 00.797 5.14 7.224 7.224 0 004.04 3.28l.06.02.013-.061a7.222 7.222 0 00-.797-5.141 7.224 7.224 0 00-4.038-3.28l-.061-.02-.014.062zm14.146-.033c-1.89.584-3.075 1.518-4.086 3.221a7.226 7.226 0 00-.873 5.13l.013.063.061-.02a7.228 7.228 0 004.086-3.22 7.226 7.226 0 00.873-5.13l-.013-.063-.06.02zm-6.98-.35a1.905 1.905 0 00-1.902 1.902c0 1.047.854 1.901 1.901 1.901a1.905 1.905 0 001.902-1.901 1.905 1.905 0 00-1.902-1.902zm-.058-5.38a7.227 7.227 0 00-4.856 1.869l-.048.042.048.041a7.227 7.227 0 004.856 1.87 7.227 7.227 0 004.857-1.87l.048-.041-.048-.042a7.227 7.227 0 00-4.857-1.87z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="icon-diamond"><path d="M6.092.8H2.4L0 5.2h4.4L6.092.8zM16 5.2L13.6.8H9.908L11.6 5.2H16zm-5.2 0L9.108.8H6.892L5.2 5.2h5.6zm-1.57 8.923L16 6h-4.4l-2.37 8.123zM0 6l6.77 8.123L4.4 6H0zm5.2 0L8 15.6 10.8 6H5.2z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" id="icon-ditu"><path d="M85.333333 469.717333C85.333333 451.829333 99.658667 437.333333 117.333333 437.333333s32 14.506667 32 32.384V786.133333c0 5.962667 4.778667 10.794667 10.666667 10.794667a10.56 10.56 0 0 0 5.045333-1.28l154.848-84.021333a73.898667 73.898667 0 0 1 72.853334 1.290666l252.544 148.842667a10.56 10.56 0 0 0 10.122666 0.341333l213.333334-107.264c3.626667-1.824 5.92-5.568 5.92-9.664V469.717333C874.666667 451.829333 888.992 437.333333 906.666667 437.333333s32 14.506667 32 32.384V745.173333c0 28.682667-16.053333 54.890667-41.44 67.658667l-213.333334 107.264a73.898667 73.898667 0 0 1-70.805333-2.378667L360.533333 768.896a10.56 10.56 0 0 0-10.410666-0.192l-154.848 84.032a73.973333 73.973333 0 0 1-35.285334 8.96c-41.237333 0-74.666667-33.813333-74.666666-75.552V469.717333z m672-132.266666c0 87.808-73.173333 192.917333-217.056 320.288a42.666667 42.666667 0 0 1-56.554666 0C339.829333 530.378667 266.666667 425.258667 266.666667 337.450667 266.666667 203.968 376.64 96 512 96s245.333333 107.968 245.333333 241.450667z m-426.666666 0c0 61.514667 59.712 149.557333 181.333333 259.701333 121.621333-110.144 181.333333-198.186667 181.333333-259.701333C693.333333 239.584 612.277333 160 512 160s-181.333333 79.573333-181.333333 177.450667zM512 405.333333a64 64 0 1 1 0-128 64 64 0 0 1 0 128z" fill="#000000"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="icon-emoji"><path d="M0 12.011C0 18.631 5.374 24 12 24s12-5.37 12-11.989C24 5.391 18.626 0 12 0S0 5.391 0 12.011zm9.212-4.874c0 1.537-.937 2.785-2.091 2.785-1.154 0-2.09-1.248-2.09-2.785 0-1.537.936-2.785 2.09-2.785S9.212 5.6 9.212 7.137zm9.757 0c0 1.537-.936 2.785-2.09 2.785s-2.091-1.248-2.091-2.785c0-1.537.937-2.785 2.091-2.785 1.154 0 2.09 1.248 2.09 2.785zm-13.242 0a1.394 1.394 0 102.788-.002 1.394 1.394 0 00-2.788.002zm9.758 0a1.394 1.394 0 102.787-.003 1.394 1.394 0 00-2.787.003zm4.879 7.833c0 4.125-3.747 6.79-8.364 6.79-4.617 0-8.364-2.665-8.364-6.79 0-1.624 4.183-1.716 8.364-1.716 4.182 0 8.364.092 8.364 1.716z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 42" id="icon-fire"><path d="M17.808.194c.09 0 .18.097.27.195 3.055 1.655 6.56 5.454 7.278 13.83.45-.39.899-.975 1.528-1.56.629-.68 1.528-.973 2.336-.778a2.811 2.811 0 011.977 1.558c2.696 5.94 3.803 6.397 3.786 12.271-.017 5.874-1.912 9.103-5.763 12.179-3.85 3.076-13.134 5.376-20.74 1.112C.875 34.737.178 24.979.8 21.512c.621-3.473 2.147-5.83 3.274-7.294 2.232-2.899.722-5.85 1.646-7.078 1.994-2.649 5.893.395 7.18-1.001 1.288-1.397.606-1.564 1.493-4.192C14.933.389 16.46-.39 17.808.194zm-.45 4.188c-1.387 3.404-1.387 4.616-3.3 5.715-.918.527-2.345.492-3.18.196-1.084-.386-1.908-.187-2.045.806-.412 2.988-.494 3.374-2.099 5.36-.735.908-3.712 5.438-2.394 10.498 1.512 5.802 4.771 9.01 8.56 10.042 5.424 1.475 10.448.553 13.897-2.055 3.45-2.607 4.862-5.14 4.862-9.24 0-4.101-1.9-6.422-3.158-9.246-3.235 3.409-4.223 3.798-5.391 3.311-.72-.292-1.168-1.071-1.168-1.947.09-4.87-.72-10.713-4.583-13.44zm9.875 17.663a1.489 1.489 0 011.474 1.537c-.036 1.777-.447 3.629-1.224 5.552-1.133 2.804-3.707 4.654-5.76 4.658a1.489 1.489 0 01-1.482-1.53 1.553 1.553 0 011.383-1.526l.145-.007c.79-.002 2.262-1.059 2.932-2.719.64-1.583.968-3.062.996-4.44.017-.845.705-1.528 1.536-1.525zm-13.865-8.036c.476.246.788 2.352-.051 4.489-.597 1.52-1.578 2.742-1.757 3.125-.06.11-.203.245-.263.354-1.327 2.042-1.092 4.68.596 6.322l.185.192c.624.65 1.269 1.382.691 1.974a1.3 1.3 0 01-.744.595c-.59.185-1.28.039-1.79-.434-1.182-1.159-2.675-3.308-2.46-5.746.266-2.989 2.295-4.87 3.26-6.864.964-1.995-.202-2.584.331-3.38.477-.873 1.155-.995 2.002-.627z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 12" id="icon-game"><path d="M18.029 5.594a.414.414 0 00-.421.406c0 .225.19.406.42.406A.414.414 0 0018.45 6a.41.41 0 00-.421-.406zM16.774 0H6.226C2.795 0 0 2.69 0 6s2.795 6 6.226 6h10.548C20.208 12 23 9.31 23 6s-2.792-6-6.226-6zM8.25 6.777H7.014v1.192c0 .428-.36.776-.806.776a.79.79 0 01-.806-.776V6.777H4.165c-.444 0-.806-.347-.806-.777 0-.428.36-.777.806-.777h1.237V4.031c0-.428.36-.776.806-.776a.79.79 0 01.806.776v1.192H8.25c.444 0 .806.347.806.777 0 .428-.36.777-.806.777zm5.128.96c-.994 0-1.802-.78-1.802-1.737 0-.957.808-1.736 1.802-1.736.993 0 1.801.779 1.801 1.736s-.808 1.736-1.801 1.736zm4.65 0c-.993 0-1.802-.78-1.802-1.737 0-.957.809-1.736 1.802-1.736S19.83 5.043 19.83 6s-.809 1.736-1.802 1.736zm-4.65-2.143a.414.414 0 00-.421.406c0 .225.19.406.42.406A.414.414 0 0013.798 6a.412.412 0 00-.42-.406z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 15" id="icon-home"><path d="M7.245.005H.215A.217.217 0 000 .223v9.374c0 .12.097.218.216.218h7.029a.217.217 0 00.215-.218V.223a.217.217 0 00-.215-.218zm0 10.967H.215a.217.217 0 00-.215.217v3.594c0 .12.097.217.216.217h7.029a.217.217 0 00.215-.217v-3.594a.217.217 0 00-.215-.217zm8.54-5.792h-7.03a.217.217 0 00-.215.217v9.373c0 .12.097.217.215.217h7.03A.217.217 0 0016 14.77V5.397a.217.217 0 00-.216-.217zm0-5.18h-7.03a.217.217 0 00-.215.217v3.594c0 .12.097.217.215.217h7.03A.217.217 0 0016 3.811V.217A.217.217 0 0015.784 0z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" id="icon-hot-1"><path d="M5.58 15.06c1.08 0 3-.14 4.04-.36.58-.14 1.2-.32 1.2-1.02 0-1.42-2.26-.02-2.62-1.8-.145-.764-.175-2.238-.18-3.16v-.26c0-.66.02-1.34.04-2.4.04-1.88 1.5-1.16 1.5-2.16 0-.86-1.04-.9-1.66-.9C4.94 3 .44 4.1.44 5.48c0 .44.38.66.8.66.24 0 .48-.04.74-.04.98 0 1.06.36 1.06 1.26v2.72c0 2.3-.34 2.82-1.1 2.82-.34 0-.7-.12-1.04-.12-.46 0-.9.32-.9.8 0 1.38 4.88 1.48 5.58 1.48zm9.34 0c1.34 0 2.42-1.08 2.42-2.42 0-1.34-1.08-2.42-2.42-2.42-1.34 0-2.42 1.08-2.42 2.42 0 1.34 1.08 2.42 2.42 2.42z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" id="icon-hot-2"><path d="M9.72 15.74c.8 0 2.24-1.34 2.24-3.58 0-.58-.16-1.5-.9-1.5-.66 0-1.02 1.2-2.44 1.2-.4 0-.88-.24-.88-.7 0-.82 3.36-2.46 3.36-5.02C11.1 4.56 9.7 3 6.32 3 3.86 3 .1 4.74.1 6.5c0 .6.72 1.16 1.3 1.16.92 0 1.16-1.16 2.38-1.16.7 0 1.12.44 1.12 1.14 0 1.42-2.42 3.92-3.44 4.88C-.04 13.94 0 13.94 0 14.26c0 .56.8.52 1.16.52h6.6c1.82 0 .86.96 1.96.96zm5.84-.68c1.34 0 2.42-1.08 2.42-2.42 0-1.34-1.08-2.42-2.42-2.42-1.34 0-2.42 1.08-2.42 2.42 0 1.34 1.08 2.42 2.42 2.42z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" id="icon-hot-3"><path d="M5.52 15.9c5.28 0 7.62-2.66 7.62-5.2 0-3.48-3.36-2.82-3.36-3.54 0-.46 1.5-.82 1.5-2.54C11.28 2.5 8 2 6.4 2 4.04 2 1.26 3.14 1.26 4.2c0 .38.3 1.12.72 1.12.36 0 1.04-.7 2.02-.7.78 0 1.56.62 1.56 1.34 0 1.88-2.68 1.78-2.68 2.6 0 .38.36 1.58.84 1.58.16 0 .7-.2 1.44-.2 1.04 0 2.12.52 2.12 1.68 0 1.24-1.42 1.92-2.68 1.92-1.26 0-1.92-.36-2.48-.36-.62 0-1.12.44-1.12 1.08 0 1.44 3.52 1.64 4.52 1.64zm9.705-.54c.653 0 1.187-.213 1.632-.64.446-.426.683-1.005.683-1.675 0-.67-.237-1.219-.653-1.645-.445-.427-1.009-.64-1.662-.64s-1.187.213-1.632.64c-.445.426-.653.975-.653 1.645s.208 1.218.653 1.645c.445.426.98.67 1.632.67z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" id="icon-img"><path d="M18.789.733A3.611 3.611 0 0122.4 4.344V18.79a3.611 3.611 0 01-3.611 3.611H4.344a3.611 3.611 0 01-3.61-3.611V4.344a3.611 3.611 0 013.61-3.61H18.79zM4.704 20.631h15.079a.884.884 0 00.77-1.317l-2.777-4.94a1.326 1.326 0 00-1.756-.534l-3.39 1.72a.442.442 0 01-.602-.209l-2.42-5.22a1.326 1.326 0 00-2.257-.248l-4.576 5.988a1.326 1.326 0 00-.273.805v1.753c0 1.216.986 2.202 2.202 2.202zm10.842-14.26a1.216 1.216 0 102.432 0 1.216 1.216 0 00-2.432 0z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" id="icon-ios"><path d="M7.137 3.235c.161-.004.322-.026.479-.067h.073c.17-.055.333-.13.487-.22h.066a2.95 2.95 0 00.42-.28l.052-.045c.132-.112.255-.236.368-.368l.044-.044c.113-.14.214-.287.302-.443v-.051a3.15 3.15 0 00.221-.501v-.037c.06-.177.102-.36.126-.545a2.572 2.572 0 000-.575 3.11 3.11 0 00-2.771 3.168l.133.008zm3.979 5.187a2.992 2.992 0 01-.2-1.179 2.903 2.903 0 01.502-1.525c.256-.377.587-.698.972-.943a3.235 3.235 0 00-2.107-1.334 3.426 3.426 0 00-.479-.059h-.892l-.213.06-.162.05-.207.074-.147.118-.243.096-.2.081-.14.052-.169.051h-.095a1.002 1.002 0 01-.229 0 1.061 1.061 0 01-.22 0h-.082l-.162-.044-.118-.044-.17-.044-.28-.11-.11-.038-.199-.073-.132-.045-.185-.059h-.14l-.191-.036H4.97l-.176-.052a3.518 3.518 0 00-1.32.265A3.986 3.986 0 001.11 7.582v.737c0 .059 0 .265.052.398.051.132 0 .147.044.22.044.075.044.237.074.355.03.117.044.154.066.228.022.074.059.221.096.332.037.11.059.162.088.243l.11.31.104.235c.044.096.081.199.125.295l.11.22.148.288.125.214.155.265.133.2.162.242.14.184.17.214.147.17.17.184.154.147.17.155.154.118.17.125.154.088.162.089.148.051.162.052.192.059h.169c.2-.008.399-.042.59-.103a4.539 4.539 0 011.731-.472c.123-.008.246-.008.368 0h.118l.2.044.125.037.154.052.133.051.192.082.169.073.11.037.148.052h.626a2.107 2.107 0 001.304-.605 7.545 7.545 0 001.629-2.27c.125-.229.238-.465.339-.706a3.39 3.39 0 01-1.783-1.85z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 18" id="icon-mall"><path d="M12.238 4.833c1.054 0 2.159.759 2.549 2.6l.641 5.163c.47 3.366-1.422 4.737-3.964 4.737H4.556c-2.548 0-4.5-.947-3.97-4.737l.649-5.163c.332-1.895 1.473-2.6 2.542-2.6h8.461zM5.581 7.608a.747.747 0 00-.737.758c0 .418.33.758.737.758a.748.748 0 00.737-.758l-.006-.095a.744.744 0 00-.731-.664v.001zm4.824 0a.748.748 0 00-.737.758c0 .418.33.758.737.758a.748.748 0 00.737-.758.747.747 0 00-.737-.758z"></path><path d="M12.145 4.645a.418.418 0 01-.037.188h-1.197a.54.54 0 01-.036-.188 2.898 2.898 0 00-2.903-2.893 2.898 2.898 0 00-2.904 2.893.54.54 0 010 .188H3.842a.54.54 0 010-.188A4.16 4.16 0 018.004.667a4.16 4.16 0 014.163 3.978h-.022z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1156 1024" id="icon-pc"><defs><style></style></defs><path d="M693.677 924.903h138.736c25.567 0 46.245 20.678 46.245 46.245 0 25.567-20.678 46.246-46.245 46.246H323.716c-25.567 0-46.245-20.679-46.245-46.246 0-25.567 20.678-46.245 46.245-46.245H439.33V809.29H92.49A92.59 92.59 0 010 716.8V92.49C0 41.49 41.489 0 92.49 0h971.149c51.002 0 92.49 41.489 92.49 92.49V716.8c0 51.002-41.488 92.49-92.49 92.49H693.677v115.613zm-46.245 0V809.29H485.574v115.613h161.858zM92.49 92.49V716.8h971.149V92.49H92.49z"></path><path d="M340.034 480.52l163.444-163.443a46.311 46.311 0 0165.47 65.47L405.504 545.825a46.311 46.311 0 01-65.47 0 46.146 46.146 0 010-65.305zm277.471-51.86l65.47-65.503a46.311 46.311 0 0165.47 65.47l-65.47 65.47a46.311 46.311 0 01-65.47-65.47z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" id="icon-qr"><defs><style></style></defs><path d="M177.23 315.077h118.155c11.815 0 19.692-7.877 19.692-19.692V177.23c0-11.816-7.877-19.693-19.692-19.693H177.23c-11.816 0-19.693 7.877-19.693 19.693v118.154c0 11.815 7.877 19.692 19.693 19.692zm256 236.308H39.386C17.723 551.385 0 569.108 0 590.769v393.846C0 1006.277 17.723 1024 39.385 1024H433.23c21.661 0 39.384-17.723 39.384-39.385V590.77c0-21.661-17.723-39.384-39.384-39.384zm-19.692 413.538H59.077V610.462h354.461v354.461z"></path><path d="M177.23 866.462h118.155c11.815 0 19.692-7.877 19.692-19.693V728.615c0-11.815-7.877-19.692-19.692-19.692H177.23c-11.816 0-19.693 7.877-19.693 19.692V846.77c0 11.816 7.877 19.693 19.693 19.693zM984.616 0H590.77c-21.661 0-39.384 17.723-39.384 39.385V433.23c0 21.661 17.723 39.384 39.384 39.384h393.846c21.662 0 39.385-17.723 39.385-39.384V39.385C1024 17.723 1006.277 0 984.615 0zm-19.692 413.538H610.462V59.077h354.461v354.461zm39.385 137.847h-39.385c-11.815 0-19.692 7.877-19.692 19.692V689.23c0 11.815-7.877 19.692-19.693 19.692H807.385c-11.816 0-19.693-7.877-19.693-19.692V571.077c0-11.815-7.877-19.692-19.692-19.692H571.077c-11.815 0-19.692 7.877-19.692 19.692v433.23c0 11.816 7.877 19.693 19.692 19.693h39.385c11.815 0 19.692-7.877 19.692-19.692V728.615c0-11.815 7.877-19.692 19.692-19.692h39.385c11.815 0 19.692 7.877 19.692 19.692V768c0 11.815 7.877 19.692 19.692 19.692h275.693c11.815 0 19.692-7.877 19.692-19.692V571.077c0-11.815-7.877-19.692-19.692-19.692zM433.23 0H39.385C17.723 0 0 17.723 0 39.385V433.23c0 21.661 17.723 39.384 39.385 39.384H433.23c21.661 0 39.384-17.723 39.384-39.384V39.385C472.615 17.723 454.892 0 433.231 0zm-19.693 413.538H59.077V59.077h354.461v354.461z"></path><path d="M728.615 315.077H846.77c11.816 0 19.693-7.877 19.693-19.692V177.23c0-11.816-7.877-19.693-19.693-19.693H728.615c-11.815 0-19.692 7.877-19.692 19.693v118.154c0 11.815 7.877 19.692 19.692 19.692zm275.693 551.385h-39.385c-11.815 0-19.692 7.876-19.692 19.692v118.154c0 11.815 7.877 19.692 19.692 19.692h39.385c11.815 0 19.692-7.877 19.692-19.692V886.154c0-11.816-7.877-19.692-19.692-19.692zm-157.539 0h-39.384c-11.816 0-19.693 7.876-19.693 19.692v118.154c0 11.815 7.877 19.692 19.693 19.692h39.384c11.816 0 19.693-7.877 19.693-19.692V886.154c0-11.816-7.877-19.692-19.693-19.692z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" id="icon-replace"><defs><style></style></defs><path d="M738.438 222.609L630.962 115.133a44.522 44.522 0 0162.954-62.954l165.843 165.844a44.433 44.433 0 0135.751 49.107 44.433 44.433 0 01-35.75 49.108L693.915 482.08a44.522 44.522 0 11-62.954-62.953l107.476-107.476H311.652a222.609 222.609 0 00-222.609 222.61 44.522 44.522 0 01-89.043 0 311.652 311.652 0 01311.652-311.652h426.786zM489.739 845.913H311.652 489.74zm-243.267-5.387L353.948 948a44.522 44.522 0 01-62.954 62.954L125.106 845.112a44.433 44.433 0 01-35.75-49.108 44.433 44.433 0 0135.75-49.152L290.994 581.01a44.522 44.522 0 1162.954 62.953L246.472 751.527h426.741a222.609 222.609 0 00222.609-222.609 44.522 44.522 0 0189.043 0A311.652 311.652 0 01673.213 840.57h-426.74zm248.654-623.304h178.087-178.087z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" id="icon-return"><defs><style></style></defs><path d="M650.23 224h-445l51.85-51.84a32 32 0 10-45.26-45.26L105.38 233.37a32 32 0 00-9.31 22.27c0 .13-.07.23-.07.36v.16a31.87 31.87 0 009.17 22.21c.08.08.1.18.17.26l106.5 106.47a32 32 0 1045.26-45.26L205.25 288h445C768.11 288 864 402.84 864 544s-95.89 256-213.77 256H190.72a32 32 0 000 64h459.51C803.39 864 928 720.45 928 544S803.39 224 650.23 224z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024" id="icon-search"><defs><style></style></defs><path d="M1024 963.7L756.8 696.5c60.2-73.6 96.5-167.5 96.5-269.8C853.3 191.4 661.9 0 426.7 0S0 191.4 0 426.7s191.4 426.7 426.7 426.7c102.3 0 196.3-36.3 269.8-96.5L963.7 1024l60.3-60.3zM426.7 768C238.5 768 85.3 614.9 85.3 426.7S238.5 85.3 426.7 85.3 768 238.5 768 426.7 614.9 768 426.7 768z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 12" id="icon-tagsymbol"><path d="M2.764 12l.454-2.672h2.418L5.182 12h1.582l.454-2.672h1.855l.236-1.294H7.436l.71-4.068h1.618L10 2.672H8.364L8.818 0H7.255l-.473 2.672H4.364L4.818 0H3.255l-.473 2.672H.927L.691 3.966h1.873l-.71 4.068H.237L0 9.328h1.636L1.182 12h1.582zm3.09-3.966H3.437l.71-4.068h2.418l-.71 4.068z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 26" id="icon-water"><path d="M26.858 7.833c-1.409-2.44-4.433-3.395-7.04-2.35L17.31 2.52a2.211 2.211 0 00-.585-.487C14.982.074 11.991-.441 9.574.954c-2.47 1.426-3.512 4.372-2.58 6.9.02.232.077.459.168.673l2.167 5.077-6.203.307-1.21-1.056a.571.571 0 00-.544-.113.587.587 0 00-.393.4l-.736 2.609a.552.552 0 00.13.532.567.567 0 00.53.16l1.605-.341 8.846 2.247 2.469 5.784c.252.59.75 1.04 1.369 1.236.618.196 1.298.12 1.869-.21l10.665-6.157a2.33 2.33 0 001.128-1.578 2.204 2.204 0 00-.48-1.84L26.71 13.62c1.12-1.78 1.177-4.001.148-5.787zM10.583 2.369c1.72-.92 3.712-.348 4.716.454L8.507 6.589c-.333-1.19.356-3.301 2.076-4.22zm15.863 14.576l-10.42 5.95L9.288 8.12l6.738-3.79 10.42 12.615zM21.32 7.251c1.138-.253 2.4-.62 3.735 1.016.89 1.09.97 2.375.243 3.853L21.32 7.25zM2.067 14.333l.987.619 9.504.342.76 1.669-10.348-1.84-1.108-.052.205-.738z"></path></symbol><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2617 2263" id="icon-yingdi-plus"><path d="M0 1051.257l388.094 80.416 233.531 194.85v34.58L487.445 1492l-3.38-63.829L0 1051.257zM308.942 156L458.76 442.042l-8.978 84.844 35.974 60.822-5.102 48.455L602.352 781.64l72.685-85.95L843.09 941.048l-134.282 137.706-83.061-76.7 58.548-7.84 24.513-27.401-36.91-54.44-97.852 97.026 134.762 132.18 242.805-249.017-5.504-140.818 97.063-115.58-32.567-208.18L1226 645.237l-87.794 85.77v143.01L713.153 1309.18 390.17 1019.443l124.14-145.425-129.86-164.58 14.725-117.062L268.387 404.17 308.942 156zm342.84 119.122l281.38 108.31 31.822 242.647-117.163-92.77-6.29-66.263 31.676 16.52-4.97-39.198-71.382-32.61 15.697 142.244 60.655 54.68 37.368 272.006-30.123 32.162-162.36-253.712 29.101-94.107-95.41-289.91zm1178.005 406.705l164.837 165.646-164.837 137.114-42.382-44.572 63.847-35.386-33.984-54.828-88.098 104.09 93.62 93.31-86.166 86.799-147.505-145.921 240.668-306.252zm145.35-344.345L1796.015 576.82l13.972 77.91L1560.3 958.796l-40.897-40.556 163.405-294.025-40.145-117.348 44.971-133.703 72.918 65.79-29.238 57.34-16.63-29.937-14.634 29.936 41.104 45.715 61.306-108.758-102.41-95.767h275.086zm-495.328-195.13l157.04 164.71-51.384 175.846 51.383 129.094-144.081 281.97-115.531-112.648 102.573-638.972zM970 149.903l213.885 170.363 42.078 324.539-215.376-217.146L970 149.903zm1354 142.342v170.442l-182.84 162.96-95.294 5.1 102.162-102.256 14.662-71.104L2324 292.245zM1206.869 0l143.27 56.502-20.12 488.818-49.412-53.964-12.48-178.115-42.164-57.694L1206.87 0zm352.951 1844.524l208.53 207.07L1667.51 2153l-50.8-50.692 50.8-50.714-107.69-105.989-49.94 50.737-49.88-50.737 99.82-101.08zM2617 958.862l-348.024 368.165-25.586 189.235-125.016-32.452v-65.01l14.089 15.257h32.076v-69.493l-81.563 38.565-19.59 213.655-403.102 143.81 324.781-331.886 10.331-118.998L2617 958.862zM2443.362 722l-192.827 301.373-350.171 274.385-162.938-163.661 86.157-86.813 205.194-162.004 121.565 11.161L2443.362 722z"></path><path d="M1053.883 1844.871l205.706 209.065L1053.883 2263 844.59 2052.744l209.294-207.873zm405.447 101.4l49.692 49.967-58.74 57.698 109.605 105.905 56.275-56.836 50.838 50.702L1559.887 2263l-208.843-209.064 108.286-107.666zm-407.241 2.195l-107.052 105.47 107.052 106.352 106.712-106.352-106.712-105.47zM621.257 1361v84.505l340.09 323.971L487 1613.791v-121.91L621.257 1361zM1307 848l573 573-573 573-573-573 573-573zm-.5 150.443l-421.615 421.614 421.615 421.615 421.615-421.615L1306.5 998.443zm2.5 169.68l65.782 206.594 185.886 47.841-185.886 47.12-65.781 207.91-63.467-207.91L1054.137 1421l191.397-46.283 63.467-206.593z"></path></symbol></svg>
+    <div id="__nuxt"><!----><div id="__layout"><div class="default-layout-page"><div class="fixed z-30 top-0 left-0 w-90 big:w-250"><div class="nav-side-bar"><div><div class="logo-area"><div class="big:hidden"><img src="https://pic.iyingdi.com/yingdi_pc/logo.png" alt="" class="logo-img"></div> <div class="hidden big:block"><img src="https://pic.iyingdi.com/yingdi_pc/logo_text.png" alt="" class="logo-img"></div></div> <ul class="menus"><a href="/" class="menu-item"><div><svg aria-hidden="true" class="menu-logo svg-icon" data-v-2d324472=""><use xlink:href="#icon-home" data-v-2d324472=""></use></svg><div>首页</div></div></a> <a href="/tz/community" class="menu-item"><div><svg aria-hidden="true" class="menu-logo svg-icon" data-v-2d324472=""><use xlink:href="#icon-community" data-v-2d324472=""></use></svg><div>社区</div></div></a> <li class="menu-item"><div><svg aria-hidden="true" class="menu-logo svg-icon" data-v-2d324472=""><use xlink:href="#icon-mall" data-v-2d324472=""></use></svg><div>商城</div></div></li> <a href="https://wiki.iyingdi.com" target="_blank" class="menu-item"><div><svg aria-hidden="true" class="yingdi-plus-logo svg-icon" data-v-2d324472=""><use xlink:href="#icon-baike" data-v-2d324472=""></use></svg><div>百科</div></div></a> <a href="https://maps.iyingdi.com" target="_blank" class="menu-item"><div><svg aria-hidden="true" class="yingdi-plus-logo svg-icon" data-v-2d324472=""><use xlink:href="#icon-ditu" data-v-2d324472=""></use></svg><div>地图</div></div></a> <a href="https://www.iyingdi.com/web/match/matchList" target="_blank" class="menu-item"><div><svg aria-hidden="true" class="menu-logo svg-icon" data-v-2d324472=""><use xlink:href="#icon-compete" data-v-2d324472=""></use></svg><div>比赛</div></div></a></ul> <div class="divide-line"></div> <div class="part-scroll el-scrollbar"><div class="el-scrollbar__wrap" style="margin-bottom: -15px; margin-right: -15px;"><div class="el-scrollbar__view"><div class="tag-list"><a href="/tz/tag/17" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/12/500772fd-6617-458b-a15d-318f3bbaeb17_w_240_h_240.png" alt="炉石传说"> <div class="text-sm">炉石传说</div></a><a href="/tz/tag/497" class=""><img src="https://pic.iyingdi.com/admin/img/22de6f94-0f02-412e-9ee4-29df01baa2c1.png" alt="漫威终极逆转"> <div class="text-sm">漫威终极逆转</div></a><a href="/tz/tag/185" class=""><img src="https://pic.iyingdi.com/admin/img/ef245693-523d-409f-b4b9-fa4302f4c8c9.png" alt="月圆之夜"> <div class="text-sm">月圆之夜</div></a><a href="/tz/tag/110" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/28/32a32a7c-900c-4c4d-8a8d-9a169d8bc776_w_240_h_240.png" alt="营地喜加一"> <div class="text-sm">营地喜加一</div></a><a href="/tz/tag/55" class=""><img src="http://wspic.iyingdi.cn/common/2018/10/24/f4d43bd8-2b5c-41bd-a0fb-ea6f09b55a18.png" alt="守望先锋"> <div class="text-sm">守望先锋</div></a><a href="/tz/tag/21" class=""><img src="https://pic.iyingdi.com/admin/img/087077dc-1af7-414b-80b3-7b87dfc2f088.png" alt="steam游戏"> <div class="text-sm">steam游戏</div></a><a href="/tz/tag/18" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/12/ea97f216-9daf-4f35-b6eb-a91df7fed0c2_w_240_h_240.png" alt="万智牌"> <div class="text-sm">万智牌</div></a><a href="/tz/tag/764" class=""><img src="https://pic.iyingdi.com/admin/img/5652994f-621c-4bdb-b8ff-8864af2397e2.png" alt="流放之路2"> <div class="text-sm">流放之路2</div></a><a href="/tz/tag/685" class=""><img src="https://pic.iyingdi.com/admin/img/99800075-e15d-42ec-8ba0-92bff8a6bd8f.png" alt="魔兽世界"> <div class="text-sm">魔兽世界</div></a><a href="/tz/tag/502" class=""><img src="https://pic.iyingdi.com/admin/img/1790eed1-ca53-47ae-a0ef-aaf285a550b5.png" alt="Lorcana"> <div class="text-sm">Lorcana</div></a><a href="/tz/tag/147" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/28/2a071cfb-7f76-48ab-af42-99cec06f1bf3_w_240_h_240.png" alt="宝可梦卡牌"> <div class="text-sm">宝可梦卡牌</div></a><a href="/tz/tag/16" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/12/816ed88a-94e1-49e1-946c-5579e745c1d5_w_240_h_240.png" alt="游戏王"> <div class="text-sm">游戏王</div></a><a href="/tz/tag/471" class=""><img src="https://pic.iyingdi.com/admin/img/a69f8745-109f-4849-bff3-0c941bfa7276.png" alt="漫威对决"> <div class="text-sm">漫威对决</div></a><a href="/tz/tag/20" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/12/c15c4807-333f-416a-8fc4-0d3b4ab009e7_w_240_h_240.png" alt="影之诗"> <div class="text-sm">影之诗</div></a><a href="/tz/tag/647" class=""><img src="https://pic.iyingdi.com/admin/img/9fd382d9-9324-45f3-86b6-afa1d6e72a7e.jpg" alt="幻兽帕鲁"> <div class="text-sm">幻兽帕鲁</div></a><a href="/tz/tag/640" class=""><img src="https://pic.iyingdi.com/admin/img/5a07d8df-3e7f-444f-bb21-c573b78e8afa.png" alt="雾锁王国"> <div class="text-sm">雾锁王国</div></a><a href="/tz/tag/723" class=""><img src="https://pic.iyingdi.com/admin/img/fe202384-afeb-41ae-8659-49d5a3756425.jpg" alt="无人深空"> <div class="text-sm">无人深空</div></a><a href="/tz/tag/722" class=""><img src="https://pic.iyingdi.com/admin/img/06be2d47-2e3f-4941-be2d-e5c588d0ed40.jpg" alt="无火之光"> <div class="text-sm">无火之光</div></a><a href="/tz/tag/655" class=""><img src="https://pic.iyingdi.com/admin/img/040e1d71-26b0-4170-98e6-21e747a554fb.jpg" alt="互动影游"> <div class="text-sm">互动影游</div></a><a href="/tz/tag/746" class=""><img src="https://pic.iyingdi.com/admin/img/dc907b2f-60fc-4b4e-aaf2-074122e27b5b.png" alt="独立游戏"> <div class="text-sm">独立游戏</div></a><a href="/tz/tag/695" class=""><img src="https://pic.iyingdi.com/admin/img/7c2495a8-fc2e-4407-98fc-0801f9e960c2.jpg" alt="Galgame"> <div class="text-sm">Galgame</div></a><a href="/tz/tag/19" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/12/7281d53f-5146-4660-8da3-7a22677be62f_w_240_h_240.png" alt="昆特牌"> <div class="text-sm">昆特牌</div></a><a href="/tz/tag/496" class=""><img src="https://pic.iyingdi.com/admin/img/2f50eb90-9106-410a-9919-46bc0ebd08bd.jpg" alt="魔兽大作战"> <div class="text-sm">魔兽大作战</div></a><a href="/tz/tag/329" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/12/435dc992-d1bc-41a8-8b12-a2929cf5dc2b_w_240_h_240.png" alt="符文之地传说"> <div class="text-sm">符文之地传说</div></a><a href="/tz/tag/491" class=""><img src="https://pic.iyingdi.com/admin/img/dcff9a44-956a-4d15-aaf3-4d6eba4d6fa5.png" alt="影之诗EVOLVE"> <div class="text-sm">影之诗EVOLVE</div></a><a href="/tz/tag/494" class=""><img src="https://pic.iyingdi.com/admin/img/376b400c-2ff1-4749-bc3d-c81744e6e4a6.png" alt="Gateruler门将"> <div class="text-sm">Gateruler门将</div></a><a href="/tz/tag/498" class=""><img src="https://pic.iyingdi.com/admin/img/0ab37c88-d045-425e-a81f-9a1014707110.png" alt="海贼王TCG"> <div class="text-sm">海贼王TCG</div></a><a href="/tz/tag/102" class=""><img src="https://pic.iyingdi.com/manage/image/2021/01/20/e450fbfb-7b19-4b31-9e42-35320b0f72a1_w_240_h_240.png" alt="卡牌游戏"> <div class="text-sm">卡牌游戏</div></a><a href="/tz/tag/389" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/14/a979a2ca-d6e2-4953-8b03-7ba80fafa4e1_w_240_h_240.png" alt="电子游戏"> <div class="text-sm">电子游戏</div></a><a href="/tz/tag/24" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/12/3a6a1627-a9bd-4fa0-865f-56f63fc689f8_w_240_h_240.png" alt="桌面游戏"> <div class="text-sm">桌面游戏</div></a><a href="/tz/tag/534" class=""><img src="https://pic.iyingdi.com/admin/img/bd00b1e5-0f47-459a-9bcf-1a6d38a0a86b.png" alt="博德之门3"> <div class="text-sm">博德之门3</div></a><a href="/tz/tag/639" class=""><img src="https://pic.iyingdi.com/admin/img/afd23eac-5b58-4bae-a278-916fe0e43df0.png" alt="天堂之圣灵"> <div class="text-sm">天堂之圣灵</div></a><a href="/tz/tag/23" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/12/97e0b6f7-2829-47a2-b80d-67705dbde8f9_w_240_h_240.png" alt="玩家杂谈"> <div class="text-sm">玩家杂谈</div></a><a href="/tz/tag/353" class=""><img src="https://wspic.iyingdi.cn/common/2020/04/19/a00a6dbf-3d19-4de9-9ec9-012ea729452a.png" alt="KARDS"> <div class="text-sm">KARDS</div></a><a href="/tz/tag/675" class=""><img src="https://pic.iyingdi.com/admin/img/294ffc6b-d438-41e2-875f-863dd441e57f.jpg" alt="电子斗蛐蛐"> <div class="text-sm">电子斗蛐蛐</div></a><a href="/tz/tag/656" class=""><img src="https://pic.iyingdi.com/admin/img/c8c12b33-67c8-448c-ae3a-75b99739fb2a.jpg" alt="小丑牌Balatro"> <div class="text-sm">小丑牌Balatro</div></a><a href="/tz/tag/117" class=""><img src="https://pic.iyingdi.com/manage/image/2020/12/12/96be3401-7fcb-48b4-b759-94c107817a1a_w_240_h_240.png" alt="二次元"> <div class="text-sm">二次元</div></a><a href="/tz/tag/717" class=""><img src="https://pic.iyingdi.com/admin/img/2c7e44d1-4f19-4b89-9160-7bd69e226820.jpg" alt="怪物猎人：荒野"> <div class="text-sm">怪物猎人：荒野</div></a><a href="/tz/tag/525" class=""><img src="https://pic.iyingdi.com/admin/img/81b4c37f-c2ff-4d0e-b089-c6e3970ee5bb.png" alt="暗黑破坏神IV"> <div class="text-sm">暗黑破坏神IV</div></a><a href="/tz/tag/692" class=""><img src="https://pic.iyingdi.com/admin/img/2083734f-ecb3-45dd-b660-3b5511610ab0.png" alt="失落城堡2"> <div class="text-sm">失落城堡2</div></a><a href="/tz/tag/762" class=""><img src="https://pic.iyingdi.com/admin/img/13ea18cd-de34-42f4-ab97-21fd1ff718f5.png" alt="综合体育"> <div class="text-sm">综合体育</div></a><a href="/tz/tag/729" class=""><img src="https://pic.iyingdi.com/admin/img/f4037570-0b31-4be7-b2c0-4894b01c8e59.png" alt="队长小翼"> <div class="text-sm">队长小翼</div></a><a href="/tz/tag/686" class=""><img src="https://pic.iyingdi.com/admin/img/7971fc2a-daa4-4035-9b05-9973059e10f6.png" alt="背包乱斗"> <div class="text-sm">背包乱斗</div></a><a href="/tz/tag/641" class=""><img src="https://pic.iyingdi.com/admin/img/8e79974a-782d-44e9-b836-2824d6803f40.png" alt="异色边缘"> <div class="text-sm">异色边缘</div></a><a href="/tz/tag/622" class=""><img src="https://pic.iyingdi.com/yingdiapp/202312/16797458/202312021943177630Upload0Image_w_308_h_307.jpg" alt="克苏鲁神话"> <div class="text-sm">克苏鲁神话</div></a><a href="/tz/tag/533" class=""><img src="https://pic.iyingdi.com/admin/img/47f6a1fd-5242-4cbc-88be-a3e9bd4b9fc4.png" alt="我的战争"> <div class="text-sm">我的战争</div></a><a href="/tz/tag/507" class=""><img src="https://pic.iyingdi.com/admin/img/7499e0ae-a996-4e7a-a3c6-8abc08864f2e.jpg" alt="弈仙牌"> <div class="text-sm">弈仙牌</div></a><a href="/tz/tag/506" class=""><img src="https://pic.iyingdi.com/admin/img/ff2a1b52-0050-4eab-aba7-4e05028e4fdf.png" alt="原神七圣召唤"> <div class="text-sm">原神七圣召唤</div></a></div></div></div><div class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div></div><div class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb" style="height: 23.843%; transform: translateY(0%);"></div></div></div></div> <div class="el-dialog__wrapper" style="display:none;" data-v-6f170fea=""><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog" style="margin-top:15vh;width:750px;"><div class="el-dialog__header"><span class="el-dialog__title"></span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div></div> <div class="w-full h-56 fixed z-20 top-0 bg-blue-headbar pl-90 big:pl-250"><div class="header-bar"><div><div class="left"><div class="search-area"><span class="search-icon cursor-pointer"><svg aria-hidden="true" class="svg-icon search-icon" data-v-2d324472=""><use xlink:href="#icon-search" data-v-2d324472=""></use></svg></span> <input type="text" placeholder="关键词搜索" value=""></div></div> <div class="right"><a href="https://www.iyingdi.com/spread/index.html" target="_blank" class="down-load-app"><span>下载App</span> <svg aria-hidden="true" class="svg-icon" data-v-2d324472=""><use xlink:href="#icon-android" data-v-2d324472=""></use></svg> / <svg aria-hidden="true" class="svg-icon" data-v-2d324472=""><use xlink:href="#icon-ios" data-v-2d324472=""></use></svg></a> <div><a href="javascript:void(0)" class="block login-area">登录 / 注册</a></div></div></div> <div class="el-dialog__wrapper" style="display:none;" data-v-9551189e=""><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog pop-login-modal" style="margin-top:15vh;"><div class="el-dialog__header"><span class="el-dialog__title"></span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div></div> <div class="default-main-container w-full pl-90 big:pl-250 pt-56"><div class="need-back-top w-container mx-auto pt-30"><div class="post-detail-page" data-v-36b0633a=""><!----> <div class="show" data-v-36b0633a=""><div class="main-content-area" data-v-36b0633a=""><div class="post-rich-detail" data-v-327d92bf="" data-v-36b0633a=""><div class="cover-area" style="background-image:url(https://pic.iyingdi.com/post/cover/2024/01/31/15175704/1d49d7af-d2a3-4694-8463-eef9a98239ca_w_560_h_308.jpg?imageMogr2/format/jpg|imageMogr2/thumbnail/600x|imageMogr2/quality/60);" data-v-327d92bf=""></div> <div class="header-area" data-v-327d92bf=""><div data-v-327d92bf=""><div class="post-title" data-v-327d92bf=""><!---->
+        最近群里男娘越来越多，正经发涩图的大爹少了……
+      </div> <div class="post-detail-info" data-v-327d92bf=""><div class="time" data-v-327d92bf="">2024年2月1日</div> <div class="flex flex-row justify-end items-center" data-v-327d92bf=""><span data-v-327d92bf="">点火</span><span class="align-middle ml-2" data-v-327d92bf="">9</span> <span class="ml-30" data-v-327d92bf="">回复</span><span class="align-middle ml-2" data-v-327d92bf="">1</span></div></div></div></div> <div class="post-main-content" data-v-327d92bf=""><div class="relative flex flex-row justify-between" data-v-327d92bf=""><div class="flex flex-row justify-start flex-wrap mb-20" data-v-327d92bf=""><object class="mb-10 mr-10" data-v-5df682ee="" data-v-327d92bf=""><a href="/tz/tag/23" class="components-tag-view cursor-pointer" data-v-5df682ee=""><svg aria-hidden="true" class="svg-icon" data-v-2d324472="" data-v-5df682ee=""><use xlink:href="#icon-tagsymbol" data-v-2d324472=""></use></svg> <span class="text-gray-250" data-v-5df682ee="">玩家杂谈</span></a></object></div> <!----> <!----></div> <div class="mb-20 text-gray-250 break-all" data-v-327d92bf="">此内容转载自情报姬</div> <div class="rich-text-content" data-v-327d92bf=""><div class="edit-preview" data-v-327d92bf=""><section>
+<p><img class="yingdi-image gif" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/42317f11-50fa-4238-9863-84a8ea6e1a68.gif?imageMogr2/format/jpg|watermark/1/image/aHR0cDovL3lpbmdkaS1waWMtMTMwMTA1NTc2My5jb3MuYXAtYmVpamluZy5teXFjbG91ZC5jb20vd2F0ZXJtYXJrL2dpZmxvZ28ucG5n/gravity/northeast" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/42317f11-50fa-4238-9863-84a8ea6e1a68.gif" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/42317f11-50fa-4238-9863-84a8ea6e1a68.gif?imageMogr2/format/jpg|watermark/1/image/aHR0cDovL3lpbmdkaS1waWMtMTMwMTA1NTc2My5jb3MuYXAtYmVpamluZy5teXFjbG91ZC5jb20vd2F0ZXJtYXJrL2dpZmxvZ28ucG5n/gravity/northeast"></p>
+<p>&nbsp;</p>
+<p>要说去年大众认知度最高的学者，波伏娃应该是其中之一，她的《第二性》不知多少次冲进微信读书首页推荐。</p>
+<p>&nbsp;</p>
+<p>但真正看过原著的远比其声量表现出来的要少，其著作及相关学者（类似的还有日本性别研究者上野千鹤子）在大众语境中被符号化了，成为互联网流量密码中性别问题的一条分支tag，一句效率奇高且立场鲜明的言语旗帜。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/28a242e3-6e1d-4980-8b4a-fb2d9a5824b4.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/28a242e3-6e1d-4980-8b4a-fb2d9a5824b4.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/28a242e3-6e1d-4980-8b4a-fb2d9a5824b4.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p>如果今天有个性转版的波伏娃，想在这个稍事停歇的议题上再次掀起腥风血雨，<strong>那他可能会出一本《第三性》，副标题——男娘。</strong></p>
+<p>&nbsp;</p>
+<p>细心观察的读者可能也早有察觉，在一些二次元圈层的群聊中，汉奸头和男娘表情包出现的频率越来越高，“撅撅你的”式发言也日趋惯常。</p>
+<p>&nbsp;</p>
+<p>甚至出现了特定倾向（哲♂学）的表情包武器库。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/3607e8a4-9cd0-4261-9587-8dde1b0d58ad.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/3607e8a4-9cd0-4261-9587-8dde1b0d58ad.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/3607e8a4-9cd0-4261-9587-8dde1b0d58ad.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p>（听说发这两个人物的表情包，一律按男娘处理）</p>
+</section>
+<section>
+<p>&nbsp;</p>
+<p>男娘一词渐渐大众化、娱乐化，众平台涌现出一批将男娘标榜为身份标签的博主，俘获了流量的加持与网友的喜爱。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/9aff7547-888c-46d1-9dfa-efde798affdb.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/9aff7547-888c-46d1-9dfa-efde798affdb.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/9aff7547-888c-46d1-9dfa-efde798affdb.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p>如果把目光转向其他角落，我们会发现包含男娘元素的动漫、游戏也不乏拥趸，并且也不新奇，只不过更加频繁地在公众讨论中抛头露面。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/3bbcfcf6-e4fd-4222-852d-cf6ad8335043.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/3bbcfcf6-e4fd-4222-852d-cf6ad8335043.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/3bbcfcf6-e4fd-4222-852d-cf6ad8335043.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p>《别当欧尼酱了》男主绪山千寻（性转严格来说不是男娘？）&amp;mingon老师担任原画的gal《オトメ世界の歩き方》 ，左为男主</p>
+<p>&nbsp;</p>
+<p>对此各界众说纷纭。</p>
+<p>&nbsp;</p>
+<p>在持续播出的大型纪录片《男娘传奇》中，麦克阿瑟表示：不是女朋友谈不起，而是男娘更有性价比。</p>
+<p>&nbsp;</p>
+<p>此话一出，立即引起了群友的密切关注。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/bff7d80f-defd-4811-a9b2-71b3f8136fdc.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/bff7d80f-defd-4811-a9b2-71b3f8136fdc.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/bff7d80f-defd-4811-a9b2-71b3f8136fdc.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/4f045d74-6098-4706-883e-7b541d0e81a5.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/4f045d74-6098-4706-883e-7b541d0e81a5.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/4f045d74-6098-4706-883e-7b541d0e81a5.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p><strong>有人认为男娘是假，叶公好龙是真。</strong></p>
+<p>&nbsp;</p>
+<p>某种程度上在理，真实的男娘圈，甚至药娘圈，往往伴随着痛苦的性别认知障碍与强烈的自我认同焦虑，这些是普通人难以感同身受的。</p>
+<p>&nbsp;</p>
+<p>因此，男娘于群友而言往往仅限于<strong>口嗨与远观</strong>。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/0c867772-3a7a-48f1-8011-c59c880c8f25.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/0c867772-3a7a-48f1-8011-c59c880c8f25.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/0c867772-3a7a-48f1-8011-c59c880c8f25.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/a5dd5184-9167-4a46-93ab-75da6c250d26.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/a5dd5184-9167-4a46-93ab-75da6c250d26.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/a5dd5184-9167-4a46-93ab-75da6c250d26.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p>但对于恨不得把自己降维打击好进入二次元的群友而言，明知虚假而为之早已轻车熟路了。</p>
+<p>&nbsp;</p>
+<p><strong>远观产生距离美，虚假产生表演欲。</strong></p>
+<p>&nbsp;</p>
+<p>就这样，群友们纷纷陷入男娘的精神黑洞并一去不复返。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/2243f3bd-222b-4352-a65e-af6eca3f99f3.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/2243f3bd-222b-4352-a65e-af6eca3f99f3.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/2243f3bd-222b-4352-a65e-af6eca3f99f3.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/7386ae08-c467-430b-b633-62c7e3d41a60.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/7386ae08-c467-430b-b633-62c7e3d41a60.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/7386ae08-c467-430b-b633-62c7e3d41a60.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+</section>
+</section>
+<section>
+<p>（所以涩图呢？咱进群的初心不能变啊）</p>
+</section>
+<section>
+<p>&nbsp;</p>
+<p>群里的消息逐渐演化为两类，一类是具有话题中心度的讨论，一类是男娘/男同的相互“问候”。</p>
+<p>&nbsp;</p>
+<p>就好像，除了讨论某个新奇的事物，咱就没得聊了，如同熟人约饭避免冷场的万能句式“啊，今天好像变热了点”。</p>
+<p>&nbsp;</p>
+<p>这种诡异的情况可以称作<strong>攻击式社交</strong>，将男娘元素作为社交货币，用性骚扰式的交流刷高亲密度，展现出一种似乎<strong>很融洽但并不稳固的关系</strong>。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/12921682-7176-449e-9c3b-4f2e169404fc.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/12921682-7176-449e-9c3b-4f2e169404fc.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/12921682-7176-449e-9c3b-4f2e169404fc.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p>群聊中的男娘风潮可以追溯到一个人民大众喜闻乐见的传统——逼群主穿女装cosplay。</p>
+<p>&nbsp;</p>
+<p>二次元群体男多女少的结构性矛盾催生了“不求人”的习惯：既然无法从异性身上得到慰藉，那么就向兄弟寻求满足。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/fc223578-3f40-4b4a-929f-ddbd71d50ff9.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/fc223578-3f40-4b4a-929f-ddbd71d50ff9.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/fc223578-3f40-4b4a-929f-ddbd71d50ff9.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;（别的群主都女装了，本群……）</section>
+</section>
+<section>
+<p>&nbsp;</p>
+<p>为什么我们喜欢要求群主女装？除了玩梗，或许也可以归结为上述的攻击性社交。</p>
+<p>&nbsp;</p>
+<p>与异性交流往往充斥着不确定性与失败焦虑；同性中的交流却使人安心，即使展现出侵犯性态度仍能保有掌控感。</p>
+<p>&nbsp;</p>
+<p><strong>由于处于安全区中，所以无所顾忌、肆无忌惮。</strong></p>
+<p>&nbsp;</p>
+<p>不论是学生时期“爹”、“义父”的调侃，还是网络空间的男娘/男同的自我表演，都在一种攻击式的交流中营造出了亲密无间的氛围。</p>
+<p>&nbsp;</p>
+<p>这种关系不仅仅由于网络限制下实际往来的匮乏，还需归咎于男性隐藏琐碎感情的倾向，换句话说，相对于女性来说更“难以深交”。</p>
+<p>&nbsp;</p>
+<p><strong>所以，男娘/男同的表演逐渐变成炒热气氛最有效、付出情感成本最低的方式。</strong></p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/56003e80-3e5f-42f9-8912-f610857224eb.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/56003e80-3e5f-42f9-8912-f610857224eb.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/56003e80-3e5f-42f9-8912-f610857224eb.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p>那么，有关群友口嗨男娘的讨论暂告一段落，现实中的男娘行为又该怎么理解呢？</p>
+<p>&nbsp;</p>
+<p>如果我们对比国内外男娘的差异，或许能看出一些端倪。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/50d286fe-74e9-448f-98f6-ba2e7025b246.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/50d286fe-74e9-448f-98f6-ba2e7025b246.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/50d286fe-74e9-448f-98f6-ba2e7025b246.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;（TikTok上三个播放量较高的女装视频，娘化程度自左向右递减）</section>
+</section>
+<section>
+<p>&nbsp;</p>
+<p>最左比较符合我们对于男娘的认知，中间还能接受，最后一个不忍直视。</p>
+<p>&nbsp;</p>
+<p>欧美“男娘”（如果能这么叫的话）的脑回路显然是独树一帜的。</p>
+<p>&nbsp;</p>
+<p>相当一部分的女装行为走向了典型政治正确的道路，换上短裙、丝袜只是为了表明自己支持自由、男女平等、摒弃隐性性别偏见，是一种西式立场表演。</p>
+<p>&nbsp;</p>
+<p>当然不只是欧美，各主要国家都有类似立场导向的男娘扮演者出现。</p>
+<p>&nbsp;</p>
+<p>而二次元语境下的男娘，<strong>往往在妆容、体态、气质上都刻意追求女性化，并极力忽视自己的男性特质。</strong></p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/1120fa94-bfd9-4041-861b-8171b5ffee95.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/1120fa94-bfd9-4041-861b-8171b5ffee95.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/1120fa94-bfd9-4041-861b-8171b5ffee95.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;（不是哥们，这谁看了不迷糊啊）</section>
+</section>
+<section>
+<p>&nbsp;</p>
+<p><strong>显然，如果说立场导向的“男娘”是为了自我立场张扬，向普世价值观求同；那么二次元式男娘则是认知障碍下的自我适应，向性别约束求异。</strong></p>
+<p>&nbsp;</p>
+<p>社会性别与生理性别的失调让人惋惜，而男娘的存在则展现出性压抑下一种身份转换权力的可能，马尾、吊带、短裙都成为刺向性别框架的锐利武器。</p>
+<p>&nbsp;</p>
+<p>怎么说呢，祝他们成功，或许《三体》中全面女性化的时代终会来临，没准我胡诌的《第三性》还真就出版了呢？</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/0bc7698a-b84c-442c-9c9c-e885933a1816.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/0bc7698a-b84c-442c-9c9c-e885933a1816.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/0bc7698a-b84c-442c-9c9c-e885933a1816.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p>当然，不是人人都有这么强烈的信念支撑，相当一部分的男娘只是想通过特立独行来获取大伙的关注，吸引足够多的目光最终实现自我满足。</p>
+<p>&nbsp;</p>
+<p>好说不说，二次元可能又要来掺上一脚，因为这类群体喜欢二次元的概率高的离谱（没事，够污名化了，再黑一点还是黑）。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/f1c33668-bf43-4006-8ac8-e3760062155d.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/f1c33668-bf43-4006-8ac8-e3760062155d.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/f1c33668-bf43-4006-8ac8-e3760062155d.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p>（男娘嫌恶成因的冰山一角）</p>
+</section>
+<section>
+<p>&nbsp;</p>
+<p>（二次元圈的）年轻男性羡慕假想中年轻女性的优势社交地位，当男娘是迅速获取关注的高效方式，表露出社交弱势群体对聚光灯的渴求。</p>
+<p>&nbsp;</p>
+<p>当他们穿上小黑丝小吊带，从同性那里得到从未，并且将来也大概率不会在现实生活中取得的赞美时，目的就已经达成了。</p>
+<p>&nbsp;</p>
+<p>我们自然也不会一棍子打死，占领道德高地去指责，毕竟：</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/f71c0412-207d-4ad5-8112-b52d2577cfa5.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/f71c0412-207d-4ad5-8112-b52d2577cfa5.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/f71c0412-207d-4ad5-8112-b52d2577cfa5.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p>基于此，许多猎奇行为有着类似的心理动机，理解、尊重是我们看乐子时理应摆出的姿态。</p>
+<p>&nbsp;</p>
+<p><strong>毕竟，买个基金都知道要多放几个篮子呢，一个人构建自我认同的方式，自然是越多越好。</strong></p>
+<p>&nbsp;</p>
+<p>话题收回来，作为看客，我们或许可以将男娘视作一种审美风潮、一种猎奇符号，通过本质与外在特征的背离来达成一种独特的认知体验。</p>
+<p>&nbsp;</p>
+<p>简化理解就是搞反差、挑战社会规范，例如ntr本中外貌清纯的人妻，不过男娘的背德感更轻一点，因为它的对象指向自己，缺乏苦主。</p>
+<p>&nbsp;</p>
+<p>从男同指认到男娘风潮，<strong>同性之间的异性幻想色彩趋于浓厚，再次证明了异性恋的统治地位。</strong></p>
+<p>&nbsp;</p>
+<p>即使在牛鬼蛇神的网络空间，少数群体依旧是少数。</p>
+<p>&nbsp;</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/4da3e331-deff-4ca1-9717-6e1dadf9a757.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/4da3e331-deff-4ca1-9717-6e1dadf9a757.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/4da3e331-deff-4ca1-9717-6e1dadf9a757.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section>
+<section>
+<p>换位思考一下，或许我们就更能理解女生为什么喜欢BL了。</p>
+<p>&nbsp;</p>
+<p><strong>到头来，不论男女，喜欢的都是一种性别气质，而非生理上的差异。</strong></p>
+<p>&nbsp;</p>
+<p>太阳底下无新事，同以往任何时候一样，我们不可自拔地寻求一个欲望的载体，沉溺于一个遥远的幻想。男娘成为众多幻想的一个象征性的载体，对在座各位而言，它的迷人之处在于,<strong>相较纸片人，它少了一层次元的隔阂。</strong></p>
+<p>&nbsp;</p>
+<p>当然啦，上面这些破事顶破天也就是潜意识层面发生的事，群友们用汉奸头和男娘表情包，当然还是为了玩梗图一乐。</p>
+<p>&nbsp;</p>
+<p>总之，你说的对，但是属于我的香香软软的小男娘到底藏哪儿去了？</p>
+</section>
+<section>
+<section>
+<p><img class="yingdi-image png" src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/f67ee9de-0d59-43a4-83ba-e58dcee57196.png?imageMogr2/format/jpg|imageMogr2/quality/70" alt="" data-original="https://pic.iyingdi.com/post/content/2024/01/31/15175704/f67ee9de-0d59-43a4-83ba-e58dcee57196.png?imageMogr2/format/jpg" data-src="https://pic.iyingdi.com/post/content/2024/01/31/15175704/f67ee9de-0d59-43a4-83ba-e58dcee57196.png?imageMogr2/format/jpg|imageMogr2/quality/70"></p>
+&nbsp;</section>
+</section></div> <!----></div></div> <!----> <div class="el-dialog__wrapper" style="display:none;" data-v-9551189e="" data-v-327d92bf=""><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog pop-login-modal" style="margin-top:15vh;"><div class="el-dialog__header"><span class="el-dialog__title"></span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div> <div class="mt-30 flex flex-row justify-center" data-v-36b0633a=""><a class="reward-btn" data-v-36b0633a="">打赏文章</a> <div class="el-dialog__wrapper" style="display:none;" data-v-36b0633a=""><div role="dialog" aria-modal="true" aria-label="选择打赏金额" class="el-dialog" style="margin-top:15vh;width:600px;"><div class="el-dialog__header"><span class="el-dialog__title">选择打赏金额</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><div class="el-dialog__footer"><div data-v-36b0633a=""><button type="button" class="el-button el-button--primary el-button--small" data-v-36b0633a=""><!----><!----><span>打赏</span></button></div></div></div></div></div> <div data-v-36b0633a="" class="m-30 pb-20 bg-gray-100"><div data-v-36b0633a="" class="flex flex-row justify-between px-30 pt-20 pb-10"><span data-v-36b0633a="" class="text-gray-800 font-bold text-base">打赏榜</span></div> <div data-v-36b0633a="" class="mb-10 px-30"><div data-v-36b0633a="" class="pb-2 flex flex-row justify-between items-center border-b border-gray-D8 border-dashed"><div data-v-f4d1e954="" data-v-36b0633a="" class="relative -left-15"><div data-v-f4d1e954="" class="user-title-area"><a data-v-f4d1e954="" href="/tz/people/1425917" target="_blank" class="avatar-box block"><img data-v-f4d1e954="" src="https://pic.iyingdi.com/yd_admin/default/default_avatar.png?imageMogr2/format/jpg|imageMogr2/thumbnail/300x|imageMogr2/quality/80" alt="" class="avatar"> <img data-v-f4d1e954="" src="https://wspic.iyingdi.cn/user_item/border/ia_100000025.png" alt="" class="decoration"></a> <div data-v-f4d1e954="" class="info-box"><a data-v-f4d1e954="" href="/tz/people/1425917" target="_blank" class="name block"><span data-v-f4d1e954="">1425917</span></a> <ul data-v-f4d1e954="" class="honor"><li data-v-f4d1e954="" class="level" style="background-image: url(&quot;https://pic.iyingdi.com/yingdi_pc/static/level/21-30.png&quot;);">Lv. 26</li> </ul></div></div></div> <span data-v-36b0633a="" class="text-gray-400 text-sm">打赏了500营火</span></div></div> <!----> <div data-v-36b0633a="" class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="打赏排行" class="el-dialog" style="margin-top: 15vh; width: 600px;"><div class="el-dialog__header"><span class="el-dialog__title">打赏排行</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div> <!----> <div class="recommend-read" data-v-36b0633a=""><div class="recommend-head" data-v-36b0633a=""><span class="text-gray-800 font-bold text-base" data-v-36b0633a="">推荐阅读</span> <div data-v-36b0633a=""><i class="prev el-icon-caret-left disable" data-v-36b0633a=""></i> <i class="next el-icon-caret-right" data-v-36b0633a=""></i></div></div> <div class="recommend-carousel" data-v-36b0633a=""><a href="/tz/post/5385821" data-v-36b0633a="" class=""><img src="https://pic.iyingdi.com/post/cover/2024/07/11/16974497/15dc1908-b9c4-4b0f-a4fe-d180d0a1ed64_w_620_h_341.jpg?imageMogr2/format/jpg|imageMogr2/thumbnail/500x|imageMogr2/quality/30" alt="" class="cover" data-v-36b0633a=""> <div class="title" data-v-36b0633a="">被男娘硬控了？你需要本期作品推荐！</div> <div class="detail-foot" data-v-36b0633a=""><span data-v-36b0633a="">1 点火</span> <span class="dot" data-v-36b0633a=""></span> <span data-v-36b0633a="">0 回复</span></div></a><a href="/tz/post/5361706" data-v-36b0633a="" class=""><img src="https://pic.iyingdi.com/post/cover/2024/03/29/16631488/dbfff48d-ba27-4a1a-af49-2ec0f4cff2d8_w_449_h_247.jpg?imageMogr2/format/jpg|imageMogr2/thumbnail/500x|imageMogr2/quality/30" alt="" class="cover" data-v-36b0633a=""> <div class="title" data-v-36b0633a="">【营地囧图第168期】我就说比起画展我更喜欢摄影展吧！</div> <div class="detail-foot" data-v-36b0633a=""><span data-v-36b0633a="">19 点火</span> <span class="dot" data-v-36b0633a=""></span> <span data-v-36b0633a="">11 回复</span></div></a><a href="/tz/post/5399491" data-v-36b0633a="" class=""><img src="https://pic.iyingdi.com/post/cover/2024/09/11/1107271/25f96a7b-69f2-4c1d-bfd8-b0330913dcd1_w_583_h_321.jpg?imageMogr2/format/jpg|imageMogr2/thumbnail/500x|imageMogr2/quality/30" alt="" class="cover" data-v-36b0633a=""> <div class="title" data-v-36b0633a="">iPhone16/Pro搭载新一代超瓷晶面板 硬度较初代提升50%</div> <div class="detail-foot" data-v-36b0633a=""><span data-v-36b0633a="">0 点火</span> <span class="dot" data-v-36b0633a=""></span> <span data-v-36b0633a="">1 回复</span></div></a></div></div> <div id="comments-area-id" class="write-area" data-v-36b0633a=""><div class="comment-input-component" data-v-34c6a472="" data-v-36b0633a=""><div class="no-login-box" data-v-34c6a472=""><span data-v-34c6a472="">登录</span>后发表评论
+  </div> <div class="el-dialog__wrapper" style="display:none;" data-v-9551189e="" data-v-34c6a472=""><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog pop-login-modal" style="margin-top:15vh;"><div class="el-dialog__header"><span class="el-dialog__title"></span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div></div> <div class="googleAd mt-10 px-30" data-v-5a7641a7="" data-v-36b0633a=""></div> <div class="comments-area" data-v-36b0633a=""><!----> <div class="comment-title mx-40 pb-10 flex flex-row justify-between items-center border-b border-gray-EA" data-v-36b0633a=""><div class="faction-text text-lg text-gray-400" data-v-36b0633a=""><span class="f-text text-black text-base font-bold cursor-pointer select" data-v-36b0633a="">全部评论 1条</span> <!----></div> <span class="text-xs text-blue-500 cursor-pointer" data-v-36b0633a="">
+            按时间排序
+            <i class="el-icon-sort" data-v-36b0633a=""></i></span></div> <div data-v-36b0633a=""><div data-v-36b0633a="" class="px-30 space-y-10"><div data-v-f543a4ba="" data-v-36b0633a="" class="comment-item-component"><div data-v-f543a4ba="" class="relative"><div data-v-f4d1e954="" data-v-f543a4ba="" class="relative -left-15"><div data-v-f4d1e954="" class="user-title-area"><a data-v-f4d1e954="" href="/tz/people/12790659" target="_blank" class="avatar-box block"><img data-v-f4d1e954="" src="https://pic.iyingdi.com/yd_admin/default/default_avatar.png?imageMogr2/format/jpg|imageMogr2/thumbnail/300x|imageMogr2/quality/80" alt="" class="avatar"> <img data-v-f4d1e954="" src="https://pic.iyingdi.com/xxl/border/newboard.png" alt="" class="decoration"></a> <div data-v-f4d1e954="" class="info-box"><a data-v-f4d1e954="" href="/tz/people/12790659" target="_blank" class="name block"><span data-v-f4d1e954="" style="color: rgb(211, 49, 165);">12790659</span></a> <ul data-v-f4d1e954="" class="honor"><li data-v-f4d1e954="" class="level" style="background-image: url(&quot;https://pic.iyingdi.com/yingdi_pc/static/level/31-40.png&quot;);">Lv. 33</li> <li data-v-f4d1e954="" class="badge"><img data-v-f4d1e954="" src="https://wspic.iyingdi.cn/achievement/badge/icon2/yd_vip,w_136,h_35.png" alt=""></li></ul></div></div></div> <!----></div> <div data-v-f543a4ba="" class="item-content-area"><div data-v-f543a4ba=""><!----> <div data-v-f543a4ba="" class="text-base leading-6 break-all break-words text-gray-800">最期待的一集</div> <!----> <div data-v-f543a4ba="" class="foot"><div data-v-f543a4ba="" class="flex flex-row items-center"><div data-v-f543a4ba=""><span data-v-f543a4ba="">2024年2月10日</span> <span data-v-f543a4ba="" class="ml-2">来自广东</span></div> <div data-v-f543a4ba="" class="ml-20 space-x-1"><div data-v-f543a4ba="" class="inline"> </div> <a data-v-f543a4ba="" class="cursor-pointer">举报</a></div></div> <div data-v-f543a4ba="" class="flex flex-row justify-between items-center"><a data-v-f543a4ba="" class="mr-20 px-15 py-2 bg-gray-100 rounded-3xl"><span data-v-f543a4ba="" class="cursor-pointer"><svg data-v-2d324472="" data-v-f543a4ba="" aria-hidden="true" class="svg-icon"><use data-v-2d324472="" xlink:href="#icon-fire"></use></svg> <span data-v-f543a4ba="" class="inline-block w-9 text-center">1</span></span> <span data-v-f543a4ba="" class="mx-10 text-gray-D8">|</span> <span data-v-f543a4ba="" class="text-center cursor-pointer"><svg data-v-2d324472="" data-v-f543a4ba="" aria-hidden="true" class="svg-icon"><use data-v-2d324472="" xlink:href="#icon-water"></use></svg></span></a> <a data-v-f543a4ba="" class="px-15 py-2 bg-gray-100 rounded-3xl cursor-pointer"><svg data-v-2d324472="" data-v-f543a4ba="" aria-hidden="true" class="svg-icon"><use data-v-2d324472="" xlink:href="#icon-comment"></use></svg> <span data-v-f543a4ba="" class="inline-block w-9 text-center">回复</span></a></div></div> <!----></div> <div data-v-f543a4ba="" class="children-content-area"><div data-v-f543a4ba="" class="comment-childs"></div> <!----></div></div> <div data-v-897dae54="" data-v-f543a4ba="" class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="举报" class="el-dialog" style="margin-top: 15vh;"><div class="el-dialog__header"><span class="el-dialog__title">举报</span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><div class="el-dialog__footer"><div data-v-897dae54=""><button data-v-897dae54="" type="button" class="el-button el-button--primary el-button--small"><!----><!----><span>确认举报</span></button></div></div></div></div> <div data-v-f543a4ba="" tabindex="-1" role="dialog" aria-hidden="true" class="pswp vue-picture-preview"><div class="pswp__bg"></div> <div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div> <div class="pswp__item"></div> <div class="pswp__item"></div></div> <div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><div class="pswp__counter"></div>  <button title="Close (Esc)" class="pswp__button pswp__button--close"></button> <button title="Share" class="pswp__button pswp__button--share"></button> <button title="Toggle fullscreen" class="pswp__button pswp__button--fs"></button> <button title="Zoom in/out" class="pswp__button pswp__button--zoom"></button>  <div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div> <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div> <button title="Previous (arrow left)" class="pswp__button pswp__button--arrow--left"></button> <button title="Next (arrow right)" class="pswp__button pswp__button--arrow--right"></button> <div class="pswp__caption"><div class="pswp__caption__center"></div></div></div></div></div> <div data-v-9551189e="" data-v-f543a4ba="" class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog pop-login-modal" style="margin-top: 15vh;"><div class="el-dialog__header"><span class="el-dialog__title"></span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div></div></div> <!----> <div class="text-gray-200 text-center py-12" style="display:none;" data-v-36b0633a="">评论已全部加载</div></div></div> <div class="side-bar-area" data-v-36b0633a=""><div class="author-info-bar" data-v-75fa3337="" data-v-36b0633a=""><div class="absolute left-3.5 top-3.5 text-gray-400 text-sm" data-v-75fa3337="">IP属地：广西</div> <div class="level-box" data-v-75fa3337=""><img src="https://pic.iyingdi.com/yingdi_pc/static/level/bg_level.png" alt="" data-v-75fa3337=""> <span data-v-75fa3337="">Lv.43</span></div> <div class="user-head" data-v-75fa3337=""><img data-v-75fa3337="" src="https://pic.iyingdi.com/yingdi_pc/img/15175704/835ab179-e503-4a1c-ad17-e7f558bcb95c_w_247_h_247.png?imageMogr2/format/jpg|imageMogr2/thumbnail/300x|imageMogr2/quality/80" alt="" class="head"> <img data-v-75fa3337="" src="https://wspic.iyingdi.cn/user_item/border/ia_100000092.png" alt="" class="user-head-border"></div> <div class="user-name" data-v-75fa3337="">许仙许宣</div> <div class="desc" data-v-75fa3337="">标准日报组编辑，游戏王搬运工，偶尔写写杂谈。</div> <div data-v-75fa3337="" class="badges"><img data-v-75fa3337="" src="https://wspic.iyingdi.cn/achievement/badge/icon2/yd_npc,w_136,h_35.png" alt=""><img data-v-75fa3337="" src="https://wspic.iyingdi.cn/achievement/badge/icon2/yd_mod,w_136,h_35.png" alt=""><img data-v-75fa3337="" src="https://wspic.iyingdi.cn/achievement/badge/icon2/yd_tester,w_136,h_35.png" alt=""></div> <div class="fans-and-follows" data-v-75fa3337=""><div class="fans" data-v-75fa3337=""><div data-v-75fa3337="">粉丝</div><div class="count" data-v-75fa3337="">6022</div></div> <div class="follows" data-v-75fa3337=""><div data-v-75fa3337="">关注</div><div class="count" data-v-75fa3337="">84</div></div> <div class="post-total" data-v-75fa3337=""><div data-v-75fa3337="">发帖</div><div class="count" data-v-75fa3337="">730</div></div></div> <div class="follow-and-chat" data-v-75fa3337=""><a class="follow-btn" data-v-75fa3337="">+ 关注</a></div> <!----> <div class="el-dialog__wrapper" style="display:none;" data-v-9551189e="" data-v-75fa3337=""><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog pop-login-modal" style="margin-top:15vh;"><div class="el-dialog__header"><span class="el-dialog__title"></span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div> <div class="bar-item" data-v-36b0633a=""><a class="like-btn cursor-pointer" data-v-36b0633a=""><span data-v-36b0633a="">点火</span><span data-v-36b0633a="">9</span></a> <div class="flex flex-between mt-10" data-v-36b0633a=""><a class="hate-btn has-hate cursor-pointer" data-v-36b0633a="">浇水</a> <a class="collect-btn" data-v-36b0633a=""><span data-v-36b0633a="">收藏</span></a></div> <div class="share-box" data-v-36b0633a=""><img src="https://pic.iyingdi.com/yingdi_pc/static/share/weibo_share_btn.png" alt="微博分享" data-v-36b0633a=""> <div class="weixin-share" data-v-36b0633a=""><img src="https://pic.iyingdi.com/yingdi_pc/static/share/wechat_share_btn.png" alt="微信分享" data-v-36b0633a=""> <div class="qrcode-area" data-v-36b0633a=""><div class="qrcode" data-v-36b0633a="" title="https://www.iyingdi.com/tz/post/5350168"><canvas width="256" height="256" style="display: none;"></canvas><img src="data:image/png;base64,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" style="display: block;"></div></div></div> <img src="https://pic.iyingdi.com/yingdi_pc/static/share/qq_share_btn.png" alt="qq分享" data-v-36b0633a=""> <img src="https://pic.iyingdi.com/yingdi_pc/static/share/qzone_share_btn.png" alt="qzone分享" data-v-36b0633a=""></div></div> <!----> <div class="googleAd" style="height:500px;margin:20px 0;" data-v-0b4cafe0="" data-v-36b0633a=""></div> <div id="sticky_area" data-v-36b0633a=""><div class="sticky-top-area" style="display:none;" data-v-36b0633a=""><div class="author-info-bar" data-v-75fa3337="" data-v-36b0633a=""><div class="absolute left-3.5 top-3.5 text-gray-400 text-sm" data-v-75fa3337="">IP属地：广西</div> <div class="level-box" data-v-75fa3337=""><img src="https://pic.iyingdi.com/yingdi_pc/static/level/bg_level.png" alt="" data-v-75fa3337=""> <span data-v-75fa3337="">Lv.43</span></div> <div class="user-head" data-v-75fa3337=""><img data-v-75fa3337="" src="https://pic.iyingdi.com/yingdi_pc/img/15175704/835ab179-e503-4a1c-ad17-e7f558bcb95c_w_247_h_247.png?imageMogr2/format/jpg|imageMogr2/thumbnail/300x|imageMogr2/quality/80" alt="" class="head"> <img data-v-75fa3337="" src="https://wspic.iyingdi.cn/user_item/border/ia_100000092.png" alt="" class="user-head-border"></div> <div class="user-name" data-v-75fa3337="">许仙许宣</div> <div class="desc" data-v-75fa3337="">标准日报组编辑，游戏王搬运工，偶尔写写杂谈。</div> <div data-v-75fa3337="" class="badges"><img data-v-75fa3337="" src="https://wspic.iyingdi.cn/achievement/badge/icon2/yd_npc,w_136,h_35.png" alt=""><img data-v-75fa3337="" src="https://wspic.iyingdi.cn/achievement/badge/icon2/yd_mod,w_136,h_35.png" alt=""><img data-v-75fa3337="" src="https://wspic.iyingdi.cn/achievement/badge/icon2/yd_tester,w_136,h_35.png" alt=""></div> <div class="fans-and-follows" data-v-75fa3337=""><div class="fans" data-v-75fa3337=""><div data-v-75fa3337="">粉丝</div><div class="count" data-v-75fa3337="">6022</div></div> <div class="follows" data-v-75fa3337=""><div data-v-75fa3337="">关注</div><div class="count" data-v-75fa3337="">84</div></div> <div class="post-total" data-v-75fa3337=""><div data-v-75fa3337="">发帖</div><div class="count" data-v-75fa3337="">730</div></div></div> <div class="follow-and-chat" data-v-75fa3337=""><a class="follow-btn" data-v-75fa3337="">+ 关注</a></div> <!----> <div class="el-dialog__wrapper" style="display:none;" data-v-9551189e="" data-v-75fa3337=""><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog pop-login-modal" style="margin-top:15vh;"><div class="el-dialog__header"><span class="el-dialog__title"></span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div> <div class="bar-item" data-v-36b0633a=""><a class="like-btn cursor-pointer" data-v-36b0633a=""><span data-v-36b0633a="">点火</span><span data-v-36b0633a="">9</span></a> <div class="flex flex-between mt-10" data-v-36b0633a=""><a class="hate-btn has-hate cursor-pointer" data-v-36b0633a="">浇水</a> <a class="collect-btn" data-v-36b0633a=""><span data-v-36b0633a="">收藏</span></a></div> <div class="share-box" data-v-36b0633a=""><img src="https://pic.iyingdi.com/yingdi_pc/static/share/weibo_share_btn.png" alt="微博分享" data-v-36b0633a=""> <div class="weixin-share" data-v-36b0633a=""><img src="https://pic.iyingdi.com/yingdi_pc/static/share/wechat_share_btn.png" alt="微信分享" data-v-36b0633a=""> <div class="qrcode-area" data-v-36b0633a=""><div class="qrcode" data-v-36b0633a="" title="https://www.iyingdi.com/tz/post/5350168"><canvas width="256" height="256" style="display: none;"></canvas><img src="data:image/png;base64,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" style="display: block;"></div></div></div> <img src="https://pic.iyingdi.com/yingdi_pc/static/share/qq_share_btn.png" alt="qq分享" data-v-36b0633a=""> <img src="https://pic.iyingdi.com/yingdi_pc/static/share/qzone_share_btn.png" alt="qzone分享" data-v-36b0633a=""></div></div> <!----></div></div></div></div> <div class="el-dialog__wrapper" style="display:none;" data-v-9551189e="" data-v-36b0633a=""><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog pop-login-modal" style="margin-top:15vh;"><div class="el-dialog__header"><span class="el-dialog__title"></span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div></div></div> <div class="right-side-bar-container" data-v-f9ac1bba=""><div data-v-f9ac1bba="" class="mb-10 r-bar-item to-comment"><i data-v-f9ac1bba="" class="el-icon-chat-dot-round"></i><span data-v-f9ac1bba="">评论</span></div> <div class="mb-10 r-bar-item" data-v-f9ac1bba=""><span data-v-f9ac1bba="">意见</span> <span data-v-f9ac1bba="">反馈</span></div><div class="mb-10 r-bar-item" data-v-f9ac1bba=""><span data-v-f9ac1bba="">商城</span> <span data-v-f9ac1bba="">客服</span></div> <div class="r-bar-item to-top hidden" data-v-f9ac1bba=""><i class="el-icon-top" data-v-f9ac1bba=""></i><span data-v-f9ac1bba="">回顶</span></div> <div class="el-dialog__wrapper" style="display:none;" data-v-9551189e="" data-v-f9ac1bba=""><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog pop-login-modal" style="margin-top:15vh;"><div class="el-dialog__header"><span class="el-dialog__title"></span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div></div></div></div></div><script>window.__NUXT__=(function(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r){h.id=15175704;h.username="许仙许宣";h.head="https:\u002F\u002Fpic.iyingdi.com\u002Fyingdi_pc\u002Fimg\u002F15175704\u002F835ab179-e503-4a1c-ad17-e7f558bcb95c_w_247_h_247.png";h.credits=18095;h.badge_json="{\"badges\":[\"https:\u002F\u002Fwspic.iyingdi.cn\u002Fachievement\u002Fbadge\u002Ficon2\u002Fyd_npc,w_136,h_35.png\",\"https:\u002F\u002Fwspic.iyingdi.cn\u002Fachievement\u002Fbadge\u002Ficon2\u002Fyd_mod,w_136,h_35.png\",\"https:\u002F\u002Fwspic.iyingdi.cn\u002Fachievement\u002Fbadge\u002Ficon2\u002Fyd_tester,w_136,h_35.png\"],\"border\":\"https:\u002F\u002Fwspic.iyingdi.cn\u002Fuser_item\u002Fborder\u002Fia_100000092.png\",\"name_color\":\"#FF8C19\"}";h.iphome=i;j.id=5350168;j.title="最近群里男娘越来越多，正经发涩图的大爹少了……";j.content="\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image gif\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F42317f11-50fa-4238-9863-84a8ea6e1a68.gif?imageMogr2\u002Fformat\u002Fjpg|watermark\u002F1\u002Fimage\u002FaHR0cDovL3lpbmdkaS1waWMtMTMwMTA1NTc2My5jb3MuYXAtYmVpamluZy5teXFjbG91ZC5jb20vd2F0ZXJtYXJrL2dpZmxvZ28ucG5n\u002Fgravity\u002Fnortheast\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F42317f11-50fa-4238-9863-84a8ea6e1a68.gif\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F42317f11-50fa-4238-9863-84a8ea6e1a68.gif?imageMogr2\u002Fformat\u002Fjpg|watermark\u002F1\u002Fimage\u002FaHR0cDovL3lpbmdkaS1waWMtMTMwMTA1NTc2My5jb3MuYXAtYmVpamluZy5teXFjbG91ZC5jb20vd2F0ZXJtYXJrL2dpZmxvZ28ucG5n\u002Fgravity\u002Fnortheast\" \u002F\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E要说去年大众认知度最高的学者，波伏娃应该是其中之一，她的《第二性》不知多少次冲进微信读书首页推荐。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E但真正看过原著的远比其声量表现出来的要少，其著作及相关学者（类似的还有日本性别研究者上野千鹤子）在大众语境中被符号化了，成为互联网流量密码中性别问题的一条分支tag，一句效率奇高且立场鲜明的言语旗帜。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F28a242e3-6e1d-4980-8b4a-fb2d9a5824b4.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F28a242e3-6e1d-4980-8b4a-fb2d9a5824b4.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F28a242e3-6e1d-4980-8b4a-fb2d9a5824b4.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E如果今天有个性转版的波伏娃，想在这个稍事停歇的议题上再次掀起腥风血雨，\u003Cstrong\u003E那他可能会出一本《第三性》，副标题——男娘。\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E细心观察的读者可能也早有察觉，在一些二次元圈层的群聊中，汉奸头和男娘表情包出现的频率越来越高，“撅撅你的”式发言也日趋惯常。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E甚至出现了特定倾向（哲♂学）的表情包武器库。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F3607e8a4-9cd0-4261-9587-8dde1b0d58ad.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F3607e8a4-9cd0-4261-9587-8dde1b0d58ad.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F3607e8a4-9cd0-4261-9587-8dde1b0d58ad.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E（听说发这两个人物的表情包，一律按男娘处理）\u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E男娘一词渐渐大众化、娱乐化，众平台涌现出一批将男娘标榜为身份标签的博主，俘获了流量的加持与网友的喜爱。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F9aff7547-888c-46d1-9dfa-efde798affdb.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F9aff7547-888c-46d1-9dfa-efde798affdb.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F9aff7547-888c-46d1-9dfa-efde798affdb.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E如果把目光转向其他角落，我们会发现包含男娘元素的动漫、游戏也不乏拥趸，并且也不新奇，只不过更加频繁地在公众讨论中抛头露面。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F3bbcfcf6-e4fd-4222-852d-cf6ad8335043.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F3bbcfcf6-e4fd-4222-852d-cf6ad8335043.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F3bbcfcf6-e4fd-4222-852d-cf6ad8335043.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E《别当欧尼酱了》男主绪山千寻（性转严格来说不是男娘？）&amp;mingon老师担任原画的gal《オトメ世界の歩き方》 ，左为男主\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E对此各界众说纷纭。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E在持续播出的大型纪录片《男娘传奇》中，麦克阿瑟表示：不是女朋友谈不起，而是男娘更有性价比。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E此话一出，立即引起了群友的密切关注。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Fbff7d80f-defd-4811-a9b2-71b3f8136fdc.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Fbff7d80f-defd-4811-a9b2-71b3f8136fdc.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Fbff7d80f-defd-4811-a9b2-71b3f8136fdc.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F4f045d74-6098-4706-883e-7b541d0e81a5.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F4f045d74-6098-4706-883e-7b541d0e81a5.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F4f045d74-6098-4706-883e-7b541d0e81a5.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cstrong\u003E有人认为男娘是假，叶公好龙是真。\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E某种程度上在理，真实的男娘圈，甚至药娘圈，往往伴随着痛苦的性别认知障碍与强烈的自我认同焦虑，这些是普通人难以感同身受的。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E因此，男娘于群友而言往往仅限于\u003Cstrong\u003E口嗨与远观\u003C\u002Fstrong\u003E。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F0c867772-3a7a-48f1-8011-c59c880c8f25.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F0c867772-3a7a-48f1-8011-c59c880c8f25.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F0c867772-3a7a-48f1-8011-c59c880c8f25.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Fa5dd5184-9167-4a46-93ab-75da6c250d26.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Fa5dd5184-9167-4a46-93ab-75da6c250d26.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Fa5dd5184-9167-4a46-93ab-75da6c250d26.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E但对于恨不得把自己降维打击好进入二次元的群友而言，明知虚假而为之早已轻车熟路了。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E\u003Cstrong\u003E远观产生距离美，虚假产生表演欲。\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E就这样，群友们纷纷陷入男娘的精神黑洞并一去不复返。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F2243f3bd-222b-4352-a65e-af6eca3f99f3.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F2243f3bd-222b-4352-a65e-af6eca3f99f3.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F2243f3bd-222b-4352-a65e-af6eca3f99f3.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F7386ae08-c467-430b-b633-62c7e3d41a60.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F7386ae08-c467-430b-b633-62c7e3d41a60.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F7386ae08-c467-430b-b633-62c7e3d41a60.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E（所以涩图呢？咱进群的初心不能变啊）\u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E群里的消息逐渐演化为两类，一类是具有话题中心度的讨论，一类是男娘\u002F男同的相互“问候”。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E就好像，除了讨论某个新奇的事物，咱就没得聊了，如同熟人约饭避免冷场的万能句式“啊，今天好像变热了点”。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E这种诡异的情况可以称作\u003Cstrong\u003E攻击式社交\u003C\u002Fstrong\u003E，将男娘元素作为社交货币，用性骚扰式的交流刷高亲密度，展现出一种似乎\u003Cstrong\u003E很融洽但并不稳固的关系\u003C\u002Fstrong\u003E。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F12921682-7176-449e-9c3b-4f2e169404fc.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F12921682-7176-449e-9c3b-4f2e169404fc.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F12921682-7176-449e-9c3b-4f2e169404fc.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E群聊中的男娘风潮可以追溯到一个人民大众喜闻乐见的传统——逼群主穿女装cosplay。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E二次元群体男多女少的结构性矛盾催生了“不求人”的习惯：既然无法从异性身上得到慰藉，那么就向兄弟寻求满足。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ffc223578-3f40-4b4a-929f-ddbd71d50ff9.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ffc223578-3f40-4b4a-929f-ddbd71d50ff9.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ffc223578-3f40-4b4a-929f-ddbd71d50ff9.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n （别的群主都女装了，本群……）\u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E为什么我们喜欢要求群主女装？除了玩梗，或许也可以归结为上述的攻击性社交。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E与异性交流往往充斥着不确定性与失败焦虑；同性中的交流却使人安心，即使展现出侵犯性态度仍能保有掌控感。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E\u003Cstrong\u003E由于处于安全区中，所以无所顾忌、肆无忌惮。\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E不论是学生时期“爹”、“义父”的调侃，还是网络空间的男娘\u002F男同的自我表演，都在一种攻击式的交流中营造出了亲密无间的氛围。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E这种关系不仅仅由于网络限制下实际往来的匮乏，还需归咎于男性隐藏琐碎感情的倾向，换句话说，相对于女性来说更“难以深交”。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E\u003Cstrong\u003E所以，男娘\u002F男同的表演逐渐变成炒热气氛最有效、付出情感成本最低的方式。\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F56003e80-3e5f-42f9-8912-f610857224eb.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F56003e80-3e5f-42f9-8912-f610857224eb.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F56003e80-3e5f-42f9-8912-f610857224eb.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E那么，有关群友口嗨男娘的讨论暂告一段落，现实中的男娘行为又该怎么理解呢？\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E如果我们对比国内外男娘的差异，或许能看出一些端倪。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F50d286fe-74e9-448f-98f6-ba2e7025b246.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F50d286fe-74e9-448f-98f6-ba2e7025b246.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F50d286fe-74e9-448f-98f6-ba2e7025b246.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n （TikTok上三个播放量较高的女装视频，娘化程度自左向右递减）\u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E最左比较符合我们对于男娘的认知，中间还能接受，最后一个不忍直视。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E欧美“男娘”（如果能这么叫的话）的脑回路显然是独树一帜的。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E相当一部分的女装行为走向了典型政治正确的道路，换上短裙、丝袜只是为了表明自己支持自由、男女平等、摒弃隐性性别偏见，是一种西式立场表演。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E当然不只是欧美，各主要国家都有类似立场导向的男娘扮演者出现。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E而二次元语境下的男娘，\u003Cstrong\u003E往往在妆容、体态、气质上都刻意追求女性化，并极力忽视自己的男性特质。\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F1120fa94-bfd9-4041-861b-8171b5ffee95.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F1120fa94-bfd9-4041-861b-8171b5ffee95.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F1120fa94-bfd9-4041-861b-8171b5ffee95.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n （不是哥们，这谁看了不迷糊啊）\u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E\u003Cstrong\u003E显然，如果说立场导向的“男娘”是为了自我立场张扬，向普世价值观求同；那么二次元式男娘则是认知障碍下的自我适应，向性别约束求异。\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E社会性别与生理性别的失调让人惋惜，而男娘的存在则展现出性压抑下一种身份转换权力的可能，马尾、吊带、短裙都成为刺向性别框架的锐利武器。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E怎么说呢，祝他们成功，或许《三体》中全面女性化的时代终会来临，没准我胡诌的《第三性》还真就出版了呢？\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F0bc7698a-b84c-442c-9c9c-e885933a1816.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F0bc7698a-b84c-442c-9c9c-e885933a1816.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F0bc7698a-b84c-442c-9c9c-e885933a1816.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E当然，不是人人都有这么强烈的信念支撑，相当一部分的男娘只是想通过特立独行来获取大伙的关注，吸引足够多的目光最终实现自我满足。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E好说不说，二次元可能又要来掺上一脚，因为这类群体喜欢二次元的概率高的离谱（没事，够污名化了，再黑一点还是黑）。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ff1c33668-bf43-4006-8ac8-e3760062155d.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ff1c33668-bf43-4006-8ac8-e3760062155d.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ff1c33668-bf43-4006-8ac8-e3760062155d.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E（男娘嫌恶成因的冰山一角）\u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E（二次元圈的）年轻男性羡慕假想中年轻女性的优势社交地位，当男娘是迅速获取关注的高效方式，表露出社交弱势群体对聚光灯的渴求。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E当他们穿上小黑丝小吊带，从同性那里得到从未，并且将来也大概率不会在现实生活中取得的赞美时，目的就已经达成了。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E我们自然也不会一棍子打死，占领道德高地去指责，毕竟：\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ff71c0412-207d-4ad5-8112-b52d2577cfa5.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ff71c0412-207d-4ad5-8112-b52d2577cfa5.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ff71c0412-207d-4ad5-8112-b52d2577cfa5.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E基于此，许多猎奇行为有着类似的心理动机，理解、尊重是我们看乐子时理应摆出的姿态。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E\u003Cstrong\u003E毕竟，买个基金都知道要多放几个篮子呢，一个人构建自我认同的方式，自然是越多越好。\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E话题收回来，作为看客，我们或许可以将男娘视作一种审美风潮、一种猎奇符号，通过本质与外在特征的背离来达成一种独特的认知体验。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E简化理解就是搞反差、挑战社会规范，例如ntr本中外貌清纯的人妻，不过男娘的背德感更轻一点，因为它的对象指向自己，缺乏苦主。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E从男同指认到男娘风潮，\u003Cstrong\u003E同性之间的异性幻想色彩趋于浓厚，再次证明了异性恋的统治地位。\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E即使在牛鬼蛇神的网络空间，少数群体依旧是少数。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F4da3e331-deff-4ca1-9717-6e1dadf9a757.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F4da3e331-deff-4ca1-9717-6e1dadf9a757.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002F4da3e331-deff-4ca1-9717-6e1dadf9a757.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Cp\u003E换位思考一下，或许我们就更能理解女生为什么喜欢BL了。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E\u003Cstrong\u003E到头来，不论男女，喜欢的都是一种性别气质，而非生理上的差异。\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E太阳底下无新事，同以往任何时候一样，我们不可自拔地寻求一个欲望的载体，沉溺于一个遥远的幻想。男娘成为众多幻想的一个象征性的载体，对在座各位而言，它的迷人之处在于,\u003Cstrong\u003E相较纸片人，它少了一层次元的隔阂。\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E当然啦，上面这些破事顶破天也就是潜意识层面发生的事，群友们用汉奸头和男娘表情包，当然还是为了玩梗图一乐。\u003C\u002Fp\u003E\n\u003Cp\u003E \u003C\u002Fp\u003E\n\u003Cp\u003E总之，你说的对，但是属于我的香香软软的小男娘到底藏哪儿去了？\u003C\u002Fp\u003E\n\u003C\u002Fsection\u003E\n\u003Csection\u003E\n\u003Csection\u003E\n\u003Cp\u003E\u003Cimg class=\"yingdi-image png\" src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ff67ee9de-0d59-43a4-83ba-e58dcee57196.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" alt=\"\" data-original=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ff67ee9de-0d59-43a4-83ba-e58dcee57196.png?imageMogr2\u002Fformat\u002Fjpg\" data-src=\"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcontent\u002F2024\u002F01\u002F31\u002F15175704\u002Ff67ee9de-0d59-43a4-83ba-e58dcee57196.png?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fquality\u002F70\" \u002F\u003E\u003C\u002Fp\u003E\n \u003C\u002Fsection\u003E\n\u003C\u002Fsection\u003E";j.simple_content="要说去年大众认知度最高的学者，波伏娃应该是其中之一，她的《第二性》不知多少次冲进微信读书首页推荐。 但真正看过原著的远比...";j.imgs=d;j.cover="https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcover\u002F2024\u002F01\u002F31\u002F15175704\u002F1d49d7af-d2a3-4694-8463-eef9a98239ca_w_560_h_308.jpg?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fthumbnail\u002F600x|imageMogr2\u002Fquality\u002F60";j.copyright="{\"label\":2,\"text\":\"此内容转载自\",\"val\":\"情报姬\"}";j.video_url=d;j.type=b;j.module_id=12;j.tag_json="[{\"id\":23,\"tag\":\"玩家杂谈\"}]";j.reply_num=f;j.like_num=9;j.hate_num=a;j.vote_option_json=d;j.deck_info_json=d;j.reward_fire_total=k;j.reward_fire_rank=[{reward_fire:k,username:"1425917"}];j.ban_comment=a;j.close_comment=a;j.visible=f;j.anonymous=a;j.at_users_json=d;j.created=l;j.feed_created=l;j.rs_feed_created=a;j.remuneration_created=a;j.mina_share_image="https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcover\u002F2024\u002F01\u002F31\u002F15175704\u002F1d49d7af-d2a3-4694-8463-eef9a98239ca_w_560_h_308.jpg?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fcrop\u002F400x320";j.iphome=i;j.keywords=d;j.description=d;m.collected=e;m.is_manager=e;m.follow_author=e;m.action=a;m.vote_faction=a;return {layout:"default",data:[{type:b,postInfo:{author:h,post:j,user:m},post:j,user:m,author:h,errMsg:d,recommendList:[{post_id:5385821,post_type:b,title:"被男娘硬控了？你需要本期作品推荐！",cover:"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcover\u002F2024\u002F07\u002F11\u002F16974497\u002F15dc1908-b9c4-4b0f-a4fe-d180d0a1ed64_w_620_h_341.jpg?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fthumbnail\u002F500x|imageMogr2\u002Fquality\u002F30",reply_num:a,like_num:f,iphome:"四川"},{post_id:5361706,post_type:b,title:"【营地囧图第168期】我就说比起画展我更喜欢摄影展吧！",cover:"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcover\u002F2024\u002F03\u002F29\u002F16631488\u002Fdbfff48d-ba27-4a1a-af49-2ec0f4cff2d8_w_449_h_247.jpg?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fthumbnail\u002F500x|imageMogr2\u002Fquality\u002F30",reply_num:n,like_num:19,iphome:"天津"},{post_id:5399491,post_type:b,title:"iPhone16\u002FPro搭载新一代超瓷晶面板 硬度较初代提升50%",cover:"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcover\u002F2024\u002F09\u002F11\u002F1107271\u002F25f96a7b-69f2-4c1d-bfd8-b0330913dcd1_w_583_h_321.jpg?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fthumbnail\u002F500x|imageMogr2\u002Fquality\u002F30",reply_num:f,like_num:a,iphome:"安徽"},{post_id:5352857,post_type:b,title:"【营地囧图第131期】老师，我，我只是太想进步了，想和你跟进一步……",cover:"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcover\u002F2024\u002F02\u002F21\u002F16631488\u002F89215a0b-2380-4fc5-bde5-7c5b44f412fc_w_378_h_208.jpg?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fthumbnail\u002F500x|imageMogr2\u002Fquality\u002F30",reply_num:n,like_num:22,iphome:"中国"},{post_id:5361149,post_type:b,title:"微软强迫开发者不要创造“夸张身体比例”的女性角色",cover:"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcover\u002F2024\u002F03\u002F26\u002F1107271\u002Fd982365a-1903-4486-a246-b042cb988320_w_441_h_243.jpg?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fthumbnail\u002F500x|imageMogr2\u002Fquality\u002F30",reply_num:4,like_num:g,iphome:"亚太地区"},{post_id:5359361,post_type:b,title:"《英雄联盟》女装大佬Sneaky新照：白丝美腿面容娇美",cover:"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcover\u002F2024\u002F03\u002F19\u002F16751781\u002F5151c5dc-bdb3-498f-b30c-73fe7841b492_w_500_h_275.jpg?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fthumbnail\u002F500x|imageMogr2\u002Fquality\u002F30",reply_num:o,like_num:p,iphome:"陕西"},{post_id:5510845,post_type:b,title:"曝CDPR世界观设计师是跨性别支持者 曾蔑视玩家们不懂游戏",cover:"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcover\u002F2024\u002F12\u002F20\u002F15175704\u002Fcd7e45df-3d04-4102-9a9a-9e0ad76945d0_w_550_h_303.jpg?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fthumbnail\u002F500x|imageMogr2\u002Fquality\u002F30",reply_num:g,like_num:f,iphome:"江苏"},{post_id:5505792,post_type:b,title:"索尼银座大厦变身主题乐园 游戏是社交场音乐是旅行",cover:"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcover\u002F2024\u002F12\u002F11\u002F11366627\u002Fc88217b7-3d15-4032-be27-92df577614ee_w_565_h_311.jpg?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fthumbnail\u002F500x|imageMogr2\u002Fquality\u002F30",reply_num:a,like_num:a,iphome:q},{post_id:5501459,post_type:b,title:"网易云和QQ音乐们，终于想清楚要做什么了。",cover:"https:\u002F\u002Fpic.iyingdi.com\u002Fpost\u002Fcover\u002F2024\u002F12\u002F03\u002F16510364\u002Fffd95ff3-3e2c-41f3-8032-9e0697a84ec3_w_350_h_193.jpg?imageMogr2\u002Fformat\u002Fjpg|imageMogr2\u002Fthumbnail\u002F500x|imageMogr2\u002Fquality\u002F30",reply_num:p,like_num:o,iphome:q}]}],fetch:[],error:c,state:{common:{emojiList:[]},gameCard:{visible:e},notice:{reply:a,inform:a,bulletin:a,private_msg:a},sideBar:{rightSide:[],PopularList:[]},tag:{tagList:[],moduleList:[],tempPostTagList:[]},user:{token:r,refresh_token:r,avatar:c,background_image:c,credits_score:a,level:a,email:c,fee:a,fire_coin:a,follower:a,following:a,in_use_medals:{},is_block:e,is_followed:e,like_total:a,country:c,mobile:c,nickname:c,nickname_status:g,personal_remark:c,post_total:a,social_accounts:[],user_id:c,vip_type:a,shipping_address:[],roles:{},iphome:d}},serverRendered:true,routePath:"\u002Ftz\u002Fpost\u002F5350168",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:c}}}}(0,13,null,"",false,1,2,{},"广西",{},500,1706786750,{},11,10,3,"北京",void 0));</script><script src="/_nuxt/js/82.cdcd641a481b337d1407.js" defer=""></script><script src="/_nuxt/js/54.c461b2d77024a06a2868.js" defer=""></script><script src="/_nuxt/js/0.2d4f622b365811419312.js" defer=""></script><script src="/_nuxt/js/55.20b8dc2c7421de2c2b2e.js" defer=""></script><script src="/_nuxt/js/56.f62a1c47f25b5f5d98da.js" defer=""></script><script src="/_nuxt/js/16.02c188baeeeb67d41bfd.js" defer=""></script><script src="/_nuxt/js/18.55f90ae65b27074ba3af.js" defer=""></script><script src="/_nuxt/js/20.3c8c9930d427e71238b8.js" defer=""></script><script src="/_nuxt/js/21.2b4290762dfcd0ea6bd5.js" defer=""></script><script src="/_nuxt/js/22.1265e60b845ed7c8b2d8.js" defer=""></script><script src="/_nuxt/js/15.221ebe6634ebd58dd5d0.js" defer=""></script><script src="/_nuxt/js/17.402000dbaaea6687ec0c.js" defer=""></script><script src="/_nuxt/js/19.6d8a8fe38fc071f11a7e.js" defer=""></script><script src="/_nuxt/js/87.3f8daa56cc0ffe27cbdc.js" defer=""></script><script src="/_nuxt/js/93.828818c7642c3d0ba67c.js" defer=""></script><script src="/_nuxt/js/86.16331990a1ea0e1a264e.js" defer=""></script><script src="/_nuxt/js/100.04afb6ae54858a71502e.js" defer=""></script><script src="/_nuxt/js/104.fb1083969d83637ac6a0.js" defer=""></script><script src="/_nuxt/js/89.63a805528b80846f86db.js" defer=""></script><script src="/_nuxt/js/84.9d404bb10e307ed8985d.js" defer=""></script><script src="/_nuxt/js/102.7d5fc933ddfe7565d503.js" defer=""></script><script src="/_nuxt/js/83.4ea051e264192bc271ca.js" defer=""></script><script src="/_nuxt/js/101.9ad3795f48964c4d50db.js" defer=""></script><script src="/_nuxt/js/94.61da6458278c814d4045.js" defer=""></script><script src="/_nuxt/js/91.0c21d3465c619bdf1cef.js" defer=""></script><script src="/_nuxt/js/95.4d31632610a1333899a6.js" defer=""></script><script src="/_nuxt/js/96.24b2512f9fb687e0b351.js" defer=""></script><script src="/_nuxt/js/88.a533f8408e2c1b966e45.js" defer=""></script><script src="/_nuxt/js/92.503d399c7594ec2ca85b.js" defer=""></script><script src="/_nuxt/js/97.1a59222d4c6388d0c99a.js" defer=""></script><script src="/_nuxt/js/98.fe1e2eb2a950f41e7d24.js" defer=""></script><script src="/_nuxt/js/105.1e5c801fe74974aa1c81.js" defer=""></script><script src="/_nuxt/js/103.c7edc266a8abf369c07c.js" defer=""></script><script src="/_nuxt/js/99.43371a1406403f808b9d.js" defer=""></script><script src="/_nuxt/js/85.a5168cd6310642ab4c0c.js" defer=""></script><script src="/_nuxt/js/90.4af9f0d5960aeece41ee.js" defer=""></script><script src="/_nuxt/js/13.d98ad2def64c04a4d72e.js" defer=""></script><script src="/_nuxt/js/12.f47639a030c14a98655c.js" defer=""></script><script src="/_nuxt/js/14.687dc8cee5c0af40b26c.js" defer=""></script>
+  
+
+<link href="/_nuxt/css/0.c80283b01fd1ab5800a2.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/55.61ad8e47ba022e0a1ba7.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/56.19beb18125fc00cf1dd4.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/54.fcc9f4f9e995a092611a.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/11.6b9e0861aaa18569ebd7.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/1.fefb2a331750cc506491.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/28.424503b4b0d67766d20b.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/8.6a1963d92c72fc95c578.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/40.4fefcca7ad84cf43150c.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/9.226472bf660e1d848a43.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/61.552e8f5c3e585ab734bf.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/48.04f1f07722695b305c7f.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/3.b28d2dcf36f1fcf45aaa.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/4.323c7de58c72d737a917.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/51.d90fdf20219eb258f086.css" rel="stylesheet" type="text/css"><link href="/_nuxt/css/52.c9a0a8e4d3a406917cfa.css" rel="stylesheet" type="text/css"></body></html>

@@ -1,0 +1,53 @@
+# 有人通过网络非法贩卖变性药？温州警方通报：已成立专门调查组
+
+![二维码](data:image/png;base64,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)
+
+## 时间
+2021-04-09 17:19
+
+## 来源
+[潇湘晨报](https://news.qq.com/omn/author/8QMb3Hla7YEbsD8%3D)
+
+## 正文
+4月9日，浙江省温州市公安局鹿城区分局官方公众号发布警情通报称，针对有媒体报道“有人通过网络非法贩卖变性药”的情况，鹿城警方高度重视，已成立专门调查组开展相关调查工作。
+
+温州市公安局鹿城区分局  
+2021年4月9日
+
+### 此前报道
+此前，温州晚报官方公众号发布《温州一母亲崩溃哭诉：平时听话孝顺的儿子被人一步步诱骗，竟要打针吃药“变性”…》一文，引发广泛关注。
+
+记者潜入一个名为“药娘QQ群”的群，结果发现令人惊悚“内幕”……
+
+这半年来，市民刘女士（化名）常躲在家里痛哭。她说，离婚后，自己最大的指望就是乖巧的儿子，但自从她撞破儿子的秘密后，一切都变了。她不止一次从角落里搜出儿子藏的变性药、女性内衣，甚至还发现儿子想去外省援交，换取变性费用……
+
+她发现儿子的种种变化，与一个“药娘QQ群”有千丝万缕的关系，“那就是个‘药娘’群，一些别有用心的人，在里面诱骗十几岁的男孩，先用女性用品刺激孩子，再一步步诱导孩子吃药变性。”刘女士说。记者潜伏进群，发现了一幕幕令人惊悚的“荒诞剧”。
+
+记者设法与刘女士混入这个新的“药娘”群。这个群里有200多人，看成员们的简介与聊天记录，大部分是十几岁的男性，他们大多梦想变成女人，普遍认为自己不被世人所理解，所以纷纷聚在群里“抱团取暖”。而这个群隐隐一条灰色产业链，有人贩卖女性用品，有人出售变性药物，有人推销整容服务……一名“药娘”所需要的任何商品药品，群里都能提供。
+
+他们自称用的“药娘”，指通过服用或注射药物等手段，使其生理状态更趋女性化的男性或双性别人群。而“药娘”这一名词来源于日本动漫圈。
+
+由于没有接受正规医院的变性手术，光靠药物不能彻底变性，所以“药娘”需要终身使用变性药，他们把这称为“吃糖”。
+
+这个群体通常买卖的变性药有三大类别，分别是抗雄激素药物，雌激素，以及孕激素。其中，来自泰国的药物因性价比较高，颇受“药娘”欢迎。
+
+“药娘”群还暗藏性交易。记者在“药娘”群里了解到，一次线下的钱色交易，少则400元，多则2000元不等。为规避风险，“药娘”们的交易都在一个境外社交软件上完成。
+
+### 版权
+版权归原作者所有，向原创致敬
+
+![图片1](http://inews.gtimg.com/newsapp_bt/0/13391468517/641)
+
+![图片2](http://inews.gtimg.com/newsapp_bt/0/13391468520/641)
+
+![图片3](http://inews.gtimg.com/newsapp_bt/0/13391471707/641)
+
+## 评论
+文明上网理性发言，请遵守[《新闻评论服务协议》](https://new.qq.com/static/coralinfo.htm)
+
+- 用户gtomqwe: 这叫文化侵略，希望有公安部门，文化部高调介入，大力发展体育运动。
+- 河南网友: 一定要严惩，得毁掉多少孩子。
+- 辽宁网友: 一群无知的人，那种孩子都是有性别认知障碍的。已经很可怜了。
+- 四川网友: 他们确实可怜，但那不是性别认知障碍！他们表面是男生，其实性别是男半女！
+
+查看全部116条评论

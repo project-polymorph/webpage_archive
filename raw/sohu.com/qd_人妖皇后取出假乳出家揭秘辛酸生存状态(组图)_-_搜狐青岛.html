@@ -1,0 +1,837 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<meta name="description" content="人妖皇后取出假乳出家 揭秘辛酸生存状态(组图)">
+<meta name="keywords" content="人妖 皇后">
+<meta name="robots" content="all">
+<script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202411140101/show_ads_impl.js?bust=31089090"></script><script type="text/javascript">
+
+  var videoNum = 0;
+
+</script>
+<title>人妖皇后取出假乳出家 揭秘辛酸生存状态(组图)-搜狐青岛</title>
+<script src="http://www.sohu.com/sohuflash_1.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://js.sohu.com/library/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="http://news.sohu.com/upload/article/2012/js/tongji_v2013110101.js"></script>
+
+<script type="text/javascript">
+jQuery(function(jq){
+	//标签
+	function changeTab(lis, divs, nums, nowCls){
+		lis.each(function(i){
+			var els = jq(this);
+			els.mouseenter(function(){
+				lis.removeClass(nowCls);
+				divs.stop().hide();
+				jq(this).addClass(nowCls);
+				divs.eq(i).show();
+			});
+		}).eq(nums).mouseenter();
+	}
+	
+	var divA = jq("#kind-video"); //视频菜单
+	changeTab(divA.find(".video-menu li"), divA.find(".video-cont"), videoNum, "video-menu-now");
+	
+	jq(".fontsize").hover(function(){
+		jq(".fontsize-layer").show();
+		},function(){
+		jq(".fontsize-layer").hide();
+	});
+	
+        jq(".print").hover(function(){
+                   jq(".print-layer").show();
+                   },function(){
+                   jq(".print-layer").hide();
+         });
+
+	var phoneNumInput = jq(".rightbar-wrapper .phoneNews .rssArea .Ftxt"),
+		phoneNumBtn = jq(".rightbar-wrapper .phoneNews .rssArea .Fbtn");
+	phoneNumInput.hover(function(){  // xlx
+		jq(this).parent().addClass("current");
+	},function(){
+		jq(this).parent().removeClass("current");
+	});
+	phoneNumInput.focus(function(){
+		var _this = $(this);
+		var val = _this.val();
+		if(val == '输入手机号码'||val == '手机号码输入错误！'||val == '此号码发送次数过多！'||val == '失败！'){
+			_this.val("");
+			_this.parent().removeClass("error");
+		}
+	}).blur(function(){
+		var _this = $(this);
+		if(_this.val() == ''){
+			_this.val('输入手机号码');
+			_this.parent().removeClass("error");
+		}
+	});
+	
+	jq(".rightbar-wrapper .phoneNews .Fbtn").click(function(){// 订阅按钮点击
+		var _mobile = phoneNumInput.val();	
+		if(!(/^1[3458]\d{9}$/.test(_mobile))){
+			phoneNumInput.val("手机号码输入错误！");
+			phoneNumInput.parent().addClass("current error");
+		}else{
+			var formData = {
+					"number" : _mobile
+					};
+			var submitUrl = "http://api.k.sohu.com/api/client/sendmsg.go?callback=?";
+			$.ajax({
+				url: submitUrl,
+				data: formData,
+				dataType:"jsonp",
+				success: function(data){
+					var _code = data.data;				
+					var _msg = "";
+					switch(_code){
+						case "1":
+							phoneNumInput.parent().addClass("current error succeed");
+							phoneNumInput.add(phoneNumBtn).hide();
+							break;
+						case "0":
+							_msg = "失败！";
+							break;
+						case "12001":
+							_msg = "手机号码输入错误！";	
+							break;
+						case "12003":
+							_msg = "此号码发送次数过多！";
+							break;			
+					};
+					phoneNumInput.val(_msg);
+					phoneNumInput.parent().addClass("current error");
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown){
+					alert("error");
+				}
+			});			
+		}
+	});
+});
+//去搜狐首页的检测
+function toHomePage(){
+                   var serverUrl = "http://www.n-s.cn/news.png";
+                   $.ajax({
+                type: "GET",
+                url: serverUrl,
+                dataType: "jsonp",
+                success:function(){}
+            });             
+}
+//转换字号
+function doZoom(size){	
+	jQuery("#contentText").css("fontSize",size);
+}
+var printArticle = function(){
+	jQuery.getScript("http://news.sohu.com/upload/article/2012/js/print_roll.js",function(){printer.print()},true)
+}
+var topicId = 334087882;
+var grobal_arg={};
+grobal_arg['topicId']=topicId;
+var jumpUrl=function(x){
+	var url = '', e = encodeURIComponent, s = screen, d = document, wd = 0, hg = 0, u = d.location , y = x,topicId =grobal_arg.topicId;
+	//缺个我的搜狐的分享的跳转URL
+	//topicId的确认方式
+	switch (y)
+	{
+	case 't':	url ="http://t.sohu.com/third/post.jsp?link="+e(u.href)+"&title="+e(d.title);wd = 660;hg = 470;break;
+	case 'bai':	url ="http://bai.sohu.com/share/blank/addbutton.do?link="+e(u.href)+"&title="+e(d.title);wd = 480;hg = 340;break;
+	case 'douban':	url ="http://www.douban.com/recommend/?url="+e(u.href)+"&title="+e(d.title);wd = 460;hg = 340;break;
+	case 'renren':	url ="http://share.renren.com/share/buttonshare?link="+e(u.href)+"&title="+e(d.title);wd = 590;hg = 430;break;
+	case 'kaixin':	url ="http://www.kaixin001.com/repaste/share.php?rurl="+e(u.href)+"&rtitle="+e(d.title);wd = 540;hg = 360;break;
+	case 'itb':     var ctxt = $('#contentText').length>0?$('#contentText').text().replace(/<[^>].*?>/g,'').substr(0,120):'';
+			url ="http://tieba.baidu.com/i/sys/share?link="+e(u.href)+"&type=text&title="+e(d.title)+"&content="+e(ctxt);wd = 626;hg = 436;
+			break;
+	case 'go139':	url ="http://go.139.com/ishare.do?shareUrl="+e(u.href)+"&title="+e(d.title)+"&sid=20dd04a99380c2e8d56cf187f6658169";wd = 630;hg = 500;break;
+	case 'qq':	url ="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+e(u.href);wd = 900;hg = 500;break;
+           case 'sohukan': url ="http://kan.sohu.com/share/?href="+e(u.href)+"&title="+e(d.title)+"&appkey=1550c1b2513a1461a4ea4914af8aa8fe";wd = 760;hg = 477;break;
+	default :	return false;
+	}
+	var a=function(){
+		if (!window.open(url, 'sohushare', ['toolbar=0,status=0,resizable=1,width='+ wd +',height='+ hg +',left='+ (s.width - wd) / 2+ ',top='+ (s.height - hg) / 2]))
+			u.href = [url].join('');
+	}
+	if (/Firefox/.test(navigator.userAgent)){
+		setTimeout(a, 0);
+	}else{
+		a();
+	}
+
+	var stat = (new Image);
+	try{stat.src = "http://219.234.82.222/zhuanfa/index.php?newsId=" + /http:\/\/(.*)(\.sohu.com\/.*\/n)(.{9})/g.exec(document.location)[3] + "&newsName=" + e(d.title) + "&newsUrl=" + d.location.href + "&postId=" + x;
+	}catch(e){}
+}
+//媒体来源
+function media_span_url(id_media_span_url) {
+    if(id_media_span_url) {
+        id_media_span = jQuery('#media_span');
+        if(!id_media_span.find('a').length) {
+            id_media_span.html('<a href=\'' + id_media_span_url + '\' target=\'_blank\'>' + id_media_span.html() + '</a>');			
+        }
+    }
+}
+ 
+</script>
+<script src="http://img.wan.sogou.com/cdn/ufo/fid/fid.js"></script>
+<script>
+    var fid;
+    Sogou_FID.get(function(sid){
+        fid = sid;       
+    });
+</script>
+<link type="text/css" rel="stylesheet" href="http://css.sohu.com/upload/global1.4.1.css">
+<link type="text/css" rel="stylesheet" href="http://news.sohu.com/upload/article/2012/style.v20130419.css">
+
+<!--青岛自有样式-->
+<style>
+#nav{ text-align:left;background:url(http://qd.sohu.com/upload/newspages/qingdao_nav_bg.gif) no-repeat 100% 0;}
+#nav a{margin:0;}
+#container .focus-news .list12{padding:6px 15px 10px;}
+#container .focus-news li{background:none; padding-left:0;}
+#container .focus-news li span{ margin-right:8px; color:#059;}
+#container .focus-news li span a{ font-weight:bold;}
+
+#container .day-commend .list12 ul{width:auto; padding:0 15px 10px; margin:10px auto 0;}
+#container .day-commend .list12 li{background:none; padding-left:0;}
+#container .day-commend li span{ margin-right:8px; color:#059;}
+#container .day-commend li span a{ font-weight:bold;}
+
+#container .vedio-con .list12{padding:0 15px 10px;}
+#container .vedio-con .list12 li{background:none; padding-left:0;}
+#container .vedio-con .list12 li img{ margin-right:8px;}
+
+#container .kind-video{height:330px;}
+#container .video-cont ul{ margin:0 15px; background:url(http://qd.sohu.com/upload/newspages/bg-rank.gif) no-repeat 0 7px; padding:0 0 0 25px;}
+#container .video-cont li{line-height:16px; padding:6px 0;}
+
+#container .kind-video .video-menu{background:url(http://qd.sohu.com/upload/newspages/qingdao_bg_right.gif) repeat-x 0 0;}
+#container .kind-video .video-menu .video-menu-now{background:url(http://qd.sohu.com/upload/newspages/qingdao_bg_right.gif) repeat-x 0 -40px;}
+
+
+#contentC .boxRE{padding:15px 0 0;}
+#contentC .boxRE .pt{width:230px; padding:14px 15px 0 14px;}
+#contentC .boxRE .pt div img{ padding:1px; border:1px solid #ccc; }
+#contentC .boxRE .pt div{float:left; width:49px; margin-right:10px; _margin-right:7px;}
+#contentC .boxRE .pt h4{line-height:16px; font-weight:bold; padding-bottom:3px;}
+#contentC .boxRE .pt p{ line-height:20px;}
+#contentC .boxRE .pt p a{color:#666;}
+#contentC .boxRE .pt p a:hover{color:#c00;}
+.boxRAD{margin-bottom:10px;}
+
+#contentA .main-left .left .boxLC .pic-text{width:230px; padding:18px 15px 4px 14px;}
+#contentA .main-left .left .boxLC .pic-text div{ width:100px; height:75px; padding:2px; border:1px solid #ccc;}
+#contentA .main-left .left .boxLC .pic-text h4{line-height:20px; font-size:14px; font-weight:bold; padding-bottom:4px;}
+#contentA .main-left .left .boxLC .pic-text p{ line-height:20px;}
+
+#container .rightbar-wrapper .blockRA{margin-bottom:15px;background:#FFFEF2;border:1px #F0E3BC solid;width:298px;padding:10px 0;}
+#container .rightbar-wrapper .blockRA .tt{height:36px;padding:0 12px;text-align:right}
+#container .rightbar-wrapper .blockRA .tt span{float:left;width:96px;height:36px;overflow:hidden;background-position:-220px -140px;line-height:500px}
+#container .rightbar-wrapper .blockRA .tt span a{display:block;height:100%;width:100%}
+#container .rightbar-wrapper .blockRA .btn-bl{width:67px;height:23px;margin:10px auto 0;display:inline-block;line-height:26px;overflow:hidden;text-align:center;color:#333;text-decoration:none;background-position:-80px -140px}
+#container .rightbar-wrapper .blockRA a:hover.btn-bl{color:#fff;background-position:-80px -170px}
+#container .rightbar-wrapper .blockRA .list{width:245px;margin:11px auto 0}
+#container .rightbar-wrapper .blockRA .list li{height:24px;line-height:24px;overflow:hidden;color:#333}
+#container .rightbar-wrapper .blockRA .list li span{display:inline-block;width:49px;padding-right:4px;height:15px;margin-right:6px;line-height:15px;text-align:center}
+#container .rightbar-wrapper .blockRA .list .bg1{background-position:-160px -140px;color:#fff}
+#container .rightbar-wrapper .blockRA .list .bg2{background-position:-160px -170px;color:#fff}
+.btn-bl,#container .rightbar-wrapper .blockRA .list .bg1,#container .rightbar-wrapper .blockRA .list .bg2,#container .rightbar-wrapper .blockRA .tt span,.icon-s{background:url(http://i0.itc.cn/20130910/2dd4_9446cb1c_8bdb_5cc3_e640_edd9129ba5f6_1.gif) no-repeat}
+#container .rightbar-wrapper .blockRA .tt{height:36px;padding:0 12px;text-align:right}
+#container .rightbar-wrapper .blockRA .tt span{float:left;width:96px;height:36px;overflow:hidden;background-position:-220px -140px;line-height:500px}
+#container .rightbar-wrapper .blockRA .tt span a{display:block;height:100%;width:100%}
+#container .rightbar-wrapper .blockRA .list .bg1{background: url(http://i0.itc.cn/20130910/2dd4_9446cb1c_8bdb_5cc3_e640_edd9129ba5f6_1.gif) no-repeat -160px -140px;}
+#container .rightbar-wrapper .blockRA .list .bg2{background: url(http://i0.itc.cn/20130910/2dd4_9446cb1c_8bdb_5cc3_e640_edd9129ba5f6_1.gif) no-repeat -160px -170px;}
+
+
+</style>
+
+<script type="text/javascript">
+var sogou_is_brand = new Object();
+sogou_is_brand["pid"]  = 'sohu__brand';
+sogou_is_brand["charset"]   = 'gb2312';
+sogou_is_brand["sohuurl"] = document.location.href;
+</script>
+<meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
+
+<body>
+<div data-type="roll" data-appid="1079" id="isohu-topbar"></div>
+<link type="text/css" rel="stylesheet" href="http://news.sohu.com/upload/itoolbar/cms/itoolbar.201410281438.css" charset="UTF-8">
+<style type="text/css"> 
+#innerToolBar{width:980px;}
+.mutu,.tagHotg,.mutualityNEW,.mutu-new{display:none}
+</style>
+<script src="http://news.sohu.com/upload/itoolbar/itoolbar.cms.loader.201410281438.js" charset="UTF-8"></script>
+
+<!-- 导航 st -->
+<div id="nav" class="area"><a href="http://qd.sohu.com/" target="_blank">首页</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://mp.i.sohu.com/jiangfenghua/profile" target="_blank">资讯</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://qd.sohu.com/finance.shtml" target="_blank">消费</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://qd.sohu.com/health.shtml" target="_blank">生活</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://qd.sohu.com/meishi.shtml" target="_blank">美食</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://qd.sohu.com/baoliao/" target="_blank">爆料</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://qd.sohu.com/news/qdrw.shtml" target="_blank">人文</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://club.qd.sohu.com/qingdao/threads?type=photo" target="_blank">图片</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://qd.sohu.com/zhuanti/" target="_blank">专题</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://qd.focus.cn/" target="_blank">房产</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://qingdao.auto.sohu.com/" target="_blank">汽车</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://sohu.lecai.com/?agentId=6794" target="_blank">彩票</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://qd.sohu.com/zhuanti/#huodong" target="_blank">活动</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://club.qd.sohu.com/qingdao/threads" target="_blank">青岛论坛</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://mp.i.sohu.com/profile?xpt=YWRvbnlAdmlwLnNvaHUuY29t" target="_blank">山东</a></div>
+<!-- 导航 end -->
+
+<div class="turn-ad area">
+	<div class="left"><a href="http://club.qd.sohu.com/qingdao/threads" target="_blank"><img src="http://i1.itc.cn/20140822/2f8d_645907fc_831a_4388_21e9_21f22d39f406_1.jpg" width="980" height="100" alt="搜狐社区广告"></a></div>
+</div>
+
+
+<!-- 翻牌通栏广告 st -->
+<sohuadcode></sohuadcode>
+<!-- 翻牌通栏广告 end -->
+
+
+<!-- 频道导航 st -->
+<div id="channel-nav" class="area">
+	<div class="left"> <a target="_blank" href="http://qd.sohu.com/"><img width="110" height="24" alt="" src=" http://qd.sohu.com/upload/newspages/qingdao_logo3.gif"></a>
+
+<span>&gt; <a href="http://qd.sohu.com/ent.shtml">娱乐</a> &gt; <a href="http://qd.sohu.com/ent/ylmx.shtml">明星</a></span></div>
+        <div class="navigation" style="display:none"><a href="http://qd.sohu.com/index.shtml">搜狐青岛</a> &gt; <a href="http://qd.sohu.com/ent.shtml">娱乐</a> &gt; <a href="http://qd.sohu.com/ent/ylmx.shtml">明星</a></div>
+	<div class="right"></div>
+</div>
+<!-- 频道导航 end -->
+
+<div id="container" class="area">
+	<div class="content-wrapper grid-675">
+		<!-- 广告 -->
+		<div class="ad675">
+			<sohuadcode></sohuadcode>
+		</div>
+		
+		<div class="content-box clear">
+			<!-- 文章标题 -->
+			<h1>人妖皇后取出假乳出家 揭秘辛酸生存状态(组图)</h1>
+			
+			<!-- 正文标签 -->
+			<div class="label-ad clear" id="commentTab">
+                 <div class="label">
+                     <ul>
+                          <li class="text-label"><em>正文</em></li>
+                          <li class="com-label"><em><a href="http://pinglun.sohu.com/s376264080.html">我来说两句<span class="f12">(<span class="red"><img src="http://comment.news.sohu.com/upload/comment4/images/loading_blue.gif" width="16px" height="16px"></span>人参与)</span></a></em></li>
+                     </ul>
+                  </div>
+				  <div class="ad">
+				  	  <div class="adFrag"><sohuadcode></sohuadcode></div>
+				</div>
+			</div>
+			
+			<!-- 时间 来源 -->
+			<div class="time-fun clear">
+				<div class="time-source">
+					<div class="time">2013年05月17日11:14</div>
+						
+					<div class="source">
+						
+						<span class="sc">来源：<span id="media_span">齐鲁网</span></span>
+						
+						
+					</div>
+				
+				</div>
+				<div class="function">
+					<ul>
+						<li class="phone-ctcp"><a href="http://k.sohu.com/" target="_blank">手机客户端</a></li>
+						<li class="print"><a href="javascript:printArticle()">打印</a></li>
+						<li class="fontsize"><a href="javascript:void(0)">字号</a>
+							<div class="fontsize-layer"><a href="javascript:doZoom(16)">大</a>|<a href="javascript:doZoom(14)">中</a>|<a href="javascript:doZoom(12)">小</a></div>
+						</li>
+						<li class="transmit_txt"><a href="javascript:void(0)">保存到博客</a></li>
+					</ul>
+				</div>
+
+			</div>
+			
+			<!-- 正文 -->
+
+
+<div class="original-title"><strong>原标题</strong> [<strong>泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态(组图)</strong>]</div>
+
+
+
+			<div class="text clear" id="contentText">
+				　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264081.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="264"></div></td></tr></tbody></table></div>
+<!-- auto_video_begin --><div class="video">
+<div class="text-video-focus">
+<script type="text/javascript" src="http://tv.sohu.com/upload/swf/showVrsPlayer.js"></script>
+<script type="text/javascript">// <![CDATA[
+showVrsPlayer({vid: '1137912',pid: '355361728',width: '360',height: '305',autoplay: 'false',playercover: 'http://photocdn.sohu.com/20130516/vrs839996.jpg',playerID:'player44',showCtrlBar:1});
+// ]]></script></div>
+<div class="text-video-cont clear">
+<div class="text-video-tt"><a href="http://tv.sohu.com/20130516/n376116629.shtml?src=sohuBP_left_QR" target="_blank" title="泰国人妖皇后取出假乳出家当和尚">泰国人妖皇后取出假乳出家当和尚</a></div><div class="scount"><span class="pcount" rel="1137912"><a href="#" target="_blank" rel="1137912" class="pcount"> </a></span><span class="rcount" rel="1137912"><a href="#" target="_blank" rel="1137912" class="rcount"> </a></span></div></div>
+<div class="video-share"></div>
+</div><!-- auto_video_end -->
+<br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264082.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="264"></div></td></tr></tbody></table></div><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264083.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="263"></div></td></tr></tbody></table></div><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264084.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="264"></div></td></tr></tbody></table></div><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<!--page--><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264085.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="320"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px"></font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264086.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="364"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px"></font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264087.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="335"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px"></font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="齐鲁网_滚动新闻_80_7.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px"></font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264088.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="335"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px"></font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264089.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="358"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px"></font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264090.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="335"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px"></font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264091.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="320"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px"></font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264092.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="385"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px"></font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264093.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="371"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px"></font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264094.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="355"></div></td></tr></tbody></table></div><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264095.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="427" height="602"></div></td></tr></tbody></table></div><br>　　越战期间，泰国芭塔雅红灯区为了提供消遣娱乐给当时停驻在泰国南部作战的海军们，酒吧红灯区，色情产业大大推动了此处的繁华。泰国性工作者数量有20万。其中不乏备受关注的人妖们。近日有一组高清图，曝光了当地人妖们招揽生意的景象。<!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264096.jpg" alt="泰国人妖皇后取出假乳出家当和尚 揭密人妖皇后芭堤雅生存状态" width="500" height="332"></div></td></tr></tbody></table></div><br>　　越战期间，泰国芭塔雅红灯区为了提供消遣娱乐给当时停驻在泰国南部作战的海军们，酒吧红灯区，色情产业大大推动了此处的繁华。泰国性工作者数量有20万。其中不乏备受关注的人妖们。近日有一组高清图，曝光了当地人妖们招揽生意的景象。<!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264097.jpg" alt="图为当地时间1月18日，泰国曼谷娜娜娱乐广场，变性人等候顾客。" width="500" height="332"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px">图为当地时间1月18日，泰国曼谷娜娜娱乐广场，变性人等候顾客。</font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264099.jpg" alt="图为当地时间1月5日，泰国曼谷娜娜娱乐广场，性工作者招揽生意。" width="497" height="497"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px">图为当地时间1月5日，泰国曼谷娜娜娱乐广场，性工作者招揽生意。</font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264100.jpg" alt="图为当地时间1月21日，泰国曼谷娜娜娱乐广场，一名性工作者离开酒店。" width="400" height="274"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px">图为当地时间1月21日，泰国曼谷娜娜娱乐广场，一名性工作者离开酒店。</font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264102.jpg" alt="图为当地时间1月12日，泰国曼谷牛仔巷红灯区，一位变性人正在照镜子。" width="500" height="331"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px">图为当地时间1月12日，泰国曼谷牛仔巷红灯区，一位变性人正在照镜子。</font></div><!--page--><br><br>　　泰国有一名人妖选美皇后出家，当和尚去了。24岁的纳提是2009年泰国变性人选美比赛冠军，在决定出家之后，他开刀取出乳房填充物，他身体别的部位没有动过手术，所以依然是百分之百的男子汉，他觉得自己的性格也比较接近男性，所以选择为僧，而非为尼。<br><br><div align="center"><table align="center"><tbody><tr><td><div align="center"><img src="http://photocdn.sohu.com/20130517/Img376264104.jpg" alt="图为当地时间1月19日，泰国曼谷娜娜娱乐广场，一名性工作者在招揽顾客。" width="500" height="333"></div></td></tr></tbody></table></div><div align="center"><font style="FONT-SIZE: 12px">图为当地时间1月19日，泰国曼谷娜娜娱乐广场，一名性工作者在招揽顾客。</font></div>  (来源：中新网)<iframe align="center" marginwidth="0" marginheight="0" src="http://qd.sohu.com/s2012/jingbian/index.shtml" frameborder="0" width="630" scrolling="no" height="430"></iframe><script>media_span_url('http://ent.iqilu.com/news/2013/0517/1534944.shtml')</script>
+			</div>
+			
+			<!-- 分享 -->
+			<div class="share clear" id="share">
+            	<div class="editer">(责任编辑：李毅)</div>
+            	<ul>
+                                               <li class="share-tt">分享：</li>
+                                               <li class="blg"><a href="javascript:void(0)" onclick="jumpUrl('t')" title="分享到搜狐微博"></a><em></em></li>
+                                               <li class="qq"><a href="javascript:void(0)" onclick="jumpUrl('qq')" title="分享给QQ好友"></a><em></em></li>
+                                               <li class="rrw"><a href="javascript:void(0)" onclick="jumpUrl('renren')" title="分享到人人网"></a></li>
+                                               <li class="sohukan"><a href="javascript:void(0)" onclick="jumpUrl('sohukan')" title="收藏到搜狐随身看"></a><em></em></li>
+                                               <li class="transmit_txt"><a href="javascript:void(0)">[保存到博客]</a></li>
+                                     </ul>
+<div class="go_sohu_home"><a href="http://www.sohu.com" target="_blank" onclick="toHomePage();"></a></div>
+            </div>			
+			
+			<!-- 相关 -->
+			<!-- 本文相关推荐-->
+			<style>
+/* 相关热点 2010-09-09 */
+#contentA .tagHotg{clear:both;margin:10px auto 0;text-align:left}
+#contentA .tagHotg h3{height:24px;font:600 14px/24px "宋体";color:#333}
+#contentA .tagHotg .tagIntg{display: block;overflow:hidden;zoom:1;clear:both;width:100%;margin:3px auto 0}
+#contentA .tagHotg .tagIntg li{float:left;width:205px;font:14px/24px "宋体"}
+#contentA .tagHotg .tagIntg li a{ text-decoration:none !important;}
+#contentA .tagHotg .tagIntg li a:hover{text-decoration:underline !important;}
+#contentA .text .line{width:100%}
+</style>
+<div class="tagHotg">
+  <h3>本文相关推荐</h3>
+  <div class="tagIntg">
+    <ul>
+	<li><a href="http://www.sogou.com/web?query=皇后视频&amp;p=02210102&amp;fhintidx=0" onclick="return sogouRelateWeb(this);" target="_blank" len="9" ind="1" rel="nofollow">皇后的高清视频</a></li>
+	<li><a href="http://www.sogou.com/web?query=出家视频&amp;p=02210102&amp;fhintidx=1" onclick="return sogouRelateWeb(this);" target="_blank" len="9" ind="2" rel="nofollow">出家的高清视频</a></li>
+	<li><a href="http://www.sogou.com/web?query=泰国选美皇后&amp;p=31021106&amp;fhintidx=2" onclick="return sogouRelateWeb(this);" target="_blank" len="9" ind="3" rel="nofollow">泰国选美皇后</a></li>
+	<li><a href="http://www.sogou.com/web?query=2009选美皇后大赛&amp;p=31021106&amp;fhintidx=3" onclick="return sogouRelateWeb(this);" target="_blank" len="9" ind="4" rel="nofollow">2009选美皇后大赛</a></li>
+	<li><a href="http://www.sogou.com/web?query=选美皇后模特大赛&amp;p=31021106&amp;fhintidx=4" onclick="return sogouRelateWeb(this);" target="_blank" len="9" ind="5" rel="nofollow">选美皇后模特大赛</a></li>
+	<li><a href="http://www.sogou.com/web?query=选美皇后的消息&amp;p=31021106&amp;fhintidx=5" onclick="return sogouRelateWeb(this);" target="_blank" len="9" ind="6" rel="nofollow">选美皇后的消息</a></li>
+	<li><a href="http://www.sogou.com/web?query=选美皇后金恩&amp;p=31021106&amp;fhintidx=6" onclick="return sogouRelateWeb(this);" target="_blank" len="9" ind="7" rel="nofollow">选美皇后金恩</a></li>
+	<li><a href="http://www.sogou.com/web?query=上海选美皇后秦秦照片&amp;p=31021106&amp;fhintidx=7" onclick="return sogouRelateWeb(this);" target="_blank" len="9" ind="8" rel="nofollow">上海选美皇后秦秦照片</a></li>
+	<li><a href="http://www.sogou.com/web?query=人妖影片&amp;p=31021106&amp;fhintidx=8" onclick="return sogouRelateWeb(this);" target="_blank" len="9" ind="9" rel="nofollow">人妖影片</a></li>
+		</ul>
+  </div>
+</div>
+
+			
+			
+			
+		<!--我说两句项-->
+		<script type="text/javascript" src="http://comment.news.sohu.com/upload/comment4_1/javascript/sohu.comment.v2013091217.js"></script>
+<script src="http://news.sohu.com/upload/javascript/news_scrolltop.js"></script>
+<script src="http://news.sohu.com/upload/javascript/news_commentbar.20120710.js"></script>
+				<script>
+					var conmmShowlist = typeof conmmShowlist == "undefined" ? {} : conmmShowlist;
+					conmmShowlist =jQuery.extend(conmmShowlist,{type:"hot",openSharedQuanzi:false,$inputbox_topright_adver2:'<span class=""><a class="red" target="_blank" href="http://quan.sohu.com/topic.html#6b57fcf0572c11e3a8c00016363326c4">圈主招募ING</a></span>',onAfterDataShow:function(d){					
+					try{
+					  jQuery(function(){
+					     newsCommentBar(d.allCount,"http://pinglun.sohu.com/s"+d.topicId+".html");$.scrollTop(".scroll-top");
+					  });
+					}catch(e){}
+					}});
+				</script>
+
+<script type="text/javascript">var APPID_SOHUCY ='cyqemw6s1'</script>
+<script type="text/javascript" src="http://assets.changyan.sohu.com/upload/plugins/plugins.preload.sohu.js"></script>
+ <!--[if IE]>
+<script type="text/javascript" event="FSCommand(command,args)" for="myFlash">
+		eval(args);
+</script>
+<![endif]-->
+		<div id="SOHUcomment" class="comment clear"></div>
+          <script type="text/javascript">
+          	var commConfig = typeof conmmShowlist == "undefined" ? {} : conmmShowlist;
+			SohuComment.Init(jQuery.extend({topicId: 376264080},commConfig));
+         </script>
+		 <link href="http://s3.suc.itc.cn/i/card/d/card.v.2012080801.css" rel="stylesheet" type="text/css" charset="gbk">
+		 <script type="text/javascript" src="http://s.suc.itc.cn/combo.action?p=mysohu&amp;v.2012080801&amp;r=/mysohu/plugins/effects/jquery.effects.core.js|/mysohu/plugins/effects/jquery.effects.slide.js|/i/card/icard.ext.js&amp;c=utf-8&amp;t=js" charset="utf-8"></script>
+          <!--我说两句配置项 end-->
+		  
+		  <!--图文转载-->
+		  	  <script type="text/javascript" src="http://news.sohu.com/upload/article/2012/js/pubPicTextV6_20130926.js"></script>
+              <script type="text/javascript">
+                       var newsId = 376264080;
+                       jQuery.picText.init();
+              </script>
+          <!--图文转载 end-->
+
+			<!-- 广告 -->
+			<div class="ad590">
+				<div><sohuadcode>
+</sohuadcode></div>
+			</div>
+			<!-- 20130121 st -->
+		           <div class="lottery-box clear" id="sougocaipiao1"><a href="http://caipiao.sohu.com/20181219/n558625553.shtml" target="_blank" rel="nofollow">彩民车牌号投注中3.9万</a>&nbsp;&nbsp;<a href="http://caipiao.sohu.com/20181219/n558623240.shtml" target="_blank" rel="nofollow">双色球148期开奖:头奖11注666万</a>&nbsp;&nbsp;<a href="http://caipiao.sohu.com/20181219/n558626104.shtml" target="_blank" rel="nofollow">徐州小伙中得639万大奖</a>&nbsp;&nbsp;<a href="http://caipiao.sohu.com/tycpkj1/index.shtml" target="_blank" rel="nofollow">体彩摇奖</a></div>	
+                                <!-- 20130121 end -->			
+            <div class="mutu clear">
+				<div class="mutu-news">
+					<h2><span>相关新闻</span></h2>
+					<div class="list14">
+						
+
+			 <ul> 		<li><span>13-05-16</span>·<a href="http://roll.sohu.com/20130516/n376132885.shtml" onclick="return sogouRelateNews(this);" len="2" ind="1" target="_blank">泰国人妖选美皇后出家当和尚(图)</a></li>
+								<li><span>13-05-15</span>·<a href="http://roll.sohu.com/20130515/n375992251.shtml" onclick="return sogouRelateNews(this);" len="2" ind="2" target="_blank">76人妖卫被控用药迷奸少女 杨:她神志不清时停止了</a></li>
+		 </ul> 	
+
+						
+						<div class="more"><a href="http://news.sogou.com/news?query=人妖 皇后&amp;pid=31023101&amp;md=listTopics&amp;name=&amp;mode=0&amp;sort=0" target="_blank">更多关于 <strong>人妖 皇后</strong> 的新闻&gt;&gt;</a> </div>
+						
+					</div>
+				</div>
+				<div class="mutu-keyWord">
+					<h2><span>相关推荐</span></h2>
+					<div class="list14">
+						<ul>
+	<li><a href="http://www.sogou.com/web?query=皇后视频&amp;p=31210100&amp;fhintidx=0" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="1" rel="nofollow">皇后的高清视频</a></li>
+	<li><a href="http://www.sogou.com/web?query=出家视频&amp;p=31210100&amp;fhintidx=1" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="2" rel="nofollow">出家的高清视频</a></li>
+	<li><a href="http://www.sogou.com/web?query=泰国选美皇后&amp;p=31021106&amp;fhintidx=2" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="3" rel="nofollow">泰国选美皇后</a></li>
+	<li><a href="http://www.sogou.com/web?query=2009选美皇后大赛&amp;p=31021106&amp;fhintidx=3" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="4" rel="nofollow">2009选美皇后大赛</a></li>
+	<li><a href="http://www.sogou.com/web?query=选美皇后模特大赛&amp;p=31021106&amp;fhintidx=4" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="5" rel="nofollow">选美皇后模特大赛</a></li>
+	<li><a href="http://www.sogou.com/web?query=选美皇后的消息&amp;p=31021106&amp;fhintidx=5" onclick="return sogouRelateWeb(this);" target="_blank" len="6" ind="6" rel="nofollow">选美皇后的消息</a></li>
+<script>
+try{    
+        var i=new Image();
+        i.src='http://pingback.sogou.com/rltpv.png?surl='+escape(window.location)+'&'+Math.random();
+}catch(err){
+}       
+</script>
+</ul>
+					</div>
+				</div>
+			</div>
+			
+					</div>
+	</div>
+	
+	<div class="rightbar-wrapper grid-300">
+		<!-- 搜索 热词 -->
+		<div class="search-hotword clear">
+			<div class="search">
+                 <form action="http://news.sogou.com/news" method="get" target="_blank" id="searchform" name="searchform" onsubmit="return CheckKeyWord();" autocomplete="off"> 
+                 <input type="text" name="query" id="query" class="search-in" value="人妖 皇后">
+                 <input type="hidden" name="t" id="t" value="news">
+                 <input type="submit" class="search-btn" value="搜狗搜索" onmouseover="this.className='search-btn search-btn-over'" onmouseout="this.className='search-btn'">
+                 </form>
+        	</div>
+			<div class="hotword">热词：
+<a href="http://www.sogou.com/sogou?pid=sogou-inse-c5ab6cebaca97f71&amp;query=%E6%B5%B7%E8%88%AA%E5%BB%B6%E8%AF%AF%E6%8A%A2%E6%95%91%E6%97%B6%E9%97%B4" target="_blank" rel="nofollow">死亡航班</a>
+<a href="http://www.sogou.com/sogou?pid=sogou-inse-c5ab6cebaca97f71&amp;query=%E8%9C%98%E8%9B%9B%E4%BE%A0%E5%9F%B9%E5%85%BB%E8%9C%98%E8%9B%9B" target="_blank" rel="nofollow">饲养蜘蛛侠</a>
+<a href="http://www.sogou.com/sogou?pid=sogou-inse-c5ab6cebaca97f71&amp;query=%E6%88%BF%E4%B8%9C%E8%B8%B9%E5%BC%80%E6%B5%81%E6%B0%B4%E6%88%BF%E9%97%A8" target="_blank" rel="nofollow">夺命房间</a>
+<a href="http://www.sogou.com/sogou?pid=sogou-inse-c5ab6cebaca97f71&amp;query=%E5%9C%B0%E7%90%83%E5%BC%95%E5%8A%9B%E7%9C%BC%E7%9A%AE%E4%B8%8B%E5%9E%82" target="_blank" rel="nofollow">引力双眼皮</a></div>
+		</div>
+        <script type="text/javascript">
+        function CheckKeyWord(){
+                 var sf = document.searchform;
+                 with(sf){
+          //if (query.value == "人妖 皇后") {
+          //                query.value = "";
+          //                setTimeout("query.value='人妖 皇后'", 1000);
+          //       }
+        }
+                 return true;
+        }
+        
+        // 改变提交的查询动作
+        function CheckFormAction(v){
+                 var sf = document.searchform;
+                 with(sf){
+          if (v=='web') {
+                          action = "http://www.sogou.com/web";
+            p.value = "02240100";                                 
+                 } else {
+                          p.value = "02240101";
+                          action = "http://news.sogou.com/news";
+                 }
+        }
+                 return true;
+        }
+
+        jQuery(function(jq){
+                 var searchValue = jq(".search-in").val();
+                 jq(".search-in").focus(function(){
+                          jq(this).val("").css("color","#333");
+                          jq(".search").addClass("search-act");
+                 }).blur(function(){
+                          if(jq(this).val() == ""){
+                                    jq(this).val(searchValue).css("color","#666");
+                                    jq(".search").removeClass("search-act");
+                          } 
+                 })
+        });
+        </script>
+		<!-- 焦点 -->
+                     <div class="ad300">
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- traveltochina -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-6962931590965478" data-ad-slot="1113845179" data-adsbygoogle-status="done"><div id="aswift_0_host" style="border: none; height: 250px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+		<!-- 广告1 -->
+		<div class="focus-news clear">
+			<h2><span><a href="http://qd.sohu.com/" target="_blank">热点关注</a></span></h2>
+			<div class="list12"><ul>
+
+                                                     <li><span>[<a href="http://qd.sohu.com/" target="_blank">青岛</a>]</span><a href="http://qd.sohu.com/" target="_blank"><b>首批二代身份证到期 青岛55万人换证</b></a></li>
+
+          <li><span>[<a href="http://qd.sohu.com/news/qingdao.shtml" target="_blank">青岛</a>]</span><a href="http://qd.sohu.com/20140812/n403353537.shtml" target="_blank">青岛严防埃博拉病毒传入 入境先测体温</a></li>
+
+          <li><span>[<a href="http://qd.sohu.com/news/qingdao.shtml" target="_blank">青岛</a>]</span><a href="http://qd.sohu.com/20140812/n403352018.shtml" target="_blank">两男为抢女友约黄岛决斗 纠集多人群殴</a></li>
+
+             <li><span>[<a href="http://qd.sohu.com/news/sdxw.shtml" target="_blank">山东</a>]</span><a href="http://qd.sohu.com/20140812/n403358410.shtml" target="_blank">央视主持沂水某酒店丢钱 女服务员自杀</a></li>
+
+         <li><span>[<a href="http://qd.sohu.com/index_alllist.shtml" target="_blank">滚动</a>]</span><a href="http://qd.sohu.com/20140812/n403354111.shtml" target="_blank">女司机开车蹭到流浪汉 拒道歉被掐死抛尸</a></li>
+
+                                     <li><span>[<a href="http://qd.sohu.com/zhuanti/" target="_blank">专题</a>]</span><a href="http://qd.sohu.com/zhuanti/" target="_blank">青岛洗海澡安全指南：警惕无形杀手(图)</a></li>
+
+                         <li><span>[<a href="http://qd.sohu.com/zhuanti/" target="_blank">原创</a>]</span><a href="http://qd.sohu.com/meishi.shtml" target="_blank">寻找青岛美食！"舌尖上的乡愁"有奖征集</a></li>
+
+                         <li><span>[<a href="http://qd.sohu.com/baoliao/" target="_blank">爆料</a>]</span><a href="http://qd.sohu.com/baoliao/" target="_blank">青岛新任16岁啤酒女神海量私照曝光(图)</a></li>
+
+				</ul>
+			</div>
+		</div>
+<div class="rightbar-foot"></div>
+                     <!-- club -->
+	          <div class="day-commend clear">
+			<h2><span><a href="http://qd.sohu.com/yuanchuang.shtml" target="_blank">青岛原创</a>·<a href="" http:="" qd.sohu.com="" yuanchuang.shtml"="" target="_blank">活动</a></span></h2>
+			<div class="pic-text">
+				<div><a href="http://qd.sohu.com/mjzl/gw-075/index.shtml" target="_blank"><img src="http://i3.itc.cn/20140811/2f8c_a8ebe330_bcf7_0489_651b_06dad0cef5f4_1.jpg" width="125" height="90" alt=""></a></div>
+				<h4><a href="http://qd.sohu.com/mjzl/gw-075/index.shtml" target="_blank">“英儿”已离世，她欠的用命还了
+</a></h4>
+				<p>顾城死了。谢烨死了。英儿却活着。[<a href="http://qd.sohu.com/mjzl/gw-075/index.shtml" target="_blank">详细</a>]</p>
+			</div>
+			<div class="list12">
+				<ul>
+<li><span>【<a href="http://qd.sohu.com/mjzl/index.shtml" target="_blank">专栏</a>】</span><a href="http://qd.sohu.com/mjzl/lj-075/index.shtml" target="_blank">丈夫和小三闹别扭，又想和我复婚
+
+</a></li>
+
+<li><span>【<a href="http://qd.sohu.com/mjzl/index.shtml" target="_blank">专栏</a>】</span><a href="http://qd.sohu.com/mjzl/qdxq-049/index.shtml" target="_blank">吴镇宇为保护妻子大打出手（视频）</a></li>
+
+<li><span>【<a href="http://qd.sohu.com/mjzl/index.shtml" target="_blank">专栏</a>】</span><a href="http://qd.sohu.com/mjzl/lqn-030/index.shtml" target="_blank">和孩子一起快乐成长</a></li>
+<li><span>【<a href="http://qd.sohu.com/yuanchuang.shtml" target="_blank">活动</a>】</span><a href="http://qd.sohu.com/s2014/zuowenbisai/" target="_blank">青岛中小学生作文大赛获奖名单公布</a></li>
+
+
+<li><span>【<a href="http://qd.sohu.com/yuanchuang.shtml" target="_blank">活动</a>】</span><a href="http://qd.sohu.com/s2014/qdzmylhly/" target="_blank">感动老人的青岛最美养老护理员投票中</a></li>
+<li><span>【<a href="http://qd.sohu.com/yuanchuang.shtml" target="_blank">活动</a>】</span><a href="http://qd.sohu.com/s2014/shijiebei/" target="_blank">青岛萌娃神似球星马拉多纳</a></li>
+
+
+
+
+
+
+
+
+
+		
+														</ul>
+			</div>
+		</div>
+<div class="rightbar-foot"></div>
+                    
+                     <!-- 视频 -->
+                     <div class="mutu-pic clear">
+<h2><span><a href="http://club.qd.sohu.com/?action=list&amp;forumid=qingdao&amp;type=photo" target="_blank">图片推荐</a></span><strong></strong></h2>
+<p align="center">
+<iframe marginwidth="0" marginheight="0" src="http://lubian.club/sz/side.html" frameborder="0" height="425" width="300" scrolling="no" align="center"></iframe></p>
+</div>
+
+		<!-- 广告2 -->
+                     
+<br>
+
+
+
+
+
+<div class="mutu-pic clear">
+
+<h2><span><a href="http://qd.sohu.com/baoliao/" target="_blank">热点爆料</a></span></h2></div>
+
+
+<!--<div class="blockR blockRA blockRA1">
+<div class="tt"><span>青岛24小时</span> <a class="btn-bl" href="http://qd.sohu.com/baoliao/" target="_blank">我要爆料</a> </div>
+<div class="list">
+<ul>
+<li><span class="bg1">23:11</span><a title="" href="http://club.qd.sohu.com/qingdao/thread/43ihip4g9yd" target="_blank">欢乐滨海城海德旁排污口臭气熏天</a></li>
+<li><span class="bg2">17:05</span><a title="" href="http://club.qd.sohu.com/qingdao/thread/43hpjj9bp61" target="_blank">坤如玛丽医院医生给孕妇开过期药</a></li>
+<li><span class="bg2">22:25</span><a title="" href="http://club.qd.sohu.com/qingdao/thread/42zzqbmr0bl" target="_blank">在商场买到脏桃李面包维权心凉透</a></li>
+<li><span class="bg2">22:13</span><a title="" href="http://club.qd.sohu.com/qingdao/thread/42zzk762e4a" target="_blank">公厕不是免费么？为何李沧这还收</a></li>
+<li><span class="bg2">09:53</span><a title="" href="http://club.qd.sohu.com/qingdao/thread/42vcmt6gkd9" target="_blank">日本老太在青岛私人派对盗窃被捕</a></li></ul></div></div>
+                   
+                      <!-- 排行 -->
+                     <div class="ad300">
+			<div><a href="http://qd.sohu.com/s2014/mengbaoxiu/index.shtml" target="_blank"><img src="http://i3.itc.cn/20140711/2f8c_fcf21388_cb3b_4634_eab6_d02d4f25b625_1.jpg" width="300" height="250" alt="搜狐青岛"></a></div>
+		</div>
+
+
+
+
+
+
+
+
+
+<div class="kind-video clear" id="kind-video">
+			<div class="video-menu">
+				<ul>
+					<li>日排行</li>
+					<li class="video-menu-end">周排行</li>
+				</ul>
+			</div>
+																
+			<div class="video-cont hot-video clear">
+				<ul>
+	                                       	<li><a title="2013年日本最热AV女优前十 童颜巨乳夺冠(组图)" href="http://qd.sohu.com/20140113/n393395844.shtml" target="_blank">2013年日本最热AV女优前十 童颜巨乳</a></li>
+<li><a title="少妇遭强暴拍裸照保持性关系 摆各种姿势(组图)" href="http://qd.sohu.com/20140709/n401994301.shtml" target="_blank">少妇遭强暴拍裸照保持性关系 摆各种姿势(</a></li>
+<li><a title="4大阔太豪门录:刘涛老公破产 王艳赵薇奢华(图)" href="http://qd.sohu.com/20130307/n368053781.shtml" target="_blank">4大阔太豪门录:刘涛老公破产 王艳赵薇奢</a></li>
+<li><a title="裸体瑜伽在美受欢迎 男女一丝不挂尺度大(组图)" href="http://qd.sohu.com/20140325/n397184349.shtml" target="_blank">裸体瑜伽在美受欢迎 男女一丝不挂尺度大(</a></li>
+<li><a title="多对青年男女公众场合性行为 放荡引众怒(组图)" href="http://qd.sohu.com/20140721/n402497556.shtml" target="_blank">多对青年男女公众场合性行为 放荡引众怒(</a></li>
+<li><a title="17岁女生遭7人轮奸 曝令人震惊的轮奸惨案(图)" href="http://qd.sohu.com/20130326/n370464132.shtml" target="_blank">17岁女生遭7人轮奸 曝令人震惊的轮奸惨</a></li>
+<li><a title="女优麻生希忆拍AV过程：整天做爱站到腿软(图)" href="http://qd.sohu.com/20130527/n377205948.shtml" target="_blank">女优麻生希忆拍AV过程：整天做爱站到腿软</a></li>
+<li><a title="“雌雄同体人”阿华的尴尬人生:拥有双性生殖器" href="http://pic.qd.sohu.com/group-554784.shtml" target="_blank">“雌雄同体人”阿华的尴尬人生:拥有双性生</a></li>
+<li><a title="成人奶妈地下交易全过程 喂食时两人全裸(组图)" href="http://qd.sohu.com/20130730/n382925963.shtml" target="_blank">成人奶妈地下交易全过程 喂食时两人全裸(</a></li>
+<li><a title="青岛男子遇高利贷陷阱：借2.5万赔进去一套房子" href="http://qd.sohu.com/20131211/n391602387.shtml" target="_blank">青岛男子遇高利贷陷阱：借2.5万赔进去一</a></li>
+
+        				</ul>
+			</div>
+			<div class="video-cont tv-mv clear">
+				<ul>
+					<li><a title="2013年日本最热AV女优前十 童颜巨乳夺冠(组图)" href="http://qd.sohu.com/20140113/n393395844.shtml" target="_blank">2013年日本最热AV女优前十 童颜巨乳</a></li>
+<li><a title="少妇遭强暴拍裸照保持性关系 摆各种姿势(组图)" href="http://qd.sohu.com/20140709/n401994301.shtml" target="_blank">少妇遭强暴拍裸照保持性关系 摆各种姿势(</a></li>
+<li><a title="4大阔太豪门录:刘涛老公破产 王艳赵薇奢华(图)" href="http://qd.sohu.com/20130307/n368053781.shtml" target="_blank">4大阔太豪门录:刘涛老公破产 王艳赵薇奢</a></li>
+<li><a title="“雌雄同体人”阿华的尴尬人生:拥有双性生殖器" href="http://pic.qd.sohu.com/group-554784.shtml" target="_blank">“雌雄同体人”阿华的尴尬人生:拥有双性生</a></li>
+<li><a title="裸体瑜伽在美受欢迎 男女一丝不挂尺度大(组图)" href="http://qd.sohu.com/20140325/n397184349.shtml" target="_blank">裸体瑜伽在美受欢迎 男女一丝不挂尺度大(</a></li>
+<li><a title="多对青年男女公众场合性行为 放荡引众怒(组图)" href="http://qd.sohu.com/20140721/n402497556.shtml" target="_blank">多对青年男女公众场合性行为 放荡引众怒(</a></li>
+<li><a title="17岁女生遭7人轮奸 曝令人震惊的轮奸惨案(图)" href="http://qd.sohu.com/20130326/n370464132.shtml" target="_blank">17岁女生遭7人轮奸 曝令人震惊的轮奸惨</a></li>
+<li><a title="女优麻生希忆拍AV过程：整天做爱站到腿软(图)" href="http://qd.sohu.com/20130527/n377205948.shtml" target="_blank">女优麻生希忆拍AV过程：整天做爱站到腿软</a></li>
+<li><a title="成人奶妈地下交易全过程 喂食时两人全裸(组图)" href="http://qd.sohu.com/20130730/n382925963.shtml" target="_blank">成人奶妈地下交易全过程 喂食时两人全裸(</a></li>
+<li><a title="青岛男子遇高利贷陷阱：借2.5万赔进去一套房子" href="http://qd.sohu.com/20131211/n391602387.shtml" target="_blank">青岛男子遇高利贷陷阱：借2.5万赔进去一</a></li>
+
+				</ul>
+			</div>
+		</div>
+		
+<script type="text/javascript">
+jQuery(function(jq){
+	//标签
+	function changeTab(lis, divs, nums, nowCls){
+		lis.each(function(i){
+			var els = jq(this);
+			els.mouseenter(function(){
+				lis.removeClass(nowCls);
+				divs.stop().hide();
+				jq(this).addClass(nowCls);
+				divs.eq(i).show();
+			});
+		}).eq(nums).mouseenter();
+	}
+	
+	var divA = jq("#kind-video"),
+		 videoNum = 0; //视频菜单
+	changeTab(divA.find(".video-menu li"), divA.find(".video-cont"), videoNum, "video-menu-now");	
+});
+</script>
+
+		<!-- 广告3 -->
+                      
+ 
+				
+						
+		<!-- 信息 -->
+		<div class="sohu-info clear">
+			<div class="contact-icon"></div>
+			<div class="contact-txt">
+				<p>客服热线：86-10-58511234</p>
+				<p>客服邮箱：<a href="mailto:kf@vip.sohu.com" target="_blank">kf@vip.sohu.com</a></p>
+			</div>
+		</div>
+		<div class="rightbar-foot"></div>
+	</div>
+                     <div class="content-footer"></div>
+	</div>
+
+<script src="http://tv.sohu.com/upload/static/plugin/share.js"></script>
+<script src="http://tv.sohu.com/upload/static/plugin/count.js"></script>
+
+<!-- 标准尾 start -->
+<div collection="Y">
+
+
+</div>
+<!-- 标准尾 end -->
+
+<script type="text/javascript">
+<!--
+	function sogouRelateNews(itm){
+		var i=new Image();
+        var len=itm.getAttribute("len");   var  ind= itm.getAttribute("ind");
+        len=(len==null)?"":len;   ind=(ind==null)?"":ind;
+        if(len == "" || ind == "" ) {
+           i.src='http://pingback.sogou.com/rltnews.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+        } else {
+           i.src='http://pingback.sogou.com/rltnews.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&len='+len+'&ind='+ind+'&'+Math.random();
+        }
+	    return true;
+	}
+
+	function sogouRelateWeb(itm){
+		var i=new Image();
+        var len=itm.getAttribute("len");  var  ind= itm.getAttribute("ind");
+        len=(len==null)?"":len; ind=(ind==null)?"":ind;
+        if(len == "" || ind == "" ) {
+	 	     i.src='http://pingback.sogou.com/rltweb.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+        } else {
+		     i.src='http://pingback.sogou.com/rltweb.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&len='+len+'&ind='+ind+'&'+Math.random();
+        }
+		return true;
+	}
+
+	function sogouRelateSaybar(itm){
+		var i=new Image();
+		i.src='http://pingback.sogou.com/rltsb.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+		return true;
+	}
+
+	function sogouRelateBlog(itm){
+		var i=new Image();
+		i.src='http://pingback.sogou.com/rltblog.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+		return true;
+	}
+	
+	function sogouHotSaybar(itm){
+		var i=new Image();
+		i.src='http://pingback.sogou.com/rlthotsb.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+		return true;
+	}
+
+    function sogouRelateVideoNews(itm){
+      var i=new Image();
+      var len=itm.getAttribute("len");  var  ind= itm.getAttribute("ind");
+      len=(len==null)?"":len;    ind=(ind==null)?"":ind;
+      if(len == "" || ind == "" ) {
+        i.src='http://pingback.sogou.com/rltvideonews.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&'+Math.random();
+      } else {
+        i.src='http://pingback.sogou.com/rltvideonews.png?durl='+escape(itm.href)+'&surl='+escape(window.location)+'&len='+len+'&ind='+ind+'&'+Math.random();
+      }
+	  return true;
+    }
+
+
+//-->
+</script>
+
+<sohuadcode>
+</sohuadcode>
+<script type="text/javascript">	
+	function q(s) {return s.replace(/%/g,"%25").replace(/&/g,"%26").replace(/#/g,"%23");}	
+	var sogou_is_brand_url = "http://cpc.brand.sogou.com/brand_ad_new";	
+	var brand_cnt = 0;	
+	for(var p in sogou_is_brand)	
+	{	           if(typeof(sogou_is_brand[p]) == "string")
+	               sogou_is_brand_url += (brand_cnt++ ? "&" : "?") + q(p) + "=" + q(sogou_is_brand[p]);	
+	}	
+	if (brand_cnt>3)	
+	{	
+	         var test= document.createElement('SCRIPT');	
+	         test.src=sogou_is_brand_url;	
+	         document.getElementsByTagName('head')[0].appendChild(test);	
+	}	
+</script>
+
+
+
+
+
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_1_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_1" name="aswift_1" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-6962931590965478&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;abgtt=10&amp;lmt=1731500000&amp;plat=3%3A16%2C4%3A16%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fqd.sohu.com%2F20130517%2Fn376264080.shtml&amp;pra=7&amp;wgl=1&amp;aihb=0&amp;aiof=3~4&amp;asro=0&amp;ailel=1~2~4~6~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24~29~30~34&amp;aiael=1~2~3~4~6~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24~29~30~34&amp;aicel=33~38&amp;aifxl=29_18~30_19&amp;aiixl=29_5~30_6&amp;aiict=1&amp;aiapm=0.3221&amp;aiapmi=0.33938&amp;aiombap=1&amp;aief=1&amp;uach=WyJMaW51eCIsIjYuMTIuMCIsIng4NiIsIiIsIjEzMC4wLjY3MjMuMTE2IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdD9BX0JyYW5kIiwiOTkuMC4wLjAiXSxbIkNocm9taXVtIiwiMTMwLjAuNjcyMy4xMTYiXV0sMF0.&amp;dt=1732242991041&amp;bpp=9&amp;bdt=558&amp;idt=282&amp;shv=r20241120&amp;mjsv=m202411140101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie_enabled=1&amp;eoidce=1&amp;nras=1&amp;correlator=3660810283916&amp;frm=20&amp;pv=2&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=95333412%2C95347445%2C31089090%2C95345967%2C95347756&amp;oid=2&amp;pvsid=3398824807062668&amp;tmod=113447200&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=896&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=2&amp;uci=a!2&amp;fsb=1&amp;dtd=366" data-google-container-id="a!2" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><iframe src="https://ep2.adtrafficquality.google/sodar/sodar2/232/runner.html" width="0" height="0" style="display: none;"></iframe><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20241120/r20190131/zrt_lookup.html" style="display: none;"></iframe></html>

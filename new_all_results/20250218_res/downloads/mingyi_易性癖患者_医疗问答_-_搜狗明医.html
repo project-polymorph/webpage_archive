@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="//www.sogou.com/images/logo/new/favicon.ico?v=4" type="image/x-icon">
+    <title>搜狗搜索</title>
+    <link rel="stylesheet" href="static/css/anti.min.css?v=1">
+    <script src="//dlweb.sogoucdn.com/common/lib/jquery/jquery-1.11.0.min.js"></script>
+    <script src="static/js/antispider.min.js?v=3"></script>
+    <script>
+        var domain = getDomain();
+        window.imgCode = -1;
+
+        (function() {
+            function checkSNUID() {
+                var cookieArr = document.cookie.split('; '),
+                    count = 0;
+
+                for(var i = 0, len = cookieArr.length; i < len; i++) {
+                    if (cookieArr[i].indexOf('SNUID=') > -1) {
+                        count++;
+                    }
+                }
+
+                return count > 1;
+            }
+
+            if(checkSNUID()) {
+                var date = new Date(), expires;
+                date.setTime(date.getTime() -100000);
+
+                expires = date.toGMTString();
+
+                document.cookie = 'SNUID=1;path=/;expires=' + expires;
+                document.cookie = 'SNUID=1;path=/;expires=' + expires + ';domain=.www.sogo.com';
+                document.cookie = 'SNUID=1;path=/;expires=' + expires + ';domain=.weixin.sogo.com';
+                document.cookie = 'SNUID=1;path=/;expires=' + expires + ';domain=.sogo.com';
+                document.cookie = 'SNUID=1;path=/;expires=' + expires + ';domain=.www.sogou.com';
+                document.cookie = 'SNUID=1;path=/;expires=' + expires + ';domain=.weixin.sogou.com';
+                document.cookie = 'SNUID=1;path=/;expires=' + expires + ';domain=.sogou.com';
+                document.cookie = 'SNUID=1;path=/;expires=' + expires + ';domain=.snapshot.sogoucdn.com';
+                /*document.cookie = 'SNUID=1;path=/;expires=' + expires + ';domain=.zhinan.sogou.com';
+                document.cookie = 'SNUID=1;path=/;expires=' + expires + ';domain=.gouwu.sogou.com';
+                document.cookie = 'SNUID=1;path=/;expires=' + expires + ';domain=.ishop.sogou.com';*/
+
+                sendLog('delSNUID');
+            }
+
+            if(getCookie('seccodeRight') === 'success') {
+                sendLog('verifyLoop');
+
+                setCookie('seccodeRight', 1, getUTCString(-1), location.hostname, '/');
+            }
+
+            if(getCookie('refresh')) {
+                sendLog('refresh');
+            }
+        })();
+
+        function setImgCode(code) {
+            try {
+                var t = new Date().getTime() - imgRequestTime.getTime();
+                sendLog('imgCost',"cost="+t);
+            } catch (e) {
+            }
+            window.imgCode = code;
+        }
+        sendLog('index');
+
+        function changeImg2() {
+        	if(window.event) {
+        		window.event.returnValue=false
+        	}
+        }
+    </script>
+</head>
+<body>
+<div class="header">
+    <div class="logo">
+        <a href="/">
+            <img width="180" height="60" src="static/images/logo_180x60.png" srcset="static/images/logo_180x60@2x.png 2x">
+        </a>
+    </div>
+    <div class="other"><span class="s1">您的访问出错了</span><span class="s2"><a href="/">返回首页&gt;&gt;</a></span></div>
+</div>
+<div class="content-box">
+    <p class="ip-time-p">IP：67.180.163.209<br>访问时间：2025.02.27 11:55:59</p>
+    <p class="p2">用户您好，我们的系统检测到您网络中存在异常访问请求。<br>此验证码用于确认这些请求是您的正常行为而不是自动程序发出的，需要您协助验证。</p>
+    <p class="p3"><label for="seccodeInput">验证码：</label></p>
+    <form name="authform" method="POST" id="seccodeForm" action="/">
+        <p class="p4">
+            <input type="text" name="c" value="" placeholder="请输入验证码" id="seccodeInput" autocomplete="off">
+            <input type="hidden" name="tc" id="tc" value="">
+            <input type="hidden" name="r" id="from" value="%2Ffuwu%2Fpc%2Fvr%2Flandresult%2F11014401%3Fquery%3D%E6%98%93%E6%80%A7%E7%99%96%E6%82%A3%E8%80%85">
+            <input type="hidden" name="p" id="product" value="my_sh2">
+            <input type="hidden" name="m" value="0">            <span class="s1">
+                <script>imgRequestTime=new Date();</script>
+                <a onclick="changeImg2();" href="javascript:void(0)">
+                    <img id="seccodeImage" onload="setImgCode(1)" onerror="setImgCode(0)" src="util/seccode.php?tc=1740628559" width="100" height="40" alt="请输入图中的验证码" title="请输入图中的验证码">
+                </a>
+            </span>
+            <a href="javascript:void(0);" id="change-img" onclick="changeImg2();" style="padding-left:50px;">换一张</a>
+            <span class="s2" id="error-tips" style="display: none;"></span>
+        </p>
+    </form>
+    <p class="p5">
+        <a href="javascript:void(0);" id="submit">提交</a>
+        <span>提交后没解决问题？欢迎<a href="http://fankui.help.sogou.com/index.php/web/web/index?type=10&amp;anti_time=1740628559&amp;domain=mingyi.sogou.com" target="_blank">反馈</a>。</span>
+    </p>
+</div>
+<div id="ft"><a href="http://fuwu.sogou.com/" target="_blank">企业推广</a><a href="http://corp.sogou.com/" target="_blank">关于搜狗</a><a href="/docs/terms.htm?v=1" target="_blank">免责声明</a><a href="http://fankui.help.sogou.com/index.php/web/web/index?type=10&amp;anti_time=1740628559&amp;domain=mingyi.sogou.com" target="_blank">意见反馈</a><br>&nbsp;©&nbsp;2025<span id="footer-year"></span>&nbsp;Sogou Inc.&nbsp;-&nbsp;<a href="http://www.miibeian.gov.cn" target="_blank" class="g">京ICP证050897号</a>&nbsp;-&nbsp;京公网安备1100<span class="ba">00000025号</span></div>
+<script src="static/js/index.min.js?v=0.1.5"></script>
+
+
+
+</body></html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//img.jbzj.com/">
+<link rel="dns-prefetch" href="//icws.jb51.net/">
+<link rel="dns-prefetch" href="//files.jb51.net/">
+<meta name="applicable-device" content="pc">
+<meta name="renderer" content="webkit">
+<meta name="force-rendering" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform">
+<title>Docker目录映射方式_docker_脚本之家</title>
+<meta name="keywords" content="Docker目录映射,Docker目录,Docker映射">
+<meta name="description" content="总结了一些常用的Docker命令,包括查看、停止、重启和删除容器等操作,帮助用户更好地管理容器">
+<link rel="alternate" media="only screen and(max-width: 640px)" href="https://m.jb51.net/server/329875fqr.htm">
+<meta http-equiv="mobile-agent" content="format=html5; url=https://m.jb51.net/server/329875fqr.htm">
+<meta http-equiv="mobile-agent" content="format=xhtml; url=https://m.jb51.net/server/329875fqr.htm">
+<link rel="canonical" href="https://www.jb51.net/server/329875fqr.htm">
+<script type="text/javascript" async="" src="https://pos.baidu.com/auto_dup?di=0&amp;uuid=079d5369e3df4c41&amp;dri=0&amp;dis=0&amp;dai=0&amp;ps=0x0&amp;enu=encoding&amp;exps=110011&amp;ant=0&amp;psi=dfc63810ff9bbca5&amp;dcb=___baidu_union_callback&amp;dtm=AUTO_JSONP&amp;dvi=0.0&amp;dci=-1&amp;dpt=none&amp;tpr=1739285851873&amp;ti=Docker%E7%9B%AE%E5%BD%95%E6%98%A0%E5%B0%84%E6%96%B9%E5%BC%8F_docker_%E8%84%9A%E6%9C%AC%E4%B9%8B%E5%AE%B6&amp;ari=2&amp;ver=0109&amp;kws=Docker%E7%9B%AE%E5%BD%95%E6%98%A0%E5%B0%84%2CDocker%E7%9B%AE%E5%BD%95%2CDocker%E6%98%A0%E5%B0%84&amp;dps=%E6%80%BB%E7%BB%93%E4%BA%86%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84Docker%E5%91%BD%E4%BB%A4%2C%E5%8C%85%E6%8B%AC%E6%9F%A5%E7%9C%8B%E3%80%81%E5%81%9C%E6%AD%A2%E3%80%81%E9%87%8D%E5%90%AF%E5%92%8C%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8%E7%AD%89%E6%93%8D%E4%BD%9C%2C%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%88%B7%E6%9B%B4%E5%A5%BD%E5%9C%B0%E7%AE%A1%E7%90%86%E5%AE%B9%E5%99%A8&amp;dbv=2&amp;drs=3&amp;pcs=1905x993&amp;pss=1905x4819&amp;cfv=0&amp;cpl=5&amp;chi=2&amp;cce=true&amp;cec=UTF-8&amp;tlm=1739285851&amp;prot=2&amp;rw=993&amp;ltu=https%3A%2F%2Fwww.jb51.net%2Fserver%2F329875fqr.htm&amp;ltr=https%3A%2F%2Fm.jb51.net%2Fserver%2F329875fqr.htm&amp;ecd=1&amp;dft=0&amp;uc=800x600&amp;pis=-1x-1&amp;sr=800x600&amp;tcn=1739285852&amp;dc=4&amp;aa=1"></script><script type="text/javascript" async="" src="https://pos.baidu.com/iclm?di=u4519613&amp;uuid=c84ebf1a12fc57ce&amp;dri=0&amp;dis=0&amp;dai=2&amp;ps=2881x1237&amp;enu=encoding&amp;exps=110011&amp;ant=0&amp;psi=dfc63810ff9bbca5&amp;dcb=___adblockplus_&amp;dtm=SSP_JSONP&amp;dvi=0.0&amp;dci=-1&amp;dpt=none&amp;tpr=1739285851873&amp;ti=Docker%E7%9B%AE%E5%BD%95%E6%98%A0%E5%B0%84%E6%96%B9%E5%BC%8F_docker_%E8%84%9A%E6%9C%AC%E4%B9%8B%E5%AE%B6&amp;ari=2&amp;ver=0109&amp;kws=Docker%E7%9B%AE%E5%BD%95%E6%98%A0%E5%B0%84%2CDocker%E7%9B%AE%E5%BD%95%2CDocker%E6%98%A0%E5%B0%84&amp;dps=%E6%80%BB%E7%BB%93%E4%BA%86%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84Docker%E5%91%BD%E4%BB%A4%2C%E5%8C%85%E6%8B%AC%E6%9F%A5%E7%9C%8B%E3%80%81%E5%81%9C%E6%AD%A2%E3%80%81%E9%87%8D%E5%90%AF%E5%92%8C%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8%E7%AD%89%E6%93%8D%E4%BD%9C%2C%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%88%B7%E6%9B%B4%E5%A5%BD%E5%9C%B0%E7%AE%A1%E7%90%86%E5%AE%B9%E5%99%A8&amp;dbv=2&amp;drs=3&amp;pcs=1905x993&amp;pss=1905x4819&amp;cfv=0&amp;cpl=5&amp;chi=2&amp;cce=true&amp;cec=UTF-8&amp;tlm=1739285851&amp;prot=2&amp;rw=993&amp;ltu=https%3A%2F%2Fwww.jb51.net%2Fserver%2F329875fqr.htm&amp;ltr=https%3A%2F%2Fm.jb51.net%2Fserver%2F329875fqr.htm&amp;ecd=1&amp;dft=0&amp;uc=800x600&amp;pis=-1x-1&amp;sr=800x600&amp;tcn=1739285852"></script><script type="text/javascript" async="" src="https://pos.baidu.com/iclm?di=u6561626&amp;uuid=de5b8dc4857db46b&amp;dri=0&amp;dis=0&amp;dai=1&amp;ps=800x1237&amp;enu=encoding&amp;exps=110011&amp;ant=0&amp;psi=dfc63810ff9bbca5&amp;dcb=___adblockplus_&amp;dtm=SSP_JSONP&amp;dvi=0.0&amp;dci=-1&amp;dpt=none&amp;tpr=1739285851873&amp;ti=Docker%E7%9B%AE%E5%BD%95%E6%98%A0%E5%B0%84%E6%96%B9%E5%BC%8F_docker_%E8%84%9A%E6%9C%AC%E4%B9%8B%E5%AE%B6&amp;ari=2&amp;ver=0109&amp;vc=%E5%B9%BF%E5%91%8A%E3%80%80%E5%95%86%E4%B8%9A%E5%B9%BF%E5%91%8A%EF%BC%8C%E7%90%86%E6%80%A7%E9%80%89%E6%8B%A9&amp;kws=Docker%E7%9B%AE%E5%BD%95%E6%98%A0%E5%B0%84%2CDocker%E7%9B%AE%E5%BD%95%2CDocker%E6%98%A0%E5%B0%84&amp;dps=%E6%80%BB%E7%BB%93%E4%BA%86%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84Docker%E5%91%BD%E4%BB%A4%2C%E5%8C%85%E6%8B%AC%E6%9F%A5%E7%9C%8B%E3%80%81%E5%81%9C%E6%AD%A2%E3%80%81%E9%87%8D%E5%90%AF%E5%92%8C%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8%E7%AD%89%E6%93%8D%E4%BD%9C%2C%E5%B8%AE%E5%8A%A9%E7%94%A8%E6%88%B7%E6%9B%B4%E5%A5%BD%E5%9C%B0%E7%AE%A1%E7%90%86%E5%AE%B9%E5%99%A8&amp;dbv=2&amp;drs=3&amp;pcs=1905x993&amp;pss=1905x4819&amp;cfv=0&amp;cpl=5&amp;chi=2&amp;cce=true&amp;cec=UTF-8&amp;tlm=1739285851&amp;prot=2&amp;rw=993&amp;ltu=https%3A%2F%2Fwww.jb51.net%2Fserver%2F329875fqr.htm&amp;ltr=https%3A%2F%2Fm.jb51.net%2Fserver%2F329875fqr.htm&amp;ecd=1&amp;dft=0&amp;uc=800x600&amp;pis=-1x-1&amp;sr=800x600&amp;tcn=1739285852"></script><script src="//hm.baidu.com/hm.js?b88cfc1ccab788f0903cac38c894caa3"></script><script src="https://zz.bdstatic.com/linksubmit/push.js"></script><script type="text/javascript">
+    var articleid="art_329875",tougao = "jingxian",lmname = "服务器",suoyin = "ok",dxycms="ok";
+    (function() {
+        if (/Android|webOS|iPhone|iPad|Windows Phone|iPod|BlackBerry|SymbianOS|Nokia|Mobile|Opera Mini/i.test(navigator.userAgent)) {
+            var siteName = window.location.pathname,url = window.location.href;
+            if (url.indexOf("?pc") < 0) {
+                try {
+                    if (typeof siteName !== "undefined") {
+                        window.location.href = "https://m.jb51.net" + siteName
+                    }
+                } catch (e) {}
+            }
+        }
+    })();
+</script>
+<meta name="referrer" content="always">
+<link type="text/css" href="/skin/2019/css/article.css" rel="stylesheet">
+<script type="text/javascript" src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+  if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='//icws.jb51.net/jslib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+  }
+</script>
+<script type="text/javascript" src="//icws.jb51.net/good/common2024.js"></script><link rel="stylesheet" href="https://icws.jb51.net/good/skin/layer.css?v=3.5.2" id="layuicss-layer">
+<style type="text/css">
+    .AutoCatelogLlist > ul { position: relative; }    
+  </style><style type="text/css">.tipsa_ds{position: relative;display: inline-block;}.tipsa_ds:hover .tipsa_d{width:117px;text-indent: -36px;color:#e9e9e9;right:-9px!important}.tipsa_d{position: absolute;line-height: 1.4;box-sizing: border-box;padding: 0 5px;right:-1.5px!important;bottom:-1px!important;background: rgba(120,120,120,.5);border-radius: 6px 0 0 0;color: #d5d5d5;font-size: 12px;width: 31px;overflow: hidden;transform: scale(0.85);transition:all .3s ease-out;white-space: nowrap;}</style></head>
+
+<body>
+    <!--topTools Start -->
+    <div id="topbar">
+        <div id="wrap">
+            <div class="topbarleft">
+                <a href="http://edu.jb51.net/" target="_blank">菜鸟学堂</a>
+                <a href="http://s.jb51.net" target="_blank" rel="nofollow">服务器常用软件</a>
+            <a href="https://zhuji.jb51.net/" target="_blank">主机测评网</a><a href="https://tools.jb51.net/" target="_blank">在线工具</a></div>
+            <div class="fr">
+                <ul><li id="logins"><i class="ico-member"></i><a href="javascript:void(0)">登录/注册</a></li>
+                    <li><i class="ico-mobile"></i><a target="_blank" href="https://www.jb51.net/jbzx.htm" rel="nofollow">举报中心</a></li>
+                    <li id="wxHide"><i class="ico-wechat"></i><a href="javascript:void(0)" target="_blank">关注微信</a>
+                        <div id="wxShow" class="wxHide_box"><img src="//img.jbzj.com/skin/2018/images/erwm.jpg" alt="扫一扫" width="84" hight="84" data-baiduimageplus-ignore=""></div>
+                    </li>
+                </ul>
+                <div class="text_d right" id="navHide">
+                    <a rel="nofollow" href="javascript:void(0);">快捷导航 <i class="arrowright"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--topTools end -->
+
+    <div id="header">
+        <!-- Logo start -->
+        <div id="logo"><a href="/"><img src="/images/logo.gif" title="脚本之家" alt="脚本之家"></a></div>
+        <div class="logom fl"><a href="tencent://message/?uin=461478385&amp;Site=//www.jb51.net" target="_blank" class="tipsa_ds"><img src="//files.jb51.net/image/zhaozu430.jpg" width="430" height="60"><span class="tipsa_d">广告　商业广告，理性选择</span></a></div>
+        <div class="logor fr"><a href="https://ad.zkuth.com" target="_blank" class="tipsa_ds"><img src="//files.jb51.net/image/q881.gif" width="430" height="60"><span class="tipsa_d">广告　商业广告，理性选择</span></a></div>
+        <!--Logo end -->
+    </div>
+    <!--Logo end -->
+
+    <!-- 导航开始 -->
+    <div id="nav">
+        <ul>
+            <li><a href="/">网站首页</a></li>
+            <li><a href="/web/">网页制作</a></li>
+            <li><a href="/list/index_1.htm">网络编程</a></li>
+            <li><a href="/list/index_96.htm">脚本专栏</a></li>
+            <li><a href="/jiaoben/">脚本下载</a></li>
+            <li><a href="/list/index_104.htm">数据库</a></li>
+            <li><a href="/list/list_82_1.htm">服务器</a></li>
+            <li><a href="/books/">电子书籍</a></li>
+            <li><a href="/os/">操作系统</a></li>
+            <li><a href="/yunying/">网站运营</a></li>
+            <li><a href="/pingmian/">平面设计</a></li>
+            <li>
+                <p><i>其它</i><span>
+                        <a href="/media/">媒体动画</a>
+                        <a href="/diannaojichu/">电脑基础</a>
+                        <a href="/hardware/">硬件教程</a>
+                        <a href="/hack/">网络安全</a>
+                    </span></p>
+            </li>
+        </ul>
+    </div>
+    <!--导航结束-->
+
+    <!-- 二级菜单开始 -->
+    <div id="submenu">
+        <div class="subnav clearfix">
+            <ul><li><a href="/list/list_256_1.htm" title="docker">docker</a></li>
+<li><a href="/list/list_257_1.htm" title="Hyper-V">Hyper-V</a></li>
+<li><a href="/list/list_258_1.htm" title="VMware">VMware</a></li>
+<li><a href="/list/list_259_1.htm" title="VirtualBox">VirtualBox</a></li>
+<li><a href="/list/list_260_1.htm" title="XenServer">XenServer</a></li>
+<li><a href="/list/list_261_1.htm" title="Kvm">Kvm</a></li>
+<li><a href="/list/list_262_1.htm" title="Qemu">Qemu</a></li>
+<li><a href="/list/list_263_1.htm" title="OpenVZ">OpenVZ</a></li>
+<li><a href="/list/list_264_1.htm" title="Xen">Xen</a></li>
+<li><a href="/list/list_265_1.htm" title="CloudStack">CloudStack</a></li>
+<li><a href="/list/list_266_1.htm" title="OpenStack">OpenStack</a></li>
+<li><a href="/list/list_267_1.htm" title="云计算技术">云计算技术</a></li>
+<li><a href="/list/list_268_1.htm" title="云其它">云其它</a></li>
+</ul>
+        </div>
+    </div>
+    <!-- 二级菜单结束 -->
+
+    <!--content Star -->
+    <div id="wrapper">
+        <div id="container">
+            <div class="pt10 clearfix">
+                <div class="clearfix"><div class="mainlr"><a href="https://tongji.aizhan.com/?regf=5001" target="_blank" class="tipsa_ds"><img src="//files.jb51.net/image/2024/aizhantj_0109.gif" alt="爱站统计" width="1200" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></div><div class="blank5"></div><div class="mainlr"><a href="https://cn.petaexpress.com/free/49453cfc6e025a37?p=235" target="_blank" class="tipsa_ds"><img src="//files.jb51.net/image/2024/petaexpress618.jpg" alt="" width="1200" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></div><div class="blank5"></div><div class="mainlr"><a href="https://chenmozz.cc/" target="_blank" class="tipsa_ds"><img src="//files.jb51.net/image/2024/ky595chen2.gif" alt="" width="1200" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></div><div class="blank5"></div><div id="txtlink"><ul><li><a href="https://www.yitanyun.cn/server/buy.html" target="_blank" class="red"> █易探云·香港/美国vps仅9元 █</a></li><li><a href="https://www.sukeyun.com/" target="_blank" class="red">速科云计算:华北铂金8H-8G仅需39元/月</a></li><li><a href="https://betbccc.com/" target="_blank" class="red">█琅琊阁█长期收SEO各类资源█</a></li><li><a href="https://ad2.uyktg.cn/" target="_blank" class="red">官方播放器收量，CPA/CPT/CPS均可</a></li><li><a href="http://www.boluoyun.com" target="_blank" class="blue">【菠萝云】来了,【正规商家】香港4G内存99元</a></li><li><a href="https://www.058idc.com/" target="_blank" class="blue">48H64G1TSSD G口服务器租用仅需3000+可免费测试</a></li><li><a href="https://www.sudun.com/" target="_blank" class="blue">█速盾高防CDN+免实名+免备案+防移动屏蔽█</a></li><li><a href="https://www.qkidc.com" target="_blank" class="blue">香港美国CN2/国内高防服务器██全科云██</a></li><li><a href="https://ad.zkuth.com" target="_blank" class="red">实力产品变现</a></li><li><a href="https://www.ipdatacloud.com/?utm-source=three&amp;utm-keyword=?2053" target="_blank" class="red">▉IP地址查询▉ip归属地ip风险★天天免费查</a></li><li><a href="https://www.058idc.com/" target="_blank" class="red">万恒网络-国内高防物理服务器，多种配置仅99元/月起</a></li><li><a href="https://www.idc35.com/cloud/hktehui" target="_blank" class="red">【香港云主机】双核1G-10M独享 99元/年</a></li><li><a href="https://billing.raksmart.com/whmcs/aff.php?aff=7451&amp;pid=1196" target="_blank" class="blue">RAKsmart海外VPS,服务器低至7折★免费试用★</a></li><li><a href="https://billing.raksmart.com/whmcs/aff.php?aff=7451&amp;pid=1196" target="_blank" class="blue">RAKsmart海外VPS,服务器低至7折★免费试用★</a></li><li><a href="https://www.idc35.com/cloud/hkzhizunzhanqun" target="_blank" class="blue">【香港站群】250个随机IP 50M带宽 800元</a></li><li><a href="http://fwq.wnvps.com/" target="_blank" class="blue">香港、美国1-10G口宿主机低至3500元起</a></li><li><a href="http://www.ushk.net/server.html" target="_blank" class="red">██美港数据██高端香港服务器租用</a></li><li><a href="http://vps.zzidc.com/tongji/jb51w.html" target="_blank" class="red">★☆云服务器5折，天天抽红包抵扣☆★</a></li><li><a href="tencent://message/?uin=1006456867" target="_blank" class="red">█机房大带宽机柜Q:1006456867█</a></li><li><a href="https://www.580dns.com" target="_blank" class="red">成都G口2999|湖北一手资源|50M物理机200元</a></li><li><a href="http://www.bovps.com/" target="_blank" class="blue">█动态拨号IP云主机，电信ADSL独享20M█ </a></li><li><a href="http://www.vzidc.com/cloud/" target="_blank" class="blue">华为云4核8g限时免费送另有代金券免费送</a></li><li><a href="http://www.cyidc.cn/" target="_blank" class="blue">畅游网络 百独服务器 包跑满 998元</a></li><li><a href="http://www.bjyun.cn" target="_blank" class="blue">【高电机柜】算力托管租赁、大带宽、云主机</a></li><li><a href="https://shuyeidc.com/cart?action=configureproduct&amp;pid=76" target="_blank" class="red">█树叶云·南京/国内vps仅0.6元/天 █</a></li><li><a href="http://www.zitian.cn/" target="_blank" class="red">中原地区核心数据中心，月付299元起</a></li><li><a href="http://www.qy.cn/gfhd.html" target="_blank" class="red">██群英网络██◆◆◆300G高防仅需599元◆◆◆</a></li><li><a href="https://www.zj-idc.com/" target="_blank" class="red">上云就选华晨云，每天最低仅需1.2元</a></li><li><a href="http://yun.jb51.net/cloud/meiguo/" target="_blank" class="blue">▉脚本云▉ChatGPT专用服务器 最低仅需 19元/月</a></li><li><a href="https://www.huaruidc.com/" target="_blank" class="blue">█华瑞云：香港/美国vps仅需0.6元/天█</a></li><li><a href="http://www.tuidc.com/" target="_blank" class="blue">服务器租用/托管-域名空间/认准腾佑科技</a></li><li><a href="https://url.cn/oza46bfU" target="_blank" class="blue">【腾讯云】云服务器等爆品抢先购，低至4.2元/月</a></li><li><a href="http://www.dotdotnetwork.com/tg/tg-cn.htm" target="_blank" class="red">DOTDOTNETWORK美国高端服务器专家</a></li><li><a href="https://www.31idc.com/cloud_hk.html" target="_blank" class="red">★31idc★香港云服务器2核4G★30天免费试用◆</a></li><li><a href="https://shuyeidc.com/cart?action=configureproduct&amp;pid=76" target="_blank" class="red">█树叶云·南京/国内vps仅0.6元/天 █</a></li><li><a href="https://www.31idc.com/cloud_hk.html" target="_blank" class="red">★31idc★香港云服务器2核4G★30天免费试用◆</a></li></ul><div class="clearfix"></div></div><div class="blank5"></div><div class="topimg"><ul><li><a href="http://fwq.wnvps.com/" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/prokvm.gif" width="235" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></li><li><a href="https://www.idc35.com" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/idc352.gif" width="235" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></li><li><a href="https://ad1.uyktg.cn" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/ddf235.gif" width="235" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></li><li><a href="https://www.sukeyun.com/" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/sukeyun2351126.jpg" width="235" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></li><li><a href="tencent://message/?uin=461478385&amp;Site=//www.jb51.net" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/daqz235.jpg" width="235" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></li></ul></div><div class="blank5"></div><div class="topimg"><ul><li><a href="https://jiaobenzhijia.tj1736.com" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/tj1736.gif" width="235" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></li><li><a href="https://www.sudun.com/" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/sudun235.gif" width="235" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></li><li><a href="http://github.crmeb.net/u/jiaobenzhijia" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/crmeb235_1014.gif" width="235" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></li><li><a href="https://ad.zkuth.com" target="_blank" class="tipsa_ds"><img src="//files.jb51.net/image/feiniu235.gif" width="235" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></li><li><a href="https://www.hncloud.com/activity/activity_2024double.html?k=jb51" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/2024/hny-235x50.gif" width="235" height="50"><span class="tipsa_d">广告　商业广告，理性选择</span></a></li></ul></div><div class="blank5"></div></div>
+            </div>
+
+            <div class="clearfix">
+                <div class="breadcrumb">
+                    <i class="ico-path"></i>您的位置：<a href="/">首页</a> → <a href="/list/index_27.htm" title="网站技巧">网站技巧</a> → <a href="/list/list_82_1.htm" title="服务器">服务器</a> → <a href="/list/list_255_1.htm" title="云和虚拟化">云和虚拟化</a> → <a href="/list/list_256_1.htm" title="docker">docker</a> → Docker目录映射
+                </div>
+                <div class="search">
+                    <form action="/do/search.php" target="_blank">
+                        <input type="hidden" name="s" value="10520733385329581432">
+                        <input type="hidden" name="ie" value="utf-8">
+                        <input type="text" name="q" class="searchinput" placeholder="请输入关键词">
+                        <input type="submit" value=" " class="search-button">
+                    </form>
+                </div>
+            </div>
+
+            <div id="main" class="clearfix">
+                <div class="main-left">
+                    <div id="article">
+                        <h1 class="title">Docker目录映射方式</h1>
+                        <div class="info"> &nbsp;更新时间：2024年11月02日 09:32:03 &nbsp; 作者：普通网友 &nbsp; </div>
+                        <div class="lbd clearfix"></div>
+                        <div class="summary">总结了一些常用的Docker命令,包括查看、停止、重启和删除容器等操作,帮助用户更好地管理容器</div>
+                        <div class="lbd clearfix"></div>
+                        <div id="content">
+                            <div id="navCategory" style="margin-top: 40px;"><span style="position:absolute;left:60px;width:30px;line-height:30px;cursor:pointer;text-align:center;color:#fff;border-radius:3px;font-size:18px;font-weight:bold;user-select:none;">+</span><h5 class="catalogue" style="cursor:pointer;background:#6fa8dc;padding:0 10px;margin-bottom:20px;user-select:none;color:#fff;border-radius:3px;">目录</h5><ul class="first_class_ul" style="display: none;"><li><a href="#_label0">Docker目录映射</a></li><ul class="second_class_ul"><li><a href="#_lab2_0_0">docker常用命令</a></li><li><a href="#_lab2_0_1">目录映射</a></li><li><a href="#_lab2_0_2">实战过程</a></li></ul><li><a href="#_label1">总结</a></li><ul class="second_class_ul"></ul></ul></div><div class="xbtj"><i class="eco"></i><p class="cont" style="text-align:center; font-size:20px; color:#0066FF">GPT4.0+Midjourney绘画+国内大模型 会员永久免费使用！<br> 【 <a href="https://ai.xz778.com/?user_sn=86983725" target="_blank" style="font-size:16px; color:#FF0000;"><b style="text-decoration:underline">如果你想靠AI翻身，你先需要一个靠谱的工具！</b></a> 】</p></div><p class="maodian"><a name="_label0"></a></p><h2 id="heading-0">Docker目录映射</h2>
+<p class="maodian"><a name="_lab2_0_0"></a></p><h3 id="heading-1">docker常用命令</h3>
+<div class="jb51code"><div><div id="highlighter_556561" class="syntaxhighlighter  bash"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">docker </code><code class="bash functions">ps</code> <code class="bash plain">//</code> <code class="bash plain">查看所有正在运行容器</code></div><div class="line number2 index1 alt1"><code class="bash plain">docker stop containerId </code><code class="bash plain">//</code> <code class="bash plain">containerId 是容器的ID</code></div><div class="line number3 index2 alt2"><code class="bash plain">docker </code><code class="bash functions">ps</code> <code class="bash plain">-a </code><code class="bash plain">//</code> <code class="bash plain">查看所有容器 $ docker </code><code class="bash functions">ps</code> <code class="bash plain">-a -q </code><code class="bash plain">//</code> <code class="bash plain">查看所有容器ID</code></div><div class="line number4 index3 alt1"><code class="bash plain">docker stop $(docker </code><code class="bash functions">ps</code> <code class="bash plain">-a -q) </code><code class="bash plain">//</code> <code class="bash plain">stop停止所有容器</code></div><div class="line number5 index4 alt2"><code class="bash plain">docker </code><code class="bash functions">rm</code> <code class="bash plain">$(docker </code><code class="bash functions">ps</code> <code class="bash plain">-a -q) </code><code class="bash plain">//</code> <code class="bash plain">remove删除所有容器</code></div><div class="line number6 index5 alt1"><code class="bash plain">docker restart 容器</code><code class="bash functions">id</code> <code class="bash plain">//</code><code class="bash plain">重启容器</code></div><div class="line number7 index6 alt2"><code class="bash plain">docker run -d -p 8008:80 --name nginx-name nginx:1.1.1 启动一个新docker实例(nginx:1.1.1是版本号)</code></div></div></td></tr></tbody></table></div></div><div class="codetool"><a href="javascript:;" class="copy">登录后复制</a><a href="javascript:;" class="codeanswer">免费讲解</a><div class="code_n"><textarea></textarea></div></div></div>
+<p class="maodian"><a name="_lab2_0_1"></a></p><h3 id="heading-2">目录映射</h3>
+<p><strong>实例：</strong></p>
+<div class="jb51code"><div><div id="highlighter_233420" class="syntaxhighlighter  bash"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">docker run -p 8079:80 --name nginx-</code><code class="bash functions">test</code></div><div class="line number2 index1 alt1"><code class="bash plain">--privileged=</code><code class="bash functions">true</code></div><div class="line number3 index2 alt2"><code class="bash plain">-</code><code class="bash functions">v</code> <code class="bash plain">/testdocker/default</code><code class="bash plain">.conf:</code><code class="bash plain">/etc/nginx/conf</code><code class="bash plain">.d</code><code class="bash plain">/default</code><code class="bash plain">.conf </code></div><div class="line number4 index3 alt1"><code class="bash plain">-</code><code class="bash functions">v</code> <code class="bash plain">/testdocker/html</code><code class="bash plain">:</code><code class="bash plain">/usr/share/nginx/html</code> <code class="bash plain">-d nginx:1.14</code></div></div></td></tr></tbody></table></div></div><div class="codetool"><a href="javascript:;" class="copy">登录后复制</a><a href="javascript:;" class="codeanswer">免费讲解</a><div class="code_n"><textarea></textarea></div></div></div>
+<p><strong>命令解读：</strong></p>
+<ul><li>-p:指定端口映射，格式为：主机(宿主)端口:容器端口</li><li>–privileged=true 关闭安全权限，否则你容器操作文件夹没有权限</li><li>-v 挂载目录为：主机目录:容器目录，在创建前容器是没有指定目录时，docker 容器会自己创建</li></ul>
+<p class="maodian"><a name="_lab2_0_2"></a></p><h3 id="heading-3">实战过程</h3>
+<p>在服务器添加一个测试文件夹，放置nginx测试用例需要的nginx.conf配置文件，和一个默认页面index.html如图：</p>
+<p style="text-align:center"><img alt="" src="//img.jbzj.com/file_images/article/202411/2024110209294114.png"></p>
+<p><strong>执行：</strong></p>
+<div class="jb51code"><div><div id="highlighter_589372" class="syntaxhighlighter  bash"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">docker run -p 8079:80 --name nginx-</code><code class="bash functions">test</code></div><div class="line number2 index1 alt1"><code class="bash spaces">&nbsp;</code><code class="bash plain">--privileged=</code><code class="bash functions">true</code></div><div class="line number3 index2 alt2"><code class="bash plain">-</code><code class="bash functions">v</code> <code class="bash plain">/testdocker/default</code><code class="bash plain">.conf:</code><code class="bash plain">/etc/nginx/conf</code><code class="bash plain">.d</code><code class="bash plain">/default</code><code class="bash plain">.conf </code></div><div class="line number4 index3 alt1"><code class="bash plain">-</code><code class="bash functions">v</code> <code class="bash plain">/testdocker/html</code><code class="bash plain">:</code><code class="bash plain">/usr/share/nginx/html</code> <code class="bash plain">-d nginx:1.14</code></div></div></td></tr></tbody></table></div></div><div class="codetool"><a href="javascript:;" class="copy">登录后复制</a><a href="javascript:;" class="codeanswer">免费讲解</a><div class="code_n"><textarea></textarea></div></div></div>
+<p>成功后如图：</p>
+<p style="text-align:center"><img alt="" src="//img.jbzj.com/file_images/article/202411/2024110209294115.png" style="width: 800px; height: auto;"></p>
+<ul><li>测试挂载的目录文件是否可用：直接修改index.html内容后，直接成功生效。</li><li>修改default.conf 文件需要重启容器：docker restart 容器id 才能生效。</li></ul>
+<p class="maodian"><a name="_label1"></a></p><h2 id="heading-4">总结</h2>
+<p>以上为个人经验，希望能给大家一个参考，也希望大家多多支持脚本之家。</p>
+                            
+                            <div class="art_xg">
+                                <b>您可能感兴趣的文章:</b><ul><li><a href="/article/276039.htm" title="docker如何对已经启动的容器添加目录映射(挂载目录)" target="_blank">docker如何对已经启动的容器添加目录映射(挂载目录)</a></li><li><a href="/server/3298828bz.htm" title="如何修改docker的port端口映射" target="_blank">如何修改docker的port端口映射</a></li><li><a href="/server/329880yw3.htm" title="Docker的文件系统映射:主机与容器间目录的双向映射详解" target="_blank">Docker的文件系统映射:主机与容器间目录的双向映射详解</a></li><li><a href="/server/329874tip.htm" title="docker容器内运行jupyter映射到本地方式" target="_blank">docker容器内运行jupyter映射到本地方式</a></li><li><a href="/server/328529o0y.htm" title="docker映射端口穿透内置防火墙的实现" target="_blank">docker映射端口穿透内置防火墙的实现</a></li><li><a href="/server/3298847vy.htm" title="Docker中的文件/文件夹的挂载映射方式" target="_blank">Docker中的文件/文件夹的挂载映射方式</a></li></ul>
+                            </div>
+
+                        </div>
+                        <!--endmain-->
+                        <div style="text-align: center; padding: 0px; margin: 20px 0px;"><a href="https://ai.xz778.com/?user_sn=86983725" target="_blank"><img style="width:800px;border:none;padding:0;border-radius: 3px;" src="//files.jb51.net/image/xuliai.png" alt="蓄力AI"></a></div><div class="lbd_bot clearfix"></div><div id="ewm"><div class="jb51ewm"><div class="fl"><img src="//files.jb51.net/skin/2018/images/jb51ewm.png"></div><div class="fr"><p>微信公众号搜索 “ <span>脚本之家</span> ” ，选择关注</p><p>程序猿的那些事、送书等活动等着你</p></div></div></div><div id="shengming"><p style="font-size:12px;color:#999;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;">原文链接：https://blog.csdn.net/m0_54850825/article/details/126616172</p><p>本文来自互联网用户投稿，该文观点仅代表作者本人，不代表本站立场。本站仅提供信息存储空间服务，不拥有所有权，不承担相关法律责任。<br>如若内容造成侵权/违法违规/事实不符，请将相关资料发送至 reterry123@163.com 进行投诉反馈，一经查实，立即处理！</p></div>
+                        <div class="tags clearfix">
+                            <i class="icon-tag"></i>
+                            <ul class="meta-tags">
+                                <li class="tag item"><a href="//www.jb51.net/tag/Docker/1.htm" target="_blank" title="搜索关于Docker的文章" rel="nofollow">Docker</a></li>
+<li class="tag item"><a href="//www.jb51.net/tag/%E7%9B%AE%E5%BD%95/1.htm" target="_blank" title="搜索关于目录的文章" rel="nofollow">目录</a></li>
+<li class="tag item"><a href="//www.jb51.net/tag/%E6%98%A0%E5%B0%84/1.htm" target="_blank" title="搜索关于映射的文章" rel="nofollow">映射</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="lbd clearfix">
+                            <span id="art_down" class="jbTestPos"></span>
+                        </div>
+                        <div id="shoucang"></div>
+                        <div class="xgcomm clearfix">
+                            <h2>相关文章</h2>
+                            <ul><li class="lbd clearfix"><span id="art_xg" class="jbTestPos"></span></li><li><div class="item-inner"><a href="/article/232934.htm" title="Docker容器之间的通信的方法实现" class="img-wrap" target="_blank"> <img alt="Docker容器之间的通信的方法实现" src="//img.jbzj.com/images/xgimg/bcimg0.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/232934.htm" title="Docker容器之间的通信的方法实现">Docker容器之间的通信的方法实现</a></p><div class="item-info"><div class="js">本文主要介绍了Docker容器之间的通信的方法实现，文中通过示例代码介绍的非常详细，具有一定的参考价值，感兴趣的小伙伴们可以参考一下</div><span class="lbtn" style="float:right"> 2021-12-12 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/server/306933vmj.htm" title="docker搭建nginx实现负载均衡的示例代码" class="img-wrap" target="_blank"> <img alt="docker搭建nginx实现负载均衡的示例代码" src="//img.jbzj.com/images/xgimg/bcimg1.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/server/306933vmj.htm" title="docker搭建nginx实现负载均衡的示例代码">docker搭建nginx实现负载均衡的示例代码</a></p><div class="item-info"><div class="js">本随着互联网应用规模不断扩大,原有的单一服务器已经无法满足高并发和高可用性的要求,本文就来介绍docker搭建nginx实现负载均衡的示例代码,感兴趣的可以了解一下</div><span class="lbtn" style="float:right"> 2023-12-12 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/server/3145692ih.htm" title="基于docker-compose构建Mongodb副本集的示例详解" class="img-wrap" target="_blank"> <img alt="基于docker-compose构建Mongodb副本集的示例详解" src="//img.jbzj.com/images/xgimg/bcimg2.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/server/3145692ih.htm" title="基于docker-compose构建Mongodb副本集的示例详解">基于docker-compose构建Mongodb副本集的示例详解</a></p><div class="item-info"><div class="js">副本集是&nbsp;MongoDB&nbsp;高可用性和数据安全性策略的基础,适用于对数据安全性和服务可用性有较高要求的场景,本文给大家介绍了如何基于docker-compose构建Mongodb副本集,文中通过代码示例给大家介绍的非常详细,需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2024-01-01 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/server/2911640qq.htm" title="一文带你了解Docker网络模型" class="img-wrap" target="_blank"> <img alt="一文带你了解Docker网络模型" src="//img.jbzj.com/images/xgimg/bcimg3.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/server/2911640qq.htm" title="一文带你了解Docker网络模型">一文带你了解Docker网络模型</a></p><div class="item-info"><div class="js">Docker是一种容器化平台，它提供了一种轻量级的虚拟化解决方案，使得应用程序能够以容器的形式运行，Docker网络模型基于Linux内核的网络命名空间和虚拟以太网桥技术，本文就给大家详细介绍一下Docker&nbsp;网络模型,需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2023-07-07 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/server/296071l32.htm" title="docker如何将jar包生成镜像并将宿主机目录挂载" class="img-wrap" target="_blank"> <img alt="docker如何将jar包生成镜像并将宿主机目录挂载" src="//img.jbzj.com/images/xgimg/bcimg4.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/server/296071l32.htm" title="docker如何将jar包生成镜像并将宿主机目录挂载">docker如何将jar包生成镜像并将宿主机目录挂载</a></p><div class="item-info"><div class="js">这篇文章主要介绍了docker如何将jar包生成镜像并将宿主机目录挂载问题,具有很好的参考价值,希望对大家有所帮助,如有错误或未考虑完全的地方,望不吝赐教</div><span class="lbtn" style="float:right"> 2023-08-08 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/server/294543o0y.htm" title="Docker与DevOps的结合使用" class="img-wrap" target="_blank"> <img alt="Docker与DevOps的结合使用" src="//img.jbzj.com/images/xgimg/bcimg5.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/server/294543o0y.htm" title="Docker与DevOps的结合使用">Docker与DevOps的结合使用</a></p><div class="item-info"><div class="js">结合Docker和DevOps文化的实践,可以帮助团队实现自动化、监控和日志管理等方面的最佳实践,本文将介绍如何将Docker与DevOps文化相结合使用,并详细阐述如何使用Docker进行DevOps自动化、监控和日志管理等方面的实践,需要的朋友参考下吧</div><span class="lbtn" style="float:right"> 2023-08-08 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/104247.htm" title="详解Centos7 下建立 Docker 桥接网络" class="img-wrap" target="_blank"> <img alt="详解Centos7 下建立 Docker 桥接网络" src="//img.jbzj.com/images/xgimg/bcimg6.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/104247.htm" title="详解Centos7 下建立 Docker 桥接网络">详解Centos7 下建立 Docker 桥接网络</a></p><div class="item-info"><div class="js">本篇文章主要介绍了详解Centos7 下建立 Docker 桥接网络，小编觉得挺不错的，现在分享给大家，也给大家做个参考。一起跟随小编过来看看吧
+</div><span class="lbtn" style="float:right"> 2017-01-01 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/server/296543nsm.htm" title="Docker容器中的Postgresql备份脚本异常解决" class="img-wrap" target="_blank"> <img alt="Docker容器中的Postgresql备份脚本异常解决" src="//img.jbzj.com/images/xgimg/bcimg7.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/server/296543nsm.htm" title="Docker容器中的Postgresql备份脚本异常解决">Docker容器中的Postgresql备份脚本异常解决</a></p><div class="item-info"><div class="js">本文基于K8S中Docker容器对postgres数据库进行备份的操作,但是提示报错,报错信息为kubectl&nbsp;command&nbsp;not&nbsp;found,本文就来介绍一下报错信息的分析及其解决办法,感兴趣的可以了解一下</div><span class="lbtn" style="float:right"> 2023-08-08 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/190422.htm" title="docker配置修改阿里云镜像仓库的实现" class="img-wrap" target="_blank"> <img alt="docker配置修改阿里云镜像仓库的实现" src="//img.jbzj.com/images/xgimg/bcimg8.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/190422.htm" title="docker配置修改阿里云镜像仓库的实现">docker配置修改阿里云镜像仓库的实现</a></p><div class="item-info"><div class="js">这篇文章主要介绍了docker配置修改阿里云镜像仓库的实现，文中通过示例代码介绍的非常详细，对大家的学习或者工作具有一定的参考学习价值，需要的朋友们下面随着小编来一起学习学习吧</div><span class="lbtn" style="float:right"> 2020-07-07 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/server/305781mhm.htm" title="Docker如何打包本地环境为tar包给别人使用" class="img-wrap" target="_blank"> <img alt="Docker如何打包本地环境为tar包给别人使用" src="//img.jbzj.com/images/xgimg/bcimg9.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/server/305781mhm.htm" title="Docker如何打包本地环境为tar包给别人使用">Docker如何打包本地环境为tar包给别人使用</a></p><div class="item-info"><div class="js">这篇文章主要介绍了Docker如何打包本地环境为tar包给别人使用问题,具有很好的参考价值,希望对大家有所帮助,如有错误或未考虑完全的地方,望不吝赐教</div><span class="lbtn" style="float:right"> 2023-11-11 </span></div></div></div></div></li>
+</ul>
+                        </div>
+                        <div class="lbd clearfix mt5">
+                            <span id="art_down2" class="jbTestPos"></span>
+                        </div>
+                        <a href="#comments"></a>
+                        <div id="comments">
+                            <h2>最新评论</h2>
+                            <div class="pd5">
+                                <div id="SOHUCS" sid="art_329875"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--endborder-->
+                </div>
+                <!--end fl-->
+
+                <div class="main-right">
+                    <div id="sidebar-right">
+                        <div class="r300 clearfix"><span id="side_up" class="jbTestPos"></span></div>
+                        <div class="sidebox-recomm"></div>
+                        <div class="r300 clearfix"><div class="blank5"></div><a href="https://www.hncloud.com/activity/activity_2024double.html?k=jb51" target="_blank" class="tipsa_ds"><img src="https://img.jbzj.com/image/2024/hny-300x100.gif" alt="" width="300" height="100"><span class="tipsa_d">广告　商业广告，理性选择</span></a><div class="blank5"></div><a href="https://shop294553060.taobao.com/?spm=pc_detail.27183998/evo365560b447259.202202.2.5ce97dd62B8MqR" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/wh300.png" width="300" height="100"><span class="tipsa_d">广告　商业广告，理性选择</span></a><div class="blank5"></div><a href="https://shuyeidc.com/cart?action=configureproduct&amp;pid=76" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/shuyeyun.gif" width="300" height="100"><span class="tipsa_d">广告　商业广告，理性选择</span></a></div>
+                        <div class="sidebox bor-blue">
+                            <div class="bor-default pb10">
+                                <h4 class="blue">大家感兴趣的内容</h4>
+                                <ul class="newsList newList-in">
+                                    <li><em class="no1">1</em><a href="/article/111680.htm" title="docker.service启动失败：Unit not found的原因及解决办法" target="_blank">docker.service启动失败：Unit not fo</a></li><li><em class="no2">2</em><a href="/article/145998.htm" title="Docker获取镜像报错docker: Error response from daemon" target="_blank">Docker获取镜像报错docker: Error resp</a></li><li><em class="no3">3</em><a href="/article/127630.htm" title="Docker 给运行中的容器设置端口映射的方法" target="_blank">Docker 给运行中的容器设置端口映射的方法</a></li><li><em class="no4">4</em><a href="/article/239789.htm" title="Docker&nbsp;删除及清理镜像的方法" target="_blank">Docker&nbsp;删除及清理镜像的方法</a></li><li><em class="no5">5</em><a href="/article/148061.htm" title="浅谈docker-compose网络设置之networks" target="_blank">浅谈docker-compose网络设置之networks</a></li><li><em class="no6">6</em><a href="/article/111906.htm" title="ubuntu&nbsp;vps安装docker报错：Cannot&nbsp;connect&nbsp;to&nbsp;the&nbsp;Docker&nbsp;daemon&nbsp;at&nbsp;unix:///var/run/docker.sock.问题解决" target="_blank">ubuntu&nbsp;vps安装docker报错：Cann</a></li><li><em class="no7">7</em><a href="/article/56051.htm" title="Docker 清理命令集锦" target="_blank">Docker 清理命令集锦</a></li><li><em class="no8">8</em><a href="/article/149173.htm" title="Docker容器访问宿主机网络的方法" target="_blank">Docker容器访问宿主机网络的方法</a></li><li><em class="no9">9</em><a href="/article/241983.htm" title="openwrt安装docker并启动的操作方法" target="_blank">openwrt安装docker并启动的操作方法</a></li><li><em class="no10">10</em><a href="/article/96617.htm" title="docker容器如何优雅的终止详解" target="_blank">docker容器如何优雅的终止详解</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="r300 clearfix mt10"><div class="blank5"></div><a href="https://www.580dns.com/" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/99idc300.jpg" width="300" height="100"><span class="tipsa_d">广告　商业广告，理性选择</span></a><div class="blank5"></div><a href="https://www.qkidc.com/" target="_blank" class="tipsa_ds"><img alt="" src="//files.jb51.net/image/qkidc300.png" width="300" height="100"><span class="tipsa_d">广告　商业广告，理性选择</span></a><div class="blank5"></div><a href="https://www.sukeyun.com/" title="速科云" target="_blank" rel="nofollow" class="tipsa_ds"><img src="//files.jb51.net/image/2024/sukeyun_300_1125.jpg" width="300" height="100"><span class="tipsa_d">广告　商业广告，理性选择</span></a></div>
+                        <div class="sidebox bor-blue">
+                            <div class="bor-default pb10">
+                                <h4 class="blue">最近更新的内容</h4>
+                                <ul class="newsListA">
+                                    <li><a href="/article/137661.htm" title="详解给Ocelot做一个Docker镜像" target="_blank">详解给Ocelot做一个Docker镜像</a></li><li><a href="/article/261255.htm" title="Jenkins+Docker&nbsp;一键自动化部署&nbsp;SpringBoot&nbsp;项目的详细步骤" target="_blank">Jenkins+Docker&nbsp;一键自动化部署&nbsp;SpringBoot&nbsp;项</a></li><li><a href="/article/200275.htm" title="docker内网搭建dns使用域名访问替代ip:port的操作" target="_blank">docker内网搭建dns使用域名访问替代ip:port的操作</a></li><li><a href="/server/319276gwo.htm" title="Docker如何拉取oracle11g镜像" target="_blank">Docker如何拉取oracle11g镜像</a></li><li><a href="/article/245039.htm" title="SpringBoot打包docker镜像发布的详细步骤" target="_blank">SpringBoot打包docker镜像发布的详细步骤</a></li><li><a href="/article/141815.htm" title="Rancher无法添加主机问题的解决方法" target="_blank">Rancher无法添加主机问题的解决方法</a></li><li><a href="/article/276903.htm" title="Docker容器网络更改的实现" target="_blank">Docker容器网络更改的实现</a></li><li><a href="/article/200699.htm" title="解决docker安装完成报:bridge-nf-call-iptables is disabled问题" target="_blank">解决docker安装完成报:bridge-nf-call-iptables </a></li><li><a href="/article/180665.htm" title="docker利用nextcloud搭建一个私有百度云盘" target="_blank">docker利用nextcloud搭建一个私有百度云盘</a></li><li><a href="/article/148129.htm" title="docker 搭建Mysql集群的方法示例" target="_blank">docker 搭建Mysql集群的方法示例</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="r300 clearfix mt10"><div class="idc3"><a href="https://tools.jb51.net" target="_blank"><h1>在线工具</h1><span>代码格式化等</span> </a><a href="tencent://message/?uin=461478385&amp;Site=//www.jb51.net" target="_blank"><h1>高防CDN</h1><span>T级 防护</span> </a><a href="https://www.058idc.com" target="_blank"><h1>万恒网络</h1><span>IDC服务商</span> </a></div></div>
+                        <div class="sidebox bor-blue">
+                            <div class="bor-default pb10">
+                                <h4 class="blue">常用在线小工具</h4>
+                                <ul class="newsListA"><li><a href="http://tools.jb51.net/code/css" target="_blank">CSS代码工具</a></li><li><a href="http://tools.jb51.net/code/js" target="_blank">JavaScript代码格式化工具</a></li><li><a href="http://tools.jb51.net/code/xmlformat" target="_blank">在线XML格式化/压缩工具</a></li><li><a href="http://tools.jb51.net/code/phpformat" target="_blank">php代码在线格式化美化工具</a></li><li><a href="http://tools.jb51.net/code/sqlcodeformat" target="_blank">sql代码在线格式化美化工具</a></li><li><a href="http://tools.jb51.net/transcoding/html_transcode" target="_blank">在线HTML转义/反转义工具</a></li><li><a href="http://tools.jb51.net/code/json" target="_blank">在线JSON代码检验/检验/美化/格式化</a></li><li><a href="http://tools.jb51.net/regex/javascript" target="_blank">JavaScript正则在线测试工具</a></li><li><a href="http://tools.jb51.net/transcoding/jb51qrcode" target="_blank">在线生成二维码工具(加强版)</a></li><li><a href="http://tools.jb51.net/" target="_blank">更多在线工具</a></li></ul>
+                            </div>
+                        </div>
+                        <div class="r300 clearfix mt10"><a href="http://www.tuidc.com/indexhd.html" target="_blank" class="tipsa_ds"><img src="//files.jb51.net/image/tengyou300.gif?1209" width="300" height="100"><span class="tipsa_d">广告　商业广告，理性选择</span></a><div class="blank5"></div><a href="http://www.boluoyun.com/" target="_blank" class="tipsa_ds"><img src="//files.jb51.net/image/bly300.jpg" alt="云服务器" width="300" height="100"><span class="tipsa_d">广告　商业广告，理性选择</span></a></div>
+                        <div class="mt10 rFixedBox" style="position: static; top: 0px;">
+                            <div class="r300 clearfix"></div>
+                            <div class="r300 clearfix mt10">
+                                <span id="rbbd" class="jbTestPos"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end fr-->
+            </div>
+        </div>
+        <!--share start-->
+        <div id="right-share" class="lefts" style="">
+            <a class="rshare-top" onclick="javascript:;"></a>
+        </div>
+        <!--share end-->
+        <!-- 目录容器 -->
+        <div class="AutoCatelog">
+            <div class="AutoCatelogLlist" id="CatelogList" style="display: none; width: 332.5px;"><p>目录</p><ul><li><div class="AutoCatelogLink AutoCatelog_l2" title="Docker目录映射" data-target="heading-0">Docker目录映射</div><ul><li><div class="AutoCatelogLink AutoCatelog_l3" title="docker常用命令" data-target="heading-1">docker常用命令</div></li><li><div class="AutoCatelogLink AutoCatelog_l3" title="目录映射" data-target="heading-2">目录映射</div></li><li><div class="AutoCatelogLink AutoCatelog_l3" title="实战过程" data-target="heading-3">实战过程</div></li></ul></li><li><div class="AutoCatelogLink AutoCatelog_l2" title="总结" data-target="heading-4">总结</div></li></ul></div>
+        </div>
+    </div>
+    <!--end content-->
+    <div id="footer">
+        <div class="footer-bottom">
+            <p>
+                <a rel="nofollow" href="/about.htm" target="_blank">关于我们</a> -
+                <a rel="nofollow" href="/support.htm" target="_blank">广告合作</a> -
+                <a rel="nofollow" href="/linkus.htm" target="_blank">联系我们</a> -
+                <a rel="nofollow" href="/sm.htm" target="_blank">免责声明</a> -
+                <a rel="nofollow" href="/sitemap.htm" target="_blank">网站地图</a> -
+                <a rel="nofollow" href="tencent://message/?uin=461478385&amp;Site=https://www.jb51.net" target="_blank">投诉建议</a> -
+                <a rel="nofollow" href="/up.htm" target="_blank">在线投稿</a>
+            </p>
+            <p>©CopyRight 2006-<span id="year">2025</span> JB51.Net</p>
+        </div>
+    </div>
+    <!--end footer-->
+    <script type="text/javascript">
+        var ourl = "104.116.116.112.115.58.47.47.98.108.111.103.46.99.115.100.110.46.110.101.116.47.109.48.95.53.52.56.53.48.56.50.53.47.97.114.116.105.99.108.101.47.100.101.116.97.105.108.115.47.49.50.54.54.49.54.49.55.50.";
+    </script>
+    <link type="text/css" rel="stylesheet" href="//icws.jb51.net/skin/2019/css/extend.css">
+<script type="text/javascript" src="//icws.jb51.net/js/extend.js"></script>
+<script type="text/javascript" src="//icws.jb51.net/good2021/arc2019.js"></script>
+<script type="text/javascript" src="//icws.jb51.net/jslib/viewer/viewer.min.js"></script>
+<script type="text/javascript">
+var viewer = new Viewer(getid('content'));
+</script>
+<div id="tongji">
+<script type="text/javascript" src="//icws.jb51.net/tongji/tongji.js"></script><script src="//hm.baidu.com/hm.js?3e014f2a63d42a203300b0b3e68e51c9" language="JavaScript"></script>
+</div>
+    <script type="text/javascript">var __sinfo='pyzi9J572XlrIdqs4vs4d6gsOH0mSpGnQytB7_KxLl2nA4-oy2nHFEGLNSZELxqOawWdlfDOEKuk5l99GETLs5R0I6seAzkBE_ZWORVfDBNhQTWDqfTg_PXhVWQ_9qri',__st='05eda952f145784f49461fd05a0eb91927727d31539ff51d1cc1c4d685bee5ae';</script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://ziyuan.baidu.com/contexts/cambrian.jsonld",
+            "@id": "https://www.jb51.net/server/329875fqr.htm",
+            "appid": "1549322409310619",
+            "title": "Docker目录映射方式",
+            "description": "总结了一些常用的Docker命令,包括查看、停止、重启和删除容器等操作,帮助用户更好地管理容器",
+            "pubDate": "2024-11-02T09:32:04",
+            "upDate": "2024-11-02T09:32:03"
+        }
+
+    </script>
+
+<script id="bs-cm" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer"></script></body></html>

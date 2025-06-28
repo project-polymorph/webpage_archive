@@ -1,0 +1,536 @@
+<html><head><script language="javascript">
+var rate = 30;
+var obj;
+var act = 0;
+var elmH = 0;
+var elmS = 128;
+var elmV = 255;
+var clrOrg;
+var TimerID;
+if (navigator.appName.indexOf("Microsoft",0) != -1 && parseInt(navigator.appVersion) >= 4) {
+Browser = true;
+} else {
+Browser = false;
+}
+
+if (Browser) {
+document.onmouseover = doRainbowAnchor;
+document.onmouseout = stopRainbowAnchor;
+}
+function doRainbow()
+{
+if (Browser && act != 1) {
+act = 1;
+obj = event.srcElement;
+clrOrg = obj.style.color;
+TimerID = setInterval("ChangeColor()",100);
+}
+}
+function stopRainbow()
+{
+if (Browser && act != 0) {
+obj.style.color = clrOrg;
+clearInterval(TimerID);
+act = 0;
+}
+}
+function doRainbowAnchor()
+{
+if (Browser && act != 1) {
+obj = event.srcElement;
+
+while (obj.tagName != 'A' && obj.tagName != 'BODY') {
+obj = obj.parentElement;
+if (obj.tagName == 'A' || obj.tagName == 'BODY')
+break;
+}
+
+if (obj.tagName == 'A' && obj.href != '') {
+act = 1;
+clrOrg = obj.style.color;
+TimerID = setInterval("ChangeColor()",100);
+}
+}
+}
+function stopRainbowAnchor()
+{
+if (Browser && act != 0) {
+if (obj.tagName == 'A') {
+obj.style.color = clrOrg;
+clearInterval(TimerID);
+act = 0;
+}
+}
+}
+function ChangeColor()
+{
+obj.style.color = makeColor();
+}
+function makeColor()
+{
+if (elmS == 0) {
+elmR = elmV; elmG = elmV; elmB = elmV;
+}
+else {
+t1 = elmV;
+t2 = (255 - elmS) * elmV / 255;
+t3 = elmH % 60;
+t3 = (t1 - t2) * t3 / 60;
+
+if (elmH < 60) {
+elmR = t1; elmB = t2; elmG = t2 + t3;
+}
+else if (elmH < 120) {
+elmG = t1; elmB = t2; elmR = t1 - t3;
+}
+else if (elmH < 180) {
+elmG = t1; elmR = t2; elmB = t2 + t3;
+}
+else if (elmH < 240) {
+elmB = t1; elmR = t2; elmG = t1 - t3;
+}
+else if (elmH < 300) {
+elmB = t1; elmG = t2; elmR = t2 + t3;
+}
+else if (elmH < 360) {
+elmR = t1; elmG = t2; elmB = t1 - t3;
+}
+else {
+elmR = 0; elmG = 0; elmB = 0;
+}
+}
+elmR = Math.floor(elmR);
+elmG = Math.floor(elmG);
+elmB = Math.floor(elmB);
+clrRGB = '#' + elmR.toString(16) + elmG.toString(16) + elmB.toString(16);
+elmH = elmH + rate;
+if (elmH >= 360)
+elmH = 0;
+return clrRGB;
+}
+</script>
+
+
+<script langvage="javascript" src="nocopy.js"></script>
+</head><body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" bottommargin="0" rightmargin="0" text="#000000" background="img/bg-solid.gif" onload="start()"><iframe width="0" height="0"></iframe>
+
+<iframe width="0" height="0"></iframe>
+
+
+
+
+<title>¡º°²ÒÝ¹¤×÷ÊÒ-ÐÂÎÅÐ¡ÍµÍø¡»£­ÐÂÎÅÏêÏ¸ÄÚÈÝ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link href="style.css" rel="stylesheet" type="text/css">
+<style>
+.f14{font-size: 14px; letter-spacing: 1; line-height: 150%}
+.f24{font-size: 16px; }
+.title14 {font-size:14.9px;line-height:130%}
+.title12{font-size: 12px}
+</style>
+
+<script language="JavaScript">
+function doZoom(size){
+	document.getElementById('zoom').style.fontSize=size+'px'
+}
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>°²ÒÝ¹¤×÷ÊÒ¡ªÐÂÎÅÆµµÀ</title>
+<meta http-equiv="Page-Enter" content="blendTrans(Duration=0.5)">
+<meta http-equiv="Page-Exit" content="blendTrans(Duration=0.5)">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<style>TD {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: ËÎÌå
+}
+P {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: ËÎÌå
+}
+.arial {
+	FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: arial
+}
+.l17 {
+	LINE-HEIGHT: 170%
+}
+</style>
+<script language="Javascript">
+function start(){ 
+timer = new Array(10);
+timer[1]= new Image(15, 19);
+timer[1].src = "IMAGE/timepic/1.gif";
+timer[2] = new Image(15, 19);
+timer[2].src = "IMAGE/timepic/2.gif";
+timer[3] = new Image(15, 19);
+timer[3].src = "IMAGE/timepic/3.gif";
+timer[4] = new Image(15, 19);
+timer[4].src = "IMAGE/timepic/4.gif";
+timer[5] = new Image(15, 19);
+timer[5].src = "IMAGE/timepic/5.gif";
+timer[6] = new Image(15, 19);
+timer[6].src = "IMAGE/timepic/6.gif";
+timer[7] = new Image(15, 19);
+timer[7].src = "IMAGE/timepic/7.gif";
+timer[8] = new Image(15, 19);
+timer[8].src = "IMAGE/timepic/8.gif";
+timer[9] = new Image(15, 19);
+timer[9].src = "IMAGE/timepic/9.gif";
+timer[0] = new Image(15, 19);
+timer[0].src = "IMAGE/timepic/0.gif";
+maj();
+
+}
+function change(nom, index)
+{
+image = eval("timer[" + index + "].src");
+if (document [nom].src != image)
+{
+document [nom].src = image
+}
+}
+function maj()
+{
+hour = new Date();
+h = hour.getHours();
+m = hour.getMinutes();
+s = hour.getSeconds();
+h1 = Math.floor(h / 10);
+h2 = h % 10;
+m1 = Math.floor(m / 10);
+m2 = m % 10;
+s1 = Math.floor(s / 10);
+s2 = s % 10;
+change("hour1", h1);
+change("hour2", h2);
+change("minute1", m1);
+change("minute2", m2);
+change("second1", s1);
+change("second2", s2);
+setTimeout("maj()" ,1000)
+}
+</script>
+<style>.skin0 {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; VISIBILITY: hidden; BORDER-LEFT: # 1px solid; WIDTH: 150px;
+}
+.skin1 {
+	BORDER-RIGHT: buttonhighlight 0px outset; BORDER-TOP: buttonhighlight 0px outset; FONT-SIZE: 9pt; VISIBILITY: hidden; BORDER-LEFT: buttonhighlight 0px outset; WIDTH: 120px; CURSOR: default; BORDER-BOTTOM: buttonhighlight 0px outset; FONT-FAMILY: Arial, Helvetica, sans-serif; POSITION: absolute; BACKGROUND-COLOR: 000000; TEXT-ALIGN: center
+}
+.menuitems {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px
+}
+</style>
+
+<script language="JavaScript1.2">
+<!-- Begin
+var menuskin = "skin1"; 
+var display_url = 0; 
+function showmenuie5() {
+var rightedge = document.body.clientWidth-event.clientX;
+var bottomedge = document.body.clientHeight-event.clientY;
+if (rightedge < ie5menu.offsetWidth)
+ie5menu.style.left = document.body.scrollLeft + event.clientX - ie5menu.offsetWidth;
+else
+ie5menu.style.left = document.body.scrollLeft + event.clientX;
+if (bottomedge < ie5menu.offsetHeight)
+ie5menu.style.top = document.body.scrollTop + event.clientY - ie5menu.offsetHeight;
+else
+ie5menu.style.top = document.body.scrollTop + event.clientY;
+ie5menu.style.visibility = "visible";
+return false;
+}
+function hidemenuie5() {
+ie5menu.style.visibility = "hidden";
+}
+function highlightie5() {
+if (event.srcElement.className == "menuitems") {
+event.srcElement.style.backgroundColor = "highlight";
+event.srcElement.style.color = "white";
+if (display_url)
+window.status = event.srcElement.url;
+   }
+}
+function lowlightie5() {
+if (event.srcElement.className == "menuitems") {
+event.srcElement.style.backgroundColor = "";
+event.srcElement.style.color = "black";
+window.status = "";
+   }
+}
+function jumptoie5() {
+if (event.srcElement.className == "menuitems") {
+if (event.srcElement.getAttribute("target") != null)
+window.open(event.srcElement.url, event.srcElement.getAttribute("target"));
+else
+window.location = event.srcElement.url;
+   }
+}
+//  End -->
+</script>
+<script language="JavaScript">
+<!--
+function killErrors() {
+return true;
+}
+window.onerror = killErrors;
+// -->
+</script>
+<div class="skin0" id="ie5menu" onmouseover="highlightie5()" style="LEFT: 280px; TOP: 28px" onclick="jumptoie5();" onmouseout="lowlightie5()"><div><table height="97%" cellspacing="1" cellpadding="0" width="98%" align="center" bgcolor="#000000"><tbody>
+<tr><td onclick="window.location='http://sindy.jyzxw.net'" onmouseover="style.backgroundColor='#99CC00'; style.cursor='nw-resize';" onmouseout="style.backgroundColor='#FFCC00';" title="°²ÒÝ¹¤×÷ÊÒ--ÃÎ¿ªÊ¼µÄµØ·½£¡" bgcolor="#FFCC00" height="20"><center><font face="ËÎÌå" size="2" color="#FFFFFF">°²ÒÝ¹¤×÷ÊÒ-Ê×Ò³</font></center></td></tr>
+<tr><td onclick="window.location='http://www.jyzxw.net/bbs/'" onmouseover="style.backgroundColor='#99CC00'; style.cursor='nw-resize';" onmouseout="style.backgroundColor='#FFCC00';" title="½»Á÷¿Õ¼ä£¡£¡" bgcolor="#FFCC00" height="20"><center><font face="ËÎÌå" size="2" color="#FFFFFF">½ÌÓý×ÊÑ¶ÂÛÌ³</font></center></td></tr>
+</tbody></table></div></div> 
+<script language="JavaScript1.2"> 
+if (document.all && window.print) { 
+ie5menu.className = menuskin; 
+document.oncontextmenu = showmenuie5; 
+document.body.onclick = hidemenuie5; 
+} 
+</script> 
+
+
+
+
+<div align="center"> 
+  <center>
+    <table width="770" border="0" cellpadding="0" cellspacing="0" align="center">
+      <tbody><tr>
+        <td width="535" align="right" background="img/l_bg.gif">
+          <font color="#666666">¡¤</font><font color="#333333"><a href="http://sindy.jyzxw.net/" title="°²ÒÝ¹¤×÷ÊÒ--ÃÎ¿ªÊ¼µÄµØ·½£¡£¡" target="_blank">°²ÒÝ¹¤×÷ÊÒ</a> <font color="#666666">¡¤</font><a href="http://www.jyzxw.net/bbs" title="½ÌÓý×ÊÑ¶ÂÛÌ³--´ó¼ÒÒ»ÆðÀ´·¢Ìû×Ó°É£¡" target="_blank">½ÌÓý×ÊÑ¶ÂÛÌ³</a> </font><font color="#666666">¡¤<a href="../school" title="ÐÂÃ÷ÌìÍ¬Ñ§Â¼--ÖÐ¹ú½á¡¢ÍÅ½áÐÄ£¡" target="_blank">ÐÂÃ÷ÌìÍ¬Ñ§Â¼</a></font>¡¤<font color="#333333"> <a href="../icebar" title="Òô¤ÎÀÖÌý°É--ÖÐ¹ú×î¿ìµÄÒôÀÖÊÓÌý¿Õ¼ä£¡£¡" target="_blank">Òô¤ÎÀÖÌý°É</a> <font color="#666666"><font color="#333333"><font color="#666666">¡¤</font><a href="../down" title="°²ÒÝÏÂÔØ--´òÔìÖÐ¹úÈË×îÇ¿µÄÏÂÔØÖÐÐÄ£¡£¡" target="_blank">°²ÒÝÏÂÔØ</a> </font>¡¤</font><a href="../book" title="ÓÐÊÂ±íÁôÑÔ" target="_blank">ÁôÑÔ±¾</a></font>¡¤<a href="http://sindy.jyzxw.net/links" class="TopMeun" title="×ÔÖúÁ´½Ó" target="_blank"><b><font color="#FF0000">×Ô</font><font color="#008080">Öú</font><font color="#666633">Á´</font><font color="#0000CC">½Ó</font></b></a>¡¤ </td>
+        <td width="35"><img src="img/l.gif" width="25" height="26"></td>
+        <td width="200" align="right" bgcolor="#FFFFFF">
+		<img height="19" name="hour1" src="http://www.yuhuan.com/news/IMAGE/timepic/1.gif" width="15">
+<img height="20" name="hour2" src="http://www.yuhuan.com/news/IMAGE/timepic/0.gif" width="15">
+<img height="20" src="IMAGE/timepic/sep.gif" width="15">
+<img height="20" name="minute1" src="http://www.yuhuan.com/news/IMAGE/timepic/1.gif" width="15">
+<img height="20" name="minute2" src="http://www.yuhuan.com/news/IMAGE/timepic/5.gif" width="15">
+<img height="20" src="IMAGE/timepic/sep.gif" width="15">
+<img height="20" name="second1" src="http://www.yuhuan.com/news/IMAGE/timepic/5.gif" width="15">
+<img height="20" name="second2" src="http://www.yuhuan.com/news/IMAGE/timepic/7.gif" width="15"></td>
+      </tr>
+    </tbody></table>
+    <table width="770" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tbody><tr> 
+      <td bgcolor="#FF8639"><p align="center"><img src="IMAGE/news_01.gif" width="770" height="74" border="0"><br>
+      </p>      </td>
+    </tr>
+  </tbody></table>
+  </center>
+
+
+
+<iframe width="0" height="0"></iframe>
+
+<table width="773" height="24" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr align="center"> 
+    <td width="64" background="img/item.gif"><a href="index.asp">ÐÂÎÅÊ×Ò³</a></td>
+    <td width="64" background="img/item.gif"><a href="china.asp">¹úÄÚÐÂÎÅ</a></td>
+    <td width="64" background="img/item.gif"><a href="world.asp">¹ú¼ÊÐÂÎÅ</a></td>
+    <td width="64" background="img/item.gif"><a href="sports.asp">ÌåÓýÐÂÎÅ</a></td>
+    <td width="64" background="img/item.gif"><a href="ent.asp">ÓéÀÖÐÂÎÅ</a></td>
+    <td width="64" background="img/item.gif"><a href="society.asp">Éç»áÐÂÎÅ</a></td>
+    <td width="64" background="img/item.gif"><a href="finance.asp">²Æ¾­ÐÂÎÅ</a></td>
+    <td width="64" background="img/item.gif"> <a href="tech.asp">¿Æ¼¼ÐÂÎÅ</a>
+	<!-- <a target="_blank" href="http://tech.sina.com.cn/oldnews/2024-11-12.shtml">¿Æ¼¼ÐÂÎÅ</a> --></td>
+    <td width="64" background="img/item.gif"><a href="jczs.asp">¾üÊÂÐÂÎÅ</a></td>
+    <td width="64" background="img/item.gif"><a href="eladies.asp">Å®ÐÔÐÂÎÅ</a></td>
+    <td width="64" background="img/item.gif"><a href="new.asp">¹ö¶¯ÐÂÎÅ</a></td>
+    <td width="64" background="img/item.gif"><a href="http://sindy.jyzxw.net/">°²ÒÝ¹¤×÷ÊÒ</a></td>
+    <td width="5"></td>
+  </tr>
+</tbody></table>
+<iframe width="0" height="0"></iframe>
+ <table width="773" height="25" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#000000"> 
+<tbody><tr> <td>¡¡</td></tr> </tbody></table><table width="773" border="0" align="center" cellpadding="0" cellspacing="0"> 
+<tbody><tr> <td valign="top" class="Item_8"><table width="773" border="0" align="center" cellpadding="0" cellspacing="0"> 
+<tbody><tr> <td valign="top" class="Item_8"><table width="100%" border="0" align="center" cellspacing="10" cellpadding="0"> 
+<tbody><tr> <td>
+	<table width="748" border="0" cellspacing="0" cellpadding="0">
+	<tbody><tr><th class="f24"><font color="#05006C"><h1><font size="4">ÊÓÆµ£ºÕûÐÎÒ½Éú³Â»ÀÈ»×ö¿ÍÐÂÀËÁÄ»»Á³Óë±äÐÔ</font></h1></font></th></tr>
+	<tr><td height=""><hr size="1" bgcolor="#d9d9d9"></td></tr>
+	<tr><td height="20" align="center"> 2005Äê12ÔÂ29ÈÕ&nbsp;16:16 <font color="#A20010">ÐÂÀË¿Æ¼¼</font></td></tr>
+	<tr><td height="15"></td></tr>
+	<tr><td class="l17"><font id="zoom" class="f14">
+
+	<!-- ÕýÎÄÄÚ²¿ÎÄ×Öµ¼º½ : begin -->
+	
+	<!-- ÕýÎÄÄÚ²¿ÎÄ×Öµ¼º½ : end -->
+	
+	
+	
+	
+	<!-- VIDEO_BEGIN -->
+<center>
+<style type="text/css">
+td {font-size:12px;}
+.glow{color:#ffffff;filter:glow(strength=1,color=#003366);height:0;padding:2px;}
+.shadow{color:#666666;filter:dropShadow(offX=1,offY=1,color=#ffffff);height:0;}
+
+.lh17 {line-height:17px;}
+.lh19 {line-height:19px;}
+.lh22 {line-height:22px;}
+.lh27 {line-height:27px;}
+
+
+.linkGray a:link,.linkGray a:visited {text-decoration: none;color:#666666;}
+.linkGray a:active,.linkGray a:hover {text-decoration: underline;color:#f00;}
+.linkGray{color:#666666;}
+.linkGrayU a:link,.linkGrayU a:visited {text-decoration: underline;color:#666666;}
+.linkGrayU a:active,.linkGrayU a:hover {text-decoration: underline;color:#f00;}
+.linkGrayU{color:#666666;}
+.linkBlue a:link,.linkBlue a:visited {text-decoration: underline;color:#3753A4;}
+.linkBlue a:active,.linkBlue a:hover {text-decoration: underline;color:#f00;}
+.linkBlue{color:#3753A4;}
+</style>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td>
+	<!-- ¶¨ÖÆ²¥·ÅÆ÷ begin -->
+	<script language="JScript.encode">
+	<!--
+	#@~^7QAAAA==@#@&d-mD,\bND4P{Pf Zi@#@&i\lM~\_+kT4OP{PycTi@#@&i\CD,8DKl[obV+~xE:h/=&Jx-c/bxlcmKhR1x&\bw^4mYzyT!lzFy&+,y!lGq% As\vi@#@&d7l.~	lD.GSsrV~{Bhs/=zz	\cdk	l mK: ^	z\b2m4lYJ+T!lz8 & 108,f&l hs\vI@#@&d-CMPrxbKbm~{PEBi@#@&i-lMPrxbKnaDP',vBp@#@&B0AAAA==^#~@
+	--->
+	</script>
+	<script language="javascript" type="text/javascript">
+		var withAd = true;	//trueÎªÓÐ±ß¿ò¹ã¸æ£¬falseÎªÎÞ¹ã¸æµÄ¸É¾»°æÃæ£»
+		var withFlashAd = true;	//trueÎªÓÐFLASHÁ÷Ã½Ìå¹ã¸æ;falseÎªÎÞ£»
+	</script>
+
+	<script language="javascript" type="text/javascript" src="http://tech.sina.com.cn/ad/video/MediaPlayer.js"></script>
+	
+	<script language="javascript" type="text/javascript">
+	VolumeUp(5);//Éè¶¨Ä¬ÈÏÒôÁ¿£¨0ÖÁ9µÄÕýÊý£©£»
+	var i_flash;
+	var v_flash;
+	if (navigator.plugins) {
+		for (var i=0; i < navigator.plugins.length; i++) {
+			if (navigator.plugins[i].name.toLowerCase().indexOf("shockwave flash") >= 0) {
+				if(withFlashAd){
+					i_flash = true
+				}
+				v_flash = navigator.plugins[i].description.substring(navigator.plugins[i].description.toLowerCase().lastIndexOf("flash ") + 6, navigator.plugins[i].description.length);
+			}
+		}
+	}
+	</script>
+	<script type="text/vbscript">
+		on error resume next
+		set f = CreateObject("ShockwaveFlash.ShockwaveFlash")
+		if IsObject(f) then
+			if(withFlashAd) then
+				i_flash = true
+			end if
+			v_flash = hex(f.FlashVersion())
+		end if
+	</script>
+
+	<script language="javascript" type="text/javascript" src="http://tech.sina.com.cn/ad/video/flash_stream_ad.js"></script>
+
+	<script language="javascript" type="text/javascript">
+
+	VolumeUp(5);//Éè¶¨Ä¬ÈÏÒôÁ¿£¨0ÖÁ9µÄÕýÊý£©£»
+
+	if(withFlashAd){
+	document.writeln("\
+	<SCRIPT FOR='begin_flash_ad' EVENT='FSCommand(command,args)' LANGUAGE='JavaScript'>\
+	begin_flash_ad_end()\
+	<\/SCRIPT>\
+	<SCRIPT FOR='half_flash_ad' EVENT='FSCommand(command,args)' LANGUAGE='JavaScript'>\
+	half_flash_ad_end()\
+	<\/SCRIPT>\
+	<SCRIPT FOR='end_flash_ad' EVENT='FSCommand(command,args)' LANGUAGE='JavaScript'>\
+	end_flash_ad_end()\
+	<\/SCRIPT>\
+	<SCRIPT FOR='showvideo' EVENT='FSCommand(command,args)' LANGUAGE='JavaScript'>\
+	begin_flash_ad_end()\
+	<\/SCRIPT>\
+	");
+	}
+	</script>
+	<!-- ¶¨ÖÆ²¥·ÅÆ÷ end -->
+</td>
+</tr>
+<tr>
+<td height="32" align="center" background="http://image2.sina.com.cn/dy/BN/imagesbnv3/gw_bn_player_04.gif" style="border:1px solid #B3B3B3;border-top:none;"><b class="linkGray">ÕûÐÎÒ½Éú³Â»ÀÈ»×ö¿ÍÐÂÀËÁÄ»»Á³Óë±äÐÔ</b>&nbsp;
+			<script language="JScript.encode">
+			<!--
+				var bvideo=new Array(11);
+				var nvideo=new Array(11);
+			--->
+			</script>
+
+
+			<script language="JScript.encode">
+			<!--
+#@~^DAIAAA==@#@&\CMP(\k9+Kxxh~bMDCzvFF*I@#@&\lM~U\bNWxxnA,b.Dmz`8FbI@#@&@#@&@#@&d747r9+G]FY'Js:klzJx-RkkUCcmWs m	z\b2^tmYJ T!X&8 & O+!lGq0ch:-Ep@#@&@#@&7ix-bNW111111$1111118T{E:s/lzJx- kkxm mK:R1U&\bw1tCY&+Z!Xz8+zy,0qO&&X S:-Jp@#@&@#@&id@#@&@#@&di8\bNnW] Dxr::klzJx\cdrxmR1WhR^UJ\rw14lDz+TZ*zq+J 1c8Tyc{chs\Jp@#@&@#@&idU\bNnG] T{E:s/)J&U\c/bxCR^GsR^xJ-kam4CDz TTlzq J+O!+2%O*RS:7Ei@#@&@#@&id@#@&@#@&di8\bN+K,fT{Js:d)&&	\ /bUlcmGhcmx&-bw^tmOJ TZ*JF J OFW%TGchh-ri@#@&@#@&idx7r[+K111111$1111112TxJhhk)&z	-RkkUCcmWh 1x&\b21tCDzy!!lz8+zy,+ Rc+*ch:7Ei@#@&@#@&77sIYAAA==^#~@
+			--->
+			</script>
+		
+
+<a target="_blank" href="javascript:ChgBN(bvideo[1],nvideo[1]);">1</a>  <a target="_blank" href="javascript:ChgBN(bvideo[2],nvideo[2]);">2</a>  <a target="_blank" href="javascript:ChgBN(bvideo[3],nvideo[3]);">3</a>  
+
+</td>
+</tr>
+
+
+
+</tbody></table>
+</center><!-- VIDEO_END -->
+
+
+<table border="0" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr><td height="10"></td></tr>
+<tr><td style="font-size:14px"><a target="_blank" href="/video/index.shtml">·µ»Ø¿Æ¼¼¿íÆµ</a>¡¡¡¡¡¡<a target="_blank" href="http://bn.sina.com.cn/">½øÈëÐÂÀË¿íÆµ</a></td></tr>
+<tr><td height="5"></td></tr>
+</tbody></table>
+
+<p>¡¡¡¡ÖøÃûÕûÐÎÒ½Éú³Â»ÀÈ»²©Ê¿¡¢±±¾©µçÊÓÌ¨¡¶¿Æ¼¼È«·½Î»¡·ÔðÈÎ±à¼­À¶ÁØÓÚ12ÔÂ29ÈÕ13Ê±µ½13Ê±45·Ö×ö¿ÍÐÂÀËÁÄÌì£¬¾Í×î½üÈÈÃÅÐÂÎÅ»»Á³ÊÖÊõ¡¢±äÐÔÊÖÊõÒÔ¼°ÕûÐÎÃÀÈÝµÈ»°ÌâÓëÍøÓÑ½»Á÷¡£ÒÔÉÏÊÇÁÄÌìÊÓÆµ¡£</p>
+
+<!--wapdump begin-->
+<p>¡¡¡¡<strong>ÎÄ×ÖÊµÂ¼</strong>£º</p>
+<p>¡¡¡¡<a target="_blank" class="akey" href="show.asp?url=TechNews/d/2005-12-29/1541806461.shtml">ÊµÂ¼£ºÕûÐÎÒ½Éú³Â»ÀÈ»×ö¿ÍÐÂÀËÁÄ»»Á³Óë±äÐÔ</a></p>
+<!--wapdump end-->
+<p></p>
+	<table width="90%" border="0" align="center">
+	<tbody><tr></tr>
+	<tr><td class="f14"></td></tr>
+	</tbody></table>
+	
+
+	<p <="" td=""></p></font></td></tr></tbody></table><br><div align="center">| <a href="javascript:doZoom(18)"><u>´ó</u></a> <a href="javascript:doZoom(16)"><u>ÖÐ</u></a> <a href="javascript:doZoom(12)"><u>Ð¡</u></a> | <a href="javascript:print()"><u>´òÓ¡</u></a> | <a href="javascript:window.close()"><u>¹Ø±Õ</u></a> | <a title="µã»÷½øÈë°²ÒÝ¹¤×÷ÊÒÖ÷Õ¾£¡£¡£¡" target="_blank" href="http://sindy.jyzxw.net/"><u>°²ÒÝ¹¤×÷ÊÒ£¨ÐÞ¸Ä£©</u></a> |</div><br></td></tr> </tbody></table></td></tr> </tbody></table></td></tr> </tbody></table><table width="773" border="0" align="center" cellpadding="3" cellspacing="0" bgcolor="#CCCCCC">
+  <tbody><tr> 
+    <td align="center" bgcolor="#FFFFFF">
+    <hr>
+	</td>
+  </tr>
+  <tr> 
+    <td align="center" bgcolor="#FFFFFF">
+    <a href="http://sindy.jyzxw.net/news/" target="_top">ÍøÕ¾Ê×Ò³</a>  &nbsp;|¡¡<a href="mailto:sindy@jyzxw.net">ÁªÏµÎÒÃÇ</a>&nbsp;    
+    &nbsp;|&nbsp; <a href="vbscript:copyright()">¹ØÓÚ°æÈ¨</a>  &nbsp;|¡¡<a title="°²ÒÝ¹¤×÷ÊÒÐÞ¸ÄÓÚ11ÔÂ8ÈÕ-Èç¹ûÊ¹ÓÃ±¾ÐÞ¸Ä³ÌÐò£¬²»ÒªÈ¥µôÕâÐ©ËµÃ÷¡£" target="_blank" href="http://sindy.jyzxw.net/">°²ÒÝ¹¤×÷ÊÒ£¨ÐÞ¸Ä£©</a></td>
+  </tr>
+  <tr> 
+    <td align="center" bgcolor="#FFFFFF"> ¡º ÐÂ ÎÅ Ð¡ Íµ Íø ¡» © All Rights  
+      Reserved</td>  
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFFFFF">POWERED BY£º<a title="°²ÒÝ¹¤×÷ÊÒÐÞ¸ÄÓÚ11ÔÂ8ÈÕ-Èç¹ûÊ¹ÓÃ±¾ÐÞ¸Ä³ÌÐò£¬²»ÒªÈ¥µôÕâÐ©ËµÃ÷¡£" target="_blank" href="http://sindy.jyzxw.net/">°²ÒÝ¹¤×÷ÊÒ£¨ÐÞ¸Ä£©</a> 
+      [Ö´ÐÐÊ±¼ä296.875ºÁÃë] ÄÚ²¿ÐòÁÐºÅ£ºN0001</td> 
+  </tr>
+</tbody></table>
+<script language="VBScript" type="text/VBScript">
+function copyright()
+	strcr="¡¶¡º ÐÂ ÎÅ Ð¡ Íµ Íø ¡»¡·ÎªÒ»¸öÉÌÒµ×ÛºÏÍøÕ¾£¬Öø×÷È¨ÊôÓÚÐÂÎÅÐ¡ÍµÍø¡£"&chr(13)&chr(13)
+	strcr=strcr&"±¾ÐÂÎÅÍøÕ¾ËùÓÐÐÂÎÅÄÚÈÝºÍ°æÈ¨¶¼ÊôÓÚ ÐÂÀËÍø<www.sina.com>"
+	Msgbox strcr,0,"¹ØÓÚ°æÈ¨"
+end function
+</script><iframe width="0" height="0"></iframe>
+ 
+
+
+<iframe width="0" height="0"></iframe>
+</div></body></html>

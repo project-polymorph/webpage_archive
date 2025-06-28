@@ -1,0 +1,4291 @@
+<!DOCTYPE html>
+<html class="gl-light ui-neutral with-top-bar with-header" lang="en" style="--broadcast-message-height: 0px;"><head prefix="og: http://ogp.me/ns#">
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>CHU013.txt · fce7f6104136390b45f38e036a58d19cb98cdc76 · Ruimoku / Papers · GitLab</title>
+<script>
+//<![CDATA[
+window.gon={};gon.api_version="v4";gon.default_avatar_url="https://corpus.kanji.zinbun.kyoto-u.ac.jp/gitlab/assets/no_avatar-849f9c04a3a0d0cea2424ae97b27447dc64a7dbfae83c036c45b403392f0e8ba.png";gon.max_file_size=10;gon.asset_host=null;gon.webpack_public_path="/gitlab/assets/webpack/";gon.relative_url_root="/gitlab";gon.user_color_mode="gl-light";gon.user_color_scheme="white";gon.markdown_surround_selection=null;gon.markdown_automatic_lists=null;gon.math_rendering_limits_enabled=true;gon.recaptcha_api_server_url="https://www.recaptcha.net/recaptcha/api.js";gon.recaptcha_sitekey=null;gon.gitlab_url="https://corpus.kanji.zinbun.kyoto-u.ac.jp/gitlab";gon.promo_url="https://about.gitlab.com";gon.forum_url="https://forum.gitlab.com";gon.docs_url="https://docs.gitlab.com";gon.revision="073f7efc655";gon.feature_category="source_code_management";gon.gitlab_logo="/gitlab/assets/gitlab_logo-2957169c8ef64c58616a1ac3f4fc626e8a35ce4eb3ed31bb0d873712f2a041a0.png";gon.secure=true;gon.sprite_icons="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg";gon.sprite_file_icons="/gitlab/assets/file_icons/file_icons-59d148c7ea628b0ec3975493002fa45de1d4d8c15b2bf59775965ab9d67d62ab.svg";gon.emoji_sprites_css_path="/gitlab/assets/emoji_sprites-bd26211944b9d072037ec97cb138f1a52cd03ef185cd38b8d1fcc963245199a1.css";gon.emoji_backend_version=4;gon.gridstack_css_path="/gitlab/assets/lazy_bundles/gridstack-4cd1da7c8adb8553e78a4f5545a8ab57a46258e091e6ac0382e6de79bca5ea3c.css";gon.test_env=false;gon.disable_animations=false;gon.suggested_label_colors={"#cc338b":"Magenta-pink","#dc143c":"Crimson","#c21e56":"Rose red","#cd5b45":"Dark coral","#ed9121":"Carrot orange","#eee600":"Titanium yellow","#009966":"Green-cyan","#8fbc8f":"Dark sea green","#6699cc":"Blue-gray","#e6e6fa":"Lavender","#9400d3":"Dark violet","#330066":"Deep violet","#36454f":"Charcoal grey","#808080":"Gray"};gon.first_day_of_week=0;gon.time_display_relative=true;gon.time_display_format=0;gon.ee=false;gon.jh=false;gon.dot_com=false;gon.uf_error_prefix="UF";gon.pat_prefix="glpat-";gon.keyboard_shortcuts_enabled=true;gon.diagramsnet_url="https://embed.diagrams.net";gon.features={"sourceEditorToolbar":false,"vscodeWebIde":true,"uiForOrganizations":false,"organizationSwitching":false,"findAndReplace":false,"removeMonitorMetrics":true,"workItemsViewPreference":false,"searchButtonTopRight":false,"markdownPasteUrl":false,"mergeRequestDashboard":false,"inlineBlame":false,"blobOverflowMenu":false,"blobRepositoryVueHeaderApp":false};
+//]]>
+</script>
+
+
+<script>
+//<![CDATA[
+var gl = window.gl || {};
+gl.startup_calls = null;
+gl.startup_graphql_calls = [{"query":"query getBlobInfo(\n  $projectPath: ID!\n  $filePath: [String!]!\n  $ref: String!\n  $refType: RefType\n  $shouldFetchRawText: Boolean!\n) {\n  project(fullPath: $projectPath) {\n    __typename\n    id\n    repository {\n      __typename\n      empty\n      blobs(paths: $filePath, ref: $ref, refType: $refType) {\n        __typename\n        nodes {\n          __typename\n          id\n          webPath\n          name\n          size\n          rawSize\n          rawTextBlob @include(if: $shouldFetchRawText)\n          fileType\n          language\n          path\n          blamePath\n          editBlobPath\n          gitpodBlobUrl\n          ideEditPath\n          forkAndEditPath\n          ideForkAndEditPath\n          codeNavigationPath\n          projectBlobPathRoot\n          forkAndViewPath\n          environmentFormattedExternalUrl\n          environmentExternalUrlForRouteMap\n          canModifyBlob\n          canModifyBlobWithWebIde\n          canCurrentUserPushToBranch\n          archived\n          storedExternally\n          externalStorage\n          externalStorageUrl\n          rawPath\n          replacePath\n          pipelineEditorPath\n          simpleViewer {\n            fileType\n            tooLarge\n            type\n            renderError\n          }\n          richViewer {\n            fileType\n            tooLarge\n            type\n            renderError\n          }\n        }\n      }\n    }\n  }\n}\n","variables":{"projectPath":"Ruimoku/ruimoku-papers","ref":"fce7f6104136390b45f38e036a58d19cb98cdc76","refType":null,"filePath":"CHU013.txt","shouldFetchRawText":true}}];
+
+if (gl.startup_calls && window.fetch) {
+  Object.keys(gl.startup_calls).forEach(apiCall => {
+   gl.startup_calls[apiCall] = {
+      fetchCall: fetch(apiCall, {
+        // Emulate XHR for Rails AJAX request checks
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        // fetch won’t send cookies in older browsers, unless you set the credentials init option.
+        // We set to `same-origin` which is default value in modern browsers.
+        // See https://github.com/whatwg/fetch/pull/585 for more information.
+        credentials: 'same-origin'
+      })
+    };
+  });
+}
+if (gl.startup_graphql_calls && window.fetch) {
+  const headers = {"X-CSRF-Token":"prBdk3glqWkcSNqMrBXMFDKJJ1h33d3meLlFH1Hdu2DOCy-DYT8i3TVlQDhpT0ihW4vJDTNSI2XAe9h8-_A8Tg","x-gitlab-feature-category":"source_code_management"};
+  const url = `https://corpus.kanji.zinbun.kyoto-u.ac.jp/gitlab/api/graphql`
+
+  const opts = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...headers,
+    }
+  };
+
+  gl.startup_graphql_calls = gl.startup_graphql_calls.map(call => ({
+    ...call,
+    fetchCall: fetch(url, {
+      ...opts,
+      credentials: 'same-origin',
+      body: JSON.stringify(call)
+    })
+  }))
+}
+
+
+//]]>
+</script>
+
+<link rel="prefetch" href="/gitlab/assets/webpack/monaco.5c845142.chunk.js">
+
+<link rel="stylesheet" href="/gitlab/assets/application-182846f5d03243644eeff8074a2e7a731654615c4445f6d1134b9d422825e3ce.css">
+<link rel="stylesheet" href="/gitlab/assets/page_bundles/tree-49ae6a2f72af332906799a87b8b74e44ede65ce71f393346d0a1abb47656411a.css"><link rel="stylesheet" href="/gitlab/assets/page_bundles/projects-c1b074633330252f3bf88cfb1fb82d7e1eb26916257ac477c453155345ea1c21.css"><link rel="stylesheet" href="/gitlab/assets/page_bundles/commit_description-1e2cba4dda3c7b30dd84924809020c569f1308dea51520fe1dd5d4ce31403195.css"><link rel="stylesheet" href="/gitlab/assets/page_bundles/work_items-22a76cdd1fe2ae5431b7ff603f86212acaf81b49c4a932f19e3b3222dc1881ee.css"><link rel="stylesheet" href="/gitlab/assets/page_bundles/notes_shared-30de79203a0836dddd3a4cf7364d63afb16a0f2deb0bbc654b00692872696739.css">
+<link rel="stylesheet" href="/gitlab/assets/application_utilities-58bec0f2dc46133fc9e8548af9854688398e9d7263cc0fd95ec5739f2a069dec.css">
+<link rel="stylesheet" href="/gitlab/assets/tailwind-469e8cf29ca81e21f824ad683201a6a63c135a4ef89f152be2954d9af0217517.css">
+
+
+<link rel="stylesheet" href="/gitlab/assets/fonts-fae5d3f79948bd85f18b6513a025f863b19636e85b09a1492907eb4b1bb0557b.css">
+<link rel="stylesheet" href="/gitlab/assets/highlight/themes/white-99cce4f4b362f6840d7134d4129668929fde49c4da11d6ebf17f99768adbd868.css">
+
+
+<link rel="preload" href="/gitlab/assets/application_utilities-58bec0f2dc46133fc9e8548af9854688398e9d7263cc0fd95ec5739f2a069dec.css" as="style" type="text/css">
+<link rel="preload" href="/gitlab/assets/application-182846f5d03243644eeff8074a2e7a731654615c4445f6d1134b9d422825e3ce.css" as="style" type="text/css">
+<link rel="preload" href="/gitlab/assets/highlight/themes/white-99cce4f4b362f6840d7134d4129668929fde49c4da11d6ebf17f99768adbd868.css" as="style" type="text/css">
+
+
+
+
+<script src="/gitlab/assets/webpack/runtime.492a7d15.bundle.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/main.fc49e848.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.groups.new-pages.import.gitlab_projects.new-pages.import.manifest.new-pages.projects.n-a0973272.5fca6f92.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.groups.new-pages.import.gitlab_projects.new-pages.import.manifest.new-pages.projects.n-44c6c18e.977bfa43.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.search.show-super_sidebar.be008869.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/super_sidebar.8f4462d8.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.projects-pages.projects.activity-pages.projects.alert_management.details-pages.project-2e472f70.08214ed0.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.projects.blob.show-pages.projects.branches.new-pages.projects.commits.show-pages.proje-81161c0b.3861ecff.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.edit-pages.projects.sni-42df7d4c.26708f26.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.import.gitea.new-pages.projects.blob.edit-pages.projects.blob.new-pages.projects.blob.-d3b067b6.6ebab152.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/87.a5ae2fb7.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.projects.blob.show-pages.projects.branches.index-pages.projects.show-pages.projects.ta-c9380b86.33f1d44a.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.show-pages.projects.tre-c684fcf6.f0f1a9b9.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.projects.blob.edit-pages.projects.blob.new-pages.projects.blob.show-pages.projects.sho-ec79e51c.5c7a974c.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show-pages.search.show.f5e172b4.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.projects.blame.show-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.6a18aa4b.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.groups.show-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.28f09367.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.74201d51.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/commons-pages.projects.blob.show-pages.projects.tree.show-treeList.c832273e.chunk.js" defer="defer"></script>
+<script src="/gitlab/assets/webpack/pages.projects.blob.show.a70a0948.chunk.js" defer="defer"></script>
+
+<meta content="object" property="og:type">
+<meta content="GitLab" property="og:site_name">
+<meta content="CHU013.txt · fce7f6104136390b45f38e036a58d19cb98cdc76 · Ruimoku / Papers · GitLab" property="og:title">
+<meta content="Data of papers included in the Bibliography of Oriental Studies after the 2001 edition. 2001年度版以降の東洋学文献類目に収録された論文データ。" property="og:description">
+<meta content="https://corpus.kanji.zinbun.kyoto-u.ac.jp/gitlab/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg" property="og:image">
+<meta content="64" property="og:image:width">
+<meta content="64" property="og:image:height">
+<meta content="https://corpus.kanji.zinbun.kyoto-u.ac.jp/gitlab/Ruimoku/ruimoku-papers/-/blob/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt" property="og:url">
+<meta content="summary" property="twitter:card">
+<meta content="CHU013.txt · fce7f6104136390b45f38e036a58d19cb98cdc76 · Ruimoku / Papers · GitLab" property="twitter:title">
+<meta content="Data of papers included in the Bibliography of Oriental Studies after the 2001 edition. 2001年度版以降の東洋学文献類目に収録された論文データ。" property="twitter:description">
+<meta content="https://corpus.kanji.zinbun.kyoto-u.ac.jp/gitlab/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg" property="twitter:image">
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="avL59MHQ3c1P5K78OTJmVq4gG_IFpm3NYIcv5guM7QcCSYvk2MpWeWbJNEj8aOLjxyL1p0Epk07YRbKFoaFqKQ">
+<meta name="csp-nonce">
+<meta name="action-cable-url" content="/gitlab/-/cable">
+<link href="/gitlab/-/manifest.json" rel="manifest">
+<link rel="icon" type="image/png" href="/gitlab/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png" id="favicon" data-original-href="/gitlab/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png">
+<link rel="apple-touch-icon" type="image/x-icon" href="/gitlab/assets/apple-touch-icon-b049d4bc0dd9626f31db825d61880737befc7835982586d015bded10b4435460.png">
+<link href="/gitlab/search/opensearch.xml" rel="search" title="Search GitLab" type="application/opensearchdescription+xml">
+
+
+
+
+<meta content="Data of papers included in the Bibliography of Oriental Studies after the 2001 edition. 2001年度版以降の東洋学文献類目に収録された論文データ。" name="description">
+<meta content="#ececef" name="theme-color">
+<style>
+svg[data-v-9534917c] {
+  pointer-events: none;
+
+  position: fixed;
+  right: 0;
+}
+svg polygon[data-v-9534917c],
+svg rect[data-v-9534917c] {
+  pointer-events: auto;
+}
+</style><style>
+.fake-input[data-v-26a01bbc] {
+  position: absolute;
+  top: 14px;
+  left: 39px;
+}
+</style><style>
+.input-box-wrapper[data-v-f0f37e50] {
+  position: relative;
+}
+.fake-input-wrapper[data-v-f0f37e50] {
+  position: absolute;
+}
+</style><script charset="utf-8" src="/gitlab/assets/webpack/shortcutsBundle.736becee.chunk.js"></script><script charset="utf-8" src="/gitlab/assets/webpack/hello.0a82f05f.chunk.js"></script><style>
+/* This is to override a margin caused by bootstrap */
+.non-gfm-markdown-block {
+p {
+    margin-bottom: 0;
+}
+}
+</style><style>
+/* Temporary override until we have
+   * widths available in GlDisclosureDropdown
+   * https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2501
+   */
+.code-dropdown .gl-new-dropdown-panel {
+  width: 100%;
+  max-width: 348px;
+}
+</style><style>
+/* Temporary override until we have
+   * widths available in GlDisclosureDropdown
+   * https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2501
+   */
+.code-dropdown .gl-new-dropdown-panel {
+  width: 100%;
+  max-width: 348px;
+}
+</style><script charset="utf-8" src="/gitlab/assets/webpack/initInviteMembersTrigger.222fe33b.chunk.js"></script><script charset="utf-8" src="/gitlab/assets/webpack/937.60ef0d7a.chunk.js"></script></head>
+
+<body class="tab-width-8 gl-browser-chrome gl-platform-linux page-initialised" data-group="Ruimoku" data-group-full-path="Ruimoku" data-namespace-id="382" data-page="projects:blob:show" data-page-type-id="fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt" data-project="ruimoku-papers" data-project-full-path="Ruimoku/ruimoku-papers" data-project-id="10">
+
+<script>
+//<![CDATA[
+gl = window.gl || {};
+gl.client = {"isChrome":true,"isLinux":true};
+
+
+//]]>
+</script>
+
+
+<header class="header-logged-out" data-testid="navbar">
+<a class="gl-sr-only gl-accessibility" href="#content-body">Skip to content</a>
+<div class="container-fluid">
+<nav aria-label="Explore GitLab" class="header-logged-out-nav gl-flex gl-gap-3 gl-justify-between">
+<div class="gl-flex gl-items-center gl-gap-1">
+<span class="gl-sr-only">GitLab</span>
+<a title="Homepage" id="logo" class="header-logged-out-logo has-tooltip" aria-label="Homepage" href="/gitlab/"><svg aria-hidden="true" role="img" class="tanuki-logo" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path class="tanuki-shape tanuki" d="m24.507 9.5-.034-.09L21.082.562a.896.896 0 0 0-1.694.091l-2.29 7.01H7.825L5.535.653a.898.898 0 0 0-1.694-.09L.451 9.411.416 9.5a6.297 6.297 0 0 0 2.09 7.278l.012.01.03.022 5.16 3.867 2.56 1.935 1.554 1.176a1.051 1.051 0 0 0 1.268 0l1.555-1.176 2.56-1.935 5.197-3.89.014-.01A6.297 6.297 0 0 0 24.507 9.5Z" fill="#E24329"></path>
+  <path class="tanuki-shape right-cheek" d="m24.507 9.5-.034-.09a11.44 11.44 0 0 0-4.56 2.051l-7.447 5.632 4.742 3.584 5.197-3.89.014-.01A6.297 6.297 0 0 0 24.507 9.5Z" fill="#FC6D26"></path>
+  <path class="tanuki-shape chin" d="m7.707 20.677 2.56 1.935 1.555 1.176a1.051 1.051 0 0 0 1.268 0l1.555-1.176 2.56-1.935-4.743-3.584-4.755 3.584Z" fill="#FCA326"></path>
+  <path class="tanuki-shape left-cheek" d="M5.01 11.461a11.43 11.43 0 0 0-4.56-2.05L.416 9.5a6.297 6.297 0 0 0 2.09 7.278l.012.01.03.022 5.16 3.867 4.745-3.584-7.444-5.632Z" fill="#FC6D26"></path>
+</svg>
+
+</a></div>
+<ul class="gl-list-none gl-p-0 gl-m-0 gl-flex gl-gap-3 gl-items-center gl-grow">
+<li class="header-logged-out-nav-item">
+<a class="" href="/gitlab/explore">Explore</a>
+</li>
+</ul>
+<ul class="gl-list-none gl-p-0 gl-m-0 gl-flex gl-gap-3 gl-items-center gl-justify-end">
+<li class="header-logged-out-nav-item">
+<a href="/gitlab/users/sign_in?redirect_to_referer=yes">Sign in</a>
+</li>
+<li class="header-logged-out-nav-item">
+<a class="gl-button btn btn-md btn-confirm !gl-inline-flex" href="/gitlab/users/sign_up"><span class="gl-button-text">
+Register
+
+</span>
+
+</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<div class="layout-page page-with-super-sidebar">
+<div><div class="super-sidebar-overlay"></div> <!----> <nav id="super-sidebar" aria-labelledby="super-sidebar-heading" data-testid="super-sidebar" class="super-sidebar"><h2 id="super-sidebar-heading" class="gl-sr-only">
+      Primary navigation
+    </h2> <div class="user-bar gl-flex gl-gap-1 gl-p-3"><div class="gl-flex gl-items-center gl-gap-1"><!----> <button aria-controls="super-sidebar" aria-expanded="true" aria-label="Primary navigation sidebar" type="button" class="btn btn-default btn-md gl-button btn-default-tertiary btn-icon js-super-sidebar-toggle-collapse" data-testid="super-sidebar-collapse-button"><!----> <svg data-testid="sidebar-icon" role="img" aria-hidden="true" class="gl-button-icon gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#sidebar"></use></svg>  <!----></button> <!----> <!----> <!----></div> <!----> <!----> <div class="gl-grow"><button id="super-sidebar-search" data-testid="super-sidebar-search-button" type="button" class="btn user-bar-button gl-border-none btn-default btn-md btn-block gl-button"><!----> <!---->  <span class="gl-button-text"><svg data-testid="search-icon" role="img" aria-hidden="true" class="gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#search"></use></svg>
+      Search or go to…
+    </span></button> <!----></div></div> <div class="contextual-nav gl-flex gl-grow gl-flex-col gl-overflow-hidden"><div id="super-sidebar-context-header" class="super-sidebar-context-header gl-m-0 gl-px-4 gl-py-3 gl-font-bold gl-leading-reset">
+        Project
+      </div> <div class="gl-scroll-scrim gl-overflow-auto gl-grow" data-testid="nav-container"><div class="top-scrim-wrapper"><div class="top-scrim"></div></div> <div></div> <div class="gl-relative gl-p-2"><!----> <!----> <!----> <ul aria-labelledby="super-sidebar-context-header" data-testid="non-static-items-section" class="gl-mb-0 gl-list-none gl-p-0"><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-project" data-testid="nav-item-link" aria-label="Papers" data-track-action="click_menu_item" data-track-label="project_overview" data-track-property="nav_panel_project" data-qa-submenu-item="project-overview"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px; transform: translateX(-1px);"></div> <div class="gl-flex gl-w-6 gl-shrink-0 gl-self-start"><div class="gl-avatar gl-avatar-identicon gl-avatar-s24 gl-avatar-identicon-bg4">
+  P
+</div></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Papers
+      <!----></div>  <!----></a> <!----></li><li><!----> <button id="menu-section-button-manage" data-testid="menu-section-button" data-qa-section-name="Manage" aria-controls="manage" aria-expanded="false" data-qa-menu-item="Manage" class="super-sidebar-nav-item gl-relative gl-mb-2 gl-flex gl-min-h-7 gl-w-full gl-appearance-none gl-items-center gl-gap-3 gl-rounded-base gl-border-0 gl-bg-transparent gl-px-3 gl-py-2 gl-text-left !gl-text-default !gl-no-underline focus:gl-focus"><span aria-hidden="true" class="gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-bg-transparent" style="width: 3px; border-radius: 3px; margin-right: 1px;"></span> <span class="gl-flex gl-w-6 gl-shrink-0"><svg data-testid="users-icon" role="img" aria-hidden="true" class="super-sidebar-nav-item-icon gl-m-auto gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#users"></use></svg></span> <span class="gl-truncate-end gl-grow gl-text-default">
+      Manage
+    </span> <span class="gl-text-right"><svg data-testid="chevron-right-icon" role="img" aria-hidden="true" class="super-sidebar-mix-blend-mode gl-icon s16 gl-fill-icon-subtle"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#chevron-right"></use></svg></span></button> <!----> <div id="manage" class="gl-m-0 gl-list-none gl-p-0 gl-duration-medium gl-ease-ease collapse" data-testid="menu-section" data-qa-section-name="Manage" style="display: none;"><ul aria-label="Manage" class="gl-m-0 gl-list-none gl-p-0"><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/activity" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-project-activity" data-testid="nav-item-link" aria-label="Activity" data-track-action="click_menu_item" data-track-label="activity" data-track-property="nav_panel_project" data-qa-submenu-item="Activity"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Activity
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/project_members" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="Members" data-track-action="click_menu_item" data-track-label="members" data-track-property="nav_panel_project" data-qa-submenu-item="Members"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Members
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/labels" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="Labels" data-track-action="click_menu_item" data-track-label="labels" data-track-property="nav_panel_project" data-qa-submenu-item="Labels"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Labels
+      <!----></div>  <!----></a> <!----></li></ul></div></li><li><!----> <button id="menu-section-button-plan" data-testid="menu-section-button" data-qa-section-name="Plan" aria-controls="plan" aria-expanded="false" data-qa-menu-item="Plan" class="super-sidebar-nav-item gl-relative gl-mb-2 gl-flex gl-min-h-7 gl-w-full gl-appearance-none gl-items-center gl-gap-3 gl-rounded-base gl-border-0 gl-bg-transparent gl-px-3 gl-py-2 gl-text-left !gl-text-default !gl-no-underline focus:gl-focus"><span aria-hidden="true" class="gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-bg-transparent" style="width: 3px; border-radius: 3px; margin-right: 1px;"></span> <span class="gl-flex gl-w-6 gl-shrink-0"><svg data-testid="planning-icon" role="img" aria-hidden="true" class="super-sidebar-nav-item-icon gl-m-auto gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#planning"></use></svg></span> <span class="gl-truncate-end gl-grow gl-text-default">
+      Plan
+    </span> <span class="gl-text-right"><svg data-testid="chevron-right-icon" role="img" aria-hidden="true" class="super-sidebar-mix-blend-mode gl-icon s16 gl-fill-icon-subtle"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#chevron-right"></use></svg></span></button> <!----> <div id="plan" class="gl-m-0 gl-list-none gl-p-0 gl-duration-medium gl-ease-ease collapse" data-testid="menu-section" data-qa-section-name="Plan" style="display: none;"><ul aria-label="Plan" class="gl-m-0 gl-list-none gl-p-0"><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/issues" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-issues has-sub-items" data-testid="nav-item-link" aria-label="Issues" data-track-action="click_menu_item" data-track-label="project_issue_list" data-track-property="nav_panel_project" data-qa-submenu-item="Issues"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Issues
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/boards" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-issue-boards" data-testid="nav-item-link" aria-label="Issue boards" data-track-action="click_menu_item" data-track-label="boards" data-track-property="nav_panel_project" data-qa-submenu-item="Issue boards"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Issue boards
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/milestones" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="Milestones" data-track-action="click_menu_item" data-track-label="milestones" data-track-property="nav_panel_project" data-qa-submenu-item="Milestones"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Milestones
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/wikis/home" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-wiki" data-testid="nav-item-link" aria-label="Wiki" data-track-action="click_menu_item" data-track-label="project_wiki" data-track-property="nav_panel_project" data-qa-submenu-item="Wiki"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Wiki
+      <!----></div>  <!----></a> <!----></li></ul></div></li><li><!----> <button id="menu-section-button-code" data-testid="menu-section-button" data-qa-section-name="Code" aria-controls="code" aria-expanded="true" data-qa-menu-item="Code" class="super-sidebar-nav-item gl-relative gl-mb-2 gl-flex gl-min-h-7 gl-w-full gl-appearance-none gl-items-center gl-gap-3 gl-rounded-base gl-border-0 gl-bg-transparent gl-px-3 gl-py-2 gl-text-left !gl-text-default !gl-no-underline focus:gl-focus"><span aria-hidden="true" class="gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-bg-transparent" style="width: 3px; border-radius: 3px; margin-right: 1px;"></span> <span class="gl-flex gl-w-6 gl-shrink-0"><svg data-testid="code-icon" role="img" aria-hidden="true" class="super-sidebar-nav-item-icon gl-m-auto gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#code"></use></svg></span> <span class="gl-truncate-end gl-grow gl-text-default">
+      Code
+    </span> <span class="gl-text-right"><svg data-testid="chevron-down-icon" role="img" aria-hidden="true" class="super-sidebar-mix-blend-mode gl-icon s16 gl-fill-icon-subtle"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#chevron-down"></use></svg></span></button> <!----> <div id="code" class="gl-m-0 gl-list-none gl-p-0 gl-duration-medium gl-ease-ease collapse show" data-testid="menu-section" data-qa-section-name="Code"><ul aria-label="Code" class="gl-m-0 gl-list-none gl-p-0"><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/merge_requests" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-merge_requests" data-testid="nav-item-link" aria-label="Merge requests" data-track-action="click_menu_item" data-track-label="project_merge_request_list" data-track-property="nav_panel_project" data-qa-submenu-item="Merge requests"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Merge requests
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/tree/fce7f6104136390b45f38e036a58d19cb98cdc76" aria-current="page" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus super-sidebar-nav-item-current gl-px-3 gl-rounded-base shortcuts-tree" data-testid="nav-item-link" aria-label="Repository" data-track-action="click_menu_item" data-track-label="files" data-track-property="nav_panel_project" data-qa-submenu-item="Repository"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-10" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Repository
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/branches" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="Branches" data-track-action="click_menu_item" data-track-label="branches" data-track-property="nav_panel_project" data-qa-submenu-item="Branches"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Branches
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/commits/fce7f6104136390b45f38e036a58d19cb98cdc76" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-commits" data-testid="nav-item-link" aria-label="Commits" data-track-action="click_menu_item" data-track-label="commits" data-track-property="nav_panel_project" data-qa-submenu-item="Commits"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Commits
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/tags" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="Tags" data-track-action="click_menu_item" data-track-label="tags" data-track-property="nav_panel_project" data-qa-submenu-item="Tags"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Tags
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/network/fce7f6104136390b45f38e036a58d19cb98cdc76" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-network" data-testid="nav-item-link" aria-label="Repository graph" data-track-action="click_menu_item" data-track-label="graphs" data-track-property="nav_panel_project" data-qa-submenu-item="Repository graph"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Repository graph
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/compare?from=main&amp;to=fce7f6104136390b45f38e036a58d19cb98cdc76" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="Compare revisions" data-track-action="click_menu_item" data-track-label="compare" data-track-property="nav_panel_project" data-qa-submenu-item="Compare revisions"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Compare revisions
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/snippets" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-snippets" data-testid="nav-item-link" aria-label="Snippets" data-track-action="click_menu_item" data-track-label="project_snippets" data-track-property="nav_panel_project" data-qa-submenu-item="Snippets"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Snippets
+      <!----></div>  <!----></a> <!----></li></ul></div></li><li><!----> <button id="menu-section-button-build" data-testid="menu-section-button" data-qa-section-name="Build" aria-controls="build" aria-expanded="false" data-qa-menu-item="Build" class="super-sidebar-nav-item gl-relative gl-mb-2 gl-flex gl-min-h-7 gl-w-full gl-appearance-none gl-items-center gl-gap-3 gl-rounded-base gl-border-0 gl-bg-transparent gl-px-3 gl-py-2 gl-text-left !gl-text-default !gl-no-underline focus:gl-focus"><span aria-hidden="true" class="gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-bg-transparent" style="width: 3px; border-radius: 3px; margin-right: 1px;"></span> <span class="gl-flex gl-w-6 gl-shrink-0"><svg data-testid="rocket-icon" role="img" aria-hidden="true" class="super-sidebar-nav-item-icon gl-m-auto gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#rocket"></use></svg></span> <span class="gl-truncate-end gl-grow gl-text-default">
+      Build
+    </span> <span class="gl-text-right"><svg data-testid="chevron-right-icon" role="img" aria-hidden="true" class="super-sidebar-mix-blend-mode gl-icon s16 gl-fill-icon-subtle"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#chevron-right"></use></svg></span></button> <!----> <div id="build" class="gl-m-0 gl-list-none gl-p-0 gl-duration-medium gl-ease-ease collapse" data-testid="menu-section" data-qa-section-name="Build" style="display: none;"><ul aria-label="Build" class="gl-m-0 gl-list-none gl-p-0"><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/pipelines" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-pipelines" data-testid="nav-item-link" aria-label="Pipelines" data-track-action="click_menu_item" data-track-label="pipelines" data-track-property="nav_panel_project" data-qa-submenu-item="Pipelines"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Pipelines
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/jobs" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-builds" data-testid="nav-item-link" aria-label="Jobs" data-track-action="click_menu_item" data-track-label="jobs" data-track-property="nav_panel_project" data-qa-submenu-item="Jobs"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Jobs
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/pipeline_schedules" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-builds" data-testid="nav-item-link" aria-label="Pipeline schedules" data-track-action="click_menu_item" data-track-label="pipeline_schedules" data-track-property="nav_panel_project" data-qa-submenu-item="Pipeline schedules"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Pipeline schedules
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/artifacts" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-builds" data-testid="nav-item-link" aria-label="Artifacts" data-track-action="click_menu_item" data-track-label="artifacts" data-track-property="nav_panel_project" data-qa-submenu-item="Artifacts"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Artifacts
+      <!----></div>  <!----></a> <!----></li></ul></div></li><li><!----> <button id="menu-section-button-deploy" data-testid="menu-section-button" data-qa-section-name="Deploy" aria-controls="deploy" aria-expanded="false" data-qa-menu-item="Deploy" class="super-sidebar-nav-item gl-relative gl-mb-2 gl-flex gl-min-h-7 gl-w-full gl-appearance-none gl-items-center gl-gap-3 gl-rounded-base gl-border-0 gl-bg-transparent gl-px-3 gl-py-2 gl-text-left !gl-text-default !gl-no-underline focus:gl-focus"><span aria-hidden="true" class="gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-bg-transparent" style="width: 3px; border-radius: 3px; margin-right: 1px;"></span> <span class="gl-flex gl-w-6 gl-shrink-0"><svg data-testid="deployments-icon" role="img" aria-hidden="true" class="super-sidebar-nav-item-icon gl-m-auto gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#deployments"></use></svg></span> <span class="gl-truncate-end gl-grow gl-text-default">
+      Deploy
+    </span> <span class="gl-text-right"><svg data-testid="chevron-right-icon" role="img" aria-hidden="true" class="super-sidebar-mix-blend-mode gl-icon s16 gl-fill-icon-subtle"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#chevron-right"></use></svg></span></button> <!----> <div id="deploy" class="gl-m-0 gl-list-none gl-p-0 gl-duration-medium gl-ease-ease collapse" data-testid="menu-section" data-qa-section-name="Deploy" style="display: none;"><ul aria-label="Deploy" class="gl-m-0 gl-list-none gl-p-0"><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/releases" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-deployments-releases" data-testid="nav-item-link" aria-label="Releases" data-track-action="click_menu_item" data-track-label="releases" data-track-property="nav_panel_project" data-qa-submenu-item="Releases"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Releases
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/packages" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-container-registry" data-testid="nav-item-link" aria-label="Package Registry" data-track-action="click_menu_item" data-track-label="packages_registry" data-track-property="nav_panel_project" data-qa-submenu-item="Package Registry"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Package Registry
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/ml/models" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="Model registry" data-track-action="click_menu_item" data-track-label="model_registry" data-track-property="nav_panel_project" data-qa-submenu-item="Model registry"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Model registry
+      <!----></div>  <!----></a> <!----></li></ul></div></li><li><!----> <button id="menu-section-button-operate" data-testid="menu-section-button" data-qa-section-name="Operate" aria-controls="operate" aria-expanded="false" data-qa-menu-item="Operate" class="super-sidebar-nav-item gl-relative gl-mb-2 gl-flex gl-min-h-7 gl-w-full gl-appearance-none gl-items-center gl-gap-3 gl-rounded-base gl-border-0 gl-bg-transparent gl-px-3 gl-py-2 gl-text-left !gl-text-default !gl-no-underline focus:gl-focus"><span aria-hidden="true" class="gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-bg-transparent" style="width: 3px; border-radius: 3px; margin-right: 1px;"></span> <span class="gl-flex gl-w-6 gl-shrink-0"><svg data-testid="cloud-pod-icon" role="img" aria-hidden="true" class="super-sidebar-nav-item-icon gl-m-auto gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#cloud-pod"></use></svg></span> <span class="gl-truncate-end gl-grow gl-text-default">
+      Operate
+    </span> <span class="gl-text-right"><svg data-testid="chevron-right-icon" role="img" aria-hidden="true" class="super-sidebar-mix-blend-mode gl-icon s16 gl-fill-icon-subtle"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#chevron-right"></use></svg></span></button> <!----> <div id="operate" class="gl-m-0 gl-list-none gl-p-0 gl-duration-medium gl-ease-ease collapse" data-testid="menu-section" data-qa-section-name="Operate" style="display: none;"><ul aria-label="Operate" class="gl-m-0 gl-list-none gl-p-0"><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/environments" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-environments" data-testid="nav-item-link" aria-label="Environments" data-track-action="click_menu_item" data-track-label="environments" data-track-property="nav_panel_project" data-qa-submenu-item="Environments"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Environments
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/terraform_module_registry" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="Terraform modules" data-track-action="click_menu_item" data-track-label="infrastructure_registry" data-track-property="nav_panel_project" data-qa-submenu-item="Terraform modules"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Terraform modules
+      <!----></div>  <!----></a> <!----></li></ul></div></li><li><!----> <button id="menu-section-button-monitor" data-testid="menu-section-button" data-qa-section-name="Monitor" aria-controls="monitor" aria-expanded="false" data-qa-menu-item="Monitor" class="super-sidebar-nav-item gl-relative gl-mb-2 gl-flex gl-min-h-7 gl-w-full gl-appearance-none gl-items-center gl-gap-3 gl-rounded-base gl-border-0 gl-bg-transparent gl-px-3 gl-py-2 gl-text-left !gl-text-default !gl-no-underline focus:gl-focus"><span aria-hidden="true" class="gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-bg-transparent" style="width: 3px; border-radius: 3px; margin-right: 1px;"></span> <span class="gl-flex gl-w-6 gl-shrink-0"><svg data-testid="monitor-icon" role="img" aria-hidden="true" class="super-sidebar-nav-item-icon gl-m-auto gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#monitor"></use></svg></span> <span class="gl-truncate-end gl-grow gl-text-default">
+      Monitor
+    </span> <span class="gl-text-right"><svg data-testid="chevron-right-icon" role="img" aria-hidden="true" class="super-sidebar-mix-blend-mode gl-icon s16 gl-fill-icon-subtle"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#chevron-right"></use></svg></span></button> <!----> <div id="monitor" class="gl-m-0 gl-list-none gl-p-0 gl-duration-medium gl-ease-ease collapse" data-testid="menu-section" data-qa-section-name="Monitor" style="display: none;"><ul aria-label="Monitor" class="gl-m-0 gl-list-none gl-p-0"><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/incidents" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="Incidents" data-track-action="click_menu_item" data-track-label="incidents" data-track-property="nav_panel_project" data-qa-submenu-item="Incidents"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Incidents
+      <!----></div>  <!----></a> <!----></li></ul></div></li><li><!----> <button id="menu-section-button-analyze" data-testid="menu-section-button" data-qa-section-name="Analyze" aria-controls="analyze" aria-expanded="false" data-qa-menu-item="Analyze" class="super-sidebar-nav-item gl-relative gl-mb-2 gl-flex gl-min-h-7 gl-w-full gl-appearance-none gl-items-center gl-gap-3 gl-rounded-base gl-border-0 gl-bg-transparent gl-px-3 gl-py-2 gl-text-left !gl-text-default !gl-no-underline focus:gl-focus"><span aria-hidden="true" class="gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-bg-transparent" style="width: 3px; border-radius: 3px; margin-right: 1px;"></span> <span class="gl-flex gl-w-6 gl-shrink-0"><svg data-testid="chart-icon" role="img" aria-hidden="true" class="super-sidebar-nav-item-icon gl-m-auto gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#chart"></use></svg></span> <span class="gl-truncate-end gl-grow gl-text-default">
+      Analyze
+    </span> <span class="gl-text-right"><svg data-testid="chevron-right-icon" role="img" aria-hidden="true" class="super-sidebar-mix-blend-mode gl-icon s16 gl-fill-icon-subtle"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#chevron-right"></use></svg></span></button> <!----> <div id="analyze" class="gl-m-0 gl-list-none gl-p-0 gl-duration-medium gl-ease-ease collapse" data-testid="menu-section" data-qa-section-name="Analyze" style="display: none;"><ul aria-label="Analyze" class="gl-m-0 gl-list-none gl-p-0"><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/value_stream_analytics" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-project-cycle-analytics" data-testid="nav-item-link" aria-label="Value stream analytics" data-track-action="click_menu_item" data-track-label="cycle_analytics" data-track-property="nav_panel_project" data-qa-submenu-item="Value stream analytics"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Value stream analytics
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/graphs/fce7f6104136390b45f38e036a58d19cb98cdc76" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="Contributor analytics" data-track-action="click_menu_item" data-track-label="contributors" data-track-property="nav_panel_project" data-qa-submenu-item="Contributor analytics"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Contributor analytics
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/pipelines/charts" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="CI/CD analytics" data-track-action="click_menu_item" data-track-label="ci_cd_analytics" data-track-property="nav_panel_project" data-qa-submenu-item="CI/CD analytics"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      CI/CD analytics
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/graphs/fce7f6104136390b45f38e036a58d19cb98cdc76/charts" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base shortcuts-repository-charts" data-testid="nav-item-link" aria-label="Repository analytics" data-track-action="click_menu_item" data-track-label="repository_analytics" data-track-property="nav_panel_project" data-qa-submenu-item="Repository analytics"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Repository analytics
+      <!----></div>  <!----></a> <!----></li><li data-testid="nav-item" class="show-on-focus-or-hover--context hide-on-focus-or-hover--context transition-opacity-on-hover--context gl-relative"><a href="/gitlab/Ruimoku/ruimoku-papers/-/ml/experiments" class="super-sidebar-nav-item show-on-focus-or-hover--control hide-on-focus-or-hover--control gl-relative gl-mb-1 gl-flex gl-min-h-7 gl-items-center gl-gap-3 gl-py-2 !gl-text-default !gl-no-underline focus:gl-focus gl-px-3 gl-rounded-base" data-testid="nav-item-link" aria-label="Model experiments" data-track-action="click_menu_item" data-track-label="model_experiments" data-track-property="nav_panel_project" data-qa-submenu-item="Model experiments"><div aria-hidden="true" data-testid="active-indicator" class="active-indicator gl-absolute gl-bottom-2 gl-left-2 gl-top-2 gl-transition-all gl-duration-slow gl-opacity-0" style="width: 3px; border-radius: 3px; margin-right: 1px;"></div> <div class="gl-flex gl-w-6 gl-shrink-0"><!----></div> <div data-testid="nav-item-link-label" class="gl-grow gl-text-default gl-break-anywhere">
+      Model experiments
+      <!----></div>  <!----></a> <!----></li></ul></div></li></ul></div> <div id="sidebar-portal-mount"></div> <div></div> <div class="bottom-scrim-wrapper"><div class="bottom-scrim"></div></div></div> <!----> <div class="gl-p-2"><div class="gl-disclosure-dropdown gl-new-dropdown"><div id="dropdown-toggle-btn-1" data-testid="base-dropdown-toggle" class="gl-new-dropdown-custom-toggle"><button data-testid="sidebar-help-button" type="button" class="btn super-sidebar-help-center-toggle btn-with-notification btn-default btn-md gl-button btn-default-tertiary"><!----> <svg data-testid="question-o-icon" role="img" aria-hidden="true" class="gl-button-icon gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#question-o"></use></svg>  <span class="gl-button-text"><!---->
+      Help
+    </span></button></div> <div id="base-dropdown-3" data-testid="base-dropdown-menu" class="gl-new-dropdown-panel !gl-w-31"><div class="gl-new-dropdown-arrow"></div> <div class="gl-new-dropdown-inner">  <ul id="disclosure-2" aria-labelledby="dropdown-toggle-btn-1" data-testid="disclosure-content" tabindex="-1" class="gl-new-dropdown-contents"> <!----> <li><!----> <ul class="gl-mb-0 gl-list-none gl-pl-0"><li tabindex="0" data-testid="disclosure-dropdown-item" class="gl-new-dropdown-item"><a tabindex="-1" data-track-property="nav_help_menu" data-track-action="click_link" data-track-label="help" href="/gitlab/help" target="_self" class="gl-new-dropdown-item-content"><span class="gl-new-dropdown-item-text-wrapper">
+          Help
+        </span></a></li><li tabindex="0" data-testid="disclosure-dropdown-item" class="gl-new-dropdown-item"><a tabindex="-1" data-track-property="nav_help_menu" data-track-action="click_link" data-track-label="support" href="https://about.gitlab.com/get-help/" target="_self" class="gl-new-dropdown-item-content"><span class="gl-new-dropdown-item-text-wrapper">
+          Support
+        </span></a></li><li tabindex="0" data-testid="disclosure-dropdown-item" class="gl-new-dropdown-item"><a tabindex="-1" data-track-property="nav_help_menu" data-track-action="click_link" data-track-label="gitlab_documentation" href="/gitlab/help/docs" target="_self" class="gl-new-dropdown-item-content"><span class="gl-new-dropdown-item-text-wrapper">
+          GitLab documentation
+        </span></a></li><li tabindex="0" data-testid="disclosure-dropdown-item" class="gl-new-dropdown-item"><a tabindex="-1" data-track-property="nav_help_menu" data-track-action="click_link" data-track-label="compare_gitlab_plans" href="https://about.gitlab.com/pricing" target="_self" class="gl-new-dropdown-item-content"><span class="gl-new-dropdown-item-text-wrapper">
+          Compare GitLab plans
+        </span></a></li><li tabindex="0" data-testid="disclosure-dropdown-item" class="gl-new-dropdown-item"><a tabindex="-1" data-track-property="nav_help_menu" data-track-action="click_link" data-track-label="community_forum" href="https://forum.gitlab.com" target="_self" class="gl-new-dropdown-item-content"><span class="gl-new-dropdown-item-text-wrapper">
+          Community forum
+        </span></a></li><li tabindex="0" data-testid="disclosure-dropdown-item" class="gl-new-dropdown-item"><a tabindex="-1" data-track-property="nav_help_menu" data-track-action="click_link" data-track-label="contribute_to_gitlab" href="/gitlab/help/_index.md#contribute-to-gitlab" target="_self" class="gl-new-dropdown-item-content"><span class="gl-new-dropdown-item-text-wrapper">
+          Contribute to GitLab
+        </span></a></li><li tabindex="0" data-testid="disclosure-dropdown-item" class="gl-new-dropdown-item"><a tabindex="-1" data-track-property="nav_help_menu" data-track-action="click_link" data-track-label="submit_feedback" href="https://about.gitlab.com/submit-feedback" target="_self" class="gl-new-dropdown-item-content"><span class="gl-new-dropdown-item-text-wrapper">
+          Provide feedback
+        </span></a></li></ul></li> <li class="gl-border-t gl-border-t-dropdown-divider gl-pt-2 gl-mt-2"><!----> <ul class="gl-mb-0 gl-list-none gl-pl-0"><li tabindex="0" data-testid="disclosure-dropdown-item" class="gl-new-dropdown-item"><button tabindex="-1" data-track-action="click_button" data-track-label="keyboard_shortcuts_help" data-track-property="nav_help_menu" type="button" class="gl-new-dropdown-item-content js-shortcuts-modal-trigger"><span class="gl-new-dropdown-item-text-wrapper"><span class="-gl-my-1 gl-flex gl-items-center gl-justify-between">
+        Keyboard shortcuts
+        <kbd class="flat">?</kbd></span></span></button></li></ul></li></ul> </div></div></div> <!----> <div></div></div></div></nav> <a href="/gitlab/explore/snippets" class="gl-hidden dashboard-shortcuts-snippets">
+    Snippets
+  </a><a href="/gitlab/explore/groups" class="gl-hidden dashboard-shortcuts-groups">
+    Groups
+  </a><a href="/gitlab/explore/projects/starred" class="gl-hidden dashboard-shortcuts-projects">
+    Projects
+  </a> <!----> <!----></div>
+
+<div class="content-wrapper">
+<div class="broadcast-wrapper">
+
+
+
+
+</div>
+<div class="alert-wrapper alert-wrapper-top-space gl-flex gl-flex-col gl-gap-3 container-fluid container-limited">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="top-bar-fixed container-fluid" data-testid="top-bar">
+<div class="top-bar-container gl-flex gl-items-center gl-gap-2">
+<div class="gl-grow gl-basis-0 gl-flex gl-items-center gl-justify-start gl-gap-3">
+<button aria-controls="super-sidebar" aria-expanded="false" aria-label="Primary navigation sidebar" type="button" class="btn btn-default btn-md gl-button btn-default-tertiary btn-icon gl-button btn btn-icon btn-md btn-default btn-default-tertiary js-super-sidebar-toggle-expand super-sidebar-toggle -gl-ml-3"><!----> <svg data-testid="sidebar-icon" role="img" aria-hidden="true" class="gl-button-icon gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#sidebar"></use></svg>  <!----></button>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ruimoku","item":"https://corpus.kanji.zinbun.kyoto-u.ac.jp/gitlab/Ruimoku"},{"@type":"ListItem","position":2,"name":"Papers","item":"https://corpus.kanji.zinbun.kyoto-u.ac.jp/gitlab/Ruimoku/ruimoku-papers"},{"@type":"ListItem","position":3,"name":"Repository","item":"https://corpus.kanji.zinbun.kyoto-u.ac.jp/gitlab/Ruimoku/ruimoku-papers/-/blob/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt"}]}
+
+
+</script>
+<div data-testid="breadcrumb-links" id="js-vue-page-breadcrumbs-wrapper">
+<nav aria-label="Breadcrumb" class="gl-breadcrumbs" style=""><ol class="gl-breadcrumb-list breadcrumb"><!----> <li class="gl-breadcrumb-item gl-breadcrumb-item-sm"><a href="/gitlab/Ruimoku" target="_self" class=""><!----><span class="gl-align-middle">Ruimoku</span></a></li><li class="gl-breadcrumb-item gl-breadcrumb-item-sm"><a href="/gitlab/Ruimoku/ruimoku-papers" target="_self" class=""><!----><span class="gl-align-middle">Papers</span></a></li><li class="gl-breadcrumb-item gl-breadcrumb-item-sm"><a aria-current="page" href="/gitlab/Ruimoku/ruimoku-papers/-/blob/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt" target="_self" class=""><!----><span class="gl-align-middle">Repository</span></a></li></ol></nav>
+<div id="js-injected-page-breadcrumbs"></div>
+</div>
+
+
+</div>
+<div class="gl-flex-none gl-flex gl-items-center gl-justify-center">
+<!---->
+
+</div>
+<div class="gl-grow gl-basis-0 gl-flex gl-items-center gl-justify-end">
+<div id="js-work-item-feedback"></div>
+
+
+</div>
+</div>
+</div>
+
+<div class="container-fluid container-limited project-highlight-puc">
+<main class="content" id="content-body" itemscope="" itemtype="http://schema.org/SoftwareSourceCode">
+<div class="flash-container flash-container-page sticky" data-testid="flash-container">
+<!---->
+</div>
+
+
+
+
+
+
+<div class="js-signature-container" data-signatures-path="/gitlab/Ruimoku/ruimoku-papers/-/commits/6a525e928b7c5c682bbcacfd46a5255661291f8c/signatures?limit=1"></div>
+
+<div class="tree-holder gl-pt-4" id="tree-holder">
+<div class="nav-block">
+<div class="tree-ref-container">
+<div class="tree-ref-holder gl-max-w-26">
+<div><div class="ref-selector gl-w-full gl-new-dropdown !gl-block"><button id="dropdown-toggle-btn-14" data-testid="base-dropdown-toggle" aria-haspopup="listbox" aria-expanded="false" aria-controls="base-dropdown-17" aria-labelledby="dropdown-toggle-btn-14" type="button" class="btn btn-default btn-md btn-block gl-button gl-font-monospace gl-mb-0 gl-new-dropdown-toggle"><!----> <!---->  <span class="gl-button-text gl-w-full"><span class="gl-new-dropdown-button-text">
+        fce7f6104136390b45f38e036a58d19cb98cdc76
+      </span> <svg data-testid="chevron-down-icon" role="img" aria-hidden="true" class="gl-button-icon gl-new-dropdown-chevron gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#chevron-down"></use></svg></span></button> <div id="base-dropdown-17" data-testid="base-dropdown-menu" class="gl-new-dropdown-panel !gl-w-31"><div class="gl-new-dropdown-arrow"></div> <div class="gl-new-dropdown-inner"> <div class="gl-flex gl-min-h-8 gl-items-center !gl-p-4 gl-border-b-1 gl-border-b-solid gl-border-b-dropdown-divider"><div id="listbox-header-16" data-testid="listbox-header-text" class="gl-grow gl-pr-2 gl-text-sm gl-font-bold gl-text-strong">
+      Select Git revision
+    </div> <!----> <!----></div> <div class="gl-border-b-1 gl-border-b-solid gl-border-b-dropdown-divider"><div class="gl-listbox-search" data-testid="listbox-search-input"><svg data-testid="search-sm-icon" role="img" aria-hidden="true" class="gl-listbox-search-icon gl-icon s12 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#search-sm"></use></svg> <input type="search" aria-label="Search by Git revision" placeholder="Search by Git revision" class="gl-listbox-search-input"> <!----></div> <!----></div> <div id="listbox-15" aria-labelledby="listbox-header-16" role="listbox" tabindex="0" class="gl-new-dropdown-contents gl-new-dropdown-contents-with-scrim-overlay gl-new-dropdown-contents"><div aria-hidden="true" data-testid="top-scrim" class="top-scrim-wrapper"><div class="top-scrim top-scrim-dark"></div></div> <div aria-hidden="true"></div> <ul role="group" aria-labelledby="gl-listbox-group-19" class="gl-mb-0 gl-pl-0"><li id="gl-listbox-group-19" role="presentation" class="gl-pb-2 gl-pl-4 gl-pt-3 gl-text-sm gl-font-bold gl-text-strong">
+      Branches <span class="gl-badge badge badge-pill badge-muted"><!----> <span class="gl-badge-content">1</span></span></li>  <li role="option" tabindex="-1" class="gl-new-dropdown-item" data-testid="listbox-item-refs/heads/main"><span class="gl-new-dropdown-item-content"><svg data-testid="dropdown-item-checkbox" role="img" aria-hidden="true" class="gl-icon s16 gl-fill-current gl-new-dropdown-item-check-icon gl-invisible gl-mt-3 gl-self-start"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#mobile-issue-close"></use></svg> <span class="gl-new-dropdown-item-text-wrapper">
+      main
+      <span class="gl-badge badge badge-pill badge-info"><!----> <span class="gl-badge-content">default</span></span> <span class="gl-badge badge badge-pill badge-neutral" title="" size="sm"><!----> <span class="gl-badge-content">
+  protected
+</span></span></span></span></li></ul> <!----> <!----> <div aria-hidden="true"></div> <div aria-hidden="true" data-testid="bottom-scrim" class="bottom-scrim-wrapper"><div class="bottom-scrim !gl-rounded-none"></div></div></div> <span data-testid="listbox-number-of-results" aria-live="assertive" class="gl-sr-only">
+      1 result
+    </span>  </div></div></div> <!----></div>
+</div>
+<ul class="breadcrumb repo-breadcrumb">
+<li class="breadcrumb-item">
+<a href="/gitlab/Ruimoku/ruimoku-papers/-/tree/fce7f6104136390b45f38e036a58d19cb98cdc76">ruimoku-papers
+</a></li>
+<li class="breadcrumb-item">
+<a href="/gitlab/Ruimoku/ruimoku-papers/-/blob/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt"><strong>CHU013.txt</strong>
+</a></li>
+</ul>
+</div>
+<div class="tree-controls gl-flex gl-flex-wrap sm:gl-flex-nowrap gl-items-baseline gl-gap-3">
+<button class="gl-button btn btn-md btn-default has-tooltip shortcuts-find-file" title="Go to file, press <kbd class='flat ml-1' aria-hidden=true>/~</kbd> or <kbd class='flat ml-1' aria-hidden=true>t</kbd>" aria-keyshortcuts="/+~ t" data-html="true" data-event-tracking="click_find_file_button_on_repository_pages" type="button"><span class="gl-button-text">
+Find file
+
+</span>
+
+</button>
+<a data-event-tracking="click_blame_control_on_blob_page" class="gl-button btn btn-md btn-default js-blob-blame-link" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt"><span class="gl-button-text">
+Blame
+</span>
+
+</a>
+<a aria-keyshortcuts="y" class="gl-button btn btn-md btn-default has-tooltip js-data-file-blob-permalink-url" data-html="true" title="Go to permalink <kbd class='flat ml-1' aria-hidden=true>y</kbd>" href="/gitlab/Ruimoku/ruimoku-papers/-/blob/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt"><span class="gl-button-text">
+Permalink
+</span>
+
+</a>
+</div>
+</div>
+
+<div class="info-well">
+<div class="well-segment">
+<ul class="blob-commit-info">
+<li class="commit flex-row js-toggle-container" id="commit-6a525e92">
+<div class="gl-self-start gl-block">
+<a href="/gitlab/tomo"><img alt="MORIOKA Tomohiko's avatar" src="https://secure.gravatar.com/avatar/0f9529f3f820d04b44ca15e0f56c58b85fb7d9a3edafc9ef46692ae33b8db712?s=128&amp;d=identicon" class="avatar s32 gl-inline-block" title="MORIOKA Tomohiko"></a>
+</div>
+<div class="commit-detail flex-list gl-flex gl-justify-between gl-items-start gl-grow gl-min-w-0">
+<div class="commit-content gl-self-center" data-testid="commit-content">
+<div class="gl-flex sm:gl-hidden gl-gap-3 gl-items-center">
+<div class="committer gl-text-sm">
+<time class="js-timeago" title="February 4, 2004 at 9:02:31 PM UTC" datetime="2004-02-04T21:02:31Z" tabindex="0" aria-label="Feb 4, 2004 9:02pm" data-toggle="tooltip" data-placement="bottom" data-container="body">21 years ago</time>
+</div>
+<a class="gl-button btn btn-md btn-link commit-row-message js-onboarding-commit-item" href="/gitlab/Ruimoku/ruimoku-papers/-/commit/6a525e928b7c5c682bbcacfd46a5255661291f8c"><svg class="s16 gl-icon gl-button-icon " data-testid="commit-icon"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#commit"></use></svg>
+<span class="gl-button-text">
+6a525e92
+
+</span>
+
+</a></div>
+<div class="gl-hidden sm:gl-block">
+<a class="commit-row-message item-title js-onboarding-commit-item " href="/gitlab/Ruimoku/ruimoku-papers/-/commit/6a525e928b7c5c682bbcacfd46a5255661291f8c">New file.</a>
+<span class="commit-row-message d-inline d-sm-none">
+·
+6a525e92
+</span>
+<div class="committer gl-text-sm">
+<a class="commit-author-link js-user-link" data-user-id="2" href="/gitlab/tomo">MORIOKA Tomohiko</a> authored <time class="js-timeago" title="February 4, 2004 at 9:02:31 PM UTC" datetime="2004-02-04T21:02:31Z" tabindex="0" aria-label="Feb 4, 2004 9:02pm" data-toggle="tooltip" data-placement="bottom" data-container="body">21 years ago</time>
+</div>
+
+
+</div>
+</div>
+<div class="commit-actions gl-flex gl-items-center gl-gap-3">
+<div class="gl-hidden sm:gl-flex gl-items-center gl-gap-3">
+
+<!---->
+<div class="btn-group gl-hidden sm:gl-flex">
+<span class="gl-button btn btn-label btn-md btn-default dark:!gl-bg-neutral-800" type="button"><span class="gl-button-text gl-font-monospace">
+6a525e92
+
+</span>
+
+</span><button class="gl-button btn btn-icon btn-md btn-default " title="Copy commit SHA" aria-label="Copy commit SHA" aria-live="polite" data-toggle="tooltip" data-placement="bottom" data-container="body" data-html="true" data-category="primary" data-size="medium" data-clipboard-text="6a525e928b7c5c682bbcacfd46a5255661291f8c" type="button"><svg class="s16 gl-icon gl-button-icon " data-testid="copy-to-clipboard-icon"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#copy-to-clipboard"></use></svg>
+
+</button>
+
+</div>
+</div>
+<div class="gl-block sm:gl-hidden">
+<button class="gl-button btn btn-icon btn-md btn-default button-ellipsis-horizontal text-expander js-toggle-button" data-toggle="tooltip" data-container="body" data-collapse-title="Toggle commit description" data-expand-title="Toggle commit description" title="Toggle commit description" aria-label="Toggle commit description" type="button"><svg class="s16 gl-icon gl-button-icon " data-testid="ellipsis_h-icon"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#ellipsis_h"></use></svg>
+
+</button>
+</div>
+<a href="https://corpus.kanji.zinbun.kyoto-u.ac.jp/gitlab/Ruimoku/ruimoku-papers/-/commits/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt" class="btn btn-default btn-md gl-button"><!----> <!---->  <span class="gl-button-text">History</span></a>
+</div>
+</div>
+<div class="gl-block sm:gl-hidden">
+<div class="gl-hidden js-toggle-content gl-mt-6">
+<a class="commit-row-message item-title js-onboarding-commit-item " href="/gitlab/Ruimoku/ruimoku-papers/-/commit/6a525e928b7c5c682bbcacfd46a5255661291f8c">New file.</a>
+<div class="committer gl-text-sm">
+<a class="commit-author-link js-user-link" data-user-id="2" href="/gitlab/tomo">MORIOKA Tomohiko</a> authored <time class="js-timeago" title="February 4, 2004 at 9:02:31 PM UTC" datetime="2004-02-04T21:02:31Z" tabindex="0" aria-label="Feb 4, 2004 9:02pm" data-toggle="tooltip" data-placement="bottom" data-container="body">21 years ago</time>
+</div>
+
+</div>
+</div>
+</li>
+
+</ul>
+</div>
+<div class="gl-hidden sm:gl-block">
+
+</div>
+</div>
+<div class="blob-content-holder js-per-page" data-blame-per-page="1000" id="blob-content-holder">
+<div class="gl-relative"><!----> <div id="fileHolder" class="file-holder"><div class="js-file-title file-title-flex-parent"><div class="gl-mb-3 gl-flex gl-gap-3 md:gl-mb-0"><!----> <div class="file-header-content gl-flex gl-items-center gl-leading-1"> <span aria-hidden="true"><svg class="s16 gl-mr-3"><use href="/gitlab/assets/file_icons/file_icons-59d148c7ea628b0ec3975493002fa45de1d4d8c15b2bf59775965ab9d67d62ab.svg#document"></use></svg></span> <strong data-testid="file-title-content" class="file-title-name js-blob-header-filepath gl-mr-1 gl-break-all gl-font-bold gl-text-strong">CHU013.txt</strong> <button id="clipboard-button-20" title="Copy file path" data-clipboard-text="{&quot;text&quot;:&quot;CHU013.txt&quot;,&quot;gfm&quot;:&quot;`CHU013.txt`&quot;}" data-clipboard-handle-tooltip="false" aria-label="Copy file path" aria-live="polite" type="button" class="btn btn-default btn-md gl-button btn-default-tertiary btn-icon gl-mr-2"><!----> <svg data-testid="copy-to-clipboard-icon" role="img" aria-hidden="true" class="gl-button-icon gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#copy-to-clipboard"></use></svg>  <!----></button> <small class="gl-mr-3 gl-text-subtle">56.27 KiB</small> <!----></div></div> <div class="file-actions gl-flex gl-flex-wrap gl-gap-3"><div role="group" class="js-blob-viewer-switcher gl-button-group btn-group"></div> <!----> <div class="sm:!gl-ml-0 sm:gl-ml-3" project-path="Ruimoku/ruimoku-papers" project-id="10"><div class="gl-disclosure-dropdown gl-new-dropdown !gl-block" data-testid="action-dropdown"><button id="dropdown-toggle-btn-21" data-testid="base-dropdown-toggle" aria-expanded="false" aria-controls="base-dropdown-23" aria-labelledby="dropdown-toggle-btn-21" type="button" class="btn btn-confirm btn-md btn-block gl-button gl-new-dropdown-toggle"><!----> <!---->  <span class="gl-button-text gl-w-full"><span class="gl-new-dropdown-button-text">
+        Edit
+      </span> <svg data-testid="chevron-down-icon" role="img" aria-hidden="true" class="gl-button-icon gl-new-dropdown-chevron gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#chevron-down"></use></svg></span></button> <div id="base-dropdown-23" data-testid="base-dropdown-menu" class="gl-new-dropdown-panel"><div class="gl-new-dropdown-arrow"></div> <div class="gl-new-dropdown-inner">  <ul id="disclosure-22" aria-labelledby="dropdown-toggle-btn-21" data-testid="disclosure-content" tabindex="-1" class="gl-new-dropdown-contents"> <li class="edit-dropdown-group-width"><!----> <ul class="gl-mb-0 gl-list-none gl-pl-0"><li tabindex="0" data-testid="webide-menu-item" class="gl-new-dropdown-item"><button tabindex="-1" type="button" class="gl-new-dropdown-item-content"><span class="gl-new-dropdown-item-text-wrapper"><div class="gl-flex gl-flex-col"><span class="gl-mb-2 gl-flex gl-items-center gl-justify-between"><span data-testid="action-primary-text" class="gl-font-bold">Open in Web IDE</span> <kbd class="flat">.</kbd></span> <span data-testid="action-secondary-text" class="gl-text-sm gl-text-subtle">
+              Quickly and easily edit multiple files in your project.
+            </span></div></span></button></li><li tabindex="0" data-testid="edit-menu-item" class="gl-new-dropdown-item"><a tabindex="-1" href="/gitlab/Ruimoku/ruimoku-papers/-/edit/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt" target="_self" class="gl-new-dropdown-item-content"><span class="gl-new-dropdown-item-text-wrapper"><div class="gl-flex gl-flex-col"><span class="gl-mb-2 gl-flex gl-items-center gl-justify-between"><span data-testid="action-primary-text" class="gl-font-bold">Edit single file</span> <!----></span> <span data-testid="action-secondary-text" class="gl-text-sm gl-text-subtle">
+              Edit this file only.
+            </span></div></span></a></li></ul></li> </ul> </div></div></div> <!----></div>  <div role="group" class="gl-button-group btn-group" data-testid="default-actions-container"><button aria-label="Copy file contents" title="Copy file contents" data-testid="copy-contents-button" type="button" class="btn js-copy-blob-source-btn btn-default btn-md gl-button btn-icon"><!----> <svg data-testid="copy-to-clipboard-icon" role="img" aria-hidden="true" class="gl-button-icon gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#copy-to-clipboard"></use></svg>  <!----></button> <a aria-label="Open raw" title="Open raw" href="/gitlab/Ruimoku/ruimoku-papers/-/raw/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt" rel="noopener" target="_blank" class="btn btn-default btn-md gl-button btn-icon"><!----> <svg data-testid="doc-code-icon" role="img" aria-hidden="true" class="gl-button-icon gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#doc-code"></use></svg>  <!----></a> <a aria-label="Download" title="Download" data-testid="download-button" href="https://corpus.kanji.zinbun.kyoto-u.ac.jp/gitlab/Ruimoku/ruimoku-papers/-/raw/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt?inline=false" rel="noopener" target="_blank" class="btn btn-default btn-md gl-button btn-icon"><!----> <svg data-testid="download-icon" role="img" aria-hidden="true" class="gl-button-icon gl-icon s16 gl-fill-current"><use href="/gitlab/assets/icons-aa2c8ddf99d22b77153ca2bb092a23889c12c597fc8b8de94b0f730eb53513f6.svg#download"></use></svg>  <!----></a> <!----></div></div></div> <!----> <div class="gl-flex blob-viewer"><!----> <div data-type="simple" data-path="CHU013.txt" data-testid="blob-viewer-file-content" class="file-content code js-syntax-highlight blob-content blob-viewer gl-flex gl-w-full gl-flex-col gl-overflow-auto white"><!----> <div class="gl-flex"><div class="gl-absolute gl-flex gl-flex-col"><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L1" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L1" href="#L1" data-line-number="1" class="file-line-num gl-select-none !gl-shadow-none">
+        1
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L2" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L2" href="#L2" data-line-number="2" class="file-line-num gl-select-none !gl-shadow-none">
+        2
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L3" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L3" href="#L3" data-line-number="3" class="file-line-num gl-select-none !gl-shadow-none">
+        3
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L4" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L4" href="#L4" data-line-number="4" class="file-line-num gl-select-none !gl-shadow-none">
+        4
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L5" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L5" href="#L5" data-line-number="5" class="file-line-num gl-select-none !gl-shadow-none">
+        5
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L6" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L6" href="#L6" data-line-number="6" class="file-line-num gl-select-none !gl-shadow-none">
+        6
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L7" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L7" href="#L7" data-line-number="7" class="file-line-num gl-select-none !gl-shadow-none">
+        7
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L8" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L8" href="#L8" data-line-number="8" class="file-line-num gl-select-none !gl-shadow-none">
+        8
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L9" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L9" href="#L9" data-line-number="9" class="file-line-num gl-select-none !gl-shadow-none">
+        9
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L10" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L10" href="#L10" data-line-number="10" class="file-line-num gl-select-none !gl-shadow-none">
+        10
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L11" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L11" href="#L11" data-line-number="11" class="file-line-num gl-select-none !gl-shadow-none">
+        11
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L12" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L12" href="#L12" data-line-number="12" class="file-line-num gl-select-none !gl-shadow-none">
+        12
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L13" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L13" href="#L13" data-line-number="13" class="file-line-num gl-select-none !gl-shadow-none">
+        13
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L14" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L14" href="#L14" data-line-number="14" class="file-line-num gl-select-none !gl-shadow-none">
+        14
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L15" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L15" href="#L15" data-line-number="15" class="file-line-num gl-select-none !gl-shadow-none">
+        15
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L16" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L16" href="#L16" data-line-number="16" class="file-line-num gl-select-none !gl-shadow-none">
+        16
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L17" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L17" href="#L17" data-line-number="17" class="file-line-num gl-select-none !gl-shadow-none">
+        17
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L18" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L18" href="#L18" data-line-number="18" class="file-line-num gl-select-none !gl-shadow-none">
+        18
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L19" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L19" href="#L19" data-line-number="19" class="file-line-num gl-select-none !gl-shadow-none">
+        19
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L20" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L20" href="#L20" data-line-number="20" class="file-line-num gl-select-none !gl-shadow-none">
+        20
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L21" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L21" href="#L21" data-line-number="21" class="file-line-num gl-select-none !gl-shadow-none">
+        21
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L22" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L22" href="#L22" data-line-number="22" class="file-line-num gl-select-none !gl-shadow-none">
+        22
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L23" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L23" href="#L23" data-line-number="23" class="file-line-num gl-select-none !gl-shadow-none">
+        23
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L24" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L24" href="#L24" data-line-number="24" class="file-line-num gl-select-none !gl-shadow-none">
+        24
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L25" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L25" href="#L25" data-line-number="25" class="file-line-num gl-select-none !gl-shadow-none">
+        25
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L26" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L26" href="#L26" data-line-number="26" class="file-line-num gl-select-none !gl-shadow-none">
+        26
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L27" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L27" href="#L27" data-line-number="27" class="file-line-num gl-select-none !gl-shadow-none">
+        27
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L28" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L28" href="#L28" data-line-number="28" class="file-line-num gl-select-none !gl-shadow-none">
+        28
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L29" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L29" href="#L29" data-line-number="29" class="file-line-num gl-select-none !gl-shadow-none">
+        29
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L30" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L30" href="#L30" data-line-number="30" class="file-line-num gl-select-none !gl-shadow-none">
+        30
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L31" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L31" href="#L31" data-line-number="31" class="file-line-num gl-select-none !gl-shadow-none">
+        31
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L32" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L32" href="#L32" data-line-number="32" class="file-line-num gl-select-none !gl-shadow-none">
+        32
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L33" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L33" href="#L33" data-line-number="33" class="file-line-num gl-select-none !gl-shadow-none">
+        33
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L34" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L34" href="#L34" data-line-number="34" class="file-line-num gl-select-none !gl-shadow-none">
+        34
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L35" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L35" href="#L35" data-line-number="35" class="file-line-num gl-select-none !gl-shadow-none">
+        35
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L36" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L36" href="#L36" data-line-number="36" class="file-line-num gl-select-none !gl-shadow-none">
+        36
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L37" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L37" href="#L37" data-line-number="37" class="file-line-num gl-select-none !gl-shadow-none">
+        37
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L38" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L38" href="#L38" data-line-number="38" class="file-line-num gl-select-none !gl-shadow-none">
+        38
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L39" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L39" href="#L39" data-line-number="39" class="file-line-num gl-select-none !gl-shadow-none">
+        39
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L40" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L40" href="#L40" data-line-number="40" class="file-line-num gl-select-none !gl-shadow-none">
+        40
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L41" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L41" href="#L41" data-line-number="41" class="file-line-num gl-select-none !gl-shadow-none">
+        41
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L42" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L42" href="#L42" data-line-number="42" class="file-line-num gl-select-none !gl-shadow-none">
+        42
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L43" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L43" href="#L43" data-line-number="43" class="file-line-num gl-select-none !gl-shadow-none">
+        43
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L44" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L44" href="#L44" data-line-number="44" class="file-line-num gl-select-none !gl-shadow-none">
+        44
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L45" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L45" href="#L45" data-line-number="45" class="file-line-num gl-select-none !gl-shadow-none">
+        45
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L46" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L46" href="#L46" data-line-number="46" class="file-line-num gl-select-none !gl-shadow-none">
+        46
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L47" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L47" href="#L47" data-line-number="47" class="file-line-num gl-select-none !gl-shadow-none">
+        47
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L48" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L48" href="#L48" data-line-number="48" class="file-line-num gl-select-none !gl-shadow-none">
+        48
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L49" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L49" href="#L49" data-line-number="49" class="file-line-num gl-select-none !gl-shadow-none">
+        49
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L50" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L50" href="#L50" data-line-number="50" class="file-line-num gl-select-none !gl-shadow-none">
+        50
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L51" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L51" href="#L51" data-line-number="51" class="file-line-num gl-select-none !gl-shadow-none">
+        51
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L52" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L52" href="#L52" data-line-number="52" class="file-line-num gl-select-none !gl-shadow-none">
+        52
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L53" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L53" href="#L53" data-line-number="53" class="file-line-num gl-select-none !gl-shadow-none">
+        53
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L54" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L54" href="#L54" data-line-number="54" class="file-line-num gl-select-none !gl-shadow-none">
+        54
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L55" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L55" href="#L55" data-line-number="55" class="file-line-num gl-select-none !gl-shadow-none">
+        55
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L56" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L56" href="#L56" data-line-number="56" class="file-line-num gl-select-none !gl-shadow-none">
+        56
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L57" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L57" href="#L57" data-line-number="57" class="file-line-num gl-select-none !gl-shadow-none">
+        57
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L58" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L58" href="#L58" data-line-number="58" class="file-line-num gl-select-none !gl-shadow-none">
+        58
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L59" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L59" href="#L59" data-line-number="59" class="file-line-num gl-select-none !gl-shadow-none">
+        59
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L60" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L60" href="#L60" data-line-number="60" class="file-line-num gl-select-none !gl-shadow-none">
+        60
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L61" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L61" href="#L61" data-line-number="61" class="file-line-num gl-select-none !gl-shadow-none">
+        61
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L62" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L62" href="#L62" data-line-number="62" class="file-line-num gl-select-none !gl-shadow-none">
+        62
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L63" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L63" href="#L63" data-line-number="63" class="file-line-num gl-select-none !gl-shadow-none">
+        63
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L64" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L64" href="#L64" data-line-number="64" class="file-line-num gl-select-none !gl-shadow-none">
+        64
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L65" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L65" href="#L65" data-line-number="65" class="file-line-num gl-select-none !gl-shadow-none">
+        65
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L66" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L66" href="#L66" data-line-number="66" class="file-line-num gl-select-none !gl-shadow-none">
+        66
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L67" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L67" href="#L67" data-line-number="67" class="file-line-num gl-select-none !gl-shadow-none">
+        67
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L68" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L68" href="#L68" data-line-number="68" class="file-line-num gl-select-none !gl-shadow-none">
+        68
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L69" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L69" href="#L69" data-line-number="69" class="file-line-num gl-select-none !gl-shadow-none">
+        69
+      </a></div><div data-testid="line-numbers" class="diff-line-num line-links line-numbers gl-border-r gl-z-3 gl-flex !gl-p-0"><a data-event-tracking="click_chunk_blame_on_blob_page" href="/gitlab/Ruimoku/ruimoku-papers/-/blame/fce7f6104136390b45f38e036a58d19cb98cdc76/CHU013.txt#L70" class="file-line-blame gl-select-none !gl-shadow-none"></a> <a id="L70" href="#L70" data-line-number="70" class="file-line-num gl-select-none !gl-shadow-none">
+        70
+      </a></div></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" style="margin-left: 96px;"><div class="line" lang="plaintext" id="LC1"><span class="">A016420</span></div>
+<div class="line" lang="plaintext" id="LC2"><span class="">$j209480</span></div>
+<div class="line" lang="plaintext" id="LC3"><span class="">$g4</span></div>
+<div class="line" lang="plaintext" id="LC4"><span class="">$d2001</span></div>
+<div class="line" lang="plaintext" id="LC5"><span class="">$i总第124期</span></div>
+<div class="line" lang="plaintext" id="LC6"><span class="">10000001</span></div>
+<div class="line" lang="plaintext" id="LC7"><span class="">$t瞻望二十一世纪的中国哲学</span></div>
+<div class="line" lang="plaintext" id="LC8"><span class="">$a任继愈</span></div>
+<div class="line" lang="plaintext" id="LC9"><span class="">$z2</span></div>
+<div class="line" lang="plaintext" id="LC10"><span class="">$p19-23</span></div>
+<div class="line" lang="plaintext" id="LC11"><span class="">$b081X</span></div>
+<div class="line" lang="plaintext" id="LC12"><span class="">$c11A6XX1</span></div>
+<div class="line" lang="plaintext" id="LC13"><span class="">$n(ren ji yu)</span></div>
+<div class="line" lang="plaintext" id="LC14"><span class="">10000002</span></div>
+<div class="line" lang="plaintext" id="LC15"><span class="">$t论中华文化的第三次融合</span></div>
+<div class="line" lang="plaintext" id="LC16"><span class="">$a朱邦复</span></div>
+<div class="line" lang="plaintext" id="LC17"><span class="">$z2</span></div>
+<div class="line" lang="plaintext" id="LC18"><span class="">$p24-27</span></div>
+<div class="line" lang="plaintext" id="LC19"><span class="">$b081X</span></div>
+<div class="line" lang="plaintext" id="LC20"><span class="">$c11A0XX1</span></div>
+<div class="line" lang="plaintext" id="LC21"><span class="">$n(zhu bang fu)</span></div>
+<div class="line" lang="plaintext" id="LC22"><span class="">10000003</span></div>
+<div class="line" lang="plaintext" id="LC23"><span class="">$t中国农业形势及农业的进一步改革与发展</span></div>
+<div class="line" lang="plaintext" id="LC24"><span class="">$a陈吉元</span></div>
+<div class="line" lang="plaintext" id="LC25"><span class="">$z2</span></div>
+<div class="line" lang="plaintext" id="LC26"><span class="">$p28-34</span></div>
+<div class="line" lang="plaintext" id="LC27"><span class="">$b0422</span></div>
+<div class="line" lang="plaintext" id="LC28"><span class="">$c11C+1990JXX1</span></div>
+<div class="line" lang="plaintext" id="LC29"><span class="">$n(chen ji yuan)</span></div>
+<div class="line" lang="plaintext" id="LC30"><span class="">10000004</span></div>
+<div class="line" lang="plaintext" id="LC31"><span class="">$t汉魏古诗之"气象":举例评析汉魏古诗对人生真谛的体悟</span></div>
+<div class="line" lang="plaintext" id="LC32"><span class="">$a王树人(老树)</span></div>
+<div class="line" lang="plaintext" id="LC33"><span class="">$z2</span></div>
+<div class="line" lang="plaintext" id="LC34"><span class="">$p42-47</span></div>
+<div class="line" lang="plaintext" id="LC35"><span class="">$b103X</span></div>
+<div class="line" lang="plaintext" id="LC36"><span class="">$c11B110E:120EXX1</span></div>
+<div class="line" lang="plaintext" id="LC37"><span class="">$n(wang shu ren)</span></div>
+<div class="line" lang="plaintext" id="LC38"><span class="">10000005</span></div>
+<div class="line" lang="plaintext" id="LC39"><span class="">$t清代康雍乾三帝的统治思想与文化选择</span></div>
+<div class="line" lang="plaintext" id="LC40"><span class="">$a黄爱平</span></div>
+<div class="line" lang="plaintext" id="LC41"><span class="">$z2</span></div>
+<div class="line" lang="plaintext" id="LC42"><span class="">$p58-66</span></div>
+<div class="line" lang="plaintext" id="LC43"><span class="">$b081X</span></div>
+<div class="line" lang="plaintext" id="LC44"><span class="">$c11D+17G:+18EXX1</span></div>
+<div class="line" lang="plaintext" id="LC45"><span class="">$q程朱理学,崇儒重道</span></div>
+<div class="line" lang="plaintext" id="LC46"><span class="">$n(huang ai ping)</span></div>
+<div class="line" lang="plaintext" id="LC47"><span class="">10000006</span></div>
+<div class="line" lang="plaintext" id="LC48"><span class="">$t民间资本在近代社会转型期的作用</span></div>
+<div class="line" lang="plaintext" id="LC49"><span class="">$a沈毅</span></div>
+<div class="line" lang="plaintext" id="LC50"><span class="">$z2</span></div>
+<div class="line" lang="plaintext" id="LC51"><span class="">$p67-70</span></div>
+<div class="line" lang="plaintext" id="LC52"><span class="">$b041X</span></div>
+<div class="line" lang="plaintext" id="LC53"><span class="">$c11A5XX1</span></div>
+<div class="line" lang="plaintext" id="LC54"><span class="">$n(shen yi)</span></div>
+<div class="line" lang="plaintext" id="LC55"><span class="">A016421</span></div>
+<div class="line" lang="plaintext" id="LC56"><span class="">$j231550</span></div>
+<div class="line" lang="plaintext" id="LC57"><span class="">$g2</span></div>
+<div class="line" lang="plaintext" id="LC58"><span class="">$d2001</span></div>
+<div class="line" lang="plaintext" id="LC59"><span class="">$i总第42期</span></div>
+<div class="line" lang="plaintext" id="LC60"><span class="">10000001</span></div>
+<div class="line" lang="plaintext" id="LC61"><span class="">$t白寿彝对广西回族史研究的贡献</span></div>
+<div class="line" lang="plaintext" id="LC62"><span class="">$a常启明</span></div>
+<div class="line" lang="plaintext" id="LC63"><span class="">$z2</span></div>
+<div class="line" lang="plaintext" id="LC64"><span class="">$p13-16</span></div>
+<div class="line" lang="plaintext" id="LC65"><span class="">$b142X</span></div>
+<div class="line" lang="plaintext" id="LC66"><span class="">$c11A0124</span></div>
+<div class="line" lang="plaintext" id="LC67"><span class="">$n(chang qi ming)</span></div>
+<div class="line" lang="plaintext" id="LC68"><span class="">10000002</span></div>
+<div class="line" lang="plaintext" id="LC69"><span class="">$tJamaat地缘变迁及其文化影响:以兰州市回族穆斯林族群社区调查为个案</span></div>
+<div class="line" lang="plaintext" id="LC70"><span class="">$a杨文炯</span></div></code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$z2
+$p17-23
+$b142X
+$c11A0121
+$n(yang wen jiong)
+10000003
+$t西北回族的文化艺术
+$a王伏平
+$z2
+$p24-27
+$b142X
+$c11A0121
+$n(wang fu ping)
+10000004
+$t张承志与当代回族小说
+$a海金宝
+$z2
+$p28-29
+$b1073
+$n(hai jin bao)
+10000005
+$t回回食品"秃秃麻食"吃法新探
+$a马兴仁
+$z2
+$p30-32
+$b143X
+$c11A0XX1
+$n(ma xing ren)
+10000006
+$t萨都剌原名之推测
+$a杨志玖
+$z2
+$p33-34
+$b103X
+$c11C+1308FXX1
+$n(yang zhi jiu)
+10000007
+$t论清代河州的再度兴起
+$a武沐/王希隆
+$z22
+$p35-38
+$b013X
+$c11D+19JXX1
+$q中国麦加,门宦制度
+$n(wu mu)(wang xi long)
+10000008
+$t杜文秀政权的外贸特征及其意义
+$a马丽娟
+$z2
+$p39-43
+$b0452
+$c11C+1855F:+1873FXX1
+$q云南回族,大理政权
+$n(ma li juan)
+10000009
+$t钩沉史实　阐幽发微:云南回族历史人物评价问题
+$a纳国昌
+$z2
+$p44-47
+$b142X
+$c11A0121
+$n(na guo chang)
+10000010
+$t《禹贡》回族伊斯兰教研究述略
+$a李习文/张玉海
+$z22
+$p48-49
+$b078X
+$n(li xi wen)(zhang yu hai)
+10000011</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$t浅说北京的伊斯兰教
+$a彭年
+$z2
+$p50-54
+$b078X
+$n(peng nian)
+10000012
+$t今日大厂回族经济发展与伊斯兰教的良性互动关系
+$a杨桂萍
+$z2
+$p55-58
+$b142X
+$c11A0121
+$n(yang gui ping)
+10000013
+$t内蒙古阿拉善左旗信仰伊斯教的蒙古族穆斯林
+$a王玉霞
+$z2
+$p59-63
+$b142X
+$c11A0111
+$n(wang yu xia)
+10000014
+$t回族家庭教育的特点
+$a海存福
+$z2
+$p74-79
+$b085X
+$c11A6XX1
+$n(hai cun fu)
+10000015
+$t泾源回族教育50年
+$a马三保
+$z2
+$p80-82
+$b085X
+$c11A6XX1
+$n(ma san bao)
+10000016
+$t不顾一切　专诚不懈的奋斗者:纪念革命烈士郭隆真殉难70周年
+$a黄庭辉
+$z2
+$p91-96
+$b013X
+$c11C+1931FXX1
+$n(huang ting hui)
+10000017
+$t南京回族社会历史的长卷:读《南京回族伊斯兰教史稿》
+$a杨怀中
+$z2
+$p97-100
+$b142X
+$c11A0124
+$n(yang huai zhong)
+10000018
+$t一部雅俗共赏的回族人物研究力作:《马福祥传》读后
+$a丁万录
+$z2
+$p101-102
+$b015X
+$c11D+20HXX4
+$n(ding wan lu)
+A016422
+$j231550
+$g3
+$d2001
+$i总第43期
+10000001
+$t甘南藏区拉仁关回族"求索玛"群体研究
+$a马平</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$z2
+$p4-9
+$b142X
+$c11A0121
+$n(ma ping)
+10000002
+$tJamaat地缘变迁及其文化影响(续):以兰州市回族穆斯林族群社区调查为个案
+$a杨文炯
+$z2
+$p10-14
+$b142X
+$c11A0121
+$n(yang wen jiong)
+10000003
+$t求同存异　和而不同:论回族历史上的文化适应
+$a马宗保
+$z2
+$p15-18
+$b142X
+$c11A0121
+$n(ma zong bao)
+10000004
+$t回族婚俗的传统与现代流变:以西安回族婚姻民俗文化为个案研究
+$a马健君
+$z2
+$p19-22
+$b142X
+$c11A0121
+$n(ma jian jun)
+10000005
+$t《穆斯林名家名作简析》序
+$a李佩伦
+$z2
+$p23-24
+$b142X
+$c11A0121
+$n(li pei lun)
+10000006
+$t论广西回族的族谱及其史料价值
+$a翁乾麟
+$z2
+$p25-31
+$b142X
+$c11A0121
+$q宗法制度
+$n(weng qian lin)
+10000007
+$t论《回族人物志》的史学价值
+$a李珍
+$z2
+$p32-35
+$b142X
+$c11A0121
+$n(li zhen)
+10000008
+$t元代回回高克恭存逸画目推索
+$a冯雪红/吴建伟
+$z22
+$p36-38
+$b114X
+$c11B270EXX1
+$n(feng xue hong)(wu jian wei)
+10000009
+$t元代伊斯兰教与基督教之争
+$a邱树森
+$z2
+$p39-42
+$b078X
+$n(qiu shu sen)
+10000010</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$t元代回族诗人丁鹤年与道教
+$a张泽洪
+$z2
+$p43-46
+$b103X
+$c11C+1335F:+1424FXX1
+$q渉道诗,内丹修炼
+$n(zhang ze hong)
+10000011
+$t论宁夏扶贫开发性移民与回族的发展
+$a李宁
+$z2
+$p52-55
+$b035X
+$c11C+1990EXX1
+$n(li ning)
+10000012
+$t清真寺与道观寺庙的位置选择
+$a马海滨
+$z2
+$p56-57
+$b071X
+$n(ma hai bin)
+10000013
+$t西北乡村回族社区功能演变与伊斯兰教
+$a刘光宁
+$z2
+$p58-61
+$b142X
+$c11A0121
+$n(liu guang ning)
+10000014
+$t试论"回族武术"
+$a马明达
+$z2
+$p62-66
+$b142X
+$c11A0121
+$n(ma ming da)
+10000015
+$t《赛典赤·赡思丁评传》序
+$a马曜
+$z2
+$p71-73
+$b015X
+$c11D+13JXX1
+$n(ma yao)
+10000016
+$t《回族文化史》序
+$a高发元
+$z2
+$p74-76
+$b142X
+$c11A0121
+$n(gao fa yuan)
+10000017
+$t《元咸阳王赛典赤·赡思丁世家》绪论
+$a纳为信
+$z2
+$p77-79
+$b015X
+$c11D+13JXX1
+$n(na wei xin)
+10000018
+$t我为党一生的战斗历程
+$a刘洁明//口述
+$z2
+$a常启明/马慧敏//整理
+$z22
+$p82-85</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b013X
+$c11C+1930E:+1960EXX1
+$n(liu jie ming)(chang qi ming)(ma hui min)
+10000019
+$t建国前党的民族区域自治理论在西北回族地区的实践
+$a王生华
+$z2
+$p86-88
+$b141X
+$c11C+1930E:+1940EXX1
+$n(wang sheng hua)
+10000020
+$t宁夏高校回族预科教育的地位、发展及其基本经验
+$a周瑞海
+$z2
+$p89-92
+$b085X
+$c11C+1990KXX1
+$n(zhou rui hai)
+10000021
+$t东干族文化史上的又一奇葩:东干族杂志《回族》创刊
+$a丁宏
+$z2
+$p93-94
+$b142X
+$c50A0XX1
+$n(ding hong)
+10000022
+$t南阳石桥镇回族概述
+$a杨运鹏
+$z2
+$p95-97
+$b142X
+$c11A0121
+$n(yang yun peng)
+10000023
+$t2000年回族伊斯兰教研究论文索引
+$a丁雪梅
+$z2
+$p99-104
+$b142X
+$c11A0122
+$n(ding xue mei)
+A016423
+$j285207
+$g4
+$d2001
+$i总第125期
+10000001
+$t中国现代文学何以形成新型传统
+$a黄曼君
+$z2
+$p2-6
+$b1071
+$c11D+20EXX1
+$q五四精神
+$n(huang man jun)
+10000002
+$t中国现代叙事的语言传统
+$a徐德明
+$z2
+$p7-10
+$b1073
+$q白话文
+$n(xu de ming)
+10000003
+$t中国现代文学"启蒙"传统与古代"教化"文学的相关性论纲
+$a何锡章
+$z2
+$p11-14</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b1071
+$c11A6XX1
+$n(he xi zhang)
+10000004
+$t文学知识、文学组织和审美信念:晚清文学与中国现代文学传统
+$a王本朝
+$z2
+$p15-18
+$b1071
+$c11C+1917F:+1949FXX1
+$n(wang ben chao)
+10000005
+$t中国封建领主制度的起源与演进的制度经济分析
+$a冯涛/兰虹
+$z22
+$p30-35
+$b062X
+$c11B070EXX1
+$n(feng tao)(lan hong)
+10000006
+$t关于中国现当代文学治史方法的对话
+$p41-45
+$b1071
+$c11D+20EXX1
+10000007
+$t诗话学论要
+$a陈良运
+$z2
+$p46-50
+$b103X
+$c11A0XX1
+$n(chen liang yun)
+10000008
+$t菲华文学:文化承传与现实走向
+$p51-54
+$b1071
+$c36A6XX1
+$q菲律宾华文文学
+10000009
+$t"只有社会主义才能救中国"的近代思考
+$a黄顺力
+$z2
+$p62-67
+$b013X
+$c11A5XX1
+$n(huang shun li)
+10000010
+$t审美、异化与实践美学
+$a成复旺
+$z2
+$p72-77
+$b081X
+$c11A0XX1
+$n(cheng fu wang)
+10000011
+$t太平天国与欧美列强:以上海为中心
+$a戴鞍钢
+$z2
+$p87-89
+$b013X
+$c11C+1851F:+1864FXX1
+$n(dai an gang)
+10000012
+$t刘师培与近代诸子学研究
+$a李孝迁
+$z2
+$p90-95
+$b083X
+$c11A2004
+$n(li xiao qian)</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">10000013
+$t略论梁启超的"应用佛学"
+$a李春远
+$z2
+$p96-100
+$b083X
+$c11C+1873F:+1929FXX1
+$n(li chun yuan)
+10000014
+$t国民政府1932年公债整理案述评
+$a潘国琪
+$z2
+$p101-104
+$b047X
+$c11C+1932FXX1
+$n(pan guo qi)
+10000015
+$t对20世纪中国文学研究学术规范的几点质疑:兼与汪应果先生商榷
+$a李玲
+$z2
+$p105-107
+$b1071
+$c11D+20EXX4
+$n(li ling)
+10000016
+$t解读林语堂的崭新参照:评王兆胜《林语堂的文化情怀》
+$a周仁政
+$z2
+$p108
+$m封三
+$b1072
+$xlin yu tang
+$y4
+$x$林语堂
+$n(zhou ren zheng)
+A016424
+$j284500
+$g4
+$d2001
+$i总第107期
+10000001
+$t宁夏吊庄移民的民族关系和宗教生活
+$a周传斌
+$z2
+$p52-58
+$b141X
+$c11C+1990EXX1
+$n(zhou chuan bin)
+10000002
+$t当代中国社会基本矛盾与社会发展模式建构:毛泽东思想、邓小平理论比较
+$a杜环欢
+$z2
+$p59-62
+$b051X
+$c11C+1893F:+1997FXX1
+$n(du huan huan)
+10000003
+$t法律语言的渊起及演变风格的跨越性特征
+$a刘愫贞
+$z2
+$p72-76
+$b061X
+$c11A0XX1
+$q吕刑,唐律疏议
+$n(liu su zhen)
+10000004
+$t从确认和保护婚姻关系看我国婚姻法修正案
+$a刘淑媛
+$z2
+$p77-80</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b061X
+$c11C+2001FXX1
+$n(liu shu yuan)
+10000005
+$t《文海宝韵》序言、题款译考
+$a史金波
+$z2
+$p81-88
+$b138X
+$c11D+11IXX1
+$q罗瑞智忠,五音切韵,黑水城文献
+$n(shi jin bo)
+10000006
+$t西夏服装制作技术述论
+$a苏冠文
+$z2
+$p89-94
+$b143X
+$c11B280EXX1
+$n(su guan wen)
+10000007
+$t《1990～1997年西夏论文目录索引》补遗及续
+$a黄秀兰
+$z2
+$p95-100
+$b17XX
+$c11B280E002
+$n(huang xiu lan)
+10000008
+$t《圆圆曲》情感倾向试探
+$a潘定武
+$z2
+$p114-117
+$b103X
+$c11C+1609F:+1671FXX1
+$q吴伟业
+$n(pan ding wu)
+10000009
+$t评《宁夏审判志》
+$a陈健玲
+$z2
+$p118-119
+$b061X
+$c11A6XX1
+$n(chen jian ling)
+A016425
+$j257800
+$g3
+$d2001
+$i总第90期
+10001000
+$t红楼梦学刊2001年第3辑
+$b106X
+$c11D+18JXX1
+11001001
+$t让历史启思未来:关于《红学通史》编纂的构想与思考
+$a张庆善/梅新林
+$z22
+$p1-12
+$n(zhang qing shan)(mei xin lin)
+11001002
+$t《红楼梦》彼岸世界中的文化雏形(上)
+$a汪道伦
+$z2
+$p13-29
+$n(wang dao lun)
+11001003
+$t人类未来文化模式的思考:论曹雪芹的文化理想
+$a王富鹏
+$z2</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$p30-47
+$n(wang fu peng)
+11001004
+$t谈《红楼梦》中满族旧俗
+$a富育光
+$z2
+$p48-60
+$n(fu yu guang)
+11001005
+$t再论《红楼梦》中的庙庵与僧道及其社会意义
+$a俞润生
+$z2
+$p61-72
+$n(yu run sheng)
+11001006
+$t《红楼梦》中的"意淫"解
+$a周义
+$z2
+$p73-84
+$n(zhou yi)
+11001007
+$t《红楼梦》的四对艺术辩证法
+$a邹自振
+$z2
+$p86-97
+$n(zou zi zhen)
+11001008
+$t诗词为心:林黛玉形象八题
+$a纪健生
+$z2
+$p98-111
+$n(ji jian sheng)
+11001009
+$t最无辜堪恨亦堪怜:我看尤二姐悲剧
+$a郭帼英
+$z2
+$p113-121
+$n(guo guo ying)
+11001010
+$t从红楼梦观念的冲突看续书
+$a白盾
+$z2
+$p122-136
+$n(bai dun)
+11001011
+$t"脂批晚出说"再商兑:兼与刘广定先生的避讳说商榷
+$a徐乃为
+$z2
+$p137-149
+$n(xu nai wei)
+11001012
+$t曹寅生平研究的一个盲区:任职郎署时期的遭际与思想
+$a刘上生
+$z2
+$p150-168
+$n(liu shang sheng)
+11001013
+$t沟通中西文化的有益尝试:论大卫·霍克思译《红楼梦》几首诗词
+$a陈可培
+$z2
+$p169-181
+$n(chen ke pei)
+11001014
+$t《金锁记》-《红楼梦》神韵的张扬
+$a李正西
+$z2
+$p182-191
+$n(li zheng xi)
+11001015
+$t《新石头记》的文化解读</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$a陈文新/王同舟
+$z22
+$p192-201
+$n(chen wen xin)(wang tong zhou)
+11001016
+$t《红楼梦》禁毁始末考述
+$a赵维国
+$z2
+$p204-221
+$n(zhao wei guo)
+11001017
+$t丁日昌评《红楼梦诗)
+$a杜景华
+$z2
+$p228-233
+$n(du jing hua)
+11001018
+$t洗百年奇冤　还高鹗清白:高鹗非"汉军高氏"铁证之发现
+$a胡传淮/李朝正
+$z22
+$p235-243
+$n(hu chuan huai)(li chao zheng)
+11001019
+$t《&lt;红楼梦&gt;本事编年新探》序
+$a胡文彬
+$z2
+$p244-246
+$n(hu wen bin)
+11001020
+$t未著录的清人周白於《六续红楼梦》新材料之考释
+$a赵建忠
+$z2
+$p247-255
+$n(zhao jian zhong)
+11001021
+$t蒜市口16号院房屋基础发掘纪实
+$a红建设
+$z2
+$p259-266
+$n(hong jian she)
+11001022
+$t被污辱与被损害的女性:论赵姨娘及中国古典长篇小说中的妾妇形象
+$a刘相雨
+$z2
+$p268-281
+$n(liu xiang yu)
+11001023
+$t曹雪芹祖籍"辽阳说"新证
+$a潘承玉
+$z2
+$p282-298
+$n(pan cheng yu)
+11001024
+$t封建"淑女"的理想化与世俗化:以燕梦卿、林黛玉、薛宝钗的悲剧命运为中心
+$a李受珉
+$z2
+$p299-309
+$n(li shou min)
+11001025
+$t解读"太虚幻境"
+$a高庆盈
+$z2
+$p310-320
+$n(gao qing ying)
+11001026
+$t1990-2000年《红楼梦》研究论著目录联想与补遗
+$a梁竞西
+$z2
+$p321-333
+$n(liang jing xi)</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">A016426
+$j200200
+$k25
+$g4
+$d2001
+$i总第130期
+10000001
+$t从2000年人口普查看我国人口状况的几个特点
+$a于弘文
+$z2
+$p12-18
+$b035X
+$c11C+2000FXX1
+$n(yu hong wen)
+10000002
+$t中国人口转变:生育文化发挥了多大作用?
+$p24-37
+$b035X
+$c11C+1990EXX1
+10000003
+$t稳定低生育水平与农村社会保障体系的建立
+$a明立群/章启明
+$z22
+$p38-41
+$b0361
+$c11C+2000EXX1
+$n(ming lin qun)(zhang qi ming)
+10000004
+$t人口与市场因素对海洋渔业消费品影响的仿真分析:以舟山市为例
+$a陆杰华///他
+$z2
+$p42-51
+$b035X
+$c11C+1990EXX1
+$n(lu jie hua)
+10000005
+$t河南省国有大中型企业离退休职工生活现状的调查与分析
+$a郭国峰
+$z2
+$p52-58
+$b0362
+$c11C+1990KXX1
+$n(guo guo feng)
+10000006
+$t人口科学中新的研究领域:人口、健康与发展
+$a郑晓瑛
+$z2
+$p59-65
+$b035X
+$c11C+2000EXX1
+$n(zheng xiao ying)
+10000007
+$t急需开拓精神病人社区管理的新型模式
+$a苏苹
+$z2
+$p66-69
+$b031X
+$c11C+2000EXX1
+$n(su ping)
+10000008
+$t有关育龄人群避孕节育的几点启示:5省家庭发展调查结果分析
+$a张世琨///他
+$z2
+$p70-74
+$b035X
+$c11C+2000FXX1
+$n(zhang shi kun)
+A016427
+$j200800
+$g8</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$d2001
+10000001
+$t朱自清和他眼里的女人
+$a韩石山
+$z2
+$p104-108
+$b1072
+$xzhu zi qing
+$y4
+$x$朱自清
+$n(han shi shan)
+A016428
+$j201600
+$g8
+$d2001
+$i总第286期
+10000001
+$t诗歌公社的生产美学
+$a王晓渔
+$z2
+$p69-71
+$b1074
+$n(wang xiao yu)
+10000002
+$t读两本未写的书
+$a赵毅衡
+$z2
+$p77-80
+$b1073
+$q吴宓,新旧姻緣,茅盾,霞
+$n(zhao yi heng)
+A016429
+$j217600
+$g4
+$d2001
+$i总第265期
+10000001
+$t从"无父无君,是禽兽也"看儒、墨、杨之异
+$a徐华
+$z2
+$p39-43
+$b081X
+$c11A2XX1
+$q儒家,孟子,墨子,杨朱
+$n(xu hua)
+10000002
+$t论明清之际的经世实学思潮
+$a王杰
+$z2
+$p44-50
+$b081X
+$c11D+17EXX1
+$q理学,西学,经学
+$n(wang jie)
+10000003
+$t《醒世姻缘传》方言词例说
+$a冯春田
+$z2
+$p70-74
+$b1525
+$n(feng chun tian)
+10000004
+$t论田锡辞赋的新变
+$a刘培
+$z2
+$p75-79
+$b102X
+$c11C+0940F:+1004FXX1
+$n(liu pei)
+10000005</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$t《明义士家藏中国文物展》中两片甲骨考释
+$a朱彦民
+$z2
+$p80-85
+$b132X
+$c11B060EXX1
+$q田猪卜辞,御祭
+$n(zhu yan min)
+10000006
+$t论田野考古中临时号发掘法与文化层次的划分
+$a于海广
+$z2
+$p86-90
+$b12XX
+$c110000A0XX1
+$n(yu hai guang)
+10000007
+$t孙中山五权分立思想新探
+$a王英津
+$z2
+$p91-97
+$b083X
+$c11C+1866F:+1925FXX1
+$n(wang ying jin)
+10000008
+$t儒教问题学术研讨会综述
+$a加润国
+$z2
+$p111-114
+$b081X
+$c11A2XX3
+$n(jia run guo)
+10000009
+$t世纪末小说观念矛盾研究综述
+$a阎奇男
+$z2
+$p117-120
+$b1073
+$n(yan qi nan)
+10000010
+$t走近文学家茅盾的对话
+$a贺立华
+$z2
+$p121-123
+$b1072
+$xmao dun
+$y4
+$x$茅盾
+$n(he li hua)
+A016430
+$j218200
+$g8
+$d2001
+$i总第543期
+10000001
+$t天马-曲村遗址北赵晋侯墓地第六次发掘
+$a北京大学考古文博院/山西省考古研究所
+$z77
+$p4-21,55
+$b12XX
+$c110500B071EXX1
+10000002
+$t连云港市东连岛东海琅邪郡界域刻石调查报告
+$a连云港市文管会办公室/连云港市博物馆
+$z77
+$p22-30
+$b134X
+$c11B112EXX1
+10000003
+$t南京南郊宋墓</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$a南京市博物馆/南京市雨花区文管会
+$z77
+$p31-38
+$b12XX
+$c111601B240EXX1
+10000004
+$t叔&amp;RUI6-E006;方鼎铭文考释
+$a李伯谦
+$z2
+$p39-42
+$b133X
+$c11B071EXX1
+$n(li bo qian)
+10000005
+$t宁乡老粮仓出土铜编铙质疑
+$a陈荃有
+$z2
+$p43-45
+$b117X
+$c11B060EXX1
+$n(chen quan you)
+10000006
+$t中国东北地区、内蒙古地区和朝鲜北部青铜短剑的研究
+$a佟柱臣
+$z2
+$p46-51
+$b12XX
+$c110000B070EXX1
+$n(tong zhu chen)
+10000007
+$t南京出土南朝椽头装饰瓦件
+$a贺云翱/邵磊
+$z22
+$p52-55
+$b12XX
+$c111601B170EXX1
+$n(he yun ao)(shao lei)
+10000008
+$t连云港始建国界域刻石浅论
+$a滕昭宗
+$z2
+$p56-58
+$b134X
+$c11B112EXX1
+$n(teng zhao zong)
+10000009
+$t西安新出土《隋元世斌墓志》考证
+$a王其祎
+$z2
+$p59-60
+$b134X
+$c11C+0600KXX1
+$n(wang qi wei)
+10000010
+$t云南昆明五华山出土明代官印之研究
+$a龙腾
+$z2
+$p61-65
+$b136X
+$c11B290EXX1
+$n(long teng)
+10000011
+$t湖南益阳出土商代铜铙
+$a湖南益阳市文物管理处
+$z7
+$p66-70
+$b12XX
+$c112400B060EXX1
+10000012
+$t内蒙古林西县元代瓷器窖藏</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$a林西县文物管理所
+$z7
+$p72-76
+$b12XX
+$c110600B270EXX1
+10000013
+$t关于八思巴字款青花瓷器年代之我见
+$a吕成龙
+$z2
+$p77-83
+$b116X
+$c11B290JXX1
+$n(lu cheng long)
+10000014
+$t甘肃秦安大地湾遗址出土彩陶(彩绘陶)颜料以及块状颜料分析研究
+$a马清林///他
+$z2
+$p84-92
+$b12XX
+$c111100B013EXX1
+$n(ma qing lin)
+10000015
+$t杭州老虎洞窑址考古发现专家论证会纪要
+$a秦大树
+$z2
+$p93-96
+$b12XX
+$c111701B242E:270EXX1
+$n(qin da shu)
+A016431
+$j218950
+$g4
+$d2001
+$i总第103期
+10000001
+$t重庆万州安全墓地1998年汉墓发掘简报
+$a重庆市文化局/陕西省考古研究所
+$z77
+$p3-31,49
+$b12XX
+$c112702B110EXX1
+10000002
+$t商州市东龙山汉墓
+$a东龙山考古队
+$z7
+$p32-42
+$b12XX
+$c111000B110EXX1
+10000003
+$t浅论牙璋
+$a杨亚长
+$z2
+$p43-49
+$b12XX
+$c110000B013K:110EXX1
+$n(yang ya chang)
+10000004
+$t商人服象与商周青铜器中的象装饰
+$a梁彦民
+$z2
+$p50-54,72
+$b116X
+$c11B060E:070EXX1
+$n(liang yan min)
+10000005
+$t洛阳三代青铜器综论
+$a高西省
+$z2
+$p55-60
+$b12XX</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$c112204B015E:071EXX1
+$n(gao xi sheng)
+10000006
+$t秦陵新发现陪葬坑性质刍议
+$a刘占成
+$z2
+$p61,60
+$b12XX
+$c111000B100EXX1
+$n(liu zhan cheng)
+10000007
+$t陕西东汉至北朝的都城和王城
+$a杨东晨
+$z2
+$p62-68,80
+$b023X
+$c11B113E:180EXX1
+$n(yang dong chen)
+10000008
+$t西安碑林所藏韩文石本三种考述
+$a刘真伦
+$z2
+$p70-72
+$b134X
+$c11D+09EXX1
+$q韩愈
+$n(liu zhen lun)
+A016432
+$j220600
+$g4
+$d2001
+$i总第134期
+10000001
+$t20世纪前期中国艺术学学科研究评述
+$a陈池瑜
+$z2
+$p35-40
+$b111X
+$c11D+20HXX1
+$n(chen chi yu)
+10000002
+$t中国三代艺术的意义
+$a李心峰
+$z2
+$p48-54
+$b111X
+$c11B050E:070EXX1
+$q礼乐艺术
+$n(li xin feng)
+10000003
+$t魏晋玄学与六朝山水画论
+$a黄应全
+$z2
+$p55-62
+$b114X
+$c11B160EXX1
+$q隐逸之风
+$n(huang ying quan)
+10001000
+$t关注当代文学现状　探讨艺术创作规律
+$p63-84
+$b1072
+$xwang meng
+$y4
+$x$王蒙
+11001001
+$t《狂欢的季节》读后感
+$a张光年
+$z2
+$p63-65</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$n(zhang guang nian)
+11001002
+$t评王蒙的《季节》四部
+$a何西来
+$z2
+$p65-73
+$n(he xi lai)
+11001003
+$t历史维度与语言维度的双重胜利
+$a童庆炳
+$z2
+$p73-78
+$n(tong qing bing)
+11001004
+$t四季心灵
+$a张抗抗
+$z2
+$p78-80
+$n(zheng kang kang)
+11001005
+$t《恋爱的季节》眉批四则
+$a李书磊
+$z2
+$p80-83
+$n(li shu lei)
+11001006
+$t回眸琐记
+$a王蒙
+$z2
+$p83-84
+$n(wang meng)
+10000004
+$t略论明清时期的神庙山门舞楼
+$a冯俊杰
+$z2
+$p85-94
+$b112X
+$c11B290E:300EXX1
+$n(feng jun jie)
+10000005
+$t"自将磨洗认前朝":福建莆仙戏《目连救母》之原型探溯
+$a马建华
+$z2
+$p95-102
+$b101X
+$c11B210EXX1
+$q唐变文,唐宋净土宗
+$n(ma jian hua)
+10000006
+$t"竹竿子"再探
+$a康保成
+$z2
+$p103-110
+$b143X
+$c11B240E:300EXX1
+$q戏竹,麾,籈,丧礼
+$n(kang bao cheng)
+10000007
+$t"学院派书法创作模式"的生态学研究
+$a陈振濂
+$z2
+$p111-118
+$b115X
+$c11A6XX1
+$n(chen zhen lian)
+10000008
+$t从书法本体论认识的变化看今后书法创作的模式和走向
+$a金晓明
+$z2
+$p119-124</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b115X
+$c11A6XX1
+$q古典派,前卫派,学院派
+$n(jin xiao ming)
+10000009
+$t现代书象艺术面面观
+$a吴华
+$z2
+$p125-130
+$b111X
+$c11C+1990EXX1
+$q现代书象,非具象艺术,泛符号艺术系统
+$n(wu hua)
+10000010
+$t书法语言的承传和实验
+$a朱以撒
+$z2
+$p131-135
+$b115X
+$c11A0XX1
+$n(zhu yi che)
+10000011
+$t"笔墨"的历史视角:书法"隶变"与书画"笔墨"
+$a钟家骥
+$z2
+$p136-139
+$b115X
+$c11A0XX1
+$n(zhong jia ji)
+10000012
+$t论书法艺术的审美特征
+$a章利国
+$z2
+$p140-145
+$b115X
+$c11A0XX1
+$n(zhang li guo)
+A016433
+$j220400
+$g4
+$d2001
+$i总第117期
+10000001
+$t否定之否定与反者道之动:论中西戏剧的结尾方式
+$a何辉斌
+$z2
+$p15-23
+$b105X
+$c11A0XX1
+$n(he hui bin)
+10000002
+$t"艺术高于生活":论林庚的诗观
+$a陈国球
+$z2
+$p24-30
+$b1074
+$n(chen guo qiu)
+10000003
+$t试谈《讲话》的经典性及局限性
+$a刘淮南
+$z2
+$p35-42
+$b1071
+$c11C+1942FXX1
+$q在延安文艺座谈会上的讲话
+$n(liu huai nan)
+10000004
+$t科学,20世纪初的中国文学资源
+$a苏桂宁
+$z2</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$p43-48
+$b1071
+$c11D+20GXX1
+$n(su gui ning)
+10000005
+$t论"《春秋》笔法"
+$a张毅
+$z2
+$p49-55
+$b082X
+$c11A2151
+$n(zhang yi)
+10000006
+$t作为中国秦汉艺术思维方法之一的类比、类推
+$a金丹元
+$z2
+$p56-61
+$b101X
+$c11B100E:110EXX1
+$n(jin dan yuan)
+10000007
+$t萧氏父子文学集团的小说思想观念
+$a王汝梅
+$z2
+$p62-64
+$m封三
+$b106X
+$c11B173EXX1
+$q萧统,萧绎,萧子显,萧绮
+$n(wang ru mei)
+10000008
+$t评析年度影片佳作
+$a梅朵
+$z2
+$p75-78
+$b1076
+$n(mei duo)
+10000009
+$t改写20世纪中国文学史的一次尝试
+$a徐百柯
+$z2
+$p82-89
+$b1071
+$c11D+20EXX1
+$n(xu bai ke)
+10000010
+$t伤痕记忆的拷问:论"反思小说"的历史叙事
+$a方守金/路文彬
+$z22
+$p90-96
+$m封三
+$b1073
+$n(fang shou jin)(lu wen bin)
+A016434
+$j229600
+$g8
+$d2001
+$i总第241期
+10000001
+$t当代塔吉克族书面文学概况
+$a阿蒂坎姆･翟米里
+$z2
+$a伊明･阿布拉//译
+$z2
+$p53-55
+$b1071
+$c11A6XX1
+10000002
+$t风情无限:贵州省铜仁地区少数民族文学创作简述
+$a吴恩泽</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$z2
+$p94-96
+$b1073
+$n(wu en ze)
+A016435
+$j240100
+$g4
+$d2001
+$i总第122期
+10000001
+$t中国社会各阶层的利益分配机制
+$a夏杰长/李勇坚
+$z22
+$p8-10
+$b032X
+$c11C+1980FXX1
+$n(xia jie chang)(li yong jian)
+10000002
+$t价值选择、效益评价与机制构建:退田还湖的社会学分析
+$a陈成文
+$z2
+$p29-32
+$b0361
+$c11C+1990KXX1
+$n(chen cheng wen)
+10000003
+$t试论毛泽东利用外资思想
+$a邱正文
+$z2
+$p41-43
+$b041X
+$c11A6XX1
+$n(qiu zheng wen)
+10000004
+$t毛泽东早期的精神个性主义研究
+$a李文斌
+$z2
+$p65-67
+$b051X
+$c11C+1893F:+1976FXX1
+$n(li wen bin)
+10000005
+$t中国传统哲学的功能性局限探析
+$a覃正爱
+$z2
+$p78-79
+$b081X
+$c11A0XX1
+$n(qin zheng ai)
+10000006
+$t论周敦颐的道德教育伦理思想
+$a朱道忠
+$z2
+$p91-92
+$b083X
+$c11C+1017F:+1073FXX1
+$n(zhu dao zhong)
+10000007
+$t老庄生态智慧论
+$a刁生富/刁生虎
+$z22
+$p93-95
+$b083X
+$c11A2201
+$n(diao sheng fu)(diao sheng hu)
+10000008
+$t汉语批评:从失语到重建(笔谈)
+$p96-100
+$b1521
+$c11A0XX1</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">10000009
+$t从古代传统到当代资源:"中国古代文论的现代转换"研究述评
+$a陈定家
+$z2
+$p101-104
+$b101X
+$c11A0XX1
+$n(chen ding jia)
+10000010
+$t论杨万里诗风的转变过程
+$a莫砺锋
+$z2
+$p105-110
+$b103X
+$c11C+1122F:+1206FXX1
+$n(mo li feng)
+10000011
+$t张岱与汪曾祺文学创作的文化意识和艺术品格比较论
+$a周荷初
+$z2
+$p111-113
+$b101X
+$c11C+1597F:+1689FXX1
+$n(zhou he chu)
+10000012
+$t略论蒋光慈对中国现代革命文学的贡献
+$a周勇
+$z2
+$p114-115
+$b1071
+$c11C+1901F:+1931FXX1
+$n(zhou yong)
+10000013
+$t《吕氏春秋》的心理学思想及其现代意义
+$a贺福安/吕锡琛
+$z22
+$p121-124
+$b083X
+$c11D-03EXX1
+$n(he fu an)(lu xi chen)
+10000014
+$t论美国对华"门户开放"政策的延伸和困境:以新银行团成立过程中"满蒙保留案"交涉为中心
+$a马陵合
+$z2
+$p125-129
+$b052X
+$c11C+1918F:+1920FXX1
+$q拉门德协定,外债
+$n(ma ling he)
+10000015
+$t唐生智"坚主死守"南京问题之逻辑分析
+$a戴开柱
+$z2
+$p130-132
+$b013X
+$c11C+1937FXX1
+$n(dai kai zhu)
+A016436
+$j202000
+$k30
+$g4
+$d2001
+10000001
+$t对文本有效性哲学解释的一次尝试:赫斯的"范型论"与中国古代诗话中的直觉语词"清"
+$a周春生
+$z2
+$p39-45
+$b103X
+$c11A0XX1
+$n(zhou chun sheng)</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">10000002
+$t痛苦的升华　泪水的结晶:舒婷诗歌创作新论
+$a刘广涛
+$z2
+$p52-57
+$b1074
+$q朦胧诗
+$n(liu guang tao)
+10000003
+$t论新感觉派小说的现代性
+$a沈远川
+$z2
+$p58-64
+$b1073
+$n(shen yuan chuan)
+10000004
+$t共产国际与上海工人三次武装起义
+$a卞杏英/徐刚
+$z22
+$p80-88
+$b013X
+$c11C+1926F:+1927FXX1
+$n(bian xing ying)(xu gang)
+10000005
+$t试析蒋介石联共抗日的策略
+$a吴珍美
+$z2
+$p89-94
+$b013X
+$c11C+1930JXX1
+$n(wu zhen mei)
+10000006
+$t试析中非经贸关系的特点(1949～2000年)
+$a舒运国
+$z2
+$p101-107
+$b0452
+$c11A6XX1
+$n(shu yun guo)
+A016437
+$j245400
+$k23
+$g4
+$d2001
+$i总第135期
+10000001
+$t法律家的技能与伦理
+$a孙笑侠
+$z2
+$p3-18
+$b061X
+$c11A0XX1
+$n(sun xiao xia)
+10000002
+$t我国证券法中民事责任制度的完善
+$a王利明
+$z2
+$p55-69
+$b061X
+$c11C+1999FXX1
+$n(wang li ming)
+A016438
+$j245200
+$g7
+$d2001
+$i总第203期
+10000001
+$t永明延寿与僧伽教育
+$a杨笑天
+$z2</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$p1-7
+$b0747
+$n(yang xiao tian)
+10000002
+$t唯识浅谈
+$a叶少勇
+$z2
+$p8-13
+$b0745
+$n(ye shao yong)
+10000003
+$t韩国佛教天台宗及主要寺院概览(上)
+$a普正//编译
+$z2
+$p28-32
+$b0747
+$n(pu zheng)
+10000004
+$t一部带有较长期过渡性质的佛教图书分类法:北图版《佛教图书分类法》(改定本)评介
+$a王雷
+$z2
+$p35,41
+$b161X
+$c11C+1996FXX1
+$n(wang lei)
+A016439
+$j246600
+$g4
+$d2001
+$i总第135期
+10000001
+$t荀子的人性论及其"成人之道"
+$a王杰
+$z2
+$p35-39
+$b083X
+$c11A2131
+$q人性恶,化性起伪
+$n(wang jie)
+10000002
+$t论中国现代化建设中的人格转型
+$a鲁献慧
+$z2
+$p40-44
+$b081X
+$c11A6XX1
+$n(lu xian hui)
+10000003
+$t论村级权力的利益网络
+$a贺雪峰
+$z2
+$p52-56
+$b0361
+$c11C+1990EXX1
+$n(he xue feng)
+10000004
+$t中国社区工作实践透视
+$a武新
+$z2
+$p57-61
+$b031X
+$c11A6XX1
+$n(wu xin)
+10000005
+$t论我国社会救助制度的价值转变和价值建设
+$a徐道稳
+$z2
+$p62-66
+$b031X
+$c11A6XX1</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$n(xu dao wen)
+10000006
+$t中国贤妻良母内涵的历史变迁
+$a林吉玲
+$z2
+$p67-69
+$b033X
+$c11A0XX1
+$n(lin ji ling)
+10000007
+$t唐代契丹民族论略
+$a王成国
+$z2
+$p102-106
+$b141X
+$c11B210EXX1
+$n(wang cheng guo)
+10000008
+$t南朝名门吴兴沈氏宗族考论
+$a陈斯风
+$z2
+$p107-110
+$b033X
+$c11B170EXX1
+$n(chen si feng)
+10000009
+$t皮锡瑞"文明排外"思想论评
+$a吴仰湘
+$z2
+$p111-116
+$b083X
+$c11C+1850F:+1908FXX1
+$n(wu yang xiang)
+10000010
+$t费正清在哈佛:东亚学在美国的机构化进程
+$a王建平/史国强
+$z22
+$p117-121
+$b17XX
+$c11A0004
+$n(wang jian ping)(shi guo qiang)
+10000011
+$t承前启后　继往开来:辽宁史学百年回顾
+$a顾奎相
+$z2
+$p122-127
+$b013X
+$c11A0XX4
+$n(gu kui xiang)
+10000012
+$t李贺诗歌的神秘美及其成因
+$a李军
+$z2
+$p135-139
+$b103X
+$c11C+0791F:+0817FXX1
+$n(li jun)
+10000013
+$t从"失街亭"、"空城计"、"斩马谡"解读诸葛亮艺术形象
+$a张锦池
+$z2
+$p140-145
+$b106X
+$c11B270KXX1
+$q三国志通俗演义
+$n(zhang jin chi)
+10000014
+$t20世纪中国女性文学中"家"观念的变革
+$a梁云
+$z2</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$p146-151
+$b1071
+$c11D+20EXX1
+$n(liang yun)
+10000015
+$t古典式的主情主义写作:创造社小说与中国传统文化
+$a刘保昌
+$z2
+$p152-158
+$b1071
+$c11C+1920EXX1
+$n(liu bao chang)
+10000016
+$t中国当代文学中的人学和美学
+$a李俏梅
+$z2
+$p159-164
+$b1071
+$c11A6XX1
+$n(li qiao mei)
+10000017
+$t胡适治学方法管窥
+$a丁雁
+$z2
+$p167-168
+$b083X
+$c11C+1892F:+1962FXX1
+$n(ding yan)
+10000018
+$t《王船山诗学思想研究》序
+$a童庆炳
+$z2
+$p169-170
+$b103X
+$c11C+1619F:+1692FXX1
+$n(tong qing bing)
+10000019
+$t清代第一女词人的信史:读金启孮《顾太清与海淀》
+$a赵伯陶
+$z2
+$p173-174
+$b104X
+$c11C+1799F:+1877FXX4
+$n(zhao bo tao)
+A016440
+$j282000
+$g8
+$d2001
+10000001
+$t回忆父亲阮章竞
+$a阮援朝
+$z2
+$p54-58
+$b1074
+$n(ruan yuan chao)
+A016441
+$j246400
+$g4
+$d2001
+$i总第112期
+10000001
+$t大宇集团的解体与韩国财阀体制的弊端
+$a贲贵春/尹传学
+$z22
+$p35-41
+$b041X
+$c18C+1998FXX1
+$n(ben gui chun)(yin chuan xue)
+10000002
+$t论汉魏易学之嬗变</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$a林忠军
+$z2
+$p56-62
+$b081X
+$c11B110E:120EXX1
+$n(lin zhong jun)
+10000003
+$t陈抟的"龙图"是什么样的:对《龙图序》的破译
+$a郭志成
+$z2
+$p63-69
+$b083X
+$c11C+0871F:+0989FXX1
+$n(guo zhi cheng)
+10000004
+$t庄子物论的意向本质
+$a朱怀江
+$z2
+$p70-75
+$b083X
+$c11A2221
+$n(zhu huai jiang)
+10000005
+$t墨家人文精神的基本内涵与特征
+$a张斌峰
+$z2
+$p76-82
+$b083X
+$c11A2601
+$n(zhang bin feng)
+10000006
+$t中国新诗回顾与展望
+$a龙泉明
+$z2
+$p88-90
+$b1074
+$n(long quan ming)
+10000007
+$t中国文学的本土化意义及前瞻
+$a赵学勇
+$z2
+$p90-93
+$b1071
+$c11A0XX1
+$n(zhao xue yong)
+10000008
+$t对于文化创造的期待与焦虑
+$a李继凯
+$z2
+$p93-97
+$b1071
+$c11A0XX1
+$n(li ji kai)
+10000009
+$t文学的现代性与民族性的内在关系
+$a李怡
+$z2
+$p98-100
+$b1071
+$c11A0XX1
+$n(li yi)
+10000010
+$t在传统呵护下呼唤新的民族文学流派
+$a严国荣
+$z2
+$p100-103
+$b1071
+$c11A0XX1
+$n(yan guo rong)
+10000011</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$t人生困境中的执著与超越:从对屈、贾、陶的接受态度看中唐贬谪诗人心态
+$a尚永亮
+$z2
+$p104-110
+$b103X
+$c11B210IXX1
+$q屈原,贾谊,陶渊明
+$n(shang yong liang)
+10000012
+$t中西古文明比较
+$a庞卓恒
+$z2
+$p111-138
+$b011X
+$c11A2XX1
+$n(pang zhuo heng)
+10000013
+$t战国时期朝聘制度的破坏
+$a李无未
+$z2
+$p139-146
+$b062X
+$c11B090EXX1
+$n(li wu wei)
+10000014
+$t从对宋代文化的研究看胡适的传统文化观
+$a路育松
+$z2
+$p147-152
+$b083X
+$c11C+1892F:+1962FXX1
+$n(lu yu song)
+10000015
+$t明清时期中华服饰东传北海道的溢彩:北海道"虾夷锦"考察纪行
+$a杨旸
+$z2
+$p153-161
+$b0451
+$c11B290E:300EXX1
+$q卫所制度,噶珊制度,海西东水陆城站
+$n(yang yang)
+10000016
+$t儒学的历史发展及其思想特质
+$a张忠利
+$z2
+$p162-165
+$b081X
+$c11A2XX1
+$n(zhang zhong li)
+10000017
+$t高句丽的城邑制度与山城
+$a王绵厚
+$z2
+$p171-176
+$b062X
+$c18B083EXX1
+$n(wang mian hou)
+10000018
+$t高句丽疆域沿革考辨
+$a刘子敏
+$z2
+$p177-188
+$b021X
+$c18B083EXX1
+$n(liu zi min)
+10000019
+$t试析大对卢的产生及其终结
+$a祝立业
+$z2
+$p189-192</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b062X
+$c18B083EXX1
+$n(zhu li ye)
+10000020
+$t《补佚》未必是"原稿本":兼与赵东升先生商榷
+$a范厚
+$z2
+$p257-258
+$b161X
+$c11A0XX1
+$q打牲乌拉志典全书
+$n(fan hou)
+10000021
+$t抽象语义之矛盾构成初探
+$a秦海燕
+$z2
+$p259-261
+$b1521
+$c11A0XX1
+$n(qin hai yan)
+10000022
+$t《江雪》与《帆》之比较研究
+$a李庆华
+$z2
+$p261-263
+$b103X
+$c11C+0773F:+0819FXX1
+$q柳宗元,莱蒙托夫
+$n(li qing hua)
+10000023
+$t中国宗教的宗法性与依附性
+$a张晓华
+$z2
+$p270-272
+$b071X
+$n(zhang xiao hua)
+10000024
+$t论阎连科的战争小说
+$a祝东平/谢稚
+$z22
+$p273-274
+$b1073
+$n(zhu dong ping)(xie zhi)
+10000025
+$t揭开原始文化神秘的面纱:评富育光民族学力作《萨满论》
+$a汪玢玲
+$z2
+$p275-277
+$b142X
+$c11A0201
+$n(wang fen ling)
+10000026
+$t精湛的文学史著　深刻的学术启示:《陶学发展史》读后
+$a王卓
+$z2
+$p277-279
+$b103X
+$c11C+0365F:+0427FXX1
+$n(wang zhuo)
+10000027
+$t解读中国近代史的一把钥匙:评《中国流民史·近代卷》
+$a江立华
+$z2
+$p279-281
+$b032X
+$c11A5XX1
+$n(jiang li hua)
+A016442
+$j293000
+$g7</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$d2001
+$i总第386期
+10000001
+$t中国共产党建党理论80年的发展
+$a周一平
+$z2
+$p15-22
+$b051X
+$c11A6XX1
+$n(zhou yi ping)
+10000002
+$t中国共产党80年建军思想的发展
+$a陶七一
+$z2
+$p23-28
+$b051X
+$c11A6XX1
+$n(tao qi yi)
+10000003
+$t"道始于情"的哲学诠释:五论创建中国解释学问题
+$a汤一介
+$z2
+$p40-44
+$b081X
+$c11A2XX1
+$q郭店竹简,性自命出
+$n(tang yi jie)
+10000004
+$t道德与自然:理学中的性情之辩
+$a方旭东
+$z2
+$p45-50
+$b081X
+$c11B240E:290EXX1
+$q性体情用,四端,七情,朱熹,吴澄
+$n(fang xu dong)
+10000005
+$t刘宗周《人谱》的道德精神世界:杜维明教授访谈
+$a杜维明/东方朔
+$z22
+$p51-59
+$b083X
+$c11C+1578F:+1645FXX1
+$n(du wei ming)(dong fang shuo)
+10000006
+$t中国传统处世之道的文化性格
+$a郭莹
+$z2
+$p78-84
+$b081X
+$c11A2XX1
+$n(guo ying)
+10000007
+$t传统文化中的卜筮与儒家
+$a严耀中
+$z2
+$p85-91
+$b081X
+$c11A2XX1
+$n(yan yao zhong)
+A016443
+$j284650
+$g3
+$d2001
+$i总第51期
+10000001
+$t南城方言字音和《广韵》的声韵调系统:声类的分析研究
+$a邱尚仁/李琦
+$z22
+$p8-14</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b1525
+$n(qiu shang ren)(li qi)
+10000002
+$t二十世纪大陆《中原音韵》研究的历史回顾
+$a方环海
+$z2
+$p15-20
+$b1524
+$c11C+1324FXX4
+$n(fang huan hai)
+10000003
+$t汉语性别字的时空演变
+$a古敬恒
+$z2
+$p21-23
+$b1523
+$n(gu jing heng)
+10000004
+$t《礼记·檀弓》"壹似重有忧者"解:兼说对先秦文献几个"壹"字的误释
+$a李景泉/侯晓菊
+$z22
+$p24-26
+$b082X
+$c11A2141
+$n(li jing quan)(hou xiao ju)
+10000005
+$t释"风"
+$a张翠玲
+$z2
+$p27-30
+$b1523
+$n(zhang cui ling)
+10000006
+$t王引之虚词研究方法探讨
+$a张金霞
+$z2
+$p31-33
+$b1526
+$n(zhang jin xia)
+10000007
+$t从女旁汉字看中国古代妇女的形象
+$a孙汝建
+$z2
+$p34-35
+$b1523
+$n(sun ru jian)
+10000008
+$t试论汉民族传统思维方式对汉语造词的影响
+$a刘兰民
+$z2
+$p36-37
+$b1526
+$n(liu lan min)
+10000009
+$t浅析词语理据的文化性
+$a田恒金
+$z2
+$p38-40
+$b1526
+$n(tian heng jin)
+10000010
+$t试论词义的重新解释:兼谈经济原则在词义演变中的作用
+$a邹哲承
+$z2
+$p41-42
+$b1526
+$n(zou zhe cheng)
+10000011
+$t试论"摹形法"的造词方式
+$a贾宝书</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$z2
+$p43-44
+$b1526
+$n(jia bao shu)
+10000012
+$t"拟形式形译词"初探
+$a汪化云/李辉望
+$z22
+$p45-46
+$b1526
+$n(wang hua yun)(li hui wang)
+10000013
+$t日本文字与中国汉字
+$a陈宝勤
+$z2
+$p47-49
+$b1521
+$c16A0XX1
+$n(chen bao qin)
+10000014
+$t"会稽"读音异注补说:兼与郑茵先生商榷
+$a周建成
+$z2
+$p58-60
+$b1524
+$c11A0XX1
+$n(zhou jian cheng)
+A016444
+$j276850
+$g8
+$d2001
+$i总第135期
+10001000
+$t传记文学(北京)2001年第8期
+$b015X
+$c11A5:6XX1
+11001001
+$t隔世的交流:路大荒与聊斋
+$a王尔思
+$z2
+$p4-9
+$n(wang er si)
+11001002
+$t一对美国"老乡"的中国情缘
+$a聂冷
+$z2
+$p10-15
+$n(nie leng)
+11001003
+$t民国外交家顾维钧的一段情感历程
+$a沈潜
+$z2
+$p16-23
+$n(shen qian)
+11001004
+$t李咏:制造快乐的人
+$a王莉
+$z2
+$p24-31
+$n(wang li)
+11001005
+$t从长江到莱茵河:记著名翻译家杨武能教授
+$a郭久麟
+$z2
+$p32-37
+$n(guo jiu lin)
+11001006
+$t故事大王吴文昶
+$a桂忠阳
+$z2</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$p38-43
+$n(gui zhong yang)
+11001007
+$t路在有志者的脚下:记著名女作家王小鷹和丈夫王毅捷
+$a祖丁远
+$z2
+$p44-48
+$n(zu ding yuan)
+11001008
+$t王世襄:找一片自己的天空(下)
+$a李辉
+$z2
+$p49-55
+$n(li hui)
+11001009
+$t慧眼识国宝:记古陶瓷鉴定家、教育家张浦生教授
+$a桂明
+$z2
+$p56-60
+$n(gui ming)
+11001010
+$t一个普通演员的故事:记原孩子剧团团员周令芳
+$a许翰如
+$z2
+$p61-65
+$n(xu han ru)
+11001011
+$t「变性大师」陈焕然
+$a李相
+$z2
+$p66-72
+$n(li xiang)
+11001012
+$t一代"神刀":著名金石书画家李立教授
+$a陈利明
+$z2
+$p81-88
+$n(chen li ming)
+11001013
+$t刘子云湘西剿匪
+$a贺秀文
+$z2
+$p89-93
+$n(he xiu wen)
+11001014
+$t母亲送我绣花缎子旗袍
+$a李祥风
+$z2
+$p94-96
+$n(li xiang feng)
+A016445
+$j262200
+$g4
+$d2001
+$i总第127期
+10000001
+$t乡(镇)人民代表大会法制监督刍议
+$a李和中
+$z2
+$p6-10
+$b061X
+$c11C+1990EXX1
+$n(li he zhong)
+10000002
+$t譬的思维
+$a黄朝阳
+$z2
+$p33-38
+$b081X
+$c11A2XX1</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$n(huang zhao yang)
+10000003
+$t解蔽的认识论阐释
+$a顾红亮
+$z2
+$p39-43
+$b083X
+$c11A2131
+$n(gu hong liang)
+10000004
+$t简论魏晋玄学的方法论及其意义
+$a郜林涛/许海意
+$z22
+$p55-59
+$b081X
+$c11B120E:130EXX1
+$n(gao lin tao)(xu hai yi)
+10000005
+$t晋商衰落原因的历史反思
+$a景占魁/冯素梅
+$z22
+$p66-74
+$b044X
+$c11D+19JXX1
+$n(jing zhan kui)(feng su mei)
+10000006
+$t论晋商的人生价值观
+$a孙丽萍
+$z2
+$p75-81
+$b044X
+$c11B290E:300EXX1
+$n(sun li ping)
+10000007
+$t阎锡山与山西商人
+$a贾双全/成新文
+$z22
+$p82-83
+$b044X
+$c11B310HXX1
+$n(jia shuang quan)(cheng xin wen)
+10000008
+$t试论晋商的金融创新
+$a高春平
+$z2
+$p84-87
+$b044X
+$c11B290E:300EXX1
+$n(gao chun ping)
+10000009
+$t李纯甫生平事迹考略
+$a王庆生
+$z2
+$p95-99
+$b083X
+$c11C+1177F:+1223FXX1
+$n(wang qing sheng)
+10000010
+$t重评秦始皇统一文字
+$a李裕民
+$z2
+$p103-104
+$b1521
+$c11B100EXX1
+$n(li yu min)
+10000011
+$t"民可使由之"章的句读
+$a周克庸
+$z2
+$p105-106</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b082X
+$c11A2211
+$n(zhou ke yong)
+10000012
+$t从《龙池》诗看李商隐咏史的审美意蕴
+$a赵木兰/张博学
+$z22
+$p107-108,112
+$b103X
+$c11C+0811F:+0858FXX1
+$n(zhao mu lan)(zhang bo xue)
+10000013
+$t一条线索贯穿一个时代于细微处显考证功夫:评《北魏平城时代》
+$a张志雄
+$z2
+$p109-112
+$b013X
+$c11B181HXX4
+$n(zhang zhi xiong)
+A016446
+$j294000
+$k23
+$g4
+$d2001
+$i总第93期
+10000001
+$t论邓小平的不结盟思想
+$a陶季邑
+$z2
+$p1-6
+$b052X
+$c11A6XX1
+$n(tao ji yi)
+10000002
+$t印尼华人新闻业的现状与前景
+$a黄昆章
+$z2
+$p67-72
+$b0453
+$c37C+1990KXX1
+$n(huang kun zhang)
+10000003
+$t印尼华文教育的过去、现状和前景
+$a温北炎
+$z2
+$p73-77
+$b085X
+$c37A6XX1
+$n(wen bei yan)
+10000004
+$t因境与出路:走进21世纪的越南经济
+$a许梅
+$z2
+$p78-81
+$b041X
+$c30C+1990EXX1
+$n(xu mei)
+10000005
+$t马来西亚华文文学的文化个性
+$a王列耀
+$z2
+$p82-86
+$b1071
+$c34A6XX1
+$n(wang lie yao)
+10000006
+$t"新移民文学"中的另类写作
+$a吴奕锜
+$z2
+$p87-92</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b1071
+$c11C+1980E:+1990EXX1
+$n(mu yi qi)
+10000007
+$t中国当代小说五十年文化思考
+$a李运抟
+$z2
+$p93-99
+$b1073
+$n(li yun tuan)
+10000008
+$t在阳光与阴影的街上:网络文学现状初探
+$a胡燕妮
+$z2
+$p100-107
+$b1071
+$c11C+1990KXX1
+$n(hu yan ni)
+10000009
+$t修辞与文化背景
+$a黎运汉
+$z2
+$p108-115
+$b1521
+$c11A0XX1
+$n(li yun han)
+10000010
+$t当前一些语言现象与语言规范
+$a詹伯慧
+$z2
+$p116-120
+$b1528
+$q网络语言,行业用语,广告用语
+$n(zhan bo hui)
+10000011
+$t海外华侨华人与侨乡关系演变的特点
+$a王元林
+$z2
+$p129-134
+$b0453
+$c11D+19J:+20EXX1
+$n(wang yuan lin)
+A016447
+$j208900
+$g8
+$d2001
+$i总第272期
+10000001
+$t2000年史前、夏、商史研究动态
+$a刘源
+$z2
+$p2-10
+$b013X
+$c11B050E:060EXX4
+$n(liu yuan)
+10000002
+$t20世纪中国史学史著作述评
+$a牛润珍
+$z2
+$p11-15
+$b013X
+$c11A0XX4
+$n(niu run zhen)
+10000003
+$t20世纪蒲寿庚研究述评
+$a李玉昆
+$z2
+$p16-23
+$b015X
+$c11D+13KXX4</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$n(li yu kun)
+10000004
+$t瓦西里耶夫与俄罗斯的中国历史地理研究
+$a阎国栋
+$z2
+$p23-30
+$b021X
+$c11A0XX4
+$n(yan guo dong)
+10000005
+$t《秦汉税役体系之研究》评介
+$a王震中
+$z2
+$p30-32
+$b047X
+$c11B100E:110EXX4
+$n(wang zhen zhong)
+A016448
+$j213100
+$g3
+$d2001
+$i总第74期
+10000001
+$t试论明中、后期的私铸与物价
+$a王裕巽
+$z2
+$p3-7
+$b041X
+$c11B290JXX1
+$n(wang yu xun)
+10000002
+$t论清代中期清政府对外国货币的政策
+$a文廷海
+$z2
+$p8-11
+$b0461
+$c11D+19EXX1
+$n(wen ting hai)
+10000003
+$t清达桂将军批文及永衡官帖始衰之因浅述
+$a孙敏
+$z2
+$p12-13
+$b012X
+$c11C+1906FXX1
+$n(sun min)
+10000004
+$t金钱义记研究
+$a储建国
+$z2
+$p14-17
+$b0461
+$c11C+1850E:+1863FXX1
+$n(chu jian guo)
+10000005
+$t湖南省博物馆藏太平天国大钱、花钱
+$a邓昭辉
+$z2
+$p18-21
+$b137X
+$c11C+1851F:+1864FXX1
+$n(deng zhao hui)
+10000006
+$t"大清国币"缘何用文不用分
+$a黄志明
+$z2
+$p24-25
+$b137X
+$c11C+1910FXX1
+$n(huang zhi ming)</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">10000007
+$t谈宜兴出土的大量太清丰乐钱
+$a刘健平
+$z2
+$p26-29
+$b137X
+$c11C+0540KXX1
+$n(liu jian ping)
+10000008
+$t对宜兴发现大量窖藏"太清丰乐"钱的思考
+$a吴伟强
+$z2
+$p30-31
+$b137X
+$c11C+0540KXX1
+$n(wu wei qiang)
+10000009
+$t一批江南发行咸丰钞票的发现
+$a张毅刚/弹拨
+$z22
+$p32-36,58
+$b137X
+$c11C+1850JXX1
+$n(zhang yi gang)(dan bo)
+10000010
+$t北洋铁轨官路总局英洋票和山海关内外铁路局洋银票
+$a王雪农
+$z2
+$p41-43
+$b137X
+$c11C+1890EXX1
+$n(wang xue nong)
+10000011
+$t辛亥革命首义之地军用钞票试考
+$a马传德/徐渊
+$z22
+$p44-48
+$b137X
+$c11C+1911FXX1
+$n(ma chuan de)(xu yuan)
+10000012
+$t豫西地方流通券的新品种:"孟津县流通券"介绍
+$a金诚/和平
+$z22
+$p49-50
+$b137X
+$c11C+1948FXX1
+$n(jin cheng)(he ping)
+10000013
+$t从一组康熙砝码看清朝衡制
+$a杭谷栋
+$z2
+$p66-68
+$b137X
+$c11D+17KXX1
+$n(hang gu dong)
+A016449
+$j224401
+$g4
+$d2001
+$i总第166期
+10000001
+$t北师大藏《脂砚斋重评石头记》抄本概述
+$a张俊/曹立波/杨健
+$z222
+$p5-13
+$b163X
+$c11D+18JXX1
+$q北大本,庚辰本
+$n(zhang jun)(cao li bo)(yang jian)</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">10000002
+$t郭沫若研究述评
+$a刘勇/李春雨
+$z22
+$p14-25
+$b1072
+$xguo mo ruo
+$y4
+$x$郭沫若
+$n(liu yong)(li chun yu)
+10000003
+$t中国现代主义的民族化
+$a陈晖
+$z2
+$p26-35
+$b1071
+$c11A6XX1
+$n(chen hui)
+10000004
+$t现代文学中的"还乡者"
+$a赵冬梅
+$z2
+$p36-41
+$b1071
+$c11A6XX1
+$n(zhao dong mei)
+10000005
+$t论茅盾对民族主义文艺理论的批判
+$a钱振纲
+$z2
+$p42-48
+$b1072
+$xmao dun
+$y4
+$x$茅盾
+$n(qian zhen gang)
+10000006
+$t历史转型期的文化反思:《霜叶红似二月花》思想意蕴新探
+$a秦林芳
+$z2
+$p49-55
+$b1072
+$xmao dun
+$y4
+$x$茅盾
+$n(qin lin feng)
+10000007
+$t中国人口系统可持续发展面临的挑战与对策
+$a吴殿廷
+$z2
+$p127-133
+$b035X
+$c11C+2000EXX1
+$n(wu dian ting)
+10000008
+$t《四库全书》之《贞素斋集》"提要"辨正
+$a魏崇武
+$z2
+$p140-143
+$b162X
+$c11C+1772F:+1782FXX1
+$q四库提要
+$n(wei chong wu)
+A016450
+$j293000
+$g8
+$d2001
+$i总第387期
+10000001
+$t孤独·疏离·悬置:现代境遇与新儒家的精神世界</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$a郑家栋
+$z2
+$p15-22,29
+$b081X
+$c11A6XX1
+$q牟宗三,五十自述
+$n(zheng jia dong)
+10000002
+$t宋代垂帘听政制度初探
+$a朱子彦
+$z2
+$p51-58
+$b062X
+$c11B240EXX1
+$q临朝称制,撤帘归政
+$n(zhu zi yan)
+10000003
+$t隋朝科举制形态探赜
+$a周怀宇
+$z2
+$p59-64
+$b062X
+$c11B200EXX1
+$n(zhou huai yu)
+10000004
+$t王安石的整体性人才陶冶观
+$a龚若栋/邱永明
+$z22
+$p65-71
+$b083X
+$c11C+1021F:+1086FXX1
+$n(gong ruo dong)(qiu yong ming)
+10000005
+$t简论汉代经学视野中的儒家文论
+$a程勇
+$z2
+$p72-77,83
+$b081X
+$c11B110EXX1
+$n(cheng yong)
+10000006
+$t《西游记》与《心经》
+$a王齐洲
+$z2
+$p78-83
+$b106X
+$c11C+1570FXX1
+$n(wang qi zhou)
+10000007
+$t唐五代江南地区诗歌创作基本状况述论
+$a景遐东
+$z2
+$p84-90
+$b103X
+$c11B210E:221EXX1
+$n(jing xia dong)
+10000008
+$t文化-科技-经济-社会互动的文化解读:上海近百年史综合考察
+$a陈燮君
+$z2
+$p91-97
+$b0362
+$c11D+20EXX1
+$n(chen xie jun)
+10000009
+$t大革命时期的中国共产党与国民军研究综述
+$a潘泽庆
+$z2
+$p108-111
+$b013X</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$c11C+1924F:+1926FXX1
+$n(pan ze qing)
+A016451
+$j293200
+$g7
+$d2001
+$i总第200期
+10000001
+$t关于《澳门学》对象与方法的思考
+$a黄汉强
+$z2
+$p34-36
+$b17XX
+$c14A0004
+$n(huang han qiang)
+10000002
+$t从澳门文化看澳门文学
+$a饶芃子
+$z2
+$p37-40,56
+$b1071
+$c14D+20EXX1
+$n(rao peng zi)
+10000003
+$t博彩专营权改革应关注的几个问题:论澳门赌权开放
+$a李郇/雷强
+$z22
+$p41-42
+$b0362
+$c14C+1999FXX1
+$n(li xun)(lei qiang)
+10000004
+$t香港与新加坡产业结构及经济政策的比较研究
+$a冯邦彦
+$z2
+$p42-45
+$b043X
+$c13A6XX1
+$n(feng bang yan)
+10000005
+$t广东"蠔镜"与台湾"蠔镜"
+$a金国平/吴志良
+$z22
+$p46-49
+$b021X
+$c14A0XX1
+$q海月,澳门的名称来源
+$n(jin guo ping)(wu zhi liang)
+10000006
+$t对汪柏与"中葡第一项协议"的再探讨
+$a谭世宝/曹国庆
+$z22
+$p50-56
+$b052X
+$c11/93D+16JXX1
+$q澳门开埠
+$n(tan shi bao)(cao guo qing)
+10000007
+$t于无声处:陈刘洁贞著《中国共产运动与香港》评介
+$a莫世祥
+$z2
+$p57-59
+$b013X
+$c11C+1920EXX4
+$n(mo shi xiang)
+10000008
+$t隐喻与哲学的表征方式
+$a何中华
+$z2
+$p63-68,137</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b081X
+$c11A0XX1
+$n(he zhong hua)
+10000009
+$t国外庄学研究管窥
+$a周炽成
+$z2
+$p77-79
+$b083X
+$c11A2224
+$n(zhou chi cheng)
+10000010
+$t论元人"一代之文学"观的发明
+$a罗立刚
+$z2
+$p94-98
+$b101X
+$c11B270EXX1
+$n(luo li gang)
+10000011
+$t《花间集序》:一篇被深度误解的词论
+$a彭国忠
+$z2
+$p99-104
+$b104X
+$c11B232EXX1
+$q欧阳炯,清
+$n(peng guo zhong)
+10000012
+$t林逋咏梅在梅花审美认识史上的意义
+$a程杰
+$z2
+$p105-109
+$b103X
+$c11C+0967F:+1028FXX1
+$n(cheng jie)
+10000013
+$t语用原则与篇章结构:以韩愈文为例
+$a吴慧坚
+$z2
+$p110-114
+$b103X
+$c11C+0768F:+0824FXX1
+$n(wu hui jian)
+10000014
+$t试论社会转型时期的基督教:以现代中韩社会为讨论中心
+$a张广智
+$z2
+$p114-118
+$b076X
+$c11A6XX1
+$n(zhang guang zhi)
+10000015
+$t论近代教会学校的宗教教育
+$a胡卫清
+$z2
+$p119-125
+$b085X
+$c11D+19K:+20GXX1
+$n(hu wei qing)
+10000016
+$t《循环日报》的创办与西学在岭南的传播
+$a刘圣宜
+$z2
+$p126-132
+$b17XX
+$c11C+1874F001
+$n(liu sheng yi)
+10000017
+$t汪康年与近代报刊舆论</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$a李里峰
+$z2
+$p133-137
+$b17XX
+$c11C+1890J:+1900E001
+$q时务报
+$n(li li feng)
+A016452
+$j266045
+$k30
+$d2001
+10000001
+$t自由主義與二十世紀中國
+$a黃克武
+$z2
+$p1-16
+$b081X
+$c11D+20EXX1
+$q梁啓超,嚴復
+$n(huang ke wu)
+10000002
+$t大臺中地區二二八事件口述訪錄
+$p17-57
+$b013X
+$c12C+1947FXX1
+10000003
+$t檔案挖掘與真相探索:近年臺灣二二八事件檔案的徵集與分析(1991～2001)
+$a洪溫臨
+$z2
+$p71-89
+$b013X
+$c12C+1947FXX1
+$n(hong wen lin)
+10000004
+$t吳大猷傳
+$a陶英惠
+$z2
+$p90-110
+$b015X
+$c11C+1907FXX1
+$n(tao ying hui)
+10000005
+$t評張格物編《新臺灣史》
+$a蔡慧玉
+$z2
+$p131-139
+$lD990444
+$n(cai hui yu)
+A016453
+$j277200
+$g3
+$d2001
+$i总第92期
+10000001
+$t巴人书信汇编
+$a王克平//整理
+$z2
+$p4-22
+$b1072
+$xba ren
+$y4
+$x$巴人
+$n(wang ke ping)
+10000002
+$t王任叔在"孤岛"上海:贾进者日记摘抄
+$a陈福康//整理
+$z2
+$p23-41
+$b1071
+$c11C+1938FXX1</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$n(chen fu kang)
+10000003
+$t我所知道的巴人:两代人的情谊
+$a郑尔康
+$z2
+$p42-50
+$b1072
+$xba ren
+$y4
+$x$巴人
+$n(zheng er kang)
+10000004
+$t巴人传略
+$a戴光中
+$z2
+$p51-60
+$b1072
+$xba ren
+$y4
+$x$巴人
+$n(dai guang zhong)
+10000005
+$t卞之琳老师永垂不朽:在卞之琳先生追思会暨学术讨论会上的发言
+$a袁可嘉
+$z2
+$p61-67
+$b1074
+$n(yuan ke jia)
+10000006
+$t师生情谊四十年:悼卞之琳先生
+$a屠岸
+$z2
+$p67-71
+$b1074
+$n(tu an)
+10000007
+$t卞之琳的诗歌
+$a陈丙莹
+$z2
+$p71-77
+$b1074
+$n(chen bing ying)
+10000008
+$t卞之琳先生的情诗与情事
+$a北塔
+$z2
+$p78-84
+$b1074
+$n(bei ta)
+10000009
+$t永远的寂寞:痛悼诗人卞之琳
+$a周良沛
+$z2
+$p85-90
+$b1074
+$n(zhou liang pei)
+10000010
+$t写在《听梯楼日记》出版之际
+$a陈虹
+$z2
+$p91-95
+$b1071
+$c11D+20KXX1
+$q陈白尘
+$n(chen hong)
+10000011
+$t往事回首録
+$a周而復
+$z2
+$p96-104</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b1072
+$xzhou er fu
+$y4
+$x$周而復
+$n(zhou er fu)
+10000012
+$t文章卓荦生无死　风骨精灵逝有神:怀念陈登科先生
+$a陆志成
+$z2
+$p105-110
+$b1073
+$n(lu zhi cheng)
+10000013
+$t回忆与思考:听胡耀邦讲话,请胡耀邦讲话
+$a黎之
+$z2
+$p111-125
+$b051X
+$c11A6XX1
+$n(li zhi)
+10000014
+$t鲁迅与萧红交往考察:兼论《回忆鲁迅先生》《民族魂鲁迅》
+$a林敏洁
+$z2
+$p126-136
+$b1072
+$xlu xun
+$y4
+$x$鲁迅
+$n(lin min jie)
+10000015
+$t飘飘何所似　天地一沙鸥:记老诗人、诗评家、编辑家沙鸥(中)
+$a晏明
+$z2
+$p137-156
+$b1074
+$n(yan ming)
+10000016
+$t胡适给我父亲写的一幅中堂:从范泉的一封信谈起
+$a徐宗琏
+$z2
+$p157-160
+$b1072
+$xhu shi
+$y4
+$x$胡适
+$n(xu zong lian)
+10000017
+$t楚图南与西南文委(上)
+$a吴向北
+$z2
+$p161-179
+$b1071
+$c11A6XX1
+$n(wu xiang bei)
+10000018
+$t夕阳无限好:《古立高文集》序言
+$a古立高
+$z2
+$p180-183
+$b1072
+$xgu li gao
+$y4
+$x$古立高
+$n(gu li gao)
+10000019
+$t施蛰存与船子和尚
+$a宗琏
+$z2
+$p184-187</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b103X
+$c11D+09JXX1
+$n(zong lian)
+10000020
+$t闻一多、朱自清的两篇珍贵手稿
+$a陈晓华/刘重来
+$z22
+$p188-192
+$b1072
+$xwen yi duo
+$y4
+$x$闻一多
+$n(chen xiao hua)(liu chong lai)
+10000021
+$t郭沫若和沈从文的文字恩怨
+$a糜华菱
+$z2
+$p193-200
+$b1072
+$xguo mo ruo
+$y4
+$x$郭沫若
+$n(mi hua ling)
+10000022
+$t我所知道的徐志摩中学时代日记的复印件
+$a陆耀东
+$z2
+$p201-202
+$b1072
+$xxu zhi mo
+$y4
+$x$徐志摩
+$n(lu yao domg)
+10000023
+$t从胡山源编的《申报·自由谈》谈起
+$a周楞伽
+$z2
+$p203-205
+$b1071
+$c11C+1930EXX1
+$n(zhou leng qie)
+A016454
+$j294050
+$k11
+$g9
+$d2001
+10000001
+$t畫餘話魚
+$a黃光男//文·圖
+$z2
+$p5-10
+$b114X
+$c11A6XX1
+$n(huang guang nan)
+10000002
+$t魚與中國神話
+$a楊式昭//文·圖
+$z2
+$p11-24
+$b144X
+$c11A0XX1
+$n(yang shi zhao)
+10000003
+$t人和魚的對話:魚文化特展導覽(下)
+$a李季育//文·圖
+$z2
+$p25-35
+$b111X
+$c11A0XX1
+$n(li ji yu)</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">10000004
+$t民國以後的西畫發展
+$a韋心瀅//文·圖
+$z2
+$p37-44
+$b114X
+$c11B310EXX1
+$n(wei xin ying)
+10000005
+$t莊子寓言中的逍遙思想
+$a陳德和//文·圖
+$z2
+$p45-52
+$b083X
+$c11A2221
+$n(chen de he)
+10000006
+$t趙之謙傳(32):是古非今我更憨
+$a王家誠//文･圖
+$z2
+$p64-71
+$b111X
+$c11C+1829FXX1
+$n(wang jia cheng)
+10000007
+$t金門古厝窗牖之美
+$a成耆仁//文·圖
+$z2
+$p73-79
+$b112X
+$c11A0XX1
+$n(cheng qi ren)
+10000008
+$t翹關·扛鼎·舉石:中國古代舉重運動的發展
+$a劉秉果//文·圖
+$z2
+$p80-85
+$b143X
+$c11A2XX1
+$n(liu bing guo)
+A016455
+$j268200
+$g8
+$d2001
+$i总第259期
+10000001
+$t职业教育办学主体多元化的研究
+$a牛征
+$z2
+$p58-62
+$b085X
+$c11C+1990EXX1
+$n(niu zheng)
+10000002
+$t珠江三角洲经济结构调整与高等职业教育发展
+$a姜蕙
+$z2
+$p63-68
+$b085X
+$c11C+1990EXX1
+$n(jiang hui)
+A016456
+$j276860
+$k79
+$g2
+$d2001
+$i總號第471號
+10001000
+$t傳記文學(臺北)第79巻第2期
+$b015X</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$c11A5:6XX1
+11001001
+$t抗戰期中「高陶事件」的一家之言:陶恒生著「高陶事件」讀後感
+$a唐德剛
+$z2
+$p14-23
+$n(tang de gang)
+11001002
+$t胡適與曹誠英間的傳書與信使:闊别重洋天樣遠　更隔蓬山一萬重
+$a童元方
+$z2
+$p25-34
+$n(tong yuan fang)
+11001003
+$t「胡適情詩手跡」辨誤
+$a傅漢思/張充和
+$z22
+$p35-39
+$n(fu han si)(zhang chong he)
+11001004
+$t那或許是件贗品:「胡適情詩手跡新發現」讀後
+$a張昌華
+$z2
+$p40-41
+$n(zhang chang hua)
+11001005
+$t哲人萎乎:我所認識的李國鼎先生
+$a孫震
+$z2
+$p43-53
+$n(sun zhen)
+11001006
+$t感念李國鼎先生:兼論金門電力開發奠基之始末
+$a吳寶華
+$z2
+$p54-58
+$n(wu bao hua)
+11001007
+$t熱情工作、熱心助人的李國鼎先生
+$a莊以德
+$z2
+$p59-62
+$n(zhuang yi de)
+11001008
+$t陸以正回憶錄(二):砲聲中成長的青年人
+$a陸以正
+$z2
+$p64-70
+$n(lu yi zheng)
+11001009
+$t氣象學家蔣丙然
+$a蔣君宏
+$z2
+$p72-85
+$n(jiang jun hong)
+11001010
+$t傅作義一生之榮辱毀譽
+$a張醇言
+$z2
+$p86-97
+$n(zhang chun yan)
+11001011
+$t台灣影壇五十年(二):台灣電影事業的分類(上)
+$a丁伯駪
+$z2
+$p98-104
+$n(ding bo shen)
+11001012
+$t「胡適的日記」(手稿本)生活點滴選評
+$a楊士朋</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$z2
+$p105-120
+$n(yang shi peng)
+11001013
+$t蔣孝武,「沒有辦法」
+$a莫熱冰
+$z2
+$p121-130
+$n(mo re bing)
+11001014
+$t往事回首:中日二人五十年(十)
+$a宮崎　幸雄/馬培琬
+$fミヤザキ　ユキオ
+$z12
+$p131-141
+$n(ma pei wan)
+11001015
+$t民國人物小傳(三一四):卞之琳　樓景越
+$p142-152
+11001016
+$t一路解讀林徽因
+$a陳宇
+$z2
+$p4-13
+$n(chen yu)
+A016457
+$j290000
+$g8
+$d2001
+$i总第435期
+10000001
+$t呼唤多元的戏剧批评
+$a傅谨
+$z2
+$P47-49,55
+$b1075
+$n(fu jin)
+A016458
+$j297850
+$g2
+$d2001
+$i总第59期
+10000001
+$t广州共产主义小组与中共一大的召开
+$a何锦洲
+$z2
+$p4-7
+$b013X
+$c11C+1921FXX1
+$n(he jin zhou)
+10000002
+$t南粤"三谭"在建党初期的革命活动
+$a乐拓
+$z2
+$p8-11
+$b013X
+$c11C+1920HXX1
+$q谭平山,谭植棠,谭天度
+$n(le tuo)
+10000003
+$t广东先秦文化与秦汉文化的比较研究
+$a赵善德
+$z2
+$p12-14
+$b12XX
+$c112500B013EXX1
+$n(zhao shan de)
+10000004
+$t简论康有为的书学维新体系
+$a陈方</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$z2
+$p17-19
+$b115X
+$c11D+19KXX1
+$n(chen fang)
+10000005
+$t关于早期广州佛教史的几个问题
+$a胡巧利/何方耀
+$z22
+$p20-24
+$b0747
+$n(hu qiao li)(he fang yao)
+10000006
+$t张维屏的《国朝诗人征略》
+$a陈永正
+$z2
+$p32-33
+$b103X
+$c11D+19HXX1
+$n(chen yong zheng)
+10000007
+$t浅谈梁启超的诗歌风格
+$a汪松涛
+$z2
+$p34-38
+$b103X
+$c11D+20GXX1
+$n(wang song tao)
+10000008
+$t油画《木美人》研究:中国早期油画溯源之三
+$a梁光泽
+$z2
+$p39-42
+$b114X
+$c11D+15IXX1
+$n(liang guang ze)
+10000009
+$t岭南画派与林风眠
+$a戴胜德
+$z2
+$p48-50
+$b114X
+$c11B310E:320EXX1
+$n(dai sheng de)
+10000010
+$t古代帝王对南海神的封号
+$a黄淼章/邝桂荣
+$z22
+$p53-56
+$b013X
+$c11B210E:300EXX1
+$n(huang miao zhang)(kuang gui rong)
+10000011
+$t西王母神话在广东
+$a叶春生
+$z2
+$p57-58
+$b145X
+$c11A0XX1
+$n(ye chun sheng)
+A016459
+$j201600
+$g9
+$d2001
+$i总第287期
+10000001
+$t百年中国一瞬间
+$a雷颐
+$z2
+$p70-73</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$b013X
+$c11D+20EXX1
+$n(lei yi)
+10000002
+$t千万不要忘记
+$a刘嘉陵
+$z2
+$p74-77
+$b1076
+$q谢铁骊
+$n(liu jia ling)
+A016460
+$j221400
+$g3
+$d2001
+10000001
+$t汉语方言和民族语言
+$p193-198
+$b1525
+10000002
+$t天台话的否定词和否定表达方式
+$a戴昭铭
+$z2
+$p199-210
+$b1525
+$n(dai zhao ming)
+10000003
+$t石城(龙岗)方言的指代形式
+$a曾毅平
+$z2
+$p211-216
+$b1525
+$n(zeng yi ping)
+10000004
+$t鄂东方言"VP是不VP的"格式
+$a陈淑梅
+$z2
+$p217-221
+$b1525
+$n(chen shu mei)
+10000005
+$t乌鲁木齐话"再"的特殊意义和用法
+$a王燕
+$z2
+$p222-226
+$b1525
+$n(wang yan)
+10000006
+$t汉语方言地图的绘制
+$a陈章太/詹伯慧/伍巍
+$z222
+$p231-237
+$b1525
+$n(chen zhang tai)(zhan bo hui)(wu wei)
+10000007
+$t毛里求斯华人社会语言概况
+$a邵慧君
+$z2
+$p238-243
+$b1525
+$q客家语
+$n(shao hui jun)
+10000008
+$t汤溪方言本字考
+$a傅根清
+$z2
+$p244-249
+$b1525
+$n(fu gen qing)
+10000009</code></pre></div></div><div class="gl-flex"><div class="line-numbers gl-mr-3 !gl-p-0 gl-text-transparent"></div> <div class="gl-w-full"><pre class="code highlight gl-m-0 gl-w-full !gl-overflow-visible !gl-border-none !gl-p-0 gl-leading-0"><code data-testid="content" class="line !gl-whitespace-pre-wrap gl-ml-1">$t陕西关中方言的ɥ类韵母
+$a王军虎
+$z2
+$p250-252
+$b1525
+$n(wang jun hu)
+10000010
+$t再读《广西瑶歌记音》
+$a李在镒
+$z2
+$p253-262
+$b154X
+$c00A0001
+$n(li zai yi)
+10000011
+$t安徽庐江方言音系
+$a周元琳
+$z2
+$p263-280
+$b1525
+$n(zhou yuan lin)
+10000012
+$t《唐字调音英语》与二十世纪初香港粵语的声调
+$a黄耀堃/丁国伟
+$z22
+$p281-285
+$b1525
+$n(huang yao kun)(ding guo wei)
+10000013
+$t释四川方言词"老革"
+$a毛远明
+$z2
+$p286-287
+$b1525
+$n(mao yuan ming)
+</code></pre></div></div></div></div> <!----></div> <!----></div>
+</div>
+
+</div>
+<script>
+//<![CDATA[
+  window.gl = window.gl || {};
+  window.gl.webIDEPath = '/gitlab/-/ide/project/Ruimoku/ruimoku-papers/edit/fce7f6104136390b45f38e036a58d19cb98cdc76/-/CHU013.txt'
+
+
+//]]>
+</script>
+<div data-ambiguous="false" data-ref="fce7f6104136390b45f38e036a58d19cb98cdc76" id="js-ambiguous-ref-modal"></div>
+
+</main>
+</div>
+
+
+</div>
+</div>
+
+
+<script>
+//<![CDATA[
+if ('loading' in HTMLImageElement.prototype) {
+  document.querySelectorAll('img.lazy').forEach(img => {
+    img.loading = 'lazy';
+    let imgUrl = img.dataset.src;
+    // Only adding width + height for avatars for now
+    if (imgUrl.indexOf('/avatar/') > -1 && imgUrl.indexOf('?') === -1) {
+      const targetWidth = img.getAttribute('width') || img.width;
+      imgUrl += `?width=${targetWidth}`;
+    }
+    img.src = imgUrl;
+    img.removeAttribute('data-src');
+    img.classList.remove('lazy');
+    img.classList.add('js-lazy-loaded');
+    img.dataset.testid = 'js-lazy-loaded-content';
+  });
+}
+
+//]]>
+</script>
+<script>
+//<![CDATA[
+gl = window.gl || {};
+gl.experiments = {};
+
+
+//]]>
+</script>
+
+
+
+
+<div></div><div></div></body></html>

@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="zh" class="windows desktop landscape"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=1190">
+    <title>公安部“互联网+政务服务”平台</title>
+    <link rel="shortcut icon" href="/newhome/templates/Zwfw_Fwmh/img/favicon.ico">
+    <link href="/newhome/templates/Zwfw_Fwmh/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/newhome/templates/Zwfw_Fwmh/css/iconfont.css" rel="stylesheet">
+    <link href="/newhome/templates/Zwfw_Fwmh/css/font-awesome.min.css" rel="stylesheet">
+    <!-- style for large viewport -->
+    <link href="/newhome/templates/Zwfw_Fwmh/css/layout.css" rel="stylesheet">
+    <link href="/newhome/templates/Zwfw_Fwmh/css/index.css" rel="stylesheet">
+    <link href="/newhome/templates/Zwfw_Fwmh/css/new-layout.css" rel="stylesheet">
+    <link href="/newhome/templates/Zwfw_Fwmh/css/head.css" rel="stylesheet">
+    <link href="/newhome/templates/Zwfw_Fwmh/css/footer.css" rel="stylesheet">
+    <link href="/newhome/templates/Zwfw_Fwmh/css/browser.css" rel="stylesheet">
+    <link href="/newhome/templates/Zwfw_Fwmh/css/main.css" rel="stylesheet">
+    <link href="/newhome/templates/Zwfw_Fwmh/css/old.css" rel="stylesheet">
+    <style>
+        ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color:    #999999!important;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:    #999999!important;;
+            opacity:  1;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:    #999999!important;;
+            opacity:  1;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color:    #999999!important;;
+        }
+    </style>
+    <script language="javascript">
+        var publicPath = "\/newhome";
+        var config = {
+            env: "prod",
+            dev: {
+                urlPrefix: 'http://localhost:8000',
+                ssoLoginUrl: 'http://36.112.134.71:1082/SinoAuthService/login?service=http%3A%2F%2Flocalhost%3A8092%2Fapi%2Fuser%2FcurrentUser',
+                ssoLogoutUrl: 'http://36.112.134.71:1082/SinoAuthService/logout?service=http%3A%2F%2Flocalhost%3A8092%2Fapi%2Fuser%2Flogout',
+                wzall: 'http://36.112.134.71:38070',
+                publicPath: "\/newhome"
+            },
+            test: {
+                urlPrefix: 'http://36.112.134.71:38070',
+                ssoLoginUrl: 'http://36.112.134.71:1082/SinoAuthService/login?service=http%3A%2F%2F36.112.134.71%3A38070%2Fapi%2Fuser%2FcurrentUser',
+                ssoLogoutUrl: 'http://36.112.134.71:1082/SinoAuthService/logout?service=http%3A%2F%2F36.112.134.71%3A38070%2Fapi%2Fuser%2Flogout',
+                wzall: 'http://36.112.134.71:38070',
+                publicPath: "\/newhome"
+            },
+            prod: {
+                urlPrefix: 'https://ywtb.mps.gov.cn/newhome',
+                ssoLoginUrl: 'https://ywtb.mps.gov.cn/authservice/login?service=https%3A%2F%2Fywtb.mps.gov.cn%2Fnewhome%2Fapi%2Fuser%2FcurrentUser',
+                ssoLogoutUrl: 'https://ywtb.mps.gov.cn/authservice/logout?service=https%3A%2F%2Fywtb.mps.gov.cn%2Fnewhome%2Fapi%2Fuser%2Flogout',
+                wzall: 'https://ywtb.mps.gov.cn/newhome',
+                publicPath: "\/newhome"
+            },
+        }
+    </script>
+    <script src="/newhome/templates/Zwfw_Fwmh/js/jquery-3.5.0.min.js"></script>
+    <script src="/newhome/templates/Zwfw_Fwmh/js/user.js"></script>
+    <script src="/newhome/templates/Zwfw_Fwmh/js/request.js"></script>
+    <!--<script th:src="@{/templates/Zwfw_Fwmh/config/config.js}"></script>-->
+    <script type="text/javascript" charset="utf-8" src="/newhome/templates/Zwfw_Fwmh/js/language.js"></script>
+    <script src="/newhome/templates/Zwfw_Fwmh/js/main.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="#"></script>
+    <script src="#"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="/newhome/templates/Zwfw_Fwmh/css/layer.css" id="layuicss-layer">
+</head>
+<body>
+
+<div id="container">
+    <div class="container-bg" id="container-bg"></div>
+    <div class="main-background" id="main-background">
+        <div class="modal fade" id="jumpUrlDialog" tabindex="-1" role="dialog" aria-labelledby="jumpUrlLabel" aria-hidden="true">
+            <div class="modal-dialog fwmh-modal-dialog">
+                <div class="modal-content" style="max-width: 40rem">
+                    <div class="modal-header" style="border-bottom: none;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            ×
+                        </button>
+                        <div style="padding-top: 2px; float: left;padding-right: 5px;">
+                            <svg viewBox="64 64 896 896" focusable="false" data-icon="exclamation-circle" width="1.4em" height="1.4em" fill="currentColor" aria-hidden="true" style="color: #338eff;">
+                                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"></path>
+                            </svg>
+                        </div>
+                        <span class="modal-title">温馨提示</span>
+                    </div>
+                    <div class="modal-body" id="tip" style="padding: 0px 24px 24px 52px">
+
+                    </div>
+                    <div class="modal-footer" style="border-top: none">
+                        <button type="button" class="btn-cancel" style="width: 8.9rem" data-dismiss="modal">留在本站</button>
+                        <button type="button" class="btn-ok" style="width: 8.9rem" onclick="jumpGab()">立即跳转</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        <div class="container menu-container">
+            <span class="navbar-brand" style="width: auto">
+                <div class="logo"> </div>
+                <span class="nav-span">中华人民共和国公安部</span>
+                <span class="icon-label important-gray" onclick="jumpGabPre('您即将离开公安部“互联网+政务服务”平台，后续服务将由公安部官网（https://www.mps.gov.cn）提供。', 'https://www.mps.gov.cn')">
+                   进入官网
+                </span>
+            </span>
+            <span class="menu-action">
+               
+                <ul class="nav navbar-right navbar-nav action-navbar">
+                    <li class="wait-login" style="display: block;">
+                        <a onclick="doLogin()" class="new-action-font">登录</a>
+                    </li>
+                    <li class="wait-login" style="display: block;">
+                        <span class="split-line ">|</span>
+                    </li>
+                    <li class="wait-login logout" style="display: block;">
+                        <a onclick="" class="new-action-font">注册</a>
+                        <ul class="logout-hide">
+                            <li onclick="handleGrzc()"><span class="grzc"></span>个人注册</li>
+                            <li onclick="handleFrzc()"><span class="frzc"></span>法人注册</li>
+                        </ul>
+                    </li>
+                     <li class="yes-login logout" style="display: none">
+                         <a class="new-action-font" id="yourName"></a>
+                         <ul class="logout-hide">
+                             <li onclick="handleGrzx()"><span class="person"></span>个人中心</li>
+                             <li onclick="handleLogout()"><span class="leave"></span>退出登录</li>
+                         </ul>
+                     </li>
+               </ul>
+          </span>
+        </div>
+        <div class="important-gray">
+            <div class="container search-container">
+                <div class="police-badge"></div>
+                <img src="/newhome/templates/Zwfw_Fwmh/fontimage/公安部“互联网+政务服务”平台2.0.png" height="33px" style="margin-top: 30px" alt="">
+                <div class="inputGroup">
+                    <form id="searchForm" method="post" action="#">
+                        <div class="search-form">
+                            <input id="searchInput" onfocus="searchFouce()" onblur="searchBlur()" type="text" name="text" autocomplete="off" placeholder="请输入事项关键词查询" maxlength="100" onkeydown="if (event.keyCode==13){return handleSearchSubmit(event)}">
+                            <button id="searchBtn" class="btn-searchInput" type="button">搜索</button>
+                        </div>
+                    </form>
+                    <!-- 历史搜索记录 -->
+                    <div class="search-log" id="search-log">
+                        <div id="searchHistoryDiv"></div>
+                    </div>
+                    <div class="key-log" id="key-log"></div>
+                </div>
+            </div>
+        </div>
+        <ol class="carousel-indicators background-carousel-indicators important-gray">
+            <li data-target="#background-carouse" data-slide-to="0" class="" onclick="olClick(0)"></li>
+            <li data-target="#background-carouse" data-slide-to="1" onclick="olClick(1)" class="active"></li>
+            <li data-target="#background-carouse" data-slide-to="2" onclick="olClick(2)"></li>
+            <li data-target="#background-carouse" data-slide-to="3" onclick="olClick(3)"></li>
+        </ol>
+    </div>
+
+    <div id="background-carouse">
+        <div class="background-carouse-inner">
+            <div class="item background-item important-gray">
+            </div>
+            <div class="item background-item important-gray active">
+            </div>
+            <div class="item background-item important-gray">
+            </div>
+            <div class="item background-item important-gray">
+            </div>
+        </div>
+    </div>
+    <div id="menu" class="menu important-gray">
+        <div class="container">
+            <ul class="nav navbar-nav menu-navbar">
+                <li><a class="menu-active">首页</a></li>
+                <li><a onclick="handleFwcx('grfw')">个人办事</a></li>
+                <li><a onclick="handleFwcx('frfw')">法人办事</a></li>
+                <li><a onclick="handleFwcx('ztjz')">直通警种</a></li>
+                <li><a onclick="handleZtdf()">直通地方</a></li>
+                <li style="margin-right: 0"><a onclick="doNavicate('bmcx')">便民应用</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="action-left important-gray no-login">
+        
+        <ul>
+            <li class="gr-login" onclick="handleGrzx()" style="display: none">
+                <span class="action-img">
+                    <span class="iconfont icon-grzx icon-hover"></span>
+                </span>
+            <span class="action-span">个人中心</span>
+            </li>
+            <li class="fr-login" onclick="handleGrzx()" style="display: none">
+                <span class="action-img">
+                    <span class="iconfont icon-grzx icon-hover"></span>
+                </span>
+                <span class="action-span">法人中心</span>
+            </li>
+            <li class="yes-login" onclick="handlerWzgbyjsj()" style="display: none">
+                 <span class="action-img">
+                    <span class="iconfont icon-wdyj icon-hover"></span>
+                </span>
+                <span class="action-span">我要纠错</span>
+            </li>
+            <li class="yes-login" onclick="handlerPj()" style="display: none">
+                 <span class="action-img">
+                   <span class="iconfont icon-star icon-hover"></span>
+                </span>
+                <span class="action-span">我要评价</span>
+            </li>
+
+            <li onclick="jumpApp()">
+                 <span class="action-img">
+                    <span class="iconfont icon-ydfw icon-hover"></span>
+                </span>
+                <span class="action-span">移动服务</span>
+            </li>
+            <li onclick="Intelligent()">
+                 <span class="action-img">
+                     <span class="iconfont icon-znkf icon-hover"></span>
+                </span>
+                <span class="action-span">智能客服</span>
+            </li>
+            <li onclick="bigCharacters('oldPattern')" id="oldPattern" style="display: block;">
+                 <span class="action-img">
+                     <span class="iconfont icon-search icon-hover-search"></span>
+                </span>
+                <span class="action-span">大字模式</span>
+            </li>
+            <li onclick="bigCharacters('normalPattern')" style="display: none" id="normalPattern">
+                 <span class="action-img">
+                     <span class="iconfont icon-search icon-hover-search"></span>
+                </span>
+                <span class="action-span">标准模式</span>
+            </li>
+        </ul>
+    </div>
+    <div class="important-gray">
+        <div class="container hidden-lg hidden-md">
+            <div class="title">
+                <span class="title-span">热门服务</span>
+            </div>
+        </div>
+        <div id="rmfw" class="rmfw container">
+            <div class="row rmfw-row">
+                <div class="rmfw-title visible-lg visible-md">
+                   <span>
+                       热门服务
+                   </span>
+                </div>
+                <div class="rmfw-contain">
+                    <div>
+                        <div class="row carousel slide" id="carousel-rmfw">
+                            <div class="col-lg-1 col-md-1 col-sm-1 rmfw-icon">
+                                <a class="carousel-control rmfw-icon-left" href="#carousel-rmfw" role="button" data-slide="prev">
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 rmfw-inner">
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <ul class="rmfw-ul">
+                                            <li onclick="handleFwsx(&quot;000709110003&quot;)">
+                                                <span>居民身份证补领</span>
+                                            </li>
+                                            <li onclick="handleFwsx(&quot;000709105004&quot;)">
+                                                <span>转业安置落户</span>
+                                            </li>
+                                            <li onclick="handleFwsx(&quot;000709105001&quot;)" class="rmfu-li-right">
+                                                <span>出生登记</span>
+                                            </li>
+                                            <li onclick="handleFwsx(&quot;000709109001&quot;)">
+                                                <span>开具户籍类证明</span>
+                                            </li>
+                                            <li onclick="handleFwsx(&quot;000163001001&quot;)">
+                                                <span>申办普通护照</span>
+                                            </li>
+                                            <li onclick="handleFwsx(&quot;000163014001&quot;)" class="rmfu-li-right">
+                                                <span>申办出入境通行证</span>
+                                            </li>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="item">
+                                        <ul class="rmfw-ul">
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            <li onclick="handleFwsx(&quot;000109143004&quot;)">
+                                                <span>机动车检验合格标志核发（直辖市级权限）</span>
+                                            </li>
+                                            <li onclick="handleFwsx(&quot;000709110004&quot;)">
+                                                <span>临时居民身份证申领</span>
+                                            </li>
+                                            <li onclick="handleFwsx(&quot;000109140008&quot;)" class="rmfu-li-right">
+                                                <span>机动车驾驶证核发、审验（直辖市级权限）</span>
+                                            </li>
+                                            <li onclick="handleFwsx(&quot;000109129000&quot;)">
+                                                <span>犬类准养证核发</span>
+                                            </li>
+                                            <li onclick="handleFwsx(&quot;000709110001&quot;)">
+                                                <span>居民身份证申领</span>
+                                            </li>
+                                            <li onclick="handleFwcx('grfw')" class="rmfu-li-right">
+                                                <span>更多</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 rmfw-icon">
+                                <a class="carousel-control rmfw-icon-right" href="#carousel-rmfw" role="button" data-slide="next">
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bmcx" class="container bmcx-container">
+            <div class="title" style="text-align: center;margin: 44px auto">
+<!--                <span class="title-span">便民应用</span>-->
+                <img src="/newhome/templates/Zwfw_Fwmh/fontimage/便民应用.png" width="210px" alt="">
+            </div>
+            <div class="bmcx-div">
+                <ul class="row bmcxList">
+                    <li class="bmcx-li col-lg-4 col-md-4 col-sm-6 col-xs-6" onclick="handleBmcx(&quot;ff80808178ef68ae0178f7c032640006&quot;,&quot;\u67E5\u8BE2\u540C\u540D\u4EBA\u6570&quot;,false)">
+                        <a title="查询同名人数">
+                            <i><span class="rmfwIcon"><img src="/newhome/templates/Zwfw_Fwmh/img/bmcx/000000001.png" alt="" style="width:65px;margin:5px;"></span>
+                            </i><span>查询同名人数</span>
+                        </a>
+                    </li>
+                    <li class="bmcx-li col-lg-4 col-md-4 col-sm-6 col-xs-6" onclick="handleBmcx(&quot;ff80808178ef68ae0178f7c083250007&quot;,&quot;\u7F51\u7AD9\u5907\u6848\u67E5\u8BE2&quot;,false)">
+                        <a title="网站备案查询">
+                            <i><span class="rmfwIcon"><img src="/newhome/templates/Zwfw_Fwmh/img/bmcx/000000017.png" alt="" style="width:65px;margin:5px;"></span>
+                            </i><span>网站备案查询</span>
+                        </a>
+                    </li>
+                    <li class="bmcx-li col-lg-4 col-md-4 col-sm-6 col-xs-6" onclick="handleBmcx(&quot;543d7f2b2d5e11ec99f8ce988f382031&quot;,&quot;\u51FA\u5165\u5883\u8BB0\u5F55\u67E5\u8BE2&quot;,false)">
+                        <a title="出入境记录查询">
+                            <i><span class="rmfwIcon"><img src="data:image/png;base64,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" alt="" style="width:65px;margin:5px;"></span>
+                            </i><span>出入境记录查询</span>
+                        </a>
+                    </li>
+                    <li class="bmcx-li col-lg-4 col-md-4 col-sm-6 col-xs-6" onclick="handleBmcx(&quot;ff80808178ef68ae0178f7c032640201&quot;,&quot;\u89C4\u8303\u6C49\u5B57\u67E5\u8BE2&quot;,false)">
+                        <a title="规范汉字查询">
+                            <i><span class="rmfwIcon"><img src="/newhome/templates/Zwfw_Fwmh/img/bmcx/000000007.png" alt="" style="width:65px;margin:5px;"></span>
+                            </i><span>规范汉字查询</span>
+                        </a>
+                    </li>
+                    <li class="bmcx-li col-lg-4 col-md-4 col-sm-6 col-xs-6" onclick="handleBmcx(&quot;7635fdb3b0e8450097291743ffe2f280&quot;,&quot;\u7533\u9886\u514D\u68C0\u8F66\u68C0\u9A8C\u6807\u5FD7&quot;,false)">
+                        <a title="申领免检车检验标志">
+                            <i><span class="rmfwIcon"><img src="/newhome/templates/Zwfw_Fwmh/img/bmcx/000000013.png" alt="" style="width:65px;margin:5px;"></span>
+                            </i><span>申领免检车检验标志</span>
+                        </a>
+                    </li>
+                    <li class="bmcx-li col-lg-4 col-md-4 col-sm-6 col-xs-6" onclick="doNavicate('bmcx')">
+                        <a>
+                            <i><span class="rmfwIcon"><img src="/newhome/templates/Zwfw_Fwmh/img/bmcx/other.png" alt="" style="width:65px;margin:5px;"></span>
+                            </i><span>更多</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="xzqhLabel" aria-hidden="true">
+            <div class="modal-dialog fwmh-modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            ×
+                        </button>
+                        <span class="modal-title">请在以下已开通地区中选择办理地</span>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="modal-title" id="xzqhLabel">
+                            <a onclick="xzqhChange('0','country')">全国 &gt; </a>
+                        </h5>
+                        <div id="modalContent">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel" data-dismiss="modal">取消
+                        </button>
+<!--                        <button type="button" class="btn-ok" onClick="handleRmfw()">确定</button>-->
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        <div style="margin: 30px 0 40px">
+            <div class="container">
+                <div class="title">
+<!--                    <span class="title-span">专题专栏</span>-->
+                    <img src="/newhome/templates/Zwfw_Fwmh/fontimage/专题专栏.png" width="210px" alt="">
+                    <!--       <div class="jz-action" style="margin-left: 10px" href="#fwgg-carousel" data-slide="next">
+                               <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                           </div>
+                           <div class="jz-action" href="#fwgg-carousel" data-slide="prev">
+                               <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                           </div>-->
+                </div>
+                <div id="fwgg-carousel" class="carousel slide" style="margin:0 -15px">
+                    <div class="carousel-inner jzfwList" role="listbox">
+                        <div class="item active">
+                            
+                                <div class="item ztzl-item col-lg-6 col-md-12 col-sm-12 col-xs-12 active" onclick="handleZtzl(&quot;0&quot;)">
+                                    <div class="ztzl-div">
+                                        <span class="ztzl-span">“跨省通办”专栏</span>
+                                        <img alt="" src="/newhome/templates/Zwfw_Fwmh/img/ztzl2.png">
+                                        
+                                    </div>
+                                </div>
+                            
+                                <div class="item ztzl-item col-lg-6 col-md-12 col-sm-12 col-xs-12" onclick="handleZtzl(&quot;6&quot;)">
+                                    <div class="ztzl-div">
+                                        <span class="ztzl-span">长江经济带“一网通办”专栏</span>
+                                        
+                                        <img alt="" src="/newhome/templates/Zwfw_Fwmh/img/ztzl.png">
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="grfr" class="grfr important-gray">
+        <div class="container" style="padding-top: 10px">
+            <div class="title grfwTile" id="grfrTile">
+                <a href="#grfw" data-toggle="tab" onclick="changeTab('#grTitle')">
+<!--                    <span id="grTitle" class="title-active">个人服务</span>-->
+                    <img class="grTile" id="grTitle" src="/newhome/templates/Zwfw_Fwmh/fontimage/个人服务-蓝.png" width="210px" alt="">
+                </a>
+                <img src="/newhome/templates/Zwfw_Fwmh/fontimage/img.png" width="30px" alt="">
+<!--                <span class="divide">|</span>-->
+                <a href="#frfw" data-toggle="tab" onclick="changeTab('#frTile')">
+<!--                    <span id="frTile">法人服务</span>-->
+                    <img class="frTile" id="frTile" src="/newhome/templates/Zwfw_Fwmh/fontimage/法人服务-黑.png" width="210px" alt="">
+                </a>
+                <div id="grfwMore" class="more" onclick="handleFwcx('grfw')">
+                    <span class="more-title">更多</span>
+                    <span class="iconfont icon-more more-icon"></span>
+                </div>
+
+                <div id="frfwMore" class="more hide" onclick="handleFwcx('frfw')">
+                    <span class="more-title">更多</span>
+                    <span class="iconfont icon-more more-icon"></span>
+                </div>
+            </div>
+            <div id="grfrContent" class="tab-content fw-content">
+                <div class="tab-pane fade in active" id="grfw">
+                    <div class="grfr-ul">
+                        <ul class="row">
+                            <li class="col-lg-4 col-md-4 col-sm-6 col-xs-6 grfw-li">
+                                <div class="grfr-content">
+                                    <div class="fwImg">
+                                        <img alt="" src="/newhome/templates/Zwfw_Fwmh/img/mlqd/000709105000.png">
+
+                                    </div>
+                                    <div class="fwRight">
+                                        <span class="fw-title">户口登记</span>
+                                        <span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e83983fa-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08d9ff-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u51FA\u751F\u767B\u8BB0&quot;,&quot;jbbm&quot;:&quot;000709105001&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;3,4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10201&quot;,&quot;version&quot;:2,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">出生登记</span><span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e8398446-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08d9ff-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u65E0\u6237\u53E3\u4EBA\u5458\u767B\u8BB0\u6237\u53E3&quot;,&quot;jbbm&quot;:&quot;000709105002&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;3&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10201&quot;,&quot;version&quot;:3,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">无户口人员登记户口</span><span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e8398493-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08d9ff-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u56FD\u5916\u3001\u6E2F\u6FB3\u53F0\u56DE\u6765\u5B9A\u5C45\uFF08\u6062\u590D\u6237\u53E3\uFF09\u53CA\u52A0\u5165\u4E2D\u56FD\u56FD\u7C4D\u843D\u6237&quot;,&quot;jbbm&quot;:&quot;000709105003&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;3,4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10201&quot;,&quot;version&quot;:2,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">国外、港澳台回来定居（恢复户口）及加入中国国籍落户</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-lg-4 col-md-4 col-sm-6 col-xs-6 grfw-li">
+                                <div class="grfr-content">
+                                    <div class="fwImg">
+                                        <img alt="" src="/newhome/templates/Zwfw_Fwmh/img/mlqd/000709106000.png">
+
+                                    </div>
+                                    <div class="fwRight">
+                                        <span class="fw-title">户口注销</span>
+                                        <span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;8ba185eb7d245630017d27ac1bc46e1b&quot;,&quot;parentid&quot;:&quot;cc08da68-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u865A\u5047\u91CD\u590D\u6237\u53E3\u6CE8\u9500&quot;,&quot;jbbm&quot;:&quot;000709106004&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-11-16T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:&quot;000702106004&quot;,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10203&quot;,&quot;version&quot;:2,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">虚假重复户口注销</span><span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e839857b-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08da68-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u6B7B\u4EA1\u6CE8\u9500\u6237\u53E3&quot;,&quot;jbbm&quot;:&quot;000709106001&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10203&quot;,&quot;version&quot;:2,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">死亡注销户口</span><span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e83985c5-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08da68-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u51FA\u56FD\u5883\u5B9A\u5C45\u6CE8\u9500\u6237\u53E3&quot;,&quot;jbbm&quot;:&quot;000709106002&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10203&quot;,&quot;version&quot;:2,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">出国境定居注销户口</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-lg-4 col-md-4 col-sm-6 col-xs-6 grfw-li">
+                                <div class="grfr-content">
+                                    <div class="fwImg">
+                                        <img alt="" src="/newhome/templates/Zwfw_Fwmh/img/mlqd/000709107000.png">
+
+                                    </div>
+                                    <div class="fwRight">
+                                        <span class="fw-title">户口登记主项信息变更</span>
+                                        <span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e839865e-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08dab2-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u53D8\u66F4\u66F4\u6B63\u516C\u6C11\u8EAB\u4EFD\u53F7\u7801&quot;,&quot;jbbm&quot;:&quot;000709107001&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;3&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10204&quot;,&quot;version&quot;:3,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">变更更正公民身份号码</span><span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e83986aa-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08dab2-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u53D8\u66F4\u66F4\u6B63\u59D3\u540D&quot;,&quot;jbbm&quot;:&quot;000709107002&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;3,4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10204&quot;,&quot;version&quot;:2,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">变更更正姓名</span><span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e83986f4-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08dab2-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u53D8\u66F4\u66F4\u6B63\u6027\u522B&quot;,&quot;jbbm&quot;:&quot;000709107003&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;3&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10204&quot;,&quot;version&quot;:3,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">变更更正性别</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-lg-4 col-md-4 col-sm-6 col-xs-6 grfw-li">
+                                <div class="grfr-content">
+                                    <div class="fwImg">
+                                        <img alt="" src="/newhome/templates/Zwfw_Fwmh/img/mlqd/000709108000.png">
+
+                                    </div>
+                                    <div class="fwRight">
+                                        <span class="fw-title">户口登记非主项信息变更</span>
+                                        <span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e839889a-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08db4a-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u66F4\u6B63\u51FA\u751F\u5730&quot;,&quot;jbbm&quot;:&quot;000709108001&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10204&quot;,&quot;version&quot;:2,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">更正出生地</span><span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e83988f1-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08db4a-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u66F4\u6B63\u7C4D\u8D2F&quot;,&quot;jbbm&quot;:&quot;000709108002&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10204&quot;,&quot;version&quot;:2,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">更正籍贯</span><span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e839894a-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08db4a-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u53D8\u66F4\u66F4\u6B63\u5176\u4ED6\u9879\u76EE&quot;,&quot;jbbm&quot;:&quot;000709108003&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10204&quot;,&quot;version&quot;:2,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">变更更正其他项目</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-lg-4 col-md-4 col-sm-6 col-xs-6 grfw-li">
+                                <div class="grfr-content">
+                                    <div class="fwImg">
+                                        <img alt="" src="/newhome/templates/Zwfw_Fwmh/img/mlqd/000709109000.png">
+
+                                    </div>
+                                    <div class="fwRight">
+                                        <span class="fw-title">其他户口登记服务事项</span>
+                                        <span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e8398a31-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08db91-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u5F00\u5177\u6237\u7C4D\u7C7B\u8BC1\u660E&quot;,&quot;jbbm&quot;:&quot;000709109001&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10204&quot;,&quot;version&quot;:3,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">开具户籍类证明</span><span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;e8398aaa-ef9b-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;cc08db91-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u6237\u53E3\u7C3F\u6362\u8865\u9886&quot;,&quot;jbbm&quot;:&quot;000709109002&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;gxr&quot;:&quot;8ba185eb7b34b66b017b34b6a6dd0001&quot;,&quot;cjsj&quot;:&quot;2021-07-28T00:00:00.000+08:00&quot;,&quot;gxsj&quot;:&quot;2022-08-31T00:00:00.000+08:00&quot;,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;02&quot;,&quot;ywfl&quot;:&quot;10204&quot;,&quot;version&quot;:2,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">户口簿换补领</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="frfw">
+                    <div class="grfr-ul">
+                        <ul class="row">
+                            <li class="col-lg-4 col-md-4 col-sm-6 col-xs-6 grfw-li">
+                                <div class="grfr-content">
+                                    <div class="fwImg">
+                                        <img alt="" src="/newhome/templates/Zwfw_Fwmh/img/mlqd/000109138000.png">
+
+                                    </div>
+                                    <div class="fwRight">
+                                        <span class="fw-title">剧毒化学品道路运输通行许可</span>
+                                        <span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;cc08e031-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;self&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u5267\u6BD2\u5316\u5B66\u54C1\u9053\u8DEF\u8FD0\u8F93\u901A\u884C\u8BB8\u53EF&quot;,&quot;jbbm&quot;:&quot;000109138000&quot;,&quot;sxlx&quot;:&quot;01&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u8BB8\u53EF&quot;,&quot;xscj&quot;:&quot;3,4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:null,&quot;gxr&quot;:null,&quot;cjsj&quot;:null,&quot;gxsj&quot;:null,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;04&quot;,&quot;ywfl&quot;:&quot;20404&quot;,&quot;version&quot;:1,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">剧毒化学品道路运输通行许可</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-lg-4 col-md-4 col-sm-6 col-xs-6 grfw-li">
+                                <div class="grfr-content">
+                                    <div class="fwImg">
+                                        <img alt="" src="/newhome/templates/Zwfw_Fwmh/img/mlqd/000109133000.png">
+
+                                    </div>
+                                    <div class="fwRight">
+                                        <span class="fw-title">计算机信息系统安全专用产品销售许可</span>
+                                        <span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;cc08ddb3-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;self&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u8BA1\u7B97\u673A\u4FE1\u606F\u7CFB\u7EDF\u5B89\u5168\u4E13\u7528\u4EA7\u54C1\u9500\u552E\u8BB8\u53EF&quot;,&quot;jbbm&quot;:&quot;000109133000&quot;,&quot;sxlx&quot;:&quot;01&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u8BB8\u53EF&quot;,&quot;xscj&quot;:&quot;1&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:null,&quot;gxr&quot;:null,&quot;cjsj&quot;:null,&quot;gxsj&quot;:null,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;06&quot;,&quot;ywfl&quot;:&quot;20601&quot;,&quot;version&quot;:1,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">计算机信息系统安全专用产品销售许可</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-lg-4 col-md-4 col-sm-6 col-xs-6 grfw-li">
+                                <div class="grfr-content">
+                                    <div class="fwImg">
+                                        <img alt="" src="/newhome/templates/Zwfw_Fwmh/img/mlqd/000709113000.png">
+
+                                    </div>
+                                    <div class="fwRight">
+                                        <span class="fw-title">网络安全等级保护备案</span>
+                                        <span class="mlmc" onclick="handleSsqd({&quot;id&quot;:&quot;cc08dcd9-ef98-11eb-b0da-525400f6e4a0&quot;,&quot;parentid&quot;:&quot;self&quot;,&quot;fxbm&quot;:null,&quot;parentname&quot;:null,&quot;mlmc&quot;:&quot;\u7F51\u7EDC\u5B89\u5168\u7B49\u7EA7\u4FDD\u62A4\u5907\u6848&quot;,&quot;jbbm&quot;:&quot;000709113000&quot;,&quot;sxlx&quot;:&quot;07&quot;,&quot;sxlxmc&quot;:&quot;\u884C\u653F\u786E\u8BA4&quot;,&quot;xscj&quot;:&quot;1,2,3,4&quot;,&quot;xscjmc&quot;:null,&quot;zt&quot;:&quot;1&quot;,&quot;ztmc&quot;:&quot;\u5728\u7528&quot;,&quot;hyzdbm&quot;:&quot;06&quot;,&quot;hyzdbmmc&quot;:&quot;\u516C\u5B89&quot;,&quot;xtlx&quot;:null,&quot;xtlxmc&quot;:null,&quot;sfysqbl&quot;:null,&quot;xzly&quot;:null,&quot;zx&quot;:null,&quot;cjr&quot;:null,&quot;gxr&quot;:null,&quot;cjsj&quot;:null,&quot;gxsj&quot;:null,&quot;gajbbm&quot;:null,&quot;ywjz&quot;:&quot;06&quot;,&quot;ywfl&quot;:&quot;20601&quot;,&quot;version&quot;:5,&quot;dzcls&quot;:null,&quot;flfgDTOs&quot;:null,&quot;lawRelDTO&quot;:null,&quot;fwzt&quot;:null})">网络安全等级保护备案</span>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="fwgg" class="container important-gray">
+        <div class="title">
+<!--            <span class="title-span">服务公告</span>-->
+            <img src="/newhome/templates/Zwfw_Fwmh/fontimage/服务公告.png" width="210px" alt="">
+            <div class="more" onclick="queryMoreFwgg()">
+                <span class="more-title">更多</span><span class="iconfont icon-more more-icon"></span>
+            </div>
+        </div>
+        <div class="fwggDiv">
+            <ul class="row">
+                <li class="col-lg-4 col-sm-12" onclick="handleFwgg(&quot;8ba185e29329ddb90194fda4f90500af&quot;, &quot;https:\/\/www.gov.cn\/yaowen\/liebiao\/202502\/content_7003106.htm&quot;)">
+                    <div class="fwgg-li">
+                        <a onclick="handleFwgg(&quot;8ba185e29329ddb90194fda4f90500af&quot;, &quot;https:\/\/www.gov.cn\/yaowen\/liebiao\/202502\/content_7003106.htm&quot;)" class="statusA">李强签署国务院令 公布《公共安全视频图像信息系统管理条例》</a><span id="time0" class="fwgg-right">2025-02-12</span>
+                    </div>
+                </li>
+                <li class="col-lg-4 col-sm-12" onclick="handleFwgg(&quot;8ba185e29329ddb90194fda491fc00ae&quot;, &quot;https:\/\/www.mps.gov.cn\/n6557558\/c9966718\/content.html&quot;)">
+                    <div class="fwgg-li">
+                        <a onclick="handleFwgg(&quot;8ba185e29329ddb90194fda491fc00ae&quot;, &quot;https:\/\/www.mps.gov.cn\/n6557558\/c9966718\/content.html&quot;)" class="statusA">关于印发《互联网军事信息传播管理办法》的通知</a><span id="time1" class="fwgg-right">2025-02-09</span>
+                    </div>
+                </li>
+                <li class="col-lg-4 col-sm-12" onclick="handleFwgg(&quot;8ba185e29329ddb90194fda33f3100ad&quot;, &quot;https:\/\/www.mps.gov.cn\/n2254098\/n4904352\/c9965606\/content.html&quot;)">
+                    <div class="fwgg-li">
+                        <a onclick="handleFwgg(&quot;8ba185e29329ddb90194fda33f3100ad&quot;, &quot;https:\/\/www.mps.gov.cn\/n2254098\/n4904352\/c9965606\/content.html&quot;)" class="statusA">首都机场公安机关多措并举服务群众企业</a><span id="time2" class="fwgg-right">2025-02-07</span>
+                    </div>
+                </li>
+                
+                
+
+            </ul>
+        </div>
+    </div>
+    <div class="container important-gray">
+        <div class="title">
+<!--            <span class="title-span">警种服务</span>-->
+            <img src="/newhome/templates/Zwfw_Fwmh/fontimage/警种服务.png" width="210px" alt="">
+            <div id="jzfw-carousel-nextP" class="jz-action" style="margin-left: 10px; border: 1px solid rgb(10, 11, 12);" href="#jzfw-carousel" data-slide="next">
+                <span id="jzfw-carousel-next" class="glyphicon glyphicon-menu-right" aria-hidden="true" style="color: rgb(10, 11, 12);"></span>
+            </div>
+            <div id="jzfw-carousel-prevP" class="jz-action" href="#jzfw-carousel" data-slide="prev" style="border: 1px solid rgb(189, 189, 189);">
+                <span id="jzfw-carousel-prev" class="glyphicon glyphicon-menu-left" aria-hidden="true" style="color: rgb(189, 189, 189);"></span>
+            </div>
+        </div>
+        <div class="carouselDiv">
+            <div id="jzfw-carousel" class="carousel slide" style="margin-right: -10px">
+                <div class="carousel-inner jzfwList" role="listbox" id="jzfw">
+
+                <div class="nav-ul item four next left" id="fwid0"><div class="nav-li" onclick="handlerJz('grfw','17',user)"> <div class="jzImgDiv"><img src="/newhome/templates/Zwfw_Fwmh/img/ywjz/logo_xinfang.png" width="80" height="80" alt="" class="jzImg"></div> <p class="nav-title">公安信访</p></div><div class="nav-li" onclick="handlerJz('grfw','01',user)"> <div class="jzImgDiv"><img src="/newhome/templates/Zwfw_Fwmh/img/ywjz/logo_zhian.png" width="80" height="80" alt="" class="jzImg"></div> <p class="nav-title">治安管理</p></div><div class="nav-li" onclick="handlerJz('grfw','02',user)"> <div class="jzImgDiv"><img src="/newhome/templates/Zwfw_Fwmh/img/ywjz/logo_huzheng.png" width="80" height="80" alt="" class="jzImg"></div> <p class="nav-title">户政管理</p></div><div class="nav-li noMR" onclick="handlerJz('grfw','13',user)"> <div class="jzImgDiv"><img src="/newhome/templates/Zwfw_Fwmh/img/mlqd/002009131000.png" width="80" height="80" alt="" class="jzImg"></div> <p class="nav-title">环食药侦</p></div></div><div class="nav-ul item four" id="fwid1"> <div class="nav-li" onclick="handlerJz('grfw','06',user)"> <div class="jzImgDiv"><img src="/newhome/templates/Zwfw_Fwmh/img/ywjz/logo_wangan.png" width="80" height="80" alt="" class="jzImg"></div> <p class="nav-title">网络安全</p></div><div class="nav-li" onclick="handlerJz('grfw','04',user)"> <div class="jzImgDiv"><img src="/newhome/templates/Zwfw_Fwmh/img/ywjz/logo_jiaoguan.png" width="80" height="80" alt="" class="jzImg"></div> <p class="nav-title">交通管理</p></div><div class="nav-li" onclick="handlerJz('grfw','07',user)"> <div class="jzImgDiv"><img src="/newhome/templates/Zwfw_Fwmh/img/ywjz/logo_jindu.png" width="80" height="80" alt="" class="jzImg"></div> <p class="nav-title">禁毒</p></div><div class="nav-li noMR" onclick="handlerJz('grfw','18',user)"> <div class="jzImgDiv"><img src="/newhome/templates/Zwfw_Fwmh/img/ywjz/logo_jvbao.png" width="80" height="80" alt="" class="jzImg"></div> <p class="nav-title">举报中心</p></div></div><div class="nav-ul item four active left" id="fwid2"> <div class="nav-li" onclick="handlerJz('grfw','05',user)"> <div class="jzImgDiv"><img src="/newhome/templates/Zwfw_Fwmh/img/ywjz/logo_churujing.png" width="80" height="80" alt="" class="jzImg"></div> <p class="nav-title">出入境</p></div></div></div>
+                <input name="lis" type="hidden" value="1,1,1,1,0,1,1,1">
+                <ol class="carousel-indicators" id="dot">
+
+                <li data-target="#jzfw-carousel" id="dot0" data-slide-to="0" class="active"></li><li data-target="#jzfw-carousel" id="dot1" data-slide-to="1" class=""></li><li data-target="#jzfw-carousel" id="dot2" data-slide-to="2" class=""></li></ol>
+                <script language="javascript">
+                    var user = null;
+                    var city = {"id":null,"kind":null,"code":"110000","supercode":null,"detail":"\u5317\u4EAC\u5E02","enabled":null,"order":null};
+                    if (user && user.userName){
+                        var username = chatXm(user.userName);
+                        $("#showname").html(username);
+                    }
+                    var currentCity = getCurrentcookie() || "";
+                    if (currentCity) {
+                        var detail = "";
+                        if (decodeURI(currentCity).split("&")[1]) {
+                            detail = decodeURI(currentCity).split("&")[1];
+                        } else {
+                            detail = decodeURI(currentCity).split("%26")[1];
+                        }
+                        $("#currentCity").html(detail);
+                    } else {
+                        if (city && city.code && city.detail) {
+                            setCitycookie(city.code);
+                            setCurrentcookie(city.code, city.detail)
+                        } else {
+                            setCitycookie("110000");
+                            setCurrentcookie("110000", "北京市")
+                        }
+                    }
+                    var color = ['purple', 'blue', 'green', 'brown'];
+                    var jzfw = $("#jzfw");
+                    var dot = $("#dot");
+                    var itemDiv = '';
+                    var dotLi = '';
+                    var data = [{"id":"ywjz17","jz":"17","jzmc":"\u516C\u5B89\u4FE1\u8BBF","jzfwms":"\u6682\u65E0","pic":null,"cjsj":"2021-05-26T14:45:24.000+08:00","gxsj":"2021-05-26T14:45:26.000+08:00","ds":"grfw","dsmc":"","zt":"1","order":1,"enabled":"1","picurl":"\/img\/ywjz\/logo_xinfang.png","yddpicurl":null},{"id":"ywjz01","jz":"01","jzmc":"\u6CBB\u5B89\u7BA1\u7406","jzfwms":"\u662F\u6307\u56FD\u5BB6\u4E13\u95E8\u673A\u5173\u4F9D\u6CD5\u641C\u96C6\u3001\u786E\u8BA4\u548C\u63D0\u4F9B\u672C\u56FD\u4F4F\u6237\u5C45\u6C11\u7684\u516C\u6C11\u8EAB\u4EFD\u3001\u4EB2\u5C5E\u5173\u7CFB\u3001\u6CD5\u5B9A\u4F4F\u5740\u7B49\u4EBA\u53E3\u57FA\u672C\u4FE1\u606F\u7684\u56FD\u5BB6\u884C\u653F\u7BA1\u7406\u3002\u4E3B\u8981\u4EFB\u52A1\u5305\u62EC\uFF1A\u6237\u53E3\u767B\u8BB0\u3001\u6237\u53E3\u8FC1\u79FB\u3001\u5C45\u6C11\u8EAB\u4EFD\u8BC1\u5236\u5EA6\u3001\u91CD\u70B9\u4EBA\u53E3\u7BA1\u7406\u3001\u6682\u4F4F\u4EBA\u53E3\u7BA1\u7406\u3001\u6237\u7C4D\u8C03\u67E5\u3001\u4EBA\u53E3\u7EDF\u8BA1\u3001\u6237\u53E3\u6863\u6848\u7BA1\u7406\u7B49\u3002","pic":null,"cjsj":"2021-04-07T00:00:00.000+08:00","gxsj":"2021-04-26T14:59:23.000+08:00","ds":"all","dsmc":null,"zt":"1","order":2,"enabled":"1","picurl":"\/img\/ywjz\/logo_zhian.png","yddpicurl":null},{"id":"ywjz02","jz":"02","jzmc":"\u6237\u653F\u7BA1\u7406","jzfwms":"\u6237\u653F","pic":null,"cjsj":"2021-04-07T00:00:00.000+08:00","gxsj":"2021-04-13T21:15:50.000+08:00","ds":"grfw","dsmc":null,"zt":"1","order":3,"enabled":"1","picurl":"\/img\/ywjz\/logo_huzheng.png","yddpicurl":null},{"id":"ywjz13","jz":"13","jzmc":"\u73AF\u98DF\u836F\u4FA6","jzfwms":"\u6682\u65E0","pic":null,"cjsj":"2021-05-25T09:44:20.664+08:00","gxsj":"2021-05-25T09:44:20.664+08:00","ds":"frfw","dsmc":null,"zt":"1","order":5,"enabled":"1","picurl":"\/img\/mlqd\/002009131000.png","yddpicurl":null},{"id":"ywjz06","jz":"06","jzmc":"\u7F51\u7EDC\u5B89\u5168","jzfwms":"\u6682\u65E0","pic":null,"cjsj":"2021-04-07T00:00:00.000+08:00","gxsj":"2021-04-26T15:01:14.000+08:00","ds":"frfw","dsmc":null,"zt":"1","order":7,"enabled":"1","picurl":"\/img\/ywjz\/logo_wangan.png","yddpicurl":null},{"id":"ywjz04","jz":"04","jzmc":"\u4EA4\u901A\u7BA1\u7406","jzfwms":"\u57FA\u672C\u5185\u5BB9\u662F\u8F66\u8F86\u68C0\u9A8C\uFF0C\u9A7E\u9A76\u4EBA\u5458\u8003\u6838\uFF0C\u4EA4\u901A\u8FDD\u7AE0\u53CA\u4EA4\u901A\u4E8B\u6545\u5904\u7406\uFF0C\u4EA4\u901A\u79E9\u5E8F\u7684\u7EF4\u62A4\uFF0C\u4EA4\u901A\u4FE1\u53F7\u6307\u6325\u4E0E\u63A7\u5236\uFF0C\u4EA4\u901A\u8B66\u536B\uFF0C\u4EBA\u884C\u9053\u3001\u8F66\u884C\u9053\u53CA\u505C\u8F66\u573A\u6240\uFF08\u89C1\u505C\u653E\u8F66\uFF09\u7684\u7BA1\u7406\u7B49\u3002","pic":null,"cjsj":"2021-04-07T00:00:00.000+08:00","gxsj":"2021-04-26T15:00:01.000+08:00","ds":"all","dsmc":null,"zt":"1","order":10,"enabled":"1","picurl":"\/img\/ywjz\/logo_jiaoguan.png","yddpicurl":null},{"id":"ywjz07","jz":"07","jzmc":"\u7981\u6BD2","jzfwms":"\u4E3B\u8981\u804C\u8D23\u662F\uFF1A\u638C\u63E1\u6BD2\u54C1\u8FDD\u6CD5\u72AF\u7F6A\u6D3B\u52A8\u52A8\u6001\uFF0C\u62DF\u8BA2\u9884\u9632\u3001\u6253\u51FB\u5BF9\u7B56\uFF1B\u7EC4\u7EC7\u3001\u6307\u5BFC\u3001\u76D1\u7763\u5BF9\u6BD2\u54C1\u72AF\u7F6A\u6848\u4EF6\u7684\u4FA6\u67E5\u5DE5\u4F5C\uFF1B\u627F\u62C5\u5BF9\u9EBB\u9189\u836F\u54C1\u836F\u7528\u539F\u690D\u7269\u3001\u9EBB\u9189\u836F\u54C1\u548C\u7CBE\u795E\u836F\u54C1\u6D41\u5165\u975E\u6CD5\u6E20\u9053\u7684\u67E5\u5904\u5DE5\u4F5C\uFF1B\u4F9D\u6CD5\u627F\u62C5\u5BF9\u6613\u5236\u6BD2\u5316\u5B66\u54C1\u7684\u7BA1\u5236\u7B49\u5DE5\u4F5C\uFF1B\u7EC4\u7EC7\u3001\u534F\u8C03\u3001\u6307\u5BFC\u5730\u65B9\u516C\u5B89\u673A\u5173\u5F00\u5C55\u5438\u6BD2\u4EBA\u5458\u7BA1\u7406\u5DE5\u4F5C\uFF1B\u627F\u529E\u56FD\u9645\u7981\u6BD2\u4E8B\u5B9C\uFF1B\u627F\u529E\u7981\u6BD2\u6709\u5173\u534F\u8C03\u5DE5\u4F5C\uFF1B\u627F\u62C5\u56FD\u5BB6\u7981\u6BD2\u59D4\u5458\u4F1A\u7684\u65E5\u5E38\u5DE5\u4F5C\uFF0C\u4EE5\u56FD\u5BB6\u7981\u6BD2\u59D4\u5458\u4F1A\u540D\u4E49\u5C65\u884C\u56FD\u9645\u7981\u6BD2\u516C\u7EA6\u4E49\u52A1\u3002","pic":null,"cjsj":"2021-04-07T00:00:00.000+08:00","gxsj":"2021-04-26T15:00:11.000+08:00","ds":"frfw","dsmc":null,"zt":"1","order":11,"enabled":"1","picurl":"\/img\/ywjz\/logo_jindu.png","yddpicurl":null},{"id":"ywjz18","jz":"18","jzmc":"\u4E3E\u62A5\u4E2D\u5FC3","jzfwms":"\u6682\u65E0","pic":null,"cjsj":"2024-04-28T14:45:24.000+08:00","gxsj":"2024-04-28T14:45:24.000+08:00","ds":"grfw","dsmc":"","zt":"1","order":12,"enabled":"1","picurl":"\/img\/ywjz\/logo_jvbao.png","yddpicurl":null},{"id":"ywjz05","jz":"05","jzmc":"\u51FA\u5165\u5883","jzfwms":"\u6307\u56FD\u5BB6\u4E3B\u7BA1\u673A\u5173\u4F9D\u636E\u6CD5\u5F8B\u6CD5\u89C4\uFF0C\u5BF9\u4E2D\u56FD\u516C\u6C11\u548C\u5916\u56FD\u4EBA\u51FA\u5165\u5883\u6D3B\u52A8\u53CA\u4E0E\u4E4B\u76F8\u5173\u7684\u4E8B\u52A1\u884C\u4F7F\u7BA1\u8F96\u6743\u7684\u4E00\u79CD\u6CD5\u5F8B\u884C\u4E3A\uFF0C\u662F\u56FD\u5BB6\u6D89\u5916\u7BA1\u8F96\u7684\u4E00\u4E2A\u91CD\u8981\u7EC4\u6210\u90E8\u5206\u3002\u4E3B\u8981\u4EFB\u52A1\u5305\u62EC\uFF1A\u4F9D\u6CD5\u53D7\u7406\/\u5BA1\u6279\u51FA\u5883\u548C\u5165\u5883\u7533\u8BF7\u3001\u4F9D\u6CD5\u7B7E\u53D1\u51FA\u5165\u5883\u8BC1\u4EF6\u548C\u7B7E\u8BC1\u3001\u5B9E\u65BD\u51FA\u5165\u5883\u8FB9\u9632\u68C0\u67E5\u3001\u53D1\u73B0\/\u6253\u51FB\u51FA\u5165\u5883\u8FDD\u6CD5\u6D3B\u52A8\u3001\u5904\u7406\u56FD\u7C4D\u4E8B\u52A1\u3001\u6B63\u786E\/\u59A5\u5584\u5904\u7F6E\u6D89\u5916\u4E8B\u4EF6\u7B49\u3002","pic":null,"cjsj":"2021-04-07T00:00:00.000+08:00","gxsj":"2021-04-26T14:59:36.000+08:00","ds":"all","dsmc":null,"zt":"1","order":13,"enabled":"1","picurl":"\/img\/ywjz\/logo_churujing.png","yddpicurl":null}];
+                    for (var index = 0; index < data.length; index++) {
+                        if ((index + 1) % 4 === 1) {
+                            if (index === 0) {
+                                itemDiv = itemDiv + '<div class="nav-ul item four active" id="fwid0">';
+                                dotLi = dotLi + '<li data-target="#jzfw-carousel" id="dot0" data-slide-to="0" class="active" ></li>';
+                            } else if (index === 4) {
+                                itemDiv = itemDiv + '<div class="nav-ul item four" id="fwid1"> ';
+                                dotLi = dotLi + '<li data-target="#jzfw-carousel"  id="dot1" data-slide-to="1" ></li>';
+                            } else if (index === 8) {
+                                itemDiv = itemDiv + '<div class="nav-ul item four" id="fwid2"> ';
+                                dotLi = dotLi + '<li data-target="#jzfw-carousel"  id="dot2" data-slide-to="2" ></li>';
+                            } else if (index === 12){
+                                itemDiv = itemDiv + '<div class="nav-ul item four" id="fwid3"> ';
+                                dotLi = dotLi + '<li data-target="#jzfw-carousel"  id="dot3" data-slide-to="3" ></li>';
+                            } else {
+                                itemDiv = itemDiv + '<div class="nav-ul item four" id="fwid4"> ';
+                                dotLi = dotLi + '<li data-target="#jzfw-carousel"  id="dot4" data-slide-to="4" ></li>';
+                            }
+                        }
+                        // 图标
+                        if ((index + 1) % 4 === 0) {
+                            itemDiv = itemDiv + '<div class="nav-li noMR" onclick="handlerJz(\'grfw\',\'' + data[index].jz + '\',user)"> ' +
+                                '<div class="jzImgDiv"><img src="' + publicPath + '/templates/Zwfw_Fwmh' + data[index].picurl + '" width="80" height="80" alt="" class="jzImg"/></div> ' +
+                                '<p class="nav-title">' + data[index].jzmc + ''
+                        } else {
+                            itemDiv = itemDiv + '<div class="nav-li" onclick="handlerJz(\'grfw\',\'' + data[index].jz + '\',user)">' +
+                                ' <div class="jzImgDiv"><img src="' + publicPath + '/templates/Zwfw_Fwmh' + data[index].picurl + '" width="80" height="80" alt="" class="jzImg" /></div> ' +
+                                '<p class="nav-title">' + data[index].jzmc + ''
+                        }
+                        if (data[index].son && data[index].son.length > 0) {
+                            var son = data[index].son;
+                            for (var i = 0; i < son.length; i++) {
+                                itemDiv = itemDiv + '<a href="javascript:void(0)" onclick="handlerJz(\'grfw\',\'' + data[index].jz + '\',user)" style="cursor:pointer;">' + son[i].mc + '</a>'
+                            }
+                        }
+                        itemDiv = itemDiv + '</p></div>';
+                        if ((index + 1) % 4 === 0 || index + 1 === data.length) {
+                            itemDiv = itemDiv + '</div>';
+                        }
+                    }
+                    jzfw.append(itemDiv);
+                    dot.append(dotLi);
+                </script>
+            </div>
+        </div>
+    </div>
+    <table class="important-gray" width="100%" border="0">
+        <tbody><tr>
+            <td height="31">&nbsp;</td>
+        </tr>
+    </tbody></table>
+    <!--<div class="sort_open" onclick="handlerWzgbyjsj()"></div>-->
+    <div class="sort_pop important-gray">
+        <div class="sort_pop_left">
+            <p class="sort_pop_p1" id="p1" style="display: none;">您的浏览器不在兼容范围内，建议使用以下浏览器：</p>
+            <p class="sort_pop_p2" id="p2" style="display: block;">您的浏览器在兼容范围内：</p>
+            <p>IE浏览器9.0版本及以上； Google Chrome浏览器 63版本及以上； 360浏览器9.1版本及以上，且IE内核9.0及以上。</p>
+            <a href="javascript:void(0);" class="sort_wrap_close" title="关闭" id="">×</a>
+        </div>
+    </div>
+    <div id="sjtj" class="sjtj important-gray">
+        <div class="sjtj-title">
+            <div>数据统计</div>
+            <div class="sjtj-time">截止至<span id="date">2025年02月25日</span></div>
+        </div>
+        <div class="container sjtj-container">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 sjtj-div">
+                <div class="footer-zwfwtj">
+                    <p>累计注册用户数</p>
+                    <p class=""><span class="footer-number">1.20</span><span class="company">亿位</span></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 sjtj-div">
+                <div class="footer-zwfwtj">
+                    <p>累计服务量</p>
+                    <p class=""><span class="footer-number">6458.58</span><span class="company">万次</span></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 sjtj-div">
+                <div class="footer-zwfwtj">
+                    <p>日均访问量</p>
+                    <p class=""><span class="footer-number">211170</span><span class="company">次</span></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 sjtj-div">
+                <div class="footer-zwfwtj" style="border: none">
+                    <p>可办理事项数</p>
+                    <p class=""><span class="footer-number">31.36</span><span class="company">万个</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="link-floatnav-bottom important-gray" onclick="jumpTop()" herf="javascript:void(0);" title="向下滚动"><i class="glyphicon glyphicon-arrow-up"></i></a>
+<a class="link-floatnav-top important-gray active" onclick="jumpBottom()" herf="javascript:void(0);" title="向上滚动"><i class="glyphicon glyphicon-arrow-down"></i></a>
+<footer>
+    <div class="footer important-gray" id="footer">
+        <div class="layout-content">
+            <div class="footer-content">
+                <div style="padding-bottom:10px;border-bottom:2px solid #e6e6e6">
+                    <label style="font-size:18px">相关链接</label>
+                    <label style="padding:0 30px"><a style="color:black; font-size: 16px" target="_blank" onclick="jumpGabPre('您即将离开公安部“互联网+政务服务”平台，后续服务将由国家政务服务平台（https://gjzwfw.www.gov.cn）提供。','http://gjzwfw.www.gov.cn/')">国家政务服务平台</a></label>
+<!--                    <label><a style="color:black; font-size: 16px" target="_blank" href="https://zwfw.mps.gov.cn/">公安部“互联网+政务服务”平台1.0</a></label>-->
+                </div>
+                <div class="footer-div clearfix" style="padding-top: 10px">
+                    <div>
+                        <!--<a class="footer-link pad-l" target="_blank"
+                           href="https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=bm09000013&url=http%3A%2F%2Fwww.mps.gov.cn%2F"><img
+                                th:src="@{/templates/Zwfw_Fwmh/img/main/ico1.png}"></a>-->
+                        <a class="footer-link pad-l" target="_blank" href="http://bszs.conac.cn/sitename?method=show&amp;id=223521F9C45E0E5EE053022819ACAB07"><img src="/newhome/templates/Zwfw_Fwmh/img/main/ico2.png"></a>
+                    </div>
+                    <div>
+                        <div class="footer-link">
+                            <p>地址：北京市东长安街14号</p>
+                            <p>邮编：100741</p>
+                        </div>
+                        <div class="footer-link footer-pad last">
+                            <p>
+                                <img alt="" src="/newhome/templates/Zwfw_Fwmh/img/main/foot-icp.png" style="margin-right:5px;">
+                                <a onclick="jumpGabPre('您即将离开公安部“互联网+政务服务”平台，后续服务将由ICP/IP地址/域名信息备案管理系统（https://beian.miit.gov.cn）提供。',
+                                'https://beian.miit.gov.cn/#/Integrated/index')">京ICP备05070602号-6</a>
+                            </p>
+                            <p>
+                                <span><img alt="" src="/newhome/templates/Zwfw_Fwmh/img/main/foot-ga.png" style="margin-right:5px;">
+                                    <a onclick="jumpGabPre('您即将离开公安部“互联网+政务服务”平台，后续服务将由全国互联网安全管理服务平台（https://beian.mps.gov.cn）提供。',
+                                    'https://beian.mps.gov.cn/#/query/webSearch?code=11010102000001')">京公网安备 11010102000001号</a></span>
+                            </p>
+                        </div>
+                        <div class="footer-link">
+                            <p>政府网站标识码：bm09000013</p>
+                        </div>
+                        <div>
+                            <img onclick="jumpGabPre('您即将离开公安部“互联网+政务服务”平台，后续服务将由全国政府网站信息报送系统（https://zfwzgl.www.gov.cn）提供。',
+                            'https://zfwzgl.www.gov.cn/exposure/jiucuo.html?site_code=bm09000013&amp;url=https%3A%2F%2Fywtb.mps.gov.cn%2F', '_blank')" style="margin:0;border:0;cursor: pointer;" src="https://zfwzgl.www.gov.cn/exposure/images/jiucuo.png?v=bm09000013">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<iframe style="display: none" src="/newhome/templates/Zwfw_Fwmh/checkSession.html">
+</iframe>
+
+<!-- 立即办理模态框 -->
+<div class="modal fade important-gray" id="handleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span>×</span>
+                </button>
+                <h4 class="modal-title" id="Assessment">请选择需要查看的办事指南</h4>
+            </div>
+            <div class="modal-body" id="fwznList"></div>
+        </div>
+    </div>
+</div>
+
+<!-- 办事指南模态框 -->
+<div class="modal fade important-gray" id="workCaseModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span>×</span>
+                </button>
+                <h4 class="modal-title" id="Assessment">请选择需要查询的业务情形</h4>
+            </div>
+            <div class="modal-body" id="onLineItems"></div>
+        </div>
+    </div>
+</div>
+
+<!-- 提示模态框 -->
+<div id="modalShow" style="display: none">0</div>
+<input type="hidden" id="detail" value="">
+
+<div class="modal important-gray fade modal-right-bottom" id="tipModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" style="width: unset;" role="document">
+        <div class="modal-content" style="max-width: 50rem;">
+            <div class="modal-header modal-header-blue">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span>×</span>
+                </button>
+                <h4 class="modal-title" style="font-weight: 800; text-align: center;"></h4>
+            </div>
+            <div class="modal-body" id="tipModalContent">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 提示框 -->
+<div id="normalTipModal" class="modal fade important-gray" tabindex="999" role="dialog" aria-labelledby="normalTipModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <div style="padding-top: 2px; float: left;padding-right: 5px;">
+                    <svg viewBox="64 64 896 896" focusable="false" data-icon="exclamation-circle" width="1.4em" height="1.4em" fill="currentColor" aria-hidden="true" style="color: #338eff;">
+                        <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"></path>
+                    </svg>
+                </div>
+                <span class="modal-title">温馨提示</span>
+            </div>
+            <!--BODY-->
+            <div class="modal-body">
+                <div class="body-qw" style="text-align:center;" id="normalTipContent">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 跳转 -->
+<div id="normalModal" class="modal fade important-gray" tabindex="999" role="dialog" aria-labelledby="normalModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="关闭"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="normalModalLabel" style="text-align:center">您即将跳转至部委平台申报页面</h4>
+            </div>
+            <!--BODY-->
+            <div class="modal-body">
+                <div class="body-qw" style="text-align:center;">
+                    <p><img src="/newhome/templates/Zwfw_Fwmh/img/main/hongxing.png"></p>
+                    <p>
+                        <button type="button" class="btn btn-searchInput" id="bwptBtn" onclick="gotoGjbw(this)" )="">立即前往
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="_form_organ">
+    <input type="hidden" name="_organName_" id="_organName_">
+    <input type="hidden" name="_organCode_" id="_organCode_">
+    <input type="hidden" name="_organType_" id="_organType_">
+    <input type="hidden" name="_itemId" id="_itemId_">
+    <input type="hidden" name="_itemType" id="_itemType_">
+    <input type="hidden" name="_stSubitemId" id="_stSubitemId_">
+</form>
+
+<iframe name="checkIframe" style="display:none" src="/newhome/templates/Zwfw_Fwmh/saved_resource.html"></iframe>
+
+<link href="/newhome/templates/Zwfw_Fwmh/css/tab.css" rel="stylesheet">
+<script src="/newhome/templates/Zwfw_Fwmh/js/bootstrap.js"></script>
+<script src="/newhome/templates/Zwfw_Fwmh/js/layer.js"></script>
+<script src="/newhome/templates/Zwfw_Fwmh/js/browser.js"></script>
+<script src="/newhome/templates/Zwfw_Fwmh/js/index.js"></script>
+<script src="/newhome/templates/Zwfw_Fwmh/js/header.js"></script>
+
+
+</body></html>

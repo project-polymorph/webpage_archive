@@ -1,0 +1,630 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="phpwind,bbs,board,php,mysql,forums">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="//www.summer-plus.net/">
+<title>茶馆 南+ South Plus - powered by Pu!mdHd</title>
+<script language="JavaScript" src="data/bbscache/face.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/5.8.1/css/all.min.css" type="text/css" rel="stylesheet">
+
+<!-- jQuery library -->
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js" type="application/javascript"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/4.3.1/js/bootstrap.min.js" type="application/javascript"></script>
+<!--css--><style type="text/css">
+body {font-family: Verdana;FONT-SIZE: 12px;MARGIN: 0;color: #000000;background: #ffffff;}
+img {border:0;}
+td {FONT-SIZE: 12px;}
+textarea,input,select{
+	font-family: Verdana;
+	font-size: 12px;
+	background-color: #ffffff;
+}
+div.quote{
+	margin:5px 5px;
+	border:1px dashed #dddddd;
+	padding:5px;
+	background:#FFFFFF;
+	line-height:normal;
+}
+a { TEXT-DECORATION: none;}
+a:hover{ color:#ff0000;text-decoration:none;}
+.smalltxt {font-family: Tahoma, Verdana; font-size: 12px;}
+.tpc_content { font-size: 13px;}
+.i_table {BORDER: #E7E3E7 1px solid;}
+.head{background-color: #E7E3E7;}
+@supports (-webkit-overflow-scrolling: touch) {
+    .pagination li input{
+      font-size: 11px !important;
+    }
+}
+/*Back to top start*/
+.cd-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-top-btn {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    bottom: 40px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    /* image replacement properties */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: rgba(255,120,120,0.8) url(/images/cd-top-arrow.svg) no-repeat center 50%;
+    border-radius: 100%;
+}
+.cd-top.cd-is-visible,
+.cd-top.cd-fade-out,
+.no-touch .cd-top:hover {
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+    -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+    /* the button becomes visible */
+    
+    visibility: visible;
+    opacity: 1;
+}
+.cd-top.cd-fade-out {
+    /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+    
+    opacity: 1;
+}
+.no-touch .cd-top:hover {
+    background-color: #888888;
+    opacity: 1;
+}
+@media only screen and (min-width: 768px) {
+    .cd-top-btn {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .cd-top-btn {
+        height: 60px;
+        width: 60px;
+        right: 30px;
+        bottom: 30px;
+    }
+}
+
+/* .modal-fullscreen */
+.modal-fullscreen {
+  background: transparent;
+}
+.modal-fullscreen .modal-content {
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.modal-backdrop.modal-backdrop-fullscreen {
+  background: rgb(237, 241, 242);
+}
+.modal-backdrop.modal-backdrop-fullscreen.in {
+  opacity: .97;
+  filter: alpha(opacity=97);
+}
+/* .modal-fullscreen size: we use Bootstrap media query breakpoints */
+
+.modal-fullscreen .modal-dialog {
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  overflow-y:hidden;
+}
+@media (min-width: 768px) {
+  .modal-fullscreen .modal-dialog {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-fullscreen .modal-dialog {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-fullscreen .modal-dialog {
+     width: 1170px;
+  }
+}
+.m-tool {
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: relative;
+    background-color: rgb(237, 241, 242);
+}
+
+.m-tool > .m-close {
+    position: absolute;
+    left: 2rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    color: #888888;
+}
+
+.m-tool > .m-tool-toolbar {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.m-tool-list > ul {
+    list-style: none;
+    padding: 0 2rem;
+    font-size: 1rem;
+    background-color: rgb(237, 241, 242);
+}
+
+.m-tool-list > ul > li {
+    height: 4rem;
+    line-height: 4rem;
+    border-bottom: 1px solid #E2E2E2;
+}
+.m-tool-title {
+    padding-top: 0.75rem;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #343a40;
+}
+/*Back to top end*/
+</style><!--css-->
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KYN9Z1NWGY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KYN9Z1NWGY');
+</script>
+<script>
+function showfaces(){
+	$('#showface').toggle(300);
+	path = 'smallface';
+	picpath = "images/post/smile/";
+	if($('#showface').html().trim() == ""){
+		for(var i in faces[path]){
+			var sid = faces[path][i];
+			var pic = document.createElement("img");
+			pic.style.margin = "3px";
+			pic.style.cursor = "pointer";
+			pic.id = sid;
+			pic.onclick = function(){addsmile(this.id);};
+			pic.src = picpath+face[sid][0];
+			pic.title = face[sid][1];
+			$('#showface').append(pic);
+		}
+	}
+	
+	return false;
+}
+
+function addsmile(NewCode){  
+	document.FORM.atc_content.value += ' [s:'+NewCode+'] ';
+}
+function setCookie(name,value,hours) {
+    var expires = "";
+    if (hours) {
+        var date = new Date();
+        date.setTime(date.getTime() + (hours*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {   
+    document.cookie = name+'=; Max-Age=-99999999;';  
+}
+$(function() {
+  if(getCookie('mobilever') == null){
+    setCookie('mobilever',1,6);
+  }
+});
+</script>
+<script>
+jQuery(function() {
+    if(getCookie('peacemaker') == null){
+        ajax.send('pw_ajax.php','action=getblocklist',function(){
+            var parser = new DOMParser;
+            if(ajax.request.responseText != ''){
+                var dom = parser.parseFromString(ajax.request.responseText,'text/html');
+                config = JSON.parse(dom.body.textContent);
+                SP_setValue('config', config);
+                SP_peacemaker();
+                setCookie('peacemaker',1,24);
+            } else {
+                SP_peacemaker();
+                setCookie('peacemaker',1,24);
+            }
+        });
+    }
+    else{
+        SP_peacemaker();
+    }
+});
+
+function SP_setValue(key, value){
+    var existingConfig = window.localStorage.getItem(key);
+    if(existingConfig != JSON.stringify(value)){
+        window.localStorage.setItem(key, JSON.stringify(value));
+        ajax.send('pw_ajax.php?action=updateblocklist','blocklistconfig='+JSON.stringify(value));
+    }
+}
+
+function SP_getValue(key){
+    return JSON.parse(window.localStorage.getItem(key));
+}
+
+function SP_peacemaker(){
+    var config = SP_getValue("config");
+
+    jQuery.each( config.blist, function( i, val ) {
+      //alert(i);
+      //alert(val.level.includes("topic"));
+      
+      if(val.level.includes("topic")){
+        $('.author_'+i).hide();
+        $('.author_'+i).next('br').remove();
+      }
+    });
+}
+</script>
+</head>
+<body vlink="#333333" link="#333333">
+<nav class="navbar navbar-light" style="height: 3rem; background: #FEFFFE; box-shadow: inset 0 -1px 0 0 #E2E2E2;">
+    <div class="container" style="width: 100%; padding-left: 0; padding-right: 0">
+        <div class="row" style="width: 100%; margin-right: 0; margin-left: 0;">
+            <div class="col-4" style="padding-left: 0"><div class="clickable" data-toggle="modal" data-target="#modal-nav">
+            <img src="/images/nav.png" style="height: 2rem;">
+        </div></div>
+            <div class="col-4" style="padding: 0;text-align: center;"><a href="simple/index.php?" class="navbar-brand" style="text-align: center;height:2.5rem;flex:1;margin-top: -0.25rem;cursor: pointer;"><img src="/images/m-logo-south-high.png" style="height: 100%;"></a></div>
+            <div class="col-4" style="padding-right: 0; text-align: right;padding-top: 0.3rem;"><span style="overflow: hidden;text-overflow: ellipsis;color: #FF7878 !important;font-size: 14px;">
+
+<a href="login.php" style="color: #FF7878 !important;">登录</a> | <a href="register.php" style="color: #FF7878 !important;">注册</a>
+
+            </span></div>
+        </div>
+    </div>
+</nav>
+<div class="modal modal-fullscreen fade" id="modal-nav" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:rgb(237, 241, 242);">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" style="margin: auto;width:100%;">
+                <div class="m-tool">
+                    <span class="m-close clickable"><i class="fa fa-times" aria-hidden="true" data-toggle="modal" data-target="#modal-nav"></i></span>
+                    <div class="m-tool-title">
+                        桌面版导航
+                    </div>
+                    <div class="m-tool-list">
+                        <ul>
+                            <li><a href="/search.php" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">搜索</a></li>
+                            <li><a href="/plugin.php?H_name-tasks.html" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">社区论坛任务</a></li>
+                            <li><a href="javascript:setCookie('mobilever',1,720);alert('设置成功！30天内不会自动跳转移动版。');" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">停止自动跳转移动版</a></li>
+                            <li><a href="/" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">桌面版首页</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul li {
+  margin: 0.5em 0;
+}
+ul li a {
+  width: 100%;
+  display: block;
+  background: #ffffff;
+  color: #333333;
+  padding: 0.75em;
+  transition: background 0.3s ease;
+}
+.pagination a{
+  color: #888;
+}
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #FF7878;
+    border-color: #FF7878;
+}
+.threadlist li {
+    position: relative;
+    border-bottom: 1px solid #D9D8D8;
+    font-size: 16px;
+}
+.threadlist li a {
+    display: block;
+    padding: 7px 10px;
+    font-size: 16px;
+    line-height: 25px;
+}
+.threadlist .by {
+    font-size: 12px;
+    color: #A5A5A5;
+    display: block;
+}
+.threadlist .num {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 0 0 0 18px;
+    font-size: 12px;
+    color: #C0C0C0;
+}
+</style>
+<script>
+$.fn.extend({
+    toggleText: function(a, b){
+        return this.text(this.text() == b ? a : b);
+    }
+});
+
+function ToggleSingleNewPost(sender){
+    $(sender).toggleText('发表主题', '隐藏发表主题');
+    $('#simplenewpost').slideToggle();
+}
+</script>
+
+
+<nav class="navbar navbar-light bg-light" style="font-size: 14px; display: block;box-shadow: inset 0 -1px 0 0 #E2E2E2;">
+  <a href="simple/index.php?" style="color: #FF7878">南+ South Plus </a> <i class="fas fa-chevron-right" style="color: #999999; font-size: 12px;"></i> <span style="color: #999999">茶馆</span>
+  <span style=""><button type="button" class="btn btn-danger btn-sm float-right" onclick="ToggleSingleNewPost(this)" style="margin-top: -0.35rem;">发表主题</button></span>
+</nav>
+<div class="container">
+<form name="FORM" method="post" action="post.php?" enctype="multipart/form-data" id="simplenewpost" style="display:none"><br>
+<div class="form-group">
+<input type="text" class="form-control" placeholder="标题" name="atc_title" required=""><br>
+<textarea name="atc_content" rows="4" class="form-control" required=""></textarea> 
+<br>
+<input class="btn btn-danger btn-sm" type="submit" name="Submit" value=" 发 布 ">
+<button class="btn btn-info btn-sm" onclick="return showfaces();">&nbsp;表&nbsp;情&nbsp;</button><br><br>
+<div id="showface" style="background: rgb(255, 255, 255);overflow-y: auto; height: 200px; display: none">
+</div>
+</div>
+<input type="hidden" value="9" name="fid"> 
+<input type="hidden" value="" name="tid"> 
+<input type="hidden" name="verify" value="0199e425">
+
+<input type="hidden" name="magicname" value="">
+<input type="hidden" name="magicid" value="">
+<input type="hidden" name="atc_iconid" value="0">
+<input type="hidden" name="atc_autourl" value="1">
+<input type="hidden" name="atc_usesign" value="1">
+<input type="hidden" name="atc_convert" value="1">
+<input type="hidden" name="digest" value="0">
+<input type="hidden" name="atc_rvrc" value="0">
+<input type="hidden" name="atc_enhidetype" value="rvrc">
+<input type="hidden" name="atc_money" value="0">
+<input type="hidden" name="atc_credittype" value="money">
+<input type="hidden" value="" name="atc_desc1">
+<input type="hidden" name="article" value="0">
+<input type="hidden" name="special" value="0">
+<input type="hidden" value="2" name="step"> 
+<input type="hidden" value="new" name="action">
+<input type="hidden" name="att_special1" value="0">
+<input type="hidden" name="att_ctype1" value="money">
+<input type="hidden" name="atc_needrvrc1" value="0">
+<input type="hidden" name="simplepost" value="1">
+
+</form>
+
+
+<div class="row" style="box-shadow: inset 0 -1px 0 0 #E2E2E2;">
+    <div class="col-8" style="padding: 1rem;"><span style="font-size: 20px;color: #222222;padding: 0.5rem 0;">茶馆</span></div>
+    <div class="col-4" style="padding: 1rem;">
+        <div class="float-right">
+            <img style="height: 2rem;" src="/images/list-active.png"><a href="/simple/index.php?p9.html"><img style="height: 2rem;" src="/images/grid-inactive.png"></a>
+        </div>
+    </div>
+</div>
+<div class="row">
+<div class="col">
+<div class="text-center"><br><a href="https://segucrwj.taobao.com/" onclick="ga('send', 'event', 'mobile', 'clicked', 'ad');"><img src="/images/mobileads020.jpg" class="img-fluid" alt="Responsive image"></a></div>
+<br>
+<center class="pages"><ul class="pagination" style="justify-content: center;"><li class="page-item"><a href="simple/index.php?f9_1.html" class="page-link"><span aria-hidden="true">«</span></a></li><li class="page-item active"><b class="page-link">1</b></li><li class="page-item"><a class="page-link" href="simple/index.php?f9_2.html">2</a></li><li class="page-item"><a class="page-link" href="simple/index.php?f9_3.html">3</a></li><li class="page-item"><input type="text" size="2" placeholder="跳转" class="page-link " style="border-radius:0;width:3.25rem;-webkit-appearance: none;
+" onkeydown="javascript: if(window.event.keyCode==13) window.location='/simple/index.php?f9_'+this.value+'.html';"></li><li class="page-item"><a class="page-link" href="simple/index.php?f9_8519.html"><span aria-hidden="true">»</span></a></li></ul></center>
+<div class="threadlist">
+<ul type="1" start="1">
+
+<li>
+	<a href="/read.php?tid=1247761" onclick="ga('send', 'event', 'newmoe', 'clicked', 'ad');">
+	<b>
+		<font color="#43BFFF">几把在钢丝球和风油精中，选择了艾草
+ </font>
+	</b>
+	<span class="by">论坛公告</span>
+	</a>
+	<span class="num">2020</span>
+</li>
+<li style="display:none">
+	<a href="/simple/index.php?t590097.html" onclick="ga('send', 'event', 'newmoe2', 'clicked', 'ad');">
+	<b>
+		<font color="#FF1493">[夏季福利] 第⑨个夏天 ~ 99SP红包福利 + 期间限定募捐活动进行中~</font>
+	</b>
+	<span class="by">论坛公告</span>
+	</a>
+	<span class="num">2019</span>
+</li>
+
+<li class="author_1635744"><a href="simple/index.php?t2176492.html"><b><font color="#FF0000">茶馆常见问题判罚细则与应对指南</font></b><span class="by">遠坂凛ちゃん - 发布于 2024-04-28</span></a><span class="num">5 回复</span></li>
+
+<li class="author_2256735"><a href="simple/index.php?t2441700.html"><b><font color="#FF0000">[春节红包] 2025春节红包福利贴</font></b><span class="by">井芹仁菜 - 发布于 2025-01-28</span></a><span class="num">44412 回复</span></li>
+
+<li class="author_1819064"><a href="simple/index.php?t2465200.html">看哪吒2的时候，只有我代入陈塘关老百姓吗<span class="by">处男哥 - 发布于 2025-02-20</span></a><span class="num">21 回复</span></li>
+
+<li class="author_1788500"><a href="simple/index.php?t2464987.html">+人们平时刮牛毛吗<span class="by">Kagua42 - 发布于 2025-02-20</span></a><span class="num">12 回复</span></li>
+
+<li class="author_1179046"><a href="simple/index.php?t2465199.html">TWITTER女菩萨 - 母犬韶 （露脸版）<span class="by">de594193 - 发布于 2025-02-20</span></a><span class="num">11 回复</span></li>
+
+<li class="author_1076870"><a href="simple/index.php?t2464966.html">大家电脑上都怎么看本子的<span class="by">bbbb - 发布于 2025-02-20</span></a><span class="num">12 回复</span></li>
+
+<li class="author_1395646"><a href="simple/index.php?t2465191.html">晒一下 我收集到的vivian violet &amp;wallis 丝袜博主图集<span class="by">G - 发布于 2025-02-20</span></a><span class="num">6 回复</span></li>
+
+<li class="author_1963494"><a href="simple/index.php?t2463960.html">这个FC2卖家是真急了<span class="by">f29d07d7 - 发布于 2025-02-19</span></a><span class="num">46 回复</span></li>
+
+<li class="author_1322689"><a href="simple/index.php?t2465243.html">明天索马里了<span class="by">qnni - 发布于 2025-02-20</span></a><span class="num">0 回复</span></li>
+
+<li class="author_1474389"><a href="simple/index.php?t2444853.html">金先生的这个稀有女主很多人应该没见过吧<span class="by">棒子老虎鸡 - 发布于 2025-01-31</span></a><span class="num">172 回复</span></li>
+
+<li class="author_1302308"><a href="simple/index.php?t2465017.html">+人们有没有拍照好点的手机推荐<span class="by">Asuka - 发布于 2025-02-20</span></a><span class="num">7 回复</span></li>
+
+<li class="author_267948"><a href="simple/index.php?t2465188.html">关于合约宽带 跟各位讨论个事，为什么电信承包商敢顶着N次客服投诉也不给解除<span class="by">illusion - 发布于 2025-02-20</span></a><span class="num">18 回复</span></li>
+
+<li class="author_1533370"><a href="simple/index.php?t2424435.html">你看过最好看的黄书是什么？【黄书收集贴】<span class="by">26a81005 - 发布于 2025-01-09</span></a><span class="num">1224 回复</span></li>
+
+<li class="author_1810738"><a href="simple/index.php?t2464236.html">这个女人想必大家都不陌生吧<span class="by">找个班上找个厂 - 发布于 2025-02-19</span></a><span class="num">26 回复</span></li>
+
+<li class="author_2303743"><a href="simple/index.php?t2464892.html">为何我放弃了动漫?!无论是搞笑的、洒狗血的还是高人气的、一致好评的......<span class="by">米共 - 发布于 2025-02-20</span></a><span class="num">29 回复</span></li>
+
+<li class="author_409721"><a href="simple/index.php?t2463515.html">大家有没有发现去年下半年开始里番的质量稍有回升了<span class="by">荡漾的牛奶 - 发布于 2025-02-19</span></a><span class="num">9 回复</span></li>
+
+<li class="author_1657199"><a href="simple/index.php?t2465236.html">问一下懂电脑行情的朋友，我这台主机大概多少好出手？<span class="by">d3b2a06d - 发布于 2025-02-20</span></a><span class="num">0 回复</span></li>
+
+<li class="author_871850"><a href="simple/index.php?t2465026.html">最近想买个安卓平板，求老哥们推荐<span class="by">John-117 - 发布于 2025-02-20</span></a><span class="num">28 回复</span></li>
+
+<li class="author_475242"><a href="simple/index.php?t2414855.html">ibm5100 意见收集贴 九号机 (2024年12月)<span class="by">ibm5100 - 发布于 2024-12-31</span></a><span class="num">136 回复</span></li>
+
+<li class="author_1351898"><a href="simple/index.php?t2464787.html">现在“嫖”在互联网已经是上得了台面的话题了吗？<span class="by">d156c47c - 发布于 2025-02-20</span></a><span class="num">54 回复</span></li>
+
+<li class="author_1203094"><a href="simple/index.php?t2465234.html">南+tg臀模交流群解散了吗？<span class="by">snakee23 - 发布于 2025-02-20</span></a><span class="num">0 回复</span></li>
+
+<li class="author_1137141"><a href="simple/index.php?t2462880.html">普喜大奔，91之前的神lovelolita7的资源已经有放出来了<span class="by">白巧克力 - 发布于 2025-02-18</span></a><span class="num">171 回复</span></li>
+
+<li class="author_1806134"><a href="simple/index.php?t2461319.html">【男+/伪娘/男娘】算是第一次打炮记录吧<span class="by">exdongya - 发布于 2025-02-16</span></a><span class="num">25 回复</span></li>
+
+<li class="author_1592148"><a href="simple/index.php?t2465183.html">报考商业类的硕士研究生真的有用？MBA EMBA MKT<span class="by">16f0ebec - 发布于 2025-02-20</span></a><span class="num">4 回复</span></li>
+
+<li class="author_1596093"><a href="simple/index.php?t2462873.html">[免费接ai汉化] +人们求推荐音声，我来跑汉化<span class="by">可可爱爱小小脑袋 - 发布于 2025-02-18</span></a><span class="num">67 回复</span></li>
+
+<li class="author_1427179"><a href="simple/index.php?t2465018.html">复活，再次成为CCF<span class="by">CCF - 发布于 2025-02-20</span></a><span class="num">5 回复</span></li>
+
+<li class="author_2006122"><a href="simple/index.php?t2465158.html">求推荐一些asmr作者或者作品<span class="by">蓝河春桥 - 发布于 2025-02-20</span></a><span class="num">7 回复</span></li>
+
+<li class="author_1583439"><a href="simple/index.php?t2462589.html">我的枪好长 108g合集分享<span class="by">draxler - 发布于 2025-02-18</span></a><span class="num">110 回复</span></li>
+
+<li class="author_1433254"><a href="simple/index.php?t2463698.html">[av闲聊] 你不能亵玩我的爆乳：厂商力捧的“女神”级爆乳、差强人意的肉欲表现力<span class="by">小·没声音了哟 - 发布于 2025-02-19</span></a><span class="num">23 回复</span></li>
+
+<li class="author_1721905"><a href="simple/index.php?t2462440.html">【男娘】尝试一下兔女郎～希望能有人喜欢<span class="by">WarFarin - 发布于 2025-02-18</span></a><span class="num">33 回复</span></li>
+
+<li class="author_1533370"><a href="simple/index.php?t2440516.html">推荐一个好玩的黄油《starmaker story》，关于妈妈做only fans的游戏。<span class="by">26a81005 - 发布于 2025-01-26</span></a><span class="num">61 回复</span></li>
+
+<li class="author_1592148"><a href="simple/index.php?t2465027.html">我买的石油股票是中国石化，但中国石油媒体曝光度却更高，要换股票投资吗？<span class="by">16f0ebec - 发布于 2025-02-20</span></a><span class="num">6 回复</span></li>
+
+<li class="author_1466575"><a href="simple/index.php?t2465163.html">美妙的胸部 就是不知道出处<span class="by">要奈奈 - 发布于 2025-02-20</span></a><span class="num">14 回复</span></li>
+
+<li class="author_2258555"><a href="simple/index.php?t2464667.html">分享日本cos大奶白毛骚货精灵#rurigraph<span class="by">遁出红尘 - 发布于 2025-02-20</span></a><span class="num">30 回复</span></li>
+
+<li class="author_1870329"><a href="simple/index.php?t2464560.html">【男娘/伪娘/男+】我又来了 这次是漏肩毛衣（这次是原相机）（拍了牛牛）<span class="by">嗷呜喵嗷呜 - 发布于 2025-02-20</span></a><span class="num">33 回复</span></li>
+
+<li class="author_2029968"><a href="simple/index.php?t2464428.html">芭提雅攻略之gogobar<span class="by">chanl - 发布于 2025-02-20</span></a><span class="num">12 回复</span></li>
+
+<li class="author_1474389"><a href="simple/index.php?t2445208.html">金先生的这个稀有女主很多人应该没见过吧<span class="by">棒子老虎鸡 - 发布于 2025-02-01</span></a><span class="num">37 回复</span></li>
+
+<li class="author_1653136"><a href="simple/index.php?t2464520.html">兄弟们，这个太顶级了<span class="by">7c42c2c7 - 发布于 2025-02-20</span></a><span class="num">22 回复</span></li>
+
+<li class="author_2289602"><a href="simple/index.php?t2464960.html">第七弹-分享女友&nbsp;&nbsp;应足控粉丝要求更新一波母狗的骚脚<span class="by">jony9977666 - 发布于 2025-02-20</span></a><span class="num">34 回复</span></li>
+
+<li class="author_1721905"><a href="simple/index.php?t2464640.html">【男娘】白丝吊带jk（有平板锁和肛勾要素，出现不适请原谅~）<span class="by">WarFarin - 发布于 2025-02-20</span></a><span class="num">40 回复</span></li>
+
+<li class="author_2289602"><a href="simple/index.php?t2464690.html">第六弹-分享女友 瑜伽裤与骆驼趾<span class="by">jony9977666 - 发布于 2025-02-20</span></a><span class="num">56 回复</span></li>
+
+<li class="author_1043031"><a href="simple/index.php?t2452833.html">森萝 VIP 相关<span class="by">大法好 - 发布于 2025-02-08</span></a><span class="num">122 回复</span></li>
+
+<li class="author_1868834"><a href="simple/index.php?t2464227.html">找到一个好涩的黑丝长靴夹腿自慰，有没有人知道出处或者女主的<span class="by">雷霆不尬拔 - 发布于 2025-02-19</span></a><span class="num">39 回复</span></li>
+
+<li class="author_2239786"><a href="simple/index.php?t2457550.html">南加NTR游戏封神榜 ⭐️ 众筹填坑中⭐️已更103部⭐️ 2月17增加致谢名单+12部 ⭐️ 老哥们给力<span class="by">federicoa - 发布于 2025-02-12</span></a><span class="num">386 回复</span></li>
+
+<li class="author_1376235"><a href="simple/index.php?t2464975.html">【为母育种】（Breeding for Mom，更新第八章）<span class="by">543066ce - 发布于 2025-02-20</span></a><span class="num">3 回复</span></li>
+
+<li class="author_1689373"><a href="simple/index.php?t2454322.html">分享Twitter福利姬 0507huihui umate上的一些视频<span class="by">jack-o - 发布于 2025-02-09</span></a><span class="num">65 回复</span></li>
+
+<li class="author_1998354"><a href="simple/index.php?t2465004.html">关于网页版e站<span class="by">澪色 - 发布于 2025-02-20</span></a><span class="num">6 回复</span></li>
+
+<li class="author_1818443"><a href="simple/index.php?t2407612.html">回顾下FC2那些于疫情期间下海的高质量妹子们<span class="by">樱花酱 - 发布于 2024-12-23</span></a><span class="num">986 回复</span></li>
+
+<li class="author_1363232"><a href="simple/index.php?t2465145.html">还有没有类似放开那个女巫这样的小说，女巫的后期还有结局让我感到一种烂尾后很遗憾惆怅仿佛失去了什么<span class="by">hiten - 发布于 2025-02-20</span></a><span class="num">10 回复</span></li>
+
+<li class="author_1977308"><a href="simple/index.php?t2455427.html">2025身体恢复计划<span class="by">intptr - 发布于 2025-02-10</span></a><span class="num">61 回复</span></li>
+
+
+</ul>
+</div>
+<center><ul class="pagination" style="justify-content: center;"><li class="page-item"><a href="simple/index.php?f9_1.html" class="page-link"><span aria-hidden="true">«</span></a></li><li class="page-item active"><b class="page-link">1</b></li><li class="page-item"><a class="page-link" href="simple/index.php?f9_2.html">2</a></li><li class="page-item"><a class="page-link" href="simple/index.php?f9_3.html">3</a></li><li class="page-item"><input type="text" size="2" placeholder="跳转" class="page-link " style="border-radius:0;width:3.25rem;-webkit-appearance: none;
+" onkeydown="javascript: if(window.event.keyCode==13) window.location='/simple/index.php?f9_'+this.value+'.html';"></li><li class="page-item"><a class="page-link" href="simple/index.php?f9_8519.html"><span aria-hidden="true">»</span></a></li></ul></center>
+</div></div>
+<br>
+<center><a href="thread.php?fid=9" target="_blank" style="padding: 1rem;font-size: 16px;color: #555;"><i class="fas fa-desktop"></i> 桌面版</a></center>
+</div>
+
+<br><br>
+<center><small><font color="#999999">Powered by <a href="/" target="_blank"><b>SP Project</b></a> <b style="color:#FF9900">v1.0</b> © 2010-2019  <br>
+Time 0.003723 second(s),query:2 Gzip enabled<br><br></font></small>
+</center><br><a href="#0" class="cd-top cd-top-btn">Top</a>
+<script>
+$(function () {
+    InitBackToTop();
+});
+function InitBackToTop() {
+    if ($('.cd-top').length > 0) {
+        // browser window scroll (in pixels) after which the "back to top" link is shown
+        var offset = 300,
+        //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+        offset_opacity = 700,
+        //duration of the top scrolling animation (in ms)
+        scroll_top_duration = 700,
+        //grab the "back to top" link
+        back_to_top = $('.cd-top');
+        back_to_top_btn = $('.cd-top-btn');
+
+        //hide or show the "back to top" link
+        $(window).scroll(function () {
+            ($(this).scrollTop() > offset) ? back_to_top.addClass('cd-is-visible') : back_to_top.removeClass('cd-is-visible cd-fade-out');
+            if ($(this).scrollTop() > offset_opacity) {
+                back_to_top.addClass('cd-fade-out');
+            }
+        });
+
+        //smooth scroll to top
+        back_to_top_btn.on('click', function (event) {
+            event.preventDefault();
+            $('body,html').animate({
+                scrollTop: 0,
+            }, scroll_top_duration
+            );
+        });
+    }
+}
+;(function(f){"use strict";"function"===typeof define&&define.amd?define(["jquery"],f):"undefined"!==typeof module&&module.exports?module.exports=f(require("jquery")):f(jQuery)})(function($){"use strict";function n(a){return!a.nodeName||-1!==$.inArray(a.nodeName.toLowerCase(),["iframe","#document","html","body"])}function h(a){return $.isFunction(a)||$.isPlainObject(a)?a:{top:a,left:a}}var p=$.scrollTo=function(a,d,b){return $(window).scrollTo(a,d,b)};p.defaults={axis:"xy",duration:0,limit:!0};$.fn.scrollTo=function(a,d,b){"object"=== typeof d&&(b=d,d=0);"function"===typeof b&&(b={onAfter:b});"max"===a&&(a=9E9);b=$.extend({},p.defaults,b);d=d||b.duration;var u=b.queue&&1<b.axis.length;u&&(d/=2);b.offset=h(b.offset);b.over=h(b.over);return this.each(function(){function k(a){var k=$.extend({},b,{queue:!0,duration:d,complete:a&&function(){a.call(q,e,b)}});r.animate(f,k)}if(null!==a){var l=n(this),q=l?this.contentWindow||window:this,r=$(q),e=a,f={},t;switch(typeof e){case "number":case "string":if(/^([+-]=?)?\d+(\.\d+)?(px|%)?$/.test(e)){e= h(e);break}e=l?$(e):$(e,q);case "object":if(e.length===0)return;if(e.is||e.style)t=(e=$(e)).offset()}var v=$.isFunction(b.offset)&&b.offset(q,e)||b.offset;$.each(b.axis.split(""),function(a,c){var d="x"===c?"Left":"Top",m=d.toLowerCase(),g="scroll"+d,h=r[g](),n=p.max(q,c);t?(f[g]=t[m]+(l?0:h-r.offset()[m]),b.margin&&(f[g]-=parseInt(e.css("margin"+d),10)||0,f[g]-=parseInt(e.css("border"+d+"Width"),10)||0),f[g]+=v[m]||0,b.over[m]&&(f[g]+=e["x"===c?"width":"height"]()*b.over[m])):(d=e[m],f[g]=d.slice&& "%"===d.slice(-1)?parseFloat(d)/100*n:d);b.limit&&/^\d+$/.test(f[g])&&(f[g]=0>=f[g]?0:Math.min(f[g],n));!a&&1<b.axis.length&&(h===f[g]?f={}:u&&(k(b.onAfterFirst),f={}))});k(b.onAfter)}})};p.max=function(a,d){var b="x"===d?"Width":"Height",h="scroll"+b;if(!n(a))return a[h]-$(a)[b.toLowerCase()]();var b="client"+b,k=a.ownerDocument||a.document,l=k.documentElement,k=k.body;return Math.max(l[h],k[h])-Math.min(l[b],k[b])};$.Tween.propHooks.scrollLeft=$.Tween.propHooks.scrollTop={get:function(a){return $(a.elem)[a.prop]()}, set:function(a){var d=this.get(a);if(a.options.interrupt&&a._last&&a._last!==d)return $(a.elem).stop();var b=Math.round(a.now);d!==b&&($(a.elem)[a.prop](b),a._last=this.get(a))}};return p});
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'914ea2a42cf0d7a4',t:'MTc0MDA1NTk2Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+</body></html>

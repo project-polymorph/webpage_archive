@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title class="zh" style="display: none;">Resource Not Found - Error 404</title>
+    <title class="en" style="display: block;">Resource Not Found - Error 404</title>
+    <style>
+        body{margin:20px}
+        h1{margin:0}
+        .en {display: none;}
+    </style>
+    <script>
+        window.onload = function() {
+            var userLang = navigator.language || navigator.userLanguage;
+            if (!userLang.toLowerCase().startsWith('zh')) {
+                document.querySelectorAll('.zh').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.en').forEach(el => el.style.display = 'block');
+                document.documentElement.setAttribute('lang', 'en');
+                document.title = document.querySelector('title.en').textContent;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 class="zh" style="display: none;">错误404：资源未找到</h1>
+    <h1 class="en" style="display: block;">Error 404: Resource Not Found</h1>
+    <p class="zh" style="display: none;">您请求的资源不存在或已被移除，请确认您的地址是否正确。</p>
+    <p class="en" style="display: block;">The resource you requested does not exist or has been removed. Please confirm that your address is correct.</p>
+
+</body></html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<meta name="keywords" content="轻小说,txt小说,SF动漫,言情小说,玄幻小说,动漫轻小说,日本轻小说,免费小说">
+<meta name="description" content="提供最新最全的轻小说网站,言情小说,玄幻小说,网游小说,武侠小说,各类小说阅读,在线连载,页面清新,无眩杂广告,满足您的阅读需求">
+<title>药娘类（有刀，慎入）_火袋收藏_SF互动传媒网</title>
+<link href="/css/HD.css" rel="stylesheet" type="text/css">
+<script src="//pingjs.qq.com/h5/stats.js?v2.0.4" name="MTAH5" sid="500624013"></script><script src="/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="Reduction_top">
+<div class="wrap">
+<div class="Reduction_left" id="UserInfo">欢迎访问SF轻小说，请<a href="https://passport.sfacg.com/Login.aspx?ReturnUrl=https://p.sfacg.com/p/13677846/"> 登录</a> 或 <a href="https://passport.sfacg.com/Register.aspx">注册</a></div>
+<div class="Reduction_right"><a href="https://manhua.sfacg.com/">漫画</a>　<a href="https://book.sfacg.com/">小说</a>
+</div>
+</div>
+</div>
+
+<link href="https://book.sfacg.com/css/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://book.sfacg.com/js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript">
+    $().ready(function () {
+        var isLogin = "false";
+        var mutex = true;
+        $.ajax({
+            url: 'https://passport.sfacg.com/Ajax/GetLoginInfo.ashx',
+            dataType: 'jsonp',
+            jsonp: "callback",
+            success: function (json) {
+                isLogin = json[0].login;
+                if (json[0].login == "false")
+                {
+                    $("#UserInfo").html('欢迎访问SF轻小说，请<a href="https://passport.sfacg.com/Login.aspx?ReturnUrl=' + location.href + '"> 登录</a> 或 <a href="https://passport.sfacg.com/Register.aspx">注册</a>');
+                }
+                else {
+                    $("#UserInfo").html('您好，<a href="javascript:void(0)">' + json[0].nickname + '</a>　<a href="/u/' + json[0].name + '/">我的火袋</a>　<a href="https://passport.sfacg.com/LoginOut.aspx?ReturnUrl=' + location.href + '">退出</a>');
+                }
+            },
+            error: function (result, status) {
+            }
+        });
+
+        var pageSzie = getCookie("PocketPageSize");
+        if(pageSzie!=""){
+            $("#PageSize").val(pageSzie);
+        }
+
+        $("#PageSize").change(function(){
+            addCookie("PocketPageSize",$(this).val(),24*30);
+            location.href = location.href;
+        });
+
+        $("#EditPocketWindow").dialog({
+
+            bgiframe: true,
+
+            autoOpen: false,
+
+            width: 700,
+            modal: true,
+
+            buttons: {
+            }
+        });
+        $("#EditPocketWindow").dialog().parents(".ui-dialog").find(".ui-dialog-titlebar").remove();
+        $("#EditPocketWindow").attr("class", "Pop_pics");
+
+        $("#btCloseEPWindow").unbind("click").click(function () {
+            $("#EditPocketWindow").dialog('close');
+        });
+
+        $("#LoginWindow").dialog({
+
+            bgiframe: true,
+
+            autoOpen: false,
+
+            width: 700,
+            modal: true,
+
+            buttons: {
+            }
+        });
+        $("#LoginWindow").dialog().parents(".ui-dialog").find(".ui-dialog-titlebar").remove();
+        $("#LoginWindow").attr("class", "Pop_pics");
+
+        $("#NewPocketWindow").dialog({
+
+            bgiframe: true,
+
+            autoOpen: false,
+
+            width: 700,
+            modal: true,
+
+            buttons: {
+            }
+        });
+        $("#NewPocketWindow").dialog().parents(".ui-dialog").find(".ui-dialog-titlebar").remove();
+        $("#NewPocketWindow").attr("class", "Pop_pics");
+
+        $("#PocketWindow").dialog({
+
+            bgiframe: true,
+
+            autoOpen: false,
+
+            width: 700,
+            modal: true,
+
+            buttons: {
+            }
+        });
+        $("#PocketWindow").dialog().parents(".ui-dialog").find(".ui-dialog-titlebar").remove();
+        $("#PocketWindow").attr("class", "Pop_pics");
+
+        $("#CallEditPocket").click(function () {
+            if (!$("#EditPocketWindow").dialog("isOpen")) {
+                $("#EditPocketWindow").dialog("open");
+                $("#EditPocketWindow").attr("style", "padding:10px;width:680px;");
+
+                $("#btEditPocket").unbind("click").click(function () {
+                    if ($("#pName").val() == "") {
+                        alert("火袋名称不能为空");
+                        return;
+                    }
+                    if ($("#pName").val().length >30) {
+                        alert("火袋名称不能超过30个字符");
+                        return;
+                    }
+                    if ($("#pDesc").val().length > 120) {
+                        alert("火袋简介不能超过120个字符");
+                        return;
+                    }
+                    $.ajax({
+                        type: 'post',
+                        url: '/ajax/EditPocket.ashx',
+                        data: { op: 0,pid:13677846 ,pName: $("#pName").val(), pName: $("#pName").val(), pIntro: $("#pDesc").val() },
+                dataType: 'text',
+                cache: false,
+                success: function (info) {
+                    if(info=="1")
+                        alert("参数传递有误");
+                    else if(info=="2")
+                        alert("没有权限执行该操作");
+                    else if(info=="3")
+                        alert("火袋名称或者简介超过字数限制");
+                    else if(info=="0"){
+                        alert("编辑完成");
+                        $("#PInfo").next().html($("#pDesc").val());
+                    }
+                },
+                error: function (result, status) {
+                    alert("提交出错,请刷新后重试");
+                }
+            });
+                    $("#EditPocketWindow").dialog('close');
+                });
+            }
+        });
+
+        $("#DelPocket").click(function () {
+            if (confirm("确实要删除吗?删除火袋后其中收藏的作品记录都会删除")) {
+                $.ajax({
+                    type: 'post',
+                    url: '/ajax/EditPocket.ashx',
+                    data: { op: 1,pid:13677846  },
+                        dataType: 'text',
+                        cache: false,
+                        success: function (info) {
+                            if(info=="0")
+                            {
+                                alert("成功删除");
+                                location.href="/u/"+"D589DFF31920E5C1/";
+                            }
+                            if(info=="1")
+                                alert("参数传递有误");
+                            else if(info=="2")
+                                alert("没有权限执行该操作");
+                        },
+                        error: function (result, status) {
+                            alert("提交出错,请刷新后重试");
+                        }
+                    });
+                }
+        });
+
+        $("#SupportPocket").click(function () {
+            if(!CheckLogin())
+                return;
+            $.ajax({
+                type: 'post',
+                url: '/APP/API/BookSheet.ashx?op=support',
+                data: { typeid:13677846  },
+                    dataType: 'json',
+                    cache: false,
+                    success: function (info) {
+                        if(info.status==200){ //点赞成功
+                            alert("感谢您的推荐^^");
+                            $("#SupportPocket").next().html(parseInt($("#SupportPocket").next().html())+1);
+                        }
+                        else{
+                            alert(info.msg);
+                        }
+                    },
+                    error: function (result, status) {
+                        alert("提交出错,请刷新后重试");
+                    }
+            });
+        });
+
+        $("#NotRead").click(function () {
+            if(CheckLogin())
+                location.href="/p/"+13677846+"/noread/";
+        });
+
+        $("#AllContent").click(function () {
+            if(CheckLogin())
+                location.href="/p/"+13677846+"/";
+        });
+
+        $("[class='HD_content_comment cover']").mouseenter(function(){
+            if(mutex&&"False"=="True"){
+                mutex = false;
+                $(this).attr("style","background-color:#f3f3f3;");
+                $(this).find("span").eq(0).after('<span style="float:right;"><a href="javascript:void(0)">删除</a>&nbsp;&nbsp;</span>');
+                var entityID = $(this).attr("eid");
+                var block = $(this);
+                $(this).find("span").eq(1).unbind("click").click(function(){
+                    if(confirm("确认删除这个收藏吗?")){
+                        $.ajax({
+                            type: 'post',
+                            url: '/APP/API/BookSheet.ashx?op=rembook',
+                            data: { typeid:13677846,bookids:entityID  },
+                            dataType: 'json',
+                            cache: false,
+                            success: function (info) {
+                                if(info.status==200){ 
+                                    block.remove();
+                                }
+                                else{
+                                    alert(info.msg);
+                                }
+                            },
+                            error: function (result, status) {
+                                alert("提交出错,请刷新后重试");
+                            }
+                        });
+                    }
+                });
+            }
+        })
+
+        $("[class='HD_content_comment cover']").mouseleave(function(){
+            if("False"=="True"){
+                $(this).removeAttr("style");
+                mutex = true;
+                $(this).find("span").eq(1).remove();
+            }
+        })
+
+        $("[op='AddLink']").click(function(){
+            if(!CheckLogin())
+                return;
+            var eid = $(this).attr("eid");
+            var ptype = $(this).attr("pt");
+            $.ajax({
+                type: 'post',
+                url: '/APP/API/BookSheet.ashx?op=getlist',
+                data: { pocketType: ptype },
+                dataType: 'json',
+                cache: false,
+                success: function (json) {
+                    if(json.status==200){ //成功返回
+                        if(json.booksheets.length==0)//新火袋
+                        {
+                            if (!$("#NewPocketWindow").dialog("isOpen")) {
+                                $("#NewPocketWindow").dialog("open");
+
+                                $("#btCancelNewPocket").unbind("click").click(function () {
+                                    $("#NewPocketWindow").dialog('close');
+                                });
+                                $("#NewPocketWindow .submit_buttons").unbind("click").click(function(){
+                                    if($("#NewPocketWindow input[type='text']").val()=="输入新火袋名称（字数不能超过30个中文字符）"){
+                                        alert("请填写火袋名称");
+                                        $("#NewPocketWindow input[type='text']").val("");
+                                        return;
+                                    }
+                                    if($("#NewPocketWindow input[type='text']").val().length==0||$("#NewPocketWindow input[type='text']").val().length>30){
+                                        alert("火袋名称必须为1-30个字符之间");
+                                        return;
+                                    }
+                                    if($("#NewPocketWindow textarea").val().length>140){
+                                        alert("火袋简介必须在140字以内");
+                                    }
+                                    $.ajax({
+                                        type: 'post',
+                                        url: '/APP/API/BookSheet.ashx?op=add',
+                                        data: { name: encodeURIComponent($("#NewPocketWindow input[type='text']").val()), desc:encodeURIComponent($("#NewPocketWindow textarea").val()),pocketType: ptype },
+                                        dataType: 'json',
+                                        cache: false,
+                                        success: function (json) {
+                                            if (json.status == 200) { //成功返回火袋
+                                                //添加内容到火袋
+                                                $.ajax({
+                                                    type: 'post',
+                                                    url: '/APP/API/BookSheet.ashx?op=addbook',
+                                                    data: { bookid: eid, typeid: json.typeid,pocketType: ptype },
+                                                    dataType: 'json',
+                                                    cache: false,
+                                                    success: function (json) {
+                                                        if (json.status == 200) { //成功返回火袋
+                                                            alert("已收藏作品到火袋");
+                                                            $("#NewPocketWindow").dialog('close');
+                                                        }
+                                                        else {
+                                                            alert(json.msg);
+                                                        }
+                                                    },
+                                                    error: function (result, status) {
+                                                        alert("网络故障,数据载入出错.");
+                                                    }
+                                                });
+                                            }
+                                            else {
+                                                alert(json.msg);
+                                            }
+                                        },
+                                        error: function (result, status) {
+                                            alert("网络故障,数据载入出错.");
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                        else
+                        {
+                            if (!$("#PocketWindow").dialog("isOpen")) {
+                                $("#PocketWindow").dialog("open");
+                                //$("[name='rdo1']").eq(0).attr("checked","checked");
+                                //$("[name='rdo1']").eq(1).removeAttr("checked");
+                                if($("[name='rdo1']:checked").val()=="1"){
+                                    $("[name='rdo1']").eq(0).parent().next().next().hide();
+                                    $("[name='rdo1']").eq(0).parent().next().next().next().hide();
+                                    $("#PocketWindow input[type='text']").attr("disabled","disabled");
+                                }
+                                else{
+                                    $("[name='rdo1']").eq(0).parent().next().next().show();
+                                    $("[name='rdo1']").eq(0).parent().next().next().next().show();
+                                    $("#PocketWindow input[type='text']").removeAttr("disabled");
+                                }
+
+                                var options = "";
+                                for (var i = 0; i < json.booksheets.length; i++)
+                                    options += '<option value="' + json.booksheets[i].id + '">' + decodeURIComponent(json.booksheets[i].name) + '</option>';
+                                $("#PocketWindow select").html(options);
+
+                                $("#PocketWindow input[type='text']").focus(function(){
+                                    $("#PocketWindow input[type='text']").val("");
+                                });
+
+                                $("[name='rdo1']").click(function(){
+                                    if($(this).val()=="1"){
+                                        $(this).parent().next().next().hide();
+                                        $(this).parent().next().next().next().hide();
+                                        $("#PocketWindow input[type='text']").attr("disabled","disabled");
+                                    }
+                                    else{
+                                        $(this).parent().next().show();
+                                        $(this).parent().next().next().show();
+                                        $("#PocketWindow input[type='text']").removeAttr("disabled");
+                                    }
+                                });
+                                $("#PocketWindow .submit_buttons").unbind("click").click(function(){
+                                    if($("[name='rdo1']:checked").val()=="1") //添加到已有火袋
+                                    {
+                                        $.ajax({
+                                            type: 'post',
+                                            url: '/APP/API/BookSheet.ashx?op=addbook',
+                                            data: { bookid: eid, typeid: $("#PocketWindow select").val(),pocketType: ptype },
+                                            dataType: 'json',
+                                            cache: false,
+                                            success: function (json) {
+                                                if (json.status == 200) { //成功返回火袋
+                                                    alert("已收藏作品到火袋");
+                                                    $("#PocketWindow").dialog('close');
+                                                }
+                                                else {
+                                                    alert(json.msg);
+                                                }
+                                            },
+                                            error: function (result, status) {
+                                                alert("网络故障,数据载入出错.");
+                                            }
+                                        });
+                                    }
+                                    else //添加到新火袋
+                                    {
+                                        if($("#PocketWindow input[type='text']").val()=="输入新火袋名称（字数不能超过30个中文字符）"){
+                                            alert("请填写火袋名称");
+                                            $("#PocketWindow input[type='text']").val("");
+                                            return;
+                                        }
+                                        if($("#PocketWindow input[type='text']").val().length==0||$("#PocketWindow input[type='text']").val().length>30){
+                                            alert("火袋名称必须为1-30个字符之间");
+                                            return;
+                                        }
+                                        if($("#PocketWindow textarea").val().length>140){
+                                            alert("火袋简介必须在140字以内");
+                                        }
+                                        $.ajax({
+                                            type: 'post',
+                                            url: '/APP/API/BookSheet.ashx?op=add',
+                                            data: { name: encodeURIComponent($("#PocketWindow input[type='text']").val()), desc:encodeURIComponent($("#PocketWindow textarea").val()),pocketType: ptype },
+                                            dataType: 'json',
+                                            cache: false,
+                                            success: function (json) {
+                                                if (json.status == 200) { //成功返回火袋
+                                                    //添加内容到火袋
+                                                    $.ajax({
+                                                        type: 'post',
+                                                        url: '/APP/API/BookSheet.ashx?op=addbook',
+                                                        data: { bookid: eid, typeid: json.typeid,pocketType: ptype },
+                                                        dataType: 'json',
+                                                        cache: false,
+                                                        success: function (json) {
+                                                            if (json.status == 200) { //成功返回火袋
+                                                                alert("已收藏作品到火袋");
+                                                                $("#PocketWindow").dialog('close');
+                                                            }
+                                                            else {
+                                                                alert(json.msg);
+                                                            }
+                                                        },
+                                                        error: function (result, status) {
+                                                            alert("网络故障,数据载入出错.");
+                                                        }
+                                                    });
+                                                }
+                                                else {
+                                                    alert(json.msg);
+                                                }
+                                            },
+                                            error: function (result, status) {
+                                                alert("网络故障,数据载入出错.");
+                                            }
+                                        });
+                                    }
+                                });
+                                $("#btCancelPocket").unbind("click").click(function () {
+                                    $("#PocketWindow").dialog('close');
+                                });
+                            }
+                        }
+                    }
+                    else{
+                        alert(json.msg);
+                    }
+                },
+                error: function (result, status) {
+                    alert("提交出错,请刷新后重试");
+                }
+            });
+        });
+
+        function CheckLogin() {
+            if (isLogin == "true")
+                return true;
+            else//未登录弹出登陆框
+            {
+                if (!$("#LoginWindow").dialog("isOpen")) {
+                    $("#LoginWindow").dialog("open");
+                    $("#LoginErr").hide();
+                    $("#EmptyName").hide();
+                    $("#EmptyPassword").hide();
+                    $("#TryLogin").unbind("click").click(function () {
+                        $("#LoginErr").hide();
+                        $("#EmptyName").hide();
+                        $("#EmptyPassword").hide();
+                        if ($("#LoginName").val() == "") {
+                            $("#EmptyName").show();
+                            return;
+                        }
+                        if ($("#LoginPassword").val() == "") {
+                            $("#EmptyPassword").show();
+                            return;
+                        }
+                        $.ajax({
+                            url: 'https://passport.sfacg.com/Ajax/QuickLoginCross.ashx',
+                            data: { name: $("#LoginName").val(), password: $("#LoginPassword").val(), al: $("#AutoLogin").attr("checked") == "checked" },
+                            dataType: 'jsonp',
+                            jsonp: "callback",
+                            success: function (json) {
+                                isLogin = json[0].login;
+                                if (json[0].login == "false") //用户未登录
+                                {
+                                    $("#LoginErr").show();
+                                }
+                                else {
+                                    $("#LoginWindow").dialog('close');
+                                    location.href=location.href;
+                                }
+                            },
+                            error: function (result, status) {
+                            
+                            }
+                        });
+                    });
+                    $("#btCancelLogin").unbind("click").click(function () {
+                        $("#LoginWindow").dialog('close');
+                    });
+                }
+                return false;
+            }
+        }
+        $('#loading').ajaxStart(function () {
+            $(this).show();
+        }).ajaxStop(function () {
+            $(this).hide();
+        });
+
+        setTimeout(function () {
+        $.ajax({
+            type: 'post',
+            url: '/APP/API/BookSheet.ashx?op=addpocketview',
+            data: { pid:13677846 },
+            dataType: 'json',
+            cache: false,
+            global: false,
+            success: function (json) {
+                if (json.status == 200) {
+                }
+            },
+            error: function (result, status) {
+            }
+        });
+    }, 3000);
+
+    });
+    function addCookie(name, value, expiresHours) {
+        var cookieString = name + "=" + escape(value);
+        //判断是否设置过期时间
+        if (expiresHours > 0) {
+            var date = new Date();
+            date.setTime(date.getTime() + expiresHours * 3600 * 1000);
+            cookieString = cookieString + ";path=/;expires=" + date.toGMTString();
+        }
+        document.cookie = cookieString;
+    }
+
+    function getCookie(name) {
+        var strCookie = document.cookie;
+        var arrCookie = strCookie.split("; ");
+        for (var i = 0; i < arrCookie.length; i++) {
+            var arr = arrCookie[i].split("=");
+            if (arr[0] == name) return arr[1];
+        }
+        return "";
+    }
+</script>
+<div class="wrap">
+<h1 style="width:980px;">药娘类（有刀，慎入）</h1>
+<div class="wrap_left">
+<div class="content_left2" style="margin-top:0;">
+<ul class="content_comment" style="margin:0 0 10px 0;" id="PInfo">
+<li style="width:68px;"></li>
+<li style="width:660px;"><a href="/u/D589DFF31920E5C1">火袋首页</a>　<span style="color:#FF33cc"></span><br>
+创建时间: 2022/5/15;　最后修改时间: 2022/5/31</li>
+</ul>
+<span style="width:600px;line-height:22px;float:left;margin-bottom:10px;"> </span>
+<div class="clearer"></div>
+      <span style="float:right;margin:10px 0;"><a href="javascript:void(0)" class="small_submit_buttons" id="SupportPocket">推荐</a>　<label>0</label></span>
+
+<div class="clearer"></div>
+<ul class="content_Tab whitefont" style="float:left;width:500px;margin-top:30px;">
+
+  <li style="background-color: #666666;"><a href="javascript:void(0)">全部小说(5)</a></li>
+    <li><a href="javascript:void(0)" id="NotRead">我没看过的</a></li>
+
+</ul>
+<div class="clearer"></div>
+                        <ul class="content_comment cover" eid="296763">
+                    <li style="width:110px;height:110px;"><a href="https://book.sfacg.com/Novel/296763/" target="_blank"><img src="https://rs.sfacg.com/web/novel/images/NovelCover/Big/2020/09/96f30369-b034-484c-be96-34324269920c.jpg" width="80" height="100" border="0"></a></li>
+<li style="width:618px;"><span style="float:left;"><b><a href="https://book.sfacg.com/Novel/296763/" target="_blank">重新做自己</a></b></span><span style="float:right;"><a href="javascript:void(0)" op="AddLink" eid="296763" pt="2">+ 添加到火袋</a></span><br>
+作者：<a href="#">最后一月以后封Q</a> / 综合信息：<a href="#">9.3分(41人评分)</a><br>（夏风和夏静是伪兄妹，后面解释）
+夏风：“妹妹，我要跟你说一个小秘密，你不要告诉爸爸妈妈喔～ ”
+夏静：“姐，我答应你，到底是什么秘密啊？”
+ 夏风很不好意思的低着头说道：“我是一个哈哈，你还会喜欢我吗？”
+夏静摇头笑了一下，然后抱住夏风：……..
+重生妹控哈哈
+哈哈天赋党文
+  前面几章写的不太好，没有双引号请见谅，其实后面的章节都加上了双引号。</li>
+                    </ul>
+                <span class="broken_line"></span>
+                        <ul class="content_comment cover" eid="48251">
+                    <li style="width:110px;height:110px;"><a href="https://book.sfacg.com/Novel/48251/" target="_blank"><img src="https://rs.sfacg.com/web/novel/images/NovelCover/Big/2016/06/ffe2ae7b-d603-4c15-ad76-a030660ae7fa.jpg" width="80" height="100" border="0"></a></li>
+<li style="width:618px;"><span style="float:left;"><b><a href="https://book.sfacg.com/Novel/48251/" target="_blank">想要变成鹰的鱼</a></b></span><span style="float:right;"><a href="javascript:void(0)" op="AddLink" eid="48251" pt="2">+ 添加到火袋</a></span><br>
+作者：<a href="#">乱世银娘</a> / 综合信息：<a href="#">9.3分(1477人评分)</a><br>——不愿意承认自己是男孩子的事实，而使用药物让自己变得更像女孩子一些的她们，似乎是在朝着梦想前进，却又更像是在自我麻醉。
+  『梦，终将会醒，那灰色而朦胧的天空，也终是要面对……』
+  「银娘の樱花庄园：621144287」
+  新书《女儿心》已发出，日常传统都市变文。</li>
+                    </ul>
+                <span class="broken_line"></span>
+                        <ul class="content_comment cover" eid="83980">
+                    <li style="width:110px;height:110px;"><a href="https://book.sfacg.com/Novel/83980/" target="_blank"><img src="https://rs.sfacg.com/web/novel/images/NovelCover/Big/2017/07/415025ca-045a-4ea8-995d-a6615f54de2f.jpg" width="80" height="100" border="0"></a></li>
+<li style="width:618px;"><span style="float:left;"><b><a href="https://book.sfacg.com/Novel/83980/" target="_blank">药娘的本愿</a></b></span><span style="float:right;"><a href="javascript:void(0)" op="AddLink" eid="83980" pt="2">+ 添加到火袋</a></span><br>
+作者：<a href="#">生命的弱音姐姐</a> / 综合信息：<a href="#">8.4分(36人评分)</a><br>四个伪娘与药娘，走在人世的艰辛之旅</li>
+                    </ul>
+                <span class="broken_line"></span>
+                        <ul class="content_comment cover" eid="67490">
+                    <li style="width:110px;height:110px;"><a href="https://book.sfacg.com/Novel/67490/" target="_blank"><img src="https://rs.sfacg.com/web/novel/images/NovelCover/Big/2017/02/8188b4a2-6b19-4995-895f-b685496f4fda.jpg" width="80" height="100" border="0"></a></li>
+<li style="width:618px;"><span style="float:left;"><b><a href="https://book.sfacg.com/Novel/67490/" target="_blank">药娘的爱情</a></b></span><span style="float:right;"><a href="javascript:void(0)" op="AddLink" eid="67490" pt="2">+ 添加到火袋</a></span><br>
+作者：<a href="#">Secret绘梨</a> / 综合信息：<a href="#">9.3分(44人评分)</a><br>    药娘就该被歧视吗？ 就不能拥有爱情吗？
+  这是讲述一个想做女孩子的男孩子的故事。也是一个药娘的故事。
+ </li>
+                    </ul>
+                <span class="broken_line"></span>
+                        <ul class="content_comment cover" eid="53573">
+                    <li style="width:110px;height:110px;"><a href="https://book.sfacg.com/Novel/53573/" target="_blank"><img src="https://rs.sfacg.com/web/novel/images/NovelCover/Big/2017/01/e955f01a-9e1d-436f-b695-5a40a0c923a8.jpg" width="80" height="100" border="0"></a></li>
+<li style="width:618px;"><span style="float:left;"><b><a href="https://book.sfacg.com/Novel/53573/" target="_blank">我是药娘</a></b></span><span style="float:right;"><a href="javascript:void(0)" op="AddLink" eid="53573" pt="2">+ 添加到火袋</a></span><br>
+作者：<a href="#">黑罪梵天</a> / 综合信息：<a href="#">9.6分(22人评分)</a><br>首先感谢这么多药娘盆友的支持了。这是一部药娘类的小说，内容很现实，或许会有些残酷。感同身受吧，希望大家喜欢。</li>
+                    </ul>
+                <span class="broken_line"></span>
+
+            <span class="broken_line"></span>
+
+        <div class="pagebar" style="margin-top: 20px;" id="APP">
+
+            <span class="pagebarCurrent">1</span>
+            每页显示　<select id="PageSize">
+  <option value="10">10</option>
+  <option value="20">20</option>
+  <option value="30">30</option>
+</select>　部作品
+        </div>
+
+
+</div>
+</div>
+<div class="wrap_right">
+<div class="content_right" style="margin-top:0;">
+<span style="font-size:14px;padding-bottom:20px;display: block;"><a href="/u/D589DFF31920E5C1/">返回作者火袋首页&gt;&gt;</a></span>
+<span class="content_title">TA的其他火袋</span>
+<span class="content_right_titleline"></span>
+
+<span style="line-height:28px;">
+         <a href="/p/13677864">变百</a><br>
+         <a href="/p/13677858">西幻（百合）</a><br>
+         <a href="/p/13677846">药娘类（有刀，慎入）</a><br>
+         <a href="/p/13435136">百合专栏～</a><br>
+         <a href="/p/13435130">病娇百合～</a><br>
+         <a href="/p/13412388">对话小说</a><br>
+         <a href="/p/13407651">声音/视频</a><br>
+         <a href="/p/13407203">漫画</a><br>
+         <a href="/p/13385744">未分类</a><br>
+</span>
+
+<span class="content_title">推荐火袋</span>
+<span class="content_right_titleline"></span>
+<span style="line-height:22px;">
+          <a href="/p/8308006/" target="_blank">百合火袋</a><br>
+(来自: <a href="/u/69952CA7C3382885/" target="_blank">CNTV</a>)<br>
+          <a href="/p/8309728/" target="_blank">百合最好，性转也行</a><br>
+(来自: <a href="/u/AB80129E711127D8/" target="_blank">百合赛高高高</a>)<br>
+          <a href="/p/8310410/" target="_blank">变身百合</a><br>
+(来自: <a href="/u/446FBDAA7B076116/" target="_blank">哈6666666</a>)<br>
+          <a href="/p/8311438/" target="_blank">百合收藏</a><br>
+(来自: <a href="/u/44194ED4D77DA535/" target="_blank">wsw1351456</a>)<br>
+          <a href="/p/237875/" target="_blank">二次元小说集</a><br>
+(来自: <a href="/u/5ECE995B02D353C8/" target="_blank">真白酱~</a>)<br>
+          <a href="/p/237372/" target="_blank">克蕾儿· 露裘</a><br>
+(来自: <a href="/u/7828ADDC5B7779DC/" target="_blank">l克蕾儿·露裘l</a>)<br>
+
+</span>
+</div>
+</div>
+
+
+
+
+
+
+<div id="loading" class="loading" style="display:none">
+<img src="/images/loading.gif">
+    </div>
+</div>
+<div class="content_bottom">
+<div class="content_bottom_line"></div>
+</div>
+<div id="TJ" style="position:absolute; width:0; height:0; overflow: hidden;">
+<script src="//w.cnzz.com/c.php?id=30013274" language="JavaScript" charset="gb2312"></script>
+<script src="//w.cnzz.com/c.php?id=30062359" language="JavaScript"></script>
+<script type="text/javascript">
+    var _mtac = {};
+    (function () {
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500624013");
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>
+</div>
+
+
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-EditPocketWindow" style="display: none; position: absolute; overflow: hidden; z-index: 1000; outline: 0px;"><div class="Pop_pics" style="padding: 10px; width: 680px;" id="EditPocketWindow">
+  <div class="Pop_up_box">
+    <ul class="Pop_up_box_menu">
+      <li style="width:614px;padding-left:20px;">编辑火袋</li>
+      <li><a href="javascript:void(0)" id="btCloseEPWindow">关闭</a></li>
+    </ul>
+    <div style="padding:10px 0 0 20px;;line-height:22px;">
+      <ul class="clearer2 font_red Voting_selector_box">
+        <li style="margin:10px 0 5px 0;">火袋名称（字数不能超过30个中文字符）：</li>
+        <li><input type="text" class="sf_input2" style="width:390px;" value="药娘类（有刀，慎入）" id="pName">
+        </li>
+        <li style="margin:8px 0 5px 0;">火袋简介（选填，字数不能超过120个中文字符）：</li>
+        <li>
+          <textarea name="textfield" class="sf_textbox" style="width:500px; height:100px;" id="pDesc">药娘类（有刀，慎入）</textarea>
+        </li>
+        <li style="margin:15px 0;"><a href="javascript:void(0)" class="submit_buttons" id="btEditPocket">确定提交</a></li>
+      </ul>
+    </div>
+  </div>
+</div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-LoginWindow" style="display: none; position: absolute; overflow: hidden; z-index: 1000; outline: 0px;"><div class="Pop_pics" id="LoginWindow" style="padding: 10px; width: 680px;">
+<div class="Pop_up_box">
+<ul class="Pop_up_box_menu">
+  <li style="width:614px;padding-left:20px;">网站登录</li>
+  <li><a href="javascript:void(0)" id="btCancelLogin">关闭</a></li>
+</ul>
+<div style="padding:10px 0 0 20px;;line-height:22px;">
+<ul class="clearer2 Voting_selector_box">
+<li style="margin:0 0 10px 0;font-size:14px;color:#333333;"><strong>您需要登录才能使用该功能</strong></li>
+<li style="margin:0 0 5px 0;"><span style="color:#bd0000;" id="LoginErr">用户名或密码不正确<br></span>用户名：</li>
+<li><input class="sf_input2" style="width:300px;" type="text" id="LoginName">　<span style="color:#bd0000;" id="EmptyName">用户名为空</span></li>
+<li style="margin:5px 0 5px 0;">密码：</li>
+<li><input class="sf_input2" style="width:300px;" type="password" id="LoginPassword">　<span style="color:#bd0000;" id="EmptyPassword">密码为空</span></li>
+<li style="margin-top:10px;"><input type="checkbox" id="AutoLogin"> 记住我的登录状态　|　<a href="https://passport.sfacg.com/FindPassword.aspx">忘记密码？</a></li>
+<li style="margin:15px 0;"><a href="javascript:void(0)" class="submit_buttons" id="TryLogin">确定登录</a>　<a href="https://passport.sfacg.com/Register.aspx">新用户注册</a></li>
+<li><strong>使用第三方账号登录：</strong><p>
+<a href="https://graph.qq.com/oauth2.0/authorize?client_id=101142681&amp;response_type=code&amp;redirect_uri=https://passport.sfacg.com/oauth/qq/authsuccess.ashx&amp;state=sf" target="_blank"><img src="https://passport.sfacg.com/images/QQ_Connect_logo.png" width="120" height="24" border="0"></a>　　<a href="https://api.weibo.com/oauth2/authorize?client_id=2836361557&amp;response_type=code&amp;redirect_uri=https://passport.sfacg.com/oauth/sina/authsuccess.ashx" target="_blank"><img src="https://passport.sfacg.com/images/sing_loginbtn_03.png" width="120" height="24"></a>　　<a href="https://www.facebook.com/dialog/oauth?client_id=314584345382224&amp;response_type=code&amp;redirect_uri=https://passport.sfacg.com/oauth/facebook/authsuccess.ashx&amp;state=sf" target="_blank"><img src="https://passport.sfacg.com/images/FB_Connect_logo.png" width="121" height="24"></a></p></li>
+</ul>
+</div>
+</div>
+</div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-NewPocketWindow" style="display: none; position: absolute; overflow: hidden; z-index: 1000; outline: 0px;"><div class="Pop_pics" style="padding: 10px; width: 680px;" id="NewPocketWindow">
+  <div class="Pop_up_box">
+    <ul class="Pop_up_box_menu">
+      <li style="width:614px;padding-left:20px;">添加到火袋</li>
+      <li><a href="javascript:void(0)" id="btCancelNewPocket">关闭</a></li>
+    </ul>
+    <div style="padding:10px 0 0 20px;;line-height:22px;">
+      <ul class="clearer2 font_red Voting_selector_box">
+        <li><strong>您暂时没有创建过任何火袋，请先创建火袋：</strong></li>
+        <li style="margin:10px 0 5px 0;">火袋名称（字数不能超过30个中文字符）：</li>
+        <li><input type="text" class="sf_input2" style="width:390px;" value="输入新火袋名称">
+        </li>
+        <li style="margin:8px 0 5px 0;">火袋简介（选填，字数不能超过140个中文字符）：</li>
+        <li>
+          <textarea name="textfield" class="sf_textbox" style="width:500px; height:100px;"></textarea>
+        </li>
+        <li style="margin:15px 0;"><a href="javascript:void(0)" class="submit_buttons">确定提交</a></li>
+        <li style="margin:15px 0;"><strong>什么是火袋........</strong><br>
+          火袋是个人基于某个特定主题的一系列推荐或收藏，比如"最棒的10部运动类漫画"，“后宫类纯爱轻小说”。
+          <br>
+          过于通泛和个人化的题目(比如"我最喜欢的漫画/小说")对别人的意义可能不大。 
+
+          <br>
+          <br>
+          除了特别无用(将以投票决定)的以外, 火袋将在被推荐的每一本书的介绍页里出现，以对别人的有用程度排序。
+          <br>
+          一个火袋包含的条目总数不超过<span style="color:#bd0000;">60</span>个。<br>
+          <br>
+ <span style="color:#bd0000;">收藏到火袋里的书如有内容更新，系统会自动提示您。</span></li>
+      </ul>
+    </div>
+  </div>
+</div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-PocketWindow" style="display: none; position: absolute; overflow: hidden; z-index: 1000; outline: 0px;"><div class="Pop_pics" style="padding: 10px; width: 680px;" id="PocketWindow">
+  <div class="Pop_up_box">
+    <ul class="Pop_up_box_menu">
+      <li style="width:614px;padding-left:20px;">添加到火袋</li>
+      <li><a href="javascript:void(0)" id="btCancelPocket">关闭</a></li>
+    </ul>
+    <div style="padding:10px 0 0 20px;;line-height:22px;">
+      <ul class="clearer2 font_red Voting_selector_box">
+        <li><strong>选择火袋</strong></li>
+        <li style="margin:10px 0 5px 0;">
+          <input name="rdo1" type="radio" checked="checked" value="1">
+          　已有火袋　
+          <select name="select" size="1">
+            <option value="">载入中</option>
+                    </select>　          </li>
+		<li style="margin:20px 0 10px 0;"><input name="rdo1" type="radio" value="2">
+          　新建火袋　
+          <input name="text" type="text" class="sf_input2" style="width:404px;" value="输入新火袋名称（字数不能超过30个中文字符）">
+		</li>
+        <li style="margin-bottom:4px;">火袋简介（选填，字数不能超过140个中文字符）：</li>
+        <li>
+          <textarea name="textarea" class="sf_textbox" style="width:500px; height:100px;"></textarea>
+        </li>
+        <li style="margin:15px 0;"><a href="javascript:void(0)" class="submit_buttons">确定提交</a></li>
+        <li style="margin:15px 0;"><strong>什么是火袋........</strong><br>
+          火袋是个人基于某个特定主题的一系列推荐或收藏，比如"最棒的10部运动类漫画"，“后宫类纯爱轻小说”。
+          <br>
+          过于通泛和个人化的题目(比如"我最喜欢的漫画/小说")对别人的意义可能不大。 
+
+          <br>
+          <br>
+          除了特别无用(将以投票决定)的以外, 火袋将在被推荐的每一本书的介绍页里出现，以对别人的有用程度排序。
+          <br>
+          一个火袋包含的条目总数不超过<span style="color:#bd0000;">60</span>个。<br>
+          <br>
+ <span style="color:#bd0000;">收藏到火袋里的书如有内容更新，系统会自动提示您。</span></li>
+      </ul>
+    </div>
+  </div>
+</div></div></body></html>

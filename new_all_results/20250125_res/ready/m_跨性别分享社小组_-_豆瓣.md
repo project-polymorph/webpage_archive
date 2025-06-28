@@ -1,0 +1,61 @@
+# 跨性别分享社小组
+
+![跨性别分享社](https://img3.doubanio.com/view/group/sqxs/public/e3cf5b90c34e437.webp)
+
+创建于2018-08-06      组长：[dy.octa](https://www.douban.com/people/55839318/)      小组类型： 信息
+
+欢迎各类跨性别相关分享与交流：文献资料/过渡经历/经验/体验等，希望能在一个开放易获取的地方保存一些对后辈有帮助的资料。即日起交友类信息请发至集中贴，单开将被删除。与跨性别主题没有直接关联的内容（如仅讨论性取向、包括四爱在内的性生活偏好等），以及低质量或违反社区规定（如带有特定暗示意味）帖子也将被删除，且用户或将被移出小组。请自重。
+
+### 发言规则 2023-12-11 更新
+
+- 1. 本组内容限于跨性别相关经验、资料分享交流。仅与性取向、性生活、性偏好（包括四爱）相关的内容请不要发在本组内。
+- 2. 为维持版面秩序，请勿单开交友类贴。交友类信息请仅在集中贴内发布。
+- 3. 欢迎分享讨论跨性别相关科学知识和文献资料。讨论相关专业内容请给出可靠的参考资料，避免传播存在事实错误的信息；具体医疗事项请务必咨询医生。
+- 4. 请勿发布与药物交易有关信息。
+- 5. 请勿发布《社区指导原则》不允许的内容。为共同维护社区的良好氛围，请务必遵守发言规则。社区管理员将删除已发布的违规内容，并对发布者做出禁言、封禁、移出小组等相应处罚。
+    - 违反中国或豆瓣用户所在地法律法规的行为和内容；
+    - 针对种族、国家、民族、宗教、性别、年龄、地缘、性取向、生理特征的歧视和仇恨言论；
+    - 激进时政、意识形态方面的内容；
+    - 使用不雅词句、辱骂、骚扰他人或其他不友善的行为；
+    - 侵犯他人隐私的行为；
+    - 威胁他人或豆瓣用户的人身、财产等安全的行为；
+    - 滥用产品功能，破坏产品生态及氛围，如恶意攻击小组组长或管理员的正常管理行为等。
+
+小组标签：LGBT, 跨性别
+
+欢迎你来跨性别分享社小组
+
+组员你好，发言前请先了解本组最新的发言规则
+
+[全部](https://www.douban.com/group/642538/#tabs) | [文献资料](https://www.douban.com/group/642538/?tab=123890#tabs) | [体验分享](https://www.douban.com/group/642538/?tab=123892#tabs)
+
+## 最近讨论
+
+| 作者        | 主题                                                                           | 回复 | 最后回复     |
+|-------------|--------------------------------------------------------------------------------|------|--------------|
+| [dy.octa](https://www.douban.com/people/55839318/) | [交友类信息集中贴（23年12月~24年2月）](https://www.douban.com/group/topic/298906564/?_spm_id=NTU4MzkzMTg) | 9    | 2024-02-13   |
+| [dy.octa](https://www.douban.com/people/55839318/) | [WPATH跨性别和多元性别人群照护指南（第八版）中译本发布](https://www.douban.com/group/topic/298874397/?_spm_id=NTU4MzkzMTg) | 1    | 2023-12-10   |
+| [dy.octa](https://www.douban.com/people/55839318/) | [跨性别相关资料合集](https://www.douban.com/group/topic/298911687/?_spm_id=NTU4MzkzMTg) |      | 2023-12-08   |
+| [dy.octa](https://www.douban.com/people/55839318/) | [UCSF Guidelines译文发布](https://www.douban.com/group/topic/122071417/?_spm_id=NTU4MzkzMTg) | 2    | 2020-08-01   |
+| [，](https://www.douban.com/people/285808105/) | [MTF](https://www.douban.com/group/topic/316253323/?_spm_id=Mjg1ODA4MTA1) | 1    | 02-06 11:05  |
+| [dy.octa](https://www.douban.com/people/55839318/) | [交友类信息集中贴（25年1月～4月）](https://www.douban.com/group/topic/316146125/?_spm_id=NTU4MzkzMTg) | 4    | 01-30 21:13  |
+| [Frixel-09](https://www.douban.com/people/frixel09/) | [想问问关于非二元hrt](https://www.douban.com/group/topic/281537595/?_spm_id=MjY1NzI5MTQ0) | 12   | 01-27 07:36  |
+
+## 友情小组
+
+![性别认同&性取向探究自我研习所](https://img1.doubanio.com/view/group/sqxs/public/4c0fe1d29136470.webp)
+- [性别认同&性取向探究自我研习所](https://www.douban.com/group/Gender_identity/) (22130)
+
+![非二元性别](https://img3.doubanio.com/view/group/sqxs/public/0c43cbccc86ae17.webp)
+- [非二元性别](https://www.douban.com/group/729666/) (545)
+
+## 最近加入
+
+- [鱼籽](https://www.douban.com/people/286683763/)
+- [a_Chen](https://www.douban.com/people/206355716/)
+- [碧嗅](https://www.douban.com/people/gurlplzbeslay/)
+- [芦荟Duck白](https://www.douban.com/people/188736823/)
+- [XD](https://www.douban.com/people/286368960/)
+- [阿使](https://www.douban.com/people/186621933/)
+- [花很透明](https://www.douban.com/people/233777316/)
+- [我不要上學](https://www.douban.com/people/161281306/)

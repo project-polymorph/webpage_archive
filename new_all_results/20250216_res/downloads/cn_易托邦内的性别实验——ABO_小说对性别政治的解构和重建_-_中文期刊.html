@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>开放期刊系统</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content="开放期刊系统 2.4.7.0">
+    
+        <link rel="stylesheet" href="https://cn.usp-pl.com/lib/pkp/styles/pkp.css" type="text/css">
+    <link rel="stylesheet" href="https://cn.usp-pl.com/lib/pkp/styles/common.css" type="text/css">
+    <link rel="stylesheet" href="https://cn.usp-pl.com/styles/common.css" type="text/css">
+    <link rel="stylesheet" href="https://cn.usp-pl.com/styles/compiled.css" type="text/css">
+  <!--   <link rel="stylesheet" href="https://cn.usp-pl.com/lib/pkp/styles/skeleton.css" type="text/css" /> -->
+
+    <!-- Base Jquery -->
+            <script type="text/javascript">
+            <!--
+            // Provide a local fallback if the CDN cannot be reached
+            if (typeof google == 'undefined') {
+                document.write(unescape("%3Cscript src='https://cn.usp-pl.com/lib/pkp/js/lib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+                document.write(unescape("%3Cscript src='https://cn.usp-pl.com/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js' type='text/javascript'%3E%3C/script%3E"));
+            } else {
+                google.load("jquery", "1.4.4");
+                google.load("jqueryui", "1.8.6");
+            }
+            // -->
+            </script><script src="https://cn.usp-pl.com/lib/pkp/js/lib/jquery/jquery.min.js" type="text/javascript"></script><script src="https://cn.usp-pl.com/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js" type="text/javascript"></script>
+    
+    
+    
+    <link rel="stylesheet" href="https://cn.usp-pl.com/styles/sidebar.css" type="text/css">        <link rel="stylesheet" href="https://cn.usp-pl.com/styles/rightSidebar.css" type="text/css">                <link rel="stylesheet" href="https://cn.usp-pl.com/public/site/sitestyle.css" type="text/css">
+            <link rel="stylesheet" href="https://cn.usp-pl.com/plugins/blocks/languageToggle/styles/languageToggle.css" type="text/css">
+    
+    <!-- Default global locale keys for JavaScript -->
+    
+<script type="text/javascript">
+	jQuery.pkp = jQuery.pkp || { };
+	jQuery.pkp.locale = { };
+			
+				jQuery.pkp.locale.form_dataHasChanged = '这个表单的数据已经改变。继续吗？';
+	</script>
+    <!-- Compiled scripts -->
+            
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/lib/jquery/plugins/jquery.tag-it.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/lib/jquery/plugins/jquery.cookie.js"></script>
+
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/functions/fontController.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/functions/general.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/functions/jqueryValidatorI18n.js"></script>
+
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/classes/Helper.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/classes/ObjectProxy.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/classes/Handler.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/classes/linkAction/LinkActionRequest.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/classes/features/Feature.js"></script>
+
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/controllers/SiteHandler.js"></script><!-- Included only for namespace definition -->
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/controllers/UrlInDivHandler.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/controllers/AutocompleteHandler.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/controllers/ExtrasOnDemandHandler.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/controllers/form/FormHandler.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/controllers/form/AjaxFormHandler.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/controllers/form/ClientFormHandler.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/controllers/grid/GridHandler.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/controllers/linkAction/LinkActionHandler.js"></script>
+
+<script type="text/javascript" src="https://cn.usp-pl.com/js/pages/search/SearchFormHandler.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/js/statistics/ReportGeneratorFormHandler.js"></script>
+<script type="text/javascript" src="https://cn.usp-pl.com/plugins/generic/lucene/js/LuceneAutocompleteHandler.js"></script>
+
+<script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/lib/jquery/plugins/jquery.pkp.js"></script>       <!--  <script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/styles/aqua.js"></script> -->
+    <!-- Form validation -->
+    <script type="text/javascript" src="https://cn.usp-pl.com/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
+    <script type="text/javascript">
+        <!--
+        // initialise plugins
+        
+        $(function(){
+            jqueryValidatorI18n("https://cn.usp-pl.com", "zh_CN"); // include the appropriate validation localization
+            
+         
+        });
+        // -->
+        
+    </script>
+
+  <!--    -->
+    
+	<script type="text/javascript" src="https://cn.usp-pl.com/js/relatedItems.js"></script>
+	<script type="text/javascript" src="https://cn.usp-pl.com/js/inlinePdf.js"></script>
+	<script type="text/javascript" src="https://cn.usp-pl.com/js/pdfobject.js"></script>
+
+            
+                <script>
+                    $(function(){
+                         $('.notice-zone').animate({'height':'150px'},1000).delay(15000).animate({'height':'0px'},1000)
+                    })
+                </script>
+            
+    <script type="text/javascript" src="https://cn.usp-pl.com/js/layer/layer.js"></script><link rel="stylesheet" href="https://cn.usp-pl.com/js/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+	<script>
+	   
+		$(function(){
+			$('.file').click(function(){
+			var url=$(this).attr('href');
+			
+		//window.open(url,"_blank", "toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,status=no,width=1000px");
+				
+				//return false;
+			})
+		})
+		   
+	</script>
+</head>
+
+<body id="pkp-common-openJournalSystems">
+    <table width="100%" height="30" border="0" cellpadding="0" cellspacing="0" bgcolor="#003366">
+  <tbody><tr>
+    <td><table width="71%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td align="left" class="top-nav"><a href="/">首页</a><a href="http://cn.usp-pl.com/index.php/index/about">出版说明</a><a href="/">中文期刊</a><a href="http://www.usp-pl.com/book?lan=cn">中文图书</a><a href="http://www.usp-pl.com" target="_blank">环宇英文官网</a><a href="#" onclick="javascript:window.open('/public/journals/pay.html','_blank','width=870px,height=650px,titlebar=no,toolbar=no,status=no, menubar=no,location=no,channelmode=no,fullscreen=no,resizable=yes,scrollbars=yes');return false;">付款页面</a></td>
+  </tr>
+</tbody></table></td>
+  </tr>
+</tbody></table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="box-shadow:1px 1px 10px #ccc;">
+  <tbody><tr>
+    <td><table width="71%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td><div id="headerTitle">                  
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tbody><tr>
+<!--                         <td width="*" valign="bottom">
+                        <img src="https://cn.usp-pl.com/public/journals/70/pageHeaderLogoImage_zh_CN.gif" alt="页面投稿Logo" />       </td> -->
+                        <td width="100%">
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  <!--   <script src="menuScript.js"></script> -->
+<div class="row no_bm">
+    <div class="dark_menu sixteen columns">
+        <div id="menu">
+             <img class="logo" src="https://cn.usp-pl.com/public/site/logo.png" alt="">
+            <ul>
+                <li><a href="https://cn.usp-pl.com/index.php/kygl/index">首页</a></li>
+                <li><a href="https://cn.usp-pl.com/index.php/kygl/about">关于</a></li>
+
+               
+               
+                                    <li><a href="https://cn.usp-pl.com/index.php/kygl/issue/archive">文章</a></li>
+                                
+
+                 <li><a href="https://cn.usp-pl.com/index.php/kygl/announcement">公告</a></li>
+                                                            <li><a href="http://cn.usp-pl.com/index.php/kygl/about/editorialTeam">编辑团队</a></li>
+                                                                                <li><a href="http://cn.usp-pl.com/index.php/kygl/about/submissions#authorGuidelines">作者指南</a></li>
+                                                </ul>
+        </div>
+    </div>
+</div></td>
+                      </tr>
+                    </tbody></table>     
+          
+    </div></td>
+  </tr>
+</tbody></table></td>
+  
+</tr></tbody></table>
+<!--banner start-->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top:0px">
+  <tbody><tr>
+    <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td class="banner-zone"><font size="5">
+          <a href="" target="_blank">
+            <div class="banner-journal-title">科研管理</div>
+            <img style="width:100%" src="https://cn.usp-pl.com/public/site/new-banner.jpg" alt="banner"></a>
+    </font></td>
+  </tr>
+</tbody></table></td>
+  </tr>
+</tbody></table>
+<!--banner end-->
+<div id="body">
+	<div id="sidebar">
+							<div id="rightSidebar">
+				<div class="block" id="sidebarDevelopedBy">
+	<a class="blockTitle" href="http://pkp.sfu.ca/ojs/" id="developedBy">开放期刊系统</a>
+</div><div class="block" id="sidebarHelp">
+	<a class="blockTitle" href="javascript:openHelp('https://cn.usp-pl.com/index.php/kygl/help')">期刊帮助</a>
+</div><div class="block" id="sidebarUser">
+			<span class="blockTitle">用户</span>
+	
+						<form method="post" action="https://cn.usp-pl.com/index.php/kygl/login/signIn">
+				<table>
+					<tbody><tr>
+						<td><label for="sidebar-username">用户名</label></td>
+						<td><input type="text" id="sidebar-username" name="username" value="" size="12" maxlength="32" class="textField"></td>
+					</tr>
+					<tr>
+						<td><label for="sidebar-password">密码</label></td>
+						<td><input type="password" id="sidebar-password" name="password" value="" size="12" class="textField"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="checkbox" id="remember" name="remember" value="1"> <label for="remember">记住我</label></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="登录" class="button"></td>
+					</tr>
+				</tbody></table>
+			</form>
+			</div> <div class="block" id="notification">
+	<span class="blockTitle">通知</span>
+	<ul>
+					<li><a href="https://cn.usp-pl.com/index.php/kygl/notification">预览</a></li>
+			<li><a href="https://cn.usp-pl.com/index.php/kygl/notification/subscribeMailList">订阅</a></li>
+			</ul>
+</div>
+
+<div class="block" id="sidebarNavigation">
+	<span class="blockTitle">期刊内容</span>
+
+	<form id="simpleSearchForm" action="https://cn.usp-pl.com/index.php/kygl/search/search">
+		<table id="simpleSearchInput">
+			<tbody><tr>
+				<td>
+													<label for="simpleQuery">搜索 <br>
+					<input type="text" id="simpleQuery" name="simpleQuery" size="15" maxlength="255" value="" class="textField"></label>
+								</td>
+			</tr>
+			<tr>
+				<td><label for="searchField">
+				搜索范围
+				<br>
+				<select id="searchField" name="searchField" size="1" class="selectMenu">
+					<option label="全部" value="query">全部</option>
+<option label="作者" value="authors">作者</option>
+<option label="标题" value="title">标题</option>
+<option label="摘要" value="abstract">摘要</option>
+<option label="索引项目" value="indexTerms">索引项目</option>
+<option label="全文" value="galleyFullText">全文</option>
+
+				</select></label>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="搜索" class="button"></td>
+			</tr>
+		</tbody></table>
+	</form>
+
+	<br>
+
+		<span class="blockSubtitle">浏览</span>
+	<ul>
+		<li><a href="https://cn.usp-pl.com/index.php/kygl/issue/archive">通过刊期</a></li>
+		<li><a href="https://cn.usp-pl.com/index.php/kygl/search/authors">通过作者</a></li>
+		<li><a href="https://cn.usp-pl.com/index.php/kygl/search/titles">根据标题</a></li>
+		
+					<li><a href="https://cn.usp-pl.com/index.php/index">其他杂志</a></li>
+			<li><a href="https://cn.usp-pl.com/index.php/index/search/categories">类别</a></li>			</ul>
+	</div>
+
+<!-- Add javascript required for font sizer -->
+<script type="text/javascript">
+	<!--
+	$(function(){
+		fontSize("#sizer", "body", 9, 16, 32, ""); // Initialize the font sizer
+	});
+	// -->
+</script>
+
+<div class="block" id="sidebarFontSize" style="margin-bottom: 4px;">
+	<span class="blockTitle">字体大小</span>
+	<div id="sizer"><a href="javascript:void(0);" class="pkp_controllers_fontController_smallFont" title="Make font size smaller">Make font size smaller</a> <a href="javascript:void(0);" class="pkp_controllers_fontController_defaultFont" title="Make font size default">Make font size default</a> <a href="javascript:void(0);" class="pkp_controllers_fontController_largeFont" title="Make font size larger">Make font size larger</a> </div>
+</div>
+<br><div class="block" id="sidebarInformation">
+	<span class="blockTitle">消息</span>
+	<ul>
+		<li><a href="https://cn.usp-pl.com/index.php/kygl/information/readers">给读者</a></li>		<li><a href="https://cn.usp-pl.com/index.php/kygl/information/authors">作者</a></li>		<li><a href="https://cn.usp-pl.com/index.php/kygl/information/librarians">图书管理员</a></li>	</ul>
+</div>
+
+			</div>
+			</div>
+<div id="main">
+<div id="bigBG">
+<div id="breadcrumb">
+	<a href="http://cn.usp-pl.com">首页</a> &gt;
+			<a href="https://cn.usp-pl.com/index.php/kygl/article/view/51573" class="current">开放期刊系统</a></div>
+
+<hr class="thin">
+<div id="content">
+
+	<div id="topBar">
+					</div>
+		
+	<div id="articleTitle"><h3>易托邦内的性别实验——ABO 小说对性别政治的解构和重建</h3></div>
+	<div id="authorString">
+		
+		<em>冯 钰</em><br>
+		<em>广州新华学院</em>
+
+	</div>
+	<br>
+			<div id="articleAbstract">
+		<h4>摘要</h4>
+		<br>
+		<div>ABO小说最早集中于耽美领域，以腐女、同人女群体为核心的女性群体在相对自由的网络中寻找自我定位的同时，通过耽美创作去探讨性别对立的矛盾点，并通过性别实验的方式发出“去性别本质主义”的声音，要求解放男人和女人。[1]但随着这种网络文学的发展，ABO小说不再局限于耽美领域，<br>
+言情、百合等多个小说领域中也开始出现这种文学体裁，而女性群体在小说创作中的自我定位也开始发生变化，性别实验的场地、阵地都在随之扩大。</div>
+		<br>
+		</div>
+	
+			<div id="articleSubject">
+		<h4>关键词</h4>
+		<br>
+		<div>ABO；性别实验；网络女性主义</div>
+		<br>
+		</div>
+	
+					<!--PublishedArticle Object
+(
+    [_data] => Array
+        (
+            [publishedArticleId] => 51475
+            [issueId] => 805
+            [datePublished] => 2021-09-10 07:14:30
+            [seq] => 2
+            [accessStatus] => 0
+            [galleys] => Array
+                (
+                    [0] => ArticleGalley Object
+                        (
+                            [_data] => Array
+                                (
+                                    [id] => 51460
+                                    [submissionId] => 51573
+                                    [locale] => zh_CN
+                                    [fileId] => 102779
+                                    [label] => PDF
+                                    [fileStage] => 1
+                                    [sequence] => 0
+                                    [fileName] => 51573-102779-1-SM.pdf
+                                    [originalFileName] => 易托邦内的性别实验——ABO 小说对性别政治的解构和重建.pdf
+                                    [filetype] => application/pdf
+                                    [fileSize] => 320099
+                                    [dateModified] => 2021-09-10 14:38:30
+                                    [dateUploaded] => 2021-09-10 14:38:30
+                                    [excludeDoi] => 0
+                                )
+
+                            [_hasLoadableAdapters] => 
+                            [_metadataExtractionAdapters] => Array
+                                (
+                                )
+
+                            [_extractionAdaptersLoaded] => 
+                            [_metadataInjectionAdapters] => Array
+                                (
+                                )
+
+                            [_injectionAdaptersLoaded] => 
+                        )
+
+                )
+
+            [id] => 51573
+            [locale] => zh_CN
+            [userId] => 1
+            [journalId] => 70
+            [sectionId] => 70
+            [sectionTitle] => 论文
+            [sectionAbbrev] => ART
+            [language] => zh_CN
+            [citations] => [1]杨雅.同人女群体:“耽美”现象背后[J].中国青年研究,2006（07）:63-66.
+[2]罗晓东.青年女性耽美消费的研究视角及其意义反思[J].当代青年研究,2017（04）:103-109.
+[3]郑熙青.Alpha Beta Omega的性别政治——网络粉丝耽美写作中女性的自我探索与反思[J].中国图书评论,2015（11）:18-27.
+[4]闫文菲.耽美小说中的厌女情结[J].洛阳理工学院学报（社会科学版）,2015,30（05）:30-35.
+[5]王艳萍.耽美小说的“女性向”叙事和“厌女”倾向[J].北方文学,2018（21）:128-129.
+[6]中国互联网络信息中心（CNNIC）.第43次中国互联网络发展现状统计报告[R].2020年9月29日.
+[7]何一苇.女性主义的崛起还是男权结构的模仿:耽美文化的批判性思考[J].青年与社会,2019（03）:197-198.
+[8]杨玲.跨国文化流动中的耽美:从性别政治到世界想象.2013.
+[9]李昊,吴玉杰.女性文学异托邦建构的可能性——以"耽美文学"为例[J].当代文坛,2018（6）.
+
+            [dateSubmitted] => 2021-09-10 14:38:30
+            [lastModified] => 2021-09-10 07:14:21
+            [status] => 3
+            [submissionProgress] => 0
+            [currentRound] => 1
+            [submissionFileId] => 102779
+            [reviewFileId] => 102779
+            [fastTracked] => 0
+            [hideAuthor] => 0
+            [commentsStatus] => 0
+            [copyrightYear] => 2021
+            [licenseURL] => 
+            [pub-id::doi] => 10.18686/kygl.v3i9.51573
+            [pub-id::publisher-id] => 
+            [abstract] => Array
+                (
+                    [zh_CN] => ABO小说最早集中于耽美领域，以腐女、同人女群体为核心的女性群体在相对自由的网络中寻找自我定位的同时，通过耽美创作去探讨性别对立的矛盾点，并通过性别实验的方式发出“去性别本质主义”的声音，要求解放男人和女人。[1]但随着这种网络文学的发展，ABO小说不再局限于耽美领域，
+言情、百合等多个小说领域中也开始出现这种文学体裁，而女性群体在小说创作中的自我定位也开始发生变化，性别实验的场地、阵地都在随之扩大。
+                )
+
+            [cleanTitle] => Array
+                (
+                    [zh_CN] => 易托邦内的性别实验——ABO 小说对性别政治的解构和重建
+                )
+
+            [copyrightHolder] => Array
+                (
+                    [zh_CN] => kygl
+                )
+
+            [coverPageAltText] => Array
+                (
+                    [zh_CN] => 
+                )
+
+            [crossref::depositStatus] => Array
+                (
+                    [zh_CN] => submitted
+                )
+
+            [hideCoverPageAbstract] => Array
+                (
+                    [zh_CN] => 0
+                )
+
+            [hideCoverPageToc] => Array
+                (
+                    [zh_CN] => 0
+                )
+
+            [showCoverPage] => Array
+                (
+                    [zh_CN] => 0
+                )
+
+            [sponsor] => Array
+                (
+                    [zh_CN] => 
+                )
+
+            [subject] => Array
+                (
+                    [zh_CN] => ABO；性别实验；网络女性主义
+                )
+
+            [title] => Array
+                (
+                    [zh_CN] => 易托邦内的性别实验——ABO 小说对性别政治的解构和重建
+                )
+
+            [suppFiles] => Array
+                (
+                )
+
+        )
+
+    [_hasLoadableAdapters] => 1
+    [_metadataExtractionAdapters] => Array
+        (
+        )
+
+    [_extractionAdaptersLoaded] => 
+    [_metadataInjectionAdapters] => Array
+        (
+        )
+
+    [_injectionAdaptersLoaded] => 
+)
+1-->
+
+			<div id="articleFullText">
+		<h4>全文:</h4>
+									<a href="https://cn.usp-pl.com/index.php/kygl/article/view/51573/51460" class="file" target="_parent">PDF</a>
+														</div>
+		<br>
+	<br>
+			<div id="articleCitations">
+		<h4>参考</h4>
+		<br>
+		<div>
+							<p>[1]杨雅.同人女群体:“耽美”现象背后[J].中国青年研究,2006（07）:63-66.</p>
+							<p>[2]罗晓东.青年女性耽美消费的研究视角及其意义反思[J].当代青年研究,2017（04）:103-109.</p>
+							<p>[3]郑熙青.Alpha Beta Omega的性别政治——网络粉丝耽美写作中女性的自我探索与反思[J].中国图书评论,2015（11）:18-27.</p>
+							<p>[4]闫文菲.耽美小说中的厌女情结[J].洛阳理工学院学报（社会科学版）,2015,30（05）:30-35.</p>
+							<p>[5]王艳萍.耽美小说的“女性向”叙事和“厌女”倾向[J].北方文学,2018（21）:128-129.</p>
+							<p>[6]中国互联网络信息中心（CNNIC）.第43次中国互联网络发展现状统计报告[R].2020年9月29日.</p>
+							<p>[7]何一苇.女性主义的崛起还是男权结构的模仿:耽美文化的批判性思考[J].青年与社会,2019（03）:197-198.</p>
+							<p>[8]杨玲.跨国文化流动中的耽美:从性别政治到世界想象.2013.</p>
+							<p>[9]李昊,吴玉杰.女性文学异托邦建构的可能性——以"耽美文学"为例[J].当代文坛,2018（6）.</p>
+					</div>
+		<br>
+		</div>
+	
+							<br>
+		<br>
+		DOI: <a id="pub-id::doi" href="http://dx.doi.org/10.18686/kygl.v3i9.51573">http://dx.doi.org/10.18686/kygl.v3i9.51573</a>																				
+
+<div class="separator"></div>
+
+<h3>Refbacks</h3>
+
+<ul>
+				<li>当前没有refback。</li>
+	</ul>
+    <br><br>
+    <div id="pageFooter"><div id="sponsors"><h2><strong>合作支持单位</strong></h2><hr class="thin"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="50%"><ul><li><a href="http://gjjlb.chinawea.org.cn/">中国智慧工程研究会国际学术交流专业委员会</a></li><li><a href="http://cn.front-sci.com/site/index.php">新加坡前沿科学出版社</a></li><li><a href="http://enpress-publisher.com/" target="_blank">美国恩柏出版社</a></li><li><a href="http://www.zgcsjs.org.cn/" target="_blank">中国《城市建设》杂志社</a></li><li><a href="http://www.bbwpublisher.com/" target="_blank">澳大利亚百图出版社</a></li></ul></td><td width="50%"><ul><li><a href="http://www.whioce.com/" target="_blank">新加坡万仕出版社</a></li><li><a href="http://www.springcitypub.com" target="_top">北京春城教育出版物研究中心</a></li><li><a href="http://tangboscience.org/index.html" target="_blank">马来西亚唐博科学研究院</a></li><li>北京万象兴荣科技文化发展有限公司</li><li><a href="http://www.piscomed.com/" target="_blank">新加坡亿科出版社<br></a></li><li>春城(成都)文化传媒有限公司</li></ul></td></tr></tbody></table><hr class="thick"></div><div id="homeDatabase"><h2><strong>数据库合作单位</strong></h2><hr class="thin">&nbsp;<a href="http://print.front-sci.com" target="_blank"><img src="http://economics-journal.com/public/site/images/admin/data-center.jpg" alt="" height="30px"></a></div></div>
+
+</div><!-- content -->
+
+
+
+
+
+</div>
+</div>
+<!-- body -->
+</div>
+<!-- main -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="background:#003366">
+  <tbody><tr>
+    <td><table width="71%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td style="background:#003366">
+<font size="5">
+<div class="container" id="footer">
+    <div class="row footer_inside">
+        <div class="four columns" style="float:left ">
+            <h3>
+                
+        <img src="https://cn.usp-pl.com/public/site/logo-w.png" alt="banner">
+            </h3>
+            <div class="textwidget">环球科技出版有限公司于2011年6月在新加坡成立，面向全球。公司的核心业务是出版学术期刊和组织国际学术会议。</div>
+        </div>
+        <div class="four columns side-columes" style="float:left ">
+            <h3>环宇中文期刊</h3>
+            <div class="textwidget">
+                <ul>
+                    <li>
+                        <a target="_self" href="https://cn.usp-pl.com/index.php/kygl/index" style="color:#ffffff;"><i class="iconfont"></i>&nbsp;&nbsp;首页</a>
+                    </li>
+                    <li>
+                        <a target="_self" href="https://cn.usp-pl.com/index.php/kygl/about" style="color:#ffffff;"><i class="iconfont"></i>&nbsp;&nbsp;关于环宇</a>
+                    </li>
+                    <li>
+                        <a target="_self" href="https://cn.usp-pl.com/index.php/kygl/about/submissions#authorGuidelines" style="color:#ffffff;"><i class="iconfont"></i>&nbsp;&nbsp;作者介绍</a>
+                    </li>
+                    <li>
+                        <a target="_self" href="https://cn.usp-pl.com/index.php/kygl/announcement" style="color:#ffffff;"><i class="iconfont"></i>&nbsp;&nbsp;期刊公告</a>
+                    </li>
+                    <li>
+                        <a target="_self" href="https://cn.usp-pl.com/index.php/kygl/issue/current" style="color:#ffffff;"><i class="iconfont"></i>&nbsp;&nbsp;现刊</a>
+                    </li>
+                    <li>
+                        <a target="_self" href="https://cn.usp-pl.com/index.php/kygl/about/contact" style="color:#ffffff;"><i class="iconfont"></i>&nbsp;&nbsp;联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="four columns side-columes" style="float:left ">
+            <h3>友情链接</h3>
+            <div class="textwidget">
+                <img width="132" height="35" border="0" src="https://cn.usp-pl.com/public/site/OAlogo-USP.jpg" title="">
+                <a target="_blank" href="http://www.icmje.org"><img width="132" height="35" border="0" src="https://cn.usp-pl.com/public/site/ICMJE-usp.jpg" title=""></a>
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/"><img width="132" height="35" border="0" src="https://cn.usp-pl.com/public/site/CCBY-usp.jpg" title=""></a>
+                <a target="_blank" href="https://scholar.google.com"><img width="132" height="35" border="0" src="https://cn.usp-pl.com/public/site/google-scholar-usp.jpg" title=""></a>
+            </div>
+        </div>
+        <div class="four columns side-columes" style="float:left ">
+            <h3>联系环宇</h3>
+            <div class="textwidget">
+              环宇科学出版有限公司
+
+<br>
+                学术部<br>
+                <br>
+               <i class="iconfont" style="font-size:16px"></i> 73 upper Paya Lebar road #07-02B-03 
+
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;centro bianco Singapore 534818<br>
+                 <br>
+                <i class="iconfont" style="font-size:16px"></i> <a href="mailto:submission@usp-pl.com" style="color:#FFFFFF;">submission@usp-pl.com</a>
+            </div>
+        </div>
+    </div>
+</div>
+</font></td>
+  </tr>
+</tbody></table></td>
+  </tr>
+</tbody></table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="background:#000033">
+  <tbody><tr>
+    <td><table width="71%" border="0" align="center" cellpadding="0" cellspacing="0" style="background:#000033">
+  <tbody><tr>
+   <!--<td>
+
+           <div class="footer_btm" style="text-align:center;background:#000033 !important">
+        <div class="footer_btm_inner">
+            <div id="powered" style="width: 100%;text-align:center;" >
+                Copyright &copy; 2022 Universe Scientific Publishing. All rights reserved.
+            </div>
+            
+
+        </div>
+    </div>
+</td>-->
+  </tr>
+</tbody></table></td>
+  </tr>
+</tbody></table>
+
+<!-- Footer -->
+
+<!-- container -->
+
+
+</body></html>

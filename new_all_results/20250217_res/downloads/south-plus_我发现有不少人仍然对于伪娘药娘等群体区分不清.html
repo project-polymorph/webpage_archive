@@ -1,0 +1,980 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="phpwind,bbs,board,php,mysql,forums">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="//south-plus.net/">
+<title>我发现有不少人仍然对于伪娘药娘等群体区分不清茶馆 南+ South Plus - powered by Pu!mdHd</title>
+<script language="JavaScript" src="data/bbscache/face.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/5.8.1/css/all.min.css" type="text/css" rel="stylesheet">
+
+<!-- jQuery library -->
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js" type="application/javascript"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/twitter-bootstrap/4.3.1/js/bootstrap.min.js" type="application/javascript"></script>
+<!--css--><style type="text/css">
+body {font-family: Verdana;FONT-SIZE: 12px;MARGIN: 0;color: #000000;background: #ffffff;}
+img {border:0;}
+td {FONT-SIZE: 12px;}
+textarea,input,select{
+	font-family: Verdana;
+	font-size: 12px;
+	background-color: #ffffff;
+}
+div.quote{
+	margin:5px 5px;
+	border:1px dashed #dddddd;
+	padding:5px;
+	background:#FFFFFF;
+	line-height:normal;
+}
+a { TEXT-DECORATION: none;}
+a:hover{ color:#ff0000;text-decoration:none;}
+.smalltxt {font-family: Tahoma, Verdana; font-size: 12px;}
+.tpc_content { font-size: 13px;}
+.i_table {BORDER: #E7E3E7 1px solid;}
+.head{background-color: #E7E3E7;}
+@supports (-webkit-overflow-scrolling: touch) {
+    .pagination li input{
+      font-size: 11px !important;
+    }
+}
+/*Back to top start*/
+.cd-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-top-btn {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    bottom: 40px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    /* image replacement properties */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: rgba(255,120,120,0.8) url(/images/cd-top-arrow.svg) no-repeat center 50%;
+    border-radius: 100%;
+}
+.cd-top.cd-is-visible,
+.cd-top.cd-fade-out,
+.no-touch .cd-top:hover {
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+    -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+    /* the button becomes visible */
+    
+    visibility: visible;
+    opacity: 1;
+}
+.cd-top.cd-fade-out {
+    /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+    
+    opacity: 1;
+}
+.no-touch .cd-top:hover {
+    background-color: #888888;
+    opacity: 1;
+}
+@media only screen and (min-width: 768px) {
+    .cd-top-btn {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .cd-top-btn {
+        height: 60px;
+        width: 60px;
+        right: 30px;
+        bottom: 30px;
+    }
+}
+
+/* .modal-fullscreen */
+.modal-fullscreen {
+  background: transparent;
+}
+.modal-fullscreen .modal-content {
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.modal-backdrop.modal-backdrop-fullscreen {
+  background: rgb(237, 241, 242);
+}
+.modal-backdrop.modal-backdrop-fullscreen.in {
+  opacity: .97;
+  filter: alpha(opacity=97);
+}
+/* .modal-fullscreen size: we use Bootstrap media query breakpoints */
+
+.modal-fullscreen .modal-dialog {
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  overflow-y:hidden;
+}
+@media (min-width: 768px) {
+  .modal-fullscreen .modal-dialog {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-fullscreen .modal-dialog {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-fullscreen .modal-dialog {
+     width: 1170px;
+  }
+}
+.m-tool {
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: relative;
+    background-color: rgb(237, 241, 242);
+}
+
+.m-tool > .m-close {
+    position: absolute;
+    left: 2rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    color: #888888;
+}
+
+.m-tool > .m-tool-toolbar {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.m-tool-list > ul {
+    list-style: none;
+    padding: 0 2rem;
+    font-size: 1rem;
+    background-color: rgb(237, 241, 242);
+}
+
+.m-tool-list > ul > li {
+    height: 4rem;
+    line-height: 4rem;
+    border-bottom: 1px solid #E2E2E2;
+}
+.m-tool-title {
+    padding-top: 0.75rem;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #343a40;
+}
+/*Back to top end*/
+</style><!--css-->
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KYN9Z1NWGY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KYN9Z1NWGY');
+</script>
+<script>
+function showfaces(){
+	$('#showface').toggle(300);
+	path = 'smallface';
+	picpath = "images/post/smile/";
+	if($('#showface').html().trim() == ""){
+		for(var i in faces[path]){
+			var sid = faces[path][i];
+			var pic = document.createElement("img");
+			pic.style.margin = "3px";
+			pic.style.cursor = "pointer";
+			pic.id = sid;
+			pic.onclick = function(){addsmile(this.id);};
+			pic.src = picpath+face[sid][0];
+			pic.title = face[sid][1];
+			$('#showface').append(pic);
+		}
+	}
+	
+	return false;
+}
+
+function addsmile(NewCode){  
+	document.FORM.atc_content.value += ' [s:'+NewCode+'] ';
+}
+function setCookie(name,value,hours) {
+    var expires = "";
+    if (hours) {
+        var date = new Date();
+        date.setTime(date.getTime() + (hours*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {   
+    document.cookie = name+'=; Max-Age=-99999999;';  
+}
+$(function() {
+  if(getCookie('mobilever') == null){
+    setCookie('mobilever',1,6);
+  }
+});
+</script>
+<script>
+jQuery(function() {
+    if(getCookie('peacemaker') == null){
+        ajax.send('pw_ajax.php','action=getblocklist',function(){
+            var parser = new DOMParser;
+            if(ajax.request.responseText != ''){
+                var dom = parser.parseFromString(ajax.request.responseText,'text/html');
+                config = JSON.parse(dom.body.textContent);
+                SP_setValue('config', config);
+                SP_peacemaker();
+                setCookie('peacemaker',1,24);
+            } else {
+                SP_peacemaker();
+                setCookie('peacemaker',1,24);
+            }
+        });
+    }
+    else{
+        SP_peacemaker();
+    }
+});
+
+function SP_setValue(key, value){
+    var existingConfig = window.localStorage.getItem(key);
+    if(existingConfig != JSON.stringify(value)){
+        window.localStorage.setItem(key, JSON.stringify(value));
+        ajax.send('pw_ajax.php?action=updateblocklist','blocklistconfig='+JSON.stringify(value));
+    }
+}
+
+function SP_getValue(key){
+    return JSON.parse(window.localStorage.getItem(key));
+}
+
+function SP_peacemaker(){
+    var config = SP_getValue("config");
+
+    jQuery.each( config.blist, function( i, val ) {
+      //alert(i);
+      //alert(val.level.includes("topic"));
+      
+      if(val.level.includes("topic")){
+        $('.author_'+i).hide();
+        $('.author_'+i).next('br').remove();
+      }
+    });
+}
+</script>
+</head>
+<body vlink="#333333" link="#333333">
+<nav class="navbar navbar-light" style="height: 3rem; background: #FEFFFE; box-shadow: inset 0 -1px 0 0 #E2E2E2;">
+    <div class="container" style="width: 100%; padding-left: 0; padding-right: 0">
+        <div class="row" style="width: 100%; margin-right: 0; margin-left: 0;">
+            <div class="col-4" style="padding-left: 0"><div class="clickable" data-toggle="modal" data-target="#modal-nav">
+            <img src="/images/nav.png" style="height: 2rem;">
+        </div></div>
+            <div class="col-4" style="padding: 0;text-align: center;"><a href="simple/index.php?" class="navbar-brand" style="text-align: center;height:2.5rem;flex:1;margin-top: -0.25rem;cursor: pointer;"><img src="/images/m-logo-south-high.png" style="height: 100%;"></a></div>
+            <div class="col-4" style="padding-right: 0; text-align: right;padding-top: 0.3rem;"><span style="overflow: hidden;text-overflow: ellipsis;color: #FF7878 !important;font-size: 14px;">
+
+<a href="login.php" style="color: #FF7878 !important;">登录</a> | <a href="register.php" style="color: #FF7878 !important;">注册</a>
+
+            </span></div>
+        </div>
+    </div>
+</nav>
+<div class="modal modal-fullscreen fade" id="modal-nav" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:rgb(237, 241, 242);">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" style="margin: auto;width:100%;">
+                <div class="m-tool">
+                    <span class="m-close clickable"><i class="fa fa-times" aria-hidden="true" data-toggle="modal" data-target="#modal-nav"></i></span>
+                    <div class="m-tool-title">
+                        桌面版导航
+                    </div>
+                    <div class="m-tool-list">
+                        <ul>
+                            <li><a href="/search.php" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">搜索</a></li>
+                            <li><a href="/plugin.php?H_name-tasks.html" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">社区论坛任务</a></li>
+                            <li><a href="javascript:setCookie('mobilever',1,720);alert('设置成功！30天内不会自动跳转移动版。');" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">停止自动跳转移动版</a></li>
+                            <li><a href="/" class="link" style="background: rgb(237, 241, 242); color: #343a40; display: initial; padding: 0;">桌面版首页</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script language="JavaScript">
+function CopyCode(obj){
+	var js = document.body.createTextRange();
+	js.moveToElementText(obj);
+	js.select(); 
+	js.execCommand("Copy");
+}
+function postreply(txt) {
+	if (typeof document.FORM != "undefined") {
+		document.FORM.atc_title.value = txt;
+		document.FORM.atc_content.focus();
+	} else {
+		window.location = 'post.php?action=reply&fid='+fid+'&tid='+tid;
+	}
+}
+</script>
+<style type="text/css">
+.card img{
+	max-width: 100%;
+    height: auto;
+}
+.blockquote {
+    font-size: 12px;
+    border: 1px solid #eeeeee;
+    background: #f8f8f8;
+    border-left-width: 3px;
+    margin: 0 0 1%;
+    color: #736933;
+}
+.pagination a{
+  color: #888;
+}
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #FF7878;
+    border-color: #FF7878;
+}
+.jumbotron select {
+    padding: 5px;
+    margin: 10px 0;
+}
+.jumbotron {
+    padding: 1rem 1rem; 
+}
+.nopadding-right {
+   padding-right: 0 !important;
+   margin-right: 0 !important;
+}
+.nopadding-left {
+   padding-left: 0 !important;
+   margin-left: 0 !important;
+}
+@media (min-width: 576px){
+.jumbotron {
+    padding: 1rem 1rem; 
+}
+}
+</style>
+
+<nav class="navbar navbar-light bg-light" style="font-size: 14px; display: block;box-shadow: inset 0 -1px 0 0 #E2E2E2;">
+  <a href="simple/index.php?" style="color: #FF7878">南+ South Plus </a> <i class="fas fa-chevron-right" style="color: #999999; font-size: 12px;"></i> <a href="simple/index.php?f9.html" style="color: #FF7878">茶馆</a> <i class="fas fa-chevron-right" style="color: #999999; font-size: 12px;"></i> <span style="color: #444444">我发现有不少人仍然对于伪娘药娘等群体区分不清</span>
+</nav>
+<div class="container">
+<div class="text-center"><br><a href="https://segucrwj.taobao.com/" onclick="ga('send', 'event', 'mobile', 'clicked', 'ad');"><img src="/images/mobileads021.jpg" class="img-fluid" alt="Responsive image"></a></div>
+<p></p><center><ul class="pagination" style="justify-content: center;"><li class="page-item"><a href="simple/index.php?t1318125_1.html" class="page-link"><span aria-hidden="true">«</span></a></li><li class="page-item active"><b class="page-link">1</b></li><li class="page-item"><a class="page-link" href="simple/index.php?t1318125_2.html">2</a></li><li class="page-item"><input type="text" size="2" placeholder="跳转" class="page-link " style="border-radius:0;width:3.25rem;-webkit-appearance: none;
+" onkeydown="javascript: if(window.event.keyCode==13) window.location='/simple/index.php?t1318125_'+this.value+'.html';"></li><li class="page-item"><a class="page-link" href="simple/index.php?t1318125_2.html"><span aria-hidden="true">»</span></a></li></ul></center><p></p>
+
+
+<div class="card author_931918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=931918" target="_blank"><strong>唧唧复鸡鸡</strong></a> - 2021-11-16 16:02
+			<span class="float-right">[GF]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+
+
+刚刚看了茶馆里的帖子，很多人会有女装=伪娘这种固有印象，甚至把伪娘当做性别认知障碍的。<br>&nbsp;&nbsp;严格意义上来说，穿女装和我们所看到的那些推特伪娘有很大区别，穿女装的人不是伪娘，而是“图一乐”或者是“博眼球”的一种做法而已，很多时候不愿意在公众场合穿女装。而伪娘是更进一步，会尽可能把自己打扮的像女孩子，会化妆，会束腰会戴义乳之类的，他们也不会介意自己在公众场合穿着女装露面。综上二者性别认知都是正常的男生，只是勇气和心态上的区别。<br>&nbsp;&nbsp;再后面就是很多人提到的性别认知障碍群体，这个群体的人一般是药娘或者变性人（药娘某种意义上接近扶她，靠药物获得女性性征同时也保留男性性征），他们就是弱势群体，药娘因长期服用药物极易患上心理疾病，而变性人由于性别变更难以被社会接受和承认，二者倾向与拥有女性的身体和过女性的生活，前者往往是一些学生年纪的男生，而后者则更多是已经成年并且有独立生活能力的青年。<br>&nbsp;&nbsp;还有就是人妖，人妖是从小就服用药物长大的男生，而且本身不一定像药娘和变性人一样向往女性的身体和生活，我们经常能听到人妖的地方基本上都是什么表演啊比赛啊可以说就是为了钱而诞生的东西。<br>&nbsp;&nbsp;以上是我这几年来看到的知识结合百科得出的说法，不少是出于自身想法而说的，如果有问题的地方可能是我思考方向不同。<br><br> <img src="images/post/smile/smallface/face020.jpg" loading="lazy">几年前B站还有个专访变性人变性前后的生活的纪录片，可惜好像被删了
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 楼主(唧唧复鸡鸡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_931918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=931918" target="_blank"><strong>唧唧复鸡鸡</strong></a> - 2021-11-16 16:08
+			<span class="float-right">[B1F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face070.gif" loading="lazy"> 另外多说一句，不要说喜欢伪娘又自称还是直男，伪娘再怎么化妆像女孩子他们本身的认知和普通男孩没区别，那种想被肛的伪娘就单纯的是gay而已，女装只是借口
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 1楼(唧唧复鸡鸡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_732436">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=732436" target="_blank"><strong>朔月美游的野爹</strong></a> - 2021-11-16 16:13
+			<span class="float-right">[B2F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<span style="color:black;background-color:#ffff66">用户被禁言,该主题自动屏蔽!</span>
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 2楼(朔月美游的野爹) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_904009">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=904009" target="_blank"><strong>高冷御姐控</strong></a> - 2021-11-16 16:34
+			<span class="float-right">[B3F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+还有连扶她伪娘都分不清楚的。<br><br>可爱的男孩子必须有吉吉，没有隆胸。其他的都滚出。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 3楼(高冷御姐控) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_931918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=931918" target="_blank"><strong>唧唧复鸡鸡</strong></a> - 2021-11-16 16:36
+			<span class="float-right">[B4F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face113.jpg" loading="lazy"> 近年来由于国内二次元文化的兴起，女装更是已经成为一种娱乐了，平台主播多少粉女装啊，打赌输了的人女装啊什么的，大家都不会太认真去对待的。<br>&nbsp;&nbsp;&nbsp;&nbsp; 喜欢伪娘也好，讨厌伪娘也罢，这都是一些小众的东西，真没必要拉上台比较 <img src="images/post/smile/smallface/face091.gif" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 4楼(唧唧复鸡鸡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_879615">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=879615" target="_blank"><strong>雨打胸衣乳留香</strong></a> - 2021-11-16 17:26
+			<span class="float-right">[B5F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+再讲讲什么是扶她呗
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 5楼(雨打胸衣乳留香) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_745134">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=745134" target="_blank"><strong>熔炉残渣</strong></a> - 2021-11-16 17:32
+			<span class="float-right">[B6F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+还有其实有一些“伪娘”习惯称自己是CD，corssdresser，就是单纯的变装者。<br>比如我自己，因为我觉得我没有“伪娘”那个级别的好看 <img src="images/post/smile/smallface/face003.jpg" loading="lazy"> <br>这个架构里是有ZN，直男的，指那种喜欢CD但是自己不会去变装的男性。<br>还有TS，transexual，已经做了手术的<br><br>我很讨厌以穿女装做噱头博眼球的人....
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 6楼(熔炉残渣) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_38307">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=38307" target="_blank"><strong>量却</strong></a> - 2021-11-16 17:32
+			<span class="float-right">[B7F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+看伪娘小说搜出来一堆双性的 <img src="images/post/smile/smallface/face108.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 7楼(量却) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_573558">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=573558" target="_blank"><strong>橘南枳北</strong></a> - 2021-11-16 19:43
+			<span class="float-right">[B8F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face076.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 8楼(橘南枳北) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_778416">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=778416" target="_blank"><strong>绅士补丁</strong></a> - 2021-11-16 19:45
+			<span class="float-right">[B9F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face027.jpg" loading="lazy"> 变性的都直接噶鸡鸡了 不服都不行
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 9楼(绅士补丁) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_931918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=931918" target="_blank"><strong>唧唧复鸡鸡</strong></a> - 2021-11-16 21:46
+			<span class="float-right">[B10F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+扶她比较复杂一点，首先二次元和三次元的扶她不太一样，二次元扶她多数是女性长dio，而三次元扶她更多是男性长奶子。如我上面说的，三次元扶她和药娘息息相关，而二次元扶她 <img src="images/post/smile/smallface/face070.gif" loading="lazy"> 说变就变。<br>三次元扶她还有一个更复杂的，即两性人，自胚胎发育起就是性别畸形，过多的自己去百度两性人好了，总之打娘胎里就是不男不女（从性征上看），由此三次元扶她往往性功能都不完整，而二次元扶她一个不缺 <img src="images/post/smile/smallface/face095.gif" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 10楼(唧唧复鸡鸡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_931918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=931918" target="_blank"><strong>唧唧复鸡鸡</strong></a> - 2021-11-16 21:49
+			<span class="float-right">[B11F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+不仅噶鸡儿，还装了批 <img src="images/post/smile/smallface/face084.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 11楼(唧唧复鸡鸡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_931918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=931918" target="_blank"><strong>唧唧复鸡鸡</strong></a> - 2021-11-16 21:59
+			<span class="float-right">[B12F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+现在女装或多或少都已经成了"博眼球"的代名词了，就是因为很多人那这个当噱头吸引流量，也就造成一些本来中立的人对女装者更为反感。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 12楼(唧唧复鸡鸡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_931918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=931918" target="_blank"><strong>唧唧复鸡鸡</strong></a> - 2021-11-16 22:20
+			<span class="float-right">[B13F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+我本身也是女装者，但是我不爱用CD自称（这个词不少人不懂什么意思），女装者本应是小范围里的东西（我只会在群里发点女装满足一些群友需求），群里有不少人都不喜欢伪娘这类穿女装的人的，但是他们都知道我不是那种哗众取宠的人（我天天发色图），但是也见到过想女装博眼球的人，甚至不惜盗图（为什么我知道是盗图，因为他发的女装图就是我的） <img src="images/post/smile/smallface/face096.jpg" loading="lazy"> <br>偶尔的女装能帮助一些人更好融入群体这点是不用质疑的，用女装博眼球赚流量的人脑子多少也是有些问题的 <img src="images/post/smile/smallface/face103.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 13楼(唧唧复鸡鸡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_931918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=931918" target="_blank"><strong>唧唧复鸡鸡</strong></a> - 2021-11-16 23:20
+			<span class="float-right">[B14F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face057.jpg" loading="lazy"> 刚看到茶馆里又有人以偏概全直抨伪娘群体，我这扫盲贴没多少人看也就是会有那么多人会有对我上面提到的人存在固有偏见的原因
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 14楼(唧唧复鸡鸡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_745134">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=745134" target="_blank"><strong>熔炉残渣</strong></a> - 2021-11-17 09:34
+			<span class="float-right">[B15F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+然后还有那种女装直接搞坏事的阿。前天那个穿女装进女卫偷拍的。 <img src="images/post/smile/smallface/face003.jpg" loading="lazy"> 给我看麻了都...<br>风评还得在直线下降
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 15楼(熔炉残渣) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_745134">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=745134" target="_blank"><strong>熔炉残渣</strong></a> - 2021-11-17 09:43
+			<span class="float-right">[B16F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+重点突然变了，很突兀地就想看色图了哈哈哈哈 <img src="images/post/smile/smallface/face047.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 16楼(熔炉残渣) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1450126">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1450126" target="_blank"><strong>65cf2b3f</strong></a> - 2021-11-17 09:57
+			<span class="float-right">[B17F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+确实很多人分不清, 因为只顾着视觉上够不够刺激, 戳到他的XP了就是好东西
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 17楼(65cf2b3f) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_931918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=931918" target="_blank"><strong>唧唧复鸡鸡</strong></a> - 2021-11-17 14:05
+			<span class="float-right">[B18F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+也许会有男人不喜欢伪娘，但是没有男人能拒绝色图 <img src="images/post/smile/smallface/face111.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 18楼(唧唧复鸡鸡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1289769">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1289769" target="_blank"><strong>我妻虚彩</strong></a> - 2021-11-17 14:17
+			<span class="float-right">[B19F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+伪娘可以怀孕（认真）
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 19楼(我妻虚彩) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_745134">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=745134" target="_blank"><strong>熔炉残渣</strong></a> - 2021-11-17 15:12
+			<span class="float-right">[B20F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+伪娘色图那可是锦上添花 <img src="images/post/smile/smallface/face077.gif" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 20楼(熔炉残渣) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_307915">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=307915" target="_blank"><strong>永恒的旋律</strong></a> - 2021-11-18 00:03
+			<span class="float-right">[B21F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+GAY的定义有点含糊，虽然说喜欢同性的确是GAY，但是，没几个对伪娘有兴趣的，会对兄贵也有兴趣。。。绝大部分喜欢伪娘的，都是建立在漂亮的基础上，哪怕是博眼球的，恶搞的例外。<br>现实里的确有些长得女性化的男性，内心也是女性化，部分有勇气和能力的，还选择变性做女人，嗯，有点知名度的某人就是最好的例子！ <img src="images/post/smile/smallface/face020.jpg" loading="lazy"> <br>其实不管怎么说，或许，有人觉得他们有心里疾病，其实，现代人里，谁没心理疾病？只不过，方向不同而已，甚至，他们有勇气去正视自己的性向，咱们还没这个勇气去面对属于自己的困难呢 <img src="images/post/smile/smallface/face101.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 21楼(永恒的旋律) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_931918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=931918" target="_blank"><strong>唧唧复鸡鸡</strong></a> - 2021-11-18 01:56
+			<span class="float-right">[B22F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+其实也没说喜欢伪娘的才是gay，gay定义不就是男同性恋嘛，男同也没有规定俩男的是伪娘还是兄贵啥的&nbsp;&nbsp;<img src="images/post/smile/smallface/face106.gif" loading="lazy">（伪娘终究是男人） ，6楼也提到有些确实只是喜欢漂亮伪娘的外貌身材，性取向都是正常的。<br>至于变性人，本身变性这件事就是没有什么争论的，只要能认清承担变性的后果其他的事情就和变性行为没有关系了，问题主要还是社会认同使得变性人比一般人要遭受更多的歧视。
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 22楼(唧唧复鸡鸡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1500252">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1500252" target="_blank"><strong>c26cc622</strong></a> - 2021-11-18 01:56
+			<span class="float-right">[B23F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+<img src="images/post/smile/smallface/face040.jpg" loading="lazy"> 嘿嘿
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 23楼(c26cc622) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_827828">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=827828" target="_blank"><strong>素人不相识</strong></a> - 2021-11-18 01:59
+			<span class="float-right">[B24F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+话说现在真的那么多伪娘药娘存在吗 <img src="images/post/smile/smallface/face108.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 24楼(素人不相识) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_931918">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=931918" target="_blank"><strong>唧唧复鸡鸡</strong></a> - 2021-11-18 02:03
+			<span class="float-right">[B25F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+伪娘应该不少，但是药娘明面上不多，暗地里就不知道了，不少药娘都是偷偷吃药，另外药娘为了买药卖皮炎子也见怪不怪了，还有就是一些gay为了掩饰自己而以伪娘的身份自称的 <img src="images/post/smile/smallface/face108.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 25楼(唧唧复鸡鸡) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_28089">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=28089" target="_blank"><strong>わ</strong></a> - 2021-11-18 02:11
+			<span class="float-right">[B26F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+其实就是饭圈化了 <img src="images/post/smile/smallface/face030.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 26楼(わ) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_253255">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=253255" target="_blank"><strong>4a9a8440</strong></a> - 2021-11-18 02:12
+			<span class="float-right">[B27F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+有的人是恋物癖，有的人是双偏同取向为了让男人接受去女装，甚至有的人完全不认为自己是男人
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 27楼(4a9a8440) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1310325">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1310325" target="_blank"><strong>kkjtcsm</strong></a> - 2021-11-18 02:21
+			<span class="float-right">[B28F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+贫乳控和恋物癖有转化为伪娘控的强烈机会
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 28楼(kkjtcsm) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_1481256">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=1481256" target="_blank"><strong>HARU</strong></a> - 2021-11-18 02:27
+			<span class="float-right">[B29F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+网上不少有根的都说自己是TS
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 29楼(HARU) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<div class="card author_745134">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted row" style="font-size: 13px;">
+        <div class="col-12">
+			<a style="color: #FF7878" href="u.php?action=show&amp;uid=745134" target="_blank"><strong>熔炉残渣</strong></a> - 2021-11-18 09:17
+			<span class="float-right">[B30F]</span><span>
+        </span></div>
+    </h6>
+    <div class="card-text" style="font-size: 16px;">
+
+我是觉得喜欢伪娘这个事儿还真不能算是Gay<br>Gay找对象绝大部分情况应该不会找看起来像姑娘的吧。那得是从有牛牛为前提来找的。<br>但伪娘能吸引到的对象，包含了很大一部分正常取向的男性，虽然再有很大一部分会因为有牛牛跑了。也就是说，他们用女性化的脸在吸引人，跑掉的那部分人是因为有牛牛不接受。而吸引到的那部分人又能分为两类，第一部分，有牛牛....也行吧，他好可爱。第二部分，有牛牛...那不是更好吗！<br>所以二者用来吸引对象的方式完全不同来着， 后者更像是魔改了女性吸引对象的方式<img src="images/post/smile/smallface/face047.jpg" loading="lazy">
+    </div>
+    <br><button type="button" class="btn btn-outline-secondary btn-sm" onclick="postreply('回 30楼(熔炉残渣) 的帖子');" style="margin-top: -5px;">回复</button>
+  </div>
+</div><br>
+
+<p></p><center><ul class="pagination" style="justify-content: center;"><li class="page-item"><a href="simple/index.php?t1318125_1.html" class="page-link"><span aria-hidden="true">«</span></a></li><li class="page-item active"><b class="page-link">1</b></li><li class="page-item"><a class="page-link" href="simple/index.php?t1318125_2.html">2</a></li><li class="page-item"><input type="text" size="2" placeholder="跳转" class="page-link " style="border-radius:0;width:3.25rem;-webkit-appearance: none;
+" onkeydown="javascript: if(window.event.keyCode==13) window.location='/simple/index.php?t1318125_'+this.value+'.html';"></li><li class="page-item"><a class="page-link" href="simple/index.php?t1318125_2.html"><span aria-hidden="true">»</span></a></li></ul></center><p></p>
+<form name="FORM" method="post" action="post.php?" enctype="multipart/form-data">
+<div class="form-group">
+<label style="font-size: 16px">回复</label>
+<input type="text" class="form-control" name="atc_title" value="Re:我发现有不少人仍然对于伪娘药娘等群体区分不清" size="65">
+<br>
+<textarea name="atc_content" rows="4" class="form-control" required=""></textarea> 
+<br>
+<input class="btn btn-danger" type="submit" name="Submit" value=" 提 交 ">
+<button class="btn btn-info" onclick="return showfaces();">&nbsp;表&nbsp;情&nbsp;</button><br><br>
+<div id="showface" style="background: rgb(255, 255, 255);overflow-y: auto; height: 200px; display: none">
+</div>
+</div>
+<input type="hidden" value="9" name="fid"> 
+<input type="hidden" value="1318125" name="tid"> 
+<input type="hidden" name="verify" value="0199e425">
+
+<input type="hidden" name="atc_autourl" value="1">
+<input type="hidden" name="atc_usesign" value="1">
+<input type="hidden" name="atc_convert" value="1">
+<input type="hidden" name="atc_money" value="0">
+<input type="hidden" name="atc_credittype" value="money">
+<input type="hidden" name="atc_rvrc" value="0">
+<input type="hidden" name="atc_enhidetype" value="rvrc">
+<input type="hidden" value="2" name="step"> 
+<input type="hidden" value="reply" name="action">
+<input type="hidden" value="" name="atc_desc1">
+<input type="hidden" name="att_special1" value="0">
+<input type="hidden" name="att_ctype1" value="money">
+<input type="hidden" name="atc_needrvrc1" value="0">
+<input type="hidden" name="simplepost" value="1">
+</form>
+<center><a href="read.php?tid=1318125" target="_blank" style="padding: 1rem;font-size: 16px;color: #555;"><i class="fas fa-desktop"></i> 桌面版</a></center>
+</div>
+
+
+<br><br>
+<center><small><font color="#999999">Powered by <a href="/" target="_blank"><b>SP Project</b></a> <b style="color:#FF9900">v1.0</b> © 2010-2019  <br>
+Time 0.007276 second(s),query:3 Gzip enabled<br><br></font></small>
+</center><br><a href="#0" class="cd-top cd-top-btn">Top</a>
+<script>
+$(function () {
+    InitBackToTop();
+});
+function InitBackToTop() {
+    if ($('.cd-top').length > 0) {
+        // browser window scroll (in pixels) after which the "back to top" link is shown
+        var offset = 300,
+        //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+        offset_opacity = 700,
+        //duration of the top scrolling animation (in ms)
+        scroll_top_duration = 700,
+        //grab the "back to top" link
+        back_to_top = $('.cd-top');
+        back_to_top_btn = $('.cd-top-btn');
+
+        //hide or show the "back to top" link
+        $(window).scroll(function () {
+            ($(this).scrollTop() > offset) ? back_to_top.addClass('cd-is-visible') : back_to_top.removeClass('cd-is-visible cd-fade-out');
+            if ($(this).scrollTop() > offset_opacity) {
+                back_to_top.addClass('cd-fade-out');
+            }
+        });
+
+        //smooth scroll to top
+        back_to_top_btn.on('click', function (event) {
+            event.preventDefault();
+            $('body,html').animate({
+                scrollTop: 0,
+            }, scroll_top_duration
+            );
+        });
+    }
+}
+;(function(f){"use strict";"function"===typeof define&&define.amd?define(["jquery"],f):"undefined"!==typeof module&&module.exports?module.exports=f(require("jquery")):f(jQuery)})(function($){"use strict";function n(a){return!a.nodeName||-1!==$.inArray(a.nodeName.toLowerCase(),["iframe","#document","html","body"])}function h(a){return $.isFunction(a)||$.isPlainObject(a)?a:{top:a,left:a}}var p=$.scrollTo=function(a,d,b){return $(window).scrollTo(a,d,b)};p.defaults={axis:"xy",duration:0,limit:!0};$.fn.scrollTo=function(a,d,b){"object"=== typeof d&&(b=d,d=0);"function"===typeof b&&(b={onAfter:b});"max"===a&&(a=9E9);b=$.extend({},p.defaults,b);d=d||b.duration;var u=b.queue&&1<b.axis.length;u&&(d/=2);b.offset=h(b.offset);b.over=h(b.over);return this.each(function(){function k(a){var k=$.extend({},b,{queue:!0,duration:d,complete:a&&function(){a.call(q,e,b)}});r.animate(f,k)}if(null!==a){var l=n(this),q=l?this.contentWindow||window:this,r=$(q),e=a,f={},t;switch(typeof e){case "number":case "string":if(/^([+-]=?)?\d+(\.\d+)?(px|%)?$/.test(e)){e= h(e);break}e=l?$(e):$(e,q);case "object":if(e.length===0)return;if(e.is||e.style)t=(e=$(e)).offset()}var v=$.isFunction(b.offset)&&b.offset(q,e)||b.offset;$.each(b.axis.split(""),function(a,c){var d="x"===c?"Left":"Top",m=d.toLowerCase(),g="scroll"+d,h=r[g](),n=p.max(q,c);t?(f[g]=t[m]+(l?0:h-r.offset()[m]),b.margin&&(f[g]-=parseInt(e.css("margin"+d),10)||0,f[g]-=parseInt(e.css("border"+d+"Width"),10)||0),f[g]+=v[m]||0,b.over[m]&&(f[g]+=e["x"===c?"width":"height"]()*b.over[m])):(d=e[m],f[g]=d.slice&& "%"===d.slice(-1)?parseFloat(d)/100*n:d);b.limit&&/^\d+$/.test(f[g])&&(f[g]=0>=f[g]?0:Math.min(f[g],n));!a&&1<b.axis.length&&(h===f[g]?f={}:u&&(k(b.onAfterFirst),f={}))});k(b.onAfter)}})};p.max=function(a,d){var b="x"===d?"Width":"Height",h="scroll"+b;if(!n(a))return a[h]-$(a)[b.toLowerCase()]();var b="client"+b,k=a.ownerDocument||a.document,l=k.documentElement,k=k.body;return Math.max(l[h],k[h])-Math.min(l[b],k[b])};$.Tween.propHooks.scrollLeft=$.Tween.propHooks.scrollTop={get:function(a){return $(a.elem)[a.prop]()}, set:function(a){var d=this.get(a);if(a.options.interrupt&&a._last&&a._last!==d)return $(a.elem).stop();var b=Math.round(a.now);d!==b&&($(a.elem)[a.prop](b),a._last=this.get(a))}};return p});
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91763f019913db7a',t:'MTc0MDQ3MTMxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+</body></html>

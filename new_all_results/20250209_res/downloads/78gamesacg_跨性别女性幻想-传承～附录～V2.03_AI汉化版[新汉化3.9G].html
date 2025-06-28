@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" class="swal2-shown swal2-height-auto" style="transform: none;"><head><style>@keyframes pulsate{0%,to{opacity:1}50%{opacity:.2}}#spotlight{position:fixed;top:-1px;bottom:-1px;width:100%;z-index:99999;color:#fff;background-color:#000;opacity:0;overflow:hidden;-webkit-user-select:none;-ms-user-select:none;user-select:none;transition:opacity .2s ease-out;font-family:Arial,sans-serif;font-size:16px;font-weight:400;contain:strict;touch-action:none;pointer-events:none}#spotlight.show{opacity:1;transition:none;pointer-events:auto}#spotlight.white{color:#212529;background-color:#fff}#spotlight.white .spl-next,#spotlight.white .spl-page~*,#spotlight.white .spl-prev,#spotlight.white .spl-spinner{filter:invert(1)}#spotlight.white .spl-progress{background-color:rgba(0,0,0,.35)}#spotlight.white .spl-footer,#spotlight.white .spl-header{background-color:rgba(255,255,255,.65)}#spotlight.white .spl-button{background:#212529;color:#fff}.spl-footer,.spl-header{background-color:rgba(0,0,0,.45)}#spotlight .contain,#spotlight .cover{object-fit:cover;height:100%;width:100%}#spotlight .contain{object-fit:contain}#spotlight .autofit{object-fit:none;width:auto;height:auto;max-height:none;max-width:none;transition:none}.spl-scene,.spl-spinner,.spl-track{width:100%;height:100%;position:absolute}.spl-track{contain:strict}.spl-spinner{background-position:center;background-repeat:no-repeat;background-size:42px;opacity:0}.spl-spinner.spin{background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzgiIGhlaWdodD0iMzgiIHZpZXdCb3g9IjAgMCAzOCAzOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmYiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMSAxKSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2Utb3BhY2l0eT0iLjY1Ij48Y2lyY2xlIHN0cm9rZS1vcGFjaXR5PSIuMTUiIGN4PSIxOCIgY3k9IjE4IiByPSIxOCIvPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOCI+PGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIGZyb209IjAgMTggMTgiIHRvPSIzNjAgMTggMTgiIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIi8+PC9wYXRoPjwvZz48L2c+PC9zdmc+);transition:opacity .2s linear .25s;opacity:1}.spl-spinner.error{background-image:url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMyIiB3aWR0aD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTYsMUExNSwxNSwwLDEsMCwzMSwxNiwxNSwxNSwwLDAsMCwxNiwxWm0wLDJhMTMsMTMsMCwwLDEsOC40NSwzLjE0TDYuMTQsMjQuNDVBMTMsMTMsMCwwLDEsMTYsM1ptMCwyNmExMywxMywwLDAsMS04LjQ1LTMuMTRMMjUuODYsNy41NUExMywxMywwLDAsMSwxNiwyOVoiIGlkPSJiYW5fc2lnbl9jcm9zc2VkX2NpcmNsZSIvPjwvc3ZnPg==);background-size:128px;transition:none;opacity:.5}.spl-scene{transition:transform .65s cubic-bezier(.1,1,.1,1);contain:layout size;will-change:transform}.spl-pane>*{position:absolute;width:auto;height:auto;max-width:100%;max-height:100%;left:50%;top:50%;margin:0;padding:0;border:0;transform:translate(-50%,-50%) scale(1);transition:transform .65s cubic-bezier(.3,1,.3,1),opacity .65s ease;contain:layout style;will-change:transform,opacity;visibility:hidden}.spl-header,.spl-pane,.spl-progress{position:absolute;top:0}.spl-pane{width:100%;height:100%;transition:transform .65s cubic-bezier(.3,1,.3,1);contain:layout size;will-change:transform,contents}.spl-header{width:100%;height:50px;text-align:right;transform:translateY(-100px);transition:transform .35s ease;overflow:hidden;will-change:transform}#spotlight.menu .spl-footer,#spotlight.menu .spl-header,.spl-footer:hover,.spl-header:hover{transform:translateY(0)}.spl-header div{display:inline-block;vertical-align:middle;white-space:nowrap;width:50px;height:50px;opacity:.5}.spl-progress{width:100%;height:3px;background-color:rgba(255,255,255,.45);transform:translateX(-100%);transition:transform linear}.spl-footer,.spl-next,.spl-prev{position:absolute;transition:transform .35s ease;will-change:transform}.spl-footer{left:0;right:0;bottom:0;line-height:20px;padding:20px 20px 0;padding-bottom:env(safe-area-inset-bottom,0);text-align:left;font-size:15px;font-weight:400;transform:translateY(100%)}.spl-title{font-size:22px}.spl-button,.spl-description,.spl-title{margin-bottom:20px}.spl-button{display:inline-block;background:#fff;color:#000;border-radius:5px;padding:10px 20px;cursor:pointer}.spl-next,.spl-page~*,.spl-prev{background-position:center;background-repeat:no-repeat}.spl-page{float:left;width:auto;line-height:50px}.spl-page~*{background-size:21px;float:right}.spl-fullscreen{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHZpZXdCb3g9Ii0xIC0xIDI2IDI2IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTggM0g1YTIgMiAwIDAgMC0yIDJ2M20xOCAwVjVhMiAyIDAgMCAwLTItMmgtM20wIDE4aDNhMiAyIDAgMCAwIDItMnYtM00zIDE2djNhMiAyIDAgMCAwIDIgMmgzIi8+PC9zdmc+)}.spl-fullscreen.on{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik04IDN2M2EyIDIgMCAwIDEtMiAySDNtMTggMGgtM2EyIDIgMCAwIDEtMi0yVjNtMCAxOHYtM2EyIDIgMCAwIDEgMi0yaDNNMyAxNmgzYTIgMiAwIDAgMSAyIDJ2MyIvPjwvc3ZnPg==)}.spl-autofit{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBoZWlnaHQ9Ijk2cHgiIHZpZXdCb3g9IjAgMCA5NiA5NiIgd2lkdGg9Ijk2cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggdHJhbnNmb3JtPSJyb3RhdGUoOTAgNTAgNTApIiBmaWxsPSIjZmZmIiBkPSJNNzEuMzExLDgwQzY5LjY3LDg0LjY2LDY1LjIzLDg4LDYwLDg4SDIwYy02LjYzLDAtMTItNS4zNy0xMi0xMlYzNmMwLTUuMjMsMy4zNC05LjY3LDgtMTEuMzExVjc2YzAsMi4yMSwxLjc5LDQsNCw0SDcxLjMxMSAgeiIvPjxwYXRoIHRyYW5zZm9ybT0icm90YXRlKDkwIDUwIDUwKSIgZmlsbD0iI2ZmZiIgZD0iTTc2LDhIMzZjLTYuNjMsMC0xMiw1LjM3LTEyLDEydjQwYzAsNi42Myw1LjM3LDEyLDEyLDEyaDQwYzYuNjMsMCwxMi01LjM3LDEyLTEyVjIwQzg4LDEzLjM3LDgyLjYzLDgsNzYsOHogTTgwLDYwICBjMCwyLjIxLTEuNzksNC00LDRIMzZjLTIuMjEsMC00LTEuNzktNC00VjIwYzAtMi4yMSwxLjc5LTQsNC00aDQwYzIuMjEsMCw0LDEuNzksNCw0VjYweiIvPjwvc3ZnPg==)}.spl-zoom-in,.spl-zoom-out{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMSIgY3k9IjExIiByPSI4Ii8+PGxpbmUgeDE9IjIxIiB4Mj0iMTYuNjUiIHkxPSIyMSIgeTI9IjE2LjY1Ii8+PGxpbmUgeDE9IjgiIHgyPSIxNCIgeTE9IjExIiB5Mj0iMTEiLz48L3N2Zz4=);background-size:22px}.spl-zoom-in{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMSIgY3k9IjExIiByPSI4Ii8+PGxpbmUgeDE9IjIxIiB4Mj0iMTYuNjUiIHkxPSIyMSIgeTI9IjE2LjY1Ii8+PGxpbmUgeDE9IjExIiB4Mj0iMTEiIHkxPSI4IiB5Mj0iMTQiLz48bGluZSB4MT0iOCIgeDI9IjE0IiB5MT0iMTEiIHkyPSIxMSIvPjwvc3ZnPg==)}.spl-download{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxNDEuNzMycHgiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDE0MS43MzIgMTQxLjczMiIgd2lkdGg9IjE0MS43MzJweCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTIwLjY3NCwxMjUuMTM4SDIwLjc5M3YxNi41OTRoOTkuODgxVjEyNS4xMzh6IE0xMTkuMDE5LDU4Ljc3NmMtMi41NjEtMi41NjItNi43MTYtMi41NjItOS4yNzUsMEw3Ny4yMSw5MS4zMTJWNi41NjIgICBDNzcuMjEsMi45MzYsNzQuMjY5LDAsNzAuNjQ4LDBjLTMuNjI0LDAtNi41NiwyLjkzNy02LjU2LDYuNTYzdjg0Ljc1TDMxLjk5Miw1OS4yMThjLTIuNTYyLTIuNTY0LTYuNzE1LTIuNTY0LTkuMjc3LDAgICBjLTIuNTY1LDIuNTYyLTIuNTY1LDYuNzE2LDAsOS4yNzlsNDMuMjk0LDQzLjI5M2MwLjE1LDAuMTU0LDAuMzE0LDAuMjk5LDAuNDgxLDAuNDM4YzAuMDc2LDAuMDYyLDAuMTU1LDAuMTEzLDAuMjM0LDAuMTc2ICAgYzAuMDk0LDAuMDY1LDAuMTg2LDAuMTQyLDAuMjc5LDAuMjA2YzAuMDk3LDAuMDYzLDAuMTkyLDAuMTE0LDAuMjg2LDAuMTc0YzAuMDg4LDAuMDU0LDAuMTc0LDAuMTA1LDAuMjY1LDAuMTUzICAgYzAuMSwwLjA1NiwwLjE5OSwwLjEsMC4yOTgsMC4xNDdjMC4wOTcsMC4wNDUsMC4xOSwwLjA5MSwwLjI4MywwLjEzMmMwLjA5OCwwLjA0LDAuMTk2LDAuMDcyLDAuMjk1LDAuMTA1ICAgYzAuMTA0LDAuMDM4LDAuMjA3LDAuMDc4LDAuMzEyLDAuMTA5YzAuMTAxLDAuMDMsMC4xOTcsMC4wNTIsMC4yOTcsMC4wNzdjMC4xMDgsMC4wMjMsMC4yMTQsMC4wNTgsMC4zMjQsMC4wNzggICBjMC4xMTUsMC4wMjEsMC4yMzEsMC4wMzMsMC4zNDYsMC4wNTRjMC4wOTcsMC4wMTUsMC4xOTIsMC4wMzIsMC4yODksMC4wNDJjMC40MywwLjA0MiwwLjg2NSwwLjA0MiwxLjI5NSwwICAgYzAuMS0wLjAxLDAuMTkxLTAuMDI3LDAuMjg5LTAuMDQyYzAuMTE0LTAuMDIxLDAuMjMzLTAuMDI5LDAuMzQ0LTAuMDU0YzAuMTA5LTAuMDIxLDAuMjE3LTAuMDU1LDAuMzI0LTAuMDc4ICAgYzAuMTAyLTAuMDI1LDAuMTk5LTAuMDQ3LDAuMjk5LTAuMDc3YzAuMTA1LTAuMDMxLDAuMjA3LTAuMDcxLDAuMzEyLTAuMTA5YzAuMTAyLTAuMDMsMC4xOTUtMC4wNjIsMC4yOTUtMC4xMDUgICBjMC4wOTYtMC4wNDEsMC4xOTEtMC4wODcsMC4yODMtMC4xMzJjMC4xLTAuMDQ4LDAuMTk5LTAuMDkyLDAuMjk3LTAuMTQ3YzAuMDkxLTAuMDQ4LDAuMTc3LTAuMTA0LDAuMjY0LTAuMTUzICAgYzAuMDk4LTAuMDYsMC4xOTMtMC4xMSwwLjI4Ny0wLjE3NGMwLjA5Ni0wLjA2NCwwLjE4OS0wLjE0MSwwLjI4MS0wLjIwNmMwLjA3Ni0wLjA2MiwwLjE1Ni0wLjExMywwLjIzMy0wLjE3NiAgIGMwLjI0OS0wLjIwNCwwLjQ3OS0wLjQzNywwLjY5NC0wLjY3YzAuMDc2LTAuMDY3LDAuMTU0LTAuMTMxLDAuMjI5LTAuMjAzbDQzLjI5NC00My4yOTYgICBDMTIxLjU4MSw2NS40OTEsMTIxLjU4MSw2MS4zMzcsMTE5LjAxOSw1OC43NzYiLz48L2c+PC9zdmc+);background-size:20px}.spl-theme{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBoZWlnaHQ9IjI0cHgiIHZlcnNpb249IjEuMiIgdmlld0JveD0iMiAyIDIwIDIwIiB3aWR0aD0iMjRweCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTIsNGMtNC40MTgsMC04LDMuNTgyLTgsOHMzLjU4Miw4LDgsOHM4LTMuNTgyLDgtOFMxNi40MTgsNCwxMiw0eiBNMTIsMThjLTMuMzE0LDAtNi0yLjY4Ni02LTZzMi42ODYtNiw2LTZzNiwyLjY4Niw2LDYgUzE1LjMxNCwxOCwxMiwxOHoiLz48cGF0aCBkPSJNMTIsN3YxMGMyLjc1NywwLDUtMi4yNDMsNS01UzE0Ljc1Nyw3LDEyLDd6Ii8+PC9nPjwvc3ZnPg==)}.spl-play{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSItMC41IC0wLjUgMjUgMjUiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwb2x5Z29uIGZpbGw9IiNmZmYiIHBvaW50cz0iMTAgOCAxNiAxMiAxMCAxNiAxMCA4Ii8+PC9zdmc+)}.spl-play.on{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSItMC41IC0wLjUgMjUgMjUiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxsaW5lIHgxPSIxMCIgeDI9IjEwIiB5MT0iMTUiIHkyPSI5Ii8+PGxpbmUgeDE9IjE0IiB4Mj0iMTQiIHkxPSIxNSIgeTI9IjkiLz48L3N2Zz4=);animation:pulsate 1s ease infinite}.spl-close{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSIyIDIgMjAgMjAiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48bGluZSB4MT0iMTgiIHgyPSI2IiB5MT0iNiIgeTI9IjE4Ii8+PGxpbmUgeDE9IjYiIHgyPSIxOCIgeTE9IjYiIHkyPSIxOCIvPjwvc3ZnPg==)}.spl-next,.spl-prev{top:50%;width:50px;height:50px;opacity:.65;background-color:rgba(0,0,0,.45);border-radius:100%;cursor:pointer;margin-top:-25px;transform:translateX(-100px);background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cG9seWxpbmUgcG9pbnRzPSIxNSAxOCA5IDEyIDE1IDYiLz48L3N2Zz4=);background-size:30px}.spl-prev{left:20px}.spl-next{left:auto;right:20px;transform:translateX(100px) scaleX(-1)}#spotlight.menu .spl-prev{transform:translateX(0)}#spotlight.menu .spl-next{transform:translateX(0) scaleX(-1)}@media (hover:hover){.spl-page~div{cursor:pointer;transition:opacity .2s ease}.spl-next:hover,.spl-page~div:hover,.spl-prev:hover{opacity:1}}@media (max-width:500px){.spl-header div{width:44px}.spl-footer .spl-title{font-size:20px}.spl-footer{font-size:14px}.spl-next,.spl-prev{width:35px;height:35px;margin-top:-17.5px;background-size:15px 15px}.spl-spinner{background-size:30px 30px}}.hide-scrollbars{overflow:hidden!important}</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>跨性别女性幻想-传承 ～附录～V2.03 AI汉化版[新汉化/3.9G]绅士游戏合集-绅士游戏大全-绅士游戏下载</title>
+<meta name="robots" content="max-image-preview:large">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<meta name="keywords" content="跨性别女性幻想-传承,跨性别女性幻想-传承下载,跨性别女性幻想-传承游戏,跨性别女性幻想-传承汉化,跨性别女性幻想-传承汉化版下载,跨性别女性幻想-传承中文,跨性别女性幻想-传承网盘,跨性别女性幻想-传承百度云,跨性别女性幻想-传承资源,跨性别女性幻想-传承游戏下载,跨性别女性幻想-传承步兵,跨性别女性幻想-传承无修,跨性别女性幻想-传承未和谐">
+<meta name="description" content="这次的主角是三个人。
+贵族公子的霞、渔夫的里特，和见习士兵的埃里克。
+他们各自被卷入了意想不到的事件，不得不使用魔法，
+在这种状况下，身体逐渐发生变化。接着....">
+<meta property="og:title" content="跨性别女性幻想-传承 ～附录～V2.03 AI汉化版[新汉化/3.9G]">
+<meta property="og:description" content="这次的主角是三个人。
+贵族公子的霞、渔夫的里特，和见习士兵的埃里克。
+他们各自被卷入了意想不到的事件，不得不使用魔法，
+在这种状况下，身体逐渐发生变化。接着....">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://78gamesacg.com/archives/30182">
+<meta property="og:site_name" content="绅士游戏合集-绅士游戏大全-绅士游戏下载">
+<meta property="og:image" content="http://78acgns.com/wp-content/uploads/2024/08/51-3.jpg">
+<link href="http://78gamesacg.com/wp-content/uploads/2022/05/logo2.png" rel="icon">
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="bootstrap-css" href="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/bootstrap/css/bootstrap.min.css?ver=4.6.0" media="all">
+<link rel="stylesheet" id="csf-fa5-css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css?ver=5.14.0" media="all">
+<link rel="stylesheet" id="csf-fa5-v4-shims-css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/v4-shims.min.css?ver=5.14.0" media="all">
+<link rel="stylesheet" id="plugins-css" href="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/css/plugins.css?ver=1.0.0" media="all">
+<link rel="stylesheet" id="app-css" href="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/css/app.css?ver=4.8.0" media="all">
+<link rel="stylesheet" id="dark-css" href="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/css/dark.css?ver=4.8.0" media="all">
+<script id="BENrueeg_RUE-not_file_js-js-extra">
+var BENrueeg_RUE_js_Params = {"is_field_name_removed":""};
+</script>
+<script src="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/js/jquery.min.js?ver=3.5.1" id="jquery-js"></script>
+<link rel="canonical" href="http://78gamesacg.com/archives/30182">
+<link rel="shortlink" href="http://78gamesacg.com/?p=30182">
+<style id="theia-sticky-sidebar-stylesheet-TSS">.theiaStickySidebar:after {content: ""; display: table; clear: both;}</style><style type="text/css" id="jarallax-clip-0">#jarallax-container-0 {
+            clip: rect(0 1912px 202.796875px 0);
+            clip: rect(0, 1912px, 202.796875px, 0);
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }</style></head>
+<body class="post-template-default single single-post postid-30182 single-format-standard wide-screen navbar-sticky with-hero hero-full hero-shop pagination-numeric no-off-canvas sidebar-right swal2-shown swal2-height-auto" style="transform: none; padding-right: 8px;">
+<div id="app" class="site" style="transform: none;" aria-hidden="true">
+	
+<header class="site-header">
+    <div class="container">
+	    <div class="navbar">
+			  <div class="logo-wrapper">
+          <a href="http://78gamesacg.com/">
+        <img class="logo regular" src="http://78gamesacg.com/wp-content/uploads/2022/05/logo1.png" alt="绅士游戏合集-绅士游戏大全-绅士游戏下载">
+      </a>
+    
+  </div> 			
+			<div class="sep"></div>
+			
+			<nav class="main-menu d-none d-lg-block">
+			<ul id="menu-menu-1" class="nav-list u-plain-list"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home"><a href="http://78gamesacg.com/">首页</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent"><a href="http://78gamesacg.com/%e6%97%a5%e7%b3%bb%e6%b8%b8%e6%88%8f">日系游戏</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://78gamesacg.com/european-and-american-games">欧美游戏</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://78gamesacg.com/%e5%9b%bd%e4%ba%a7%e6%b8%b8%e6%88%8f">国产游戏</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://78gamesacg.com/%e6%89%8b%e6%9c%ba%e6%b8%b8%e6%88%8f">手机游戏</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://78gamesacg.com/%e5%8d%95%e6%9c%ba%e6%b8%b8%e6%88%8f">单机游戏</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://78gamesacg.com/%e9%ab%98%e7%ba%a7%e4%bc%9a%e5%91%98%e4%b8%93%e4%ba%ab">高级会员专享</a></li>
+</ul>			</nav>
+			
+			<div class="actions">
+				
+								<span class="btn btn-sm search-open navbar-button ml-2" rel="nofollow noopener noreferrer" data-action="omnisearch-open" data-target="#omnisearch" title="搜索"><i class="fas fa-search"></i></span>
+				
+								<span class="btn btn-sm toggle-notify navbar-button ml-2" rel="nofollow noopener noreferrer" title="公告"><i class="fa fa-bell-o"></i></span>
+				
+						        <span class="btn btn-sm toggle-dark navbar-button ml-2" rel="nofollow noopener noreferrer" title="夜间模式"><i class="fa fa-moon-o"></i></span>
+                                
+				<!-- user navbar dropdown  -->
+		        				<a class="login-btn navbar-button ml-2" rel="nofollow noopener noreferrer" href="#"><i class="fa fa-user mr-1"></i>登录</a>
+								<!-- user navbar dropdown -->
+
+                
+		        <div class="burger"></div>
+
+		        
+		    </div>
+		    
+	    </div>
+    </div>
+</header>
+
+<div class="header-gap"></div>
+
+
+<div class="hero visible lazyloaded" data-bg="http://78acgns.com/wp-content/uploads/2024/08/51-3.jpg" style="background-image: none;" data-jarallax-original-styles="background-image: url(&quot;http://78acgns.com/wp-content/uploads/2024/08/51-3.jpg&quot;);">
+<div class="container"><header class="entry-header">
+<h1 class="entry-title">跨性别女性幻想-传承 ～附录～V2.03 AI汉化版[新汉化/3.9G]</h1>          <div class="entry-meta">
+            
+                          <span class="meta-category">
+                <a href="http://78gamesacg.com/%e6%97%a5%e7%b3%bb%e6%b8%b8%e6%88%8f" rel="category">日系游戏</a>
+              </span>
+                          <span class="meta-date">
+                  <time datetime="2024-08-29T18:45:22+08:00">
+                    <i class="fa fa-clock-o"></i>
+                    6 月前                  </time>
+              </span>
+                            <span class="meta-favnum"><i class="far fa-star"></i> 2</span>
+                            <span class="meta-views"><i class="fa fa-eye"></i> 157</span>
+                            <span class="meta-edit"></span>
+            
+
+          </div>
+        </header>
+</div><div id="jarallax-container-0" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100;"><div style="background-position: 50% 50%; background-size: cover; background-repeat: no-repeat; background-image: url(&quot;http://78acgns.com/wp-content/uploads/2024/08/51-3.jpg&quot;); position: fixed; top: 0px; left: 0px; width: 1912px; height: 913.98px; overflow: hidden; pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; will-change: transform, opacity; margin-top: 39.5102px; transform: translate3d(0px, -31.5102px, 0px);"></div></div></div>	<main id="main" role="main" class="site-content" style="transform: none;">
+<div class="container" style="transform: none;">
+	<div class="row" style="transform: none;">
+		<div class="content-column col-lg-9" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+			
+		<div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;"><div class="content-area">
+				<article id="post-30182" class="article-content post-30182 post type-post status-publish format-standard hentry category-4">
+
+  <div class="container">
+        <div class="article-crumb"><ol class="breadcrumb">当前位置：<li class="home"><i class="fa fa-home"></i> <a href="http://78gamesacg.com">首页</a></li><li><a href="http://78gamesacg.com/%e6%97%a5%e7%b3%bb%e6%b8%b8%e6%88%8f">日系游戏</a></li><li class="active">正文</li></ol></div>
+    
+    
+      
+    <div class="entry-wrapper">
+            <div class="entry-content u-text-format u-clearfix">
+        <p><img fetchpriority="high" decoding="async" class="alignnone size-full wp-image-36660" src="http://78acgns.com/wp-content/uploads/2024/08/51-3.jpg" alt="" width="1000" height="528"></p>
+<h3><strong><span style="font-size: large;"><span style="color: #ff0000;">跨性别女性幻想-传承 ～附录～V2.03 AI汉化版 新汉化</span><br>
+(トランス フィメール ファンタジー レガシー ～アペンド～)</span></strong></h3>
+<h3><span style="color: #808000;">游戏介绍：</span><br>
+<span style="color: #ff8c00;">这次的主角是三个人。</span><br>
+<span style="color: #ff00ff;">贵族公子的霞、渔夫的里特，和见习士兵的埃里克。</span><br>
+<span style="color: #0000ff;">他们各自被卷入了意想不到的事件，不得不使用魔法，</span><br>
+<span style="color: #9932cc;">在这种状况下，身体逐渐发生变化。接着，连心灵也开始改变…</span><br>
+<span style="color: #ff0000;">然后，曾是男性的少女们的故事与命运交织，在战斗中变得更加“女性化”。</span><br>
+<span style="color: #8b0000;">主角三人配有语音，奉上这部终极幻想性转换RPG！</span></h3>
+<div class="post-note alert alert-warning mt-2" role="alert"><small><strong>郑重声明</strong>我们立足于美利坚合众国，对美利坚合众国华人服务.未經授權禁止复制或建立镜像，请未成年网友自觉离开！
+免责声明：网站内容收集于全世界的互联网，仅供内部会员学习交流使用。本站无意侵犯任何国家的宪法，如果当地法令禁止进入，请自行离开！
+进入本站证明同意此声明，造成任何后果本站，不承担任何责任！！！！</small></div>
+<div class="entry-share">
+	<div class="row">
+		<div class="col d-none d-lg-block">
+            
+                            <a class="share-author" href="http://78gamesacg.com/archives/author/羽夜">
+                    <img alt="" data-src="//78gamesacg.com/wp-content/themes/ripro-v2/assets/img/avatar.png" class="avatar avatar-50 photo lazyloaded" height="50" width="50" src="//78gamesacg.com/wp-content/themes/ripro-v2/assets/img/avatar.png">羽夜                </a>
+            			
+		</div>
+		<div class="col-auto mb-3 mb-lg-0">
+
+            
+			            
+			            
+            <button class="go-copy btn btn-sm btn-white" data-toggle="tooltip" data-placement="top" title="" data-clipboard-text="http://78gamesacg.com/archives/30182" data-original-title="点击复制链接"><i class="fas fa-link"></i> 链接</button>
+		</div>
+	</div>
+</div>
+
+      </div>
+          </div>
+    
+
+  </div>
+</article>
+
+<div class="entry-navigation">
+	<div class="row">
+            	<div class="col-lg-6 col-12">
+            <a class="entry-page-prev" href="http://78gamesacg.com/archives/30181" title="我自己的专用弱小的阴部奶牛Vtuber的扼杀深挖禁锢和训练! 官中版+尊严毁灭包">
+                <div class="entry-page-icon"><i class="fas fa-arrow-left"></i></div>
+                <div class="entry-page-info">
+                    <span class="d-block rnav">上一篇</span>
+                    <span class="d-block title">我自己的专用弱小的阴部奶牛Vtuber的扼杀深挖禁锢和训练! 官中版+尊严毁灭包</span>
+                </div>
+            </a> 
+        </div>
+                    	<div class="col-lg-6 col-12">
+            <a class="entry-page-next" href="http://78gamesacg.com/archives/30183" title="沉迷病娇后宫！AI汉化版+全CG存档+特典★全CV[新汉化/1.7G]">
+                <div class="entry-page-info">
+                    <span class="d-block rnav">下一篇</span>
+                    <span class="d-block title">沉迷病娇后宫！AI汉化版+全CG存档+特典★全CV[新汉化/1.7G]</span>
+                </div>
+                <div class="entry-page-icon"><i class="fas fa-arrow-right"></i></div>
+            </a>
+        </div>
+            </div>
+</div>    <div class="related-posts">
+        <h3 class="u-border-title">相关文章</h3>
+        <div class="row">
+                      <div class="col-lg-6 col-12">
+              <article id="post-34038" class="post post-list post-34038 type-post status-publish format-standard hentry category-4">
+                  <div class="entry-media"><div class="placeholder" style="padding-bottom: 66.666666666667%"><a target="_blank" href="http://78gamesacg.com/archives/34038" title="新～情涩法师 官方中文步兵版+存档【2.1G/2月更新】" rel="nofollow noopener noreferrer"><img class=" lazyloaded" data-src="http://78gameclub.com/wp-content/uploads/2025/02/153.jpg" src="http://78gameclub.com/wp-content/uploads/2025/02/153.jpg" alt="新～情涩法师 官方中文步兵版+存档【2.1G/2月更新】"></a></div></div>                  <div class="entry-wrapper">
+                    <header class="entry-header"><h2 class="entry-title"><a target="_blank" href="http://78gamesacg.com/archives/34038" title="新～情涩法师 官方中文步兵版+存档【2.1G/2月更新】" rel="bookmark">新～情涩法师 官方中文步兵版+存档【2.1G/2月更新】</a></h2></header>
+                                        <div class="entry-footer">          <div class="entry-meta">
+            
+                          <span class="meta-category">
+                <a href="http://78gamesacg.com/%e6%97%a5%e7%b3%bb%e6%b8%b8%e6%88%8f" rel="category">日系游戏</a>
+              </span>
+                          <span class="meta-date">
+                  <time datetime="2025-02-10T18:16:16+08:00">
+                    <i class="fa fa-clock-o"></i>
+                    9 小时前                  </time>
+              </span>
+                            <span class="meta-views"><i class="fa fa-eye"></i> 38</span>
+            
+
+          </div>
+        </div>
+                                    </div>
+            </article>
+          </div>
+                      <div class="col-lg-6 col-12">
+              <article id="post-34037" class="post post-list post-34037 type-post status-publish format-standard hentry category-4">
+                  <div class="entry-media"><div class="placeholder" style="padding-bottom: 66.666666666667%"><a target="_blank" href="http://78gamesacg.com/archives/34037" title="夏日风情 V1.0 官方中文正式步兵版+画廊解锁【2.9G/2月更新】" rel="nofollow noopener noreferrer"><img class=" lazyloaded" data-src="http://78gameclub.com/wp-content/uploads/2025/02/152.jpg" src="http://78gameclub.com/wp-content/uploads/2025/02/152.jpg" alt="夏日风情 V1.0 官方中文正式步兵版+画廊解锁【2.9G/2月更新】"></a></div></div>                  <div class="entry-wrapper">
+                    <header class="entry-header"><h2 class="entry-title"><a target="_blank" href="http://78gamesacg.com/archives/34037" title="夏日风情 V1.0 官方中文正式步兵版+画廊解锁【2.9G/2月更新】" rel="bookmark">夏日风情 V1.0 官方中文正式步兵版+画廊解锁【2.9G/2月更新】</a></h2></header>
+                                        <div class="entry-footer">          <div class="entry-meta">
+            
+                          <span class="meta-category">
+                <a href="http://78gamesacg.com/%e6%97%a5%e7%b3%bb%e6%b8%b8%e6%88%8f" rel="category">日系游戏</a>
+              </span>
+                          <span class="meta-date">
+                  <time datetime="2025-02-10T18:16:14+08:00">
+                    <i class="fa fa-clock-o"></i>
+                    9 小时前                  </time>
+              </span>
+                            <span class="meta-views"><i class="fa fa-eye"></i> 28</span>
+            
+
+          </div>
+        </div>
+                                    </div>
+            </article>
+          </div>
+                      <div class="col-lg-6 col-12">
+              <article id="post-34036" class="post post-list post-34036 type-post status-publish format-standard hentry category-4">
+                  <div class="entry-media"><div class="placeholder" style="padding-bottom: 66.666666666667%"><a target="_blank" href="http://78gamesacg.com/archives/34036" title="银狱的放课后2 AI汉化版+全CG存档+新汉化【4.5G/2月更新】" rel="nofollow noopener noreferrer"><img class="lazyload" data-src="http://78gameclub.com/wp-content/uploads/2025/02/151.jpg" src="http://78gamesacg.com/wp-content/uploads/2022/05/df8bb8bab503e1a60ad755e8456d5db3.jpeg" alt="银狱的放课后2 AI汉化版+全CG存档+新汉化【4.5G/2月更新】"></a></div></div>                  <div class="entry-wrapper">
+                    <header class="entry-header"><h2 class="entry-title"><a target="_blank" href="http://78gamesacg.com/archives/34036" title="银狱的放课后2 AI汉化版+全CG存档+新汉化【4.5G/2月更新】" rel="bookmark">银狱的放课后2 AI汉化版+全CG存档+新汉化【4.5G/2月更新】</a></h2></header>
+                                        <div class="entry-footer">          <div class="entry-meta">
+            
+                          <span class="meta-category">
+                <a href="http://78gamesacg.com/%e6%97%a5%e7%b3%bb%e6%b8%b8%e6%88%8f" rel="category">日系游戏</a>
+              </span>
+                          <span class="meta-date">
+                  <time datetime="2025-02-10T18:16:11+08:00">
+                    <i class="fa fa-clock-o"></i>
+                    9 小时前                  </time>
+              </span>
+                            <span class="meta-views"><i class="fa fa-eye"></i> 30</span>
+            
+
+          </div>
+        </div>
+                                    </div>
+            </article>
+          </div>
+                      <div class="col-lg-6 col-12">
+              <article id="post-34035" class="post post-list post-34035 type-post status-publish format-standard hentry category-4">
+                  <div class="entry-media"><div class="placeholder" style="padding-bottom: 66.666666666667%"><a target="_blank" href="http://78gamesacg.com/archives/34035" title="夏之方舟3 AI汉化版+全CG存档+新汉化【2.5G/2月更新】" rel="nofollow noopener noreferrer"><img class="lazyload" data-src="http://78gameclub.com/wp-content/uploads/2025/02/150.jpg" src="http://78gamesacg.com/wp-content/uploads/2022/05/df8bb8bab503e1a60ad755e8456d5db3.jpeg" alt="夏之方舟3 AI汉化版+全CG存档+新汉化【2.5G/2月更新】"></a></div></div>                  <div class="entry-wrapper">
+                    <header class="entry-header"><h2 class="entry-title"><a target="_blank" href="http://78gamesacg.com/archives/34035" title="夏之方舟3 AI汉化版+全CG存档+新汉化【2.5G/2月更新】" rel="bookmark">夏之方舟3 AI汉化版+全CG存档+新汉化【2.5G/2月更新】</a></h2></header>
+                                        <div class="entry-footer">          <div class="entry-meta">
+            
+                          <span class="meta-category">
+                <a href="http://78gamesacg.com/%e6%97%a5%e7%b3%bb%e6%b8%b8%e6%88%8f" rel="category">日系游戏</a>
+              </span>
+                          <span class="meta-date">
+                  <time datetime="2025-02-10T18:16:09+08:00">
+                    <i class="fa fa-clock-o"></i>
+                    9 小时前                  </time>
+              </span>
+                            <span class="meta-views"><i class="fa fa-eye"></i> 24</span>
+            
+
+          </div>
+        </div>
+                                    </div>
+            </article>
+          </div>
+                  </div>
+    </div>
+
+
+<div id="comments" class="entry-comments">
+    	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">发表回复 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/archives/30182#respond" style="display:none;">取消回复</a></small></h3><div class="comment-form"><div class="comment-must-login">您需要登录后才可以发表评论...</div><div class="form-submit"><div class="form-submit-text float-left"><a class="login-btn" href="javascript:;">登录...</a> 后才能评论</div> <input name="submit" type="submit" id="must-submit" class="submit disabled" value="发表" disabled=""></div></div>	</div><!-- #respond -->
+		</div>
+			</div></div></div>
+					<div class="sidebar-column col-lg-3" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+				<!-- #secondary -->
+			<div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; transform: none;"><aside id="secondary" class="widget-area">
+	<div id="text-2" class="widget widget_text"><h5 class="widget-title">支付等问题</h5>			<div class="textwidget"><p><strong>购买会员直接到个人中心，我的会员里面支付</strong></p>
+<p><strong>支付后如遇支付不到账等问题可以联系站长邮箱carmeltkorpeme@mail.com 带上用户名或者注册邮箱跟支付图48小时内解决</strong></p>
+</div>
+		</div></aside></div></div>
+			</div>
+</div>
+	</main><!-- #main -->
+	
+	<footer class="site-footer">
+				<div class="footer-copyright d-flex text-center">
+			<div class="container">
+								
+							</div>
+		</div>
+
+	</footer><!-- #footer -->
+
+</div><!-- #page -->
+
+<div class="rollbar" aria-hidden="true">
+		<div class="rollbar-item back-to-top">
+		<i class="fas fa-chevron-up"></i>
+	</div>
+</div>
+<div class="m-menubar" aria-hidden="true">
+		<ul>
+			<li>
+						<a href="http://78gamego.com" rel="nofollow noopener noreferrer"><i class="fas fa-home"></i>首页</a>
+		</li>
+				<li>
+						<a href="http://78gamego.com/uncategorized" rel="nofollow noopener noreferrer"><i class="fas fa-layer-group"></i>分类</a>
+		</li>
+				<li>
+						<a href="http://78gamego.com/question" rel="nofollow noopener noreferrer"><i class="fab fa-ello"></i>问答</a>
+		</li>
+				<li>
+						<a href="http://78gamego.com/user" rel="nofollow noopener noreferrer"><i class="fas fa-user"></i>我的</a>
+		</li>
+				<li>
+			<a href="javacript:void(0);" class="back-to-top" rel="nofollow noopener noreferrer"><i class="fas fa-chevron-up"></i>顶部<span></span></a>
+		</li>
+	</ul>
+	</div>
+<div id="omnisearch" class="omnisearch" aria-hidden="true">
+    <div class="container">
+        <form class="omnisearch-form" method="get" action="http://78gamesacg.com/">
+            <div class="form-group">
+                <div class="input-group input-group-merge input-group-flush">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+
+					<div class="input-group-prepend d-flex align-items-center" style=" max-width: 35%; ">
+                    <div class="dropdown bootstrap-select"><select name="cat" id="omnisearch-cat" class="selectpicker" tabindex="-98">
+	<option value="">全部</option>
+	<option class="level-0" value="7">公告</option>
+	<option class="level-0" value="9">单机游戏</option>
+	<option class="level-0" value="3">国产游戏</option>
+	<option class="level-0" value="10">手机游戏</option>
+	<option class="level-0" value="4">日系游戏</option>
+	<option class="level-0" value="1">未分类</option>
+	<option class="level-0" value="2">欧美游戏</option>
+	<option class="level-0" value="16">高级会员专享</option>
+</select><button type="button" class="btn dropdown-toggle bs-placeholder btn-white" data-toggle="dropdown" role="button" data-id="omnisearch-cat" title="全部"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">全部</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div></div>
+				  	</div>
+                    <input type="text" class="search-ajax-input form-control" name="s" value="" placeholder="输入关键词 回车搜索..." autocomplete="off">
+
+                </div>
+            </div>
+        </form>
+        <div class="omnisearch-suggestions">
+            <div class="search-keywords">
+                <a href="http://78gamesacg.com/notice" class="tag-cloud-link tag-link-7 tag-link-position-1" style="font-size: 14px;">公告</a>
+<a href="http://78gamesacg.com/%e5%8d%95%e6%9c%ba%e6%b8%b8%e6%88%8f" class="tag-cloud-link tag-link-9 tag-link-position-2" style="font-size: 14px;">单机游戏</a>
+<a href="http://78gamesacg.com/%e5%9b%bd%e4%ba%a7%e6%b8%b8%e6%88%8f" class="tag-cloud-link tag-link-3 tag-link-position-3" style="font-size: 14px;">国产游戏</a>
+<a href="http://78gamesacg.com/%e6%89%8b%e6%9c%ba%e6%b8%b8%e6%88%8f" class="tag-cloud-link tag-link-10 tag-link-position-4" style="font-size: 14px;">手机游戏</a>
+<a href="http://78gamesacg.com/%e6%97%a5%e7%b3%bb%e6%b8%b8%e6%88%8f" class="tag-cloud-link tag-link-4 tag-link-position-5" style="font-size: 14px;">日系游戏</a>
+<a href="http://78gamesacg.com/uncategorized" class="tag-cloud-link tag-link-1 tag-link-position-6" style="font-size: 14px;">未分类</a>
+<a href="http://78gamesacg.com/european-and-american-games" class="tag-cloud-link tag-link-2 tag-link-position-7" style="font-size: 14px;">欧美游戏</a>
+<a href="http://78gamesacg.com/%e9%ab%98%e7%ba%a7%e4%bc%9a%e5%91%98%e4%b8%93%e4%ba%ab" class="tag-cloud-link tag-link-16 tag-link-position-8" style="font-size: 14px;">高级会员专享</a>            </div>
+                    </div>
+    </div>
+</div>
+
+<div class="dimmer" aria-hidden="true"></div>
+
+<div class="off-canvas" aria-hidden="true">
+  <div class="canvas-close"><i class="fas fa-times"></i></div>
+  <div class="mobile-menu d-block d-xl-none d-lg-none"><div class="slicknav_menu"><a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed"><span class="slicknav_menutxt"></span><span class="slicknav_icon slicknav_no-text"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home"><a href="http://78gamesacg.com/" role="menuitem" tabindex="-1">首页</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent"><a href="http://78gamesacg.com/%e6%97%a5%e7%b3%bb%e6%b8%b8%e6%88%8f" role="menuitem" tabindex="-1">日系游戏</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://78gamesacg.com/european-and-american-games" role="menuitem" tabindex="-1">欧美游戏</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://78gamesacg.com/%e5%9b%bd%e4%ba%a7%e6%b8%b8%e6%88%8f" role="menuitem" tabindex="-1">国产游戏</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://78gamesacg.com/%e6%89%8b%e6%9c%ba%e6%b8%b8%e6%88%8f" role="menuitem" tabindex="-1">手机游戏</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://78gamesacg.com/%e5%8d%95%e6%9c%ba%e6%b8%b8%e6%88%8f" role="menuitem" tabindex="-1">单机游戏</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://78gamesacg.com/%e9%ab%98%e7%ba%a7%e4%bc%9a%e5%91%98%e4%b8%93%e4%ba%ab" role="menuitem" tabindex="-1">高级会员专享</a></li>
+</ul></div></div>
+</div>
+<script src="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/js/popper.min.js?ver=4.8.0" id="popper-js" aria-hidden="true"></script>
+<script src="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/bootstrap/js/bootstrap.min.js?ver=4.6.0" id="bootstrap-js" aria-hidden="true"></script>
+<script src="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/js/plugins.js?ver=4.8.0" id="plugins-js" aria-hidden="true"></script>
+<script id="app-js-extra" aria-hidden="true">
+var riprov2 = {"home_url":"http:\/\/78gamesacg.com","admin_url":"http:\/\/78gamesacg.com\/wp-admin\/admin-ajax.php","is_qq_captcha":"0","is_single_gallery":"1","comment_list_order":"asc","infinite_load":"\u52a0\u8f7d\u66f4\u591a","infinite_loading":"\u52a0\u8f7d\u4e2d...","site_notice":{"is":"1","auto":"1","color":"#00ccb4","html":"<div class=\"notify-content\"><h3><i class=\"fa fa-bell-o mr-2\"><\/i>78game\u516c\u544a<\/h3><div>\u516c\u544a:\u8bf7\u6536\u85cf\u597d\u8054\u7cfb\u90ae\u7bb1\uff1acarmeltkorpeme@mail.com(\u6709\u95ee\u9898\u7684\u8bdd\u8bf7\u5c3d\u91cf\u5e26\u4e0a\u622a\u56fe)<\/div><\/div>"},"site_js_text":{"login_txt":"\u8bf7\u70b9\u51fb\u5b89\u5168\u9a8c\u8bc1","reg1_txt":"\u90ae\u7bb1\u683c\u5f0f\u9519\u8bef","reg2_txt":"\u8bf7\u70b9\u51fb\u5b89\u5168\u9a8c\u8bc1","reg3_txt":"\u7528\u6237\u540d\u5fc5\u987b\u662f\u82f1\u6587","pass_txt":"\u8bf7\u70b9\u51fb\u5b89\u5168\u9a8c\u8bc1","bind_txt":"\u8bf7\u70b9\u51fb\u9a8c\u8bc1\u6309\u94ae\u8fdb\u884c\u9a8c\u8bc1","copy_txt":" \u590d\u5236\u6210\u529f","poster_txt":"\u6d77\u62a5\u52a0\u8f7d\u5f02\u5e38","mpwx1_txt":"\u8bf7\u4f7f\u7528\u5fae\u4fe1\u626b\u7801\u767b\u5f55","mpwx2_txt":"\u5173\u6ce8\u516c\u4f17\u53f7\u5373\u53ef\u767b\u5f55<\/br>\u4e8c\u7ef4\u7801\u6709\u6548\u671f3\u5206\u949f","pay1_txt":"\u652f\u4ed8\u5b8c\u6210","pay2_txt":"\u53d6\u6d88\u652f\u4ed8","pay3_txt":"\u652f\u4ed8\u6210\u529f","capt_txt":"\u9a8c\u8bc1\u4e2d","capt1_txt":"\u9a8c\u8bc1\u901a\u8fc7","capt2_txt":"\u9a8c\u8bc1\u5931\u8d25","prompt_txt":"\u8bf7\u8f93\u5165\u56fe\u7247URL\u5730\u5740","comment_txt":"\u63d0\u4ea4\u4e2d....","comment1_txt":"\u63d0\u4ea4\u6210\u529f"},"singular_id":"30182"};
+</script>
+<script src="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/js/app.js?ver=4.8.0" id="app-js" aria-hidden="true"></script>
+<script src="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/spotlight/spotlight.bundle.js?ver=0.7.0" id="spotlight-js" aria-hidden="true"></script>
+<script src="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/jarallax/jarallax.min.js?ver=1.12.5" id="jarallax-js" aria-hidden="true"></script>
+<script src="http://78gamesacg.com/wp-content/themes/ripro-v2/assets/jarallax/jarallax-video.min.js?ver=1.0.1" id="jarallax-video-js" aria-hidden="true"></script>
+<script src="http://78gamesacg.com/wp-includes/js/comment-reply.min.js?ver=6.7.1" id="comment-reply-js" async="" data-wp-strategy="async" aria-hidden="true"></script>
+<script src="http://78gamesacg.com/wp-includes/js/clipboard.min.js?ver=2.0.11" id="clipboard-js" aria-hidden="true"></script>
+
+<!-- 自定义js代码 统计代码 -->
+<!-- 自定义js代码 统计代码 END -->
+
+
+
+<div class="swal2-container swal2-center swal2-backdrop-show" style="overflow-y: auto;"><div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-show" tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="width: 560px; padding: 0px; background: rgb(0, 204, 180); display: flex;"><div class="swal2-header"><ul class="swal2-progress-steps" style="display: none;"></ul><div class="swal2-icon swal2-error" style="display: none;"></div><div class="swal2-icon swal2-question" style="display: none;"></div><div class="swal2-icon swal2-warning" style="display: none;"></div><div class="swal2-icon swal2-info" style="display: none;"></div><div class="swal2-icon swal2-success" style="display: none;"></div><img class="swal2-image" style="display: none;"><h2 class="swal2-title" id="swal2-title" style="display: none;"></h2><button type="button" class="swal2-close" aria-label="Close this dialog" style="display: flex;">×</button></div><div class="swal2-content"><div id="swal2-content" class="swal2-html-container" style="display: block;"><div class="notify-content"><h3><i class="fa fa-bell-o mr-2"></i>78game公告</h3><div>公告:请收藏好联系邮箱：carmeltkorpeme@mail.com(有问题的话请尽量带上截图)</div></div></div><input class="swal2-input" style="display: none;"><input type="file" class="swal2-file" style="display: none;"><div class="swal2-range" style="display: none;"><input type="range"><output></output></div><select class="swal2-select" style="display: none;"></select><div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox" class="swal2-checkbox" style="display: none;"><input type="checkbox"><span class="swal2-label"></span></label><textarea class="swal2-textarea" style="display: none;"></textarea><div class="swal2-validation-message" id="swal2-validation-message"></div></div><div class="swal2-actions" style="display: none;"><button type="button" class="swal2-confirm swal2-styled" aria-label="" style="display: none; border-left-color: rgb(48, 133, 214); border-right-color: rgb(48, 133, 214);">OK</button><button type="button" class="swal2-cancel swal2-styled" aria-label="" style="display: none;">Cancel</button></div><div class="swal2-footer" style="display: none;"></div><div class="swal2-timer-progress-bar-container"><div class="swal2-timer-progress-bar" style="display: none;"></div></div></div></div></body></html>

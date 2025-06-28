@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html><head>
+	    <style>
+
+[class|=dream],[class|=dream]::after,[class|=dream]::before{box-sizing:border-box;outline:0}.dream-msg-progress{width:13px;height:13px}.dream-msg__circle{stroke-width:2;stroke-linecap:square;fill:none;transform:rotate(-90deg);transform-origin:center}.dream-msg-stage:hover .dream-msg__circle{-webkit-animation-play-state:paused!important;animation-play-state:paused!important}.dream-msg__background{stroke-width:2;fill:none}.dream-msg-stage{position:fixed;top:20px;left:50%;top:50%;margin-top:-26px;width:auto;transform:translate(-50%,0);z-index:99999999}.dream-msg-wrapper{position:relative;left:50%;transform:translate(-50%,0);transform:translate3d(-50%,0,0);transition:height .3s ease,padding .3s ease;padding:6px 0;will-change:transform,opacity}.dream-msg{width:auto !important;height:auto !important;padding:10px 21px !important;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.15);position:relative;left:50%;transform:translate(-50%,0);transform:translate3d(-50%,0,0);display:flex;align-items:center}.dream-msg-content,.dream-msg-icon,.dream-msg-wait{display:inline-block}.dream-msg-icon{position:relative;width:15px;height:15px;border-radius:100%;display:flex;justify-content:center;align-items:center}.dream-msg-icon svg{position:absolute;top:50%;left:53%;transform:translate(-50%,-50%);width:12px;height:12px}.dream-msg-wait{width:20px;height:20px;position:relative;fill:#4eb127}.dream-msg-wait svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}.dream-msg-close{width:14px;height:14px}.dream-msg-content{margin:0 10px;min-width:240px;text-align:left;font-size:14px;font-weight:500;font-family:-apple-system,Microsoft Yahei,sans-serif;text-shadow:0 0 1px rgba(0,0,0,.01)}.dream-msg.info{color:#0fafad;background-color:#e7fdfc;box-shadow:0 0 2px 0 rgba(0,1,1,.01),0 0 0 1px #c0faf9}.dream-msg.info .dream-msg-icon{background-color:#0fafad}.dream-msg.success{color:#4ebb23;background-color:#f3ffe8;box-shadow:0 0 2px 0 rgba(0,1,0,.01),0 0 0 1px #d9f8bb}.dream-msg.success .dream-msg-icon{background-color:#4ebb23}.dream-msg.warning{color:#f1b306;background-color:#fff9eb;box-shadow:0 0 2px 0 rgba(1,1,0,.01),0 0 0 1px #fcf2cd}.dream-msg.warning .dream-msg-icon{background-color:#f1b306}.dream-msg.error{color:#f34b51;background-color:#fff7f7;box-shadow:0 0 2px 0 rgba(1,0,0,.01),0 0 0 1px #ffe3e3}.dream-msg.error .dream-msg-icon{background-color:#f34b51}.dream-msg.loading{color:#0B69E3;background-color:#DEEEFC;box-shadow:0 0 2px 0 rgba(0,1,1,.01),0 0 0 1px #DEEEFC}.dream-msg_loading{flex-shrink:0;width:20px;height:20px;position:relative}.dream-msg-circular{-webkit-animation:dream-msg-rotate 2s linear infinite both;animation:dream-msg-rotate 2s linear infinite both;transform-origin:center center;height:18px!important;width:18px!important}.dream-msg-path{stroke-dasharray:1,200;stroke-dashoffset:0;stroke:#0B69E3;-webkit-animation:dream-msg-dash 1.5s ease-in-out infinite;animation:dream-msg-dash 1.5s ease-in-out infinite;stroke-linecap:round}@-webkit-keyframes dream-msg-rotate{100%{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes dream-msg-rotate{100%{transform:translate(-50%,-50%) rotate(360deg)}}@-webkit-keyframes dream-msg-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}100%{stroke-dasharray:89,200;stroke-dashoffset:-124px}}@keyframes dream-msg-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}100%{stroke-dasharray:89,200;stroke-dashoffset:-124px}}.dream-msg.info .dream-msg-wait{fill:#0fafad}.dream-msg.success .dream-msg-wait{fill:#4ebb23}.dream-msg.warning .dream-msg-wait{fill:#f1b306}.dream-msg.error .dream-msg-wait{fill:#f34b51}.dream-msg.loading .dream-msg-wait{fill:#0fafad}.dream-msg-pointer{cursor:pointer}@-webkit-keyframes dream-msg_info{0%{stroke:#0fafad}to{stroke:#0fafad;stroke-dasharray:0 100}}@keyframes dream-msg_info{0%{stroke:#0fafad}to{stroke:#0fafad;stroke-dasharray:0 100}}@-webkit-keyframes dream-msg_success{0%{stroke:#4eb127}to{stroke:#4eb127;stroke-dasharray:0 100}}@keyframes dream-msg_success{0%{stroke:#4eb127}to{stroke:#4eb127;stroke-dasharray:0 100}}@-webkit-keyframes dream-msg_warning{0%{stroke:#fcbc0b}to{stroke:#fcbc0b;stroke-dasharray:0 100}}@keyframes dream-msg_warning{0%{stroke:#fcbc0b}to{stroke:#fcbc0b;stroke-dasharray:0 100}}@-webkit-keyframes dream-msg_error{0%{stroke:#eb262d}to{stroke:#eb262d;stroke-dasharray:0 100}}@keyframes dream-msg_error{0%{stroke:#eb262d}to{stroke:#eb262d;stroke-dasharray:0 100}}.dream-msg-fade-in{-webkit-animation:dream-msg-fade .2s ease-out both;animation:dream-msg-fade .2s ease-out both}.dream-msg-fade-out{animation:dream-msg-fade .3s linear reverse both}@-webkit-keyframes dream-msg-fade{0%{opacity:0;transform:translate(-50%,0);transform:translate3d(-50%,-80%,0)}to{opacity:1;transform:translate(-50%,0);transform:translate3d(-50%,0,0)}}@keyframes dream-msg-fade{0%{opacity:0;transform:translate(-50%,0);transform:translate3d(-50%,-80%,0)}to{opacity:1;transform:translate(-50%,0);transform:translate3d(-50%,0,0)}}
+        </style><meta charset="utf-8">
+	    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	    <meta name="keywords" content="轻小说《他与“她们”》,轻小说《他与“她们”》最新章节,桐菲,堕落">
+	    <meta name="description" content="轻小说《他与“她们”》，轻小说《他与“她们”》小说阅读。堕落轻小说《他与“她们”》由作家桐菲创作，爱丽丝书屋提供轻小说《他与“她们”》最新章节，轻小说《他与“她们”》最新更新尽在爱丽丝书屋">
+	    <title>轻小说《他与“她们”》-堕落-爱丽丝书屋</title>
+	    <link rel="stylesheet" href="/template/home/diyquge_web/css/style.css" type="text/css">
+		<link rel="stylesheet" href="/template/home/diyquge_web/css/styleinfo.css" type="text/css">
+		<link rel="stylesheet" href="/template/home/diyquge_web/css/common.css" type="text/css">
+		<link rel="stylesheet" href="/template/home/diyquge_web/css/base.css" type="text/css">
+		<link rel="stylesheet" href="/public/admin/lib/layui/css/layui.css">
+<script async="" referrerpolicy="unsafe-url" type="text/javascript" src="https://de.tynt.com/deb/v2?id=wu!&amp;dn=AFWU&amp;cc=1&amp;chpv=6.11.0&amp;chuav=Google%20Chrome%3Bv%3D131.0.6778.264%2C%20Chromium%3Bv%3D131.0.6778.264%2C%20Not_A%20Brand%3Bv%3D24.0.0.0&amp;chp=Linux&amp;chmob=0&amp;chua=Google%20Chrome%3Bv%3D131%2C%20Chromium%3Bv%3D131%2C%20Not_A%20Brand%3Bv%3D24&amp;r=&amp;pu=https%3A%2F%2Falicesw.org%2Fnovel%2F3387.html"></script><script src="//e.dtscout.com/e/?v=1a&amp;pid=5200&amp;site=1&amp;l=https%3A%2F%2Falicesw.org%2Fnovel%2F3387.html&amp;j=" async="" type="text/javascript"></script><script src="https://node12.aizhantj.com:21233/tjjs/?k=uevqberbdsx"></script><script async="" src="https://mc.yandex.ru/metrika/tag.js"></script><link id="layuicss-layer" rel="stylesheet" href="https://alicesw.org/public/admin/lib/layui/css/modules/layer/default/layer.css?v=3.1.1" media="all"><script type="text/javascript" async="" src="//s10.histats.com/js15_as.js"></script><script type="module" src="https://a896b40d52.84a15bc0e3.com/d56d5c3b4866cc3e1871788480692018.js"></script><script type="module" src="https://a896b40d52.84a15bc0e3.com/d56d5c3b4866cc3e1871788480692018.js"></script><script async="" src="https://js.capndr.com/advertising.js"></script><script async="" src="https://js.capndr.com/advertising.js"></script><script src="https://js.cabnnr.com/banner-admanager/build.m.js" async=""></script><style>.gfpl-content{position:relative}.gfpl-wrapper:hover .gfpl-label__link{opacity:1}.gfpl-link{display:block;height:100%;width:100%}.gfpl-text{bottom:0;color:#e6e6e6;left:0;position:absolute}.gfpl-title{font-weight:500;margin-bottom:3px}.gfpl-body{font-size:13px}.gfpl-img{display:block;height:100%;width:100%}.gfpl-overlay{animation:fadeIn .4s ease-in-out;background:rgba(0,0,0,.4);bottom:0;height:100%;left:0;overflow:visible;pointer-events:none;position:fixed;right:0;top:0;width:100%;z-index:9999999}.gfpl-bright{position:relative;z-index:999999999}.gfpl-close-button{align-items:center;background:#fff;border:none;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.25);cursor:pointer;display:none;height:20px;justify-content:center;margin-left:8px;outline:none;padding:0;width:20px}.gfpl-label{position:absolute;right:8px;z-index:1}.gfpl-label,.gfpl-label__link{align-items:center;display:flex;transition:all .2s ease-in-out}.gfpl-label__link{border-radius:1000px;opacity:.5;text-decoration:none}.gfpl-label__link svg{border-radius:100%;box-shadow:0 2px 6px rgba(0,0,0,.25)}.gfpl-label__link:hover{background:#dbdbdb;box-shadow:0 2px 6px rgba(0,0,0,.25)}.gfpl-label__link_text_show{background:#dbdbdb}.gfpl-label__link_text_show .gfpl-label__text{opacity:1;padding-left:11px}.gfpl-label__link:hover .gfpl-label__text{opacity:1}.gfpl-label__text{color:#848484;font-family:Inter,sans-serif;font-size:12px;font-weight:300;line-height:20px;margin:0;opacity:0;padding-left:19px;padding-right:11px;transition:all .2s ease-in-out}.gfpl-label__icon{border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.25)}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}</style><style>.__bai-container{align-items:center;background-color:rgba(99,99,102,.5);bottom:0;display:none;justify-content:center;left:0;position:fixed;right:0;top:0;z-index:100000000000000000}.__bai-popup__container{align-items:center;display:flex;flex-direction:column;position:relative}.__bai-popup__body,.__bai-popup__container{height:250px;width:300px}.__bai-popup__iframe{height:100%;max-width:100%;width:100%}.__bai-popup__btn{background-color:#efefef;border:none;border-radius:5px;cursor:pointer;margin-top:10px;padding:7px}.__bai-popup__close{background-color:crimson;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAD7UlEQVRIS51WW2wUZRQ+/9x31t2dvdAaNa0IKhASjQ82YhORmMaw+qBGExEUhMRbqC29SEMboUDatFV4aF0jBOVFDFaDuCQoaKuWSKohMZFYjQrRsu1Cd+bvrjvbueyMmTG73W5nd1Pncf5zvu+c7zv/mUFQ5hFFsYYiiGeMf+QwENRqYCmvFW4qWpI0zcvAs2colj3J8/xkKRjkdIAxXm7KyiFgyLB64ZKmjvzg0n+7CkYC2+FE0A/UquXAbqiTmQfuoYms+ZlOES2BQOCvYrxFBElJ2mZks5FM9BtCjnxEZ29I5ZoEsioI7lc3qVy43kAIbfcFAh8WJiwgSElSV1ZVO3FzH6Ne/KkscPEhW38fePtbNZJl9ngFoT93niewK1fVd6Wtexjt16tLAs8FU6vuAP/7BzSaY1+4yec7Yb23CSzNQdd/wY097FIrd+rEd3h3huG4uyzzbYLZWPyU/OXYxlR3hM4ncAzQtbdAxW4IBGCYC3i8e3eqrkfXfeqrWvYsskYRGcYfYvgVqtBQ+u7bIfBBD+COQ6CMjjtKxjWsA0/bdrjRsAPAnCchq0MQjA5pNMfVoiROts6Nfr8f7+rnFrW7/n4QepodSSxwobsRpPYBUL79cVEB/sFOa4Q7EJ6cGk0NHHsoc3rEsUrWgaQSuAXEP/kIuJueP4ek6Xgcv9hZpU1cKTk5hSSIocpWngOh16yAwJG9MYRnEplE+GWu0oWySPx9LQAIgdTS5yhLYYXWBQxF30kjnBDlxMaXXJUIbFkONtlmSu1vlTQ+R2IZHTo9mEZSLD6Nd3RVaxN/lpSoUHMgiJLGFwJYEvnf23cN4cnYSOrt4+szp74qOYrF0+JkfHEy/1QDeJq2nEVJKblrbmz8AH6911UcVG5aKpH4B7vS3IP37kayLN+myPIV8bHXqOz1xDwHgWDZF0chuT9S0tAcSWLLG6D/Pr+piZtDEPp8SKNYtua/XTR1/ZPM+QuPp94cml8V9qZCC26ok4bUyhrI/j0NpqLmj4WDjQq7oW7YV1292SaQJKmWMM0J3NTLKWOX/tcmzSVZXfn6WzM0x650u92x/LqeFcXNpqYfE7d10nqZiSrHTq+9E/xHuzWSoZ/zCMLH+XWdS8Ki2AGavm+2bYBeaid25b3NGiKpdl/QfziHueiTaXcCcGQu+h2RjpxgsvGZspJZhnp3blKYhnqDJImtHkE4WZjg+NG3/yZ0YyBLwBP6+M+q8vVF3tpVxgy2jSeCPqBXrwD24bo0XbeWQboxTHvcbTzPXyuuxpEgFyTL8q2aojwNmUwYEFoDNCNYfy2mrmFkwGVwsVGKYYbdbvdUqTb/BaDjzTn4MQ/EAAAAAElFTkSuQmCC");background-position:50%;background-repeat:no-repeat;background-size:cover;border:1px solid #fff;border-radius:100%;cursor:pointer;height:24px;position:absolute;right:-12px;top:-12px;width:24px;z-index:1}.__bai-show{display:flex}.__bai-overlay__wrapper{position:relative}.__bai-overlay{bottom:0;cursor:pointer;height:100%;left:0;position:absolute;right:0;top:0;width:100%;z-index:99999999999999}.__bai-elements{display:flex;flex-wrap:wrap;height:100%;justify-content:space-between}.__bai-element{height:125px;width:150px}.__bai-element iframe{transform:scale(.48);transform-origin:top left}.__bai-element:first-child:last-child{height:250px;width:100%}.__bai-element:first-child:last-child iframe{transform:none}</style><style>.__inst-container{align-items:center;bottom:0;display:flex;flex-direction:column;left:0;position:fixed;z-index:9999999}.__inst-container__mobile{animation:moveInMobile 1s ease-in-out;background-color:rgba(0,0,0,.4);width:100%}.__inst-container__desktop{animation:moveInDesktop 1s ease-in-out;background-color:none;left:50%;transform:translate(-50%)}.__inst-container__inner{align-items:center;transform:translateY(4px)}.__inst-container__label{color:#fff;margin-bottom:2px;margin-top:2px;text-decoration:none;text-shadow:1px 1px 2px #000}.__inst-container__close_button{background-color:transparent;background:none;border:none;cursor:pointer;height:25px;position:absolute;right:0;top:12px;transform:translateY(-50%);width:25px;z-index:100}.__inst-container__close_button span{color:#fff;font-size:20px;text-shadow:1px 1px 2px #000}.__inst-container__close_button__mobile{background-color:#4e4d4d;border-radius:50%;box-sizing:border-box;height:20px;top:0;width:20px}.__inst-container__close_button__mobile span{color:#fff;font-size:20px;left:50%;position:absolute;text-shadow:1px 1px 2px #000;top:50%;transform:translate(-50%,-50%)}.__inst-container_hide__desktop{animation:moveOutDesktop .5s ease-out}.__inst-container_hide__mobile{animation:moveOutMobile .5s ease-out}@keyframes moveInDesktop{0%{transform:translate(-50%,100%)}to{transform:translate(-50%)}}@keyframes moveOutDesktop{0%{opacity:1;transform:translate(-50%)}to{opacity:0;transform:translate(-50%,100%)}}@keyframes moveInMobile{0%{transform:translateY(100%)}to{transform:translate(0)}}@keyframes moveOutMobile{0%{opacity:1;transform:translate(0)}to{opacity:0;transform:translateY(100%)}}</style><style>.slider-container{width:100%}.__slider{overflow:hidden}.__slider-track{display:flex;margin:0 auto;overflow-x:hidden;scroll-behavior:smooth;width:100%}.__slider-track::-webkit-scrollbar{width:0}.__slider-top{display:flex;justify-content:flex-end;margin:10px 0;width:100%}.__slide{margin:0 4px}.__slide:first-child,.__slide:last-child{margin-left:0}.__button,.__slide-container{align-items:center;display:flex;justify-content:center}.__button{background:none;border:none}.__disable-button{fill-opacity:.5;pointer-events:none}.__arrow-hidden{display:none}</style><script src="https://cdn.tynt.com/afwu.js"></script></head>
+	<body style="">
+		<link rel="stylesheet" href="/public/static/iconfont/icofont.min.css" type="text/css">
+<!--公共头部 开始-->
+<div id="header" class="header">
+	<div id="navbar">
+		<div class="layout fn-clear">
+			<ul id="nav" class="ui-nav">
+				<li id="nav-home" class="nav-item  current">
+					<a class="nav-link" href="/" target="_self" style="padding-left: 0;"><i class="iconfont icofont-duotone icofont-home"></i>首页</a>
+				</li>
+				<li id="nav-shujia" class="nav-item ">
+					<a rel="nofollow" class="nav-link" href="/user/bookshelf/index.html" target="_self"><i class="iconfont icofont-library"></i>我的书架</a>
+				</li>
+				<li id="ranking-list" class="nav-item">
+					<a rel="nofollow" class="nav-link" href="javascript:;"><i class="iconfont icofont-chart-histogram"></i>排行榜</a>
+					<ul>
+						<li id="nav-movie" class="nav-item">
+							<a class="nav-link" href="/other/rank_hits/order/hits_day.html" target="_self">本日排行</a>
+						</li>
+						<li id="nav-book" class="nav-item ">
+							<a class="nav-link" href="/other/rank_hits/order/hits_week.html" target="_self">本周排行</a>
+						</li>
+						<li id="nav-koushui" class="nav-item ">
+							<a class="nav-link" href="/other/rank_hits/order/hits_month.html" target="_self">本月排行</a>
+						</li>
+						<li id="nav-koushui" class="nav-item">
+							<a class="nav-link" href="/other/rank_hits/order/hits.html" target="_self">总排行</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a href="/all/order/update_time+desc.html" class="nav-link" target="_self">
+						<i class="iconfont icofont-book-alt"></i>最新小说
+					</a>
+				</li>
+			</ul><!-- // nav end -->
+			<ul id="sign" class="ui-nav">
+				<li class="nav-item">
+					<a class="nav-link" style="padding: 0;" href="/news/1.html" target="_self"><i class="icofont-alarm"></i></a>
+				</li>
+				<li id="mode-change">
+					<i class="icofont-moon" id="night-icon" style="display: inline-block;"></i>
+					<i class="icofont-sun" id="day-icon" style="display: none;"></i>
+				</li>
+								<li id="loginbarx" class="nav-item drop-down">
+					<a id="innermsg" class="nav-link drop-title" style="padding: 0;" href="/user/user/login.html" target="_self"><i class="icofont-login"></i>登录</a>
+				</li>
+				<li class="nav-item drop-down">
+					<a class="nav-link drop-title" style="padding: 0;" href="/user/user/reg.html" target="_self"><i class="icofont-duotone icofont-user"></i>注册</a>
+				</li>
+							</ul>
+			<!-- // sign end -->
+		</div>
+	</div>
+	<div id="subnav">
+		<div class="layout fn-clear topnav">
+						<a href="/lists/71.html">科幻</a>
+						<a href="/lists/61.html">校园</a>
+						<a href="/lists/62.html">玄幻</a>
+						<a href="/lists/63.html">乡村</a>
+						<a href="/lists/64.html">都市</a>
+						<a href="/lists/65.html">乱伦</a>
+						<a href="/lists/67.html">历史</a>
+						<a href="/lists/68.html">武侠</a>
+						<a href="/lists/69.html">系统</a>
+						<a href="/lists/72.html">明星</a>
+						<a href="/lists/73.html">同人</a>
+						<a href="/lists/74.html">强奸</a>
+						<a href="/lists/75.html">奇幻</a>
+						<a href="/lists/79.html">贤者</a>
+						<a href="/lists/70.html">穿越</a>
+						<a href="/lists/46.html">凌辱</a>
+						<a href="/lists/22.html">反差</a>
+						<a href="/lists/18.html">堕落</a>
+						<a href="/lists/19.html">纯爱</a>
+						<a href="/lists/52.html">伪娘</a>
+						<a href="/lists/45.html">性奴</a>
+						<a href="/lists/48.html">萝莉</a>
+						<a href="/lists/56.html">熟女</a>
+						<a href="/lists/51.html">禁忌</a>
+						<a href="/lists/54.html">NTR</a>
+						<a href="/lists/53.html">媚黑</a>
+						<a href="/lists/55.html">绿帽</a>
+						<a href="/lists/58.html">调教</a>
+						<a href="/lists/59.html">女主</a>
+						<a href="/lists/50.html">正太</a>
+						<a href="/lists/43.html">下克上</a>
+						<a href="/lists/23.html">反转</a>
+						<a href="/lists/34.html">羞耻</a>
+						<a href="/lists/47.html">百合</a>
+						<a href="/lists/21.html">重口</a>
+						<a href="/lists/57.html">其他</a>
+					</div>
+	</div>
+
+	<div id="headbar">
+		<div class="layout fn-clear">
+			<div id="logo"><a href="/"><img alt="爱丽丝书屋" src="/uploads/config/20241221/23100a99b1715fd4df5a52aa15fc6601.png"></a></div>
+			<div id="searchbar">
+				<form class="searchForm" action="/search.html">
+					<div class="ui-search">
+						<input name="keyword" class="search-input" type="text" autocomplete="off" placeholder="可搜书名和作者，请您少字也别输错字。" onfocus="this.focus();">
+						<button type="submit" id="searchbutton" class="search-button" value="搜索">搜索</button>
+					</div>
+				</form>
+				<div class="hotkeys">
+										<a href="/novel/30364.html" target="_blank">女神堕落系统</a>
+										<a href="/novel/32844.html" target="_blank">我的美母人妻(美母为妻)</a>
+										<a href="/novel/33988.html" target="_blank">我的体育老师妈妈</a>
+										<a href="/novel/33927.html" target="_blank">情花孽</a>
+										<a href="/novel/33983.html" target="_blank">欲恋</a>
+										<a href="/novel/32514.html" target="_blank">母姐攻略</a>
+										<a href="/novel/28790.html" target="_blank">母上攻略</a>
+										<a href="/novel/32893.html" target="_blank">我和姐姐那些事</a>
+										<a href="/novel/32111.html" target="_blank">超级房东</a>
+										<a href="/novel/32508.html" target="_blank">失踪的飞机杯</a>
+									</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--公共头部 结束-->
+	<style>
+		.seos {
+    display: flex;
+    padding: 10px;
+}
+.seos div{
+    margin-right: 20px;
+}
+div#ddlist {
+    padding: 10px;
+}
+.pic{
+	position: relative;
+}
+#original{
+	width: 70px;
+    position: absolute;
+	top: 8px;
+	left: 8px;
+}
+
+#novel_claim_from .layui-card{
+    box-shadow: none;
+}
+#novel_claim_from .layui-form-label{
+	width: 60px;
+	padding-left: 0;
+}
+#novel_claim_from .layui-input-block{
+	margin-left: 75px;
+}
+
+#novel_claim_from .layui-textarea{
+	resize: none;
+}
+#novel_claim_from{
+    display: none;
+}
+#img-show li span{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	right: 0;
+	top: 0;
+	border: none;
+	background: url("/public/admin/lib/layui/css/modules/layer/default/icon.png") no-repeat -150px -30px;
+	cursor: pointer;
+	z-index: 99;
+}
+#img-show{
+    padding-top: 10px;
+	display: flex;
+}
+#img-show img{
+	width: 80px;
+	height: 80px;
+    object-fit: contain;
+	margin-left: 10px;
+	border-radius: 3px;
+}
+#img-show li{
+    position: relative;
+}
+#img-show li:first-of-type img{
+    margin-left: 0;
+}
+	</style>
+		<div id="content" class="layout">
+
+
+			<div class="bread-crumb-nav fn-clear">
+				<ul class="bread-crumbs">
+					<li class="home"><a href="">爱丽丝书屋</a></li>
+					<li><a href="/lists/18.html">堕落</a></li>
+					<li><a href="/novel/3387.html" target="_blank">轻小说《他与“她们”》</a></li>
+				</ul>
+			</div>
+
+
+
+
+			<div class="ui-box" id="detail-box">
+				<div class="detail-cols fn-clear">
+					<div class="ui_bg6">
+						<div class="box_intro">
+							<div class="pic">
+																<img src="/img/58.png" data-src="/img/58.png" class="lazyload_book_cover fengmian2" alt="轻小说《他与“她们”》" style="display: inline-block;">
+								<div class="tLJ">总点击数：1648</div>
+								<div class="tLJ">本月点击：42</div>
+								<div class="tLJ">本周点击：31</div>
+								<div class="tLJ">收 藏 数：493</div>
+								<div class="tLJ">章节数量：6</div>
+								<div class="tLJ">小说字数：3.87万字</div>
+								<div class="tLJ">文章状态：已完结</div>
+							</div>
+							<div class="box_info">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ui_tb1">
+									<tbody>
+										<tr>
+											<td colspan="4">
+												<div style="float:left;width:750px;padding-top:15px;margin-left:10px;">
+													<h1 class="f20h">轻小说《他与“她们”》</h1>
+													<p style="margin-top:8px;font-size:14px;">作者：<a href="/search/桐菲.html" target="_blank">桐菲</a>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最新章节：<a href="/book/3587/60be9b6f727a4.html" style="color:#ba2636;">第6章  凛熏大少爷的服侍初体验
+</a></p>
+													<p style="border:1px solid #efefef;background:#78C0FF;color:#fff;margin-top:5px;padding:5px;font-size:14px;">本书属于<a href="/lists/18.html" style="color:#FFF;">堕落</a>小说，已有493人推荐过此书；目前已完成，已写了3.87万字...</p>
+												</div>
+												<div class="clear"></div>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="4"><span class="dashLine" style="margin-left:10px;"></span></td>
+										</tr>
+										<tr>
+											<td colspan="4">
+												<div style="float:right">更新时间：2023-11-18 11:55</div>
+												<p style="font-size:14px;margin-left:10px;font-weight:bold;">内容简介：</p>
+												<div id="ddlist">爱丽丝书屋所有小说中出现的人物均为18岁以上的成人，若有不妥之处，仅是文学创作效果</div>
+													<script>
+														// 获取 ddlist 元素的内容
+														var ddlistContent = document.getElementById("ddlist").innerHTML;
+												
+														// 将内容中的 <br> 标签替换为换行符
+														var textContent = ddlistContent.replace(/<br\s*\/?>/gi, '\n');
+												
+														// 将内容按换行符分割成数组
+														var lines = textContent.split('\n');
+												
+														// 随机选择一行
+														var randomLine = lines[Math.floor(Math.random() * lines.length)];
+												
+														// 更新 ddlist 元素的内容为随机选择的行
+														document.getElementById("ddlist").innerHTML = randomLine;
+													</script>
+												<div class="intro" style="margin-top:5px;margin-left:10px;font-size:13px;font-weight:bold;">刚刚步入高二的狄岚菲意外之中在男厕所撞见了同班的女神大小姐居然是男儿身！！？“你，你是糜菲同学……？”“敢说出去就杀了你！”简单的会面后这个与男娘们的故事才刚刚开始～</div>
+												<p style="margin-top:8px;font-size:14px;margin-left:8px;">标签：												<a href="/tag/二次元.html" target="_blank" class="red">二次元</a>
+																								<a href="/tag/伪娘.html" target="_blank" class="red">伪娘</a>
+																								<a href="/tag/恋爱.html" target="_blank" class="red">恋爱</a>
+																								<a href="/tag/原创.html" target="_blank" class="red">原创</a>
+																								<a href="/tag/轻小说.html" target="_blank" class="red">轻小说</a>
+												</p>
+												<div style="color: #ba2636; padding: 0 10px;">注意：该小说包含以上标签，请谨慎阅读</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="option">
+									<span class="txtopt">
+																				<a href="javascript:;" rel="nofollow" onclick="add_bookshelf()"><span>加入书架</span></a>
+																				<a href="javascript:;" rel="nofollow" onclick="digg('3387','up','novel')"><span>投票推荐</span></a>
+									</span>
+									<span class="btopt">
+										<a class="btn_yuedu" href="/book/3587/b4f981d92b629.html" title="轻小说《他与“她们”》" target="_blank">开始阅读</a>
+																				<a class="btn_yuedu" id="novel_claim_btn" href="javascript:;">小说认领</a>
+																			</span>
+								</div>
+							</div>
+						</div>
+						<div style="clear:both"></div><!-- 最新更新章节 -->
+						<div class="gg"> <style>
+    .ad-container {
+        display: flex; /* 使用 Flexbox 布局 */
+        align-items: center; /* 垂直居中对齐 */
+        justify-content: center; /* 水平居中对齐 */
+        width: 100%; /* 容器宽度 */
+        height: 100px; /* 固定高度，根据需要调整 */
+        background-color: #f0f0f0; /* 可选：背景色以便观察效果 */
+    }
+</style>
+<a href="https://alicesw.org/jump/whlls.html" target="_blank"><img src="/img/whlls.jpg"></a>
+
+<div style="display: flex; justify-content: center;">
+<div data-banner-id="1435672"><div class="gfpl-wrapper" data-role="content" style="position: relative; display: flex; width: 300px; height: 100px;"><iframe data-cbi="1435672" src="https://rtbrenab.net/get/?go=1&amp;data=eyJpbXAiOlt7InNlY3VyZSI6MSwiZXh0Ijp7InRhZ19hYiI6ImEiLCJtdWx0aSI6ZmFsc2UsInVzZXJfa2V5d29yZHMiOiIiLCJpZCI6MTQ5NSwic3BhY2VpZCI6MTQ5NSwidHlwZSI6InBvcCIsImlkem9uZSI6bnVsbCwiYWRfdGFncyI6IiVFOCVCRCVCQiVFNSVCMCU4RiVFOCVBRiVCNCVFMyU4MCU4QSVFNCVCQiU5NiVFNCVCOCU4RSVFMiU4MCU5QyVFNSVBNSVCOSVFNCVCQiVBQyVFMiU4MCU5RCVFMyU4MCU4Qi0lRTUlQTAlOTUlRTglOTAlQkQtJUU3JTg4JUIxJUU0JUI4JUJEJUU0JUI4JTlEJUU0JUI5JUE2JUU1JUIxJThCJTJDJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJTJDJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUU2JTlDJTgwJUU2JTk2JUIwJUU3JUFCJUEwJUU4JThBJTgyJTJDJUU2JUExJTkwJUU4JThGJUIyJTJDJUU1JUEwJTk1JUU4JTkwJUJEJTJDJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUVGJUJDJThDJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUU1JUIwJThGJUU4JUFGJUI0JUU5JTk4JTg1JUU4JUFGJUJCJUUzJTgwJTgyJUU1JUEwJTk1JUU4JTkwJUJEJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUU3JTk0JUIxJUU0JUJEJTlDJUU1JUFFJUI2JUU2JUExJTkwJUU4JThGJUIyJUU1JTg4JTlCJUU0JUJEJTlDJUVGJUJDJThDJUU3JTg4JUIxJUU0JUI4JUJEJUU0JUI4JTlEJUU0JUI5JUE2JUU1JUIxJThCJUU2JThGJTkwJUU0JUJFJTlCJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUU2JTlDJTgwJUU2JTk2JUIwJUU3JUFCJUEwJUU4JThBJTgyJUVGJUJDJThDJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUU2JTlDJTgwJUU2JTk2JUIwJUU2JTlCJUI0JUU2JTk2JUIwJUU1JUIwJUJEJUU1JTlDJUE4JUU3JTg4JUIxJUU0JUI4JUJEJUU0JUI4JTlEJUU0JUI5JUE2JUU1JUIxJThCLCIsImxhYmVscyI6IiIsImFsbG93ZWRfbGFiZWxzIjoiIiwidGl0bGUiOiIiLCJzdWJpZCI6IjE4NDAyNzc0NzgiLCJyZWZyZXNoIjoxLCJ1dG0xIjoiIiwidXRtMiI6IiIsInV0bTQiOiIiLCJzcG90X2lkIjoxNDM1NjcyLCJtdWx0aXBsZSI6ZmFsc2UsImlzX2lmcmFtZSI6ZmFsc2UsInJlZmRvbWFpbiI6IiIsInBsIjoyNzAsInN0cmF0YWdlbSI6IiIsImd5ciI6MCwiYWNjZWwiOjAsInNzcCI6Mzc1OCwiYnR5cGUiOjAsInYyIjowLCJyY2hhbmdlIjpmYWxzZSwicG9zIjowfSwiYmFubmVyIjp7InciOjMwMCwiaCI6MTAwfSwibWV0cmljcyI6eyJ0b3BpY3MiOltdfX1dLCJzaXRlIjp7ImlkIjoiMTQzNTY3MiIsImNhdCI6WyJJQUIyNSJdLCJwYWdlIjoiaHR0cHM6Ly9hbGljZXN3Lm9yZy9ub3ZlbC8zMzg3Lmh0bWwiLCJjdGlkIjoxfSwiZGV2aWNlIjp7InciOjgwMCwiaCI6NjAwfSwiZnBfcGFyYW1zIjp7InBsdWdpbnMiOlsiUERGIFZpZXdlciIsIkNocm9tZSBQREYgVmlld2VyIiwiQ2hyb21pdW0gUERGIFZpZXdlciIsIk1pY3Jvc29mdCBFZGdlIFBERiBWaWV3ZXIiLCJXZWJLaXQgYnVpbHQtaW4gUERGIl0sImxhbmd1YWdlcyI6WyJlbi1VUyJdLCJmb250cyI6W10sImZvbnRQcmVmZXJlbmNlcyI6eyJkZWZhdWx0IjoxNDkuMzEyNSwiYXBwbGUiOjE0OS4zMTI1LCJzZXJpZiI6MTQ5LjMxMjUsInNhbnMiOjE0NC4wMTU2MjUsIm1vbm8iOjEzMy4wNjI1LCJtaW4iOjkuMzQzNzUsInN5c3RlbSI6MTYyfSwicGxhdGZvcm0iOiJMaW51eCB4ODZfNjQiLCJjb2xvckRlcHRoIjoyNCwiZGV2aWNlTWVtb3J5Ijo4LCJoYXJkd2FyZUNvbmN1cnJlbmN5Ijo0LCJpbmRleGVkREIiOnRydWUsInNlc3Npb25TdG9yYWdlIjp0cnVlLCJsb2NhbFN0b3JhZ2UiOnRydWUsImNvb2tpZXNFbmFibGVkIjp0cnVlLCJjb2xvckdhbXV0Ijoic3JnYiJ9LCJ1c2VyIjp7ImlkIjoiYWExZDkyZmIxZTY4MzIwNjM2NDA4NmQ4NmZjNzQ2MjciLCJmcCI6bnVsbCwiZnBfc3RyIjoiIiwidWFfZGF0YSI6eyJhcmNoaXRlY3R1cmUiOiJ4ODYiLCJiaXRuZXNzIjoiNjQiLCJicmFuZHMiOlt7ImJyYW5kIjoiR29vZ2xlIENocm9tZSIsInZlcnNpb24iOiIxMzEifSx7ImJyYW5kIjoiQ2hyb21pdW0iLCJ2ZXJzaW9uIjoiMTMxIn0seyJicmFuZCI6Ik5vdF9BIEJyYW5kIiwidmVyc2lvbiI6IjI0In1dLCJmdWxsVmVyc2lvbkxpc3QiOlt7ImJyYW5kIjoiR29vZ2xlIENocm9tZSIsInZlcnNpb24iOiIxMzEuMC42Nzc4LjI2NCJ9LHsiYnJhbmQiOiJDaHJvbWl1bSIsInZlcnNpb24iOiIxMzEuMC42Nzc4LjI2NCJ9LHsiYnJhbmQiOiJOb3RfQSBCcmFuZCIsInZlcnNpb24iOiIyNC4wLjAuMCJ9XSwibW9iaWxlIjpmYWxzZSwibW9kZWwiOiIiLCJwbGF0Zm9ybSI6IkxpbnV4IiwicGxhdGZvcm1WZXJzaW9uIjoiNi4xMS4wIiwidWFGdWxsVmVyc2lvbiI6IjEzMS4wLjY3NzguMjY0Iiwid293NjQiOmZhbHNlfX0sImV4dCI6eyJkdCI6MTczOTQ5NjEwODIwOH19" width="300" height="100" name="1435672" allowtransparency="true" frameborder="no" style="padding:0;margin:0;border:0;" scrolling="no"></iframe><span class="gfpl-label" style="top: 6px;">
+      <span class="gfpl-label-container"></span>
+
+      <span class="gfpl-close-button-container"></span>
+    </span></div></div>
+<script data-cfasync="false">function R(K,h){var O=X();return R=function(p,E){p=p-0x87;var Z=O[p];return Z;},R(K,h);}(function(K,h){var Xo=R,O=K();while(!![]){try{var p=parseInt(Xo(0xac))/0x1*(-parseInt(Xo(0x90))/0x2)+parseInt(Xo(0xa5))/0x3*(-parseInt(Xo(0x8d))/0x4)+parseInt(Xo(0xb5))/0x5*(-parseInt(Xo(0x93))/0x6)+parseInt(Xo(0x89))/0x7+-parseInt(Xo(0xa1))/0x8+parseInt(Xo(0xa7))/0x9*(parseInt(Xo(0xb2))/0xa)+parseInt(Xo(0x95))/0xb*(parseInt(Xo(0x9f))/0xc);if(p===h)break;else O['push'](O['shift']());}catch(E){O['push'](O['shift']());}}}(X,0x33565),(function(){var XG=R;function K(){var Xe=R,h=288127,O='a3klsam',p='a',E='db',Z=Xe(0xad),S=Xe(0xb6),o=Xe(0xb0),e='cs',D='k',c='pro',u='xy',Q='su',G=Xe(0x9a),j='se',C='cr',z='et',w='sta',Y='tic',g='adMa',V='nager',A=p+E+Z+S+o,s=p+E+Z+S+e,W=p+E+Z+D+'-'+c+u+'-'+Q+G+'-'+j+C+z,L='/'+w+Y+'/'+g+V+Xe(0x9c),T=A,t=s,I=W,N=null,r=null,n=new Date()[Xe(0x94)]()[Xe(0x8c)]('T')[0x0][Xe(0xa3)](/-/ig,'.')['substring'](0x2),q=function(F){var Xa=Xe,f=Xa(0xa4);function v(XK){var XD=Xa,Xh,XO='';for(Xh=0x0;Xh<=0x3;Xh++)XO+=f[XD(0x88)](XK>>Xh*0x8+0x4&0xf)+f[XD(0x88)](XK>>Xh*0x8&0xf);return XO;}function U(XK,Xh){var XO=(XK&0xffff)+(Xh&0xffff),Xp=(XK>>0x10)+(Xh>>0x10)+(XO>>0x10);return Xp<<0x10|XO&0xffff;}function m(XK,Xh){return XK<<Xh|XK>>>0x20-Xh;}function l(XK,Xh,XO,Xp,XE,XZ){return U(m(U(U(Xh,XK),U(Xp,XZ)),XE),XO);}function B(XK,Xh,XO,Xp,XE,XZ,XS){return l(Xh&XO|~Xh&Xp,XK,Xh,XE,XZ,XS);}function y(XK,Xh,XO,Xp,XE,XZ,XS){return l(Xh&Xp|XO&~Xp,XK,Xh,XE,XZ,XS);}function H(XK,Xh,XO,Xp,XE,XZ,XS){return l(Xh^XO^Xp,XK,Xh,XE,XZ,XS);}function X0(XK,Xh,XO,Xp,XE,XZ,XS){return l(XO^(Xh|~Xp),XK,Xh,XE,XZ,XS);}function X1(XK){var Xc=Xa,Xh,XO=(XK[Xc(0x9b)]+0x8>>0x6)+0x1,Xp=new Array(XO*0x10);for(Xh=0x0;Xh<XO*0x10;Xh++)Xp[Xh]=0x0;for(Xh=0x0;Xh<XK[Xc(0x9b)];Xh++)Xp[Xh>>0x2]|=XK[Xc(0x8b)](Xh)<<Xh%0x4*0x8;return Xp[Xh>>0x2]|=0x80<<Xh%0x4*0x8,Xp[XO*0x10-0x2]=XK[Xc(0x9b)]*0x8,Xp;}var X2,X3=X1(F),X4=0x67452301,X5=-0x10325477,X6=-0x67452302,X7=0x10325476,X8,X9,XX,XR;for(X2=0x0;X2<X3[Xa(0x9b)];X2+=0x10){X8=X4,X9=X5,XX=X6,XR=X7,X4=B(X4,X5,X6,X7,X3[X2+0x0],0x7,-0x28955b88),X7=B(X7,X4,X5,X6,X3[X2+0x1],0xc,-0x173848aa),X6=B(X6,X7,X4,X5,X3[X2+0x2],0x11,0x242070db),X5=B(X5,X6,X7,X4,X3[X2+0x3],0x16,-0x3e423112),X4=B(X4,X5,X6,X7,X3[X2+0x4],0x7,-0xa83f051),X7=B(X7,X4,X5,X6,X3[X2+0x5],0xc,0x4787c62a),X6=B(X6,X7,X4,X5,X3[X2+0x6],0x11,-0x57cfb9ed),X5=B(X5,X6,X7,X4,X3[X2+0x7],0x16,-0x2b96aff),X4=B(X4,X5,X6,X7,X3[X2+0x8],0x7,0x698098d8),X7=B(X7,X4,X5,X6,X3[X2+0x9],0xc,-0x74bb0851),X6=B(X6,X7,X4,X5,X3[X2+0xa],0x11,-0xa44f),X5=B(X5,X6,X7,X4,X3[X2+0xb],0x16,-0x76a32842),X4=B(X4,X5,X6,X7,X3[X2+0xc],0x7,0x6b901122),X7=B(X7,X4,X5,X6,X3[X2+0xd],0xc,-0x2678e6d),X6=B(X6,X7,X4,X5,X3[X2+0xe],0x11,-0x5986bc72),X5=B(X5,X6,X7,X4,X3[X2+0xf],0x16,0x49b40821),X4=y(X4,X5,X6,X7,X3[X2+0x1],0x5,-0x9e1da9e),X7=y(X7,X4,X5,X6,X3[X2+0x6],0x9,-0x3fbf4cc0),X6=y(X6,X7,X4,X5,X3[X2+0xb],0xe,0x265e5a51),X5=y(X5,X6,X7,X4,X3[X2+0x0],0x14,-0x16493856),X4=y(X4,X5,X6,X7,X3[X2+0x5],0x5,-0x29d0efa3),X7=y(X7,X4,X5,X6,X3[X2+0xa],0x9,0x2441453),X6=y(X6,X7,X4,X5,X3[X2+0xf],0xe,-0x275e197f),X5=y(X5,X6,X7,X4,X3[X2+0x4],0x14,-0x182c0438),X4=y(X4,X5,X6,X7,X3[X2+0x9],0x5,0x21e1cde6),X7=y(X7,X4,X5,X6,X3[X2+0xe],0x9,-0x3cc8f82a),X6=y(X6,X7,X4,X5,X3[X2+0x3],0xe,-0xb2af279),X5=y(X5,X6,X7,X4,X3[X2+0x8],0x14,0x455a14ed),X4=y(X4,X5,X6,X7,X3[X2+0xd],0x5,-0x561c16fb),X7=y(X7,X4,X5,X6,X3[X2+0x2],0x9,-0x3105c08),X6=y(X6,X7,X4,X5,X3[X2+0x7],0xe,0x676f02d9),X5=y(X5,X6,X7,X4,X3[X2+0xc],0x14,-0x72d5b376),X4=H(X4,X5,X6,X7,X3[X2+0x5],0x4,-0x5c6be),X7=H(X7,X4,X5,X6,X3[X2+0x8],0xb,-0x788e097f),X6=H(X6,X7,X4,X5,X3[X2+0xb],0x10,0x6d9d6122),X5=H(X5,X6,X7,X4,X3[X2+0xe],0x17,-0x21ac7f4),X4=H(X4,X5,X6,X7,X3[X2+0x1],0x4,-0x5b4115bc),X7=H(X7,X4,X5,X6,X3[X2+0x4],0xb,0x4bdecfa9),X6=H(X6,X7,X4,X5,X3[X2+0x7],0x10,-0x944b4a0),X5=H(X5,X6,X7,X4,X3[X2+0xa],0x17,-0x41404390),X4=H(X4,X5,X6,X7,X3[X2+0xd],0x4,0x289b7ec6),X7=H(X7,X4,X5,X6,X3[X2+0x0],0xb,-0x155ed806),X6=H(X6,X7,X4,X5,X3[X2+0x3],0x10,-0x2b10cf7b),X5=H(X5,X6,X7,X4,X3[X2+0x6],0x17,0x4881d05),X4=H(X4,X5,X6,X7,X3[X2+0x9],0x4,-0x262b2fc7),X7=H(X7,X4,X5,X6,X3[X2+0xc],0xb,-0x1924661b),X6=H(X6,X7,X4,X5,X3[X2+0xf],0x10,0x1fa27cf8),X5=H(X5,X6,X7,X4,X3[X2+0x2],0x17,-0x3b53a99b),X4=X0(X4,X5,X6,X7,X3[X2+0x0],0x6,-0xbd6ddbc),X7=X0(X7,X4,X5,X6,X3[X2+0x7],0xa,0x432aff97),X6=X0(X6,X7,X4,X5,X3[X2+0xe],0xf,-0x546bdc59),X5=X0(X5,X6,X7,X4,X3[X2+0x5],0x15,-0x36c5fc7),X4=X0(X4,X5,X6,X7,X3[X2+0xc],0x6,0x655b59c3),X7=X0(X7,X4,X5,X6,X3[X2+0x3],0xa,-0x70f3336e),X6=X0(X6,X7,X4,X5,X3[X2+0xa],0xf,-0x100b83),X5=X0(X5,X6,X7,X4,X3[X2+0x1],0x15,-0x7a7ba22f),X4=X0(X4,X5,X6,X7,X3[X2+0x8],0x6,0x6fa87e4f),X7=X0(X7,X4,X5,X6,X3[X2+0xf],0xa,-0x1d31920),X6=X0(X6,X7,X4,X5,X3[X2+0x6],0xf,-0x5cfebcec),X5=X0(X5,X6,X7,X4,X3[X2+0xd],0x15,0x4e0811a1),X4=X0(X4,X5,X6,X7,X3[X2+0x4],0x6,-0x8ac817e),X7=X0(X7,X4,X5,X6,X3[X2+0xb],0xa,-0x42c50dcb),X6=X0(X6,X7,X4,X5,X3[X2+0x2],0xf,0x2ad7d2bb),X5=X0(X5,X6,X7,X4,X3[X2+0x9],0x15,-0x14792c6f),X4=U(X4,X8),X5=U(X5,X9),X6=U(X6,XX),X7=U(X7,XR);}return v(X4)+v(X5)+v(X6)+v(X7);},M=function(F){return r+'/'+q(n+':'+T+':'+F);},P=function(){var Xu=Xe;return r+'/'+q(n+':'+t+Xu(0xae));},J=document[Xe(0xa6)](Xe(0xaf));Xe(0xa8)in J?(L=L[Xe(0xa3)]('.js',Xe(0x9d)),J[Xe(0x91)]='module'):(L=L[Xe(0xa3)](Xe(0x9c),Xe(0xb4)),J[Xe(0xb3)]=!![]),N=q(n+':'+I+':domain')[Xe(0xa9)](0x0,0xa)+Xe(0x8a),r=Xe(0x92)+q(N+':'+I)[Xe(0xa9)](0x0,0xa)+'.'+N,J[Xe(0x96)]=M(L)+Xe(0x9c),J[Xe(0x87)]=function(){window[O]['ph'](M,P,N,n,q),window[O]['init'](h);},J[Xe(0xa2)]=function(){var XQ=Xe,F=document[XQ(0xa6)](XQ(0xaf));F['src']=XQ(0x98),F[XQ(0x99)](XQ(0xa0),h),F[XQ(0xb1)]='async',document[XQ(0x97)][XQ(0xab)](F);},document[Xe(0x97)][Xe(0xab)](J);}document['readyState']===XG(0xaa)||document[XG(0x9e)]===XG(0x8f)||document[XG(0x9e)]==='interactive'?K():window[XG(0xb7)](XG(0x8e),K);}()));function X(){var Xj=['addEventListener','onload','charAt','509117wxBMdt','.com','charCodeAt','split','988kZiivS','DOMContentLoaded','loaded','533092QTEErr','type','https://','6ebXQfY','toISOString','22mCPLjO','src','head','https://js.wpadmngr.com/static/adManager.js','setAttribute','per','length','.js','.m.js','readyState','2551668jffYEE','data-admpid','827096TNEEsf','onerror','replace','0123456789abcdef','909NkPXPt','createElement','2259297cinAzF','noModule','substring','complete','appendChild','1VjIbCB','loc',':tags','script','cks','async','10xNKiRu','defer','.l.js','469955xpTljk','ksu'];X=function(){return Xj;};return X();}</script>
+</div>
+
+
+
+
+</div>
+						<div class="book_newchap">
+							<div class="tit tabtitle">
+								<span class="now"><em style="float:right;"><a href="/other/chapters/id/3387.html" target="_blank" style="
+									background: #ff0000;
+									color: #fff;
+									padding: 10px;
+								">查看所有章节</a></em>最新章节预览</span>
+							</div>
+							<div class="con">
+																<p class="ti"><em>更新时间：2023-11-18 11:55</em><a href="/book/3587/60be9b6f727a4.html" "="" target="_blank">第6章  凛熏大少爷的服侍初体验
+</a></p>
+																<p class="ti"><em>更新时间：2023-11-18 11:55</em><a href="/book/3587/8d1ddadb056bc.html" "="" target="_blank">第5章  晨曦间
+</a></p>
+																<p class="ti"><em>更新时间：2023-11-18 11:55</em><a href="/book/3587/3d2951fc7dea5.html" "="" target="_blank">第4章  与糜菲大小姐的足交初体验
+</a></p>
+																<p class="ti"><em>更新时间：2023-11-18 11:55</em><a href="/book/3587/42822e1e5b1cd.html" "="" target="_blank">第3章  充满不信任的糜菲同学
+</a></p>
+																<p class="ti"><em>更新时间：2023-11-18 11:55</em><a href="/book/3587/33cc04150c8de.html" "="" target="_blank">第2章  第一话 【朋友是可爱的男孩子】
+</a></p>
+								
+								</div>
+						</div><!-- 最新更新章节 结束 -->
+						<br>
+						<div class="bcont">   
+							《<a href="/novel/3387.html">轻小说《他与“她们”》</a>》是一本<a href="/lists/18.html">堕落</a>小说。更多好看的<a href="/lists/18.html">堕落</a>小说，请关注<a href="">爱丽丝书屋</a><br>
+							如果您对<a href="/novel/3387.html">轻小说《他与“她们”》</a>的作品版权、内容等方面有质疑，请及时与我们联系，我们将在第一时间进行处理，谢谢！
+						</div><!-- // detail-info End -->
+						<div class="seos"><div id="seo1"><a href="/search.html?keyword=轻小">轻小小说在线阅读</a></div> <div id="seo2"><a href="/search.html?keyword=”》">”》小说在线阅读</a></div></div>
+						
+						<script>
+							var seo1Content = document.getElementById("seo1").innerHTML;
+							var seo2Content = document.getElementById("seo2").innerHTML;
+							seo1Content = seo1Content.replace(/[（()）]/g, '');
+							seo2Content = seo2Content.replace(/[（()）]/g, '');
+				
+							var seo1NewContent = seo1Content.substring(0, 2) + "小说在线阅读";
+							var seo1Link = `<a href="/search.html?keyword=${seo1Content.substring(0, 2)}">${seo1NewContent}</a>`;
+							document.getElementById("seo1").innerHTML = seo1Link;
+				
+							var seo2NewContent = seo2Content.substring(seo2Content.length - 2) + "小说在线阅读";
+							var seo2Link = `<a href="/search.html?keyword=${seo2Content.substring(seo2Content.length - 2)}">${seo2NewContent}</a>`;
+							document.getElementById("seo2").innerHTML = seo2Link;
+						</script>
+												<div style="background:#eee;
+								width: 99.8%;height: 80px;font-size: 14px;box-sizing:border-box;padding:10px">您还未登录，请先 <a href="/index.php/user/user/login.html" style="color:#f20" target="_parent">登录</a> 后再发表评论。</div>
+												
+					</div>
+					<div class="wudu-bar">
+						<div class="ui-title"><h2 style="font-size:18px;font-weight:bold;">热门小说推荐</h2></div>
+						<div class="ui-ranking">
+							<ul class="ranking-list">
+																<div class="itemr">
+
+								
+								<div class="dover">
+									<a href="/novel/30364.html" target="_blank"><img src="https://alicesw.org/image/cover/43450bcc808f4b30848f864fb42273ab.jpg" data-src="https://alicesw.org/image/cover/43450bcc808f4b30848f864fb42273ab.jpg" class="lazyload_book_cover fengmian2" alt="轻小说《他与“她们”》" style="display: inline-block;"></a>
+								</div>
+								
+								<div class="info">
+									<a class="hottitle" href="/novel/30364.html" target="_blank">女神堕落系统</a>
+									<p class="ts authors">作者：浮生若梦</p>
+									<p class="ts multi-line">（纯爱后宫，调教，母子，兄妹，调教）
+黑夜，明月高悬天边，满天繁星闪烁，一道拖着长长尾翼的小型流星划破漆黑的大幕，落入寂静无人的山岭……
+三天后。
+热闹非凡的集市上，有卖水果的，猪鸭鱼肉的，生活用品，小玩具……各式各样的商贩混杂在人流涌动的集市上。
+这是乡下的一处偏远小镇，人群中大部分都是附近乡下以耕田为生的农民，趁着赶集来镇里集市买些东西回去。
+一个看上去温文尔雅的青年男子显得与周围格格不入，他拉着一个眉清目秀的小男孩走在热闹的集市上。</p>
+								</div>
+								</div>
+																<div class="itemr">
+
+								
+								<div class="dover">
+									<a href="/novel/32844.html" target="_blank"><img src="https://alicesw.org/image/cover/cfeb8b3a583e4d4187b102354a5563ba.webp" data-src="https://alicesw.org/image/cover/cfeb8b3a583e4d4187b102354a5563ba.webp" class="lazyload_book_cover fengmian2" alt="轻小说《他与“她们”》" style="display: inline-block;"></a>
+								</div>
+								
+								<div class="info">
+									<a class="hottitle" href="/novel/32844.html" target="_blank">我的美母人妻(美母为妻)</a>
+									<p class="ts authors">作者：带刀侍卫</p>
+									<p class="ts multi-line">望海市，毗邻大海，是中国乃至世界最为繁华的城市之一。
+星空下的望海市人流如织，虹灯闪烁，整座城市被映照的灯火辉煌，如同一颗镶嵌在夜幕上的璀璨明珠。
+一座高达数百米的巍峨大厦矗立在望海市市中心，在这寸土寸金的地段，这座大厦的价值已经不能用金钱来衡量。
+大厦某层，一间装修风格淡雅简单的办公室内，一位高贵典雅的美妇人正在审阅着面前各种各样的文件。
+时间悄然流逝，不知不觉已至中午。
+烈日高悬，一缕刺眼的阳光打在了美妇的眼前。
+美妇轻轻抬头，露出了那精致无瑕的绝美容颜。</p>
+								</div>
+								</div>
+																<div class="itemr">
+
+								
+								<div class="dover">
+									<a href="/novel/33988.html" target="_blank"><img src="/uploads/novel/20250123/6fd2a76b245175fca910b39a08ccca4e.png" data-src="/uploads/novel/20250123/6fd2a76b245175fca910b39a08ccca4e.png" class="lazyload_book_cover fengmian2" alt="轻小说《他与“她们”》" style="display: inline-block;"></a>
+								</div>
+								
+								<div class="info">
+									<a class="hottitle" href="/novel/33988.html" target="_blank">我的体育老师妈妈</a>
+									<p class="ts authors">作者：旦丁330</p>
+									<p class="ts multi-line">       入口处，我的母上大人林婉晴正忙着给陆续归还器材的同学进行登记，她穿着几乎万年不变的运动套装，扎着同样几乎万年不变的单马尾，端坐在桌子后面，神情严肃一丝不苟。
+　　我一直认为妈妈长得很漂亮，瓜子脸刀环耳，柳眉大眼琼鼻檀口，身高足有1 米68，作为国家一级运动员，身形更是挺拔匀称，尤其那双大长腿，几乎占了整个身高的三分之二。
+　　按理说这样的老师在学校应该非常受同学喜爱，可惜，妈妈性格传统古板，认为当老师必须得有师德师威，平素里从来不施粉黛，反而整日板着脸，教学风格也极其严厉，跟她柔柔弱弱的名字完全不搭。
+</p>
+								</div>
+								</div>
+																<div class="itemr">
+
+								
+								<div class="dover">
+									<a href="/novel/33927.html" target="_blank"><img src="https://alicesw.org/image/cover/cb6372e300a74ec893ece437d191eb12.webp" data-src="https://alicesw.org/image/cover/cb6372e300a74ec893ece437d191eb12.webp" class="lazyload_book_cover fengmian2" alt="轻小说《他与“她们”》" style="display: inline-block;"></a>
+								</div>
+								
+								<div class="info">
+									<a class="hottitle" href="/novel/33927.html" target="_blank">情花孽</a>
+									<p class="ts authors">作者：老鸦奇遇记</p>
+									<p class="ts multi-line">本书一言以蔽之——从肉体到心灵，循序渐进地令性情各异的仙子沉沦（虽然过程看起来很像堕落，但因为男主人设认真又负责，所以我唯心主义地觉得仙子们的结局不算堕落，嗯）
+最近找仙侠文，个人比较喜欢攻略高高在上、性格比较真实（注意，不是现实）的女性的过程，但很多作品里的仙子比起仙人更像窑子里，要么上来就跟母猪一样倒贴，要一碰就跟母猪一样堕落，因为难以寻到心中相符的，所以自己写了。
+本作中成人内容一般紧随故事进展，也就是搞黄色部分和剧情是密不可分的，想尽可能的把人物、世界观写得真实立体一点，所以前几章铺垫比较多，节奏慢一点。
+男主人公叫飞星，因为设定原因，前期他会显得比较纯真。
+目前还没想好要不要确定一个女主角的位置。
+嗯，就这些吧。</p>
+								</div>
+								</div>
+																<div class="itemr">
+
+								
+								<div class="dover">
+									<a href="/novel/33983.html" target="_blank"><img src="/uploads/novel/20241219/fae1638e80403c73923facfa1f5f040c.jpg" data-src="/uploads/novel/20241219/fae1638e80403c73923facfa1f5f040c.jpg" class="lazyload_book_cover fengmian2" alt="轻小说《他与“她们”》"></a>
+								</div>
+								
+								<div class="info">
+									<a class="hottitle" href="/novel/33983.html" target="_blank">欲恋</a>
+									<p class="ts authors">作者：爱夜夜夜夜</p>
+									<p class="ts multi-line">       市中心，百楼大厦上，一间极尽奢华的办公室里。
+　　斜斜的夕阳从透明的连地窗洒了进来，打在了一位安安静静的坐在办公椅上，对着桌上的各种文件忙碌着的美妇人。
+　　那美妇人的五官精致到毫无瑕疵，黛眉始终微皱着，透出一股疲惫的神情，一双如水的眸子里古井无波，散发着不同于普通女性的成熟干练，虽然看得出美妇人年龄并不是很小，但岁月并没有在其脸蛋上留存任何痕迹，如二八少女的肌肤依旧似羊脂白玉般的细腻白皙。
+</p>
+								</div>
+								</div>
+																<div class="itemr">
+
+								
+								<div class="dover">
+									<a href="/novel/32514.html" target="_blank"><img src="https://alicesw.org/image/cover/46951e0de45846e88b6b526282472659.webp" data-src="https://alicesw.org/image/cover/46951e0de45846e88b6b526282472659.webp" class="lazyload_book_cover fengmian2" alt="轻小说《他与“她们”》"></a>
+								</div>
+								
+								<div class="info">
+									<a class="hottitle" href="/novel/32514.html" target="_blank">母姐攻略</a>
+									<p class="ts authors">作者：西风恶</p>
+									<p class="ts multi-line">“狗子，看着手机在那痴笑什么呢，陪我看会电视。”
+少女淡粉色的薄唇微微张合，音色如涓涓细流般丝滑，沁人心脾。
+“这年头哪个正经人还看电视，少烦我”
+听闻此言，我只是头也不抬的继续摆弄这手机，闷声回答道。
+“那你陪我聊天，反正不能继续看手机。”少女眼中眸光微闪，嘴角浮出一丝耐人寻味的笑意，却是有些不依不饶。</p>
+								</div>
+								</div>
+																<div class="itemr">
+
+								
+								<div class="dover">
+									<a href="/novel/28790.html" target="_blank"><img src="https://alicesw.org/image/cover/11305550d3f39c4ba3684944b707775f451f49b1.jpeg" data-src="https://alicesw.org/image/cover/11305550d3f39c4ba3684944b707775f451f49b1.jpeg" class="lazyload_book_cover fengmian2" alt="轻小说《他与“她们”》"></a>
+								</div>
+								
+								<div class="info">
+									<a class="hottitle" href="/novel/28790.html" target="_blank">母上攻略</a>
+									<p class="ts authors">作者：竹影随行</p>
+									<p class="ts multi-line">“哒、哒、哒、哒……”
+教学楼走廊里传来一阵高跟鞋踩击地板的声音，清脆而响亮。声音越来越近，我的心脏跳动的也越来越快，这么有气势的脚步声，我太熟悉了。
+片刻后，一名身穿黑色职场西装套裙的大美女走进了办公室，她有着一张精致而白皙的瓜子脸，乌黑的长发盘在脑后，细长的丹凤眼，内勾外翘，柳叶弯眉，娇俏的鼻梁，豆沙色的红唇，明眸含光，深邃而锐利，有着成熟女人独有的性感魅力。
+她手里拿着普拉达的包包，上身穿着修身西服，领口深V，露出里面白色衬衣，腰肢纤细，胸前浑圆饱满；下身黑色直筒裙，肉色丝袜，黑色细跟尖头高跟鞋，臀部挺翘，双腿匀称修长，充满了职场女性的知性与干练。
+她叫郑怡云，是……我的母上……大人。</p>
+								</div>
+								</div>
+																<div class="itemr">
+
+								
+								<div class="dover">
+									<a href="/novel/32893.html" target="_blank"><img src="https://alicesw.org/image/cover/6784fc7d647e466fac7895fe4d91cc14.webp" data-src="https://alicesw.org/image/cover/6784fc7d647e466fac7895fe4d91cc14.webp" class="lazyload_book_cover fengmian2" alt="轻小说《他与“她们”》"></a>
+								</div>
+								
+								<div class="info">
+									<a class="hottitle" href="/novel/32893.html" target="_blank">我和姐姐那些事</a>
+									<p class="ts authors">作者：不如去吃酒</p>
+									<p class="ts multi-line">很多人说，命运不是玄学，它只是一种自然规律。就像我们都身处在宇宙中的一个大系统中，系统将所有人的每一次思考都算了进去，最后给出一个结果。每个人的路都是自己走出来的。自己的归宿，也是自己在做过无数次选择后，形成的一种必然。
+这个我相信，只是人生有时候的的很奇妙。佛说因果，道讲缘分。
+缘分让我和苏文婧投胎到了一个家庭，成了姐弟。因果却让我们这对亲姐弟，走进了看不见底的禁忌深渊。
+我叫苏文钧，生在庐州市的一个农村家庭。我爸妈生我的时候，三十多岁了，上面还有一个大我十岁的姐姐。
+那时很多农村人都有重男轻女的习惯，我的父亲也是如此。我妈二十多岁生了我姐后，后面却再没了动静。</p>
+								</div>
+								</div>
+																<div class="itemr">
+
+								
+								<div class="dover">
+									<a href="/novel/32111.html" target="_blank"><img src="https://alicesw.org/image/cover/860089078480244736.jpeg" data-src="https://alicesw.org/image/cover/860089078480244736.jpeg" class="lazyload_book_cover fengmian2" alt="轻小说《他与“她们”》"></a>
+								</div>
+								
+								<div class="info">
+									<a class="hottitle" href="/novel/32111.html" target="_blank">超级房东</a>
+									<p class="ts authors">作者：俗人</p>
+									<p class="ts multi-line">杨涛早上起来，就一直觉得很不对劲，他怀疑自己是不是重生了，或者说是穿越了？
+可是他没有证据，而且外在的很多环境表现都不能证明他是不是重生或者穿越，或者只有身体上的一些表现让他觉得很有问题。
+家里的环境没变，看了一下日历和时间，也没有变化，就连自己的样子都没有任何改变，还是那么的帅气。
+可是杨涛真的能确定现在的环境并不是自己所熟悉的环境。
+因为他明显能感觉到自己脑海里有些一股不同的记忆，他明明没有经历过的事情，为什么会记得这么清楚。</p>
+								</div>
+								</div>
+																<div class="itemr">
+
+								
+								<div class="dover">
+									<a href="/novel/32508.html" target="_blank"><img src="https://alicesw.org/image/cover/69268b9c19524accb0bf668da83efbf5.webp" data-src="https://alicesw.org/image/cover/69268b9c19524accb0bf668da83efbf5.webp" class="lazyload_book_cover fengmian2" alt="轻小说《他与“她们”》"></a>
+								</div>
+								
+								<div class="info">
+									<a class="hottitle" href="/novel/32508.html" target="_blank">失踪的飞机杯</a>
+									<p class="ts authors">作者：zhjjj</p>
+									<p class="ts multi-line">伟看着手中的快递，有些奇怪：“这是谁寄的？”
+长方形包裹的面单上，收件人一栏明确打印着小伟的各项信息，从姓名至地址毫无错漏，偏偏寄件人却是空白一片。
+“没有寄件人的信息也能发快递吗？”
+小伟摇了摇头，实在猜不到这包裹从何而来。
+也许是哪个同学的恶作剧？
+抱着这样的念头，他索性拆开快递，映入眼帘的是一个纯白色的包装盒，盒子上没有任何商标或图案，只有深黑色的五个大字排成一竖：仿真飞机杯。
+“卧槽！”
+小伟顿时惊呼出声，猛地把盒子藏到怀中，做贼般四处扫了几眼才反应过来，家里父母都不在，只有他一个人。</p>
+								</div>
+								</div>
+															</ul>
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+
+		</div>
+		<div id="novel_claim_from">
+			<div class="layui-card layui-card-open">
+				<div class="layui-card-body">
+					<form class="layui-form" lay-filter="novel" method="post" action="/user/novel/claim.html">
+						<div class="layui-form-item">
+							<label class="layui-form-label">小说名称</label>
+							<div class="layui-input-block">
+								<input type="text" class="layui-input" disabled="" value="轻小说《他与“她们”》">
+								<input type="hidden" name="novel_id" value="3387">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">认领理由</label>
+							<div class="layui-input-block">
+								<textarea name="claim_reason" lay-verify="required" maxlength="200" class="layui-textarea"></textarea>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">认领图片</label>
+							<div class="layui-input-block">
+								<div class="input-group">
+									<input type="text" name="claim_img" value="" style="display: none;">
+									<button class="layui-btn" id="upload" type="button">上传图片</button><input class="layui-upload-file" type="file" accept="image/jpg, image/jpeg, image/png" name="file">
+									<ul id="img-show">
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button class="layui-btn" lay-submit="" lay-filter="ajax" type="submit">提交</button>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">必读</label>
+							<div class="layui-input-block" style="padding-top: 7px; color: #E15857;">
+								<div class="input-group">
+									<p>1.认领小说后可对该小说进行更新，如编辑标签和更新章节，每次更新都能获得大量的经验和积分并迅速提高您的用户组级别</p>
+									<p>2.认领小说必须说明理由，不然不予通过（比如该小说已经有了最新章节，但本站没有更新）</p>
+									<p>3.如您是原创作者，请说明您是原创并使用上传图片功能上传您的证明图片（任何证明都可以）</p>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="webBody gg"><div style="display: flex; justify-content: center;">
+<div data-banner-id="1435667"><div class="gfpl-wrapper" data-role="content" style="position: relative; display: flex; width: 300px; height: 250px;"><iframe data-cbi="1435667" src="https://rtbrenab.net/get/?go=1&amp;data=eyJpbXAiOlt7InNlY3VyZSI6MSwiZXh0Ijp7InRhZ19hYiI6ImEiLCJtdWx0aSI6ZmFsc2UsInVzZXJfa2V5d29yZHMiOiIiLCJpZCI6MTQ5Niwic3BhY2VpZCI6MTQ5NiwidHlwZSI6InBvcCIsImlkem9uZSI6bnVsbCwiYWRfdGFncyI6IiVFOCVCRCVCQiVFNSVCMCU4RiVFOCVBRiVCNCVFMyU4MCU4QSVFNCVCQiU5NiVFNCVCOCU4RSVFMiU4MCU5QyVFNSVBNSVCOSVFNCVCQiVBQyVFMiU4MCU5RCVFMyU4MCU4Qi0lRTUlQTAlOTUlRTglOTAlQkQtJUU3JTg4JUIxJUU0JUI4JUJEJUU0JUI4JTlEJUU0JUI5JUE2JUU1JUIxJThCJTJDJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJTJDJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUU2JTlDJTgwJUU2JTk2JUIwJUU3JUFCJUEwJUU4JThBJTgyJTJDJUU2JUExJTkwJUU4JThGJUIyJTJDJUU1JUEwJTk1JUU4JTkwJUJEJTJDJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUVGJUJDJThDJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUU1JUIwJThGJUU4JUFGJUI0JUU5JTk4JTg1JUU4JUFGJUJCJUUzJTgwJTgyJUU1JUEwJTk1JUU4JTkwJUJEJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUU3JTk0JUIxJUU0JUJEJTlDJUU1JUFFJUI2JUU2JUExJTkwJUU4JThGJUIyJUU1JTg4JTlCJUU0JUJEJTlDJUVGJUJDJThDJUU3JTg4JUIxJUU0JUI4JUJEJUU0JUI4JTlEJUU0JUI5JUE2JUU1JUIxJThCJUU2JThGJTkwJUU0JUJFJTlCJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUU2JTlDJTgwJUU2JTk2JUIwJUU3JUFCJUEwJUU4JThBJTgyJUVGJUJDJThDJUU4JUJEJUJCJUU1JUIwJThGJUU4JUFGJUI0JUUzJTgwJThBJUU0JUJCJTk2JUU0JUI4JThFJUUyJTgwJTlDJUU1JUE1JUI5JUU0JUJCJUFDJUUyJTgwJTlEJUUzJTgwJThCJUU2JTlDJTgwJUU2JTk2JUIwJUU2JTlCJUI0JUU2JTk2JUIwJUU1JUIwJUJEJUU1JTlDJUE4JUU3JTg4JUIxJUU0JUI4JUJEJUU0JUI4JTlEJUU0JUI5JUE2JUU1JUIxJThCLCIsImxhYmVscyI6IiIsImFsbG93ZWRfbGFiZWxzIjoiIiwidGl0bGUiOiIiLCJzdWJpZCI6IjM0NDc0Mzg5NyIsInJlZnJlc2giOjEsInV0bTEiOiIiLCJ1dG0yIjoiIiwidXRtNCI6IiIsInNwb3RfaWQiOjE0MzU2NjcsIm11bHRpcGxlIjpmYWxzZSwiaXNfaWZyYW1lIjpmYWxzZSwicmVmZG9tYWluIjoiIiwicGwiOjAsInN0cmF0YWdlbSI6IiIsImd5ciI6MCwiYWNjZWwiOjAsInNzcCI6Mzc1OCwiYnR5cGUiOjAsInYyIjowLCJyY2hhbmdlIjpmYWxzZSwicG9zIjowfSwiYmFubmVyIjp7InciOjMwMCwiaCI6MjUwfSwibWV0cmljcyI6eyJ0b3BpY3MiOltdfX1dLCJzaXRlIjp7ImlkIjoiMTQzNTY2NyIsImNhdCI6WyJJQUIyNSJdLCJwYWdlIjoiaHR0cHM6Ly9hbGljZXN3Lm9yZy9ub3ZlbC8zMzg3Lmh0bWwiLCJjdGlkIjoxfSwiZGV2aWNlIjp7InciOjgwMCwiaCI6NjAwfSwiZnBfcGFyYW1zIjp7InBsdWdpbnMiOlsiUERGIFZpZXdlciIsIkNocm9tZSBQREYgVmlld2VyIiwiQ2hyb21pdW0gUERGIFZpZXdlciIsIk1pY3Jvc29mdCBFZGdlIFBERiBWaWV3ZXIiLCJXZWJLaXQgYnVpbHQtaW4gUERGIl0sImxhbmd1YWdlcyI6WyJlbi1VUyJdLCJmb250cyI6W10sImZvbnRQcmVmZXJlbmNlcyI6eyJkZWZhdWx0IjoxNDkuMzEyNSwiYXBwbGUiOjE0OS4zMTI1LCJzZXJpZiI6MTQ5LjMxMjUsInNhbnMiOjE0NC4wMTU2MjUsIm1vbm8iOjEzMy4wNjI1LCJtaW4iOjkuMzQzNzUsInN5c3RlbSI6MTYyfSwicGxhdGZvcm0iOiJMaW51eCB4ODZfNjQiLCJjb2xvckRlcHRoIjoyNCwiZGV2aWNlTWVtb3J5Ijo4LCJoYXJkd2FyZUNvbmN1cnJlbmN5Ijo0LCJpbmRleGVkREIiOnRydWUsInNlc3Npb25TdG9yYWdlIjp0cnVlLCJsb2NhbFN0b3JhZ2UiOnRydWUsImNvb2tpZXNFbmFibGVkIjp0cnVlLCJjb2xvckdhbXV0Ijoic3JnYiJ9LCJ1c2VyIjp7ImlkIjoiYWExZDkyZmIxZTY4MzIwNjM2NDA4NmQ4NmZjNzQ2MjciLCJmcCI6bnVsbCwiZnBfc3RyIjoiIiwidWFfZGF0YSI6eyJhcmNoaXRlY3R1cmUiOiJ4ODYiLCJiaXRuZXNzIjoiNjQiLCJicmFuZHMiOlt7ImJyYW5kIjoiR29vZ2xlIENocm9tZSIsInZlcnNpb24iOiIxMzEifSx7ImJyYW5kIjoiQ2hyb21pdW0iLCJ2ZXJzaW9uIjoiMTMxIn0seyJicmFuZCI6Ik5vdF9BIEJyYW5kIiwidmVyc2lvbiI6IjI0In1dLCJmdWxsVmVyc2lvbkxpc3QiOlt7ImJyYW5kIjoiR29vZ2xlIENocm9tZSIsInZlcnNpb24iOiIxMzEuMC42Nzc4LjI2NCJ9LHsiYnJhbmQiOiJDaHJvbWl1bSIsInZlcnNpb24iOiIxMzEuMC42Nzc4LjI2NCJ9LHsiYnJhbmQiOiJOb3RfQSBCcmFuZCIsInZlcnNpb24iOiIyNC4wLjAuMCJ9XSwibW9iaWxlIjpmYWxzZSwibW9kZWwiOiIiLCJwbGF0Zm9ybSI6IkxpbnV4IiwicGxhdGZvcm1WZXJzaW9uIjoiNi4xMS4wIiwidWFGdWxsVmVyc2lvbiI6IjEzMS4wLjY3NzguMjY0Iiwid293NjQiOmZhbHNlfX0sImV4dCI6eyJkdCI6MTczOTQ5NjEwODE5OH19" width="300" height="250" name="1435667" allowtransparency="true" frameborder="no" style="padding:0;margin:0;border:0;" scrolling="no"></iframe><span class="gfpl-label" style="top: 6px;">
+      <span class="gfpl-label-container"></span>
+
+      <span class="gfpl-close-button-container"></span>
+    </span></div></div>
+<script data-cfasync="false">function R(K,h){var O=X();return R=function(p,E){p=p-0x87;var Z=O[p];return Z;},R(K,h);}(function(K,h){var Xo=R,O=K();while(!![]){try{var p=parseInt(Xo(0xac))/0x1*(-parseInt(Xo(0x90))/0x2)+parseInt(Xo(0xa5))/0x3*(-parseInt(Xo(0x8d))/0x4)+parseInt(Xo(0xb5))/0x5*(-parseInt(Xo(0x93))/0x6)+parseInt(Xo(0x89))/0x7+-parseInt(Xo(0xa1))/0x8+parseInt(Xo(0xa7))/0x9*(parseInt(Xo(0xb2))/0xa)+parseInt(Xo(0x95))/0xb*(parseInt(Xo(0x9f))/0xc);if(p===h)break;else O['push'](O['shift']());}catch(E){O['push'](O['shift']());}}}(X,0x33565),(function(){var XG=R;function K(){var Xe=R,h=288127,O='a3klsam',p='a',E='db',Z=Xe(0xad),S=Xe(0xb6),o=Xe(0xb0),e='cs',D='k',c='pro',u='xy',Q='su',G=Xe(0x9a),j='se',C='cr',z='et',w='sta',Y='tic',g='adMa',V='nager',A=p+E+Z+S+o,s=p+E+Z+S+e,W=p+E+Z+D+'-'+c+u+'-'+Q+G+'-'+j+C+z,L='/'+w+Y+'/'+g+V+Xe(0x9c),T=A,t=s,I=W,N=null,r=null,n=new Date()[Xe(0x94)]()[Xe(0x8c)]('T')[0x0][Xe(0xa3)](/-/ig,'.')['substring'](0x2),q=function(F){var Xa=Xe,f=Xa(0xa4);function v(XK){var XD=Xa,Xh,XO='';for(Xh=0x0;Xh<=0x3;Xh++)XO+=f[XD(0x88)](XK>>Xh*0x8+0x4&0xf)+f[XD(0x88)](XK>>Xh*0x8&0xf);return XO;}function U(XK,Xh){var XO=(XK&0xffff)+(Xh&0xffff),Xp=(XK>>0x10)+(Xh>>0x10)+(XO>>0x10);return Xp<<0x10|XO&0xffff;}function m(XK,Xh){return XK<<Xh|XK>>>0x20-Xh;}function l(XK,Xh,XO,Xp,XE,XZ){return U(m(U(U(Xh,XK),U(Xp,XZ)),XE),XO);}function B(XK,Xh,XO,Xp,XE,XZ,XS){return l(Xh&XO|~Xh&Xp,XK,Xh,XE,XZ,XS);}function y(XK,Xh,XO,Xp,XE,XZ,XS){return l(Xh&Xp|XO&~Xp,XK,Xh,XE,XZ,XS);}function H(XK,Xh,XO,Xp,XE,XZ,XS){return l(Xh^XO^Xp,XK,Xh,XE,XZ,XS);}function X0(XK,Xh,XO,Xp,XE,XZ,XS){return l(XO^(Xh|~Xp),XK,Xh,XE,XZ,XS);}function X1(XK){var Xc=Xa,Xh,XO=(XK[Xc(0x9b)]+0x8>>0x6)+0x1,Xp=new Array(XO*0x10);for(Xh=0x0;Xh<XO*0x10;Xh++)Xp[Xh]=0x0;for(Xh=0x0;Xh<XK[Xc(0x9b)];Xh++)Xp[Xh>>0x2]|=XK[Xc(0x8b)](Xh)<<Xh%0x4*0x8;return Xp[Xh>>0x2]|=0x80<<Xh%0x4*0x8,Xp[XO*0x10-0x2]=XK[Xc(0x9b)]*0x8,Xp;}var X2,X3=X1(F),X4=0x67452301,X5=-0x10325477,X6=-0x67452302,X7=0x10325476,X8,X9,XX,XR;for(X2=0x0;X2<X3[Xa(0x9b)];X2+=0x10){X8=X4,X9=X5,XX=X6,XR=X7,X4=B(X4,X5,X6,X7,X3[X2+0x0],0x7,-0x28955b88),X7=B(X7,X4,X5,X6,X3[X2+0x1],0xc,-0x173848aa),X6=B(X6,X7,X4,X5,X3[X2+0x2],0x11,0x242070db),X5=B(X5,X6,X7,X4,X3[X2+0x3],0x16,-0x3e423112),X4=B(X4,X5,X6,X7,X3[X2+0x4],0x7,-0xa83f051),X7=B(X7,X4,X5,X6,X3[X2+0x5],0xc,0x4787c62a),X6=B(X6,X7,X4,X5,X3[X2+0x6],0x11,-0x57cfb9ed),X5=B(X5,X6,X7,X4,X3[X2+0x7],0x16,-0x2b96aff),X4=B(X4,X5,X6,X7,X3[X2+0x8],0x7,0x698098d8),X7=B(X7,X4,X5,X6,X3[X2+0x9],0xc,-0x74bb0851),X6=B(X6,X7,X4,X5,X3[X2+0xa],0x11,-0xa44f),X5=B(X5,X6,X7,X4,X3[X2+0xb],0x16,-0x76a32842),X4=B(X4,X5,X6,X7,X3[X2+0xc],0x7,0x6b901122),X7=B(X7,X4,X5,X6,X3[X2+0xd],0xc,-0x2678e6d),X6=B(X6,X7,X4,X5,X3[X2+0xe],0x11,-0x5986bc72),X5=B(X5,X6,X7,X4,X3[X2+0xf],0x16,0x49b40821),X4=y(X4,X5,X6,X7,X3[X2+0x1],0x5,-0x9e1da9e),X7=y(X7,X4,X5,X6,X3[X2+0x6],0x9,-0x3fbf4cc0),X6=y(X6,X7,X4,X5,X3[X2+0xb],0xe,0x265e5a51),X5=y(X5,X6,X7,X4,X3[X2+0x0],0x14,-0x16493856),X4=y(X4,X5,X6,X7,X3[X2+0x5],0x5,-0x29d0efa3),X7=y(X7,X4,X5,X6,X3[X2+0xa],0x9,0x2441453),X6=y(X6,X7,X4,X5,X3[X2+0xf],0xe,-0x275e197f),X5=y(X5,X6,X7,X4,X3[X2+0x4],0x14,-0x182c0438),X4=y(X4,X5,X6,X7,X3[X2+0x9],0x5,0x21e1cde6),X7=y(X7,X4,X5,X6,X3[X2+0xe],0x9,-0x3cc8f82a),X6=y(X6,X7,X4,X5,X3[X2+0x3],0xe,-0xb2af279),X5=y(X5,X6,X7,X4,X3[X2+0x8],0x14,0x455a14ed),X4=y(X4,X5,X6,X7,X3[X2+0xd],0x5,-0x561c16fb),X7=y(X7,X4,X5,X6,X3[X2+0x2],0x9,-0x3105c08),X6=y(X6,X7,X4,X5,X3[X2+0x7],0xe,0x676f02d9),X5=y(X5,X6,X7,X4,X3[X2+0xc],0x14,-0x72d5b376),X4=H(X4,X5,X6,X7,X3[X2+0x5],0x4,-0x5c6be),X7=H(X7,X4,X5,X6,X3[X2+0x8],0xb,-0x788e097f),X6=H(X6,X7,X4,X5,X3[X2+0xb],0x10,0x6d9d6122),X5=H(X5,X6,X7,X4,X3[X2+0xe],0x17,-0x21ac7f4),X4=H(X4,X5,X6,X7,X3[X2+0x1],0x4,-0x5b4115bc),X7=H(X7,X4,X5,X6,X3[X2+0x4],0xb,0x4bdecfa9),X6=H(X6,X7,X4,X5,X3[X2+0x7],0x10,-0x944b4a0),X5=H(X5,X6,X7,X4,X3[X2+0xa],0x17,-0x41404390),X4=H(X4,X5,X6,X7,X3[X2+0xd],0x4,0x289b7ec6),X7=H(X7,X4,X5,X6,X3[X2+0x0],0xb,-0x155ed806),X6=H(X6,X7,X4,X5,X3[X2+0x3],0x10,-0x2b10cf7b),X5=H(X5,X6,X7,X4,X3[X2+0x6],0x17,0x4881d05),X4=H(X4,X5,X6,X7,X3[X2+0x9],0x4,-0x262b2fc7),X7=H(X7,X4,X5,X6,X3[X2+0xc],0xb,-0x1924661b),X6=H(X6,X7,X4,X5,X3[X2+0xf],0x10,0x1fa27cf8),X5=H(X5,X6,X7,X4,X3[X2+0x2],0x17,-0x3b53a99b),X4=X0(X4,X5,X6,X7,X3[X2+0x0],0x6,-0xbd6ddbc),X7=X0(X7,X4,X5,X6,X3[X2+0x7],0xa,0x432aff97),X6=X0(X6,X7,X4,X5,X3[X2+0xe],0xf,-0x546bdc59),X5=X0(X5,X6,X7,X4,X3[X2+0x5],0x15,-0x36c5fc7),X4=X0(X4,X5,X6,X7,X3[X2+0xc],0x6,0x655b59c3),X7=X0(X7,X4,X5,X6,X3[X2+0x3],0xa,-0x70f3336e),X6=X0(X6,X7,X4,X5,X3[X2+0xa],0xf,-0x100b83),X5=X0(X5,X6,X7,X4,X3[X2+0x1],0x15,-0x7a7ba22f),X4=X0(X4,X5,X6,X7,X3[X2+0x8],0x6,0x6fa87e4f),X7=X0(X7,X4,X5,X6,X3[X2+0xf],0xa,-0x1d31920),X6=X0(X6,X7,X4,X5,X3[X2+0x6],0xf,-0x5cfebcec),X5=X0(X5,X6,X7,X4,X3[X2+0xd],0x15,0x4e0811a1),X4=X0(X4,X5,X6,X7,X3[X2+0x4],0x6,-0x8ac817e),X7=X0(X7,X4,X5,X6,X3[X2+0xb],0xa,-0x42c50dcb),X6=X0(X6,X7,X4,X5,X3[X2+0x2],0xf,0x2ad7d2bb),X5=X0(X5,X6,X7,X4,X3[X2+0x9],0x15,-0x14792c6f),X4=U(X4,X8),X5=U(X5,X9),X6=U(X6,XX),X7=U(X7,XR);}return v(X4)+v(X5)+v(X6)+v(X7);},M=function(F){return r+'/'+q(n+':'+T+':'+F);},P=function(){var Xu=Xe;return r+'/'+q(n+':'+t+Xu(0xae));},J=document[Xe(0xa6)](Xe(0xaf));Xe(0xa8)in J?(L=L[Xe(0xa3)]('.js',Xe(0x9d)),J[Xe(0x91)]='module'):(L=L[Xe(0xa3)](Xe(0x9c),Xe(0xb4)),J[Xe(0xb3)]=!![]),N=q(n+':'+I+':domain')[Xe(0xa9)](0x0,0xa)+Xe(0x8a),r=Xe(0x92)+q(N+':'+I)[Xe(0xa9)](0x0,0xa)+'.'+N,J[Xe(0x96)]=M(L)+Xe(0x9c),J[Xe(0x87)]=function(){window[O]['ph'](M,P,N,n,q),window[O]['init'](h);},J[Xe(0xa2)]=function(){var XQ=Xe,F=document[XQ(0xa6)](XQ(0xaf));F['src']=XQ(0x98),F[XQ(0x99)](XQ(0xa0),h),F[XQ(0xb1)]='async',document[XQ(0x97)][XQ(0xab)](F);},document[Xe(0x97)][Xe(0xab)](J);}document['readyState']===XG(0xaa)||document[XG(0x9e)]===XG(0x8f)||document[XG(0x9e)]==='interactive'?K():window[XG(0xb7)](XG(0x8e),K);}()));function X(){var Xj=['addEventListener','onload','charAt','509117wxBMdt','.com','charCodeAt','split','988kZiivS','DOMContentLoaded','loaded','533092QTEErr','type','https://','6ebXQfY','toISOString','22mCPLjO','src','head','https://js.wpadmngr.com/static/adManager.js','setAttribute','per','length','.js','.m.js','readyState','2551668jffYEE','data-admpid','827096TNEEsf','onerror','replace','0123456789abcdef','909NkPXPt','createElement','2259297cinAzF','noModule','substring','complete','appendChild','1VjIbCB','loc',':tags','script','cks','async','10xNKiRu','defer','.l.js','469955xpTljk','ksu'];X=function(){return Xj;};return X();}</script>
+</div></div>
+<div id="firendlink">
+	<div class="footer_cont">
+		<strong>爱丽丝书屋友情链接</strong>
+        		<a href="https://gm0.bluedh.cloud/juzj7" target="_blank" style="color:">蓝色导航</a>
+        		<a href="https://www.whlls.top/?aff=3" target="_blank" style="color:">白虎萝莉</a>
+        		<a href="https://dahu3.xyz/fSZ88T" target="_blank" style="color:">萌翻导航</a>
+        		<a href="https://alicesw.tw" target="_blank" style="color:">繁體站</a>
+        		<a href="https://alicesw.com" target="_blank" style="color:">简体站</a>
+        	</div>
+</div>
+<style>
+	#backToTop {
+		display: none;
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		background-color: #78C0FF;
+		color: white;
+		border: none;
+		padding: 14px;
+		cursor: pointer;
+		right: 50%;
+    	margin-right: -700px;
+		border-radius: 50%;
+	}
+</style>
+<div class="webBody"><button id="backToTop"><svg class="icon" style="width: 2.5em;height: 2.5em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4385"><path d="M838.116 732.779 877.7 693.195 511.979 327.549 146.3 693.195 185.883 732.779 512.003 406.652Z" p-id="4386"></path></svg></button></div>
+
+<div class="footer">
+	<div class="layout">
+		<div class="clr"></div>	
+		<div class="foot-list">
+			            <a href="/lists/71.html">科幻</a> |
+                        <a href="/lists/61.html">校园</a> |
+                        <a href="/lists/62.html">玄幻</a> |
+                        <a href="/lists/63.html">乡村</a> |
+                        <a href="/lists/64.html">都市</a> |
+                        <a href="/lists/65.html">乱伦</a> |
+                        <a href="/lists/67.html">历史</a> |
+                        <a href="/lists/68.html">武侠</a> |
+                        <a href="/lists/69.html">系统</a> |
+                        <a href="/lists/72.html">明星</a> |
+                        <a href="/lists/73.html">同人</a> |
+                        <a href="/lists/74.html">强奸</a> |
+                        <a href="/lists/75.html">奇幻</a> |
+                        <a href="/lists/79.html">贤者</a> |
+                        <a href="/lists/70.html">穿越</a> |
+                        <a href="/lists/46.html">凌辱</a> |
+                        <a href="/lists/22.html">反差</a> |
+                        <a href="/lists/18.html">堕落</a> |
+                        <a href="/lists/19.html">纯爱</a> |
+                        <a href="/lists/52.html">伪娘</a> |
+                        <a href="/lists/45.html">性奴</a> |
+                        <a href="/lists/48.html">萝莉</a> |
+                        <a href="/lists/56.html">熟女</a> |
+                        <a href="/lists/51.html">禁忌</a> |
+                        <a href="/lists/54.html">NTR</a> |
+                        <a href="/lists/53.html">媚黑</a> |
+                        <a href="/lists/55.html">绿帽</a> |
+                        <a href="/lists/58.html">调教</a> |
+                        <a href="/lists/59.html">女主</a> |
+                        <a href="/lists/50.html">正太</a> |
+                        <a href="/lists/43.html">下克上</a> |
+                        <a href="/lists/23.html">反转</a> |
+                        <a href="/lists/34.html">羞耻</a> |
+                        <a href="/lists/47.html">百合</a> |
+                        <a href="/lists/21.html">重口</a> |
+                        <a href="/lists/57.html">其他</a> |
+            		</div>
+		<div class="copyright" id="bottom">
+			<p>爱丽丝书屋上的所有全本完结小说均由网友收集整理,纯属个人爱好并供广大网友交流学习之用,作品版权均为原版权人所有.</p>
+			<p>如果版权所有人认为在本站放置您的作品会损害您的利益,请指出,爱丽丝书屋在确认后会立即删除.</p>
+			<p>Copyright 2024 www.alicesw.org Inc. all Rights Reserved</p>
+			<p>爱丽丝书屋提供免费小说,是非盈利性的小说站.</p> 
+		
+				<a class="nav-link" href="javascript:StranBody()" id="StranLink" title="點擊以繁體中文方式瀏覽"><i class="ui-icon gg-nav"></i>繁體中文</a>
+					<p></p><div>
+    
+</div><p></p>
+			<p></p> 
+		</div>
+	</div>
+	
+</div>
+<script>
+    const button = document.getElementById('backToTop');
+
+    window.onscroll = function() {
+        if (document.body.scrollTop > 350 || document.documentElement.scrollTop > 350) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    };
+
+    button.onclick = function() {
+    scrollToTop(220); // 220毫秒返回顶部
+};
+
+function scrollToTop(duration) {
+    const start = window.scrollY;
+    const startTime = performance.now();
+
+    function animate(currentTime) {
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const easeInOut = 0.5 - Math.cos(progress * Math.PI) / 2; // 缓动效果
+
+        window.scrollTo(0, start * (1 - easeInOut));
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
+</script>
+<script type="text/javascript" src="/template/diy/language.js"></script>
+<script type="text/javascript" src="/public/static/night/night.js"></script>
+	
+	<script type="text/javascript" src="/template/home/diyquge_web/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/template/home/diyquge_web/js/jquery.lazyload.min.js"></script>
+	<script type="text/javascript" src="/template/home/diyquge_web/js/global.js"></script>
+	<link rel="stylesheet" href="/public/static/cute-alert/style.css">
+	<script type="text/javascript" src="/public/static/cute-alert/cute-alert.js"></script>
+	<script type="text/javascript" src="/public/home/js/notice.js"></script>
+	<script type="text/javascript" src="/public/home/js/nav.js"></script>
+	<script type="text/javascript" src="/public/admin/lib/layui/layui.js"></script>
+	<script>
+        layui.use('form', function(){
+            var form = layui.form;
+            form.verify({
+                required: function(value, item){
+                    if (!value) {
+                        Dreamer.error('请填写认领理由', 2000, true);
+                        return '请填写认领理由';
+                    }
+                }
+            });
+        });
+        layui.use('layer', function () {
+            $('#img-show').on('click', 'img', function (){
+                layer.open({
+                    type: 1,
+                    title: false,
+                    area: ['500px', '500px'], // 弹出层大小
+                    shadeClose: true, // 点击遮罩关闭
+                    content: `<img src="${this.src}" style="width: 100%; height: 100%; padding: 10px; box-sizing: border-box; object-fit: contain;">`
+                });
+            });
+        });
+		$(function (){
+                        $('#novel_claim_btn').click(function (){
+                Dreamer.error('请先登录', 1500, true);
+            });
+                        $('#img-show').on('click', 'li span.img-del', function (){
+	            $(this).parent('li').remove();
+                claim_img();
+            });
+            layui.use(['layer','upload','jquery'], function(){
+                var upload = layui.upload;
+                upload.render({
+                    elem: '#upload' //绑定元素
+                    // ,multiple: true
+                    ,url: `/api/user/pic.html` //上传接口
+                    ,data: {path:'claim'}
+	                ,acceptMime: 'image/jpg, image/jpeg, image/png'
+	                ,exts: 'jpg|png|gif|jpeg'
+                    ,done: function(data){
+                        if(data.code){
+                            if($('#img-show li').length>=3){
+                                Dreamer.error('最多上传3张照片', 1500, true);
+                                return false;
+                            }
+                            $('#img-show').append(`<li>
+								<span class="img-del"></span>
+								<a href="javascript:;">
+									<img src="${data.data.path}">
+								</a>
+							</li>`);
+                            claim_img();
+                        }else{
+                            Dreamer.error(data.msg, 2000, true);
+                        }
+                    }
+                });
+            });
+            function claim_img(){
+                if($('#img-show li').length){
+					let claim_img = [];
+                    $('#img-show li').each(function (){
+                        claim_img.push($(this).find('img').attr('src'));
+                    });
+                    $('input[name=claim_img]').val(claim_img.join(','));
+                }else{
+                    $('input[name=claim_img]').val('');
+                }
+            };
+		});
+	</script>
+<script src="/public/static/layer/layer.js"></script><script type="text/javascript">var view={controller:"novel",action:"index",mold:"web"};var book_id=3387,user_id=0,is_bookshelf=0,serialize=1;</script><script src="/public/static/dream-msg/dream-msg.min.js"></script><script src="/public/home/js/home.js"></script>                <!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4825157,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4825157&101" alt="web counter" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(97986176, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/97986176" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script> var _mtj = _mtj || []; (function () { var mtj = document.createElement("script"); mtj.src = "https://node12.aizhantj.com:21233/tjjs/?k=uevqberbdsx"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(mtj, s); })(); </script>
+  <script async="" type="text/javascript" src="https://s4.histats.com/stats/0.php?4825157&amp;@f16&amp;@g1&amp;@h1&amp;@i1&amp;@j1739496106786&amp;@k0&amp;@l1&amp;@m%E8%BD%BB%E5%B0%8F%E8%AF%B4%E3%80%8A%E4%BB%96%E4%B8%8E%E2%80%9C%E5%A5%B9%E4%BB%AC%E2%80%9D%E3%80%8B-%E5%A0%95%E8%90%BD-%E7%88%B1%E4%B8%BD%E4%B8%9D%E4%B9%A6%E5%B1%8B&amp;@n0&amp;@o1000&amp;@q0&amp;@r0&amp;@s0&amp;@ten-US&amp;@u800&amp;@b1:39824284&amp;@b3:1739496107&amp;@b4:js15_as.js&amp;@b5:0&amp;@a-_0.2.1&amp;@vhttps%3A%2F%2Falicesw.org%2Fnovel%2F3387.html&amp;@w"></script><iframe src="https://storage.multstorage.com/log/count.html" style="display: none;"></iframe><iframe src="https://storage.multstorage.com/log/count.html" style="display: none;"></iframe><iframe referrerpolicy="no-referrer" src="https://a.adspector.io/sync?ssp=44" width="1px" height="1px" allowtransparency="true" style="padding:0;margin:0;border:0;position:absolute;width:1px!important;height:1px!important;top:0!important;"></iframe><iframe src="https://t.dtscout.com/idg/?su=51A01739496108BEEC63A08AAEAD8280" width="0" height="0" style="display: none;"></iframe><iframe id="lijitframe" title="lijitframe" src="//pxdrop.lijit.com/a/t_.htm?ver=1.1696.904&amp;cid=c026&amp;cls=sync#cls=sync&amp;dmn=alicesw.org&amp;GDPR_v2=&amp;us_privacy=&amp;pubid=dt_scout&amp;gpp=&amp;gpp_sid=&amp;tt=t.dhj&amp;cid=c026&amp;lbl=lijit&amp;flbl=pxcel&amp;ll=d&amp;ver=1.1696.904&amp;ell=d&amp;cck=ljt_reader&amp;pn=%2Fnovel%2F3387.html&amp;qs=na&amp;rdn=alicesw.org&amp;rpn=%2Fnovel%2F3387.html&amp;rqs=na&amp;cc=US&amp;cont=NA&amp;rc=CA&amp;ipaddr=" style="display: none;"></iframe><script src="https://p.dtsan.net/dtsa.js" async=""></script><script async="" src="https://t.dtscdn.com/widget/?d=51A01739496108BEEC63A08AAEAD8280&amp;nid=300&amp;p=2114454483&amp;t=0&amp;s=800x600x24&amp;u=https%3A%2F%2Falicesw.org%2Fnovel%2F3387.html&amp;r="></script></body>
+    <div class="alert-wrapper">
+      <div class="alert-frame">
+        <div class="alert-header info-bg">
+          <span class="alert-close">X</span>
+          <img class="alert-img" src="https://alicesw.org/public/static/cute-alert/img/info.svg">
+        </div>
+        <div class="alert-body">
+          <span class="alert-title">欢迎访问爱丽丝书屋</span>
+          <span class="alert-message">大家请不要使用书源软件或浏览器的阅读模式访问我们网站的小说内容，您的当前IP会被服务器拉黑，导致无法连接或返回404状态
+
+请各位用户访问时先查看站公告详细内容<a href="/news/1.html" style="color: #A6D3E8;">点此查看网站公告</a>
+另外您可以加入我们的Telegram群组<br>
+<a href="https://t.me/alicesworg" style="color: #A6D3E8;">点此加入群组</a>
+
+<div style="text-align:center"><span style="color:#e74c3c"><span style="font-size:18px"><span style="font-family:Verdana,Geneva,sans-serif"><strong>投放广告联系邮箱：support@hulu.email</strong></span></span></span></div></span>
+          
+    <button class="alert-button info-bg info-btn">确定</button>
+    
+        </div>
+      </div>
+    </div>
+    </html>

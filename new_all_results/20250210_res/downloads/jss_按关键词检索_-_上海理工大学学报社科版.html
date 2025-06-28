@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><head>
+<base href="/">
+<meta charset="utf-8">
+<title>按关键词检索</title>
+<meta name="Keywords" content="上海理工大学学报（社科版）"><meta name="Description" content="上海理工大学学报（社科版）">
+<link rel="stylesheet" type="text/css" href="template/035/css/reset_h5.css">
+<link rel="stylesheet" type="text/css" href="template/035/css/layout_h5.css">
+<link rel="stylesheet" type="text/css" href="template/035/css/index_h5.css">
+
+<link rel="stylesheet" type="text/css" href="template/css/font-awesome.min.css">
+<script type="text/javascript" src="template/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="template/js/jquery.SuperSlide.2.1.3.js"></script>
+<script type="text/javascript" src="template/js/checkform.js"></script>
+<script type="text/javascript" src="template/035/js/Tony_Tab.js"></script>
+<script type="text/javascript" src="template/035/js/baguettebox.min.js"></script>
+    <script type="text/javascript" src="template/035/js/common.js"></script>
+<script type="text/javascript" src="template/js/et_website.js"></script>
+<style>
+.article_abstract_left { width:810px !important; }
+</style></head>
+
+<body>
+    <style>
+        .index-c{width:1200px; margin: 0 auto; }
+        .nav_position,.article_abstract_main { margin: 0 auto; width:1200px; }
+        .article_abstract_right .tt {
+            height: 54px !important;
+            line-height: 54px !important;
+        }
+        .article_abstract_left .p2{
+            margin-top: 10px;
+        }
+    </style>
+<div class="header">
+    <div class="hd-t m-row">
+        <div class="logo m-fl"><img src="/download_upload_file.aspx?file_name=/uploadfile/shlgdxxbsk/pc_banner.jpg" alt=""></div>
+        <!--<div class="hd-search m-fr m-row">
+            <div class="hd-sl m-fl m-row">
+                 <form action="shlgdxxbsk/article/search" name="SearchForm" id="formId" method="get">
+                <input class="m-fl" type="text" name="key" placeholder="">
+                <a class="btn-ss m-fr" onclick="document:formId.submit()"></a>
+                     </form>
+            </div>
+            <a class="ss-more m-fr" href="/shlgdxxbsk/article/advanced_search">+高级检索</a>
+        </div>-->
+		 <div class="header_search">
+        <form action="shlgdxxbsk/article/search" method="get">
+          <select class="header_select" name="field">
+             <option value="title">--请选择--</option><option value="title">中文标题</option><option value="en_title">英文标题</option><option value="user_real_name">作者中文名</option><option value="pin_yin_name">作者英文名</option><option value="abstract">中文摘要</option><option value="en_abstract">英文摘要</option><option value="key_word">中文关键词</option><option value="en_key_word">英文关键词</option><option value="cn_institution">单位中文名</option><option value="en_institution">单位英文名</option><option value="clc_number">中图分类号</option><option value="doi">DOI</option>
+                    
+          </select>
+          <input type="text" class="header_text" placeholder="搜索" value="" name="key">
+          <div class="header_image index_submit"><input type="image" class="header_img input_i" value="检索"></div>
+        </form>
+        <div class="header_senior"><a href="shlgdxxbsk/article/advanced_search">+高级检索</a></div>
+      </div>
+    </div>
+    <div class="hd-b">
+        <div class="hd-bw">
+            <ul class="nav m-fl">
+                  <li class="m" id="menu2010121735652001"><h3><a href="/shlgdxxbsk/home">首页</a></h3></li><li class="m" id="menu2010121735707001"><h3><a href="shlgdxxbsk/site/menu/2010121735707001">期刊简介</a></h3></li><li class="m" id="menu2011032812722001"><h3><a href="shlgdxxbsk/site/menu/2011032812722001">编辑委员会</a></h3></li><li class="m" id="menu2010121735758001"><h3><a href="shlgdxxbsk/site/menu/2010121735758001">期刊目录</a></h3></li><li class="m" id="menu2010121735811001"><h3><a href="shlgdxxbsk/site/menu/2010121735811001">投稿指南</a></h3></li><li class="m" id="menu2010121735901001"><h3><a href="shlgdxxbsk/site/menu/2010121735901001">联系我们</a></h3></li>
+            </ul>
+            <!--<div class="language m-fr">
+                <ul>
+                    <li><a class="btn-img" href="javascript:void(0);"></a></li>
+
+                    
+                 <li><a class="btn-zh" href="/shlgdxxbsk/home">中文</a></li>
+                     <li><a href="/shlgdxxbsken/home">English</a></li>
+                
+                    
+                </ul>
+            </div>-->
+        </div>
+    </div>
+</div>
+<!--头部结束-->
+    <div style="clear:both;"></div>
+<!--中间主体开始-->
+<div class="index-c">
+<!--data_type:json-->
+<link type="text/css" href="template/common/css/article_advanced_search_ext_h5.css" rel="stylesheet">
+<!--中间主体开始-->
+<div class="search_ext_container">
+   <form id="article_search_form" name="article_search_form" action="shlgdxxbsk/article/search" method="post">   
+        <div class="search_ext_condition">
+            <div class="">
+                <select name="field" id="article_search_form_field">	
+                    <option value="title">中文标题</option><option value="en_title">英文标题</option><option value="key_word" selected="true">中文关键词</option><option value="en_key_word">英文关键词</option><option value="abstract">中文摘要</option><option value="en_abstract">英文摘要</option><option value="user_real_name">作者中文名</option><option value="pin_yin_name">作者英文名</option><option value="cn_institution">单位中文名</option><option value="en_institution">单位英文名</option><option value="fund_project">基金项目中文名</option><option value="en_fund_project">基金项目英文名</option><option value="doi">DOI</option>
+                </select>
+		<input name="key" type="text" id="article_search_form_key" value="narration" onfocus="this.value='';this.style.color='';" size="28">
+                <a class="btn_search_ext" href="javascript:SubmitArticleSearch(1);">查  询</a>
+                <a class="btn_advnaced_search_ext" href="shlgdxxbsk/article/advanced_search">高级检索+</a>
+            </div>
+            <!--<div class="btn_radio_search_ext">
+                <label><input type="radio" name="source_type" id="source_type_meta" onclick="ChangeSourceType('meta');" value="meta"><span>论文元数据</span></label>
+                <label><input type="radio" name="source_type" id="source_type_fulltext" onclick="ChangeSourceType('fulltext');" value="fulltext"><span>论文正文内容</span></label>
+                <label><input type="radio" name="source_type" id="source_type_fig" onclick="ChangeSourceType('fig');" value="fig"><span>图</span></label>
+		<label><input type="radio" name="source_type" id="source_type_table" onclick="ChangeSourceType('table');" value="table"><span>表</span></label>
+            </div>
+	    -->
+	    <div class="search_ext_additional" style="display:none">
+                <div class="search_ext_list">
+                    <label>附加检索条件:</label>
+                    <label class="filteryear" style="display: none;">
+                        <span id="DisplayFilterYearExample"></span>
+                        <a href="javascript:;" class="close" onclick="CloseAdditional(0)"></a>
+                    </label>
+                    <label class="filterauthor" style="display: none;">
+                        <span id="DisplayFilterAuthorExample"></span>
+                        <a href="javascript:;" class="close" onclick="CloseAdditional(1)"></a>
+                    </label>
+                    <label class="filterkeyword" style="display: none;">
+                        <span id="DisplayFilterKeywordExample"></span>
+                        <a href="javascript:;" class="close" onclick="CloseAdditional(2)"></a>
+                    </label>
+                </div>
+            </div>
+            <div class="btn_search_ext_result_info" id="et_table_result_info"><span>共找到相关记录4条</span></div>
+	     <input type="hidden" name="additional_year" id="additional_year" value="">
+                <input type="hidden" name="additional_author" id="additional_author" value="">
+                <input type="hidden" name="additional_keyword" id="additional_keyword" value="">
+   	    <input type="hidden" id="article_search_form_function_title" name="function_title" value="按关键词检索">
+	    <input type="hidden" id="article_search_form_page" name="page" value="1">
+	    <input type="hidden" id="article_search_form_total_count" value="4">
+	    <input type="hidden" id="CsrfCheckCode" name="CsrfCheckCode" value="t4a3d6">
+        </div>
+    </form>
+    <!--et_article_list 开始-->
+    <div class="search_ext_list_body search_ext_list" id="et_article_list" style="">
+		    <!--列表部分 开始-->
+		    <div class="search_ext_list_body_container search_ext_list_body_container_left" id="EtTableArticleList"><ul><div class="search_ext_keyword_result"><div class="search_ext_choose clearfix"><div class="search_ext_choose_left search_ext_list_body_container_left clearfix"><input id="SelectAll" name="SelectAll" class="selAll" type="checkbox"><span class="search_ext_btn_select_all" id="SelectAllLabel">全 选</span></div><div class="search_ext_choose_right search_ext_list_body_container_right"><span class="search_ext_display_mode">显示方式：</span><a id="text_mode" class="text_mode on" title="简洁模式" href="javascript:;"></a><a id="text_abstract_mode" class="text_abstract_mode" title="摘要模式" href="javascript:DisplayByAbstract();"></a><span class="search_ext_separate">|</span><a id="BtnExport" name="BtnExport" class="search_ext_btn_export" title="导出" href="javascript:;"></a></div></div><div class="search_ext_article_list"><ul><li id="20190109"><input class="search_ext_list_body_container_left" name="FileNO" id="FileNO20190109" value="20190109" type="checkbox"><div class="search_ext_article_item search_ext_list_body_container_left"><div class="search_ext_article_title"><a href="shlgdxxbsk/article/abstract/20190109?st=search" target="_blank">哈珀诗歌的空间阐释</a></div><p class="search_ext_article_author"><span><a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=author_name&amp;encoding=utf8&amp;q=杨永春" target="_blank">杨永春</a></span></p><p class="search_ext_article_position">2019, 41(1):52-56.<span>DOI: <a href="http://dx.doi.org/10.13256/j.cnki.jusst.sse.2019.01.009" target="_blank">10.13256/j.cnki.jusst.sse.2019.01.009</a></span></p><div class="search_ext_article_keyword"><span>关键词：</span><span><a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=查尔斯·哈珀" target="_blank">查尔斯·哈珀</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=空间意象" target="_blank">空间意象</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=空间叙事" target="_blank">空间叙事</a></span></span></span></div><div class="search_ext_article_toolbar"><a class="search_ext_btn_article_abstract" href="shlgdxxbsk/article/abstract/20190109?st=search" target="_blank">摘要 (<span id="ClickNum20190109">840</span>)</a><a class="search_ext_btn_article_html" href="shlgdxxbsk/article/html/20190109?st=search" target="_blank">HTML (<span id="HtmlClickNum20190109">242</span>)</a><a class="search_ext_btn_article_pdf" href="shlgdxxbsk/article/pdf/20190109?st=search" target="_blank">PDF 1.08 M (<span id="PDFClickNum20190109">1374</span>)</a><a class="search_ext_btn_article_collect" href="shlgdxxbsk/article/add_favorites/20190109" target="_blank">收藏</a></div><div class="search_ext_article_abstract"><p><b>摘要:</b>查尔斯·哈珀是澳大利亚诗坛公认的第一位游吟诗人。对于哈珀诗歌的空间阐释还是一个空白点。以空间叙事理论为支撑和批评视角，拟从空间意象、空间叙事和诗歌节奏等方面解读哈珀的诗歌，以期还原其诗歌的独特意境和他对神秘壮美的哲思。空间意象的叠加和重复大大增强了诗意效果，并置的空间意象结构会限定主体意识的生成模式，空间意象与人物的命运和叙事进程息息相关。作为叙事因子，空间意象不仅奠定了叙事基调，也影响着叙事进程。另外，诗歌的叙事进程在很大程度上也受到音韵节奏和韵脚变化的影响。结果表明，哈珀诗歌的空间阐释视角新颖，值得深入研究。</p></div></div></li><li id="20160109"><input class="search_ext_list_body_container_left" name="FileNO" id="FileNO20160109" value="20160109" type="checkbox"><div class="search_ext_article_item search_ext_list_body_container_left"><div class="search_ext_article_title"><a href="shlgdxxbsk/article/abstract/20160109?st=search" target="_blank">论辛西娅·欧芝克《大披肩》的女性大屠杀叙事</a></div><p class="search_ext_article_author"><span><a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=author_name&amp;encoding=utf8&amp;q=赵娜" target="_blank">赵娜</a></span></p><p class="search_ext_article_position">2016, 38(1):42-47.<span>DOI: <a href="http://dx.doi.org/10.13256/j.cnki.jusst.sse.2016.01.008" target="_blank">10.13256/j.cnki.jusst.sse.2016.01.008</a></span></p><div class="search_ext_article_keyword"><span>关键词：</span><span><a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=女性" target="_blank">女性</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=大屠杀" target="_blank">大屠杀</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=叙事" target="_blank">叙事</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=母亲视角" target="_blank">母亲视角</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=辛西娅·" target="_blank">辛西娅·</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=欧芝克" target="_blank">欧芝克</a></span></span></span></span></span></span></div><div class="search_ext_article_toolbar"><a class="search_ext_btn_article_abstract" href="shlgdxxbsk/article/abstract/20160109?st=search" target="_blank">摘要 (<span id="ClickNum20160109">1374</span>)</a><a class="search_ext_btn_article_html" href="shlgdxxbsk/article/html/20160109?st=search" target="_blank">HTML (<span id="HtmlClickNum20160109">293</span>)</a><a class="search_ext_btn_article_pdf" href="shlgdxxbsk/article/pdf/20160109?st=search" target="_blank">PDF 1.09 M (<span id="PDFClickNum20160109">5737</span>)</a><a class="search_ext_btn_article_collect" href="shlgdxxbsk/article/add_favorites/20160109" target="_blank">收藏</a></div><div class="search_ext_article_abstract"><p><b>摘要:</b>在大屠杀言说和不可言说的争论中,欧芝克创作了影响广泛的大屠杀作品《大披肩》,受到各类读者认可。运用叙事学方法和大屠杀相关研究成果探讨欧芝克的女性大屠杀叙事特征,分析欧芝克选取的历史原素材,阐释运用的叙事模式实现的完整叙事,解析母亲视角的特殊意义,提出女性人物的大屠杀经历将从性别视角突出女性历史性话语,映射犹太女性遭受的多重迫害,从母亲视角深刻体悟大屠杀对个体以及犹太民族造成的创伤。</p></div></div></li><li id="20160310"><input class="search_ext_list_body_container_left" name="FileNO" id="FileNO20160310" value="20160310" type="checkbox"><div class="search_ext_article_item search_ext_list_body_container_left"><div class="search_ext_article_title"><a href="shlgdxxbsk/article/abstract/20160310?st=search" target="_blank">《风暴眼》的叙事聚焦分析</a></div><p class="search_ext_article_author"><span><a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=author_name&amp;encoding=utf8&amp;q=邓瑶" target="_blank">邓瑶</a></span></p><p class="search_ext_article_position">2016, 38(3):248-253.<span>DOI: <a href="http://dx.doi.org/10.13256/j.cnki.jusst.sse.2016.03.010" target="_blank">10.13256/j.cnki.jusst.sse.2016.03.010</a></span></p><div class="search_ext_article_keyword"><span>关键词：</span><span><a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=《风暴眼》" target="_blank">《风暴眼》</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=叙事聚焦" target="_blank">叙事聚焦</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=零聚焦" target="_blank">零聚焦</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=内聚焦" target="_blank">内聚焦</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=外聚焦" target="_blank">外聚焦</a></span></span></span></span></span></div><div class="search_ext_article_toolbar"><a class="search_ext_btn_article_abstract" href="shlgdxxbsk/article/abstract/20160310?st=search" target="_blank">摘要 (<span id="ClickNum20160310">1319</span>)</a><a class="search_ext_btn_article_html" href="shlgdxxbsk/article/html/20160310?st=search" target="_blank">HTML (<span id="HtmlClickNum20160310">559</span>)</a><a class="search_ext_btn_article_pdf" href="shlgdxxbsk/article/pdf/20160310?st=search" target="_blank">PDF 1.10 M (<span id="PDFClickNum20160310">2290</span>)</a><a class="search_ext_btn_article_collect" href="shlgdxxbsk/article/add_favorites/20160310" target="_blank">收藏</a></div><div class="search_ext_article_abstract"><p><b>摘要:</b>帕特里克·怀特在小说《风暴眼》中以内聚焦模式搭建了叙述的主要框架，将零聚焦和外聚焦模式穿插其中，建构了多层次、多角度的叙述体系。三种叙述模式相辅相成推进叙述进程，让不同位置的叙述者发出自己的声音，更加深刻、清晰地传达了人物的内心情感和意识流动。</p></div></div></li><li id="20150211"><input class="search_ext_list_body_container_left" name="FileNO" id="FileNO20150211" value="20150211" type="checkbox"><div class="search_ext_article_item search_ext_list_body_container_left"><div class="search_ext_article_title"><a href="shlgdxxbsk/article/abstract/20150211?st=search" target="_blank">夺“框”而出:论《女房客》的跨性别叙事</a></div><p class="search_ext_article_author"><span><a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=author_name&amp;encoding=utf8&amp;q=李方木" target="_blank">李方木</a></span></p><p class="search_ext_article_position">2015, 37(2):155-159.<span>DOI: <a href="http://dx.doi.org/10.13256/j.cnki.jusst.sse.2015.02.011" target="_blank">10.13256/j.cnki.jusst.sse.2015.02.011</a></span></p><div class="search_ext_article_keyword"><span>关键词：</span><span><a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=安妮·" target="_blank">安妮·</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=勃朗特" target="_blank">勃朗特</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=《女房客》" target="_blank">《女房客》</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=跨性别叙事" target="_blank">跨性别叙事</a><span>;&nbsp;<a href="http://social.alljournals.cn/search.aspx?subject=general_social_sciences&amp;major=shkxzlxbjzhl&amp;orderby=referenced&amp;field=key_word&amp;encoding=utf8&amp;q=框套结构" target="_blank">框套结构</a></span></span></span></span></span></div><div class="search_ext_article_toolbar"><a class="search_ext_btn_article_abstract" href="shlgdxxbsk/article/abstract/20150211?st=search" target="_blank">摘要 (<span id="ClickNum20150211">1471</span>)</a><a class="search_ext_btn_article_html" href="shlgdxxbsk/article/html/20150211?st=search" target="_blank">HTML (<span id="HtmlClickNum20150211">299</span>)</a><a class="search_ext_btn_article_pdf" href="shlgdxxbsk/article/pdf/20150211?st=search" target="_blank">PDF 1.06 M (<span id="PDFClickNum20150211">2415</span>)</a><a class="search_ext_btn_article_collect" href="shlgdxxbsk/article/add_favorites/20150211" target="_blank">收藏</a></div><div class="search_ext_article_abstract"><p><b>摘要:</b>安妮·勃朗特的《女房客》对维多利亚时期的性别认同形成了极大挑战,小说通过作者与男叙述者、叙述者与受述者之间的跨性别现象,阐释了性别本身的不确定性与可操演性。这种跨性别叙事完成了一次冲破传统意识形态的框约、进行女性主体建构的尝试,宣示了作品的前瞻性与美学价值,促其成为女性主义文学的经典文本,作者安妮也因成功操刀消解小说文本内外的性别符号,由名不见经传而跻身文化精英的行列。</p></div></div></li></ul></div></div><div class="search_ext_page" id="articlepageview"><a>上一页</a><a class="active" href="javascript:SubmitArticleSearch('1');">1</a><a>下一页</a><div class="t-pages"><span>共1页4条记录 跳转到</span><input type="text" id="article_search_form_go_to_page" name="article_search_form_go_to_page" class="article_search_pager_item_goto" value="1"><span>页</span><a class="go active" href="javascript:SubmitGoToPageSearch();">GO</a></div></div></ul></div>
+		    <!--列表部分 结束-->
+		    <!--统计开始-->
+		    <div class="search_ext_list_statistics_container search_ext_list_body_container_right" id="EtTableStatisticsList"><h5>出版年份</h5><div class="search_ext_list_statistics_item"><ul><li><a href="javascript:SearchByYear('2019');"><span class="search_ext_list_body_container_left">2019年</span><span class="search_ext_list_body_container_right">1</span></a></li><li><a href="javascript:SearchByYear('2016');"><span class="search_ext_list_body_container_left">2016年</span><span class="search_ext_list_body_container_right">2</span></a></li><li><a href="javascript:SearchByYear('2015');"><span class="search_ext_list_body_container_left">2015年</span><span class="search_ext_list_body_container_right">1</span></a></li></ul></div></div>
+		     <!--统计结束-->
+    </div>
+    <!--et_article_list 结束-->
+</div>
+<br>
+<script src="template/common/js/jquery.masonry.min.js"></script>
+<script>
+    $(function(){
+        var $waterfall = $('#waterfall');
+        var wWidth = $(document).width();
+        if(wWidth >= 1900){
+            $waterfall.masonry({
+                columnWidth: 380
+            });
+        }else{
+            $waterfall.masonry({
+                columnWidth: 270
+            });
+        }
+
+    });
+</script>
+<!--中间主体结束-->
+<script language="javascript">
+
+//编码
+function htmlEncode(value) {
+    return $('<div/>').text(value).html();
+}  
+//解码  
+function htmlDecode(value) {
+    return $('<div />').html(value).text();
+}
+
+function ChangeSourceType(strSourceType){
+	if(strSourceType==""){
+		strSourceType="meta";
+	}
+	if(strSourceType=="meta"){
+		$("#article_search_form_field").show();
+	}else{
+		$("#article_search_form_field").hide();
+	}
+}
+
+ function isNull(object){
+        return typeof(object) == "undefined" || object == null || object == "";
+    }
+
+    function CloseAdditional(type){
+        var year = $("input[name='additional_year']").val();
+        if(isNull(year)){
+            $(".filteryear").hide();
+        }
+        var author = $("input[name='additional_author']").val();
+        if(isNull(author)){
+            $(".filterauthor").hide();
+        }
+        var keyword = $("input[name='additional_keyword']").val();
+        if(isNull(keyword)){
+            $(".filterkeyword").hide();
+        }
+        if(type == 0){
+            $(".filteryear").hide();
+	    $("#additional_year").prop("value","");
+            if(isNull(author) && isNull(keyword)){
+                $(".search_ext_additional").hide();
+            }
+        }else if(type == 1){
+            $(".filterauthor").hide();
+	    $("#additional_author").prop("value","");
+            if(isNull(year) && isNull(keyword)){
+                $(".search_ext_additional").hide();
+            }
+        }else if(type == 2){
+            $(".filterkeyword").hide();
+	    $("#additional_keyword").prop("value","");
+            if(isNull(year) && isNull(author)){
+                $(".search_ext_additional").hide();
+            }
+        }
+	SubmitArticleSearch('1');
+    }
+    function SearchByYear(strYear){
+	$("#additional_year").prop("value",strYear);
+        $(".search_ext_additional").show();
+        $(".filteryear").show();
+	$("#DisplayFilterYearExample").show();
+        $("#DisplayFilterYearExample").html("年  =  "+strYear);
+	SubmitArticleSearch('1');
+    }
+    function SearchByAuthor(strAuthor){
+	$("#additional_author").prop("value",strAuthor);
+        $(".search_ext_additional").show();
+        $(".filterauthor").show();
+	$("#DisplayFilterAuthorExample").show();
+        $("#DisplayFilterAuthorExample").html("作者  =  "+strAuthor);
+	SubmitArticleSearch('1');
+    }
+    function SearchByKeyWord(strKeyWord){
+	$("#additional_keyword").prop("value",strKeyWord);
+        $(".search_ext_additional").show();
+        $(".filterkeyword").show();
+        $("#DisplayFilterKeywordExample").show();
+	$("#DisplayFilterKeywordExample").html("关键词  =  "+strKeyWord);
+	SubmitArticleSearch('1');
+    }
+
+
+//获取选择的文章编号
+function GetSelectAllFileNO(){
+	var strFileNOList="";
+	$("input:checkbox").each(function(){
+		var strID=$(this).prop("id");
+		var strFileNO=$(this).prop("value");
+		if($(this).prop("checked")){
+			if(strID!=null && strID.indexOf("FileNO")==0){
+				if(strFileNOList!=""){
+					strFileNOList=strFileNOList+",";
+				}
+				strFileNOList=strFileNOList+strFileNO;
+			}
+		}
+		
+	});
+	return strFileNOList;
+}
+
+//导出文章
+function ExportArticle(){
+	var strFileNOList=GetSelectAllFileNO();
+	if(strFileNOList==""){
+		alert("请选择文章！");
+		return;
+	}
+	window.location.href="shlgdxxbsk/article/export?article_list="+strFileNOList;    
+}
+
+
+//分页
+function SubmitArticleSearch(strPage){
+	SearchData(strPage);
+}
+//跳转
+function SubmitGoToPageSearch(){
+	var strPage=$("#article_search_form_go_to_page").val();
+	SearchData(strPage);
+}
+
+$().ready(function() {	
+	var strSourceType="meta";
+	var CanDisplayList=true;
+	var strTotalCount=$("#article_search_form_total_count").val();
+	if(strTotalCount!="" && strTotalCount!="0"){
+		CanDisplayList=true;
+	}
+	if(CanDisplayList==true){
+		$("#et_article_list").show();
+		$("#articlepageview").show();
+		$("#search_ext_list_statistics").show();
+		
+	}else{
+		$("#et_article_list").hide();
+		$("#articlepageview").hide();
+		$("#search_ext_list_statistics").hide();
+	}
+
+
+	$("#article_search_form_field option[value='en_key_word']").prop("selected", true); 
+	$("#article_search_form_from_year option[value='[from_year]']").prop("selected", true); 
+	$("#article_search_form_to_year option[value='[to_year]']").prop("selected", true); 
+	$("#article_search_form_key").prop("value",'narration');
+
+	$("#additional_year").prop("value","");
+	$("#additional_author").prop("value","");
+	$("#additional_keyword").prop("value","");
+
+	$("#DisplayFilterYearExample").html("");
+	$("#DisplayFilterAuthorExample").html("");
+	$("#DisplayFilterKeywordExample").html("");
+	
+	var strOldAdditionalYear=$("#additional_year").val();
+	var strOldAdditionalAuthor=$("#additional_author").val();
+	var strOldAdditionalKeyword=$("#additional_keyword").val();
+
+	 if(strOldAdditionalYear=="" && strOldAdditionalAuthor=="" && strOldAdditionalKeyword==""){
+		$(".search_ext_additional").hide();
+	 }else{
+		$(".search_ext_additional").show();
+	 }
+
+	 if(strOldAdditionalYear==""){
+		 $(".filteryear").hide();
+	 }else{
+		 $(".filteryear").show();
+	 }
+	 
+	 if(strOldAdditionalAuthor==""){
+		$(".filterauthor").hide();
+	 }else{
+		$(".filterauthor").show();
+	 }	 
+	 if(strOldAdditionalKeyword==""){
+		 $(".filterkeyword").hide();
+	 }else{
+		$(".filterkeyword").show();
+	 }
+	 var strPage=$("#article_search_form_page").val();
+	SearchData(strPage);
+
+
+
+});
+
+
+function SearchData(strPage){
+	var strSearchType="search";
+	var strSourceType="meta";
+	var strSearchField=$("#article_search_form_field").val();
+	var strSearchKey=$("#article_search_form_key").val();
+	var strAdditionalYear=$("#additional_year").val();
+	var strAdditionalAuthor=$("#additional_author").val();
+	var strAdditionalKeyword=$("#additional_keyword").val();
+	if(strSearchKey=="" && strAdditionalYear=="" && strAdditionalAuthor=="" && strAdditionalKeyword==""){
+		//return;	
+	}	
+	var strPageSize="10";
+	
+	GetData(strSearchType,strSourceType,strSearchField,strSearchKey,strAdditionalYear,strAdditionalAuthor,strAdditionalKeyword,strPage,strPageSize);
+}
+
+function GetData(strSearchType,strSourceType,strSearchField,strSearchKey,strAdditionalYear,strAdditionalAuthor,strAdditionalKeyword,strPage,strPageSize){
+	 $("#et_table_result_info").html("页面加载中，请稍候...");
+	 $("#et_article_list").hide();
+	 $("#EtTableArticleList").html("<ul></ul>");
+	 $("#EtTableStatisticsList").html("");
+	 //刷新最新一期访问数据
+	 var strURL="shlgdxxbsk/ajax/search";
+	 var strDataParams="search_type="+strSearchType;
+	 strDataParams=strDataParams+"&source_type="+strSourceType;
+	 strDataParams=strDataParams+"&field="+strSearchField;
+	 strDataParams=strDataParams+"&key="+strSearchKey;
+	 strDataParams=strDataParams+"&additional_year="+strAdditionalYear;
+	 strDataParams=strDataParams+"&additional_author="+strAdditionalAuthor;
+	 strDataParams=strDataParams+"&additional_keyword="+strAdditionalKeyword;
+	 strDataParams=strDataParams+"&page="+strPage;
+	 strDataParams=strDataParams+"&page_size="+strPageSize;
+	 strDataParams=strDataParams+"&CsrfCheckCode=t4a3d6";	
+	
+	$.post(strURL,strDataParams,function(strJson){
+		if(strJson == ""){
+			alert("请输入检索内容！");
+			return;
+		}
+		if(strJson.indexOf("language")<0){
+			alert(strJson);
+			return;
+		}
+		var resultJson = jQuery.parseJSON(strJson);
+		var strTotalPage=resultJson.total;
+		if(strTotalPage==""){
+			strTotalPage="0";
+		}
+		var strTotalRecords=resultJson.records;
+		if(strTotalRecords==""){
+			strTotalRecords="0";
+		}
+		var strCurrentPage=resultJson.page;
+		if(strCurrentPage==""){
+			strCurrentPage="0";
+		}
+		var strStartPage=resultJson.start_page;
+		if(strStartPage==""){
+			strStartPage="0";
+		}
+		var strEndPage=resultJson.end_page;
+		if(strEndPage==""){
+			strEndPage="0";
+		}
+		var strLanguage=resultJson.language;
+		
+		var intTotalPage=parseInt(strTotalPage);		
+		var intTotalRecords=parseInt(strTotalRecords);
+		var intCurrentPage=parseInt(strCurrentPage);
+		var intStartPage=parseInt(strStartPage);
+		var intEndPage=parseInt(strEndPage);
+		
+		
+
+		$("#article_search_form_total_count").prop("value",intTotalRecords);
+		
+		 var strResultInfo="";
+		 if(strLanguage=="en"){
+			strResultInfo="<span>Total result "+intTotalRecords+"</span>";
+		 }else{
+			strResultInfo="<span>共找到相关记录"+intTotalRecords+"条</span>";
+		 }
+		 $("#et_table_result_info").html(strResultInfo);	
+		//结果列表
+		var strArticleList="";
+		//分类统计
+		var strStatisticsList="";
+		if(intTotalRecords<=0){
+			$("#et_article_list").hide();
+			return;
+		}
+		 $("#et_article_list").show();
+		if(strSourceType=="" || strSourceType=="meta" || strSourceType=="fulltext"){
+			  strArticleList=strArticleList+"<div class='search_ext_keyword_result'>";
+			  strArticleList=strArticleList+"<div class='search_ext_choose clearfix'>";
+			  strArticleList=strArticleList+"<div class='search_ext_choose_left search_ext_list_body_container_left clearfix'>";
+			  strArticleList=strArticleList+"<input id='SelectAll' name='SelectAll' class='selAll' type='checkbox'><span class='search_ext_btn_select_all' id='SelectAllLabel'>全 选</span>";
+			  strArticleList=strArticleList+"</div>";
+			  strArticleList=strArticleList+"<div class='search_ext_choose_right search_ext_list_body_container_right'>";
+			  if(strSourceType=="" || strSourceType=="meta"){
+				  strArticleList=strArticleList+"<span class='search_ext_display_mode'>显示方式：</span>";
+				  //<a id='pic_abstract_mode' class='pic_abstract_mode' title='图文模式' href='javascript:;'></a>
+				  strArticleList=strArticleList+"<a id='text_mode' id='btn_display_by_list' class='text_mode on' title='简洁模式' href='javascript:;'></a>";
+				  strArticleList=strArticleList+"<a id='text_abstract_mode' id='btn_display_by_abstract' class='text_abstract_mode' title='摘要模式' href='javascript:DisplayByAbstract();'></a>";
+				  strArticleList=strArticleList+"<span class='search_ext_separate'>|</span>";
+			  }
+			  strArticleList=strArticleList+"<a id='BtnExport' name='BtnExport' class='search_ext_btn_export' title='导出' href='javascript:;'></a>";
+			  
+			  strArticleList=strArticleList+"</div>";
+			  strArticleList=strArticleList+"</div>";
+			  //文章列表开始
+			  strArticleList=strArticleList+"<div class='search_ext_article_list'>";
+			  strArticleList=strArticleList+"<ul>";
+		}else if(strSourceType=="fig"){
+			 strArticleList=strArticleList+"<div class='search_ext_images_result'>";
+			 strArticleList=strArticleList+"<div id='container' class='container'>";
+			 strArticleList=strArticleList+"<ul id='waterfall'>";
+
+		}else if(strSourceType=="table"){
+			strArticleList=strArticleList+"<div class='search_ext_images_result'>";
+			strArticleList=strArticleList+"<div id='container' class='container'>";
+			strArticleList=strArticleList+"<table style='width:800px'>";
+		
+		}
+		//按年份统计
+		if(resultJson.year_rows){
+			var intYearRowsLength=resultJson.year_rows.length;
+			strStatisticsList=strStatisticsList+"<h5>出版年份</h5>";
+			strStatisticsList=strStatisticsList+"<div class='search_ext_list_statistics_item'>";
+			strStatisticsList=strStatisticsList+"<ul>";
+			for(var i=0;i<intYearRowsLength;i++){
+				var strYear=resultJson.year_rows[i].year;
+				var strDisplayYear=resultJson.year_rows[i].display_year;
+				var strDocCount=resultJson.year_rows[i].doc_count;
+				strStatisticsList=strStatisticsList+"<li><a href=\"javascript:SearchByYear('"+strYear+"');\"><span class='search_ext_list_body_container_left'>"+strDisplayYear+"</span><span class='search_ext_list_body_container_right'>"+strDocCount+"</span></a></li>";
+			}
+			strStatisticsList=strStatisticsList+"</ul>";
+			strStatisticsList=strStatisticsList+"</div>";
+		}
+
+		
+		//按作者统计
+		if(resultJson.author_rows){
+			var intAuthorRowsLength=resultJson.author_rows.length;
+			strStatisticsList=strStatisticsList+"<h5>相关作者</h5>";
+			strStatisticsList=strStatisticsList+"<div class='search_ext_list_statistics_item'>";
+			strStatisticsList=strStatisticsList+"<ul>";
+			for(var i=0;i<intAuthorRowsLength;i++){
+				var strAuthorName=resultJson.author_rows[i].author_name;
+				var strDisplayAuthorName=resultJson.author_rows[i].display_author_name;
+				var strDocCount=resultJson.author_rows[i].doc_count;
+				strStatisticsList=strStatisticsList+"<li><a href=\"javascript:SearchByAuthor('"+strAuthorName+"');\"><span class='search_ext_list_body_container_left'>"+strDisplayAuthorName+"</span><span class='search_ext_list_body_container_right'>"+strDocCount+"</span></a></li>";
+			}
+			strStatisticsList=strStatisticsList+"</ul>";
+			strStatisticsList=strStatisticsList+"</div>";
+		}
+
+		//按关键词统计
+		if(resultJson.keyword_rows){
+			var intKeyWordRowsLength=resultJson.keyword_rows.length;
+			if(intKeyWordRowsLength>0){
+				strStatisticsList=strStatisticsList+"<h5>相关热词</h5>";
+				strStatisticsList=strStatisticsList+"<div class='search_ext_list_statistics_item'>";
+				strStatisticsList=strStatisticsList+"<ul>";
+				for(var i=0;i<intKeyWordRowsLength;i++){
+					var strKeyWord=resultJson.keyword_rows[i].key_word;
+					var strDisplayKeyWord=resultJson.keyword_rows[i].display_key_word;
+					var strDocCount=resultJson.keyword_rows[i].doc_count;
+					strStatisticsList=strStatisticsList+"<li><a href=\"javascript:SearchByKeyWord('"+strKeyWord+"');\"><span class='search_ext_list_body_container_left'>"+strDisplayKeyWord+"</span><span class='search_ext_list_body_container_right'>"+strDocCount+"</span></a></li>";
+				}
+				strStatisticsList=strStatisticsList+"</ul>";
+				strStatisticsList=strStatisticsList+"</div>";
+			}
+		}
+
+		if(resultJson.rows){
+			var intRowsLength=resultJson.rows.length;
+			for(var i=0;i<intRowsLength;i++){				
+				var strPosition=resultJson.rows[i].position;
+				var strFileNO=resultJson.rows[i].file_no;
+				
+				if(strSourceType=="fig"){
+					var strID=resultJson.rows[i].id;
+					var strSmallImageUrl=resultJson.rows[i].small_image_url;
+					var strBigImageUrl=resultJson.rows[i].big_image_url;				
+					var strPosition=resultJson.rows[i].position;
+					var strCnTitle=resultJson.rows[i].cn_title;
+					strCnTitle=htmlDecode(strCnTitle);
+					strArticleList=strArticleList+"<li>";
+					strArticleList=strArticleList+"<a href='shlgdxxbsk/article/images/"+strID+"'  target='_blank'><img src='html/shlgdxxbsk/"+strFileNO+"/"+strSmallImageUrl+"'></a>";
+					strArticleList=strArticleList+"<div class='des m-cell-hd'><a href='shlgdxxbsk/article/images/"+strID+"'  target='_blank'>"+strCnTitle+"  "+strPosition+"</a></div>";
+					strArticleList=strArticleList+"</li>";
+				}else if(strSourceType=="table"){
+					var strID=resultJson.rows[i].id;
+					var strSmallImageUrl=resultJson.rows[i].small_image_url;
+					var strPosition=resultJson.rows[i].position;
+					var strBigImageUrl=resultJson.rows[i].big_image_url;	
+					var strCnTitle=resultJson.rows[i].cn_title;
+					strCnTitle=htmlDecode(strCnTitle);
+					strArticleList=strArticleList+"<tr><td><font size='5px'><a href='shlgdxxbsk/article/html/"+strFileNO+"'  target='_blank'>"+strCnTitle+"  "+strPosition+"</a></font><span align='right'>"+strPosition+"</span></td></tr>";
+					strArticleList=strArticleList+"<tr><td><a href='shlgdxxbsk/article/html/"+strFileNO+"'  target='_blank'><img src='html/shlgdxxbsk/"+strFileNO+"/"+strBigImageUrl+"' style='width:800px;'></a></td></tr>";
+				}else{
+					var strJournalID=resultJson.rows[i].journal_id;
+					var strTitle=resultJson.rows[i].title;
+					strTitle=htmlDecode(strTitle);
+					var strJournalName=resultJson.rows[i].journal_name;
+					var strKeyWord=resultJson.rows[i].key_word;
+					var strDisplayKeyWord=strKeyWord;
+					var strAbstract=resultJson.rows[i].abstract;
+					var strColumnName=resultJson.rows[i].column_name;
+					var strAuthorName=resultJson.rows[i].author_name;
+					var strDisplayAuthorName=strAuthorName;
+					var strYearID=resultJson.rows[i].year_id;
+					var strVolume=resultJson.rows[i].volume;
+					var strIssue=resultJson.rows[i].issue;
+					var strStartPage=resultJson.rows[i].start_page;
+					var strEndPage=resultJson.rows[i].end_page;
+					var strClickNum=resultJson.rows[i].click_num;
+					var strPdfClickNum=resultJson.rows[i].pdf_click_num;
+					var strHtmlClickNum=resultJson.rows[i].html_click_num;
+					var strReferencedNum=resultJson.rows[i].referenced_num;
+					var strDOI=resultJson.rows[i].doi;
+					var strCSTR=resultJson.rows[i].cstr;
+					var strFileSize=resultJson.rows[i].file_size;
+					var strCitation=resultJson.rows[i].citation;
+					var strArticleImagesList=resultJson.rows[i].article_images_list;
+					var strAbstractUrl=resultJson.rows[i].abstract_url;
+					var strPdfUrl=resultJson.rows[i].pdf_url;
+					var strHtmlUrl=resultJson.rows[i].html_url;
+					var strSequence=resultJson.rows[i].sequence;
+					var AuthorArray=strAuthorName.split(",");
+					var DisplayAuthorArray=strDisplayAuthorName.split(",");
+					var KeyWordArray=strKeyWord.split(";");
+					var DisplayKeyWordArray=strDisplayKeyWord.split(";");
+					var ImagesArray=strArticleImagesList.split(",");
+							     
+					strArticleList=strArticleList+"<li id='"+strFileNO+"'>";
+					strArticleList=strArticleList+"<input class='search_ext_list_body_container_left' name='FileNO' id='FileNO"+strFileNO+"' value='"+strFileNO+"' type='checkbox'>";
+					
+					strArticleList=strArticleList+"<div class='search_ext_article_item search_ext_list_body_container_left'>";
+					
+					strArticleList=strArticleList+"<div class='search_ext_article_title'>";
+					strArticleList=strArticleList+"<a href='"+strAbstractUrl+"' target='_blank'>"+strTitle+"</a>";
+					strArticleList=strArticleList+"</div>";
+					if(strAuthorName!=""){
+						strArticleList=strArticleList+"<p class='search_ext_article_author'>";
+						for(var j=0;j<AuthorArray.length;j++){	
+							var strMyAuthorName=AuthorArray[j];
+							if(strMyAuthorName!=""){
+								strArticleList=strArticleList+"<span>";
+								if(j>0){
+									strArticleList=strArticleList+",&nbsp;";
+								}
+								strArticleList=strArticleList+"<a href='http://social.alljournals.cn/search.aspx?subject=general_social_sciences&major=shkxzlxbjzhl&orderby=referenced&field=author_name&encoding=utf8&q="+strMyAuthorName+"' target='_blank'>"+strMyAuthorName+"</a></span>";				
+							}
+						}
+						strArticleList=strArticleList+"</p>";
+					}
+
+					
+					strArticleList=strArticleList+"<p class='search_ext_article_position'>"+strPosition; 
+					if(strDOI!=""){
+						strArticleList=strArticleList+"<span>DOI: <a href='http://dx.doi.org/"+strDOI+"' target='_blank' >"+strDOI+"</a></span>";
+					}
+					if(strCSTR!=""){
+						strArticleList=strArticleList+"<span>CSTR: <a href='https://cstr.cn/"+strCSTR+"' target='_blank' >"+strCSTR+"</a></span>";
+					}
+					strArticleList=strArticleList+"</p>";
+
+					if(strKeyWord!=""){
+						strArticleList=strArticleList+"<div class='search_ext_article_keyword'><span>关键词：</span>";				
+						for(var j=0;j<KeyWordArray.length;j++){	
+							var strMyKeyWord=KeyWordArray[j];
+							if(strMyKeyWord!=""){
+								strArticleList=strArticleList+"<span>";
+								if(j>0){
+									strArticleList=strArticleList+";&nbsp;";
+								}
+								strArticleList=strArticleList+"<a href='http://social.alljournals.cn/search.aspx?subject=general_social_sciences&major=shkxzlxbjzhl&orderby=referenced&field=key_word&encoding=utf8&q="+strMyKeyWord+"' target='_blank'>"+strMyKeyWord+"</a>";
+							}
+						}
+						strArticleList=strArticleList+"</div>";
+					}				
+					strArticleList=strArticleList+"<div class='search_ext_article_toolbar'>";
+					strArticleList=strArticleList+"<a class='search_ext_btn_article_abstract' href='"+strAbstractUrl+"' target='_blank'>摘要 (<span id='ClickNum"+strFileNO+"'>"+strClickNum+"</span>)</a>";
+					if(strHtmlUrl!=""){
+						strArticleList=strArticleList+"<a class='search_ext_btn_article_html' href='"+strHtmlUrl+"' target='_blank'>HTML (<span id='HtmlClickNum"+strFileNO+"'>"+strHtmlClickNum+"</span>)</a>";
+					}
+					
+					strArticleList=strArticleList+"<a class='search_ext_btn_article_pdf' href='"+strPdfUrl+"' target='_blank'>PDF "+strFileSize+" (<span id='PDFClickNum"+strFileNO+"'>"+strPdfClickNum+"</span>)</a>";
+					strArticleList=strArticleList+"<a class='search_ext_btn_article_collect' href='shlgdxxbsk/article/add_favorites/"+strFileNO+"' target='_blank'>收藏</a>";
+					
+					strArticleList=strArticleList+"</div>";
+					
+					if(strSourceType=="fulltext"){
+						strArticleList=strArticleList+"<div class='search_ext_article_abstract' style='display:block'>";
+						strArticleList=strArticleList+"<p>"+htmlDecode(strAbstract)+"</p>";
+						strArticleList=strArticleList+"</div>";
+					}else{
+						strArticleList=strArticleList+"<div class='search_ext_article_abstract'>";
+						strArticleList=strArticleList+"<p><b>摘要:</b>"+htmlDecode(strAbstract)+"</p>";
+						strArticleList=strArticleList+"</div>";
+					}	
+					
+					if(strArticleImagesList!=""){
+					    strArticleList=strArticleList+"<div class='article_images_list'>";
+					    strArticleList=strArticleList+"<div class='slideBox-list'>";
+					    strArticleList=strArticleList+"<div class='article_issue_hd'>";
+					    strArticleList=strArticleList+"<ul>";
+					    for(var j=0;j<ImagesArray.Length;j++){	
+						var intImagesSequence=j+1;
+						strArticleList=strArticleList+"<li>"+intImagesSequence+"</li>";
+					    }
+					    strArticleList=strArticleList+"</ul>";
+					    strArticleList=strArticleList+"</div>";
+					    strArticleList=strArticleList+"<div class='article_issue_bd'>";
+					    strArticleList=strArticleList+"<ul>";
+					    for(var j=0;j<ImagesArray.Length;j++){									
+						strArticleList=strArticleList+"<li><a href='"+strAbstractUrl+"' target='_blank'><img src='"+ImagesArray[j]+"'></a></li>";
+					    }
+					    strArticleList=strArticleList+"</ul>";
+					    strArticleList=strArticleList+"</div>";
+					    strArticleList=strArticleList+"<a class='btn_prev_images' href='javascript:void(0)'></a>";
+					    strArticleList=strArticleList+"<a class='btn_next_images' href='javascript:void(0)'></a>";
+					    strArticleList=strArticleList+"</div>";
+					    strArticleList=strArticleList+"</div>";
+					}
+					
+				       strArticleList=strArticleList+"</div>";
+				       strArticleList=strArticleList+"</li>";
+				}
+			}
+		}
+		if(strSourceType=="table"){
+			strArticleList=strArticleList+"</table>";
+		}else{
+			strArticleList=strArticleList+"</ul>";
+		}		
+		 strArticleList=strArticleList+"</div>";
+		 strArticleList=strArticleList+"</div>";		
+		if(strSourceType!="fig"){
+			strArticleList=strArticleList+"<div class='search_ext_page' id='articlepageview'>";
+			if(intCurrentPage>1){
+				var intPrevPage=intCurrentPage-1;
+				strArticleList=strArticleList+"<a class='prev' href=\"javascript:SubmitArticleSearch('"+intPrevPage+"');\">上一页</a>";
+			}else{
+				strArticleList=strArticleList+"<a>上一页</a>";
+			}
+			
+			for(var i=intStartPage;i<=intEndPage;i++){
+				if(i==intCurrentPage){
+					strArticleList=strArticleList+"<a class='active' href=\"javascript:SubmitArticleSearch('"+i+"');\">"+intCurrentPage+"</a>";
+				}else{
+					strArticleList=strArticleList+"<a href=\"javascript:SubmitArticleSearch('"+i+"');\">"+i+"</a>";
+				}					
+			}
+
+			if(intCurrentPage<intTotalPage){
+				var intNextPage=intCurrentPage+1;
+				strArticleList=strArticleList+"<a class='next' href=\"javascript:SubmitArticleSearch('"+intNextPage+"');\">下一页</a>";
+			}else{					
+				strArticleList=strArticleList+"<a>下一页</a>";
+			}
+			
+			strArticleList=strArticleList+"<div class='t-pages'>";	    
+			if(strLanguage=="en"){
+				strArticleList=strArticleList+"<span>Page <b>"+intTotalPage+"</b> Result <b>"+intTotalRecords+"</b> Jump to</span>";
+			}else{
+				strArticleList=strArticleList+"<span>共"+intTotalPage+"页"+intTotalRecords+"条记录 跳转到</span>";
+			}
+			strArticleList=strArticleList+"<input type='text' id='article_search_form_go_to_page' name='article_search_form_go_to_page' class='article_search_pager_item_goto' value='"+intCurrentPage+"'>";
+			if(strLanguage=="en"){
+				strArticleList=strArticleList+"<span>Page</span>";
+			}else{
+				strArticleList=strArticleList+"<span>页</span>";
+			}
+		        strArticleList=strArticleList+"<a class='go active' href=\"javascript:SubmitGoToPageSearch();\">GO</a>";
+		        strArticleList=strArticleList+"</div>";
+		        strArticleList=strArticleList+"</div>";
+		 }
+		
+
+		$("#EtTableArticleList").html("<ul>"+strArticleList+"</ul>");
+
+		$("#EtTableStatisticsList").html(strStatisticsList);
+		
+		
+			
+		//var oType1 = $("#pic_abstract_mode");
+		var oType2 = $("#text_mode");
+		var oType3 = $("#text_abstract_mode");
+		/*oType1.click(function () {
+		    $(this).parent().find('a').removeClass('on');
+		    $(this).addClass('on');
+		    $(this).parents('.search_ext_choose').siblings('.search_ext_article_list').find('li .search_ext_article_images').fadeIn();
+		    $(this).parents('.search_ext_choose').siblings('.search_ext_article_list').find('li .search_ext_article_abstract').fadeOut();
+		})*/
+
+		oType2.click(function () {
+		    $(this).parent().find('a').removeClass('on');
+		    $(this).addClass('on');
+		    $(this).parents('.search_ext_choose').siblings('.search_ext_article_list').find('li .search_ext_article_images').fadeOut();
+		    $(this).parents('.search_ext_choose').siblings('.search_ext_article_list').find('li .search_ext_article_abstract').fadeOut();
+		});
+
+		oType3.click(function () {
+		    $(this).parent().find('a').removeClass('on');
+		    $(this).addClass('on');
+		    $(this).parents('.search_ext_choose').siblings('.search_ext_article_list').find('li .search_ext_article_images').fadeOut();
+		    $(this).parents('.search_ext_choose').siblings('.search_ext_article_list').find('li .search_ext_article_abstract').fadeIn();
+		});
+		
+		//全选
+		$("#SelectAll").click(function() {
+			if($("#SelectAll").prop("checked")){
+				$('input[name="FileNO"]').prop("checked",true); 
+				$("#SelectAllLabel").html("取消全选"); 
+			}else{
+				$('input[name="FileNO"]').prop("checked",false); 
+				$("#SelectAllLabel").html("全 选"); 
+			}
+		});
+		
+		//导出
+		$("#BtnExport").click(function(){
+			var strFileNOList=GetSelectAllFileNO();
+			if(strFileNOList==""){
+				alert("请选择文章！");
+			}
+			window.location.href="shlgdxxbsk/article/export?article_list="+strFileNOList;
+		});
+		
+		
+	});
+
+	
+}
+</script>
+</div>
+
+<div style="clear:both;"></div>
+
+<!--底部开始-->
+<div class="footer">
+    <div class="footer-wrap m-row">
+        <!--<div class="footer-list">
+            <ul>
+               
+            </ul>
+        </div>-->
+           <div class="footer-list">
+            <ul>
+                <li><a class="title" href="javascript:void(0);">访问量</a></li>
+                <li><a href="">总访问量：<font id="WebSiteTotalCount">2505870</font></a></li>
+                <li><a href="">今日访问：<font id="WebSiteTodayCount">40</font></a></li>
+            </ul>
+        </div>
+        <div class="footer-list">
+            <ul>
+                <li><a class="title" href="javascript:void(0);">联系方式</a></li>
+                
+                <li><a href="javascript:void(0);">  电话 ：021-33817286 </a></li>
+                
+                <li><a href="javascript:void(0);">email：xbskb@usst.edu.cn</a></li>
+                
+            </ul>
+        </div>
+         
+        <div class="footer-list">
+            <ul>
+                <li><a href="javascript:void(0);">上海理工大学学报（社科版）  ®  2024 版权所有  </a></li>
+                <li><a href="http://www.e-tiller.com">技术支持：北京勤云科技发展有限公司</a></li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+<!--底部结束-->
+<style>
+.login_inst {display:none;}
+.login_login{float: none !important;margin: 0 auto;}
+.menu_share{display:none;}
+.news_share{display:none;}
+</style>
+<script type="text/javascript">
+    jQuery(".slideBox").slide({mainCell:".bd ul",autoPlay:true,trigger:"click"});
+
+    $(function () {
+        // 导航
+        $(".nav>li").mouseover(function () {
+            $(this).children(".sub").fadeIn('fast');
+        })
+        $(".nav>li").mouseleave(function () {
+            $(this).children(".sub").fadeOut('fast');
+        })
+
+        // 全选
+        $(".selAll").click(function () {
+            if($(".selAll").is(":checked")){
+                $(this).parents(".choose").siblings(".list").find("input[type='checkbox']").prop("checked", true);
+            }else{
+                $(this).parents(".choose").siblings(".list").find("input[type='checkbox']").prop("checked", false);
+            }
+
+        });
+
+        // 排行选项卡
+        $(".switchHd li").eq(0).addClass("on");
+        $(".switchBd ul").eq(0).show().siblings().hide();
+        $(".switchHd li").click(function () {
+            var _index = $(this).index();
+            $(".switchBd ul").eq(_index).show().siblings().hide();
+            $(this).addClass('on').siblings().removeClass('on');
+        })
+
+        var oType1 = $("#tp1");
+        var oType2 = $("#tp2");
+        var oType3 = $("#tp3");
+        var oType4 = $("#tp4");
+        var oType5 = $("#tp5");
+        var oType6 = $("#tp6");
+        var oType7 = $("#tp7");
+        var oType8 = $("#tp8");
+        var oType9 = $("#tp9");
+        var oType10 = $("#tp10");
+        var oType11 = $("#tp11");
+        var oType12 = $("#tp12");
+        var oType13 = $("#tp13");
+        var oType14 = $("#tp14");
+        var oType15 = $("#tp15");
+        oType1.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeIn();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeOut();
+        })
+        oType2.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeOut();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeOut();
+        })
+        oType3.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeOut();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeIn();
+        })
+        oType4.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeIn();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeOut();
+        })
+        oType5.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeOut();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeOut();
+        })
+        oType6.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeOut();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeIn();
+        })
+
+        oType7.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeIn();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeOut();
+        })
+        oType8.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeOut();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeOut();
+        })
+        oType9.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeOut();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeIn();
+        })
+
+        oType10.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeIn();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeOut();
+        })
+        oType11.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeOut();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeOut();
+        })
+        oType12.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeOut();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeIn();
+        })
+
+        oType13.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeIn();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeOut();
+        })
+        oType14.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeOut();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeOut();
+        })
+        oType15.click(function () {
+            $(this).parent().find('a').removeClass('on');
+            $(this).addClass('on');
+            $(this).parents('.choose').siblings('.list').find('li .show-img').fadeOut();
+            $(this).parents('.choose').siblings('.list').find('li .intro').fadeIn();
+        })
+    })
+
+</script>
+
+
+<script language="javascript">
+$().ready(function() {
+	//不管页面上有没有统计数字，都要加这个语句，用来刷新访问统计
+	 var strURL="shlgdxxbsk/site/get_access_and_today_count";
+	 $.get(strURL,function(strScript){			 
+		eval(strScript);
+	});
+});
+</script>
+
+
+<!--左侧悬浮广告-->
+
+<!--右侧悬浮广告-->
+
+
+</body></html>

@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="ua-linux ua-webkit"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta name="referrer" content="always">
+    <meta name="google-site-verification" content="ok0wCgT20tBBgo9_zat2iAcimtN4Ftf5ccsh092Xeyw">
+    <title>
+    艾蒂的图片
+</title>
+    
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="Sun, 6 Mar 2005 01:00:00 GMT">
+    
+    <script type="text/javascript" defer="" async="" src="https://img3.doubanio.com/dae/fundin/piwik.js"></script><script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-5WP579"></script><script>var _head_start = new Date();</script>
+    <script src="https://img1.doubanio.com/f/vendors/0511abe9863c2ea7084efa7e24d1d86c5b3974f1/js/jquery-1.10.2.min.js"></script>
+    <script src="https://img1.doubanio.com/f/vendors/bdcc3c1ecb6de06ac99661953f4731c39e72af7f/js/douban.js"></script>
+    <link href="https://img1.doubanio.com/f/vendors/e92483e5e4c9c60cc75cbd8b700a2fd5b5fdf7b0/css/douban.css" rel="stylesheet" type="text/css">
+    <link href="https://img9.doubanio.com/cuphead/elessar-static/css/base.43a85.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        
+    </style>
+    
+    <link rel="stylesheet" href="https://img9.doubanio.com/cuphead/elessar-static/css/photo.48a85.css">
+    <script>
+    $(function () {
+        var slide_step = 4,
+            slide_li_num = 3,
+            slide_width = 267,
+            slide_prev_time = 0,
+            slide_next_time = 0,
+            current_index = 41,
+            total_index = 53,
+            slide_li = '.slide-wrap li',
+            $slide_wrap = $('.slide-wrap ul'),
+            $prev_btn = $('.btn-prev'),
+            $next_btn = $('.btn-next'),
+            $prev_a = $('.btn-prev a'),
+            $next_a = $('.btn-next a'),
+            slide_li_templ = '<li id="{PHOTO_ID}"><a href="{PHOTO_PATH}"><img src="{IMG_PATH}" alt="" /></a></li>',
+            slide_void_templ = '<li><a href="javascript:void(0)"></a></li>',
+            slide_new_array = [],
+            slideAnimate = function (d) {
+                var step = d ? '+=' + slide_width + 'px' : '-=' + slide_width + 'px';
+                $slide_wrap.animate({'left': step}, 'slow');
+            },
+            slide_btn_switch = function () {
+                $prev_a.removeClass();
+                $next_a.removeClass();
+                if (current_index < 2) {
+                    $prev_a.addClass('dis');
+                }
+                if (current_index >= total_index - 2) {
+                    $next_a.addClass('dis');
+                }
+            },
+            getPhotos = function (current_id, direction) {
+                $.getJSON(
+                '/j/personage/slide_photos',
+                {'pid':current_pid, 'relative':direction},
+                function (data) {
+                    slide_new_array = [];
+                    $.each(data.photos, function (i, n) {
+                        if (n.id) {
+                            slide_new_array[i] = slide_li_templ.replace('{IMG_PATH}', n.icon)
+                                .replace('{PHOTO_PATH}', n.path)
+                                .replace('{PHOTO_ID}', n.id);
+                        } else {
+                            slide_new_array[i] = slide_void_templ;
+                        }
+                    });
+                    if (direction === 'left') {
+                        $slide_wrap.prepend(slide_new_array.join(''));
+                    } else {
+                        $slide_wrap.append(slide_new_array.join(''));
+                        slideAnimate();
+                    }
+                }
+            );
+        };
+
+    $prev_btn.click(function () {
+        if (!$('a', this).attr('class')) {
+            if (slide_next_time < 1) {
+                current_pid = $(slide_li).eq(slide_step).attr('id');
+                getPhotos(current_pid, 'left');
+            } else {
+                slideAnimate(1);
+            }
+            slide_prev_time += 1;
+            slide_step -= slide_li_num;
+            current_index -= slide_li_num;
+            if (slide_next_time !== 0) {
+                slide_next_time -= 1;
+            }
+            slide_btn_switch();
+            return false;
+        } else { return false; }
+    });
+    $next_btn.click(function () {
+        if (!$('a', this).attr('class')) {
+            if (slide_prev_time < 1) {
+                current_pid = $(slide_li).eq(slide_step).attr('id');
+                getPhotos(current_pid, 'right');
+            } else {
+                slideAnimate();
+            }
+            slide_next_time += 1;
+            current_index += slide_li_num;
+            slide_step += slide_li_num;
+            if (slide_prev_time !== 0) {
+                slide_prev_time -= 1;
+            }
+            slide_btn_switch();
+            return false;
+        } else { return false; }
+      });
+    });
+    var images = new Array();
+    function preload() {
+        for (i = 0; i < preload.arguments.length; i++) {
+            images[i] = new Image();
+            images[i].src = preload.arguments[i];
+        }
+    };
+    preload(
+        "https://img2.doubanio.com/view/photo/photo/public/p2619473731.webp",
+            "https://img9.doubanio.com/view/photo/photo/public/p2619473064.webp",
+    );
+    </script>
+
+    <link rel="stylesheet" href="https://img1.doubanio.com/misc/mixed_static/51f4612186c8546b.css">
+    <script></script>
+
+    <link rel="shortcut icon" href="https://img1.doubanio.com/favicon.ico" type="image/x-icon">
+<script src="https://ssl.google-analytics.com/ga.js" async="true"></script></head>
+
+<body style="">
+  
+    
+    <script type="text/javascript">var _body_start = new Date();</script>
+    
+        
+
+
+
+    <link href="//img3.doubanio.com/dae/accounts/resources/851ead1/shire/bundle.css" rel="stylesheet" type="text/css">
+
+
+
+<div id="db-global-nav" class="global-nav">
+  <div class="bd">
+    
+<div class="top-nav-info">
+  <a href="https://accounts.douban.com/passport/login?source=main" class="nav-login" rel="nofollow">登录/注册</a>
+</div>
+
+
+    <div class="top-nav-doubanapp">
+  <a href="https://www.douban.com/doubanapp/app?channel=top-nav" class="lnk-doubanapp">下载豆瓣客户端</a>
+  <div id="doubanapp-tip">
+    <a href="https://www.douban.com/doubanapp/app?channel=qipao" class="tip-link">豆瓣 <span class="version">6.0</span> 全新发布</a>
+    <a href="javascript: void 0;" class="tip-close">×</a>
+  </div>
+  <div id="top-nav-appintro" class="more-items">
+    <p class="appintro-title">豆瓣</p>
+    <p class="qrcode">扫码直接下载</p>
+    <div class="download">
+      <a href="https://www.douban.com/doubanapp/redirect?channel=top-nav&amp;direct_dl=1&amp;download=iOS">iPhone</a>
+      <span>·</span>
+      <a href="https://www.douban.com/doubanapp/redirect?channel=top-nav&amp;direct_dl=1&amp;download=Android" class="download-android">Android</a>
+    </div>
+  </div>
+</div>
+
+    
+
+
+<div class="global-nav-items">
+  <ul>
+    <li class="on">
+      <a href="https://www.douban.com" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-main&quot;,&quot;uid&quot;:&quot;0&quot;}">豆瓣</a>
+    </li>
+    <li class="">
+      <a href="https://book.douban.com" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-book&quot;,&quot;uid&quot;:&quot;0&quot;}">读书</a>
+    </li>
+    <li class="">
+      <a href="https://movie.douban.com" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-movie&quot;,&quot;uid&quot;:&quot;0&quot;}">电影</a>
+    </li>
+    <li class="">
+      <a href="https://music.douban.com" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-music&quot;,&quot;uid&quot;:&quot;0&quot;}">音乐</a>
+    </li>
+    <li class="">
+      <a href="https://www.douban.com/location" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-location&quot;,&quot;uid&quot;:&quot;0&quot;}">同城</a>
+    </li>
+    <li class="">
+      <a href="https://www.douban.com/group" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-group&quot;,&quot;uid&quot;:&quot;0&quot;}">小组</a>
+    </li>
+    <li class="">
+      <a href="https://read.douban.com/?dcs=top-nav&amp;dcm=douban" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-read&quot;,&quot;uid&quot;:&quot;0&quot;}">阅读</a>
+    </li>
+    <li class="">
+      <a href="https://fm.douban.com/?from_=shire_top_nav" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-fm&quot;,&quot;uid&quot;:&quot;0&quot;}">FM</a>
+    </li>
+    <li class="">
+      <a href="https://time.douban.com/?dt_time_source=douban-web_top_nav" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-time&quot;,&quot;uid&quot;:&quot;0&quot;}">时间</a>
+    </li>
+    <li class="">
+      <a href="https://market.douban.com/?utm_campaign=douban_top_nav&amp;utm_source=douban&amp;utm_medium=pc_web" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-market&quot;,&quot;uid&quot;:&quot;0&quot;}">豆品</a>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</div>
+<script>
+  ;window._GLOBAL_NAV = {
+    DOUBAN_URL: "https://www.douban.com",
+    N_NEW_NOTIS: 0,
+    N_NEW_DOUMAIL: 0
+  };
+</script>
+
+
+
+    <script src="//img3.doubanio.com/dae/accounts/resources/851ead1/shire/bundle.js" defer="defer"></script>
+
+
+
+
+        
+
+
+
+    <link href="//img3.doubanio.com/dae/accounts/resources/851ead1/sns/bundle.css" rel="stylesheet" type="text/css">
+
+
+
+<div id="db-nav-sns" class="nav">
+  <div class="nav-wrap">
+    <div class="nav-primary">
+     
+      <div class="nav-logo">
+        <a href="https://www.douban.com">豆瓣社区</a>
+      </div>
+
+      <div class="nav-search">
+  <form action="https://www.douban.com/search" method="get">
+	<fieldset>
+      <legend>搜索：</legend>
+	  <label for="inp-query" style="display: none;">搜索你感兴趣的内容和人...</label>
+	  <div class="inp">
+	    <input type="hidden" name="source" value="suggest">
+		<input id="inp-query" name="q" size="22" maxlength="60" autocomplete="off" value="" placeholder="搜索你感兴趣的内容和人...">
+	  </div>
+	  <div class="inp-btn"><input type="submit" value="搜索"></div>
+	</fieldset>
+  </form>
+</div>
+
+      
+
+<div class="nav-items">
+  <ul>
+    <li><a href="https://www.douban.com">首页</a></li>
+      <li>
+        <a href="https://www.douban.com/explore">
+          浏览发现
+        </a>
+      </li>
+      <li>
+        <a href="https://www.douban.com/gallery">
+          话题广场
+          <img src="https://img3.doubanio.com/f/shire/e49eca1517424a941871a2667a8957fd6c72d632/pics/new_menu.gif" alt="new" style="position: absolute; top: -7px; right: -13px;">
+        </a>
+      </li>
+  </ul>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+
+    <script src="//img3.doubanio.com/dae/accounts/resources/851ead1/sns/bundle.js" defer="defer"></script>
+
+
+
+
+
+    <div id="wrapper">
+        
+
+        
+<div id="content">
+    
+    <h1>艾蒂的图片</h1>
+
+    <div class="grid-16-8 clearfix">
+        
+        
+        <div class="article">
+               
+    <div class="opt-bar-line clearfix">
+        <a name="photo" id="photo"></a>
+        <span class="opt-left">
+            第42张 / 共53张
+        </span>
+        <span class="opt-mid">
+            <a href="/personage/27248780/photo/2619531439" id="pre_photo">上一张</a>&nbsp;/&nbsp;<a href="/personage/27248780/photo/2619473064" id="next_photo">下一张</a>
+        </span>
+        <span class="fright">
+            &gt;&nbsp;
+            <a href="/personage/27248780/photos">浏览所有图片</a>
+        </span>
+    </div>
+
+    <div class="photo-show">
+        <div class="photo-wp">
+            <a class="mainphoto" href="/personage/27248780/photo/2619473064" title="点击查看下一张">
+                <img src="https://img2.doubanio.com/view/photo/l/public/p2619473731.webp">
+            </a>
+            <a class="photo-zoom" target="_blank" href="#" rel="nofollow" title="查看原图">查看原图</a>
+        </div>
+    </div>
+
+    <div class="photo_descri">
+        <div class="edtext pl"></div>
+    </div>
+
+    <div class="clearfix">
+        
+
+
+
+        <span class="update magnifier">
+            <a class="j a_show_login" target="_blank" rel="nofollow" href="#">查看原图</a>
+        <span class="update">
+        </span>
+    </span></div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+<div id="comments">
+        
+
+
+        
+
+            
+    
+    <div class="comment-item" id="c-155489745" data-cid="155489745" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/jiuxingjiang/"><img width="48" height="48" src="https://img9.doubanio.com/icon/u60645014-6.jpg" alt="豆油石榴木"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2020-10-31 03:37:30</span>
+                <a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a>  (意在永恒！)
+            </div>
+
+
+            
+            <p>　　她高挑而丰满，美得大气。</p>
+
+            <div class="op-lnks">
+                
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u60645014 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157387749" data-cid="157387749" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/215906849/"><img width="48" height="48" src="https://img3.doubanio.com/icon/u215906849-3.jpg" alt="封神符"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-10 23:55:34</span>
+                <a href="https://www.douban.com/people/215906849/">封神符</a> 
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">　　她高挑而丰满，美得大气。</span>
+                    <span class="all">　　她高挑而丰满，美得大气。</span>
+                    <a href="#" class="toggle-reply">
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a></span></div>
+
+            
+            <p>邵氏男演员顾冠忠男扮女装很漂亮啊，你可以去喜欢他，他身高有一米八二呢，比一般女性高很多很多。我强烈建议你喜欢他。</p>
+
+            <div class="op-lnks">
+                
+                <a href="https://www.douban.com/doubanapp/" class="comment-source" target="_blank">来自豆瓣App</a>
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u215906849 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157391955" data-cid="157391955" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/jiuxingjiang/"><img width="48" height="48" src="https://img9.doubanio.com/icon/u60645014-6.jpg" alt="豆油石榴木"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-11 17:10:06</span>
+                <a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a>  (意在永恒！)
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">邵氏男演员顾冠忠男扮女装很漂亮啊，你可以去喜欢他，他身高有一米八二呢，比一般女性高很多很多</span>
+                    <span class="all">邵氏男演员顾冠忠男扮女装很漂亮啊，你可以去喜欢他，他身高有一米八二呢，比一般女性高很多很多。我强烈建议你喜欢他。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/215906849/">封神符</a></span></div>
+
+            
+            <p>    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射雌性激素，甚至即便不彻底切除男性生殖器的话也要切掉睾丸。否则，对我是绝对不会有性吸引力的。像日本的前“扶她（扶他）”成人录像演员——泉水兰，实际身高大概是一米七五。他未彻底变性之前，从头到脚，只有“子孙根”体现出男子性征，连睾丸都切除了。当时的他就算我心目中较为理想的性伙伴。</p>
+
+            <div class="op-lnks">
+                
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u60645014 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157393664" data-cid="157393664" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/215906849/"><img width="48" height="48" src="https://img3.doubanio.com/icon/u215906849-3.jpg" alt="封神符"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-12 03:07:33</span>
+                <a href="https://www.douban.com/people/215906849/">封神符</a> 
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射</span>
+                    <span class="all">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射雌性激素，甚至即便不彻底切除男性生殖器的话也要切掉睾丸。否则，对我是绝对不会有性吸引力的。像日本的前“扶她（扶他）”成人录像演员——泉水兰，实际身高大概是一米七五。他未彻底变性之前，从头到脚，只有“子孙根”体现出男子性征，连睾丸都切除了。当时的他就算我心目中较为理想的性伙伴。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a></span></div>
+
+            
+            <p>你说我才知道泉水兰，我刚刚去百度了一下他，真的好漂亮！比很多女孩子都美。</p>
+
+            <div class="op-lnks">
+                
+                <a href="https://www.douban.com/doubanapp/" class="comment-source" target="_blank">来自豆瓣App</a>
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u215906849 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157393695" data-cid="157393695" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/215906849/"><img width="48" height="48" src="https://img3.doubanio.com/icon/u215906849-3.jpg" alt="封神符"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-12 03:28:40</span>
+                <a href="https://www.douban.com/people/215906849/">封神符</a> 
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射</span>
+                    <span class="all">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射雌性激素，甚至即便不彻底切除男性生殖器的话也要切掉睾丸。否则，对我是绝对不会有性吸引力的。像日本的前“扶她（扶他）”成人录像演员——泉水兰，实际身高大概是一米七五。他未彻底变性之前，从头到脚，只有“子孙根”体现出男子性征，连睾丸都切除了。当时的他就算我心目中较为理想的性伙伴。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a></span></div>
+
+            
+            <p>我一直想不明白为什么会有男人想要变性做女人？这个世界一直都是男权社会啊，被性别歧视的一直都是女性，难道他们想要变成女性被歧视？他们有被虐狂吗？我看到很多新闻，很多男的变性成女人之后就一直找不到工作，之前他们还是男人的时候找工作非常容易的，就因为他们身份证上的性别变成了女的他们就没法养活他们自己了。他们难道不明白当男人才是最好的吗？我真不明白他们是怎么想的。</p>
+
+            <div class="op-lnks">
+                
+                <a href="https://www.douban.com/doubanapp/" class="comment-source" target="_blank">来自豆瓣App</a>
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u215906849 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157393702" data-cid="157393702" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/215906849/"><img width="48" height="48" src="https://img3.doubanio.com/icon/u215906849-3.jpg" alt="封神符"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-12 03:32:21</span>
+                <a href="https://www.douban.com/people/215906849/">封神符</a> 
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射</span>
+                    <span class="all">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射雌性激素，甚至即便不彻底切除男性生殖器的话也要切掉睾丸。否则，对我是绝对不会有性吸引力的。像日本的前“扶她（扶他）”成人录像演员——泉水兰，实际身高大概是一米七五。他未彻底变性之前，从头到脚，只有“子孙根”体现出男子性征，连睾丸都切除了。当时的他就算我心目中较为理想的性伙伴。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a></span></div>
+
+            
+            <p>现在网上不知道怎么的，说什么都会扣帽子说你是女权主义者，女的不结婚就会被那些男的骂女权，男的不结婚就是天经地义。其实大家都知道那些所谓的网上女权都是男的反串黑女性的，知乎上那些男的都被扒皮出来了。就这样居然还有男的想变性做女人，他们疯了吧？当男人有什么不好？</p>
+
+            <div class="op-lnks">
+                
+                <a href="https://www.douban.com/doubanapp/" class="comment-source" target="_blank">来自豆瓣App</a>
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u215906849 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157393705" data-cid="157393705" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/215906849/"><img width="48" height="48" src="https://img3.doubanio.com/icon/u215906849-3.jpg" alt="封神符"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-12 03:36:13</span>
+                <a href="https://www.douban.com/people/215906849/">封神符</a> 
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射</span>
+                    <span class="all">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射雌性激素，甚至即便不彻底切除男性生殖器的话也要切掉睾丸。否则，对我是绝对不会有性吸引力的。像日本的前“扶她（扶他）”成人录像演员——泉水兰，实际身高大概是一米七五。他未彻底变性之前，从头到脚，只有“子孙根”体现出男子性征，连睾丸都切除了。当时的他就算我心目中较为理想的性伙伴。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a></span></div>
+
+            
+            <p>我看了外国（欧美）新闻，一个男的因为喜欢男的而变性成女人，结果他变了性之后根本找不到工作，只能依靠他男友为生，他男友也歧视他，骂他是寄生虫。我是一直不明白为什么生为女的就会被骂，我一直都攒钱希望能够有朝一日变性做男人。</p>
+
+            <div class="op-lnks">
+                
+                <a href="https://www.douban.com/doubanapp/" class="comment-source" target="_blank">来自豆瓣App</a>
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u215906849 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157398731" data-cid="157398731" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/jiuxingjiang/"><img width="48" height="48" src="https://img9.doubanio.com/icon/u60645014-6.jpg" alt="豆油石榴木"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-13 18:47:52</span>
+                <a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a>  (意在永恒！)
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">我一直想不明白为什么会有男人想要变性做女人？这个世界一直都是男权社会啊，被性别歧视的一直都</span>
+                    <span class="all">我一直想不明白为什么会有男人想要变性做女人？这个世界一直都是男权社会啊，被性别歧视的一直都是女性，难道他们想要变成女性被歧视？他们有被虐狂吗？我看到很多新闻，很多男的变性成女人之后就一直找不到工作，之前他们还是男人的时候找工作非常容易的，就因为他们身份证上的性别变成了女的他们就没法养活他们自己了。他们难道不明白当男人才是最好的吗？我真不明白他们是怎么想的。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/215906849/">封神符</a></span></div>
+
+            
+            <p>    严格意义上的易性癖患者不做性别重置手术即变性手术的话真的会生不如死。你想变成男性并不意味着你是真性易性癖人员。</p>
+
+            <div class="op-lnks">
+                
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u60645014 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157401061" data-cid="157401061" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/215906849/"><img width="48" height="48" src="https://img3.doubanio.com/icon/u215906849-3.jpg" alt="封神符"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-14 12:39:09</span>
+                <a href="https://www.douban.com/people/215906849/">封神符</a> 
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">    严格意义上的易性癖患者不做性别重置手术即变性手术的话真的会生不如死。你想变成男性并不意</span>
+                    <span class="all">    严格意义上的易性癖患者不做性别重置手术即变性手术的话真的会生不如死。你想变成男性并不意味着你是真性易性癖人员。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a></span></div>
+
+            
+            <p>不是，我从10岁左右就一直想做一个男的，而且我时时刻刻都感到当女的真的是生不如死虽死犹生，我觉得当女的真的是耻辱，我就是易性癖。</p>
+
+            <div class="op-lnks">
+                
+                <a href="https://www.douban.com/doubanapp/" class="comment-source" target="_blank">来自豆瓣App</a>
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u215906849 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157405790" data-cid="157405790" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/jiuxingjiang/"><img width="48" height="48" src="https://img9.doubanio.com/icon/u60645014-6.jpg" alt="豆油石榴木"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-15 21:21:09</span>
+                <a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a>  (意在永恒！)
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">不是，我从10岁左右就一直想做一个男的，而且我时时刻刻都感到当女的真的是生不如死虽死犹生，我</span>
+                    <span class="all">不是，我从10岁左右就一直想做一个男的，而且我时时刻刻都感到当女的真的是生不如死虽死犹生，我觉得当女的真的是耻辱，我就是易性癖。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/215906849/">封神符</a></span></div>
+
+            
+            <p>      应该是“虽生犹死”而不是“虽死犹生”。
+<br>
+<br>      那你最佳的选择莫过于分步骤实现变性。</p>
+
+            <div class="op-lnks">
+                
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u60645014 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157408414" data-cid="157408414" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/215906849/"><img width="48" height="48" src="https://img3.doubanio.com/icon/u215906849-3.jpg" alt="封神符"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-16 18:56:37</span>
+                <a href="https://www.douban.com/people/215906849/">封神符</a> 
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">      应该是“虽生犹死”而不是“虽死犹生”。
+
+      那你最佳的选择莫过于分步骤实现变性。</span>
+                    <span class="all">      应该是“虽生犹死”而不是“虽死犹生”。
+
+      那你最佳的选择莫过于分步骤实现变性。</span>
+                    <a href="#" class="toggle-reply">
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a></span></div>
+
+            
+            <p>谢谢你纠正。我相信终有一天我会攒够钱做变性手术。</p>
+
+            <div class="op-lnks">
+                
+                <a href="https://www.douban.com/doubanapp/" class="comment-source" target="_blank">来自豆瓣App</a>
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u215906849 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157411057" data-cid="157411057" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/jiuxingjiang/"><img width="48" height="48" src="https://img9.doubanio.com/icon/u60645014-6.jpg" alt="豆油石榴木"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-17 16:07:06</span>
+                <a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a>  (意在永恒！)
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">谢谢你纠正。我相信终有一天我会攒够钱做变性手术。</span>
+                    <span class="all">谢谢你纠正。我相信终有一天我会攒够钱做变性手术。</span>
+                    <a href="#" class="toggle-reply">
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/215906849/">封神符</a></span></div>
+
+            
+            <p>      预祝你心想事成！</p>
+
+            <div class="op-lnks">
+                
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u60645014 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157418043" data-cid="157418043" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/225981897/"><img width="48" height="48" src="https://img2.doubanio.com/icon/u225981897-1.jpg" alt="痴情公子谭顺成"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-19 20:32:39</span>
+                <a href="https://www.douban.com/people/225981897/">痴情公子谭顺成</a> 
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射</span>
+                    <span class="all">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射雌性激素，甚至即便不彻底切除男性生殖器的话也要切掉睾丸。否则，对我是绝对不会有性吸引力的。像日本的前“扶她（扶他）”成人录像演员——泉水兰，实际身高大概是一米七五。他未彻底变性之前，从头到脚，只有“子孙根”体现出男子性征，连睾丸都切除了。当时的他就算我心目中较为理想的性伙伴。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a></span></div>
+
+            
+            <p>现在塔列班还在歧视女性不让女性跟男人一起工作呢。如果让那些想做变性手术变成女性的男的去阿拉伯地区这个极端男权的地方，他们不后悔死才怪哈哈哈哈。</p>
+
+            <div class="op-lnks">
+                
+                <a href="https://www.douban.com/doubanapp/" class="comment-source" target="_blank">来自豆瓣App</a>
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u225981897 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157418052" data-cid="157418052" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/225981897/"><img width="48" height="48" src="https://img2.doubanio.com/icon/u225981897-1.jpg" alt="痴情公子谭顺成"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-19 20:35:25</span>
+                <a href="https://www.douban.com/people/225981897/">痴情公子谭顺成</a> 
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射</span>
+                    <span class="all">    男扮女装终究是男扮女装。除非顾冠忠做“人妖”而非“伪娘”，至少动隆胸手术加服用或者注射雌性激素，甚至即便不彻底切除男性生殖器的话也要切掉睾丸。否则，对我是绝对不会有性吸引力的。像日本的前“扶她（扶他）”成人录像演员——泉水兰，实际身高大概是一米七五。他未彻底变性之前，从头到脚，只有“子孙根”体现出男子性征，连睾丸都切除了。当时的他就算我心目中较为理想的性伙伴。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a></span></div>
+
+            
+            <p>阿拉伯地区的妇女地位简直和动物没什么两样，那些伪娘去了阿拉伯他们一定会生不如死。可以做一个男人是多么好的事啊，为什么他们这些伪娘人妖都不懂得珍惜呢？</p>
+
+            <div class="op-lnks">
+                
+                <a href="https://www.douban.com/doubanapp/" class="comment-source" target="_blank">来自豆瓣App</a>
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u225981897 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157418121" data-cid="157418121" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/jiuxingjiang/"><img width="48" height="48" src="https://img9.doubanio.com/icon/u60645014-6.jpg" alt="豆油石榴木"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-19 20:53:21</span>
+                <a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a>  (意在永恒！)
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">现在塔列班还在歧视女性不让女性跟男人一起工作呢。如果让那些想做变性手术变成女性的男的去阿拉</span>
+                    <span class="all">现在塔列班还在歧视女性不让女性跟男人一起工作呢。如果让那些想做变性手术变成女性的男的去阿拉伯地区这个极端男权的地方，他们不后悔死才怪哈哈哈哈。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/225981897/">痴情公子谭顺成</a></span></div>
+
+            
+            <p>      应该是“塔利班”而不是“塔列班”。</p>
+
+            <div class="op-lnks">
+                
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u60645014 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157418293" data-cid="157418293" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/225981897/"><img width="48" height="48" src="https://img2.doubanio.com/icon/u225981897-1.jpg" alt="痴情公子谭顺成"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-19 21:49:15</span>
+                <a href="https://www.douban.com/people/225981897/">痴情公子谭顺成</a> 
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">      应该是“塔利班”而不是“塔列班”。</span>
+                    <span class="all">      应该是“塔利班”而不是“塔列班”。</span>
+                    <a href="#" class="toggle-reply">
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a></span></div>
+
+            
+            <p>塔利班。现在阿拉伯地区由他们掌权了，他们对女性的歧视非常非常严重。所以，好好当个男人不好吗。</p>
+
+            <div class="op-lnks">
+                
+                <a href="https://www.douban.com/doubanapp/" class="comment-source" target="_blank">来自豆瓣App</a>
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u225981897 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157418323" data-cid="157418323" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/225981897/"><img width="48" height="48" src="https://img2.doubanio.com/icon/u225981897-1.jpg" alt="痴情公子谭顺成"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-19 22:02:02</span>
+                <a href="https://www.douban.com/people/225981897/">痴情公子谭顺成</a> 
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">      应该是“塔利班”而不是“塔列班”。</span>
+                    <span class="all">      应该是“塔利班”而不是“塔列班”。</span>
+                    <a href="#" class="toggle-reply">
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a></span></div>
+
+            
+            <p>我是不能理解还有人眼巴巴的等着受歧视，事实上说什么男女平等，说什么爱，全都是逢场作戏。能够当个男人有尊严的活着真是太幸运了。我看了上海专门做变性手术的医院记录，女变男的人数是大于男变女的人数，只是前者比较低调不像金星河莉秀那样高调。</p>
+
+            <div class="op-lnks">
+                
+                <a href="https://www.douban.com/doubanapp/" class="comment-source" target="_blank">来自豆瓣App</a>
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u225981897 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+            
+    
+    <div class="comment-item" id="c-157418830" data-cid="157418830" data-target_id="2619473731" data-target_kind="1025">
+        <div class="pic">
+                <a href="https://www.douban.com/people/jiuxingjiang/"><img width="48" height="48" src="https://img9.doubanio.com/icon/u60645014-6.jpg" alt="豆油石榴木"></a>
+        </div>
+        <div class="content report-comment">
+            <div class="author">
+                <span>2022-02-20 00:27:24</span>
+                <a href="https://www.douban.com/people/jiuxingjiang/">豆油石榴木</a>  (意在永恒！)
+            </div>
+
+                
+                    
+                    <div class="reply-quote">
+                    <span class="short">塔利班。现在阿拉伯地区由他们掌权了，他们对女性的歧视非常非常严重。所以，好好当个男人不好吗</span>
+                    <span class="all">塔利班。现在阿拉伯地区由他们掌权了，他们对女性的歧视非常非常严重。所以，好好当个男人不好吗。</span>
+                    <a href="#" class="toggle-reply">
+                        <span class="expaned">...</span>
+                    </a><span class="pubdate"><a href="https://www.douban.com/people/225981897/">痴情公子谭顺成</a></span></div>
+
+            
+            <p>   目前阿富汗塔利班只是基本上控制了以普什图族为多数民族的阿富汗，并未占领统治任何一个阿拉伯国家。伊斯兰教权国家、世俗化穆斯林国家和阿拉伯国家严格说起来是三回事儿。</p>
+
+            <div class="op-lnks">
+                
+                <div class="right-lnks">
+                </div>
+            </div>
+
+            <div class="group_banned">
+                <span class="gact hidden p_u60645014 p_admin p_intern fright">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+        <div id="last"></div>
+
+            
+
+
+
+
+
+
+
+
+
+
+    <br><span class="pl2" align="right"><a class="j a_show_login" href="https://www.douban.com/login?reason=comment">&gt; 我来回应</a></span>
+
+
+        
+    
+    
+
+    
+
+
+
+</div>
+
+
+
+
+
+<script>
+    Do(function(){
+        $('#comments').find('.comment-item').hover(function(){$(this).addClass('over');}, function(){$(this).removeClass('over');});
+        $('.reply-quote .toggle-reply').click(function(e) {
+            e.preventDefault();
+            var el = $(this);
+            el.prevAll('span').toggle();
+            el.find('span').toggle();
+        });
+    });
+</script>
+
+
+
+
+
+
+        </div>
+        <div class="aside">
+                
+    <div class="mod">
+        
+
+
+
+
+
+
+        <div class="slidebar clearfix">
+            <span class="btn-prev"><a href="https://www.douban.com/personage/27248780/photo/2619531439/">后退</a></span>
+            <div class="slide-wrap">
+                <ul class="clearfix">
+                            <li id="2623943327">
+                                <a href="https://www.douban.com/personage/27248780/photo/2623943327/">
+                                    <img src="https://img3.doubanio.com/view/photo/albumicon/public/p2623943327.webp" alt="">
+                                </a>
+                            </li>
+                            <li id="2623025242">
+                                <a href="https://www.douban.com/personage/27248780/photo/2623025242/">
+                                    <img src="https://img3.doubanio.com/view/photo/albumicon/public/p2623025242.webp" alt="">
+                                </a>
+                            </li>
+                            <li id="2619531441">
+                                <a href="https://www.douban.com/personage/27248780/photo/2619531441/">
+                                    <img src="https://img2.doubanio.com/view/photo/albumicon/public/p2619531441.webp" alt="">
+                                </a>
+                            </li>
+                            <li id="2619531439">
+                                <a href="https://www.douban.com/personage/27248780/photo/2619531439/">
+                                    <img src="https://img1.doubanio.com/view/photo/albumicon/public/p2619531439.webp" alt="">
+                                </a>
+                            </li>
+                            <li id="2619473731" class="current">
+                                <a href="https://www.douban.com/personage/27248780/photo/2619473731/">
+                                    <img src="https://img2.doubanio.com/view/photo/albumicon/public/p2619473731.webp" alt="">
+                                </a>
+                            </li>
+                            <li id="2619473064">
+                                <a href="https://www.douban.com/personage/27248780/photo/2619473064/">
+                                    <img src="https://img9.doubanio.com/view/photo/albumicon/public/p2619473064.webp" alt="">
+                                </a>
+                            </li>
+                            <li id="2619468494">
+                                <a href="https://www.douban.com/personage/27248780/photo/2619468494/">
+                                    <img src="https://img9.doubanio.com/view/photo/albumicon/public/p2619468494.webp" alt="">
+                                </a>
+                            </li>
+                            <li id="2619467169">
+                                <a href="https://www.douban.com/personage/27248780/photo/2619467169/">
+                                    <img src="https://img1.doubanio.com/view/photo/albumicon/public/p2619467169.webp" alt="">
+                                </a>
+                            </li>
+                            <li id="2619463340">
+                                <a href="https://www.douban.com/personage/27248780/photo/2619463340/">
+                                    <img src="https://img1.doubanio.com/view/photo/albumicon/public/p2619463340.webp" alt="">
+                                </a>
+                            </li>
+                </ul>
+            </div>
+            <span class="btn-next"><a href="https://www.douban.com/personage/27248780/photo/2619473064/">前进</a></span>
+        </div>
+    </div>
+    <div class="mod">
+        
+    <h2>
+        图片信息
+            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+    </h2>
+
+        <ul class="poster-info">
+            <li>人物名称：<a href="/personage/27248780">艾蒂</a></li>
+            <li class="pl">原图尺寸：1492x2015</li>
+            <li class="pl">文件大小：291.5KB</li>
+            <li class="pl">来自：<a href="https://www.douban.com/people/brandyli/">豆友2190643</a></li>
+            <li class="pl">上传于 2020-09-06</li>
+        </ul>
+        <p class="pl2">
+            &gt;&nbsp;<a href="/personage/27248780">去艾蒂人物页</a>
+        </p>
+    </div>
+
+        </div>
+        <div class="extra">
+            
+        </div>
+    </div>
+</div>
+
+        
+<div id="footer">
+    
+<span id="icp" class="fleft gray-link">
+    © 2005－2025 douban.com, all rights reserved 北京豆网科技有限公司
+</span>
+
+<a href="https://www.douban.com/hnypt/variformcyst.py" style="display: none;"></a>
+
+<span class="fright">
+    <a href="https://www.douban.com/about">关于豆瓣</a>
+    · <a href="https://www.douban.com/jobs">在豆瓣工作</a>
+    · <a href="https://www.douban.com/about?topic=contactus">联系我们</a>
+    · <a href="https://www.douban.com/about/legal">法律声明</a>
+    
+    · <a href="https://help.douban.com/?app=elessar" target="_blank">帮助中心</a>
+    · <a href="https://www.douban.com/doubanapp/">移动应用</a>
+</span>
+
+</div>
+
+    </div>
+    
+
+    <!-- COLLECTED JS -->
+    
+    
+    
+
+
+
+
+
+
+
+
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5WP579" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5WP579');</script>
+<!-- End Google Tag Manager -->
+
+
+<script type="text/javascript">
+var _paq = _paq || [];
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+    var p=(('https:' == document.location.protocol) ? 'https' : 'http'), u=p+'://fundin.douban.com/';
+    _paq.push(['setTrackerUrl', u+'piwik']);
+    _paq.push(['setSiteId', '100001']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript';
+    g.defer=true;
+    g.async=true;
+    g.src=p+'://img3.doubanio.com/dae/fundin/piwik.js';
+    s.parentNode.insertBefore(g,s);
+})();
+</script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7019765-1']);
+_gaq.push(['_setCampNameKey', 'dcn']);
+_gaq.push(['_setCampSourceKey', 'dcs']);
+_gaq.push(['_setCampMediumKey', 'dcm']);
+_gaq.push(['_setCampTermKey', 'dct']);
+_gaq.push(['_setCampContentKey', 'dcc']);
+_gaq.push(['_addOrganic', 'baidu', 'word']);
+_gaq.push(['_addOrganic', 'soso', 'w']);
+_gaq.push(['_addOrganic', '3721', 'name']);
+_gaq.push(['_addOrganic', 'youdao', 'q']);
+_gaq.push(['_addOrganic', 'so.360.cn', 'q']);
+_gaq.push(['_addOrganic', 'vnet', 'kw']);
+_gaq.push(['_addOrganic', 'sogou', 'query']);
+_gaq.push(['_addIgnoredOrganic', '豆瓣']);
+_gaq.push(['_addIgnoredOrganic', 'douban']);
+_gaq.push(['_addIgnoredOrganic', '豆瓣网']);
+_gaq.push(['_addIgnoredOrganic', 'www.douban.com']);
+_gaq.push(['_setDomainName', '.douban.com']);
+
+
+    _gaq.push(['_setCustomVar', 1, 'responsive_view_mode', 'desktop', 3]);
+
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+
+window._ga_init = function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+};
+if (window.addEventListener) {
+    window.addEventListener('load', _ga_init, false);
+} else {
+    window.attachEvent('onload', _ga_init);
+}
+</script>
+
+
+
+
+
+    <!-- dae-web-elessar--default-6d9dc47f8-dr7hq-->
+
+
+  <script>_SPLITTEST=''</script>
+
+
+
+
+
+<div id="db-tagsug-list" class="suggest-overlay"></div></body></html>

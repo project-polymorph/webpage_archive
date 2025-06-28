@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html style="font-size: 42.6667px;"><head><script charset="utf-8" async="" src="https://atanx.alicdn.com/t/tanxmobile/tanxssp.js?_v=12"></script><script src="/e/public/onclick/?enews=donews&amp;id=1263534&amp;classid=586"></script><script type="text/javascript" charset="gbk" id="tanx-s-mm_117647555_15384979_66194939" async="" src="https://p.tanx.com/ex?i=mm_117647555_15384979_66194939"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <title>泰国人妖晚年生活有啥不同？40岁就“养老”，结局让人看了心酸 - 上游新闻·汇聚向上的力量</title>
+    <script language="javascript" src="/static/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/client_udid.js"></script>
+    <script type="text/javascript" src="/static/js/client.js"></script><script type="text/javascript" src="/20160630/js/jquery.lazyload.js"></script>
+    <link href="/static/css/style_4.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/weui.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/feedback.css" rel="stylesheet" type="text/css">
+     
+</head>
+
+<body>
+<script language="javascript" src="/static/js/main.js"></script>
+<script>
+    var closet = 0;
+    $(function(){
+        var nav=$("#weiyi");
+        var win=$(window);
+        var sc=$(document);
+        win.scroll(function(){
+            if(sc.scrollTop()>=100){
+                $(".top_b").css("top","-2rem");
+                $("#wenbenk").css("padding", "0.52rem 0 0");
+            }else {
+                if (isClient) {
+                    $(".top_b").animate({top: '-2rem'});
+                    $(".project").css("margin-top", "0");
+                    $("#wenbenk").css("padding", "0.52rem 0 0");
+                    $(".app_ad_but").hide();
+                    $('.news_list2').hide();
+                } else {
+                    if (closet == 0){
+                    $(".top_b").css("top","0");
+                    $("#wenbenk").css("padding", "2.3rem 0 0");
+                }}
+            }
+        });
+
+
+        //判断是否为客户端,按钮显示
+        if (isClient)
+        {
+            $(".top_b").animate({top: '-2rem'});
+            $(".project").css("margin-top", "0");
+            $("#wenbenk").css("padding", "0.52rem 0 0");
+            $(".app_ad_but").hide();
+            $(".in_dz").hide();
+            $('.news_list2').hide();
+        }else{
+            $(".interactive").show();
+            $(".top_b").css("top","0");
+            $("#wenbenk").css("padding", "2.3rem 0 0");
+        }
+
+
+        //上游号判断状态
+        refreshWeb();
+
+        //上游号关注按钮
+        if ( isClient )
+        {
+            $("#follow,#bgfollow").click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: "/e/member/dyh_do.php",
+                    data: {"classid":"586","udid":udid,"appkey":appkey,"enews":'follow'},
+                    dataType: "json",
+                    success: function(data){
+                        if(data.state==0){
+                            if(isClient==true) {
+                                location.href="client:refreshfollow";
+                            }
+                            //syalert("",data.message);
+                            isFollow();
+                        } else if(data.state==-1) {
+                            if(isClient==true) {
+                                location.href="client:logout";
+                            } else {
+                                syconfirm("//www.cqcb.com/downapp/",data.message);
+                                //syconfirm("/e/member/login/?from="+encodeURIComponent(location.href),data.message);
+                            }
+                        } else if(data.state==2){
+                            //syalert("//a.app.qq.com/o/simple.jsp?pkgname=com.news.shangyounews",data.message);
+                            syconfirm("//www.cqcb.com/downapp/",data.message);
+                        } else {
+                            //syalert("",data.message);
+                            return false;
+                        }
+                    }
+                });
+            });
+
+            $("#unfollow,#bgunfollow").click(function(){
+                $.ajax({
+                    type: "POST",
+                    url: "/e/member/dyh_do.php",
+
+                    data: {"classid":"586","udid":udid,"appkey":appkey,"enews":'unfollow'},
+                    dataType: "json",
+                    success: function(data){
+                        if(data.state==0){
+                            //syalert("",data.message);
+                            if(isClient==true) {
+                                location.href="client:refreshfollow";
+                            }
+                            isFollow();
+                        } else if(data.state==-1) {
+                            if(isClient==true) {
+                                location.href="client:logout";
+                            } else {
+                                //syconfirm("/e/member/login/?from="+encodeURIComponent(location.href),data.message);
+                                syconfirm("//www.cqcb.com/downapp/",data.message);
+                            }
+                        } else if(data.state==2){
+                            syalert("//a.app.qq.com/o/simple.jsp?pkgname=com.news.shangyounews",data.message);
+                        } else {
+                            //syalert("",data.message);
+                            return false;
+                        }
+                    }
+                });
+            });
+        }else{
+            $(".syh_but,.syh_bgbut").click(function(){
+                $("#black_4").fadeIn();
+            });
+        }
+
+
+
+
+
+        //获取内容页广告
+        $.ajax({
+    url:"/api/init_ad.php?time="+Date.parse(new Date()),
+    type:"POST",
+    dataType:"json",
+        data:{"enews":"init_ad"},
+        success: function(data){
+            if(data.state === 0)
+            {
+                var ad_html="";
+                var titleDownad_html = "";
+                if( data.contentdata.length > 0)
+                {
+                    for(var i=0;i<data.contentdata.length;i++)
+                    {
+                        ad_html += '<div class="news_list2"> <a href="'+data.contentdata[i]['url']+'"><div class="list_text2"><div class="list_img_big"><img src="'+data.contentdata[i]['imgsrc']+'"><div class="label_con_ad">广告</div></div></div></a> </div>';
+                    }
+                    $("#content_ad2").html(ad_html);
+                }
+                if ( data.detailsTitleDown.length > 0 ) 
+                {
+                    for (var i = 0; i<data.detailsTitleDown.length; i++) {
+                        titleDownad_html +='<img src="'+data.detailsTitleDown[i]["imgsrc"]+'"><div class="label_con_ad">广告</div>';
+                    }
+                    $("#titleDownAd").html(titleDownad_html);
+
+                    if(0 == 1)
+                    {
+                        $("#titleDownAd").show();               }
+                    
+                }
+            }
+            },
+    error:function(){
+
+        }
+    });
+
+        //获取评论
+        $.ajax({
+            url:"/api/get_comment.php",
+            type:"GET",
+            dataType:"JSON",
+            data:{"news":"getIndex","classid":"586","id":"1263534","userid":""},
+            success: function(data){
+                if(data.state === 0)
+                {
+                    var html ="",timestr="",newstime_str="",tmptime_str="";
+                    if(data.commentlist.length > 0)
+                    {
+                        for (var i =0; i<data.commentlist.length;i++)
+                        {
+                            html += '<div class="comments_list"><div class="com_xinxi"><span class="com_pic"><img src="'+data.commentlist[i]['userpic']+'"></span><span class="com_name">'+data.commentlist[i]['username']+'</span><span class="label_nr2">'+data.commentlist[i].saytime+'</span></div><div class="com_nr">'+data.commentlist[i]['saytext']+'</div></div>';
+                        }
+                    }
+                    $(".comments").html("");
+                    $(".comments").append(html);
+                }else
+                {
+                    $("#nocomments").show();
+                }
+            },
+            error: function(){
+                syalert("","网络错误");
+            }
+        });
+
+
+    });
+
+
+    //上游号相关功能
+    function refreshWeb(){
+        isFollow();
+    }
+    function isFollow(){
+        $.ajax({
+            url:"/e/member/getUserDyhContent.php",
+            type: "POST",
+            data:{enews:"getuserdyhcontent",navclassid:"586"},
+            dataType: "json",
+            success: function(data){
+                if(data.state==0){
+                    $("#follow").hide();
+                    $("#bgfollow").hide();
+                    $("#unfollow").show();
+                    $("#bgunfollow").show();
+                }else{
+                    $("#follow").show();
+                    $("#bgfollow").show();
+                    $("#bgunfollow").hide();
+                    $("#unfollow").hide();
+
+                }
+            }
+        });
+    }
+</script>
+<div id="main">
+    <section id="black_4">
+        <div id="pop_up_2" class="pop_box">
+            <div class="pop_img1"><img src="/static/images/xye.png"></div>
+            <div class="pop_close"><img src="/static/images/xx.png"></div>
+            <div class="pop_h1 pop_h1_p">上游新闻</div>
+            <div class="pop_p">更多的资讯等着你...</div>
+            <div class="pop_but">
+                <span class="pop_but_center">立即下载</span>
+            </div>
+        </div>
+    </section>
+    <header>
+        <div class="top_b" style="top: 0px;">
+            <div class="top_b_center">上游新闻
+                <p>汇聚向上的力量</p>
+            </div>
+            <a href="https://www.cqcb.com/downapp/">
+                <div class="top_b_left"></div>
+            </a>
+            <div class="top_b_right"></div>
+            <a href="https://www.cqcb.com/downapp/"><div class="top_b_righto">立即下载</div></a>
+        </div>
+    </header>
+    <div id="shareInfo" style="display:none;">{"title":"泰国人妖晚年生活有啥不同？40岁就“养老”，结局让人看了心酸", "url":"/dyh/culture/dyh276/2018-11-27/1263534.html", "image":"", "smalltext":"来自上游新闻客户端", "id":"1263534", "classid":"586"}</div>
+    <section id="weiyi">
+        <div id="wenbenk" style="padding: 2.3rem 0px 0px;">
+            <div class="top_biaoti">
+                <h1>泰国人妖晚年生活有啥不同？40岁就“养老”，结局让人看了心酸</h1>
+
+                                <div class="syh_gzk">
+                    <span class="syh_pic_tx"><img src="https://image.cqcb.com/d/file/p/2017-01-22/59f7e3cd66ebaa16c2c9302b966ee14f.png"></span>
+                    <span class="syh_pic_name">善养传媒</span>
+                    <span class="syh_but"><img id="follow" src="/static/images/gzhu.png"></span>
+                    <span class="syh_but"><img id="unfollow" src="/static/images/yiguanzhu.png"></span>
+                </div>
+                
+
+            </div>
+
+            <div class="top_list_img_big" style="position: relative; display: none;" id="titleDownAd">
+                <img src="https://image2.cqcb.com/d/file/ad/2017-06-03/844c8bf69c50e5751f608b7fa574d863.jpg">
+                <div class="label_con_ad">广告</div>
+            </div>
+
+
+            <div class="article_text">
+                <p>泰国旅游业创造的GDP为为2.51万亿泰铢，这一产业的收入占了泰国全年GDP的17.7%。这个占比说明什么？我们可以用全球的数据来对比一下，全国旅游产业产出GDP5.17万亿美元，占了全球GDP的7％，这说明泰国旅游产出GDP的能力远远超过全球的均值，对于泰国来说，旅游业是全国GDP的支柱，但是很少人考虑到背后是哪些群体支撑起来的。</p><p></p><p style="padding: 0px 0px 0.96rem;"><img src="https://image2.cqcb.com/d/file/dyh/culture/dyh276/2018-11-27/4c51f3bb06c9c0630d6bff2043f1aac4.jpg" title="4c51f3bb06c9c0630d6bff2043f1aac4.jpg" alt="微信图片_20181127102120.jpg"></p><p></p><p>除了传统的景观和美食，泰国旅游业还有一个特别的地方，在每一个景点或者是酒吧，只要是游客比较多的地方，就一定会有人妖表演。有很多其他国家的游客会花一点钱和人妖互动或者是合影。</p><p></p><p>人妖就是变性成女性的男性，虽然是变性人，但人妖真的是漂亮又自然，比很多整容的美女都要好看很多。</p><p></p><p style="padding: 0px 0px 0.96rem;"><img src="https://image2.cqcb.com/d/file/dyh/culture/dyh276/2018-11-27/1b3df4b03df3ba4f12345724608098df.jpg" title="1b3df4b03df3ba4f12345724608098df.jpg" alt="微信图片_20181127102124.jpg"></p><p></p><p>人妖在台上唱歌，和观众合影就可以收到小费，很多人以为她们赚钱容易。能在年轻时赚这么多的钱，也是有游客好奇：这些泰国人妖晚年生活有啥不同，难道舒舒服服就养老吗？但事实上，人妖的痛苦不是常人能够理解的。因为要平衡体内的激素，人妖需要经常吃药，大量的药物对寿命的减少是很明显的。</p><p></p><p>大多数人妖在40岁就“养老”了，但这里养老也是被迫的，都知道人均寿命超过75岁，人妖却不超过50岁的寿命。加上想要成为知名的哪一位并不简单，为生活奔波又经常吃药，人妖老得更快。</p><p></p><p style="padding: 0px 0px 0.96rem;"><img src="https://image2.cqcb.com/d/file/dyh/culture/dyh276/2018-11-27/6b9335ea9e8081f2c86939a3f6c029af.jpg" title="6b9335ea9e8081f2c86939a3f6c029af.jpg" alt="微信图片_20181127102128.jpg"></p><p></p><p>因为药物的原因，人妖基本不会有孩子，也并不是全部的人妖都能赚很多钱，那么他们老了的时候怎么维持生活呢，“养老”方式是如何呢？&nbsp;</p><p></p><p>不得不说结局让人看了心酸，大部分人妖都会选择去寺庙生活，她们的年轻时习惯了热闹的生活，老后住在寺庙中，可能会觉得孤单。并不是所有的人妖都是自己想做人妖的，大部分都是家里面需要经济来源被父母培养成人妖，人妖的生活她们未必喜欢，提前衰老又孤单，这种结局让知情人看了心酸，不愿享受这种服务了。</p><p></p><p style="padding: 0px 0px 0.96rem;"><img src="https://image2.cqcb.com/d/file/dyh/culture/dyh276/2018-11-27/daefea7fc1eb13fada61990306669e8b.jpg" title="daefea7fc1eb13fada61990306669e8b.jpg" alt="微信图片_20181127102131.jpg"></p><p></p><p>很多人去泰国游玩时都会拍一张和人妖的合影，照片上的她们年轻美丽，看起来赚钱很容易，和别人合照就有小费。</p><p></p><p>但事实上除了一些做歌星、模特的人妖比较有钱之外，大部分在景点卖唱的人妖的生活都很艰难，这种人妖群体结局就更难受。各位网友，你们去泰国看过人妖表演吗？来源：吱咕爱游 （图片源于网络，如有侵权请联系作者删除）</p><p></p><p>善养传媒——为中国一流养老服务</p>            </div>
+        </div>
+    </section>
+        <section id="content_ad2">
+
+
+    </section>
+
+        <section>
+        <div class="mz_meta">
+            免责声明：上游号文章仅代表作者本人观点，不代表上游新闻立场，文责作者自负。如有文章内容、版权等问题，请联系上游新闻。联系邮箱：syh@cqcb.com
+        </div>
+    </section>
+    
+    <section>
+        <div class="interactive">
+            <div class="in_dz">关心一下，为你推荐更多</div>
+            <a href="javascript:void(0);" id="feedback"><div class="in_jb">举报</div></a>
+        </div>
+    </section>
+        <section>
+        <div class="syh_wei">
+            <div class="syh_gzk_di">
+                <div class="syh_bgpic_tx"><img src="https://image.cqcb.com/d/file/p/2017-01-22/59f7e3cd66ebaa16c2c9302b966ee14f.png"></div>
+                <div class="syh_bgpic_name">善养传媒<p>善养传媒致力于老龄全产业链的品牌策划与整合营销</p></div>
+                <div class="syh_bgbut"><img id="bgfollow" src="/static/images/gzhu.png"></div>
+                <div class="syh_bgbut"><img id="bgunfollow" src="/static/images/yiguanzhu.png"></div>
+            </div>
+        </div>
+    </section>
+        <section id="content_ad">
+     <script type="text/javascript" src="/d/js/acmsd/thea42.js?time=1234"></script><div style="padding:0 0.52rem"> <script type="text/javascript">  document.write('<a style="display:none!important" id="tanx-a-mm_117647555_15384979_66194939"></a>');  tanx_s = document.createElement("script");  tanx_s.type = "text/javascript";  tanx_s.charset = "gbk";  tanx_s.id = "tanx-s-mm_117647555_15384979_66194939";  tanx_s.async = true;  tanx_s.src = "https://p.tanx.com/ex?i=mm_117647555_15384979_66194939";  tanx_h = document.getElementsByTagName("head")[0];  if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);</script><a style="display:none!important" id="tanx-a-mm_117647555_15384979_66194939"></a></div><div class="con_ad_h1">淘宝推广广告</div>
+
+    </section>
+    <section>
+        <div class="title">
+            <div class="title_wz"><span class="title_bg2">热门评论</span></div>
+        </div>
+    </section>
+    <section style="" id="nocomments">
+        <div class="sofa"><img src="/static/images/sf.png">
+            <p class="sofa_text">还没评论 快来说两句</p>
+        </div>
+    </section>
+    <section>
+        <div class="comments">
+          
+
+        </div>
+        <a href="https://www.cqcb.com/downapp/">
+            <div class="app_ad_but">下载上游新闻看更多评论</div>
+        </a> </section>
+    <section>
+        <div class="title">
+            <div class="title_wz"><span class="title_bg1">相关新闻</span></div>
+        </div>
+    </section>
+    <section id="otherlink">
+   
+    <div class="news_list2"> <a href="https://www.cqcb.com/dyh/e-s/dyh2222/2018-11-23/1255693.html"><div class="list_img2"><div class="list_img1"><img src=""><div class="label_smv">2 图</div></div></div><div class="list_text2"><div class="list_h1">你拿什么养老？谨记提前准备好</div> <div class="list_span2"> <span>638阅读</span> <span>2天前</span></div></div></a></div><div class="news_list2"> <a href="https://www.cqcb.com/dyh/live/dyh1820/2018-11-23/1255816.html"><div class="list_img2"><div class="list_img1"><img src=""><div class="label_smv">4 图</div></div></div><div class="list_text2"><div class="list_h1">全新享老生活方式来袭，心景谱写养老生活新篇章</div> <div class="list_span2"> <span>968阅读</span> <span>2天前</span></div></div></a></div><div class="news_list2"> <a href="https://www.cqcb.com/dyh/group/dyh688/2018-11-25/1259307.html"><div class="list_img2"><div class="list_img1"><img src=""><div class="label_smv">10 图</div></div></div><div class="list_text2"><div class="list_h1">普惠消费养老项目推进暨万企帮万村消费扶贫爱心采购大会成功举办</div> <div class="list_span2"> <span>2827阅读</span> <span>2天前</span></div></div></a></div><div class="news_list2"> <a href="https://www.cqcb.com/county/dianjiang/dianjiangxinwen/2018-11-26/1260119.html"><div class="list_img2"><div class="list_img1"><img src=""></div></div><div class="list_text2"><div class="list_h1">加强养老服务设施建设打造老年人幸福“驿站”</div> <div class="list_span2"> <span>5291阅读</span> <span>2天前</span></div></div></a></div><div class="news_list2"> <a href="https://www.cqcb.com/dyh/culture/dyh3007/2018-11-26/1260789.html"><div class="list_img2"><div class="list_img1"><img src="http://image2.cqcb.com/d/file/dyh/culture/dyh3007/2018-11-26/e5cbfff716ef6825f278249bf45174d9.jpg"><div class="label_smv">2 图</div></div></div><div class="list_text2"><div class="list_h1">怎么才能享受到“智慧养老”</div> <div class="list_span2"> <span>506阅读</span> <span>2天前</span></div></div></a></div><div class="news_list2"> <a href="https://www.cqcb.com/county/dianjiang/dianjiangxinwen/2018-11-26/1261190.html"><div class="list_img2"><div class="list_img1"><img src="https://image2.cqcb.com/d/file/county/dianjiangxinwen/2018-11-26/c8121e9191b4e3bcdbf48d79e03d971f.jpg"></div></div><div class="list_text2"><div class="list_h1">今年，我县投资1.73亿元新建垫江县养老护理院（一期）</div> <div class="list_span2"> <span>3179阅读</span> <span>2天前</span></div></div></a></div><div class="news_list2"><div class="list_text3"><span class="list_more">进入上游新闻查看更多</span></div></div></section>
+</div>
+<!--返回顶部-->
+<a href="#0" class="cd-top">Top</a>
+<script src="/e/public/ViewClick/?classid=586&amp;id=1263534&amp;addclick=1"></script>
+<div style="display:none">
+
+    <script src="/e/public/onclick/?enews=donews&amp;classid=586&amp;id=1263534"></script>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253658961'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1253658961' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1253658961"></span><script src=" https://s4.cnzz.com/stat.php?id=1253658961" type="text/javascript"></script>
+</div>
+<script language="javascript">
+    $(".article_text img").parent(".article_text p").css("padding","0 0 0.96rem");
+</script>
+
+<script>
+
+    var id=1263534;
+    var classid=586;
+    $(document).ready(function(){
+        $.ajax({
+            url:"/e/member/read.php?"+Math.random(),
+            type: "POST",
+            data:{enews:"read",title:"泰国人妖晚年生活有啥不同？40岁就“养老”，结局让人看了心酸",url:"/dyh/culture/dyh276/2018-11-27/1263534.html",id:"1263534",classid:"586","udid":udid,"appkey":appkey},
+            dataType: "json",
+            success: function(data){
+
+            }
+        });
+    });
+</script>
+<script type="text/javascript" src="/member/feedback/js/feedback.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //举报
+        $('.in_jb').click(function () {
+            if( isClient )
+            {
+                $("#feedback").pointOut({
+                    httpType:'POST',
+                    url:'/member/feedback/index.php?c=index&a=feedback',
+                    data:{classid:"586",tp:1,id:"1263534"},
+                    success:function(msg){
+                        if(msg['msg']==0){
+                            syalert("",msg['success']);
+                        }else{
+                            if(msg['url']){
+                                window.location.href=msg['url']+msg['err'];
+                            }else{
+                                syalert("",msg['err']);
+                            }
+                        }
+                    }
+
+                });
+            }else{
+                $("#black_4").fadeIn();
+            }
+        })
+    })
+</script>
+<script type="text/javascript">
+    //(function(c){var g,s='script',w=window,n=c.name||'PLISTA';if(!w[n]){w[n]=c;g=w.document.getElementsByTagName(s)[0];s=w.document.createElement(s);s.async=true;s.type='text/javascript';s.src=(w.location.protocol==='https:'?'https:':'http:')+'//static'+(c.origin?'-'+c.origin:'')+'.plista.com/async'+(c.name?'/'+c.name:'')+'.js';g.parentNode.insertBefore(s,g);}
+//    }({
+//        "publickey": "75b7942f15c471cc491dfa4e",
+//        "item": {
+//            "objectid": "1263534",  /*unique ID, alphanumeric*/
+//            "title": "泰国人妖晚年生活有啥不同？40岁就“养老”，结局让人看了心酸",  /*max 255 characters*/
+//            "text": "",  /*max 255 characters*/
+//            "url": "",  /*max 1024 characters*/
+//    "img": "",  /*max 255 characters*/
+//        "category": "善养传媒",
+//        "published_at": 1543285406,  /*UNIX timestamp, date article was first published*/
+//    "updated_at": 1543285406/*UNIX timestamp, date article was last modified*/
+//    },
+//    "origin": "cn"
+//    }));
+
+$(function(){
+    $.ajax({
+            url:"/api/otherlink.php?id=1263534&classid=586",
+            type:"GET",
+            dataType:"json",
+            success: function(data){
+                    if ( data.newslist.length > 0 )
+                    {
+                        var html="",showtype="",imgnum="",titletype="",tmpstr="",newstime_str="",timestr="";
+                        for ( var i =0 ; i < data.newslist.length ; i ++ )
+                        {
+                            newstime_str = data.newslist[i].newstime.replace(/-/g,"/");
+                           newstime = new Date(newstime_str);
+                           myDate = new Date();
+                           times=myDate-newstime;
+                           if(times/(24 * 60 * 60 * 1000)>=2)
+                           {
+                              timestr="2天前";
+                           }
+                           else if(times/(24 * 60 * 60 * 1000)>=1&&times/(24 * 60 * 60 * 1000)<2)
+                           {
+                              timestr="1天前";
+                           }
+                           else if(times/(60 * 60 * 1000)>=1&&times/(60 * 60 * 1000)<24)
+                           {
+                              timestr=parseInt(times/(60 * 60 * 1000))+"小时前";
+                           }
+                           else if(times/(60 * 1000)>=1&&times/(60 * 1000)<60)
+                           {
+                              timestr=parseInt(times/(60 * 1000))+"分钟前";
+                           }
+                           else if(times/(1000)>=1&&times/(1000)<60)
+                           {
+                              timestr=parseInt(times/(1000))+"秒前";
+                           }
+                            if (data.newslist[i]["showtype"] == 1)//三图
+                            {
+                                showtype = '<div class="list_text2"><div class="list_h1">'+data.newslist[i]["title"]+'</div><div class="list_img3"><img src="'+data.newslist[i]["smalltitlepic"]+'"><img src="'+data.newslist[i]["smalltitlepic3"]+'"><img src="'+data.newslist[i]["titlepic"]+'">';
+                            }else //普通和大图
+                            {
+                                showtype = '<div class="list_img2"><div class="list_img1"><img src="'+data.newslist[i]["smalltitlepic"]+'">';
+                            }
+
+                            if(data.newslist[i]["imgnum"] > 1 )
+                            {
+                                imgnum = '<div class="label_smv">'+data.newslist[i]["imgnum"]+' 图</div>';
+                            }else{
+                                imgnum = "";
+                            }
+
+                            if (data.newslist[i]["titletype"] == "无")
+                            {
+                                titletype = "";
+                            }else if (data.newslist[i]["titletype"] == "广告")
+                            {
+                                titletype = '<div class="label_ad">广告</div>';
+                            }else if (data.newslist[i]["titletype"] == "原创")
+                            {
+                                titletype = '<div class="label">原创</div>';
+                            }else if (data.newslist[i]["titletype"] == "专题")
+                            {
+                                titletype = '<div class="label_zt">专题</div>';
+                            }
+
+                            if (data.newslist[i]["showtype"] == 1)//三图
+                            {
+                                tmpstr = ' </div><div class="list_span2"><span>'+data.newslist[i]["asdfg"]+'阅读</span> <span>'+timestr+'</span>';
+                            }else //普通和大图
+                            {
+                                tmpstr = '</div></div><div class="list_text2"><div class="list_h1">'+data.newslist[i]["title"]+'</div> <div class="list_span2"> <span>'+data.newslist[i]["asdfg"]+'阅读</span> <span>'+timestr+'</span>';
+                            }
+                            html +='<div class="news_list2"> <a href="'+data.newslist[i]["titleurl"]+'">'+showtype+imgnum+titletype+tmpstr+'</div></div></a></div>';
+                        }
+                        html += '<div class="news_list2"><div class="list_text3"><span class="list_more">进入上游新闻查看更多</span></div></div>';
+                        $("#otherlink").append(html);
+                    }
+                },
+            error: function(){}
+        })
+    })
+    
+</script>
+
+
+</body></html>

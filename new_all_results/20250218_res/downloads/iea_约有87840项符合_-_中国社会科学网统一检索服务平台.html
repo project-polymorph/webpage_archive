@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>中国社会科学网统一检索服务平台</title>
+    <link href="images/index20150507.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/yahoo-dom-event.js"></script>
+    <script type="text/javascript" src="js/suggest-yui2.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//获取页面中的channelid值
+			var channelid = $("input[name='channelid']").val();
+			//jquery对象：所有链接
+			var naviArr = $(".row a");
+			//console.info("naviArr:");
+			//console.info(naviArr.length);
+			for(var i=0; i<naviArr.length; i++){
+				//链接的href属性值
+				var linkHref = naviArr[i].href;
+				//console.info("linkHref:" + linkHref);
+				var linkHrefNew = "";
+				//channelid属性的位置
+				var index = linkHref.indexOf("channelid=");
+				if(index >= 0){
+					//添加channelid属性前面的部分
+					linkHrefNew = linkHref.substring(0, index);
+					//添加重置的channelid属性
+					linkHrefNew += "channelid=" + channelid;
+					//字符串"channelid="后面的字符串
+					var after = linkHref.substring(index);
+					//channelid属性结束的位置
+					var indexAfter = after.indexOf("&");
+					if(indexAfter >= 0){
+						//添加channelid属性后面的部分
+						linkHrefNew += after.substring(indexAfter);
+					}
+					//链接的href属性重新赋值
+					naviArr[i].href = linkHrefNew;
+					//console.info("linkHrefNew:" + linkHrefNew);
+				}
+				
+			}
+		});
+	</script>	
+	<script type="text/javascript">
+        $(function(){
+           
+            var docabstracts = $(".sum");
+            for(var i=0;i<docabstracts.length;i++){
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/&nbsp; /g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/&nbsp;/g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/nbsp; /g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/nbsp;/g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/bsp;/g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/bsp; /g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/&nbs/g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/&nb/g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/sp;/g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/sp; /g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/sp/g,""));
+                $(docabstracts[i]).text($(docabstracts[i]).text().replace(/p;/g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/p; /g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/;/g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/; /g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/&/g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/s;/g,""));
+				$(docabstracts[i]).text($(docabstracts[i]).text().replace(/s; /g,""));
+				
+            }
+        })
+    </script>
+    <script type="text/javascript">
+        window.onload = function()
+        {
+//隐藏首尾单引号	
+/*--------------------------*/
+		var key = document.getElementById('textfield').value;
+        var keyV ="";
+        for(var i=0;i<key.length;i++){
+        	if(i==0){
+        		keyV+= key.charAt(i).replace((/\'/g),"");
+        	}else if(i==key.length-1){
+        		keyV+= key.charAt(i).replace((/\'/g),"");
+        	}else{
+        		keyV+= key.charAt(i);
+        	}
+        }
+        	if(keyV.match(/\\/g) != null){
+				document.getElementById('textfield').value=keyV.replace((/\\/g),"");
+				}else {
+				document.getElementById('textfield').value=keyV;
+				}
+/*-------------------------------------------*/
+
+	 if( key.charAt(1) == "“"){
+
+		$(".title a").html("<font color='#FF0000'>"+key+"</font>");
+			 }
+            var ispromptshown = $.cookie('ispromptshown');
+            if (ispromptshown == "false") return ;
+
+            var dataUrl = 'searchsuggest?result=false';
+            new TRSWAS.Suggest('textfield', dataUrl,
+                    {
+                        useShim:false,
+                        resultFormat: '约%result%条结果'
+                    });
+        };
+    </script>
+    <script type="text/javascript">
+        function goto(channelid)
+        {
+            if (document.searchform.searchword.value.trim()==''){
+                if(channelid=='282695'){
+                    window.location.href='news.jsp';
+                }
+                else{
+                    window.location.href='index.jsp?channelid='+channelid;
+                }
+            }
+            else{
+                document.searchform.channelid.value = channelid;
+                if(channelid=='261346'){
+                    document.searchform.perpage.value = 16;
+                }
+                else{
+                    document.searchform.perpage.value = '';
+                }
+                document.searchform.submit();
+            }
+        }
+        String.prototype.trim = function () {
+            return this.replace(/^\s*/, "").replace(/\s*$/, "");
+        }
+        function checkInput()
+        {
+/*-----------------搜索根据规则转化特殊字符------------------------*/
+ var key = document.getElementById('textfield').value;
+					  
+                      var keyV = ""; 
+                      
+                      if(key.match(/[~!@#$%\^\+\*&\/\?\|{}()\'-;=\"]/g) != null){
+                      	keyV =  key ;   
+                      }else{
+							keyV=key;
+					  }
+
+					
+					
+
+                      if((keyV.charAt(0) == "'" && keyV.charAt(keyV.length-1) == "'") && keyV.indexOf("\\$") != -1 ){
+                      	document.getElementById('textfield').value = keyV;
+                      }else{
+                      	document.getElementById("textfield").value = keyV.replace(/[$]/g,"\\$");
+                      }	
+
+
+/*-----------------------------------------------------------------*/
+		
+            if (document.searchform.searchword.value.trim()==''){
+                document.searchform.searchword.focus();
+                return false;
+            }
+            else{
+                return true;
+            }
+
+        }
+
+    </script>
+    <script language="javascript">
+        function setAdvancedWords()
+        {
+            document.outlinesearchform.andsen.value = '';
+            document.outlinesearchform.total.value = '';
+            document.outlinesearchform.orsen.value = '';
+            document.outlinesearchform.exclude.value = '';
+        }
+        /*function setSearchScope(type) {
+			if(type=="DocRelTime"){
+				document.outlinesearchform.searchword.value = "";
+                config.log("请输入正确的日期格式！");
+			}
+			document.outlinesearchform.orderby.value="-DOCRELTIME";
+            setAdvancedWords();
+            document.outlinesearchform.searchscope.value = type;
+            
+            document.outlinesearchform.submit();
+        }*/
+		/*----点击日期清空表单内容-----*/
+        function setSearchScope(type) {
+			if(type=="docpuburl"){
+				document.outlinesearchform.searchword.value = "";
+			}else if(type == "DocRelTime"){
+                document.outlinesearchform.searchword.value = "";
+            }else if(type == ""){
+					 var key = document.getElementById('textfield').value;
+					  
+                      var keyV = ""; 
+                      if(key.match(/[~!@#$%\^\+\*&\/\?\|{}()\'-;=\"]/g) != null){
+                      	keyV =   key ;    
+                      }                       
+                      if(key.charAt(0) == "'" && key.charAt(key.length-1) == "'"){
+                      	document.getElementById('textfield').value = key;
+                      }else{
+                      	document.getElementById("textfield").value=keyV;
+                      }
+                        
+                
+            }
+			document.outlinesearchform.orderby.value="-docpuburl";
+            setAdvancedWords();
+            document.outlinesearchform.searchscope.value = type;
+            
+          document.outlinesearchform.submit();
+        }
+
+        function setTimeScope(type,column) {
+            setAdvancedWords();
+            document.outlinesearchform.timescope.value = type;
+            document.outlinesearchform.timescopecolumn.value = column;
+           document.outlinesearchform.submit();
+        }
+        function setOrderBy(type) {
+            setAdvancedWords();
+            document.outlinesearchform.orderby.value = type;
+            document.outlinesearchform.submit();
+        }
+		//跳转至第几页
+		function gotopage(){
+			var gotopage=document.getElementById("gotopage").value;
+			document.searchform.page.value=gotopage;
+			document.searchform.submit();
+		}
+
+    </script>
+    
+
+
+
+</head>
+<body>
+<div class="container">
+	<div class="head">
+    	<div class="top">
+        	<div class="leftBox"><a href="http://www.cssn.cn" target="_blank"></a></div>
+            <div class="rightBox">
+			
+			<div style="width:70px;float:right;"><a href="http://stv.cssn.cn/" target="_blank">STV</a></div>
+			
+            	<div style="width:120px;font-size:16px;float:right;"><a href="http://www.cssn.cn" style="color:#cc0000;" target="_blank">www.cssn.cn</a></div>
+                <!--<div style="width:70px;"><a href="http://bbs.cssn.cn/blog.php" target="_blank">学术博客</a></div>
+                <div style="width:70px;"><a href="http://bbs.cssn.cn/" target="_blank">人文社区</a></div>-->
+                
+            </div>
+        </div>
+        <div class="title">
+			<span class="title_1">中国法学网</span><span class="title_2">检索</span>
+        </div>
+        <div class="searchBox">
+
+        	
+			<div class="row" id="标题"></div>
+			<div class="row" id="作者"></div>
+			<div class="row" id="关键词">
+            	<div class="optionBox"><a href="http://iea.cssn.cn/was5/web/search?page=5567&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10#" onclick="setSearchScope('DocTitle');">标题</a></div>
+                <div class="optionBox"><a href="http://iea.cssn.cn/was5/web/search?page=5567&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10#" onclick="setSearchScope('DocAuthor');">作者</a></div>
+                <div class="optionBox current"><a href="http://iea.cssn.cn/was5/web/search?page=5567&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10#" onclick="setSearchScope('');">关键词</a></div>
+                <div class="optionBox"><a href="http://iea.cssn.cn/was5/web/search?page=5567&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10#" onclick="setSearchScope('DocRelTime');">日期(格式：2015.1.1)</a></div>
+            </div>
+			<div class="row" id="日期"></div>
+			<script type="text/javascript">
+				var ss = 'null';
+				if(ss.indexOf('DocTitle')>=0)
+				{
+					document.getElementById("作者").innerHTML="";
+					document.getElementById("关键词").innerHTML="";
+					document.getElementById("日期").innerHTML="";
+				}
+				else if(ss.indexOf('DocAuthor')>=0)
+				{
+					document.getElementById("标题").innerHTML="";
+					document.getElementById("关键词").innerHTML="";
+					document.getElementById("日期").innerHTML="";
+				}
+				else if(ss.indexOf('DocRelTime')>=0)
+				{
+					document.getElementById("标题").innerHTML="";
+					document.getElementById("作者").innerHTML="";
+					document.getElementById("关键词").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("标题").innerHTML="";
+					document.getElementById("作者").innerHTML="";
+					document.getElementById("日期").innerHTML="";
+				}
+			</script>
+			<script type="text/javascript">
+				var urllink = window.location.href;
+				var value = "";
+				if (urllink.indexOf('searchscope=DocTitle')>=0)
+				{
+					document.getElementById("作者").innerHTML="";
+					document.getElementById("关键词").innerHTML="";
+					document.getElementById("日期").innerHTML="";
+				}
+				else if (urllink.indexOf('searchscope=DocAuthor')>=0)
+				{
+					document.getElementById("标题").innerHTML="";
+					document.getElementById("关键词").innerHTML="";
+					document.getElementById("日期").innerHTML="";
+				}
+				else if (urllink.indexOf('searchscope=DocRelTime')>=0)
+				{
+					document.getElementById("标题").innerHTML="";
+					document.getElementById("作者").innerHTML="";
+					document.getElementById("关键词").innerHTML="";
+				}
+				else
+				{
+					document.getElementById("日期").innerHTML="";
+					document.getElementById("标题").innerHTML="";
+					document.getElementById("作者").innerHTML="";
+				}
+			</script>
+			<script language="javascript">
+			//更多的过滤字符，请自己补充到new Array("char","varcahr","#"); 
+			function checkForms1()
+			{  
+				var iu, iuu, regArray=new Array("@","/","#"); 
+			   iuu=regArray.length;
+			   var obj=document.getElementById("searchword");
+			   if(obj.value=="")
+			   {
+				 alert("输入内容不能为空！");
+				  obj.focus();
+				  return false;
+			   }   
+			   for(iu=1;iu<=iuu;iu++)
+			   {   
+				  if(regArray[iu] !="")
+				   {
+					  if (obj.value.indexOf(regArray[iu])!=-1)
+					   {
+						 document.Gforms.searchword.focus();
+						 return false;
+					  }
+					}
+			   }
+			   return true;              
+			}
+			</script>
+            <div class="row" style="margin-top:8px;">
+			<form name="searchform" id="searchform" action="search" method="get" style="margin-bottom:15px;" onsubmit="return checkInput();">
+				<input type="hidden" name="channelid" value="213031">
+				<input type="hidden" name="page" value="">
+				<input type="hidden" name="perpage" value="">
+				<input type="hidden" name="templet" value="">
+				<input type="hidden" name="token" value="64.1524709962364.88">
+				<input type="hidden" name="searchscope" value="">
+<!------------------------------------------------------------------------------------->
+				<input type="text" id="textfield" name="searchword" class="forminput" onkeyup="" onfocus="if(value=='中国社会科学院'){value=''}" value="">
+				
+<!------------------------------------------------------------------------------------->
+                <input type="submit" value="检&nbsp;&nbsp;索" class="submitbutton">
+			</form>
+            </div>
+        </div>
+    </div>
+</div>
+	<div class="body">
+
+    	<div class="count">
+        	<span class="fl"><span class="red">中国法学网</span> 为您搜到的结果</span>     
+            <span class="fr">约有88033项符合 <span class="red"></span> 的查询结果， 如下是第 1-10 项(搜索用时1.53秒)</span>
+        </div>
+
+      
+       
+        <div class="result">
+        	<div class="title"><a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200404/t20040428_4590063.shtml" target="_blank">要案评说：孙成钢涉嫌违规 又一证券名嘴接受监管部门调查</a></div>
+			
+			<div class="sum1">4月27日，从有关渠道获悉，山东证监局机构处开始对神光公司创始人孙成钢的“涉嫌违规炒股案”进行调查。这是继东方趋势的赵笑云、上海广通的唐能通之后，又一证券名嘴接受监管部门的调查。如果调查属实，孙成钢将成为在证监会荐股职业道德规范出台后，第一个以个人名义违规买卖股票被调查的咨询人员。　　孙成钢其人其事　　孙成钢何许人也？稍微熟悉中国证券市场的行业人士都知......</div>
+			
+            <div class="info">
+            	<a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200404/t20040428_4590063.shtml" target="_blank">http://iolaw.cssn.cn/oldcloumn/ajzz/200404/t20040428_4590063.shtml</a>
+                <span class="time">2004年04月28日00时00分00秒</span>
+				<span class="time"></span>
+            </div>
+        </div>
+	   
+      
+       
+        <div class="result">
+        	<div class="title"><a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040120_4588436.shtml" target="_blank">要案评说：青海省虚拟股市欺诈案主犯被判处无期徒刑</a></div>
+			
+			<div class="sum1">&nbsp;&nbsp;&nbsp;&nbsp;青海省西宁市中级人民法院16日依法对青海省金鹏公司集资诈骗、虚假出资一案进行了一审公开审理。主要涉案人员朱建坤、李文被分别&nbsp;&nbsp;&nbsp;&nbsp;　　&nbsp;&nbsp;&nbsp;&nbsp;自1998年8月青海金鹏判处有期徒刑15年和无期徒刑。投资有限公司成立以来，被告人朱建坤利用自行购置的证券、期货计算机网络工程设备，搭建内部计算机局域网，架设卫星接收设备接收股票行情信息，通过“乾龙”“世纪通宝”股票软件供......</div>
+			
+            <div class="info">
+            	<a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040120_4588436.shtml" target="_blank">http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040120_4588436.shtml</a>
+                <span class="time">2004年01月20日00时00分00秒</span>
+				<span class="time"></span>
+            </div>
+        </div>
+	   
+      
+       
+        <div class="result">
+        	<div class="title"><a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200311/t20031123_4587607.shtml" target="_blank">今日案件追踪(11.23)</a></div>
+			
+			<div class="sum1">导读：&nbsp;&nbsp;&nbsp;&nbsp;原湖南省邮电管理局局长张秀发一家的受贿丑行&nbsp;&nbsp;&nbsp;&nbsp;河南巩义："帮助"他人自杀&nbsp;"好心"获刑五年&nbsp;&nbsp;&nbsp;&nbsp;以案说法：喝酒喝出了人命&nbsp;&nbsp;敬酒的也担责任&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原湖南省邮电管理局局长张秀发一家的受贿丑行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历经两年多艰苦查办，原湖南省邮电管理局局长、党组书记张秀发因涉嫌伙同儿子张琳、女儿张芳巨额受贿，日前被法院一审判处死缓，终于受到法律严惩。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......</div>
+			
+            <div class="info">
+            	<a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200311/t20031123_4587607.shtml" target="_blank">http://iolaw.cssn.cn/oldcloumn/ajzz/200311/t20031123_4587607.shtml</a>
+                <span class="time">2003年11月23日00时00分00秒</span>
+				<span class="time"></span>
+            </div>
+        </div>
+	   
+      
+       
+        <div class="result">
+        	<div class="title"><a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200407/t20040704_4591429.shtml" target="_blank">要案评说：福建学术腐败案：盗印刊物掠财者仍在骗教师</a></div>
+			
+			<div class="sum1">6月30日，本报以《圈内人编假冒学术刊物敛财为评职称泉州数百教师受骗》为题，独家披露了福建教育学院学报中学教育版编辑部原副主编张国銮大量非法出版学术刊物，为亟需评职称的教师刊发论文从中牟取暴利的事实。福建省内的报纸今天也全文转载了这一报道。泉州受害教师闻讯后，纷纷向在当地采访的本报记者和新华社记者反映张国銮的行骗事实。尤其恶劣的是，张在事情败露后，仍在......</div>
+			
+            <div class="info">
+            	<a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200407/t20040704_4591429.shtml" target="_blank">http://iolaw.cssn.cn/oldcloumn/ajzz/200407/t20040704_4591429.shtml</a>
+                <span class="time">2004年07月04日00时00分00秒</span>
+				<span class="time"></span>
+            </div>
+        </div>
+	   
+      
+       
+        <div class="result">
+        	<div class="title"><a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200407/t20040709_4591508.shtml" target="_blank">今日案件快递(7.9)</a></div>
+			
+			<div class="sum1">导读：&nbsp;&nbsp;&nbsp;&nbsp;长沙开审首例利用木马病毒盗窃网络银行资金案&nbsp;&nbsp;&nbsp;&nbsp;小浪底沉船事故批捕四疑犯&nbsp;&nbsp;&nbsp;&nbsp;央视10日将直播吉林中百商厦特大火灾案宣判&nbsp;&nbsp;&nbsp;&nbsp;美对华首起世贸诉讼和解&nbsp;明年4月停止半导体退税&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长沙开审首例利用木马病毒盗窃网络银行资金案&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;湖南长沙雨花区法院7月5日开庭审理首例利用木马病毒盗窃网络银行资金案。&nbsp;&nbsp;&nbsp;&nbsp;检察院指控，被告人曾健、李智权在2003......</div>
+			
+            <div class="info">
+            	<a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200407/t20040709_4591508.shtml" target="_blank">http://iolaw.cssn.cn/oldcloumn/ajzz/200407/t20040709_4591508.shtml</a>
+                <span class="time">2004年07月09日00时00分00秒</span>
+				<span class="time"></span>
+            </div>
+        </div>
+	   
+      
+       
+        <div class="result">
+        	<div class="title"><a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040106_4588245.shtml" target="_blank">法院公布“民告官”十大典型案件</a></div>
+			
+			<div class="sum1">&nbsp;&nbsp;&nbsp;&nbsp;自古中国“刑不上大夫”。在新中国成立后的很长一段时间里，中国没有《行政诉讼法》。从1989年中国第一部行政诉讼法通过，行政案件的审理几乎多数处于媒体报道的“禁区”。而随着依法治国步伐的加快，昨天——&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;案例一：退回A股发行企业不服海南凯立告赢证监会&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2000年4月28日中国证监会作出《关于退回海南凯立中部开发建设股份有限公司A股发行预选申报材料的函......</div>
+			
+            <div class="info">
+            	<a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040106_4588245.shtml" target="_blank">http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040106_4588245.shtml</a>
+                <span class="time">2004年01月06日00时00分00秒</span>
+				<span class="time"></span>
+            </div>
+        </div>
+	   
+      
+       
+        <div class="result">
+        	<div class="title"><a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040108_4588284.shtml" target="_blank">今日案件追踪(1.8)</a></div>
+			
+			<div class="sum1">&nbsp;&nbsp;&nbsp;&nbsp;导读：&nbsp;&nbsp;&nbsp;&nbsp;盗取网络商城密码&nbsp;软件工程师疯狂购物22万元&nbsp;&nbsp;&nbsp;&nbsp;原合作伙伴质疑“永和豆浆大王”&nbsp;&nbsp;&nbsp;&nbsp;四川查处医药购销违纪违法案件及问题上千件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;盗取网络商城密码&nbsp;软件工程师疯狂购物22万元&nbsp;&nbsp;&nbsp;&nbsp;　　&nbsp;&nbsp;&nbsp;&nbsp;一个软件工程师利用盗取的网络商城“礼品卡”密码，在该网上商城疯狂购物消费金额达22万余元。昨天，犯罪嫌疑人何军被宣武区检察院侦监处以涉嫌职务侵占罪批准逮捕......</div>
+			
+            <div class="info">
+            	<a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040108_4588284.shtml" target="_blank">http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040108_4588284.shtml</a>
+                <span class="time">2004年01月08日00时00分00秒</span>
+				<span class="time"></span>
+            </div>
+        </div>
+	   
+      
+       
+        <div class="result">
+        	<div class="title"><a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040119_4588432.shtml" target="_blank">今日案件快递（1.19）</a></div>
+			
+			<div class="sum1">&nbsp;&nbsp;&nbsp;&nbsp;导读&nbsp;&nbsp;&nbsp;&nbsp;为了练杀人胆量&nbsp;江西一17岁青年连杀两名儿童&nbsp;&nbsp;&nbsp;&nbsp;江苏“11-3”暴力袭警致人死亡案三被告伏法&nbsp;&nbsp;&nbsp;&nbsp;云南破获特大跨国走私野生动物案&nbsp;走私规模罕见&nbsp;&nbsp;&nbsp;&nbsp;齐齐哈尔氯气泄漏原因查明&nbsp;一药厂厂长涉案被拘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了练杀人胆量&nbsp;江西一17岁青年连杀两名儿童&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;只因与同村少年杨某发生争执，江西东乡县黎圩镇17岁青年罗文辉顿起杀念，为了练练杀人胆量，他竟将一7岁无......</div>
+			
+            <div class="info">
+            	<a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040119_4588432.shtml" target="_blank">http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040119_4588432.shtml</a>
+                <span class="time">2004年01月19日00时00分00秒</span>
+				<span class="time"></span>
+            </div>
+        </div>
+	   
+      
+       
+        <div class="result">
+        	<div class="title"><a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040119_4588413.shtml" target="_blank">要案评说：2003年“断臂大整顿” 四川警察在痛苦中经历蜕变</a></div>
+			
+			<div class="sum1">&nbsp;&nbsp;&nbsp; 2003年，对于四川警方而言，绝对是由一个个痛苦、焦灼的不眠夜组成的。2003年的四川公安，经历了太多的冲击、挫折，每一个四川民警又都在痛苦中蜕变着。昨（17）日，省公安厅厅长吕卓在新春茶话会上，回顾惊心动魄的2003年，用“更加坚强、更加成熟、更加自信”，寄语全省每一位金盾卫士。同时，2004年，四川公安机关将首次不再下达“罚款任务”。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前奏　“李昭远案......</div>
+			
+            <div class="info">
+            	<a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040119_4588413.shtml" target="_blank">http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040119_4588413.shtml</a>
+                <span class="time">2004年01月19日00时00分00秒</span>
+				<span class="time"></span>
+            </div>
+        </div>
+	   
+      
+       
+        <div class="result">
+        	<div class="title"><a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040131_4588618.shtml" target="_blank">今日案件快递（1.31）</a></div>
+			
+			<div class="sum1">导读&nbsp;&nbsp;&nbsp;&nbsp;安徽省劳模当街被打死案判决&nbsp;凶手一审被判死刑&nbsp;&nbsp;&nbsp;&nbsp;同样的错误要犯多少次 4失明早产儿起诉医院&nbsp;&nbsp;&nbsp;&nbsp;山西严厉打击经济犯罪&nbsp;去年破获案件1642起&nbsp;&nbsp;&nbsp;&nbsp;湖北省去年共有145名贪官被移送司法机关查处&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安徽省劳模当街被打死案判决&nbsp;凶手一审被判死刑&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安徽省寿县劳模谢志新被当街殴打致死一案，淮南市中院近日一审判决：凶手刘建被判死刑，剥夺政治权利终身。......</div>
+			
+            <div class="info">
+            	<a href="http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040131_4588618.shtml" target="_blank">http://iolaw.cssn.cn/oldcloumn/ajzz/200401/t20040131_4588618.shtml</a>
+                <span class="time">2004年01月31日00时00分00秒</span>
+				<span class="time"></span>
+            </div>
+        </div>
+	   
+      
+		
+		
+            <form action="search" method="get" name="outlinesearchform">
+                <input type="hidden" name="searchscope" value="">
+                <input type="hidden" name="timescope" value="">
+                <input type="hidden" name="timescopecolumn" value="">
+                <input type="hidden" name="orderby" value="RELEVANCE">
+                <input type="hidden" name="channelid" value="213031">
+                <input type="hidden" name="andsen" value="">
+                <input type="hidden" name="total" value="">
+                <input type="hidden" name="orsen" value="">
+                <input type="hidden" name="exclude" value="">
+                <input name="searchword" type="hidden" value="">
+                <input type="hidden" name="perpage" value="">
+                <input type="hidden" name="templet" value="">
+                <input type="hidden" name="token" value="64.1524709962364.88">
+                <input type="hidden" name="timeline" value="">
+            </form>   
+
+        <div class="page">
+        	<div class="row">
+            	<a class="first-page" href="http://iea.cssn.cn/was5/web/search?page=1&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10" target="_self">首页</a>&nbsp;
+                <a class="prev-page" href="http://iea.cssn.cn/was5/web/search?page=5566&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10" target="_self">上一页</a>&nbsp;
+                <a target="_self" href="http://iea.cssn.cn/was5/web/search?page=278&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10">278</a>&nbsp;<a target="_self" href="http://iea.cssn.cn/was5/web/search?page=279&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10">279</a>&nbsp;<a target="_self" href="http://iea.cssn.cn/was5/web/search?page=280&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10">280</a>&nbsp;<a target="_self" href="http://iea.cssn.cn/was5/web/search?page=281&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10">281</a>&nbsp;<a target="_self" href="http://iea.cssn.cn/was5/web/search?page=282&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10">282</a>&nbsp;<a target="_self" href="http://iea.cssn.cn/was5/web/search?page=283&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10">283</a>&nbsp;<a target="_self" href="http://iea.cssn.cn/was5/web/search?page=284&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10">284</a>&nbsp;<a target="_self" href="http://iea.cssn.cn/was5/web/search?page=285&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10">285</a>&nbsp;<a target="_self" href="http://iea.cssn.cn/was5/web/search?page=286&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10">286</a>&nbsp;<a target="_self" href="http://iea.cssn.cn/was5/web/search?page=287&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10">287</a>&nbsp;
+                下一页
+                尾页
+                <div class="fl" style="display:inline; margin-left:3px;"><p class="fl">跳转到：</p><input id="gotopage" type="text"></div>
+                <a href="http://iea.cssn.cn/was5/web/search?page=5567&amp;channelid=213031&amp;token=64.1524709962364.88&amp;perpage=10&amp;outlinepage=10#" class="goto" onclick="gotopage();">前&nbsp;&nbsp;往</a>
+            </div>
+        </div>
+   
+    </div>
+    <div class="foot">
+    	<div class="link">
+            <a href="http://www.cssn.cn/qt/zgskygk/" target="_blank">中国社会科学院概况</a>|
+            <a href="http://www.cssn.cn/qt/zgskyjj/" target="_blank">中国社会科学杂志社简介</a>|
+            <a href="http://www.cssn.cn/qt/gyskw/" target="_blank">关于我们</a>|
+            <a href="http://www.cssn.cn/qt/flgw/" target="_blank">法律顾问</a>|
+            <a href="http://www.cssn.cn/qt/ggfw/" target="_blank">广告服务</a>|
+            <a href="http://www.cssn.cn/qt/wzsm/" target="_blank">网站声明</a>|
+            <a href="http://www.cssn.cn/qt/lxwm/" target="_blank">联系我们</a>|
+            <a href="http://old2013.cssn.cn/" target="_blank">旧版入口</a>|
+            <a href="http://english.cssn.cn/" target="_blank">English</a>
+        </div>
+        <div class="row">电话：010-84758788　　E-mail：zgshkxw_cssn@163.com　　京ICP备11013869号</div>
+        <div class="rowBottom">
+        	<a href="#"></a>
+            <div class="copyright">
+            	<span style="color:#005dab; letter-spacing:5px;">中国社会科学网版权所有，未经书面授权禁止使用</span><br>
+            	<span>Copyright © 2015-2019 by www.cssn.cn. all rights reserved</span>
+            </div>
+        </div>
+    </div>
+  
+
+
+
+</body></html>

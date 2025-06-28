@@ -1,0 +1,4047 @@
+<!DOCTYPE html>
+<html lang="zh-cn" style="--vh: 9.93px;"><head>
+	<meta charset="UTF-8">
+	<title>《变性手术概述》易性癖</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    
+<link rel="shortcut icon" href="https://www.sklib.cn//favicon.ico" type="image/x-icon">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="format-detection" content="telephone=no">
+<script type="text/javascript" src="https://www.sklib.cn/js/jquery-3.1.1.min.js"></script>
+<!-- <script src="${Site.URL}js/polyfill.js"></script>
+<script type="text/javascript" src="${Site.URL}js/browser.min.js"></script> -->
+<link href="/public/libs/layui/2.8.17/css/layui.min.css" rel="stylesheet">
+<script src="/public/libs/layui/2.8.17/layui.min.js"></script>
+<script>
+	var frontAppContext = 'https://www.sklib.cn/booklib/';
+	var siteID = "122";
+	var siteUrl = "https://www.sklib.cn/";
+	var fromSubID = ""
+	var subID = ""
+	var secondSubID = "" // 二级子库ID,用于检索
+	var addr = frontAppContext;
+	
+	var bookID="";
+	var author="";
+	var type="";
+	var recourceID="4519899";
+	var useType;
+	var pageResType = "";
+	$(function(){
+		var location = window.location.href;
+		if (!fromSubID && location.indexOf('sublibrary') >= 0) {
+			fromSubID = "4519899"
+		}
+		if (location.indexOf('historyResources') >= 0) {
+			secondSubID = "4519899"
+		}
+		subID = "" ? ""
+				: secondSubID ? secondSubID : fromSubID
+        var dc = {};
+        dc.SiteID=siteID;
+        dc.BookID=bookID;
+        dc.Authors=author;
+        dc.Title= document.title;
+        dc.ResourceID=recourceID;
+        dc.SublibID=subID;
+        dc.url=window.location.href;
+       	dc.ResourceType = pageResType;
+        if(useType){
+        	dc.useType = useType;
+        }
+        Server.sendRequest("BrowseHistory.add", dc, function (response) { });
+	})
+	var ZASUrl = "https://www.sklib.cn/sso/";
+	var AppURL = 'https://www.sklib.cn/booklib/';
+	var clientID = '';
+	var referer = encodeURIComponent(AppURL + 'member/login');
+	function on_click(e, ev) {
+		var txt = $(e).html();
+		ev = ev || event;
+		window.open("https://www.sklib.cn/booklib/search?q="+encodeURI(encodeURIComponent(txt))+"&field=all&t=&SiteID=122","_blank");
+	}
+    function bindKeyWordClick(){
+    	$(".key-words").find('span a').on('click', function(e){
+        	var html = $(this).html();
+        	var regx = /<[^>]*>|<\/[^>]*>/gm;
+        	searchString(html.replace(regx,""));
+    	});
+    }
+   
+
+</script>
+<link rel="stylesheet" href="https://www.sklib.cn/v3/css/bootstrap-new.min.css" type="text/css">
+<link rel="stylesheet" href="https://www.sklib.cn/v3/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="https://www.sklib.cn/v3/css/v3-framework.css" type="text/css">
+<link rel="stylesheet" href="https://www.sklib.cn/v3/css/v3-common.css" type="text/css">
+<link rel="stylesheet" href="https://www.sklib.cn/v3/css/v3-site-new.css" type="text/css">
+<link rel="stylesheet" href="https://www.sklib.cn/css/slick-new.css">
+<script src="https://www.sklib.cn/booklib/framework/zcms_require.js"></script><link rel="stylesheet" type="text/css" href="/booklib/framework/zcms_components.css"><script type="text/javascript" src="/booklib/framework/zcms_common.js"></script><style type="text/css" id="styleNaN">body,input,textarea,select,button { font-family:Helvetica, Arial, sans-serif; }h1,h2,h3,h4,h5,h6{font-family:'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;}.navigation a ,.sideNavigation a{font-family:'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;}#loginBtnWrap a{ letter-spacing:1px; }</style><script type="text/javascript" src="/booklib/framework/lang/en.js"></script><script type="text/javascript" src="/booklib/framework/zcms_frontend.js"></script>
+<script type="text/javascript" src="https://www.sklib.cn/v3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.sklib.cn/v3/js/bootstrapQ.js"></script>
+<script src="https://www.sklib.cn/js/customBootstap.js"></script>
+<!-- Swiper JS -->
+<script src="https://www.sklib.cn/js/slick_new.min.js"></script>
+<script src="https://www.sklib.cn/js/js2wordcloud.js"></script><style type="text/css">@-webkit-keyframes __wc_loading_animation__ {
+  50% {
+    opacity: 0.3;
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes __wc_loading_animation__ {
+  50% {
+    opacity: 0.3;
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+.__wc_loading_wrapper__ {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.__wc_loading_wrapper_item__ {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+  padding-right: 60px;
+  line-height: 1.4;
+}
+.__wc_loading_wrapper_item_inner__ {
+  position: relative;
+  text-align: left;
+  display: inline-block;
+}
+
+.__wc_loading__ {
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  margin-top: -6px;
+}
+
+  .__wc_loading__ > div:nth-child(1) {
+    top: 15px;
+    left: 0;
+    -webkit-animation: __wc_loading_animation__ 1s 0s infinite linear;
+            animation: __wc_loading_animation__ 1s 0s infinite linear; }
+  .__wc_loading__ > div:nth-child(2) {
+    top: 10.22726px;
+    left: 10.22726px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.12s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.12s infinite linear; }
+  .__wc_loading__ > div:nth-child(3) {
+    top: 0;
+    left: 15px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.24s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.24s infinite linear; }
+  .__wc_loading__ > div:nth-child(4) {
+    top: -10.22726px;
+    left: 10.22726px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.36s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.36s infinite linear; }
+  .__wc_loading__ > div:nth-child(5) {
+    top: -15px;
+    left: 0;
+    -webkit-animation: __wc_loading_animation__ 1s 0.48s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.48s infinite linear; }
+  .__wc_loading__ > div:nth-child(6) {
+    top: -10.22726px;
+    left: -10.22726px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.6s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.6s infinite linear; }
+  .__wc_loading__ > div:nth-child(7) {
+    top: 0;
+    left: -15px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.72s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.72s infinite linear; }
+  .__wc_loading__ > div:nth-child(8) {
+    top: 10.22726px;
+    left: -10.22726px;
+    -webkit-animation: __wc_loading_animation__ 1s 0.84s infinite linear;
+            animation: __wc_loading_animation__ 1s 0.84s infinite linear; }
+  .__wc_loading__ > div {
+    background-color: #d3d3d3;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin: 2px;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    position: absolute; 
+  }</style>
+<!-- <script type="text/javascript" src="${Site.Url}js/jquery.validate.min.js"></script> -->
+<script>
+	if (isIE8) {
+
+	} else {
+		importJS('https://www.sklib.cn/v3/js/hammer.min.js')
+	}
+	
+    // 跳转有声书命中页
+    function audioHitJumpMethod(resId) {
+        let q = document.getElementById('queryText').value;
+        if (!q) {
+            alert('检索词不存在，跳转命中页失败！')
+            return
+        }
+        let preciseSearch = document.getElementById('preciseSearch').value
+        window.location.href = frontAppContext + 'audioBook/detail?SiteID=122&preciseSearch=' + preciseSearch + '&queryWord=' + q + '&ID=' + resId
+    }
+</script><script type="text/javascript" src="https://www.sklib.cn/v3/js/hammer.min.js"></script>
+
+<script>
+	if (isIE && ieVersion < 9 || isIE8) {
+		importJS('https://www.sklib.cn/v3/js/ie/html5shiv.js')
+		if (!isIE6 && !isIE7) {
+			importJS('https://www.sklib.cn/v3/js/ie/respond.min.js')
+		}
+		importJS('https://www.sklib.cn/v3/js/ie/excanvas.js')
+	}
+	if (/MSIE (6|7)\.0/.test(navigator.userAgent)) {
+		importCSS('https://www.sklib.cn/v3/css/bootstrap-ie6.css')
+		importJS('https://www.sklib.cn/v3/js/ie/bootstrap-ie6.js')
+	}
+	if (inTouch) {
+		importJS('https://www.sklib.cn/v3/js/ie/hammer.min.js')
+	}
+	window.jQuery.bootstrapFlag = true;
+</script>
+    <script type="text/javascript" src="https://www.sklib.cn/v3/js/buyResource.js?3.0"></script>
+    <script type="text/javascript" src="https://www.sklib.cn/js/jdapi.min.js" async=""></script>
+    <script type="text/javascript">
+	    var classifyConcernList = [];
+	    var keyWordsConcernList = [];
+	    var classifyConcernIDList = [];
+	    var keyWordsConcernIDList = [];
+	     recourceID = '4519899';
+	     type = 'literature';
+	     pageResType = 'literature';
+	     bookID = '4519093'
+	    var searchResultType;
+	    var html = document.querySelector('html');
+		var quotationResourceType = 'literature';
+		function isWeiXin() {
+	        //window.navigator.userAgent属性包含了浏览器类型、版本、操作系统类型、浏览器引擎类型等信息，这个属性可以用来判断浏览器类型
+	        var ua = '';
+	        if (window.navigator && window.navigator.userAgent) {
+	            ua = window.navigator.userAgent.toLowerCase();
+	        }
+	        //通过正则表达式匹配ua中是否含有MicroMessenger字符串
+	        if (ua.indexOf('micromessenger') > -1) {
+	            return true;
+	        } else {
+	            return false;
+	        }
+	    }
+	    function storeData(key, data) {
+	        if (typeof window.sessionStorage !== 'undefined') {
+	            sessionStorage.setItem(key, data);
+	        } else {
+	            var name = key;
+	            var value = data;
+	            document.cookie = name + '=' + value + ';path=/';
+	        }
+	    }
+	    var readIsLogin = 'false' === 'true';
+	    var readHasPriv = 'false' ==='true';
+	    window.authStatusMap = {
+		    collect: readIsLogin, // 收藏
+		    note: readIsLogin && readHasPriv, // 笔记
+		    search: false, // 全文检索
+		    mark: false, // 书签  （原版阅读有，网页阅读没有）
+		    error: readIsLogin, // 纠错
+		    username: '',
+		    sample:!readHasPriv, //是否试读
+		    reader_back_url: 'https://www.sklib.cn/booklib/directoryPreview?SiteID=122&ID=4519899&fromSubID=&Type=sect2&toDetail=Y',
+		    resType: pageResType
+		}
+	    $(function(){
+	    	$(".footer").hide();
+	    	$(".bock-right").hide();
+	    	var isLogin = "false";
+	    	if(isLogin==='true'){
+	    		storeData('reader_token_4519899', 'true')
+	    	}else{
+	    		sessionStorage.removeItem('reader_token_' + recourceID);
+	    	}
+	    	var readType = "literature"; 
+	   		var src1 = "/reader/reader.html?siteID=122&id=4519899&type=" + readType;
+	       	$("#webRead").attr("src",src1);
+	       	$("#webRead").show();
+	    	$(".header").hide();
+
+	        var vh = window.innerHeight * 0.01
+	        // 然后，我们将——vh自定义属性中的值设置为文档的根
+	        document.documentElement.style.setProperty('--vh', vh + 'px')
+
+	        // 我们监听resize事件 视图大小发生变化就重新计算1vh的值
+	        window.addEventListener('resize', () => {
+	            // 我们执行与前面相同的脚本
+	            var vh = window.innerHeight * 0.01
+	            document.documentElement.style.setProperty('--vh', vh + 'px')
+	        })
+	        
+	    var dc = new DataCollection();
+	    var siteID = "122";
+	    var bookid = "";
+	    var title = "《变性手术概述》易性癖";
+	    var resourceType = "paper";
+	    var resourceID = "4519899";
+	    dc.add("SiteID", siteID);
+	    dc.add("BookID", bookid);
+	    dc.add("Title", title);
+	    dc.add("ResourceType", resourceType);
+	    dc.add("ResourceID", resourceID);
+	    dc.add("SublibID", "");
+	    Server.sendRequest("ReadHistory/add", dc, function (response) {});
+	    })
+	    </script>
+	    <style>
+	        #webRead {
+	            height: calc(-55px + 100vh);
+	        }
+
+	        @media only screen and (max-width: 967px) {
+	            #webRead {
+	                height: 100vh;/* 对于不支持自定义属性的浏览器的回退 */
+	                height: calc(var(--vh, 1vh) * 100 - 50px) !important;
+	                position:fixed;
+	                bottom: 0;
+	                left: 0;
+	                top:50px;
+	                right: 0;
+	            }
+	            
+	        }
+	    </style>
+	    <style></style><style>:root {
+  --jdapi-color-background: #333333;
+  --jdapi-color-text-primary: #ffffff;
+  --jdapi-color-text-secondary: #aaaaaa;
+  --jdapi-color-text-auxiliary: #B5D7FF;
+  --jdapi-font-size: 13px;
+  --jdapi-default-font: SimSun, "宋体-简", "PingFang SC", miui, system-ui, -apple-system,
+  BlinkMacSystemFont, Helvetica Neue, Helvetica, sans-serif;
+}
+.jdapi-default-font {
+  font-family: var(--jdapi-default-font);
+}
+italic {
+  font-style: italic;
+}
+#__jdapi {
+  font-size: var(--jdapi-font-size, 13px);
+  color: var(--jdapi-color-text-primary, #ffffff);
+
+  background: var(--jdapi-color-background, #333333);
+  border-radius: 4px;
+  padding: 10px;
+  position: absolute;
+
+  width: 300px;
+  display: none;
+  font-family:  var(--jdapi-default-font);
+}
+#__jdapi > .jdapi-title {
+  margin-bottom: 5px;
+}
+#__jdapi > .jdapi-mask {
+  text-align: center;
+  line-height: 30px;
+  height: 30px;
+  display: none;
+}
+#__jdapi > .jdapi-panel {
+  display: block;
+}
+.jdapi-panel > .jdapi-tabbar {
+  border-bottom: 1px solid var(--jdapi-color-text-secondary, #aaaaaa);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.jdapi-tabbar > .jdapi-tabItem {
+  padding: 0 10px;
+  color: var(--jdapi-color-text-secondary, #aaaaaa);
+  line-height: 2;
+  cursor: pointer;
+  display: none;
+}
+.jdapi-tabbar > .jdapi-tabItem:first-child {
+  padding-left: 0px;
+}
+.jdapi-tabbar > .jdapi-tabItem:last-child {
+  padding-right: 0px;
+}
+.jdapi-tabbar > .actived {
+  color: var(--jdapi-color-text-primary, #ffffff);
+}
+.jdapi-tabbar > .visible {
+  display: inline-block;
+}
+.jdapi-panel > .jdapi-content {
+  max-height: 200px;
+  overflow: auto;
+  margin: 10px 0;
+}
+.jdapi-panel > .jdapi-source {
+  font-size: 12px;
+  text-align: right;
+}
+/* 释文通用 */
+.jdapi-definition {
+  display: block;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed var(--jdapi-color-text-primary, #ffffff);
+}
+.jdapi-definition:last-child {
+  border-bottom: none;
+}
+.jdapi-definition > .jdapi-section {
+  display: block;
+  margin-bottom: 20px;
+}
+.jdapi-definition > .jdapi-section > .jdapi-sense {
+  display: block;
+  margin-bottom: 10px;
+}
+.jdapi-definition > .jdapi-definition-index {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.jdapi-definition > .jdapi-section > .jdapi-section-index {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.jdapi-definition > .jdapi-section > .jdapi-sense > .jdapi-sense-index {
+  /* margin-bottom: 10px; */
+  display: flex;
+  align-items: center;
+}
+.jdapi-definition > .jdapi-section > .jdapi-sense subfront, .jdapi-sense subfront > italic{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: right;
+  text-align: right;
+  vertical-align: super;
+  line-height: 0.7;
+}
+.jdapi-definition > .jdapi-section > .jdapi-sense supback, .jdapi-sense supback > italic{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  vertical-align: super;
+  line-height: 0.7;
+}
+/* 释文字体 */
+.jdapi-content-html[data-type="entry"] {
+  font-family:   jdapi-font-entry ,var(--jdapi-default-font);
+}
+.jdapi-content-html[data-type="place"] {
+  font-family: jdapi-font-place , var(--jdapi-default-font);;
+}
+.jdapi-content-html[data-type="epoch"] {
+  font-family: jdapi-font-epoch , var(--jdapi-default-font);;
+}
+.jdapi-content-html[data-type="en2zh"] {
+  font-family: jdapi-font-en2zh , var(--jdapi-default-font);;
+}
+.jdapi-content-html[data-type="zh2en"] {
+  font-family: jdapi-font-zh2en , var(--jdapi-default-font);;
+}
+/* 释文定制 */
+/* 语词百科 */
+.jdapi-content-html[data-type="entry"] {
+  text-align: justify;
+}
+.jdapi-content-html[data-type="entry"] .jdapi-definition-index {
+  color: var(--jdapi-color-text-secondary, #aaaaaa);
+}
+.jdapi-content-html[data-type="entry"] .jdapi-section-index-tradition {
+  margin-right: 20px;
+}
+.jdapi-content-html[data-type="entry"] .jdapi-sense-item-index {
+  display: inline-block;
+  text-align: center;
+  margin-right: 10px;
+  width: 1.2em;
+  height: 1.2em;
+  font-size: 0.9em;
+  border: 1px solid var(--jdapi-color-text-primary, #ffffff);
+  color: var(--jdapi-color-text-primary, #ffffff);
+  line-height: 1.2em;
+  border-radius: 0.7em;
+}
+/* 英汉 */
+.jdapi-content-html[data-type="en2zh"] .jdapi-definition-index {
+  color: var(--jdapi-color-text-secondary, #aaaaaa);
+}
+.jdapi-content-html[data-type="en2zh"] .jdapi-definition-index-homograph {
+  padding: 0 5px;
+  border: 1px solid var(--jdapi-color-text-auxiliary, var(--jdapi-color-text-secondary, #aaaaaa));
+  border-radius: 1em;
+  margin-right: 20px;
+  color: var(--jdapi-color-text-auxiliary, var(--jdapi-color-text-secondary, #aaaaaa));
+}
+.jdapi-content-html[data-type="en2zh"] .jdapi-section-index-num {
+  margin-right: 5px;
+}
+.jdapi-content-html[data-type="en2zh"] .jdapi-sense-index-num {
+  margin-right: 5px;
+}
+.jdapi-content-html[data-type="en2zh"] .jdapi-section-index-posg {
+  color: var(--jdapi-color-text-auxiliary, var(--jdapi-color-text-secondary, #aaaaaa));
+}
+.jdapi-content-html[data-type="en2zh"] .jdapi-sense-index-posg {
+  color: var(--jdapi-color-text-auxiliary, var(--jdapi-color-text-secondary, #aaaaaa));
+}
+
+.jdapi-content-html[data-type="en2zh"] .jdapi-sense-item example {
+  display: block;
+  color: var(--jdapi-color-text-secondary, #aaaaaa);
+  margin: 5px 0;
+}
+.jdapi-content-html[data-type="en2zh"] .jdapi-sense-item example ex{
+  display: block;
+}
+.jdapi-content-html[data-type="en2zh"] note {
+  display: block;
+  color: var(--jdapi-color-text-secondary, #aaaaaa);
+  margin: 5px 0;
+}
+</style><script src="https://www.sklib.cn/booklib/stat/dealer?SiteID=122&amp;sr=800x600&amp;cd=24&amp;ce=1&amp;la=en-US&amp;cs=UTF-8&amp;vq=1&amp;Title=%E3%80%8A%E5%8F%98%E6%80%A7%E6%89%8B%E6%9C%AF%E6%A6%82%E8%BF%B0%E3%80%8B%E6%98%93%E6%80%A7%E7%99%96&amp;URL=https://www.sklib.cn/booklib/databasedetail%3FSiteID%3D122%26ID%3D4519899%26fromSubID%3D&amp;Host=www.sklib.cn"></script><script src="https://www.sklib.cn/sso/doLogin?plat=IP&amp;ContentType=jsonp&amp;client_id=2d56a12b31aa4033b3bff7fa9e784cf9&amp;response_type=code&amp;scope=user_info&amp;redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fbooklib%2Fmember%2Flogin&amp;callback=_jsonpcallback1737477075260"></script></head><body>
+	    	
+			
+				
+<style>
+  .book-preview-header {
+    /* 重置.header样式 */
+    position: static;
+    z-index: auto;
+    padding: 0;
+    height: auto;
+    min-height: auto;
+    line-height: normal;
+    background: none;
+
+    background-color: #174a77;
+    color: #fff;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<style>
+  .J-nav-list {
+    margin-bottom: 0;
+  }
+  .J-nav-list li {
+    float: left;
+    position: relative;
+  }
+  .J-nav-list li.child-nav {
+    padding-right: 15px;
+  }
+  .J-nav-list li.child-nav::before {
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    content: "";
+    background: url(https://www.sklib.cn/images/nav_dwon_icon.png) no-repeat center;
+    background-size: 10px auto;
+    width: 10px;
+  }
+  .child-nav-list {
+    padding-left: 10px;
+  }
+  .child-nav-list,
+  .threeNav {
+    top: 100px;
+    transition: top 0.5s;
+    visibility: hidden;
+  }
+  .J-nav-list > li:hover .child-nav-list,
+  .cur.threeNav {
+    top: 40px;
+    visibility: visible;
+    z-index: 1;
+  }
+  .header-top {
+    display: flex;
+    background-color: #174a77;
+    color: #fff;
+    line-height: 50px;
+    border-bottom: none;
+    padding-left: 10.5%;
+  }
+  .header-top .top-left {
+    width: 146px;
+  }
+  .header-top .top-center {
+    flex: 1;
+    width: 88%;
+    padding-right: 60px;
+  }
+  .header-top .top-right {
+    width: 23%;
+  }
+  .header-top a {
+    font-size: 14px;
+    color: #b6caea;
+  }
+  .header-top .child-nav-list a {
+    color: #383838;
+  }
+  .header-top .loginColor a,
+  .header-top .loginColor {
+    color: #fff;
+  }
+  /* .logo img{max-height: 30px;} */
+  /* .btn-other{padding: 2px 9px;} */
+  .personinfo .select-list {
+    left: 0px;
+    right: auto;
+  }
+  .J-nav-list > li:hover .child-nav-list,
+  .cur.threeNav {
+    z-index: 99;
+  }
+  @media only screen and (max-width: 967px) {
+    .header-top .top-right {
+      width: 100%;
+    }
+    /* .header-top{background-color: #fff;} */
+  }
+  @media only screen and (max-width: 992px) {
+    .header-top {
+      padding: 0 15px;
+      display: block;
+    }
+    .J-nav-list > li:hover .child-nav-list,
+    .cur.threeNav {
+      top: 75px;
+    }
+  }
+</style>
+<script>
+  const mobileListeningCssRules = [
+    ".mobile-listening-layer.layui-layer.layui-layer-page { padding: 24px; border-radius: 16px; }",
+    ".mobile-listening-layer .layui-layer-content { height: auto; }",
+    ".mobile-listening-layer .layui-layer-content .qr-code img { width: 100%; }",
+    ".mobile-listening-layer .layui-layer-content .title { font-size: 16px; text-align: center; line-height: 1.8em; color: #000; }",
+    "@media screen and (min-width: 768px) { .header-top { padding-left: 14px; padding-right: 14px; display: flex; justify-content: center; align-items: center; width: auto; } }",
+    "@media screen and (min-width: 768px) { .header-top .mobile-listening .mobile-listening__popover-content { position: absolute; top: 100px; left: 0; z-index: 100; padding: 16px 8px; visibility: hidden; background-color: #fff; transition: top 0.5s; } }",
+    "@media screen and (min-width: 768px) { .header-top .mobile-listening:hover .mobile-listening__popover-content { top: 40px; visibility: visible; } }",
+    "@media screen and (min-width: 768px) { .header-top .mobile-listening .mobile-listening__popover-content:hover { top: 40px; visibility: visible; } }",
+    "@media screen and (min-width: 768px) { .header-top .mobile-listening .mobile-listening__popover-content .qr-code { margin-bottom: 24px; width: 112px; height: 112px; } }",
+    "@media screen and (min-width: 768px) { .header-top .mobile-listening .mobile-listening__popover-content .title { font-size: 14px; text-align: center; line-height: 1.8em; color: #383838; } }",
+  ];
+  const mobileListeningStyleElement = document.createElement("style");
+  document.head.appendChild(mobileListeningStyleElement);
+  for (let index = 0; index < mobileListeningCssRules.length; index++) {
+    const rule = mobileListeningCssRules[index];
+    mobileListeningStyleElement.sheet.insertRule(rule, index);
+  }
+</script>
+<!--start 页头-->
+<div id="J-threeDiv" class="threeNav">
+  <div class="container">
+    <ul class="nav-list-child J-threeNav-list box-shadow list-unstyled row">
+      
+        
+          <li class="col-md-3 col-sm-6">
+            <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=791">
+              <img src="https://www.sklib.cn//upload/resources/image/2023/04/27/91218.jpg" class="m-r-sm" width="40">
+              马克思主义学术资源库
+            </a>
+          </li>
+          <li class="col-md-3 col-sm-6">
+            <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=491">
+              <img src="https://www.sklib.cn//upload/resources/image/2021/02/26/49479.jpg" class="m-r-sm" width="40">
+              国际关系学术资源库
+            </a>
+          </li>
+          <li class="col-md-3 col-sm-6">
+            <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=395">
+              <img src="https://www.sklib.cn//upload/resources/image/2021/02/26/49478.jpg" class="m-r-sm" width="40">
+              民族边疆学术资源库
+            </a>
+          </li>
+          <li class="col-md-3 col-sm-6">
+            <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=240">
+              <img src="https://www.sklib.cn//upload/resources/image/2021/02/26/49471.jpg" class="m-r-sm" width="40">
+              中社智库
+            </a>
+          </li>
+          <li class="col-md-3 col-sm-6">
+            <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=253">
+              <img src="https://www.sklib.cn//upload/resources/image/2021/02/26/49470.jpg" class="m-r-sm" width="40">
+              历史考古学术资源库
+            </a>
+          </li>
+          <li class="col-md-3 col-sm-6">
+            <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=244">
+              <img src="https://www.sklib.cn//upload/resources/image/2021/02/26/49472.jpg" class="m-r-sm" width="40">
+              党建思政资源库
+            </a>
+          </li>
+          <li class="col-md-3 col-sm-6">
+            <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=242">
+              <img src="https://www.sklib.cn//upload/resources/image/2021/02/26/49473.jpg" class="m-r-sm" width="40">
+              哲学宗教学术资源库
+            </a>
+          </li>
+          <li class="col-md-3 col-sm-6">
+            <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=276">
+              <img src="https://www.sklib.cn//upload/resources/image/2021/02/26/49475.jpg" class="m-r-sm" width="40">
+              文学艺术学术资源库
+            </a>
+          </li>
+          <li class="col-md-3 col-sm-6">
+            <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=619">
+              <img src="https://www.sklib.cn//upload/resources/image/2021/09/27/56921.jpg" class="m-r-sm" width="40">
+              教育研究学术资源库
+            </a>
+          </li>
+          <li class="col-md-3 col-sm-6">
+            <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=303">
+              <img src="https://www.sklib.cn//upload/resources/image/2021/02/26/49476.jpg" class="m-r-sm" width="40">
+              经济管理学术资源库
+            </a>
+          </li>
+          <li class="col-md-3 col-sm-6">
+            <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=706">
+              <img src="https://www.sklib.cn/upload/resources/image/2022/07/14/74430.jpg" class="m-r-sm" width="40">
+              政治学学术资源库
+            </a>
+          </li>
+      
+
+      <li class="col-md-3 col-sm-6">
+        <a href="https://www.sklib.cn/booklib/colPage/index?SiteID=122">
+          <img src="https://www.sklib.cn/assets/images/collected-papers-square.png" class="m-r-sm" width="40">
+          中社集刊学术资源库
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="header-top cleafix row">
+  <div class="top-center pull-left cleafix hidden-xs hidden-sm p-r-none">
+    <div class="top-left pull-left hidden-xs hidden-sm p-r-none">
+      <!-- <span class="m-l-sm pull-left">欢迎来到中国社会科学文库！ </span> -->
+
+      <a class="logo" href="https://www.sklib.cn/" title="中国社会科学文库">
+        <img src="https://www.sklib.cn/images/logo-new.png" style="max-width: none; height: 48px">
+      </a>
+    </div>
+    <ul class="list-unstyled pull-left J-nav-list" style="margin-left: 24px">
+      <li><a class="m-l-lg" href="https://www.sklib.cn/">首页</a></li>
+      <li><a class="m-l-lg" href="https://www.sklib.cn/booklib/allCategories?SiteID=122">分类导航</a></li>
+      <li><a class="m-l-lg" href="https://www.sklib.cn/booklib/moreBookNews?SiteID=122&amp;cur=indexVideoList" title="">音视频</a></li>
+      <li><a class="m-l-lg" href="https://www.sklib.cn/booklib/readingList?SiteID=122">排行榜</a></li>
+      <li class="child-nav child m-l-lg"><a href="#" title="">子库</a></li>
+      <li class="child-nav m-l-lg"><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122" title="">专题库</a>
+        <ul class="list-unstyled child-nav-list">
+          
+            
+              <li style="float: none">
+                <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=364" target="_blank">特别推荐</a>
+              </li>
+              <li style="float: none">
+                <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=327" target="_blank">马列党建</a>
+              </li>
+              <li style="float: none">
+                <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=564" target="_blank">人文历史</a>
+              </li>
+              <li style="float: none">
+                <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=566" target="_blank">哲学宗教</a>
+              </li>
+              <li style="float: none">
+                <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=328" target="_blank">社会发展</a>
+              </li>
+              <li style="float: none">
+                <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=567" target="_blank">经济发展</a>
+              </li>
+              <li style="float: none">
+                <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=896" target="_blank">政治法律</a>
+              </li>
+              <li style="float: none">
+                <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=330" target="_blank">国际关系</a>
+              </li>
+              <li style="float: none">
+                <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=331" target="_blank">文化教育</a>
+              </li>
+              <li style="float: none">
+                <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=329" target="_blank">生态能源</a>
+              </li>
+              <li style="float: none">
+                <a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=598" target="_blank">获奖作品</a>
+              </li>
+          
+        </ul>
+      </li>
+      <li class="m-l-lg"><a href="https://www.sklib.cn/booklib/expertsList?SiteID=122" title="">作者库</a></li>
+      <!-- <li class="m-l-lg"
+        ><a
+          href="${Site.FrontAppContxtAddr}colPage/index?SiteID=${Site.ID}"
+          title=""
+          >集刊</a
+        ></li
+      > -->
+      <li class="child-nav m-l-lg research-tool"><a href="javascript:;">科研工具</a>
+        <ul class="list-unstyled child-nav-list">
+          <li class="chat" style="float: none"><a href="https://www.sklib.cn/booklib/chat" target="_blank">社科问道</a></li>
+          <li style="float: none"><a href="https://www.sklib.cn/csspw-inner/social-science-funding-project/" target="_blank">社科基金分析</a></li>
+          <li style="float: none"><a href="javascript:void(0)" onclick="yuqingHandler()">社媒大数据</a></li>
+          <!-- <li style="float: none"
+            ><a
+              href="${Site.Url}booklib/sublibrary?SiteID=122&ID=893"
+              target="_blank"
+              >AI问答书库-Beta</a
+            ></li
+          > -->
+          <!-- <li style="float: none"
+            ><a
+              href="${Site.Url}research-tool/time-glider/"
+              target="_blank"
+              >时间线工具-Beta</a
+            ></li
+          > -->
+        </ul>
+      </li>
+      <li class="m-l-lg mobile-listening">
+        <a href="javascript:void(0)">手机听书</a>
+        <div class="mobile-listening__popover-content">
+          <div class="qr-code">
+            <img src="https://www.sklib.cn/assets/images/social-science-listening-wechat-mini-program-qr-code.png" alt="社科听书微信小程序二维码">
+          </div>
+          <div class="title">社科听书</div>
+          <div class="title">微信扫码体验</div>
+        </div>
+      </li>
+      <li class="m-l-lg"><a style="display: none" id="libraryResources" href="https://www.sklib.cn/booklib/search?SiteID=122&amp;ourLibrary=Y&amp;resType=Book" title="">本馆资源</a></li>
+    </ul>
+    <div class="top-right clearfix pull-right" style="display: flex; width: auto">
+      <!-- <div class="pull-left">
+				<a class="m-l toMemberIndex" href="javascript:;" onClick="toMemberIndex()">我的文库</a>
+				<a class="m-l" href="${Site.FrontAppContxtAddr}catalogList?SiteID=${Site.ID}&parentAlias=gywm&childAlias=gywm_kfzx&fromSubID=">使用手册</a>
+				<a class="m-l" href="${Site.FrontAppContxtAddr}catalogList?SiteID=${Site.ID}&parentAlias=gywm&childAlias=gywm_kfzx&fromSubID=">帮助中心</a>
+				<span class="m-l hidden-xs read-iphone" >
+				 <img class="m-r-xs hide" src="${Site.URL}images/mobile-icon.png"/>手机阅读
+				 <div class="read-child" ><div id="read-code" style="width: 60px; height: 60px;"></div><span style="color:#383838">手机阅读</span></div>
+				</span>
+			</div> -->
+      <div class="personinfo branchinfo hide p-r-md">
+        <div class="user-infor"><img class="member-logofile" src="https://www.sklib.cn/images/member_default.png" width="30" onerror="this.onerror='';this.src='https://www.sklib.cn/images/member_default.png'"><span class="member-name branch-name"></span></div>
+        <div class="select-list">
+          <!-- <a class="switchUser" href="javascript:void(0)">【切换用户】</a> -->
+          <a style="color: #3c74de" href="javascript:;" onclick="toMemberIndex()"><i class="fa fa-user font16 m-r-xs"></i>个人中心</a><!-- member/index -->
+          <a class="switchUser setlogout" href="javascript:void(0)" style="color: #3c74de"><img src="https://www.sklib.cn/images/quit.png" alt="">切换用户</a><!-- member/index -->
+          <a class="logout setlogout" href="javascript:void(0)" style="color: #3c74de"><img src="https://www.sklib.cn/images/quit.png" alt="">退出登录</a><!-- member/index -->
+        </div>
+      </div>
+      <div class="loginColor">
+        <a class="m-r-xs login-btn J-loginBtn" href="javascript:void(0)">登录</a>｜
+        <a class="J-registerBtn register-btn" href="javascript:void(0)">注册</a>
+      </div>
+    </div>
+  </div>
+  <div class="hidden-lg hidden-sm">
+    <div class="container">
+      <div class="p-l-none text-right">
+        <div class="pull-right p-l-none">
+          <a class="m-l" href="https://www.sklib.cn/booklib/catalogList?SiteID=122&amp;parentAlias=gywm&amp;childAlias=gywm_kfzx&amp;fromSubID=">帮助中心</a>
+          <span class="m-l hidden-xs read-iphone">
+            <img class="m-r-xs" src="https://www.sklib.cn/images/mobile-icon.png">手机阅读
+            <div class="read-child">
+              <div id="read-code" style="width: 60px; height: 60px"></div>
+              <span>手机阅读</span>
+            </div>
+          </span>
+        </div>
+        <div class="loginColor pull-right">
+          <a class="m-l-xs login-btn J-loginBtn" href="javascript:void(0)">登录</a>｜
+          <a class="J-registerBtn register-btn" href="javascript:void(0)">注册</a>
+        </div>
+        <div class="personinfo branchinfo hide pull-right">
+          <div class="user-infor">
+            <img class="member-logofile" src="https://www.sklib.cn/images/member_default.png" onerror="this.onerror='';this.src='https://www.sklib.cn/images/member_default.png'" width="30"><span class="member-name branch-name">张倩倩</span>
+          </div>
+          <div class="select-list">
+            <a style="color: #3c74de" href="javascript:;" onclick="toMemberIndex()"><i class="fa fa-user font16 m-r-xs"></i>个人中心</a><!-- member/index -->
+            <a class="switchUser setlogout" href="javascript:void(0)" style="color: #3c74de"><img src="https://www.sklib.cn/images/quit.png" alt="">切换用户</a><!-- member/index -->
+            <a class="logout setlogout" style="color: #3c74de" href="javascript:void(0)"><img src="https://www.sklib.cn/images/quit.png" alt="">退出登录</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="header hidden-md hidden-lg" style="background: rgb(26, 95, 211); height: 68px; display: none;">
+  <div class="head clearfix">
+    <div class="col-md-3 col-sm-6 col-xs-8 clearfix">
+      <a class="logo" href="https://www.sklib.cn/" title="中国社会科学文库">
+        <img src="https://www.sklib.cn/images/logo-new.png" style="max-width: none; height: 48px">
+      </a>
+    </div>
+    <div class="p-l-none col-md-6 col-sm-12 col-xs-4">
+      <div class="burger hidden-md hidden-lg">
+        <div class="x"></div>
+        <div class="y" style="display: block"></div>
+        <div class="z"></div>
+      </div>
+    </div>
+  </div>
+  <div class="head_xs">
+    <div class="catalogNav changeBg" id="catalogNav" style="display: none">
+      <ul class="list-unstyled catalogNav_list">
+        <li style="animation-delay: 0s;"><a href="https://www.sklib.cn/" title="">首页</a></li>
+        <li style="animation-delay: 0.1s;"><a href="https://www.sklib.cn/booklib/allCategories?SiteID=122" title="">分类导航</a></li>
+        <li style="animation-delay: 0.2s;"><a href="https://www.sklib.cn/booklib/moreBookNews?SiteID=122&amp;cur=indexVideoList" title="">音视频</a></li>
+        <li class="readingList" style="animation-delay: 0.3s;"><a href="https://www.sklib.cn/booklib/readingList?SiteID=122" title="">排行榜</a></li>
+        <li class="child-nav" style="animation-delay: 0.4s;"><a href="#" title="">子库</a>
+          <ul class="list-unstyled clearfix">
+            
+              
+                <li><a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=791" target="_blank">马克思主义学术资源库</a></li>
+                <li><a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=491" target="_blank">国际关系学术资源库</a></li>
+                <li><a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=395" target="_blank">民族边疆学术资源库</a></li>
+                <li><a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=240" target="_blank">中社智库</a></li>
+                <li><a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=253" target="_blank">历史考古学术资源库</a></li>
+                <li><a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=244" target="_blank">党建思政资源库</a></li>
+                <li><a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=242" target="_blank">哲学宗教学术资源库</a></li>
+                <li><a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=276" target="_blank">文学艺术学术资源库</a></li>
+                <li><a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=619" target="_blank">教育研究学术资源库</a></li>
+                <li><a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=303" target="_blank">经济管理学术资源库</a></li>
+                <li><a href="https://www.sklib.cn/booklib/sublibrary?SiteID=122&amp;ID=706" target="_blank">政治学学术资源库</a></li>
+            
+
+            <li><a href="https://www.sklib.cn/booklib/colPage/index?SiteID=122">中社集刊学术资源库</a></li>
+          </ul>
+        </li>
+        <li class="child-nav" style="animation-delay: 0.5s;"><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122" title="">专题库</a>
+          <ul class="list-unstyled clearfix">
+            
+              
+                <li><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122&amp;ID=364" target="_blank">特别推荐</a></li>
+                <li><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122&amp;ID=327" target="_blank">马列党建</a></li>
+                <li><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122&amp;ID=564" target="_blank">人文历史</a></li>
+                <li><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122&amp;ID=566" target="_blank">哲学宗教</a></li>
+                <li><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122&amp;ID=328" target="_blank">社会发展</a></li>
+                <li><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122&amp;ID=567" target="_blank">经济发展</a></li>
+                <li><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122&amp;ID=896" target="_blank">政治法律</a></li>
+                <li><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122&amp;ID=330" target="_blank">国际关系</a></li>
+                <li><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122&amp;ID=331" target="_blank">文化教育</a></li>
+                <li><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122&amp;ID=329" target="_blank">生态能源</a></li>
+                <li><a href="https://www.sklib.cn/booklib/themaAllList?SiteID=122&amp;ID=598" target="_blank">获奖作品</a></li>
+            
+          </ul>
+        </li>
+        <li style="animation-delay: 0.6s;"><a href="https://www.sklib.cn/booklib/expertsList?SiteID=122" title="">作者库</a></li>
+        <!-- <li
+          ><a
+            href="${Site.FrontAppContxtAddr}colPage/index?SiteID=${Site.ID}"
+            title=""
+            >集刊</a
+          ></li
+        > -->
+        <li class="child-nav research-tool" style="animation-delay: 0.7s;"><a href="javascript:;">科研工具</a>
+          <ul class="list-unstyled clearfix">
+            <li class="chat"><a href="https://www.sklib.cn/booklib/chat" target="_blank">社科问道</a></li>
+            <li><a href="https://www.sklib.cn/csspw-inner/social-science-funding-project/" target="_blank">社科基金分析</a></li>
+            <li><a href="javascript:void(0)" onclick="yuqingHandler()">社媒大数据</a></li>
+            <!-- <li
+              ><a
+                href="${Site.Url}booklib/sublibrary?SiteID=122&ID=893"
+                target="_blank"
+                >AI问答书库-Beta</a
+              ></li
+            > -->
+            <!-- <li
+              ><a
+                href="${Site.Url}research-tool/time-glider/"
+                target="_blank"
+                >时间线工具-Beta</a
+              ></li
+            > -->
+          </ul>
+        </li>
+        <li style="animation-delay: 0.8s;"><a href="javascript:void(0)" style="display: inline-block; width: 100%" onclick="onClickMobileListening()">手机听书</a></li>
+        <li style="animation-delay: 0.9s;"><a style="display: none" id="libraryResources_xs" href="https://www.sklib.cn/booklib/search?SiteID=122&amp;ourLibrary=Y&amp;resType=Book" title="">本馆资源</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--end页头-->
+<script type="text/javascript" src="https://www.sklib.cn/v3/js/qrcode.js?3.0"></script>
+<script src="/public/libs/layui/2.8.17/layui.min.js"></script>
+<script>
+  function yuqingHandler() {
+    if (branchLoginStatus || userLoginStatus) {
+      window.open(
+        "https://www.sklib.cn/sso/oauth/authorize?client_id=555617b38b6e435f91e92ff1fcfc7af3&response_type=code&scope=user_info&redirect_uri=https://eagle.sklib.cn/?state=sklib",
+        "_blank"
+      );
+    } else {
+      persionLogin();
+    }
+  }
+</script>
+<script type="text/javascript">
+  $(function () {
+    $("[data-toggle='popover']").popover({
+      animation: true, //淡入淡出
+      html: true, //content中插入html代码
+      container: "body",
+      content:
+        "<img src='https://www.sklib.cn/images/mobile-read.png' style='width:60px'><div class='text-center m-t-sm'>手机阅读</div>", //插入图片的路径 及 样式
+    });
+    var navContWrap = function () {
+      var timeHideNav;
+      function hideNav() {
+        timeHideNav = setTimeout(function () {
+          $(".threeNav, .J-nav-list li.child").removeClass("cur");
+        }, 200);
+      }
+      $(".J-nav-list > li.child").mouseenter(function () {
+        clearTimeout(timeHideNav);
+        // $(this).addClass("cur").siblings().removeClass("cur");
+        $(".threeNav").removeClass("cur");
+        $(".threeNav").addClass("cur");
+      });
+      $(".J-nav-list > li.child").mouseleave(function (e) {
+        hideNav();
+      });
+      $(".threeNav").mouseleave(function () {
+        hideNav();
+      });
+      $(".threeNav").mouseenter(function () {
+        clearTimeout(timeHideNav);
+        // $(this).addClass("cur").siblings().removeClass("cur");
+      });
+    };
+    navContWrap();
+    // $(function () {
+    // 	QRCode.show("read-code", 60,  'http://'+window.location.host);
+    // });
+    var setCurNav = function () {
+      var pathname = window.location.pathname;
+      var navList = $(".J-nav-list");
+      if (pathname === "/booklib/readingList") {
+        navList.find("li.cur").removeClass("cur");
+        $(".readingList").addClass("cur");
+      }
+    };
+    setCurNav();
+  });
+</script>
+<script>
+  function onClickMobileListening() {
+    layer.open({
+      type: 1,
+      title: false,
+      closeBtn: 0,
+      shade: 0.7,
+      area: ["248px", "274px"],
+      shadeClose: true,
+      scrollbar: false,
+      skin: "mobile-listening-layer",
+      content: `<div class="qr-code">
+				<img src="https://www.sklib.cn/assets/images/social-science-listening-wechat-mini-program-qr-code.png" alt="社科听书微信小程序二维码"/>
+			</div>
+			<div class="title">社科听书微信小程序二维码</div>`,
+    });
+  }
+</script>
+
+
+
+			
+			<div class="dialogMask hide"></div>
+	    	<iframe src="/reader/reader.html?siteID=122&amp;id=4519899&amp;type=literature" id="webRead" style="width: 100%; height: calc(-55px + 100vh); border: none; background-color: rgb(255, 255, 255);"></iframe>
+	    
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+				min-height: 100vh;
+				/* padding-bottom: 380px; */
+				position: relative;
+    }
+    /* .footer {
+        height: 380px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    } */
+
+    .k-content {
+        width: 100%;
+        margin: auto;
+        text-align: left;
+        background: #fff;
+        text-align: left;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .purchase-dialog {
+        color: #333;
+    }
+
+    .dialog-bd {
+        background: #fffff9;
+    }
+
+    .k-text {
+        color: #000;
+        font-size: 12px;
+        line-height: 1.5;
+        white-space: normal;
+        margin-bottom: 10px;
+    }
+
+    .purchase-dialog .works-info {
+        line-height: 30px;
+        padding: 0;
+        margin: 0;
+        background: #fff9d5;
+    }
+
+    .purchase-dialog .works-info h4 {
+        margin: 0px;
+        font-size: 14px;
+        padding: 0 16px;
+    }
+
+    .purchase-dialog .works-info .price {
+        float: right;
+        color: #c51a17;
+        font-size: 20px;
+    }
+
+    .purchase-dialog .account-info {
+        margin: 25px 0 12px;
+    }
+
+    .purchase-dialog .account-info .info {
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+
+    input[type="radio"], input[type="checkbox"] {
+        margin: 3px 0;
+        line-height: normal;
+    }
+
+    .purchase-dialog .inline-price {
+        color: #935352;
+        margin: 0 5px;
+    }
+
+    .purchase-dialog .account-info .balance {
+        color: #999;
+    }
+
+    .purchase-dialog .payment-channels {
+        margin: 0;
+        padding-top: 12px;
+        margin-bottom: 15px;
+    }
+
+    .purchase-dialog .payment-channels .title {
+        color: #333;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .purchase-dialog .inline-price {
+        color: #935352;
+        margin: 0 5px;
+    }
+
+    .purchase-dialog .channel {
+        margin-bottom: 15px;
+    }
+
+    .purchase-dialog .payment-channels .field-label {
+        font-size: 12px;
+    }
+
+    .purchase-dialog .channel-name {
+        display: block;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .field-label {
+        color: #333;
+        font-size: 14px;
+    }
+
+    .purchase-dialog .channel .fields {
+        margin-left: 10px;
+    }
+
+    .purchase-dialog .alipay-express .payment-method {
+        margin: 0;
+    }
+
+    .purchase-dialog .payment-method {
+        cursor: pointer;
+        vertical-align: middle;
+        margin-bottom: 23px;
+        width: 200px;
+        font-size: 0;
+    }
+
+    .radio, .checkbox {
+        display: inline-block;
+        color: #666;
+        margin: 5px 15px 0 0;
+    }
+
+    .purchase-dialog .channel .radio input {
+        float: none;
+        margin-right: 8px;
+    }
+
+    .radio input[type="radio"], .checkbox input[type="checkbox"] {
+        float: left;
+        padding: 0;
+        margin-right: 5px;
+    }
+
+    input[type="radio"], input[type="checkbox"] {
+        margin: 3px 0;
+        line-height: normal;
+    }
+
+    .purchase-dialog .payment-method [type=radio]:checked ~ .bank-box {
+        border-color: #b0605e;
+    }
+
+    .purchase-dialog .bank-box {
+        display: inline-block;
+        width: 147px;
+        height: 47px;
+        vertical-align: middle;
+        background: #fff;
+        border: 1px solid #ddd;
+    }
+
+    .purchase-dialog .bank-box .bank-icon {
+        display: inline-block;
+        width: 147px;
+        height: 47px;
+        _color: #fff;
+    }
+
+    .alipay-logo {
+        background-position: 0 -946px;
+        background: url(https://www.sklib.cn/template/images/pay_1114.jpg)
+    }
+
+    .weixinpay-logo {
+        background-position: 0 -946px;
+        background: url(https://www.sklib.cn/template/images/pay_3.jpg)
+    }
+
+    .unionpay-logo {
+        background-position: 0 -946px;
+        background: url(https://www.sklib.cn/template/images/pay_1115.jpg)
+    }
+
+    .purchase-dialog .purchase-options .checkbox {
+        cursor: pointer;
+        color: #999;
+        font-size: 12px;
+    }
+
+    .k-buttons {
+        text-align: right;
+    }
+
+    .k-buttons .btn {
+        margin-left: 6px;
+    }
+
+    .k-content {
+        width: 100%;
+        margin: auto;
+        text-align: left;
+        background: #fff;
+        text-align: left;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .k-text {
+        color: #000;
+        font-size: 12px;
+        line-height: 1.5;
+        white-space: normal;
+        background: #FFF;
+    }
+
+    .purchase-dialog .account-info {
+        border-bottom: 1px solid #ddd;
+        padding: 0 20px;
+        padding-bottom: 10px;
+    }
+
+    .purchase-dialog .payment-channels {
+        margin: 0 20px;
+    }
+     /* 适配h5处理 xu */
+    @media only screen and (max-width: 767px) {
+        body{padding-bottom:0;}
+        .footer{position:static;height:auto;}
+    }
+    .bock-right ul li:first-child a:hover img {  
+	  display: none;  
+	}  
+    .bock-right ul li:first-child a:hover:before{
+   		 content: "问道";  
+    }
+</style>
+<style>
+    .bock-right ul li.question-and-answer-icon {
+        position: fixed;
+        left: 8px;
+        bottom: 0;
+        width: 108px;
+        height: 152px;
+        border-radius: 16px;
+        background-image: url("https://www.sklib.cn/assets/images/yuan-xiaoxi.gif");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        cursor: pointer;
+    }
+    .bock-right ul li.question-and-answer-icon:hover {
+        background-color: transparent;
+    }
+
+    .question-and-answer {
+        position: fixed;
+        bottom: 5vh;
+        left: 120px;
+        z-index: 99999;
+        display: none;
+        width: 360px;
+        height: 500px;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .question-and-answer.visible {
+        display: block;
+    }
+
+    #question-and-answer-frame {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+</style>
+
+<script type="text/javascript">
+    // 切换支付
+    function changePay(payType) {
+        $('#PaymentID').attr('value', '');
+        var money = $('#' + payType).html();
+        var resourcePrice = $('#resourcePrice').html();
+        var alipayMoney = Math.floor((resourcePrice - money) * 100) / 100 < 0 ? 0 : Math.floor((resourcePrice - money) * 100) / 100;
+        $('#alipayMoney').html(alipayMoney);
+        $('#GoodsAmount').attr('value', alipayMoney);
+        if (payType == 'commonMoney') {
+            $('#accountType').attr('value', 'common');
+        } else if (payType == 'xsgiftMoney') {
+            $('#accountType').attr('value', 'xsgift');
+        }
+    }
+
+    // 页面加载
+    Page.onLoad(function () {
+        if(location.pathname.indexOf("databasedetail") !== -1){
+            if(quotationResourceType === "paper") {
+                $("#quotation-resource-type").text("提示：您即将购买的论文，支持在线阅读和下载阅读！");
+            }
+        }
+
+        let commonMoneyPrice = "0" || 0;
+        commonMoneyPrice = Number(commonMoneyPrice);
+        let xsgiftMoneyPrice = "0" || 0;
+        xsgiftMoneyPrice = Number(xsgiftMoneyPrice);
+
+        if (commonMoneyPrice>=0) {
+            $("#common").attr("checked", "checked");
+            changePay("commonMoney");
+        } else if (xsgiftMoneyPrice>=0) {
+            $("#xsgift").attr("checked", "checked");
+            changePay("xsgiftMoney");
+        } else {
+            $("#alipay").attr("checked", "checked");
+            changeOtherPay("alipay");
+        }
+    });
+
+    // 切换其他支付
+    function changeOtherPay(payValue) {
+        $('#alipayMoney').html(price);
+        $('#GoodsAmount').attr('value', price);
+        if (payValue == 'alipay') {
+            $('#PaymentID').attr('value', '99');
+        } else if (payValue == 'Unionpay') {
+            $('#PaymentID').attr('value', '1115');
+        } else if (payValue == 'Weixinpay') {
+            $('#PaymentID').attr('value', '101');
+        }
+    }
+
+    // 判断是否是微信
+    function isWeiXin() {
+        //window.navigator.userAgent属性包含了浏览器类型、版本、操作系统类型、浏览器引擎类型等信息，这个属性可以用来判断浏览器类型
+        var ua = '';
+        if (window.navigator && window.navigator.userAgent) {
+            ua = window.navigator.userAgent.toLowerCase();
+        }
+        //通过正则表达式匹配ua中是否含有MicroMessenger字符串
+        if (ua.indexOf('micromessenger') > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // 判断是否是移动端
+    function isMobile() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            //移动站
+            return true;
+        } else {
+            //PC站
+            return false;
+        }
+    }
+
+    $(function () {
+        $("input[name=accountType][type=radio]").each(function () {
+            var disabled = this.disabled;
+            if (!disabled) {
+                this.checked = true;
+                return false;
+            }
+        });
+        if (isWeiXin()) {
+            $(".zhifubao").hide();
+            $("#alipayForm").attr("target", "_top");
+        }
+    });
+
+    // 确认支付
+    function confirmPayment() {
+    	var resourceType;
+    	if(searchResultType){
+    		resourceType = searchResultType
+    	}else{
+    		resourceType = type;
+    	}
+        var aMoney = $('#alipayMoney').html();
+        if (aMoney > 0&&$("#PaymentID").val()) {
+            if ($('#PaymentID').attr('value') == '0') {
+                Dialog.alert("账户余额或充值卡余额不足,请选择其它支付方式");
+                return;
+            }
+            $S("productID",recourceID);
+            $S("resourceType",resourceType);
+            $('#alipayForm').submit();
+            var waitToPay = new Dialog({
+                title: "等待支付",
+                width: 360,
+                height: 150,
+                url: "front/waitToPay.zhtml?id=" + recourceID + "&type=" + type
+            });
+            waitToPay.addButton("save12", "支付成功", function () {
+                location.reload();
+            });
+            waitToPay.show();
+        } else {
+            var accountType = $('[name=accountType]:checked').val();
+            var dc={};
+            dc.resourceID = recourceID;
+            dc.bookID = bookID;
+            dc.type = resourceType;
+            dc.SiteID = "122";
+            Server.sendRequest("price.buyStatus", dc, function (response) {
+                var result = response.result;
+                if (result == 'bought') {
+                    Dialog.alert("已购买,无需再次购买！");
+                    return;
+                }
+            });
+            var commonMoney = $("#commonMoney").html();
+            if(commonMoney * 1  - price * 1 <0){
+            	Dialog.alert("余额不足，请选择其他支付方式！");
+            	return;
+            }
+            $.ajax({
+                url: addr + "Purchase/buy",
+                type: "POST",
+                data: {
+                    SiteID: "122",
+                    price: price,
+                    GoodsAmount: price,
+                    productID: recourceID,
+                    contentType: "resource",
+                    resourceType: resourceType,
+                    IsUserAccount: "Y",
+                    accountType: accountType,
+                    GoodsDealType: "EBook",
+                    PaymentID: $("#PaymentID").val()
+                },
+                dataType: "json",
+                success: function (result) {
+                    if (result.result == 'ok') {
+                        MsgPop("支付成功", "", 400, 150, 2);
+                        setTimeout("location.reload()", 1000);
+                    } else {
+                        Dialog.alert("无法完成购买操作，也许是网络连接出现了问题");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    Dialog.alert(XMLHttpRequest + "##" + textStatus + "##" + errorThrown);
+                }
+
+            })
+        }
+    }
+
+    // 取消支付
+    function cancelPayment(){
+        $('.J-purchase-dialog').addClass('hide');
+        $('.J-purchase-mask').addClass('hide');
+    }
+</script>
+<div class="dialogBg purchase-dialog J-purchase-dialog hide">
+    <div class="dialogTab dialog-title">
+        <span class="">请支付</span>
+    </div>
+    <a class="dialog_close" href="javaScript:;" onclick="cancelPayment()">×</a>
+    <div class="retrieveBox">
+        <form target="_blank" id="alipayForm" action="https://www.sklib.cn/booklib/purchase/buy" method="POST">
+            <input type="hidden" id="contentType" name="contentType" value="Recharge">
+            <input type="hidden" id="PaymentID" name="PaymentID" value="">
+            <input type="hidden" id="SiteID" name="SiteID" value="122">
+            <input type="hidden" id="IsUserAccount" name="IsUserAccount" value="N">
+            <input type="hidden" id="accountType" name="accountType" value="common">
+            <input type="hidden" id="GoodsAmount" name="GoodsAmount" value="NaN">
+            <input type="hidden" id="productID" name="productID" value="">
+            <input type="hidden" id="GoodsDealType" name="GoodsDealType" value="EBook">
+            <input type="hidden" id="resourceType" name="resourceType" value="">
+
+            <div class="purchase-radio b-b" style="margin-bottom: 16px; padding-bottom: 16px;">
+                <div class="purchase-price" style="float: none;"><span class="payMoney"></span>元</div>
+                    <div id="quotation-resource-type" style="margin-top: 8px; padding: 4px 8px; background-color: #e7f0e1; font-size: 16px; color: #c55a11;">提示：您即将购买的内容资源仅支持在线阅读，<strong>不支持下载！</strong></div>
+                    
+                        <div id="quotation-resource-type" style="margin-top: 8px; padding: 4px 8px; background-color: #e7f0e1; font-size: 14px; color: #c55a11;">
+                            您所在的机构：<strong></strong>，<span class="footer__expired-time-tip">暂无该资源访问权限！</span>
+                            
+                            请联系服务电话：010-84083679 开通权限，或者直接付费购买。
+                        </div>
+                    
+            </div>
+            
+            <div class="purchase-radio clearfix" style="padding-bottom: 0;">
+                <label>
+                    <input type="radio" name="accountType" onclick="changePay('commonMoney')" value="common">
+                    <div class="bank-icon"><img src="https://www.sklib.cn/images/account-payment.png" title="账户余额支付" style="max-width: 96%;"></div>
+                </label>
+                <p>当前账户可用余额
+                    <span id="commonMoney"></span> 元</p>
+                <p id="showLackMoney"><span style="color: #c51a17;">余额不足，请先</span><a href="https://www.sklib.cn/booklib/member/myAccount?SiteID=122">充值</a><span style="color: #c51a17;">或选择其他支付方式</span></p>
+                <!-- <p id="showLackMoney"
+                   style=" display: none; margin-left: 30px;font-size:12px; color: #999;margin-bottom: 0; margin-top: 0;">
+                     余额不足，请先<a href="${Site.FrontAppContxtAddr}member/myAccount?SiteID=122">充值</a>或选择其他支付方式
+                </p> -->
+            </div>
+			<div class="title" style="display: none;">
+				使用其他方式支付<span class="inline-price"><span id="alipayMoney"></span>元</span>
+			</div>
+            <div class="purchase-radio">
+            	<div class="zhifubao">
+	                <div class="m-t-md m-b-sm"></div>
+	                <label>
+	                    <input type="radio" name="accountType" id="alipay" value="alipay" onclick="changeOtherPay(this.value)" checked="">
+	                    <div class="bank-icon"><img src="https://www.sklib.cn/images/pay_1114.jpg" title="支付宝支付" style="max-width: 96%;"></div>
+	                </label>
+                </div>
+                <div class="weixin">
+	                <div class="m-t-md m-b-sm"></div>
+	                <label>
+	                    <input type="radio" value="Weixinpay" name="accountType" onclick="changeOtherPay(this.value)">
+	                    <div class="bank-icon"><img src="https://www.sklib.cn/images/pay_3.jpg" title="微信支付" style="max-width: 96%;"></div>
+	                </label>
+                </div>
+            </div>
+			<!-- <div style="font-size: 12px;color: #c51a17;">除论文外，图书和章节只能在线阅读，不能下载</div> -->
+            <div class="dialog-footer clearfix">
+                <button type="button" class="btn btn-primary purchase-dialog-btn" onclick="confirmPayment()">确定</button>
+                <button type="button" class="btn btn-primary purchase-dialog-btn cancel-dialog-btn" onclick="cancelPayment()">取消</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="purchase-mask J-purchase-mask hide"></div>
+<!-- 兴趣引导 -->
+<div class="interest hide">
+    <div class="back"></div>
+    <div class="box-content">
+      <div class="interest-left" id="interest-list" style="max-height:600px;">
+        </div>
+        <div class="interest-right">
+            <div class="top">请选择感兴趣的分类</div>
+            <div id="interest-words-list">
+            </div> 
+            <div class="bootm text-center">
+                <div class="go-start btn start" onclick="submitInterest()">选好了，开始浏览</div>
+                <div class="go-start text-center m-t"><a href="javascript:;" onclick="closeInterest()">以后再选择</a></div> 
+            </div>
+        </div>
+    </div>
+</div>
+<!--start 页脚-->
+<div class="footer" style="display: none;">
+    <div class="foot">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-5">
+                    <div class="foot-logo">
+                        
+                        
+                            <a href="https://www.sklib.cn/"><img style="width:271px" src="https://www.sklib.cn/images/logo-new.png" data-src="https://www.sklib.cn/images/logo-new.png"></a>
+                        
+                    </div>
+                    <div class="contactUs">
+                        <div class=""><i class="fa fa-phone"></i>售前咨询：010-84083679 刘老师，张老师</div>
+                        <div class=""><i class="fa fa-phone"></i>售后服务：010-84083679 张老师</div>
+                        <div class=""><i class="fa fa-envelope"></i>95133307@qq.com</div>
+                        <div class=""><i class="fa fa-map-marker"></i>北京西城区鼓楼西大街甲158号</div>
+                    </div>
+                </div>
+                
+                    
+                        <div class="col-md-3 col-sm-7 col-xs-12 pull-right">
+                            <div class="foot-link">
+                                <h4 class="h4 link-title">快速链接</h4>
+                                <ul class="list-unstyled links clearfix">
+                                    <li class="col-md-6">
+                                        <a href="https://www.sklib.cn/booklib/catalogList?SiteID=122&amp;parentAlias=gywm&amp;childAlias=gywm_gywm&amp;fromSubID=" target="_blank">关于我们</a>
+                                    </li>
+                                    <li class="col-md-6">
+                                        <a href="https://www.sklib.cn/booklib/catalogList?SiteID=122&amp;parentAlias=gywm&amp;childAlias=gywm_xxgg&amp;fromSubID=" target="_blank">信息公告</a>
+                                    </li>
+                                    <li class="col-md-6">
+                                        <a href="https://www.sklib.cn/booklib/catalogList?SiteID=122&amp;parentAlias=gywm&amp;childAlias=gywm_kfzx&amp;fromSubID=" target="_blank">帮助中心</a>
+                                    </li>
+                                    <li class="col-md-6">
+                                        <a href="https://www.sklib.cn/booklib/catalogList?SiteID=122&amp;parentAlias=gywm&amp;childAlias=gywm_bqgg&amp;fromSubID=" target="_blank">版权公告</a>
+                                    </li>
+                                    <!-- <li class="col-md-6">
+                                        <cms:article catalogalias="gywm_zxzx" count="1">
+                                            <a href="${Article.Link}" target="_blank">在线咨询</a>
+                                        </cms:article>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    
+                    
+                    <div class="col-md-3 col-md-offset-1 hidden-xs hidden-sm">
+                        <div class="foot-link" style="width:220px;">
+                            <h4 class="h4 link-title">友情链接</h4>
+                            <ul class="list-unstyled links clearfix">
+                                
+                                    
+                                        <li><a href="http://www.csspw.cn" target="_blank" title="中国社会科学出版社">中国社会科学出版社</a>
+                                        </li>
+                                        <li><a href="http://www.lzp360.com" target="_blank" title="中国近代影像资料库">中国近代影像资料库</a>
+                                        </li>
+                                        <li><a href="http://www.eyearbook.cn" target="_blank" title="中国社会科学年鉴数据库">中国社会科学年鉴数据库</a>
+                                        </li>
+                                        <li><a href="http://www.cssn.cn/" target="_blank" title="中国社会科学网">中国社会科学网</a>
+                                        </li>
+                                        <li><a href="https://wacs.sklib.cn" target="_blank" title="中国学研究数据库">中国学研究数据库</a>
+                                        </li>
+                                        <li><a href="https://wqbook.wqxuetang.com?tn=c82XG4MMgSKm6D" target="_blank" title="文泉书局">文泉书局</a>
+                                        </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="foot-copy">
+        <div class="container" style="display: flex;justify-content: center;">
+            <p>版权所有：中国社会科学出版社
+                <a href="https://beian.miit.gov.cn/">京ICP备05032912号-4</a>
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202010100" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://www.sklib.cn/images/jgwab.png" style="float:left;">京公网安备11010202010100号</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+    <div class="bock-right hidden-xs hidden-sm" style="display: none;">
+        <ul class="list-unstyled">
+         <li class="chat">
+                <a href="https://www.sklib.cn/booklib/chat" title="问道">
+                    <img src="https://www.sklib.cn/assets/images/wen-dao.png" alt="问道">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" onclick="kefuHandler()" title="在线咨询">
+                    咨询
+                </a>
+                <div id="kefu_frame_box" class="fix-bottom hide" style="overflow: hidden; border-radius: 8px; box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)">
+                    <div class="holly-kefu open-kefu">
+                        <i title="关闭" class="iconfont icon17cuowu close-kefu" onclick="kefuHandler()">关闭</i>
+                        <iframe id="olchatframe"></iframe>
+                    </div>
+                </div>
+                <script>
+                    var dom = document.getElementById('kefu_frame_box');
+                    var domIframe = document.getElementById('olchatframe');
+
+                    function kefuHandler() {
+                        var kefuIframeSrc = 'https://www.sklib.cn/extension-tool/h5yingyuchat.html';
+                        // if (userName) {
+                        //     kefuIframeSrc = 'https://im1c5366d.7x24cc.com/phone_webChat.html?accountId=N000000034043&chatId=b7bf2280-4282-49e3-8b62-51381f72d595&nickName=' + userName;
+                        // } else if (userBranchName) {
+                        //     kefuIframeSrc = 'https://im1c5366d.7x24cc.com/phone_webChat.html?accountId=N000000034043&chatId=b7bf2280-4282-49e3-8b62-51381f72d595&nickName=' + userBranchName;
+                        // }
+                        if (domIframe.getAttribute('src') != kefuIframeSrc) {
+                            domIframe.setAttribute('src', kefuIframeSrc)
+                        }
+                        var hide = $("#kefu_frame_box").hasClass("hide")
+                        if (hide) {
+                            $("#kefu_frame_box").removeClass("hide")
+                        } else {
+                            $("#kefu_frame_box").addClass("hide")
+                        }
+                    }
+                </script>
+            </li>
+
+            <!-- <z:if condition="${QAEnabled}">
+                <li class="question-and-answer-icon" title="智能问答" onclick="onClickQuestionAndAnswer()" >
+                    <div class="question-and-answer">
+                        <div style="position: absolute; top: 0; right: 8px; font-size: 32px; color: #fff;">╳</div>
+                        <iframe id="question-and-answer-frame"></iframe>
+                    </div>
+                </li>
+            </z:if> -->
+
+            <script>
+                const $questionAndAnswer = $(".question-and-answer");
+                const $questionAndAnswerFrame = $("#question-and-answer-frame");
+
+                function onClickQuestionAndAnswer() {
+                    if ($questionAndAnswerFrame.attr('src')) {
+                        if($questionAndAnswer.hasClass("visible")) {
+                            $questionAndAnswer.removeClass("visible");
+                            $questionAndAnswerFrame.attr('src', '');
+                            return
+                        }
+                        $questionAndAnswer.addClass("visible");
+                        return
+                    }
+                    // let popupIndex = layer.open({
+                    //     title:'请选择智能问答官', 
+                    //     btn: ['腾讯企点QBot', '蜜度知知通'],
+                    //     btnAlign: 'c', // 按钮居中显示
+                    //     btn1: function(){
+                    //         handleToggleQBotVisible();
+                    //         layer.close(popupIndex);
+                    //     },
+                    //     btn2: function(){
+                            handleToggleMiDuZztVisible();
+                    //         return true
+                    //     }
+                    // });
+                }
+
+                // function handleToggleQBotVisible() {
+                //     if ($questionAndAnswerFrame.attr('src')) {
+                //         return
+                //     }
+                //     let questionAndAnswerUrl = "https://www.sklib.cn/extension-tool/q-bot/?token="
+
+                //     const url = "https://www.sklib.cn/" + "lke/getWstoken";
+                //     const name = "book";
+                //     const value = "".replace(/-/g,"");
+                //     const data = {name, value};
+                //     $.get(url, data, function (response) {
+                //         questionAndAnswerUrl += response || ""
+                //         $questionAndAnswerFrame.attr('src', questionAndAnswerUrl);
+                //         $questionAndAnswer.addClass("visible");
+                //     });
+                // }
+
+                function handleToggleMiDuZztVisible() {
+                    if ($questionAndAnswerFrame.attr('src')) {
+                        return
+                    }
+
+                    let Authorization = "";
+                    $.get( "https://www.sklib.cn/" + "midu/getWstoken", {},
+                        function (response) {
+                            const { code, data, message } = response || {};
+                            if (code !== "0000") {
+                                message && console.error(message);
+                                return
+                            }
+                            const { token } = data || {};
+                            Authorization = token || "";
+
+                            let questionAndAnswerUrl = "https://www.sklib.cn/extension-tool/midu-zzt/#/?repositoryId=";
+                            $.ajax({
+                                url: "https://www.sklib.cn/" + "midu/getzskid",
+                                type: "GET",
+                                headers: { Authorization },
+                                ContentType: "application/json",
+                                beforeSend: function (XMLHttpRequest) {
+                                    XMLHttpRequest.setRequestHeader("Authorization", Authorization);
+                                },
+                                data: { isbn: "".replace(/-/g,"") },
+                                success: function (response) {
+                                    const { data } = response || {};
+                                    const { id } = data || {};
+                                    questionAndAnswerUrl += id || ""
+                                    $questionAndAnswerFrame.attr('src', questionAndAnswerUrl);
+                                    $questionAndAnswer.addClass("visible");
+                                    $questionAndAnswerFrame.on("load", function () {
+                                        console.log("load");
+                                        document.querySelector("#question-and-answer-frame").contentWindow.postMessage({ Authorization }, location.origin);
+                                    })
+                                },
+                                dataType: "json"
+                            })
+                        },
+                        "json"
+                    )
+                }
+            </script>
+
+             <li>
+                <a href="javascript:;" title="意见反馈" onclick="ideaFeedback()">
+                    反馈
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" title="推荐购买" onclick="recommendBuy()">
+                    荐购
+                </a>
+            </li>
+            <li>
+                <a href="#" title="返回顶部">
+                    顶部
+                </a>
+            </li>
+        </ul>
+    </div>
+
+<!-- <cms:include file="${prefix("template/ideaFeedback.template.html")}"></cms:include> -->
+
+<style>
+	.feedback_right {
+	    width: 70%;
+	    border: solid 1px #e1e4e8;
+	    border-radius: 6px;
+	    height: 40px;
+	    line-height: 20px;
+	    padding: 12px 25px;
+	}
+	#recommend_reason {
+		background: #f9f9f9;
+	    width: 100%;
+	    padding: 6px 12px;
+	}
+	.edui-editor {
+		width: 100% !important;
+	    border: 1px solid #d4d4d4;
+	    background-color: white;
+	    position: relative;
+	    overflow: visible;
+	    -webkit-border-radius: 4px;
+	    -moz-border-radius: 4px;
+	    border-radius: 4px;
+	}
+	.dui-editor-iframeholder {
+	    z-index: 999;
+	    overflow: hidden;
+	}
+	.view {
+	    padding: 0;
+	    word-wrap: break-word;
+	    cursor: text;
+	    height: 90%;
+	}
+	.feedback_error {
+		display: none;
+		margin-bottom: 20px;
+		color: #ff9c3b;
+	}
+	.unvalid .feedback_error{
+		display: block;
+	}
+	.recommend_buy_box{width: 1000px;left: 34%;max-height: 600px;top:16%}
+	.recommend_buy_box textarea{resize: none;}
+	@media (min-width: 992px){
+		.recommend_buy_box .paddingR {
+		    padding-right: 30px;
+		}
+		.recommend_buy_box .paddingL {
+		    padding-left: 30px;
+		}
+	}
+</style>
+<div class="dialogBg hide recommend_buy_box">
+		<a class="dialog_close" onclick="recommendClose()">×</a>
+		<div class="loginMethod">
+			<div class="dialogTab TAB_CLICK">
+				<span class="on">推荐购买</span>
+			</div>
+			<div class="loginBox">
+				<form id="recommendRecovery" action="#">
+					<div class="col-md-4 paddingR recommend_recommendName">
+						<div class="form-group item">
+							<input type="text" class="form-control" placeholder="请输入荐购人姓名" id="recommend_recommendName">
+						</div>
+						<div class="feedback_error">* 请输入荐购人姓名</div>
+					</div>
+					<div class="col-md-4 paddingR paddingL recommend_branchName">
+						<div class="form-group item">
+							<input type="text" class="form-control" placeholder="请输入机构名称" id="recommend_branchName">
+						</div>
+						<div class="feedback_error">* 请输入机构名称</div>
+					</div>
+					<div class="col-md-4 paddingL recommend_branchContractWay">
+						<div class="right form-group item">
+							<input type="text" class="form-control" placeholder="请输入推荐人联系方式" id="recommend_branchContractWay">
+						</div>
+						<div class="feedback_error">* 请输入正确的推荐人联系方式</div>
+					</div>
+					<div class="col-md-6 paddingR recommend_college">
+						<div class="form-group item">
+							<input type="text" class="form-control" placeholder="请输入院/系/所/部门" id="recommend_college">
+						</div>
+						<div class="feedback_error">* 请输入院/系/所/部门</div>
+					</div>
+					<div class="col-md-6 paddingL recommend_subLibName">
+						<div class="form-group item">
+							<input type="text" class="form-control" placeholder="请输入子库名称" id="recommend_subLibName">
+						</div>
+						<div class="feedback_error">* 请输入子库名称</div>
+					</div>
+					<div class="col-md-12 recommend_reason">
+						<div class="form-group">
+							<textarea class="form-control" name="" id="recommend_reason" cols="60" rows="5" placeholder="请输入推荐理由" maxlength="500"></textarea>
+						</div>
+						<div class="feedback_error">* 请输入推荐理由</div>
+					</div>
+					<div class="col-md-12 m-b-md">
+						<button type="button" class="btn btn-primary recommend_submit">提交</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+	  $('.recommend_submit').click(function() {
+	    var unvalid = false
+	    if(!$.trim($('#recommend_recommendName').val())) {
+	   		$('.recommend_recommendName').addClass('unvalid')
+	      unvalid = true 
+	    }else{
+	    	$('.recommend_recommendName').removeClass('unvalid')
+	    }
+	    if(!$.trim($('#recommend_branchName').val())) {
+	   		$('.recommend_branchName').addClass('unvalid')
+	      unvalid = true 
+	    }else{
+	    	$('.recommend_branchName').removeClass('unvalid')
+	    }
+	    if(!$.trim($('#recommend_college').val())) {
+	   		$('.recommend_college').addClass('unvalid')
+	      unvalid = true 
+	    }else{
+	    	$('.recommend_college').removeClass('unvalid')
+	    }
+	    if(!$.trim($('#recommend_subLibName').val())) {
+	   		$('.recommend_subLibName').addClass('unvalid')
+	      unvalid = true 
+	    }else{
+	    	$('.recommend_subLibName').removeClass('unvalid')
+	    }
+	    if($('#recommend_branchContractWay').val() == ''
+	      || !/^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/.test($('#recommend_branchContractWay').val()) ) {
+	    	$('.recommend_branchContractWay').addClass('unvalid')
+	      unvalid = true  
+	    }else{
+	    	$('.recommend_branchContractWay').removeClass('unvalid')
+	    }
+	    if(unvalid) {
+	      Ewin.alert("还有没有填写正确的信息，参照提示填写完毕~");
+	      return
+	    }
+	    $.ajax({
+		      type: 'get',
+		      url: frontAppContext + 'RecommendBuy/add',
+		      data: {
+		    	  siteID: "122",
+		    	  recommendName: $("#recommend_recommendName").val(),
+		    	  branchName: $("#recommend_branchName").val(),
+		    	  college: $("#recommend_college").val(),
+		    	  branchContractWay: $('#recommend_branchContractWay').val(),
+		    	  reason: $('#recommend_reason').val(),
+		    	  subLibName: $('#recommend_subLibName').val()
+		      },
+		      success: function (data) {
+		    	data = JSON.parse(data);
+		    	Ewin.alert(data.Message);
+		        $('.recommend_buy_box').addClass('hide')
+		        $('.dialogMask').addClass('hide')
+		      },
+		      error: function (err) {
+		        Ewin.alert("提交失败");
+		        console.log('查询失败' + err)
+		      }
+		    })
+		
+	  })
+	  function recommendClose() {
+		  $('#recommend_recommendName').val("");
+			$('#recommend_branchName').val("");
+			$('#recommend_college').val("");
+			$('#recommend_branchContractWay').val("");
+			$("#recommend_reason").val("");
+			$("#recommend_subLibName").val("");
+	  }
+	  
+	  $('.dialog_close').click(function(){
+		    $(this).parent().addClass('hide')
+		    $('.dialogMask').addClass('hide')
+		})
+</script>
+
+<div class="dialogMask hide"></div>
+<!-- 注册 -->
+
+	<div class="dialogBg J-register-dialog hide">
+		<a class="dialog_close">×</a>
+		<div class="dialogTab TAB_CLICK" id=".registerBox">
+			<span class="on">手机注册</span>
+			<span>邮箱注册</span>
+		</div>
+		<div class="registerBox">
+			<form id="registMobileForm" name="registMobileForm" method="post">
+				<input type="hidden" id="Type" name="Type" value="Mobile">
+				<input type="hidden" id="AppID" name="AppID" value="">
+				<div class="input-group item">
+					<span class="input-group-addon">
+						<select>
+							<option>+86</option>
+						</select>
+					</span>
+					<input type="text" class="form-control" placeholder="输入手机号" name="Mobile" id="Regist_Mobile">
+				</div>
+				<div class="form-group item">
+					<input type="Password" class="form-control" placeholder="输入6位或以上密码" id="Regist_Mobile_Password" name="Password">
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入图形验证码" id="Regist_Mobile_AuthCode" name="AuthCode">
+					<span class="input-group-addon font18"><img src="https://www.sklib.cn/sso/authCode.zhtml?_=" +math.random()="" onclick="initAuthCode('mobileImage');return false;" id="mobileImage"></span>
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入短信验证码" name="SMSCode" id="Regist_SMSCode">
+					<a href="javascript:void(0);" class="input-group-addon font18 regist-mobile-code-btn" onclick="registSendSMS()">获取短信验证码</a>
+				</div>
+				<div class="m-b-md">
+					<button type="button" class="btn btn-primary" onclick="registByMobile();return false;">注册</button>
+				</div>
+				<div class="text-center regulations m-b-md"><input type="checkbox" name="CheckCode" checked="" id="Mobile_Check_Code">&nbsp;<span onclick="mobileCheck()">我已阅读并接受</span><a href="https://www.sklib.cn/booklib/protocal?SiteID=122" target="_blank">《中国社会科学文库用户协议》 </a></div>
+				<script>
+				function mobileCheck() {
+					 var mobileCheck = document.getElementById("Mobile_Check_Code").checked
+					 if (mobileCheck) {
+						 document.getElementById("Mobile_Check_Code").checked = false
+					 } else {
+						 document.getElementById("Mobile_Check_Code").checked = true
+					 } 
+				 }
+				</script>
+				<p class="text-center regulations">已有账号，<a class="J-loginBtn">返回登录</a></p>
+			</form>
+		</div>
+		<div class="registerBox" style="display:none;">
+			<form id="registEmailForm" name="registEmailForm" method="post">
+				<input type="hidden" id="Type" name="Type" value="Email">
+				<input type="hidden" id="Referer" name="Referer" value="http://zshop.chinabuilding.com.cn/shop/goodsInfo/goodsDetail?SiteID=26&amp;goodsID=420600">
+				<div class="form-group item">
+					<input type="email" class="form-control" placeholder="输入邮箱" id="Regist_Email" name="Email">
+				</div>
+				<div class="form-group item">
+					<input type="Password" class="form-control" placeholder="输入6位或以上密码" id="Regist_Email_Password" name="Password">
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入图形验证码" id="Regist_Email_AuthCode" name="AuthCode">
+					<span class="input-group-addon font18"><img src="https://www.sklib.cn/sso/authCode.zhtml?_=" +math.random()="" onclick="initAuthCode('emailImage');return false;" id="emailImage"></span>
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入邮箱验证码" id="Regist_EmailCode" name="EmailCode">
+					<a href="javascript:void(0);" class="input-group-addon font18 regist-email-code-btn" onclick="registSendEmail()">获取邮箱验证码</a>
+				</div>
+				<div class="m-b-md">
+					<button type="button" class="btn btn-primary" onclick="registByEmail();return false;">注册</button>
+				</div>
+				<div class="text-center regulations m-b-md"><input type="checkbox" name="CheckCode" checked="" id="Email_Check_Code">&nbsp;<span onclick="emailCheck()">我已阅读并接受</span><a href="https://www.sklib.cn/booklib/protocal?SiteID=122" target="_blank">《中国社会科学文库用户协议》 </a></div>
+				<script>
+					 function emailCheck() {
+						 var emailCheck = document.getElementById("Email_Check_Code").checked
+						 if (emailCheck) {
+							 document.getElementById("Email_Check_Code").checked = false
+						 } else {
+							 document.getElementById("Email_Check_Code").checked = true
+						 } 
+					 }
+				</script>
+				<p class="text-center regulations">已有账号，<a class="J-loginBtn">返回登录</a></p>
+			</form>
+		</div>
+	</div>
+	<script>
+	function registSendSMS(){
+		var mobile = $("#Regist_Mobile").val().trim()
+		if (mobile.length==0) {
+			 alert("手机号不能为空")
+			 $('#Regist_Mobile').focus()
+			 return false;
+		}
+		var authCode = $("#Regist_Mobile_AuthCode").val().trim()
+		if (authCode.length==0) {
+			 alert("请填写图形验证码")
+			 $('#Regist_Mobile_AuthCode').focus()
+			 return false;
+		}
+		$.ajax({
+			 url:ZASUrl+"/regValidate",
+			 type: "get",
+			 contentType:"json",
+			 async: true,
+			 data:{
+				 "Type":"Mobile", 
+				 "Value":mobile
+			 },
+			 error:function(error){
+				if ( error.responseText == 'exists') {
+					alert("您注册的手机号已经存在")
+				} else {
+					var ssoUrl=ZASUrl+"/ajax/invoke";
+					var loginParam={};
+					var requestParam = {
+						_ZVING_DATA_FORMAT : "json",
+						_ZVING_METHOD : "sendSMS"
+					}
+					loginParam.toJString = function(){
+						var resString = "{";
+						for(var i in this){
+							if("toJString"!=i){
+								resString += "'"+i + "':'" + this[i]+"',";
+							}
+							
+						}
+						resString += "}";
+						return resString;
+					}
+					var dc = new DataCollection();
+					dc.add("Mobile",mobile);
+					dc.add("AuthCode",authCode)
+					$.extend(loginParam,dc.map);
+					requestParam._ZVING_DATA = loginParam.toJString();
+					$.post(ssoUrl,requestParam,function(response){
+						if (response._ZVING_STATUS == 1) {
+							// 设置倒计时
+			 				setRegistMobileCount();
+						} else {
+							initAuthCode('mobileImage')
+							$('#Regist_Mobile_AuthCode').focus()
+							alert(response._ZVING_MESSAGE)
+						}
+					},"json")
+				}
+			 }
+		})
+	}
+	var t  = /^[A-Za-zd0-9]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/;
+	function registSendEmail(){
+		var email = $('#Regist_Email').val().trim()
+		if(email.length==0){
+		    alert("邮箱不能为空")
+		    $('#Regist_Email').focus()
+			return false;
+		}
+		if($('#Regist_Email_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Regist_Email_AuthCode').focus()
+			return false;
+		}
+		if(!(t.test(email))){
+			 alert("邮箱格式不正确")
+			 $('#Regist_Email').focus()
+			 return false; 
+		 }
+		$.ajax({
+			 url:ZASUrl+"/regValidate",
+			 type: "get",
+			 contentType:"json",
+			 async: true,
+			 data:{
+				 "Type":"Email", 
+				 "Value":$('#Regist_Email').val().trim()
+			 },
+			 error:function(error){
+				if ( error.responseText == 'exists') {
+					alert("您注册的邮箱已经存在")
+				} else {
+					var ssoUrl=ZASUrl+"/ajax/invoke";
+					var loginParam={};
+					var requestParam = {
+						_ZVING_DATA_FORMAT : "json",
+						_ZVING_METHOD : "sendEmail"
+					}
+					loginParam.toJString = function(){
+						var resString = "{";
+						for(var i in this){
+							if("toJString"!=i){
+								resString += "'"+i + "':'" + this[i]+"',";
+							}
+							
+						}
+						resString += "}";
+						return resString;
+					}
+					var dc = new DataCollection();
+					dc.add("Email",$('#Regist_Email').val());
+					dc.add("AuthCode",$('#Regist_Email_AuthCode').val())
+					$.extend(loginParam,dc.map);
+					requestParam._ZVING_DATA = loginParam.toJString();
+					$.post(ssoUrl,requestParam,function(response){
+						if (response._ZVING_STATUS == 1) {
+							// 设置倒计时
+			 				setRegistEmailCount();
+						} else {
+							initAuthCode('emailImage')
+							$('#Regist_Email_AuthCode').focus()
+							alert(response._ZVING_MESSAGE)
+						}
+					},"json")
+				}
+			 }
+		})
+	}
+	var registMobileCountNum = 60;
+	var registEmailCountNum = 60;
+
+	function setRegistMobileCount() {
+		var text = "";;
+		if (registMobileCountNum === 0) {
+			text = "重新获取";
+			$(".regist-mobile-code-btn").text(text);
+			$(".regist-mobile-code-btn").attr('onclick', 'registSendSMS()');
+			$(".regist-mobile-code-btn").removeClass('disabled')
+			registMobileCountNum = 60;
+			return;
+		} else {
+			registMobileCountNum--;
+			text = "已发送<span class='count-num'>" + registMobileCountNum + "s</span>";
+			$(".regist-mobile-code-btn").attr('onclick', '');
+			$(".regist-mobile-code-btn").addClass('disabled')
+			$(".regist-mobile-code-btn").html(text);
+		}
+		setTimeout(function(){
+			setRegistMobileCount()
+		}, 1000);
+	}
+	function setRegistEmailCount() {
+		var text = "";;
+		if (registEmailCountNum === 0) {
+			text = "重新获取";
+			$(".regist-email-code-btn").text(text);
+			$(".regist-email-code-btn").attr('onclick', 'registSendEmail()');
+			$(".regist-email-code-btn").removeClass('disabled')
+			registEmailCountNum = 60;
+			return;
+		} else {
+			registEmailCountNum--;
+			text = "已发送<span class='count-num'>" + registEmailCountNum + "s</span>";
+			$(".regist-email-code-btn").attr('onclick', '');
+			$(".regist-email-code-btn").addClass('disabled')
+			$(".regist-email-code-btn").html(text);
+		}
+		setTimeout(function(){
+			setRegistEmailCount()
+		}, 1000);
+	}
+	function registByEmail(){
+		if(!document.getElementById("Email_Check_Code").checked){
+		    alert("请阅读并接受用户协议")
+			return false;
+		}
+		if($('#Regist_Email').val().trim().length==0){
+		    alert("邮箱不能为空")
+		    $('#Regist_Email').focus()
+			return false;
+		}
+		if($('#Regist_Email_Password').val().trim().length==0){
+		    alert("密码不能为空")
+		    $('#Regist_Mobile_Password').focus()
+			return false;
+		}
+		if($('#Regist_Email_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Regist_Mobile_AuthCode').focus()
+			return false;
+		}
+		if($('#Regist_EmailCode').val().trim().length==0){
+		    alert("请填写邮箱验证码")
+		    $('#Regist_EmailCode').focus()
+			return false;
+		}
+		var ssoUrl=ZASUrl+"/ajax/invoke";
+		var loginParam={};
+		var requestParam = {
+			_ZVING_DATA_FORMAT : "json",
+			_ZVING_METHOD : "doNewRegist"
+		}
+		loginParam.toJString = function(){
+			var resString = "{";
+			for(var i in this){
+				if("toJString"!=i){
+					resString += "'"+i + "':'" + this[i]+"',";
+				}
+				
+			}
+			resString += "}";
+			return resString;
+		}
+		$.extend(loginParam,Form.getData("registEmailForm"));
+		requestParam._ZVING_DATA = loginParam.toJString();
+		$.post(ssoUrl,requestParam,function(response){
+			if (response.Success) {
+				window.location.href = AuthorizeUrl
+				$('.dialog_close').parent().addClass('hide')
+				$('.dialogMask').addClass('hide')
+			} else {
+				alert(response._ZVING_MESSAGE);
+			}
+		})
+		
+	}
+	function registByMobile(){
+		if(!document.getElementById("Mobile_Check_Code").checked){
+			alert("请阅读并接受用户协议")
+			return false;
+		}
+		if($('#Regist_Mobile').val().trim().length==0){
+		    alert("手机号不能为空")
+		    $('#Regist_Mobile').focus()
+			return false;
+		}
+		if($('#Regist_Mobile_Password').val().trim().length==0){
+		    alert("密码不能为空")
+		    $('#Regist_Mobile_Password').focus()
+			return false;
+		}
+		if($('#Regist_Mobile_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Regist_Mobile_AuthCode').focus()
+			return false;
+		}
+		if($('#Regist_SMSCode').val().trim().length==0){
+		    alert("请填写短信验证码")
+		    $('#Regist_SMSCode').focus()
+			return false;
+		}
+		var ssoUrl=ZASUrl+"/ajax/invoke";
+		var loginParam={};
+		var requestParam = {
+			_ZVING_DATA_FORMAT : "json",
+			_ZVING_METHOD : "doNewRegist"
+		}
+		loginParam.toJString = function(){
+			var resString = "{";
+			for(var i in this){
+				if("toJString"!=i){
+					resString += "'"+i + "':'" + this[i]+"',";
+				}
+				
+			}
+			resString += "}";
+			return resString;
+		}
+		$.extend(loginParam,Form.getData("registMobileForm"));
+		requestParam._ZVING_DATA = loginParam.toJString();
+		$.post(ssoUrl,requestParam,function(response){
+			if (response.Success) {
+				window.location.href = AuthorizeUrl
+				$('.dialog_close').parent().addClass('hide')
+				$('.dialogMask').addClass('hide')
+			} else {
+				alert(response._ZVING_MESSAGE);
+			}
+		})
+	}
+	</script>
+<!-- end注册 -->
+<!-- 登录 -->
+
+<style>
+  #showWXMaskFlag {
+    display: none;
+  }
+</style>
+<div class="dialogBg J-login-dialog hide loginDialog">
+  <a class="dialog_close">×</a>
+  <div class="loginMethodTab TAB_CLICK" id=".dialogLoginMethod">
+    <span class="on"><img src="../../images/pc-login.png" data-src="../../images/pc-login.png"></span>
+    <span id="wechat"><img src="../../images/wechat-login.png" data-src="../../images/wechat-login.png"></span>
+  </div>
+  <div class="dialogLoginMethod">
+    <div class="dialogTab TAB_CLICK" id=".dialogLoginBox">
+      <span class="on">账号登录</span> <span>一键登录</span>
+    </div>
+    <div class="dialogLoginBox">
+      <input name="QueryString" id="QueryString" type="hidden" value="SiteID=122&amp;ID=4519899&amp;fromSubID=">
+      <form id="loginByUserName" method="post" action="https://www.sklib.cn/template/checklogin?SiteID=122&amp;ID=4519899&amp;fromSubID=">
+        <input name="Referer" type="hidden" id="Referer" value="">
+        <input name="plat" type="hidden" id="plat" value="">
+        <input name="AppID" type="hidden" id="AppID" value="">
+        <div class="form-group item">
+          <input type="text" class="form-control" placeholder="请输入用户名/邮箱/手机号" name="UserName" id="UserName">
+        </div>
+        <div class="form-group item">
+          <input type="Password" class="form-control" placeholder="输入6位或以上密码" id="Password">
+        </div>
+        <div class="input-group item" style="margin-bottom: 5px; display: none" id="AuthCodeBox">
+          <input type="text" class="form-control" placeholder="输入图形验证码" id="AuthCode" name="AuthCode">
+          <span class="input-group-addon font18"><img id="AuthCodeImg" src="https://www.sklib.cn/sso/authCode.zhtml?_=" +math.random()="" onclick="initAuthCode();return false;"></span>
+        </div>
+        <div class="clearfix m-b-md">
+          <a class="pull-right forget J-forgetBtn">忘记密码?</a>
+        </div>
+        <div class="m-b-md">
+          <button type="button" class="btn btn-primary" onclick="loginByUserName();return false;">登录</button>
+        </div>
+        <p class="text-center regulations m-b-md">
+          没有账号，<a class="J-registerBtn">快速注册</a>
+        </p>
+      </form>
+      <div class="other-login">
+        <h4><span>其它方式登录</span></h4>
+        <div class="other"><a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxe9b0081cee602d9e&amp;redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fsso%2FSocial.redirect%3FReferer%3Dhttps%253A%252F%252Fwww.sklib.cn%252Fsso%252Foauth%252Fauthorize%253Fclient_id%253D2d56a12b31aa4033b3bff7fa9e784cf9%2526response_type%253Dcode%2526scope%253Duser_info%2526redirect_uri%253Dhttps%25253A%25252F%25252Fwww.sklib.cn%25252Fbooklib%25252Fmember%25252Flogin%25253Freferer%25253Dhttps%2525253A%2525252F%2525252Fwww.sklib.cn%2525252Fbooklib%2525252Fdatabasedetail%2525253FSiteID%2525253D122%25252526ID%2525253D4519899%25252526fromSubID%2525253D&amp;response_type=code&amp;scope=snsapi_login&amp;state=__Z_Wechat_ZAUser__1737477077859_960c52503f6282862c673814759f9d77df76d7a13fa73e49" title="微信平台"><img alt="微信平台" src="../../images/Wechat.gif"></a><a href="https://sso.ckrsc.com/oauth/authorize?client_id=980f281d872642028eaedf6f9fe30994&amp;response_type=code&amp;state=__Z_ZAS_ZAUser__1737477077859_d2ad3ea10e9d892927f0d933285f9811b37f64d75778ec97&amp;redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fsso%2FSocial.redirect%3FReferer%3Dhttps%253A%252F%252Fwww.sklib.cn%252Fsso%252Foauth%252Fauthorize%253Fclient_id%253D2d56a12b31aa4033b3bff7fa9e784cf9%2526response_type%253Dcode%2526scope%253Duser_info%2526redirect_uri%253Dhttps%25253A%25252F%25252Fwww.sklib.cn%25252Fbooklib%25252Fmember%25252Flogin%25253Freferer%25253Dhttps%2525253A%2525252F%2525252Fwww.sklib.cn%2525252Fbooklib%2525252Fdatabasedetail%2525253FSiteID%2525253D122%25252526ID%2525253D4519899%25252526fromSubID%2525253D&amp;scope=user_info" title="国家知识资源服务中心"><img alt="国家知识资源服务中心" src="../../images/Ckrsc.gif"></a><a href="javascript:void(0);" onclick="carsiLogin();return false;" title="通过CARSI登录"><img alt="通过CARSI登录" src="../../images/CARSI.png"></a><a href="javascript:void(0);" onclick="offCampusLogin();return false;" title="校外访问"><img alt="校外访问" src="../../assets/images/components/header-menu/off-campus-visits.png" style="width: 40px"></a></div>
+      </div>
+    </div>
+    <div class="dialogLoginBox" style="display: none">
+      <form id="loginByMobile" method="post" action="https://www.sklib.cn/template/checklogin?SiteID=122&amp;ID=4519899&amp;fromSubID=">
+        <input name="Referer" type="hidden" id="Referer" value="">
+        <input name="plat" type="hidden" id="plat" value="SMS">
+        <input name="AppID" type="hidden" id="AppID" value="">
+        <input name="remFlag" type="hidden" id="remFlag" value="">
+        <div class="input-group clearfix item">
+          <span class="input-group-addon">
+            <select>
+              <option>+86</option>
+            </select>
+          </span>
+          <input type="text" class="form-control" placeholder="输入手机号" name="Mobile" id="Mobile">
+        </div>
+        <div class="input-group item">
+          <input type="text" class="form-control" placeholder="输入图形验证码" name="SMSAuthCode" id="SMSAuthCode">
+          <span class="input-group-addon font18"><img onclick="initAuthCode('sms');return false;" id="smsImage"></span>
+        </div>
+        <div class="input-group item" style="margin-bottom: 5px">
+          <input type="text" class="form-control" placeholder="输入短信验证码" name="SMSCode" id="SMSCode">
+          <a href="javascript:void(0);" class="input-group-addon font18 code-btn" onclick="sendSMS()">获取短信验证码</a>
+        </div>
+        <div class="clearfix m-b-md">
+          <a class="pull-left carsi" href="javascript:void(0);" onclick="carsiLogin();return false;">通过CARSI登录</a>
+          <a class="pull-left" style="color: #999" href="javascript:void(0);" onclick="helpDownlosd()"><i class="font16 fa fa-question m-l-sm"></i></a>
+          <script>
+            function heloDownload() {
+              window.open(
+                "https://mgmt.carsi.edu.cn/frontend/web/member_files/www.csspw.cn/%E4%B8%AD%E5%9B%BD%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6%E6%96%87%E5%BA%93.step_file.pdf",
+                "_blank"
+              );
+            }
+          </script>
+          <a class="pull-right forget J-forgetBtn">忘记密码?</a>
+        </div>
+        <div class="m-b-md">
+          <button type="button" class="btn btn-primary" onclick="loginByMobile();return false;">登录</button>
+        </div>
+        <p class="text-center regulations m-b-md">请使用手机登录默认注册账号</p>
+      </form>
+    </div>
+  </div>
+  <div class="dialogLoginMethod" style="display: none">
+    <div class="dialogTab TAB_CLICK">
+      <span class="on"><i class="fa fa-wechat m-r-sm"></i>推荐使用微信扫码登录</span>
+    </div>
+    <div class="loginBox text-center">
+      <iframe id="frame1" scrolling="no" height="340" align="middle" frameborder="0"></iframe>
+    </div>
+  </div>
+</div>
+<!-- 引导 -->
+<div class="hidden-lg hidden-md" id="showWXMaskFlag">
+  <div class="tip_wrapper">
+    <div class="tip_image">
+      <div class="z_wrapper">
+        <img src="https://www.sklib.cn/images/wx_z.png">
+      </div>
+      <div class="first">
+        <div class="tip_title_wrapper tip_title_wrapper-QQ">
+          <div class="tip_title">1</div>
+          <div>点击右上角的</div>
+          <img class="brower" src="https://www.sklib.cn/images/wx_more.png">
+          <div>按钮</div>
+        </div>
+        <div class="tip_title_wrapper tip_title_wrapper-qt">
+          <div class="tip_title">1</div>
+          <div>点击下方的分享按钮</div>
+        </div>
+        <div class="tip_title_wrapper">
+          <div class="tip_title">2</div>
+          <div>选择分享到微信打开</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var getQueryString = function (name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+      return unescape(r[2]);
+    }
+    return null;
+  };
+
+  var AuthorizeUrl;
+  var currentBranchID = "";
+  var loginRequested = false;
+  var branchLoginStatus = false;
+  var userLoginStatus;
+  var userBranchName = "";
+  var userName = "";
+  var isformal = false;
+  var rdid;
+  var token;
+  $(function () {
+    $(".power").hover(
+      function () {
+        $(".powermodal").removeClass("hide");
+      },
+      function () {
+        $(".powermodal").addClass("hide");
+      }
+    );
+    token = getQueryString("Token");
+    rdid = getQueryString("rdid");
+    var name = getQueryString("name");
+    var nickname = getQueryString("nickname");
+    var openid = getQueryString("openid");
+    var headimgurl = getQueryString("headimgurl");
+    var mirror = "N";
+    if ("Y" != mirror) {
+      isOnlineHandler();
+    } else {
+      doMirrorIPLogin();
+      $(".switchUser").hide();
+    }
+    if (token == "db676791811e4796b0a2dda1c72138b5") {
+      $(".loginColor").addClass("hide");
+    }
+    // 获取授权地址
+    var dc = new Object();
+    dc.Referer = window.location.href;
+    dc.SiteID = "122";
+    $.get(frontAppContext + "member/authorizeUrl", dc, function (response) {
+      AuthorizeUrl = response.authorizeUrl;
+    });
+
+    // 获取第三方登录的地址
+    $.get(
+      "https://www.sklib.cn/sso/getSocialURL",
+      {
+        ContentType: "json",
+        client_id: "2d56a12b31aa4033b3bff7fa9e784cf9",
+        referer: window.location.href,
+      },
+      function (result) {
+        if (!result) {
+          return;
+        }
+        var response = JSON.parse(result);
+        if (response.Success) {
+          $(".other").html("");
+          if (response.Report["Wechat"] && !ismobile()) {
+            $(".other").append(
+              "<a href='" +
+                response.Report["Wechat"].LoginURL +
+                "' title='" +
+                response.Report["Wechat"].Name +
+                "'><img alt='" +
+                response.Report["Wechat"].Name +
+                "' src='../../images/Wechat.gif'></a>"
+            );
+          }
+          if (!isWeiXin() && ismobile()) {
+            $(".other").append(
+              "<a  onclick='carsiWeiXin();return false;' title='" +
+                response.Report["Wechat"].Name +
+                "'><img alt='" +
+                response.Report["Wechat"].Name +
+                "' src='../../images/Wechat.gif'></a>"
+            );
+          }
+          if (response.Report["MpWechat"] && isWeiXin()) {
+            $(".other").append(
+              "<a href='" +
+                response.Report["MpWechat"].LoginURL +
+                "' title='" +
+                response.Report["MpWechat"].Name +
+                "'><img alt='" +
+                response.Report["MpWechat"].Name +
+                "' src='../../images/Wechat.gif'></a>"
+            );
+          }
+          if (response.Report["ZAS"]) {
+            $(".other").append(
+              "<a href='" +
+                response.Report["ZAS"].LoginURL +
+                "' title='国家知识资源服务中心'><img alt='国家知识资源服务中心' src='../../images/Ckrsc.gif'></a>"
+            );
+          }
+          $(".other").append(
+            "<a href='javascript:void(0);' onclick='carsiLogin();return false;' title='通过CARSI登录'><img alt='通过CARSI登录' src='../../images/CARSI.png'></a>"
+          );
+          $(".other").append(
+            "<a href='javascript:void(0);' onclick='offCampusLogin();return false;' title='校外访问'><img alt='校外访问' src='../../assets/images/components/header-menu/off-campus-visits.png' style='width: 40px'></a>"
+          );
+        }
+      }
+    );
+  });
+
+  // 是否是移动端
+  function ismobile() {
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphone = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "web";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    if (
+      bIsIpad ||
+      bIsIphone ||
+      bIsMidp ||
+      bIsUc7 ||
+      bIsUc ||
+      bIsCE ||
+      bIsWM ||
+      bIsAndroid
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  function doMirrorIPLogin() {
+    $.get(
+      "https://www.sklib.cn/sso/mirrorLogin",
+      { ContentType: "json" },
+      function (result) {}
+    );
+  }
+
+  function isBranch() {
+    //机构用户登录，并且个人用户没有登陆的时候
+    if (branchLoginStatus && !userLoginStatus) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  function logout() {
+    var dc = new DataCollection();
+    dc.add("Referer", window.location.href);
+    Server.sendRequest("member/logout", dc, function (response) {
+      if (response.logout) {
+        window.location.href = response.logout;
+      }
+    });
+  }
+  // IP登录
+  function ipLogin() {
+    var localURL = window.location.href;
+    localURL = encodeURIComponent(localURL);
+    var memberLoginUrl = frontAppContext + "member/login";
+    memberLoginUrl = encodeURIComponent(memberLoginUrl);
+    loadJsonp(
+      "https://www.sklib.cn/sso/doLogin?plat=IP&ContentType=jsonp&client_id=2d56a12b31aa4033b3bff7fa9e784cf9&response_type=code&scope=user_info&redirect_uri=https%3A%2F%2Fwww.sklib.cn%2Fbooklib%2Fmember%2Flogin",
+      function (response) {
+        if (response.Success || response.Message == "登录成功") {
+          window.location.href = response.RedirectURL + "&Referer=" + localURL;
+        }
+      }
+    );
+  }
+  // 营销活动登录
+  function activityLogin(token) {
+    var localURL = window.location.href;
+    localURL = encodeURIComponent(localURL);
+    loadJsonp(
+      "https://www.sklib.cn/sso/doLogin?plat=Activity&Token=" +
+        token +
+        "&ContentType=jsonp&client_id=2d56a12b31aa4033b3bff7fa9e784cf9&response_type=code&scope=user_info&redirect_uri=" +
+        referer,
+      function (response) {
+        console.log(response, "3");
+        if (response.Success || response.Message == "登录成功") {
+          window.location.href = response.RedirectURL + "&Referer=" + localURL;
+        }
+      }
+    );
+  }
+  // 广东大学自动登录
+  function gdLogin(rdid, name, openid, nickname, headimgurl) {
+    var ssoUrl = ZASUrl + "/ajax/invoke";
+    var loginParam = {
+      plat: "gdkf",
+      rdid: rdid,
+      name: name,
+      openid: openid,
+      nickname: nickname,
+      headimgurl: headimgurl,
+    };
+    var requestParam = {
+      _ZVING_DATA_FORMAT: "json",
+      _ZVING_METHOD: "dologin",
+    };
+    loginParam.toJString = function () {
+      var resString = "{";
+      for (var i in this) {
+        if ("toJString" != i) {
+          resString += "'" + i + "':'" + this[i] + "',";
+        }
+      }
+      resString += "}";
+      return resString;
+    };
+    requestParam._ZVING_DATA = loginParam.toJString();
+    $.post(
+      ssoUrl,
+      requestParam,
+      function (response) {
+        if (
+          response._ZVING_STATUS == 1 ||
+          response._ZVING_MESSAGE == "登录成功"
+        ) {
+          // 登陆成功
+          window.location.href = AuthorizeUrl;
+        }
+      },
+      "json"
+    );
+  }
+  function isOnline() {
+    $.get("https://www.sklib.cn/sso/online", function (response) {
+      console.log(response);
+    });
+  }
+  function isOnlineHandler() {
+    $.ajax({
+      url: "https://www.sklib.cn/sso/online",
+      type: "get",
+      dataType: "json",
+      crossDomain: true,
+      xhrFields: { withCredentials: true },
+      success: function (data) {
+        if (data.Login) {
+          var dc = new Object();
+          dc.Referer = window.location.href;
+          dc.SiteID = "122";
+          $.get(frontAppContext + "member/memberInfo", dc, function (data) {
+            if (data.branchInfo.branchID === 167) {
+              $("#libraryResources-167,#libraryResources_xs-167").show();
+            }
+            if (data.branchInfo.branchID === 632) {
+              $(".research-tool .chat").hide();
+              $(".bock-right .chat").hide();
+            }
+            if (data.branchInfo && data.branchInfo.isBranchLogin) {
+              var expiredTime = data.branchInfo.expTime || "";
+              if (expiredTime === "已过期") {
+                $(".footer__expired-time-tip").text("访问权限已到期！");
+              }
+            }
+            if (data.branchInfo.isBranchLogin && data.userInfo.islogin) {
+              $(".branch-name").html(
+                data.branchInfo.branchName + "[" + data.userInfo.userName + "]"
+              );
+              $(".person-branch-name").html(data.branchInfo.branchName);
+              $(".loginColor").hide();
+              $(".switchUser").hide();
+              $(".personinfo").removeClass("hide");
+            } else if (data.branchInfo.isBranchLogin) {
+              $(".branch-name").html(data.branchInfo.branchName);
+              $(".member-logofile").hide();
+              $(".select-list").hide();
+              $(".logout").hide();
+              $(".currentBranchNav").removeClass("hide");
+              currentBranchID = data.branchInfo.branchID;
+              if (
+                data.branchInfo.branchID === 1137 &&
+                data.branchInfo.isformal
+              ) {
+                if ($(".header-advertisement").css("display") === "none") {
+                  $(".header-advertisement").show();
+                }
+              }
+              $(".branchinfo").removeClass("hide");
+              $(".branch-name").removeClass("hide");
+              $(".power").removeClass("hide");
+              $(".powermodal").html(
+                "<p>机构权限：<b>" + data.branchInfo.expTime + "</b></p>"
+              );
+            } else if (data.userInfo.islogin) {
+              $(".personinfo").removeClass("hide");
+              $(".member-name").removeClass("hide");
+              $(".member-name").html(data.userInfo.userName);
+              $(".loginColor").addClass("hide");
+              $(".switchUser").hide();
+              $(".member-logofile").show();
+              $(".personinfo").removeClass("hide");
+              $(".member-name").removeClass("hide");
+              $(".branchinfo").hide();
+              $(".login_register").addClass("hide");
+              $("#listByConcern").show();
+              $(".personinfo").show();
+              $(".member-name").show();
+              $(".logout").show();
+            } else {
+              //未登录
+              window.location.href = AuthorizeUrl;
+            }
+            if (data.branchInfo.isBranchLogin) {
+              $("#currentBranch").removeClass("hide"); //本机构作者等
+              $(".currentBranchReadRanking").removeClass("hidden"); //本机构阅读排行
+              userBranchName = data.branchInfo.branchName;
+              isformal = data.branchInfo.isformal;
+              branchLoginStatus = true;
+              $(function () {
+                libraryResourcesShow();
+              });
+            }
+
+            if (data.userInfo.islogin) {
+              userName = data.userInfo.userName;
+              if (data.userInfo.logoFile) {
+                if (data.userInfo.logoFile.startsWith("http")) {
+                  $(".member-logofile").attr(
+                    "src",
+                    data.userInfo.logoFile + "?time=" + new Date().getTime()
+                  );
+                } else {
+                  $(".member-logofile").attr(
+                    "src",
+                    "https://www.sklib.cn/" +
+                      data.userInfo.logoFile +
+                      "?time=" +
+                      new Date().getTime()
+                  );
+                }
+              }
+              if (data.userInfo.address) {
+                if (typeof window.sessionStorage !== "undefined") {
+                  sessionStorage.setItem("address", data.userInfo.address);
+                }
+              }
+              userLoginStatus = true;
+              syncLocalCollects();
+              $(".member-name,.member-logofile").click(toMemberIndex);
+              document.getElementsByClassName("member-name")[0].style.cursor =
+                "pointer";
+            }
+
+            if (data.branchInfo.isBranchLogin && !data.userInfo.islogin) {
+              $(".switchUser").removeClass("hide");
+            }
+          });
+        } else {
+          console.log("{literature_4519899=false}");
+          //if(""!=="" || "" !==""){
+          //var dc = new DataCollection();
+          //    dc.add("Referer", window.location.href);
+          //    Server.sendRequest("member/logout", dc, function (response) {
+          //        if (response.logout) {
+          //			  alert("登录过期，即将退出登录跳转首页");
+          //			  window.location.href = "https://www.sklib.cn/";
+          //         }
+          //    });
+          //	return;
+          // }
+          loginRequested = true;
+          //SSO未登录时，并且自身有登录时则调一下退出
+          if (rdid) {
+            gdLogin(rdid, name, openid, nickname, headimgurl);
+          } else if (token) {
+            activityLogin(token);
+          } else if ("") {
+            setTimeout(function () {
+              window.location.href = $(".other a")[0].href;
+            }, 1000);
+          } else {
+            ipLogin();
+          }
+        }
+      },
+      complete: function (xhr, status) {
+        loginRequested = true;
+      },
+    });
+  }
+  function carsiLogin() {
+    window.location.href =
+      "/sso/service/gocarsi?url=" +
+      encodeURIComponent(AuthorizeUrl);
+  }
+  function offCampusLogin() {
+    location.href = "https://www.sklib.cn/extension-tool/external-access/";
+  }
+  function is_weixn_qq() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/QQ/i) == "qq") {
+      $(".tip_title_wrapper-qt").css("display", "none");
+      return "QQ";
+    } else {
+      $(".z_wrapper img").css("transform", "rotate(90deg)");
+      $("#showWXMaskFlag").addClass("carsiWeiXin");
+      $(".tip_title_wrapper-QQ").css("display", "none");
+    }
+    debugger;
+    return false;
+  }
+  function carsiWeiXin() {
+    is_weixn_qq();
+    $("#showWXMaskFlag").css("display", "block");
+  }
+  $("#showWXMaskFlag").click(function () {
+    $("#showWXMaskFlag").css("display", "none");
+  });
+  var authCodeTime = "";
+  var errorTimes = 0;
+  function sendSMS() {
+    var mobile = $("#Mobile").val().trim();
+    if (mobile.length == 0) {
+      alert("手机号不能为空");
+      $("#Mobile").focus();
+      return false;
+    }
+    var authCode = $("#SMSAuthCode").val().trim();
+    if (authCode.length == 0) {
+      alert("请填写图形验证码");
+      $("#SMSAuthCode").focus();
+      return false;
+    }
+    var ssoUrl = ZASUrl + "/ajax/invoke";
+    var loginParam = {};
+    var requestParam = {
+      _ZVING_DATA_FORMAT: "json",
+      _ZVING_METHOD: "sendSMS",
+    };
+    loginParam.toJString = function () {
+      var resString = "{";
+      for (var i in this) {
+        if ("toJString" != i) {
+          resString += "'" + i + "':'" + this[i] + "',";
+        }
+      }
+      resString += "}";
+      return resString;
+    };
+    var dc = new DataCollection();
+    dc.add("Mobile", mobile);
+    dc.add("AuthCode", authCode);
+    $.extend(loginParam, dc.map);
+    requestParam._ZVING_DATA = loginParam.toJString();
+    $.post(
+      ssoUrl,
+      requestParam,
+      function (response) {
+        if (response._ZVING_STATUS == 1) {
+          // 设置倒计时
+          setCount();
+        } else {
+          initAuthCode("sms");
+          $("#SMSAuthCode").focus();
+          alert(response._ZVING_MESSAGE);
+        }
+      },
+      "json"
+    );
+  }
+  var countNum = 60;
+  var $codeBtn = $(".code-btn");
+
+  function setCount() {
+    var text = "";
+    // $codeBtn.prop('disabled', true);
+    if (countNum === 0) {
+      text = "重新获取";
+      $codeBtn.text(text);
+      // $codeBtn.prop('disabled', false);
+      $codeBtn.attr("onclick", "sendSMS()");
+      $codeBtn.removeClass("disabled");
+      countNum = 60;
+      return;
+    } else {
+      countNum--;
+      text = "已发送<span class='count-num'>" + countNum + "s</span>";
+      // $codeBtn.attr('disabled', 'disabled');
+      $codeBtn.attr("onclick", "");
+      $codeBtn.addClass("disabled");
+      $codeBtn.html(text);
+    }
+    setTimeout(setCount, 1000);
+  }
+  function loginByUserName() {
+    if ($("#UserName").val().trim().length == 0) {
+      alert("用户名/邮箱/手机号不能为空");
+      $("#UserName").focus();
+      return false;
+    }
+    if ($("#Password").val().trim().length == 0) {
+      alert("密码不能为空");
+      $("#Password").focus();
+      return false;
+    }
+    if ($("#AuthCodeImg").attr("isInit") && $("#AuthCode").val().length == 0) {
+      alert("请填写图形验证码");
+      $("#AuthCode").focus();
+      return false;
+    }
+    var ssoUrl = ZASUrl + "/ajax/invoke";
+    var loginParam = {};
+    var requestParam = {
+      _ZVING_DATA_FORMAT: "json",
+      _ZVING_METHOD: "dologin",
+    };
+    loginParam.toJString = function () {
+      var resString = "{";
+      for (var i in this) {
+        if ("toJString" != i) {
+          resString += "'" + i + "':'" + this[i] + "',";
+        }
+      }
+      resString += "}";
+      return resString;
+    };
+    $.extend(loginParam, Form.getData("loginByUserName"));
+    requestParam._ZVING_DATA = loginParam.toJString();
+    $.post(
+      ssoUrl,
+      requestParam,
+      function (response) {
+        if (
+          response._ZVING_STATUS == 1 ||
+          response._ZVING_MESSAGE == "登录成功"
+        ) {
+          // 登陆成功\
+          window.location.href = AuthorizeUrl;
+          $(".dialog_close").parent().addClass("hide");
+          $(".dialogMask").addClass("hide");
+        } else {
+          //登陆失败
+          errorTimes++;
+          if (
+            errorTimes >= authCodeTime ||
+            (response.Report && response.Report.state == 31)
+          ) {
+            initAuthCode();
+          }
+          if (response.Report) {
+            var state = response.Report.state;
+            switch (state) {
+              case 30:
+              case 31: {
+                $("#AuthCode").focus();
+                break;
+              }
+              default: {
+                $("#Password").focus();
+              }
+            }
+          }
+          if (response.Report.message) {
+            alert(response.Report.message);
+          }
+        }
+      },
+      "json"
+    );
+  }
+  function loginByMobile() {
+    var mobile = $("#Mobile").val().trim();
+    if (mobile.length == 0) {
+      alert("手机号不能为空");
+      $("#Mobile").focus();
+      return false;
+    }
+    var authCode = $("#SMSAuthCode").val().trim();
+    if (authCode.length == 0) {
+      alert("请填写图形验证码");
+      $("#SMSAuthCode").focus();
+      return false;
+    }
+    var smscode = $("#SMSCode").val().trim();
+    if (authCode.length == 0) {
+      alert("请填写短信验证码");
+      $("#SMSCode").focus();
+      return false;
+    }
+    var ssoUrl = ZASUrl + "/ajax/invoke";
+    var loginParam = {};
+    var requestParam = {
+      _ZVING_DATA_FORMAT: "json",
+      _ZVING_METHOD: "dologin",
+    };
+    loginParam.toJString = function () {
+      var resString = "{";
+      for (var i in this) {
+        if ("toJString" != i) {
+          resString += "'" + i + "':'" + this[i] + "',";
+        }
+      }
+      resString += "}";
+      return resString;
+    };
+    $.extend(loginParam, Form.getData("loginByMobile"));
+    requestParam._ZVING_DATA = loginParam.toJString();
+    $.post(
+      ssoUrl,
+      requestParam,
+      function (response) {
+        if (
+          response._ZVING_STATUS == 1 ||
+          response._ZVING_MESSAGE == "登录成功"
+        ) {
+          // 登陆成功
+          window.location.href = AuthorizeUrl;
+          $(".dialog_close").parent().addClass("hide");
+          $(".dialogMask").addClass("hide");
+        } else {
+          //登陆失败
+          errorTimes++;
+          if (
+            errorTimes >= authCodeTime ||
+            (response.Report && response.Report.state == 31)
+          ) {
+            initAuthCode();
+          }
+          if (response.Report) {
+            var state = response.Report.state;
+            switch (state) {
+              case 30:
+              case 31: {
+                $("#SMSAuthCode").focus();
+                break;
+              }
+              default: {
+                $("#Mobile").focus();
+              }
+            }
+          }
+          if (response.Report.message) {
+            alert(response.Report.message);
+          }
+        }
+      },
+      "json"
+    );
+  }
+  $(".dialog_close").click(function () {
+    $(this).parent().addClass("hide");
+    $(".dialogMask").addClass("hide");
+  });
+
+  // 是否显示本馆资源
+  function libraryResourcesShow() {
+    var branchHasAllPriv = "";
+    if (branchLoginStatus && branchHasAllPriv === "false") {
+      $("#libraryResources,#libraryResources_xs").show();
+    }
+  }
+  // 同步本地收藏
+  function syncLocalCollects() {
+    var collects = getLocalStorage("local_collect");
+    if (collects.length > 0) {
+      var dc = new DataCollection();
+      dc.add("siteID", "122");
+      dc.add("collects", collects);
+      Server.sendRequest(
+        "memberOperate.memberCollect",
+        dc,
+        function (response) {
+          var loginID;
+          if (response.Status != 1) {
+            loginID = Ewin.alert(response.Message).id;
+            $("#" + loginID.toString())
+              .find(".ok")
+              .hide();
+          } else {
+            localStorage.removeItem("local_collect");
+            setTimeout(location.reload(), 500);
+          }
+        }
+      );
+    }
+  }
+</script>
+
+<!-- end登录 -->
+<!-- 找回密码 -->
+
+	<div class="dialogBg J-retrieve-dialog hide">
+		<a class="dialog_close">×</a>
+		<div class="dialogTab TAB_CLICK" id=".retrieveBox1">
+			<span class="on" id="retrieveByMobile">手机找回</span>
+			<span id="retrieveByEmail">邮箱找回</span>
+		</div>
+		<div class="retrieveBox1">
+			<form id="forgetMobileForm" method="post">
+				<input type="hidden" id="Type" name="Type" value="Mobile">
+				<div class="input-group clearfix item">
+					<span class="input-group-addon">
+						<select>
+							<option>+86</option>
+						</select>
+					</span>
+					<input type="text" class="form-control" placeholder="输入手机号" name="Address" id="Forget_Mobile">
+				</div>
+				<div class="form-group item">
+					<input type="Password" class="form-control" placeholder="请输入新密码6位或以上" id="Forget_Mobile_Password" name="Password">
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入图形验证码" id="Forget_Mobile_AuthCode" name="AuthCode">
+					<span class="input-group-addon font18"><img src="https://www.sklib.cn/sso/authCode.zhtml?_=" +math.random()="" onclick="initAuthCode('forgetMobileImage');return false;" id="forgetMobileImage"></span>
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入短信验证码" name="Code" id="Forget_SMSCode">
+					<a href="javascript:void(0);" class="input-group-addon font18 forget-mobile-code-btn" onclick="forgetSendSMS()">获取短信验证码</a>
+				</div>
+				<div class="m-b-md">
+					<button type="button" class="btn btn-primary" onclick="confirmUpdateByMobile();return false;">确认修改</button>
+				</div>
+				<p class="text-center regulations m-b-md J-loginBtn"><span style="cursor: pointer;">返回登录</span></p>
+			</form>
+		</div>
+		<div class="retrieveBox1" style="display:none;">
+			<form id="forgetEmailForm" method="post">
+				<input type="hidden" id="Type" name="Type" value="Email">
+				<div class="form-group item">
+					<input type="email" class="form-control" placeholder="输入邮箱" name="Address" id="Forget_Email">
+				</div>
+				<div class="form-group item">
+					<input type="Password" class="form-control" placeholder="输入6位或以上密码" name="Password" id="Forget_Email_Password">
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入图形验证码" id="Forget_Email_AuthCode" name="AuthCode">
+					<span class="input-group-addon font18"><img src="https://www.sklib.cn/sso/authCode.zhtml?_=" +math.random()="" onclick="initAuthCode('forgetEmailImage');return false;" id="forgetEmailImage"></span>
+				</div>
+				<div class="input-group item">
+					<input type="text" class="form-control" placeholder="输入邮箱验证码" name="Code" id="Forget_EmailCode">
+					<a href="#" class="input-group-addon font18 forget-email-code-btn" onclick="forgetSendEmail()">获取邮箱验证码</a>
+				</div>
+				
+				<div class="m-b-md">
+					<button type="button" class="btn btn-primary" onclick="confirmUpdateByEmail();return false;">确认修改</button>
+				</div>
+				<p class="text-center regulations m-b-md J-loginBtn"><span style="cursor: pointer;">返回登录</span></p>
+			</form>
+		</div>
+	</div>
+	<script>
+	function forgetSendSMS(){
+		var mobile = $("#Forget_Mobile").val().trim()
+		if (mobile.length==0) {
+			 alert("手机号不能为空")
+			 $('#Forget_Mobile').focus()
+			 return false;
+		}
+		var password =$("#Forget_Mobile_Password").val().trim()
+		if (password.length==0) {
+			 alert("请输入密码")
+			 $('#Forget_Mobile_Password').focus()
+			 return false;
+		}
+		var authCode = $("#Forget_Mobile_AuthCode").val().trim()
+		if (authCode.length==0) {
+			 alert("请填写图形验证码")
+			 $('#Forget_Mobile_AuthCode').focus()
+			 return false;
+		}
+		$.ajax({
+			 url:ZASUrl+"/regValidate",
+			 type: "get",
+			 contentType:"json",
+			 async: true,
+			 data:{
+				 "Type":"Mobile", 
+				 "Value":mobile
+			 },
+			 success:function(error){
+				 if ( error == 'exists' || error =='exists_self') {
+						var ssoUrl=ZASUrl+"/ajax/invoke";
+						var loginParam={};
+						var requestParam = {
+							_ZVING_DATA_FORMAT : "json",
+							_ZVING_METHOD : "sendSMS"
+						}
+						loginParam.toJString = function(){
+							var resString = "{";
+							for(var i in this){
+								if("toJString"!=i){
+									resString += "'"+i + "':'" + this[i]+"',";
+								}
+								
+							}
+							resString += "}";
+							return resString;
+						}
+						var dc = new DataCollection();
+						dc.add("Mobile",mobile);
+						dc.add("AuthCode",authCode)
+						$.extend(loginParam,dc.map);
+						requestParam._ZVING_DATA = loginParam.toJString();
+						$.post(ssoUrl,requestParam,function(response){
+							if (response._ZVING_STATUS == 1) {
+								// 设置倒计时
+				 				setForgetMobileCount();
+							} else {
+								initAuthCode('forgetMobileImage')
+								$('#Forget_Mobile_AuthCode').focus()
+								alert(response._ZVING_MESSAGE)
+							}
+						},"json")
+					} else {
+						alert("您找回的手机号不存在")
+					}
+			 },
+			 error:function(error){
+				if ( error.responseText == 'exists' || error.responseText =='exists_self') {
+					var ssoUrl=ZASUrl+"/ajax/invoke";
+					var loginParam={};
+					var requestParam = {
+						_ZVING_DATA_FORMAT : "json",
+						_ZVING_METHOD : "sendSMS"
+					}
+					loginParam.toJString = function(){
+						var resString = "{";
+						for(var i in this){
+							if("toJString"!=i){
+								resString += "'"+i + "':'" + this[i]+"',";
+							}
+							
+						}
+						resString += "}";
+						return resString;
+					}
+					var dc = new DataCollection();
+					dc.add("Mobile",mobile);
+					dc.add("AuthCode",authCode)
+					$.extend(loginParam,dc.map);
+					requestParam._ZVING_DATA = loginParam.toJString();
+					$.post(ssoUrl,requestParam,function(response){
+						if (response._ZVING_STATUS == 1) {
+							// 设置倒计时
+			 				setForgetMobileCount();
+						} else {
+							initAuthCode('forgetMobileImage')
+							$('#Forget_Mobile_AuthCode').focus()
+							alert(response._ZVING_MESSAGE)
+						}
+					},"json")
+				} else {
+					alert("您找回的手机号不存在")
+				}
+			 }
+		})
+	}
+	function forgetSendEmail(){
+		if($('#Forget_Email').val().trim().length==0){
+		    alert("邮箱不能为空")
+		    $('#Forget_Email').focus()
+			return false;
+		}
+		if($('#Forget_Email_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Forget_Email_AuthCode').focus()
+			return false;
+		}
+		$.ajax({
+			 url:ZASUrl+"/regValidate",
+			 type: "get",
+			 contentType:"json",
+			 async: true,
+			 data:{
+				 "Type":"Email", 
+				 "Value":$('#Forget_Email').val().trim()
+			 },
+			 error:function(error){
+				if ( error.responseText == 'exists' || error.responseText =='exists_self') {
+					var ssoUrl=ZASUrl+"/ajax/invoke";
+					var loginParam={};
+					var requestParam = {
+						_ZVING_DATA_FORMAT : "json",
+						_ZVING_METHOD : "sendEmail"
+					}
+					loginParam.toJString = function(){
+						var resString = "{";
+						for(var i in this){
+							if("toJString"!=i){
+								resString += "'"+i + "':'" + this[i]+"',";
+							}
+							
+						}
+						resString += "}";
+						return resString;
+					}
+					var dc = new DataCollection();
+					dc.add("Email",$('#Forget_Email').val());
+					dc.add("AuthCode",$('#Forget_Email_AuthCode').val())
+					$.extend(loginParam,dc.map);
+					requestParam._ZVING_DATA = loginParam.toJString();
+					$.post(ssoUrl,requestParam,function(response){
+						if (response._ZVING_STATUS == 1) {
+							// 设置倒计时
+			 				setForgetEmailCount();
+						} else {
+							initAuthCode('forgetEmailImage')
+							$('#Forget_Email_AuthCode').focus()
+							alert(response._ZVING_MESSAGE)
+						}
+					},"json")
+				} else {
+					alert("您找回的邮箱不存在")
+				}
+			 }
+		})
+	}
+	var forgetMobileCountNum = 60;
+	var forgetEmailCountNum = 60;
+	function setForgetMobileCount() {
+		var text = "";
+		if (forgetMobileCountNum === 0) {
+			text = "重新获取";
+			$(".forget-mobile-code-btn").text(text);
+			$(".forget-mobile-code-btn").attr('onclick', 'forgetSendSMS()');
+			$(".forget-mobile-code-btn").removeClass('disabled')
+			forgetMobileCountNum = 60;
+			return;
+		} else {
+			forgetMobileCountNum--;
+			text = "已发送<span class='count-num'>" + forgetMobileCountNum + "s</span>";
+			$(".forget-mobile-code-btn").attr('onclick', '');
+			$(".forget-mobile-code-btn").addClass('disabled')
+			$(".forget-mobile-code-btn").html(text);
+		}
+		setTimeout(setForgetMobileCount, 1000);
+	}
+	function setForgetEmailCount() {
+		var text = "";
+		if (forgetEmailCountNum === 0) {
+			text = "重新获取";
+			$(".forget-email-code-btn").text(text);
+			$(".forget-email-code-btn").attr('onclick', 'forgetSendEmail()');
+			$(".forget-email-code-btn").removeClass('disabled')
+			forgetEmailCountNum = 60;
+			return;
+		} else {
+			forgetEmailCountNum--;
+			text = "已发送<span class='count-num'>" + forgetEmailCountNum + "s</span>";
+			$(".forget-email-code-btn").attr('onclick', '');
+			$(".forget-email-code-btn").addClass('disabled')
+			$(".forget-email-code-btn").html(text);
+		}
+		setTimeout(setForgetEmailCount, 1000);
+	}
+	function confirmUpdateByMobile(){
+		if($('#Forget_Mobile').val().trim().length==0){
+		    alert("手机号不能为空")
+		    $('#Forget_Mobile').focus()
+			return false;
+		}
+		if($('#Forget_Mobile_Password').val().trim().length==0){
+		    alert("密码不能为空")
+		    $('#Forget_Mobile_Password').focus()
+			return false;
+		}
+		if($('#Forget_Mobile_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Forget_Mobile_AuthCode').focus()
+			return false;
+		}
+		if($('#Forget_SMSCode').val().trim().length==0){
+		    alert("请填写短信验证码")
+		    $('#Forget_SMSCode').focus()
+			return false;
+		}
+		var ssoUrl=ZASUrl+"/ajax/invoke";
+		var loginParam={};
+		var requestParam = {
+			_ZVING_DATA_FORMAT : "json",
+			_ZVING_METHOD : "findpwd/newreset"
+		}
+		loginParam.toJString = function(){
+			var resString = "{";
+			for(var i in this){
+				if("toJString"!=i){
+					resString += "'"+i + "':'" + this[i]+"',";
+				}
+				
+			}
+			resString += "}";
+			return resString;
+		}
+		$.extend(loginParam,Form.getData("forgetMobileForm"));
+		requestParam._ZVING_DATA = loginParam.toJString();
+		$.post(ssoUrl,requestParam,function(response){
+			if(response._ZVING_STATUS == 1){
+				alert(response._ZVING_MESSAGE)
+				$('.dialog_close').parent().addClass('hide')
+				$('.dialogMask').addClass('hide')
+			} else {
+				alert(response._ZVING_MESSAGE)
+			}
+		})
+	}
+	function confirmUpdateByEmail(){
+		if($('#Forget_Email').val().trim().length==0){
+		    alert("手机号不能为空")
+		    $('#Forget_Email').focus()
+			return false;
+		}
+		if($('#Forget_Email_Password').val().trim().length==0){
+		    alert("密码不能为空")
+		    $('#Forget_Email_Password').focus()
+			return false;
+		}
+		if($('#Forget_Email_AuthCode').val().trim().length==0){
+		    alert("请填写图形验证码")
+		    $('#Forget_Email_AuthCode').focus()
+			return false;
+		}
+		if($('#Forget_EmailCode').val().trim().length==0){
+		    alert("请填写短信验证码")
+		    $('#Forget_EmailCode').focus()
+			return false;
+		}
+		var ssoUrl=ZASUrl+"/ajax/invoke";
+		var loginParam={};
+		var requestParam = {
+			_ZVING_DATA_FORMAT : "json",
+			_ZVING_METHOD : "findpwd/newreset"
+		}
+		loginParam.toJString = function(){
+			var resString = "{";
+			for(var i in this){
+				if("toJString"!=i){
+					resString += "'"+i + "':'" + this[i]+"',";
+				}
+				
+			}
+			resString += "}";
+			return resString;
+		}
+		$.extend(loginParam,Form.getData("forgetEmailForm"));
+		requestParam._ZVING_DATA = loginParam.toJString();
+		$.post(ssoUrl,requestParam,function(response){
+			if(response._ZVING_STATUS == 1){
+				alert(response._ZVING_MESSAGE)
+				$('.dialog_close').parent().addClass('hide')
+				$('.dialogMask').addClass('hide')
+			} else {
+				alert(response._ZVING_MESSAGE)
+			}
+		})
+	}
+	</script>
+<!-- end找回密码 -->
+<script type="text/javascript" src="https://www.sklib.cn/v3/js/v3_site_new.js?3.2"></script>
+<script type="text/javascript" src="https://www.sklib.cn/js/jqcloud-steer-1.0.4.js"></script>
+
+<script type="text/javascript" src="https://www.sklib.cn/v3/js/bootstrap.min.js"></script>
+<script>
+var timeoutId;
+    $(function () {
+        $('#queryText').bind('keyup', processKeyup);
+        $('#queryText').focus(function () {
+            $(".promptBox_pc").removeClass("hide")
+        });
+        $('#queryText').blur(function () {
+            setTimeout(function () {
+                $(".promptBox_pc").addClass("hide")
+            }, 200)
+        });
+
+        function processKeyup(event) {
+            var myEvent = event || windows.event;
+            var keyCode = myEvent.keyCode;
+            if (keyCode > 40 || keyCode == 8 || keyCode == 32) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(recommendWord, 10);
+                //处理上下键(up,down)
+            } else if (keyCode == 13) {
+            	jumpSearchPage();
+            }
+        }
+
+        function recommendWord() {
+            var q = $("#queryText").val();
+            var field = $("#field").val();
+            var dc = new DataCollection();
+            dc.add("q", q);
+            dc.add("field", field);
+            Server.sendRequest("search/getRecommendWord", dc, function (response) {
+                $("#word_div").html("")
+                if (response) {
+                    $(".promptBox_pc").removeClass("hide")
+                    for (var i = 0; i < response.length; i++) {
+                        var word_div = $("<li><span>" + response[i] + "</span></li>");
+                        word_div.click(getAutoText);
+                        word_div.hover(fnOver, fnOut);
+                        $("#word_div").append(word_div)
+                    }
+                }
+            });
+        }
+
+        function fnOver() {
+            $(this).css('background', ' #eee');
+        }
+
+        function fnOut() {
+            $(this).css('background', 'none');
+        }
+
+        function getAutoText() {
+            var ws = $(this).children();
+            $('#queryText').val(ws.html());
+            $('#auto_div').addClass("hide")
+            jumpSearchPage();
+        }
+    })
+
+    //纠错
+    function ideaFeedback() {
+        if (!userLoginStatus) {
+        	persionLogin();
+    		return false
+        }
+        location.href = "https://www.sklib.cn/booklib/catalogList?SiteID=122&parentAlias=gywm&childAlias=gywm_yhjy&BookID="
+        /*     $("#idea_feedback_resourceType").val("book");
+            $("#idea_feedback_directoryID").val("");
+            $("#idea_feedback_bookID").val("");
+            $('.idea_feedback_box').removeClass("hide")
+            $('.dialogMask').removeClass('hide') */
+    }
+
+    function recommendBuy(bookId="") {
+        if (!userLoginStatus) {
+        	persionLogin();
+    		return false
+        }
+        if (isformal) {
+            Ewin.alert("您所在的" + userBranchName + "已经购买本数据库，无需荐购！");
+            return false
+        }
+        location.href = AppURL + "NewRecommendBuy/list?SiteID=122"+ (bookId ? "&ID=" + bookId : "")
+    }
+</script>
+
+	    
+<link href="/public/libs/layui/2.8.17/css/layui.min.css" rel="stylesheet">
+<script src="/public/libs/layui/2.8.17/layui.min.js"></script>
+<style>
+	#exportCtn {
+		resize: none;
+		width: 100%;
+		height: 200px;
+		overflow-y: auto;
+	}
+	.citation .content {
+		width: 65%;
+	}
+	.citation .content .c-body .item {
+		font-size: 14px;
+	}
+	.citation .content .c-body .item .left{
+		width: 180px;
+	}
+	.citation .content .c-body .item .right{
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	.citation .content .c-body .item .cp-yin{
+		width: 56px;
+		text-align: center;
+	}
+</style>
+<!-- 引文 -->
+<div class="citation  hide">
+	<div class="back"></div>
+	<div class="content">
+		<div class="top">
+			<h3>引文</h3>
+			<span class="close-citation">×</span>
+		</div>
+		<div class="c-body p-b-md">
+			<div class="item">
+				<div class="left  m-r-sm">GB/T 7714-2015 格式引文</div>
+				<div class="right">
+					<div>高桂云,郭琦.生命与社会：生命技术的伦理和法律视角[M].北京：中国社会科学出版社,2009</div>
+					<span class="cp-yin" onclick="copyResourcetext('高桂云,郭琦.生命与社会：生命技术的伦理和法律视角[M].北京：中国社会科学出版社,2009')">复制</span> </div>
+			</div>
+			<div class="item hide" id="mlaTag">
+				<div class="left  m-r-sm">MLA 格式引文</div>
+				<div class="right">
+					<div></div>
+					<span class="cp-yin" onclick="copyResourcetext('')">复制</span></div>
+			</div>
+			<div class="item hide" id="apaTag">
+				<div class="left m-r-sm">APA 格式引文</div>
+				<div class="right">
+					<div></div>
+					<span class="cp-yin" onclick="copyResourcetext('')">复制</span></div>
+			</div>
+			<input type="hidden" id="QuotationResourceID" value="4519908">
+			<input type="hidden" id="QuotationResourceType" value="literature">
+		</div>
+	</div>
+</div>
+<!-- <script type="text/javascript" src="${Site.Url}js/jquery-3.1.1.min.js?3.0"></script> -->
+<script>
+	function copy() {
+		var Url2=document.getElementById("exportCtn");
+		Url2.select(); // 选择对象
+		document.execCommand("Copy"); // 执行浏览器复制命令
+		Ewin.alert("已复制到剪切板");
+	}
+	$(document).ready(function () {
+		$("#exportCtn").on({
+			copy: function () {
+				//添加记录
+				exportLog();
+			}
+		});
+		if (''=='literature' || ''=='paper' || "literature"=='paper' || "literature" == 'literature'){
+			hideInfo()
+		}
+
+	});
+    // 复制资源链接
+    function copyResourcetext(str) {
+		text =str.replace(/<[^>]+>/g,"");
+        // 创建input元素
+        const el = document.createElement('input')
+		$(el).css('user-select','text')
+        // 给input元素赋值需要复制的文本
+        el.setAttribute('value', text)
+        // 将input元素插入页面
+        document.body.appendChild(el)
+        // 选中input元素的文本
+        el.select()
+		console.log(text);
+        // 复制内容到剪贴板
+        document.execCommand('copy')
+        // 删除input元素
+        document.body.removeChild(el)
+        layui.use(function(){
+         var layer = layui.layer;
+		 layer.msg("复制成功",{ time: 1000, offset: "100px"});
+       });
+    }
+	// 引用打开
+	function citationOpen(){
+		$('.citation').addClass('show')
+		document.documentElement.style.overflowY = 'hidden'
+		//添加记录
+  		exportLog();
+	}
+	// 引用关闭
+	$('.close-citation').click(function() {
+		$('.citation').removeClass('show')
+		document.documentElement.style.overflowY = 'auto'
+	})
+
+	function exportLog() {
+		var dc = new Object();
+        dc.SiteID = "122"
+        dc.ResourceID = $("#QuotationResourceID").val()
+        dc.ResourceType =  $("#QuotationResourceType").val()
+        $.get("QuoteBrowse/add",dc,function(response){
+
+		});
+	}
+
+	// 隐藏引文
+	function hideInfo() {
+		$('#mlaTag').addClass('hide')
+		$('#apaTag').addClass('hide')
+	}
+</script>
+	    
+<style>
+	.feedback_right {
+	    width: 70%;
+	    border: solid 1px #e1e4e8;
+	    border-radius: 6px;
+	    height: 40px;
+	    line-height: 20px;
+	    padding: 12px 25px;
+	}
+	#feedback_description {
+	    background: #f9f9f9;
+	    width: 100%;
+	    padding: 6px 12px;
+	}
+	.view {
+	    padding: 0;
+	    word-wrap: break-word;
+	    cursor: text;
+	    height: 90%;
+	}
+	.feedback_error {
+		display: none;
+		margin-bottom: 20px;
+		color: #ff9c3b;
+	}
+	.unvalid .feedback_error{
+		display: block;
+	}
+	.spde_feedback_box{width: 1000px;left: 34%;max-height: 600px;top:16%}
+	@media (min-width: 992px){
+		.spde_feedback_box .paddingR {
+		    padding-right: 30px;
+		}
+		.spde_feedback_box .paddingL {
+		    padding-left: 30px;
+		}
+	}
+</style>
+<div class="dialogBg hide spde_feedback_box">
+		<a class="dialog_close">×</a>
+		<div class="loginMethod">
+			<div class="dialogTab TAB_CLICK">
+				<span class="on">错误反馈</span>
+			</div>
+			<div class="loginBox">
+				<form id="errorRecovery" action="#">
+					<input type="hidden" id="feedback_bookID">
+					<input type="hidden" id="feedback_directoryID">
+					<input type="hidden" id="feedback_resourceType">
+					<div class="col-md-12 feedback_title">
+						<div class="form-group item">
+							<input type="text" class="form-control" value="" placeholder="请输入标题" name="Title" id="feedback_title">
+						</div>
+						<div class="feedback_error">* 请填写标题</div>
+					</div>
+					<div class="col-md-6 paddingR feedback_email">
+						<div class="form-group item">
+							<input type="text" class="form-control" placeholder="请输入正确邮箱以便接收您的反馈" id="feedback_email">
+						</div>
+						<div class="feedback_error">* 请填写正确的邮箱</div>
+					</div>
+					<div class="col-md-6 paddingL feedback_mobile">
+						<div class="form-group item">
+							<input type="text" class="form-control" placeholder="请输入正确手机号以便接收您的反馈" id="feedback_mobile">
+						</div>
+						<div class="feedback_error">* 请填写正确的手机号</div>
+					</div>
+					<div class="col-md-12 feedback_description">
+						<div class="form-group">
+							<textarea class="form-control" name="" id="feedback_description" cols="60" rows="5" placeholder="请详细描述" maxlength="500"></textarea>
+						</div>
+						<div class="feedback_error">* 请对问题进行详细描述</div>
+					</div>
+					<div class="col-md-12 m-b-md">
+						<button type="button" class="btn btn-primary feedback_submit">提交</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+	
+	//纠错
+	  $('.feedback_submit').click(function() {
+	    var unvalid = false
+	    if(!$.trim($('#feedback_title').val())) {
+	   		$('.feedback_title').addClass('unvalid')
+	      unvalid = true 
+	    }else{
+	    	$('.feedback_title').removeClass('unvalid')
+	    }
+	    if(!$.trim($('#feedback_description').val())) {
+	    	$('.feedback_description').addClass('unvalid')
+	      unvalid = true 
+	    }else{
+	    	$('.feedback_description').removeClass('unvalid')
+	    }
+	    if($('#feedback_email').val() != '' 
+	      && 
+	      !/^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-zA-Z]{2,}$/.test($('#feedback_email').val()) 
+	    ) {
+	    	$('.feedback_email').addClass('unvalid')
+	     unvalid = true  
+	    }else{
+	    	$('.feedback_email').removeClass('unvalid')
+	    }
+	    if(!/^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/
+	      .test($('#feedback_mobile').val()) 
+	      && 
+	      $('#feedback_mobile').val() != ''
+	    ) {
+	    	$('.feedback_mobile').addClass('unvalid')
+	      unvalid = true  
+	    } else{
+	    	$('.feedback_mobile').removeClass('unvalid')
+	    }
+	    if(unvalid) {
+	      Ewin.alert("还有没有填写正确的信息，参照提示填写完毕~");
+	      return
+	    }
+	    $.ajax({
+	      type: 'get',
+	      url: frontAppContext + 'ErrorCorrection/CommitError',
+	      data: {
+	    	SiteID: "122",
+	    	BookID: $("#feedback_bookID").val(),
+	    	DirectoryId: $("#feedback_directoryID").val(),
+	    	ResourceType: $("#feedback_resourceType").val(),
+	    	ReleaseStatus: 'Y',
+	    	Title: $('#feedback_title').val(),
+	    	ErrorDescribe: $('#feedback_description').val(),
+	      	Type: '2',
+	        Email: $('#feedback_email').val(),
+	        Phone: $('#feedback_mobile').val()
+	      },
+	      success: function (data) {
+	    	data = JSON.parse(data);
+	    	Ewin.alert(data.Message);
+	        $('.spde_feedback_box').addClass('hide')
+	        $('#feedback_title, #feedback_description, #feedback_email, #feedback_description').val('')
+	        $('.dialogMask').addClass('hide')
+	      },
+	      error: function (err) {
+	        Ewin.alert("提交失败");
+	        console.log('查询失败' + err)
+	      }
+	    })
+	  })
+	  
+	  $('.dialog_close').click(function(){
+		    $(this).parent().addClass('hide')
+		    $('.dialogMask').addClass('hide')
+		    $('#feedback_title, #feedback_description, #feedback_email, #feedback_description').val('')
+		})
+</script>
+
+	    <script src="https://www.sklib.cn/v3/js/v3_site_new.js"></script>
+	    <script>
+	        //纠错
+	        function error(ele) {
+	            if (''=='') {
+	                persionLogin();
+	                return false;
+	            }
+	            $("#feedback_resourceType").val("literature");
+	            $("#feedback_directoryID").val("4519899");
+	            $("#feedback_bookID").val("4519093");
+	            $("#feedback_title").val("《变性手术概述》易性癖");
+	            $('.spde_feedback_box').removeClass("hide")
+	            $('.dialogMask').removeClass('hide')
+	        }
+	    </script>
+	    
+<script src="https://www.sklib.cn/booklib/stat/front/stat.js" type="text/javascript"></script>
+<script>
+if(window._zcms_stat)_zcms_stat("SiteID=122&Dest=https://www.sklib.cn/booklib/stat/dealer");
+</script>
+
+<!-- App=SBOOKLIB(中国社会科学出版社资源管理平台) 2.4.26582,CostTime=68,PublishDate=2025-01-22 00:31:10 -->
+
+</body></html>

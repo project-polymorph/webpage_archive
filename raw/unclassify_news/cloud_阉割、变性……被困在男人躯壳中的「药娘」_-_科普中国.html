@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="”X-UA-Compatible”" content="”IE=Edge”">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>图文详情</title>
+    <meta name="Keywords" content="科普">
+    <meta name="Description" content="科普中国资源服务">
+    <link rel="stylesheet" href="https://cloud.kepuchina.cn/vendors/styles/search.css">
+    <link rel="stylesheet" href="https://cloud.kepuchina.cn/assets/styles/download-dialog.css">
+    <style>
+        .iconshoucang-hover:before{
+            content: "\e840" !important;
+        }
+       .video-download .active .iconshoucang-hover:before{
+            content: "\e845" !important;
+        }
+        .video-download .active{
+            color: #FFC700;
+        }
+        .breadcrumb-nav{
+            padding-top: 40px;
+        }
+        .breadcrumb-nav a, .breadcrumb-nav span {
+            color: #000000;
+            font-size: 16px;
+            font-weight: 400;
+            vertical-align: middle;
+        }
+        .copyright{
+            font-size: 16px;
+            font-weight: 400;
+            color: #999999;
+            line-height: 22px;
+            padding-bottom:0 ;
+            margin-top: 0 !important;
+        }
+        ._title {
+            font-size: 38px;
+            font-weight: 500;
+            color: #333333;
+            line-height: 57px;
+            margin-bottom: 24px;
+        }
+        .mb-28{
+            margin-bottom: 28px;
+        }
+        ._time {
+            font-size: 14px;
+            font-weight: 400;
+            color: #999999;
+            line-height: 21px;
+        }
+        .ml-24{
+            margin-left: 24px;
+        }
+        .line-16 { 
+            font-size: 16px;
+            font-weight: 400;
+            color: #333333;
+            line-height: 24px;
+        }
+        .line-14{
+            font-size: 14px;
+            font-weight: 400;
+            color: #333333;
+        }
+        .snapshot{
+            margin: 16px 0 28px;
+            background: #EFF5FF;
+            border-radius: 0px 16px 16px 16px;
+            padding: 18px 24px;
+            font-size: 16px;
+            line-height: 27px;
+        }
+        .col-024{
+            color: #024AC2;
+        }
+        .tips_title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #024AC2;
+            margin: 16px 0 10px 0;
+        }
+       .list-box .content-box {
+            font-size: 22px;
+            font-weight: 400;
+            color: #333333;
+            line-height: 44px
+        }
+        .list-box {
+            background-color: #fff;
+        }
+        audio {
+            width: 100%;
+            display: block;
+        }
+        video{
+            max-width: 100%;
+        }
+        .add-other-info{
+            font-size: 22px;
+            font-weight: 400;
+            color: #999999;
+            line-height: 37px;
+        }
+        .layui-layer-hui {
+            border-radius: 12px !important;
+        }
+        .layui-layer-content {
+            padding: 0 !important;
+        }
+    </style>
+<link rel="stylesheet" href="https://static.kepuchina.cn/lib/plugin/layer/theme/default/layer.css?v=3.1.1" id="layuicss-layer"><link rel="stylesheet" href="https://static.kepuchina.cn/lib/plugin/laydate/theme/default/laydate.css?v=5.0.9" id="layuicss-laydate"><style data-styled="" data-styled-version="4.4.1"></style></head>
+<body class="list-box">
+<link rel="stylesheet" href="https://cloud.kepuchina.cn/vendors/styles/font/iconfont.css">
+<link rel="stylesheet" href="https://cloud.kepuchina.cn/vendors/styles/common.css">
+<link rel="stylesheet" href="https://cloud.kepuchina.cn/vendors/styles/header.css">
+<link rel="stylesheet" href="https://cloud.kepuchina.cn/vendors/styles/footer.css">
+<link rel="stylesheet" href="https://cloud.kepuchina.cn/assets/styles/download-dialog.css">
+<script src="https://hm.baidu.com/hm.js?161b5a7e0ce784af73bc6eba919efce8"></script><script async="" charset="UTF-8" src="//static.meiqia.com/dist/meiqia.js?_=t"></script><script type="text/javascript">
+    var KEPU_SSO_DATA = '';
+    var KEPU_SSO_DOMAIN = "https://nsso.kepuchina.cn";
+    document.write(unescape("%3Cscript src='" + KEPU_SSO_DOMAIN + "/sso/js' type='text/javascript'%3E%3C/script%3E"));
+
+    var isMobile = /iPad|iPhone|Android|Windows Phone|Nokia/.test(
+        navigator.userAgent
+    );
+    if (isMobile) {
+        var path = "";
+        switch (location.pathname.toLowerCase()) {
+            case "/newsearch/imagetext":
+                // 图文列表
+                path = "/h5/imgTextList?type=6"
+                break;
+            case "/newsearch/imglist":
+                // 图片列表
+                path = "/h5/imageList?type=5"
+                break;
+            case "/newsearch/videolist":
+                // 视频列表
+                path = "/h5/videoList?type=2"
+                break;
+            case "/newsearch/walllist":
+                // 挂图列表
+                path = "/h5/wallList?type=3"
+                break;
+            case "/newsearch/audio":
+                // 音频列表
+                path = "/h5/audioList?type=4"
+                break;
+            case "/newsearch/mixcollection":
+                // 专题混合
+                path = "/h5/mixcollection" + location.search;
+                break;
+            case "/newsearch/empty":
+                // 空数据页面
+                path = "/h5/empty" + location.search;
+                break;
+            case "/newsearch/ebookdetail":
+                // 电子书详情页
+                path = "/h5/eBookDetail" + location.search;
+                break;
+            case "/newsearch/ebooklist":
+                // 电子书列表
+                path = "/h5/ebooklist" + location.search;
+                break;
+            case "/newsearch/albumList":
+                // 资源包列表
+                path = "/h5/albumList" + location.search;
+                break;
+            case "/newsearch/imgtext":
+            // 图文详情
+            case "/newsearch/videodetail":
+            // 视频详情
+            case "/newsearch/audiodetail":
+            // 音频详情
+            case "/newsearch/walldetail":
+                // 挂图详情
+                var idParam = location.search.match(/id=(\w+)/);
+                var id = idParam && idParam.length > 1 ? idParam[1] : "";
+                path = "/h5/detail?id=" + id;
+                break;
+            default:
+                path = "/h5";
+                break;
+        }
+        location.href = location.origin + path;
+    }
+</script><script src="https://nsso.kepuchina.cn/sso/js" type="text/javascript"></script><div class="wrapper">
+    <style>
+    .search-history-list-header{
+        width: 200px;
+        position: absolute;
+        top: 38px;
+        left: 0;
+        right: 65px;
+        z-index: 999;
+        display: none;
+        background: #FDFDFD;
+        box-shadow: 0px 3px 4px 0px rgb(0 0 0 / 2%);
+        border-radius: 2px;
+        border: 1px solid #EDEDED;
+        /* height: 200px;
+        overflow: auto; */
+    }
+
+    .search-history-item-header{
+        margin: 14px 8px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #333333;
+        line-height: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        text-align: left;
+        position: relative;
+        padding-right: 30px;
+    }
+    .search-history-item-header:hover{   
+        color: #4f81f7;
+    }
+    .search-history-title-header{
+        font-weight: 400;     
+        color: #000;
+        line-height: 20px;
+        font-size: 14px;
+        margin: 10px 8px 0 8px;
+        display: inline-block;
+    }
+    ._historyClear-header{
+        float: right;
+        margin: 12px 8px 0 8px;
+        cursor: pointer;
+    }
+    .search-history-close-header{
+        float: right;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        background: url("https://cloud.kepuchina.cn/assets/images/close_3.png") no-repeat;
+        background-size: 16px 16px;
+        position: absolute;
+        right: 0;
+        top: 2px;
+    }
+</style>
+<section class="header">
+    <div class="w">
+        <a class="logo fl" target="_blank" href="https://kepuchina.cn">
+            <img src="https://cloud.kepuchina.cn/vendors/images/logo.jpg" alt="科普中国资源服务">
+        </a>
+            <div class="search-box-header fl">
+                <div class="search-type-header fl">
+                <p class="_searchType type-content"><span>图文</span></p>
+                <ul class="type-lists-content hide type-lists">
+                    <li data-href="/newSearch/resall" data-type="2" class="_listTypehref">全部</li>
+                    <li data-href="/newSearch/videoList" data-type="2" class="_listTypehref">视频</li>
+                    <li data-href="/newSearch/imageText" data-type="0" class="_listTypehref">图文</li>
+                    <li data-href="/newSearch/imglist" data-type="1" class="_listTypehref" style="display: none;">图片</li>
+                    <li data-href="/newSearch/walllist" data-type="7" class="_listTypehref">挂图</li>
+                    <li data-href="/newSearch/audio" data-type="5" class="_listTypehref">音频</li>
+                    <li data-href="/newSearch/ebooklist" data-type="8" class="_listTypehref">电子书</li>
+                    <li data-href="/newSearch/activitylist" data-type="10" class="_listTypehref">活动</li>
+                    <li data-href="/newSearch/organization" data-type="-1" class="_listTypehref">科普号</li>
+                    <!-- <li data-href="/newSearch/rumor" data-type="9"  class="_listTypehref">辟谣</li> -->
+                </ul>
+            </div>
+            <div class="fl box_col_f5" style="position: relative;">
+                <input type="text" class="search-input-header _sKey-header" placeholder="搜索您喜欢的科普资源..." value="">
+                <div data-href="/newSearch/imageText" class="_searchBtn-header search_icon" style="cursor: pointer;">
+                    <img src="/assets/images/seaech-new.png" alt="" style="width: 14px;height:14px">
+                </div>
+                <ul class="search-suggest-list-header"></ul>
+                <ul class="search-history-list-header"></ul>
+            </div>
+        </div>
+        <ul class="top-nav fr">
+            <li class="menu-item">
+                                <div class="menu-register" style="display:none;">
+                                            
+                    <a class="kph-register" href="https://www.kepuchina.cn/more/202204/t20220425_3131369.shtml" target="_blank"></a>
+                                                            <div class="menu-register-list_wrap">
+                                            <div class="menu-register-list" style="width: 143px !important;">
+                                                        <div class="menu-register-list-item">
+                                <a href="/account/register">普通用户</a>
+                            </div> 
+                                                                                    <div class="menu-register-list-item">
+                              <a href="javascript:void(0)" id="kepuyvan">科普员</a>
+                            </div>
+                                                                                    <div class="menu-register-list-item">
+                                                              
+                                <a href="/account/login">科普号</a>
+                                                          </div>
+                                                                                    <div class="menu-register-list-item">
+                                <a href="https://area.kepuchina.cn">管理员</a>
+                            </div>
+                                                    </div>
+                    </div>
+                </div>
+                <!-- <div class="menu-feedback">
+                    <a target="_blank" href="http://diaocha.kepuchina.cn/s/z6JjQbA/">“科普中国服务云”平台改版反馈调查</a>
+                </div> -->
+                                <div class="menu-login">
+                    <a href="https://cloud.kepuchina.cn/account/login?service=https://cloud.kepuchina.cn/ucenter/index">登录</a>
+                </div>
+                            </li>
+            <li class="menu-item _qrCode">
+                <a href="#"> <i class="icon iconfont iconweixin1"></i></a>
+                <div class="qr-code-box hide">
+                    <img src="https://cloud.kepuchina.cn/vendors/images/qr-wechat.jpg" alt="微信二维码">
+                    科普中国公众号
+                </div>
+            </li>
+            <li class="menu-item _qrCode">
+                <a href="#"><i class="icon iconfont iconweibo1"></i></a>
+                <div class="qr-code-box hide">
+                    <img src="https://cloud.kepuchina.cn/vendors/images/qr-weibo.jpg" alt="微信二维码">
+                    科普中国微博
+                </div>
+            </li>
+            <li class="menu-item">
+                <a href="https://cloud.kepuchina.cn/down/index"><img src="/assets/images/app-od.png" alt="下载app" style="width: 75px;height:20px;vertical-align: top;margin-top: 10px;"></a>
+            </li>
+            <li class="menu-item">
+                <a href="/help/index"><img src="/assets/images/wenhao.png" style="width: 20px;height: 20px; vertical-align: top;margin-top: 11px;" alt="帮助中心">&nbsp;帮助</a>
+            </li>
+            <li class="menu-item">
+                <a class="service-box" href="javascript:void(0)" onclick="_MEIQIA('init');_MEIQIA('showPanel')">
+                    <i class="icon iconfont iconkefu"></i>&nbsp;客服中心
+                </a>
+            </li>
+        </ul>
+    </div>
+    <input type="hidden" id="hid" value="https://nsso.kepuchina.cn/sso/logout">
+    <input type="hidden" id="hides" value="https://cloud.kepuchina.cn/account/login?service=https://cloud.kepuchina.cn/ucenter/index">
+    <input type="hidden" id="control" value="res,ucenter,mechanism,search,kepuhao,newsearch,site,user,comactivity,guard">
+    <input type="hidden" id="index" value="https://cloud.kepuchina.cn">
+    <input type="hidden" id="login" value="2">
+</section>
+<div style="height: 80px;"></div>
+<script src="//static.kepuchina.cn/lib/jquery-1.12.4.min.js"></script>
+<script>
+$(function(){
+    var _navBar = {
+        letListShow: function(){
+            var $list = $('.type-lists');
+            $list.is(':hidden')? $list.show():$list.hide();
+        },
+        listTypeHref: function(e){
+            e.preventDefault();
+            var  url = $(this).attr('data-href');
+            var  txt = $(this).text();
+            $('.type-lists').hide();
+            $('._searchType span').text(txt);
+            $('._searchBtn-header').attr('data-href', url);
+            if(txt==="科普号"){
+                $('._sKey-header').attr("placeholder","输入您感兴趣的科普号");
+            }else {
+                $('._sKey-header').attr("placeholder","搜索您喜欢的科普资源...");
+            }
+        },
+        search: function(){
+            var url = $('._searchBtn-header').attr('data-href');
+            window.location.href = url+'?s='+encodeURIComponent($('._sKey-header').val());
+        },
+        // 搜索建议列表
+        searchSuggetList: function () {
+            var keyword = $("._sKey-header").val().trim();
+            if (!keyword) {
+                $(".search-suggest-list-header").html("").hide();
+                // keyword为空 展示历史记录
+                _navBar.showHistorySearch();
+                return;
+            }
+            $(".search-history-list-header").hide();
+            var typeText = $("._searchType span").text().trim();
+            var type = Number(
+                $(".type-lists-content")
+                .find("li:contains('" + typeText + "')")
+                .data("type")
+            );
+            var apiUrl = "/newSearch/getSearchHotTitle";
+            var data = {
+                search: keyword,
+                type: type,
+            };
+            if (type === -1) {
+                apiUrl = "/newSearch/getSciencerHotSearch";
+                data = { search: keyword };
+            }
+
+            $.ajax({
+                url: apiUrl,
+                method: "post",
+                data: data,
+            }).done(function (res) {
+                if (res.data.length === 0) {
+                    $(".search-suggest-list-header").html("").hide();
+                    return;
+                }
+                var $items = res.data.map(function (item) {
+                    var $item =
+                    "<li class='search-suggest-item-header'><a href='" +
+                    item.detail_url +
+                    "' >" +
+                    item.title +
+                    "</a></li>";
+                    return $item;
+                });
+                $(".search-suggest-list-header").html($items).show();
+            }).fail(function (error) {
+                $(".search-suggest-list-header").hide();
+                console.log(error);
+            });
+        },
+        init: function(){
+            var keyword = $("._sKey-header").val().trim();
+            if (keyword) {
+                _navBar.setHistoryData(keyword);
+            }
+            document.onkeydown=function(e){
+                var theEvent=window.event||e,
+                        code=theEvent.keyCode||theEvent.which;//考虑浏览器兼容性
+
+                if(code == 13 && document.activeElement===$('._sKey-header').get(0)){
+                    _navBar.search();
+                    return false;
+                }
+            };
+        },
+        // 存历史记录
+        setHistoryData:function(keyword){
+            var url = $('._searchBtn-header').attr('data-href');
+            var cloudHistoryData = localStorage.getItem(url)||"[]";
+            cloudHistoryData = JSON.parse(cloudHistoryData);
+            cloudHistoryData.unshift(keyword);
+            cloudHistoryData = _navBar.unique(cloudHistoryData);
+            if(cloudHistoryData.length>10){
+                cloudHistoryData = cloudHistoryData.slice(0,10);
+            }
+            localStorage.setItem(url,JSON.stringify(cloudHistoryData));
+        },
+        // 删除历史记录
+        deleteHistoryData: function(e){
+            e.stopPropagation();
+            var deleteItem = $(this).parent().text();
+            var url = $('._searchBtn-header').attr('data-href');
+            var cloudHistoryData = localStorage.getItem(url)||"[]";
+            cloudHistoryData = JSON.parse(cloudHistoryData);
+            var index = cloudHistoryData.indexOf(deleteItem); 
+            if (index > -1) { 
+                cloudHistoryData.splice(index, 1);
+            }
+            localStorage.setItem(url,JSON.stringify(cloudHistoryData));
+            _navBar.showHistorySearch();
+        },
+        // 清空当前分类所有历史记录
+        historyClear:function(){
+            var url = $('._searchBtn-header').attr('data-href');
+            localStorage.setItem(url,"[]");
+            _navBar.showHistorySearch();
+        },
+        // 点击历史记录
+        historyClick:function(){
+            $('._sKey-header').val($(this).text());
+            _navBar.search();
+        },
+        // 数组去重
+        unique:function(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error!')
+                return
+            }
+            var array = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (array .indexOf(arr[i]) === -1) {
+                    array .push(arr[i])
+                }
+            }
+            return array;
+        },
+        // 展示历史记录
+        showHistorySearch:function(){
+            var url = $('._searchBtn-header').attr('data-href');
+            var cloudHistoryData = localStorage.getItem(url)||"[]";
+            cloudHistoryData = JSON.parse(cloudHistoryData);
+            if(cloudHistoryData.length>0){
+                var $items = "<li class='search-history-top'><span class='search-history-title-header'>搜索历史</span><span class='_historyClear-header'>清空</span></li>";
+                cloudHistoryData.forEach(function(elem, index) {
+                    $items += "<li class='search-history-item-header'>" + elem + "<span class='search-history-close-header'></span></li>"; 
+                });
+                $(".search-history-list-header").html($items).show();
+            }else{
+                $(".search-history-list-header").hide();
+            }
+            
+           
+        },
+        goAccountSet: function() {
+            const isGf = $(this).attr('data-is-gf');
+            if (Number(isGf)===0){
+                layer.msg('仅支持科普号运营人设置');
+            }else if(Number(isGf)===1){
+                window.location='/ucenter/accountset';
+            }
+        },
+        goKepuhaoSet: function() {
+            const isGf = $(this).attr('data-is-gf');
+            if (Number(isGf)===0){
+                layer.msg('仅支持科普号运营人设置');
+            }else if(Number(isGf)===1){
+                window.location='/ucenter/myOrgIndex';
+            }
+        }
+    }
+        _navBar.init();
+        $(document)
+                .on('click','._searchType',_navBar.letListShow)
+                .on('click','._listTypehref',_navBar.listTypeHref)
+                .on('click','._searchBtn-header',_navBar.search)
+                .on("mouseleave",".search-type-header",function(){
+                    $(".type-lists").hide();
+                })
+                .on('click input','._sKey-header',_navBar.searchSuggetList)
+                .on('mouseleave','.box_col_f5',function(){
+                    $(".search-suggest-list-header").hide();
+                    $(".search-history-list-header").hide();
+                })
+                .on('click','.search-history-close-header',_navBar.deleteHistoryData)
+                .on('click','._historyClear-header',_navBar.historyClear)
+                .on('click','.search-history-item-header',_navBar.historyClick)
+                // .on('click','._accountSet',_navBar.goAccountSet)
+                .on('click','._kepuhaoSet',_navBar.goKepuhaoSet)
+
+});
+</script>
+    
+<link rel="stylesheet" href="/assets/styles/navbar_se.css">
+  <section>
+    <div class="search-type-bg">
+            <div class="w new-top-header">
+                <div class="search-type">
+                    <div class="search-type-item" data-href="/">
+                        <a href="/">首页</a>
+                    </div>
+                    <div class="search-type-item" data-href="https://cloud.kepuchina.cn/chuangzuopeiyu/#/?welcometips=1" data-type="0">
+                        <a href="https://cloud.kepuchina.cn/chuangzuopeiyu/#/?welcometips=1" target="_blank">业务中心</a>
+                    </div>
+                    <div class="path-resources search-type-item active" data-href="https://cloud.kepuchina.cn/newSearch/resall">
+                          <a href="https://cloud.kepuchina.cn/newSearch/resall">资源中心</a>
+                    </div>
+                    <div class="path-material search-type-item" data-href="https://cloud.kepuchina.cn/material/index" data-blank="2">
+                        <a href="https://cloud.kepuchina.cn/material/index">素材中心</a>
+                    </div>
+                    <div class="search-type-item" data-href="https://area.kepuchina.cn">
+                         <a href="https://area.kepuchina.cn" target="_blank">管理中心</a>
+                    </div>
+                    <div class="search-type-item" data-href="https://cloud.kepuchina.cn/newSearch/albumList">
+                        <a href="https://cloud.kepuchina.cn/newSearch/albumList?sort_rule=is_recommend">资源套餐</a>
+                    </div>
+                    <div class="search-type-item">
+                        <a href="https://cloud.kepuchina.cn/rescount/downlog">数据排行</a>
+                    </div>
+                    <!--<div class="search-type-item" data-href="https://cloud.kepuchina.cn/newSearch/organization" data-blank="2">
+                        <a href="https://cloud.kepuchina.cn/newSearch/organization">科普号</a>
+                    </div>-->
+                    <div class="search-type-item" data-href="https://www.kepuchina.cn/" data-type="10">
+                        <a href="https://www.kepuchina.cn/" target="_blank">科普中国网</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- <div class="w">
+        <ul class="nav-bar fl" style="margin-top: 18px;" >
+            <li><a href="/" class="">首页</a></li>
+            <li><a href="https://cloud.kepuchina.cn/newSearch/imageText" class="active">图文</a></li>
+            <li><a href="https://cloud.kepuchina.cn/newSearch/imgList" class="">图片</a></li>
+            <li><a href="https://cloud.kepuchina.cn/newSearch/videoList?sort_rule=0&can_down=1" class="">视频</a></li>
+            <li><a href="https://cloud.kepuchina.cn/newSearch/wallList?sort_rule=0" class="">挂图</a></li>
+            <li><a href="https://cloud.kepuchina.cn/newSearch/audio" class="">音频</a></li>
+            <li><a href="https://cloud.kepuchina.cn/newSearch/ebooklist" class="">电子书</a></li>
+            <li><a href="https://cloud.kepuchina.cn/newSearch/activitylist" class="">活动</a></li>
+            <li><a href="https://cloud.kepuchina.cn/newSearch/rumor" class="">辟谣</a></li>
+            <li><a href="https://cloud.kepuchina.cn/newSearch/organization" class="">精选科普号</a></li>
+            <li><a target="_blank" href="http://www.kepuchina.cn/">科普中国网</a></li>
+            <li><a href="https://cloud.kepuchina.cn/rescount/downlog" class="">统计排名</a></li>
+            <li><a href="https://area.kepuchina.cn/" target="_blank" class="">权限管理</a></li>
+            <li><a href="https://cloud.kepuchina.cn/newSearch/albumList" class="">资源套餐</a></li>
+        </ul>
+    </div> -->
+</section> 
+
+
+<script src="//static.kepuchina.cn/lib/jquery-1.12.4.min.js"></script>
+<script>
+    function getUrlParam(name) {
+        var params_str = location.search.substring(1);
+        var reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, "i");
+        var result = params_str.match(reg);
+        if (result === null) {
+            return null;
+        }
+        // 对编码过 URI 进行解码
+        return decodeURIComponent(result[2]);
+    }
+    (function () {
+        var searchBox = {
+            pathMaterial:[
+                '/material/index', // 素材中心 全部
+                '/material/videoindex', // 素材中心 视频
+                '/material/imgindex',// 素材中心 图片
+                '/material/dimensionalindex',// 素材中心 三维
+                '/material/videodetail', // 素材中心 视频详情
+                '/material/imgdetail', // 素材中心 图片详情
+                '/material/dimensionaldetail', // 素材中心 三维详情
+                '/material/tcimgdetail', // 素材中心 图虫详情
+            ],
+            pathResources:[
+                '/newsearch/resall', // 资源中心 全部
+                '/newsearch/videolist', // 资源中心 视频
+                '/newsearch/imagetext', // 资源中心 图文
+                '/newsearch/walllist', // 资源中心  挂图
+                '/newsearch/audio', // 资源中心 音频
+                '/newsearch/activitylist', // 资源中心 活动
+                '/newsearch/ebooklist', // 资源中心 电子书
+                '/newsearch/albumList', // 资源中心 资源包
+                '/newsearch/videodetail', // 资源中心 视频详情
+                '/newsearch/imgtext', // 资源中心 图文详情
+                '/newsearch/walldetail', // 资源中心 挂图详情
+                '/newsearch/audiodetail', // 资源中心 音频详情
+                '/newsearch/activity', // 资源中心 活动详情
+                '/newsearch/ebookdetail '// 资源中心 点子书详情
+            ],
+            sort_rule:5,
+            search: function () {
+                var url = $('._searchBtn').attr('data-href');
+                var keyword = $.trim($('._sKey').val());
+                searchBox.setHistoryData(keyword);
+                if(location.pathname.toLowerCase()=='newsearch/albumlist'){
+                    url = url + '?sort_rule=is_recommend'
+                }else{
+                    url = url + '?sort_rule=' + searchBox.sort_rule
+                }
+                if (keyword) {
+                    url = url + '&s=' + encodeURIComponent(keyword);
+                }
+                
+                window.location.href = url;
+            },
+            // 搜索建议列表
+            searchSuggetList: function (event) {
+                var keyword = $("._sKey").val().trim();
+                if (!keyword) {
+                    $(".search-suggest-list").html("").hide();
+                    // keyword为空 展示历史记录
+                    searchBox.showHistorySearch();
+                    return;
+                }
+                $(".search-history-list").hide();
+                var type = Number(
+                    $(".nav-bar .active").data("type")
+                );
+                var apiUrl = "/newSearch/getSearchHotTitle";
+                var data = {
+                    search: keyword,
+                    type: type,
+                };
+                if (type === -1) {
+                    apiUrl = "/newSearch/getSciencerHotSearch";
+                    data = { search: keyword };
+                }
+                var pathname=window.location.pathname.toLowerCase();
+                // 素材中心更改 搜索框 提示语
+                if(searchBox.pathMaterial.includes(pathname)){
+                    return false
+                }
+
+                $.ajax({
+                    url: apiUrl,
+                    method: "post",
+                    data: data,
+                }).done(function (res) {
+                    if (res.data.length === 0) {
+                        $(".search-suggest-list").html("").hide();
+                        return;
+                    }
+                    var addStrKey = type==11?'&sort_rule=is_recommend':'&sort_rule=5'
+                    var $items = res.data.map(function (item) {
+                        var $item =
+                            "<li class='search-suggest-item'><a href='" +
+                            item.detail_url + addStrKey +
+                            "' >" +
+                            item.title +
+                            "</a></li>";
+                        return $item;
+                    });
+                    $(".search-suggest-list").html($items).show();
+                }).fail(function (error) {
+                    $(".search-suggest-list").hide();
+                    console.log(error);
+                });
+            },
+            // 存历史记录
+            setHistoryData: function (keyword) {
+                keyword = $.trim(keyword);
+                if (!keyword) {
+                    return;
+                }
+                var url = $('._searchBtn').attr('data-href');
+                var cloudHistoryData = localStorage.getItem(url) || "[]";
+                cloudHistoryData = JSON.parse(cloudHistoryData);
+                cloudHistoryData.unshift(keyword);
+                cloudHistoryData = searchBox.unique(cloudHistoryData);
+                if (cloudHistoryData.length > 10) {
+                    cloudHistoryData = cloudHistoryData.slice(0, 10);
+                }
+                localStorage.setItem(url, JSON.stringify(cloudHistoryData));
+            },
+            // 删除历史记录
+            deleteHistoryData: function (e) {
+                e.stopPropagation();
+                var deleteItem = $(this).parent().text();
+                var url = $('._searchBtn').attr('data-href');
+                var cloudHistoryData = localStorage.getItem(url) || "[]";
+                cloudHistoryData = JSON.parse(cloudHistoryData);
+                var index = cloudHistoryData.indexOf(deleteItem);
+                if (index > -1) {
+                    cloudHistoryData.splice(index, 1);
+                }
+                localStorage.setItem(url, JSON.stringify(cloudHistoryData));
+                searchBox.showHistorySearch();
+            },
+            // 清空当前分类所有历史记录
+            historyClear: function () {
+                var url = $('._searchBtn').attr('data-href');
+                localStorage.setItem(url, "[]");
+                searchBox.showHistorySearch();
+            },
+            // 点击历史记录
+            historyClick: function () {
+                $('._sKey').val($(this).text());
+                searchBox.search();
+            },
+            // 数组去重
+            unique: function (arr) {
+                if (!Array.isArray(arr)) {
+                    console.log('type error!')
+                    return
+                }
+                var array = [];
+                for (var i = 0; i < arr.length; i++) {
+                    if (array.indexOf(arr[i]) === -1) {
+                        array.push(arr[i])
+                    }
+                }
+                return array;
+            },
+            // 展示历史记录
+            showHistorySearch: function () {
+                var url = $('._searchBtn').attr('data-href');
+                var cloudHistoryData = localStorage.getItem(url) || "[]";
+                cloudHistoryData = JSON.parse(cloudHistoryData);
+                if (cloudHistoryData.length > 0) {
+                    var $items = "<li class='search-history-top clearfix'><span class='search-history-title pull-left'>搜索历史</span><span class='search-history-clearall _historyClear pull-right'>清空</span></li>";
+                    cloudHistoryData.forEach(function (elem, index) {
+                        $items += "<li class='search-history-item'>" + elem + "<span class='search-history-close' title='删除'></span></li>";
+                    });
+                    $(".search-history-list").html($items).show();
+                } else {
+                    $(".search-history-list").hide();
+                }
+            },
+            init: function () {
+                var pathname=window.location.pathname.toLowerCase();
+                // 素材中心更改 搜索框 提示语
+                if(searchBox.pathMaterial.includes(pathname)){
+                    $("._sKey").attr('placeholder',"搜索您喜欢的科普素材...");
+                    $(".path-material").addClass('active');
+                    searchBox.sort_rule=  getUrlParam("sort_rule") || 3;
+                    // 展示素材header图
+                    $(".navbar-top-img-sc").show();
+                }else{
+                    $(".navbar-top-img-zy").show();
+                }
+                if(searchBox.pathResources.includes(pathname)){
+                    $(".path-resources").addClass('active')
+                }
+
+                $("._sKey").on("click input", searchBox.searchSuggetList);
+                // 切换搜索类型
+                // $('.search-type-item').click(function (event) {
+                //     $(this).addClass('active').siblings().removeClass('active');
+                //     var url = $(this).attr('data-href');
+                //     $('._searchBtn').attr('data-href', url);
+                //     searchBox.search();
+                // });
+                $(document)
+                    // 隐藏搜索建议列表和历史记录列表
+                    .on('mouseleave', '.search-box', function () {
+                        setTimeout(function () {
+                            $(".search-suggest-list").hide();
+                            $(".search-history-list").hide();
+                        }, 300);
+                    })
+                    // 搜索按钮
+                    .on('click', '._searchBtn', searchBox.search)
+                    // 回车搜索
+                    .on('keydown', '._sKey', function (event) {
+                        if (event.keyCode == 13) {
+                            searchBox.search();
+                        }
+                    })
+                    // 删除单条历史记录
+                    .on('click', '.search-history-close', searchBox.deleteHistoryData)
+                    // 删除全部历史记录
+                    .on('click', '._historyClear', searchBox.historyClear)
+                    // 点击单条历史记录
+                    .on('click', '.search-history-item', searchBox.historyClick)
+                    // 点击单条搜索建议
+                    .on('click', '.search-suggest-item a', function (event) {
+                        // 点击搜索建议列表时添加历史记录
+                        var keyword = $.trim($(this).text());
+                        keyword && searchBox.setHistoryData(keyword);
+                    });
+            }
+        }
+        searchBox.init();
+    })()
+
+</script>    <div class="w">
+        <div class="breadcrumb-nav">
+            <a target="_blank" href="/">科普中国资源服务首页</a> &gt; 
+            <img src="/assets/images/back-2.png" alt="" class="m-8">
+            <a target="_blank" href="https://cloud.kepuchina.cn/newsearch/imageText">图文列表</a> &gt;
+            <img src="/assets/images/back-2.png" alt="" class="m-8">
+            <span>图文详情</span>
+                            <p class="fr copyright">版权归原作者所有，如有侵权，请联系我们</p>
+             
+        </div>
+        <div class=" _blockParma" data-dtype="1" data-type="1" data-id="6833160811292504064" data-kph="102" data-from="1">
+            <h2 class="_title mb-28">阉割、变性……被困在男人躯壳中的「药娘」</h2>
+            <div style="display:flex; justify-content: space-between; align-items:baseline;">
+                <div style="display:flex; align-items: center;">
+                   <span> 
+                        <a class="line-16" target="_blank" href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=102"> 
+                                    <!-- TODO:头像 -->
+                            <img src="https://pqnoss.kepuchina.cn/2019/11/15/09/image/67907b.jpg" alt="" style="width:32px;height:32px;border-radius:50%;">&nbsp;有来医生                        </a>
+                    </span>
+                   <span class="_time ml-24">上传时间：2021-09-03</span>
+                    
+                    <div class="keyword-wrap ml-24">
+                                            </div>
+                </div>
+                <div class="video-download resetBorder">
+                    <!--<a href="javascript:;" class="_downLoad">立即下载</a>-->
+                                            <a href="https://cloud.kepuchina.cn/account/login?service=https://cloud.kepuchina.cn/ucenter/index">
+                            <span class="collect line-14" data-uid=""><i class="icon iconfont iconshoucang-hover"></i>
+                            收藏</span>    
+                        </a>
+                                    </div>
+            </div>
+            <div class="snapshot">
+                <p>
+                    <span class="tips_title">图文简介：</span>
+                    <span class="col-024"> 这个世界上，除了男人和女人，还存在着这样一群人</span>
+                </p>
+            </div>
+            
+
+        </div>
+        <div class="main-content">
+            <div class="search-page">
+                <div class="content-box __imgtext-content" id="content" data-from="1">
+                    <p>这个世界上，除了男人和女人，还存在着这样一群人：</p>
+<p>她们化着精致的妆容、穿着漂亮的裙子，虽然从行为举止来看是个女孩儿，但却拥有一副男人的身体，对她们来说，“人妖”、“变态”、“恶心”等谩骂早已司空见惯。</p>
+<p><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/864258f4a8833b8d167f738fbd63d36f.jpeg" alt="">男儿身，女儿心，这种割裂感，是跨性别女性难以承受且无法言说的痛苦。</p>
+<p>为了让自己更接近真正的女性，她们中大部分人会通过服用或注射药物等手段，改变自己的生理状态（主要为体貌特征），因此也被称为“药娘”。</p>
+<p><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/341d1da1bd639c4741fabc4f97f2ed56.jpeg" alt=""></p>
+<p>药娘通常无法在心理上认同自己与生俱来的男性生理性别，而认为自己应该属于女性，被归类为“跨性别群体”。</p>
+<p>举个例子</p>
+<p>小李的生理特征是男性，但他自小就认为自己是个软妹子，应该有一群小姐妹，这是性别认同。</p>
+<p>正常男生喜欢穿短袖+裤衩+拖鞋，但小李却觉得粉色小裙子、长头发才最适合自己，这叫性别表达。</p>
+<p>当性别认同、表达与生理性别不一致时，就是跨性别者。</p>
+<p>而当一个人不认同自己的生理性别时，他就会非常迷茫、痛苦，是她or他？穿男装or女装？去男厕所or女厕所？……</p>
+<p>心理认同驱使着药娘们剃掉体毛、隐藏喉结、留起长发、换上裙子……但这些都治标不治本，因此，有些人会选择吃激素类药物，来试图弱化、扭转自己的男性体征。</p>
+<p>她们把药称之为糖，只有在青春期吃糖，才能获得最大的效果。品类繁多的糖，分为三大类：抗雄激素药物、雌激素、孕激素。</p>
+<p><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/74b4dbcb8e4b9252b256f80a8e69ebb1.jpeg" alt="">吃药之后，药娘们的胡须不再生长、皮肤开始变得细腻、胸部开始隆起、生殖器失去功能并停止发育……外观上开始向女性靠拢。</p>
+<p><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/eb109b23442931f8b8dc3939fc12c4ea.jpeg" alt="">但这三类药物都属于谨慎使用的“激素类药物”，稍有过量或者用法不当就会产生严重的副作用。药娘们年龄小、辩知能力弱，为达到目的“乱用药”，这会导致严重后果，常见的副作用有以下几种：</p>
+<p>头痛、恶心、呕吐、乏力、嗜睡、精神消沉等常见反应，停药后反应更大，也称为“撤药反应”；</p>
+<p>满月脸、水牛背、肌肉萎缩无力、骨质疏松、痤疮等；</p>
+<p>高胆固醇血症、高血糖、低血钾、高血压和水肿等；</p>
+<p>狂躁、抑郁；</p>
+<p>影响性功能，精子质量下降，甚至会导致不孕不育；</p>
+<p>影响寿命，长期/过量服用后会缩短寿命。</p>
+<p>在各种“药娘QQ群”里，因为长期服用各种激素类药物而无力、脱发、失眠、烦躁、抑郁、下体生理疼痛的药娘比比皆是。</p>
+<p>重点是，服用激素类药物对身体造成的损伤不可逆！！</p>
+<p><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/40127edcdc8ba9c23b7d96475b744fbe.jpeg" alt=""></p>
+<p>当性征发生变化时，药娘们不得不一边承受着生理上的煎熬，一边努力隐藏自己。</p>
+<p>因为一旦被发现，她们就会迎来外界一边倒的抨击和抵制，家人也不例外。</p>
+<p>这些性少数人群的处境，比我们想象中更加艰难，联合国开发计划署2016年发表的《中国性少数群体生存状况》中显示，中国性少数群体在家庭被歧视的发生率最高。</p>
+<p><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/35d4ae1e4d81fd386fc602cb680aac86.jpeg" alt="">北京同志中心、北京大学社会学系2017年发布的《中国跨性别群体生存现状调查报告》也显示，几乎所有被父母或监护人知道药娘身份的受访者，都遭受过原生家庭一次以上的暴力。</p>
+<p>家人的不理解、辱骂、囚禁、暴力殴打、扭送精神病院、甚至断绝亲子关系；</p>
+<p>学校中的校园霸凌、嘲笑；</p>
+<p>职场上的不公平待遇；</p>
+<p>陌生人口中的“变态”</p>
+<p>……</p>
+<p>在这种环境下，药娘们更加焦虑、抑郁，甚至部分人选择自残、自杀。</p>
+<p><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/95b10a6679dd3675c17bc42f0cfbeffb.jpeg" alt=""><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/860cf9eef817e64f0af266bd8431d377.jpeg" alt="">图 | 2018年，在微博求救的跨性别女孩</p>
+<p>与此同时，这也更迫使大部分药娘不顾后果地追求灵魂的自我，“反正也不会被认同，还不如做自己”。</p>
+<p>于是，有人做手术重置性别（变性手术）、有人继续吃糖……</p>
+<p>但药娘圈中很多都是涉世未深的青少年，她们还不具备判断是非的能力，很容易受到别人观念的影响，盲目行事，甚至是赌气、心急变成女生，就去私人诊所做去势手术，甚至自我阉割的例子比比皆是：</p>
+<p>药娘明明16岁开始吃糖，之后自切下体；</p>
+<p>药娘罗月18岁开始吃糖，找私人诊所去势（阉割）；</p>
+<p>……</p>
+<p><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/c4abe45d61187779cc4d9b21f158df5d.jpeg" alt="">来源 | 澎湃新闻</p>
+<p>吃药、去势（阉割），付出如此之大的代价，药娘们为什么依然做此选择？</p>
+<p>答案只有一个，就是性别认知障碍带来的痛苦远大于服药、自伤。</p>
+<p>她们这么做，只是想做回真正的自己。</p>
+<p><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/315872cf07c12d33af97334c4054965d.jpeg" alt="">来源 | 澎湃新闻</p>
+<p>药娘青桐曾这样说</p>
+<p>经历过无数次自我怀疑和自我欺骗后，已经消磨掉很多对抗生活的勇气，所以我想要放开全部的自我去爱这个世界，去爱合适的人。</p>
+<p><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/418c5bc24692555bb86e984ea7a9bce5.jpeg" alt=""></p>
+<p>对于大多数药娘而言，性别重置手术是她们一生都无法企及的目标，所以只能退而求其次地选择吃药。</p>
+<p>据《中国跨性别群体生存现状调查报告》显示，一半以上的跨性别者有性别重置手术的需求，其中近9成的跨性别者因为经济条件不允许、父母不同意、年龄未满20周岁等原因被迫无法手术。</p>
+<p><img src="https://bj.bcebos.com/kpy-organizations/U3733322/articles/6a6899801500034f2302ac25a457bfad.jpeg" alt="">退一万步讲，即使家人支持，经济条件允许，药娘想要手术也必须满足这些条件：</p>
+<p>变性的要求至少持续5年以上，且无反复过程；</p>
+<p>术前接受心理、精神治疗1年以上且治疗无效；</p>
+<p>未在婚姻状态；</p>
+<p>年龄大于20岁，是完全民事行为能力人；</p>
+<p>无手术禁忌症。</p>
+<p>如此严苛的程序，就刷掉了一大批药娘。但手术也并不是唯一的解决方式，而是多种解决路径中最后一条路。</p>
+<p>最好的解决方式，就是她们的家庭及整个社会用更宽容、理解的态度去对待她们，“她们真的不是变态，也不是怪物”，只是上帝在安放灵魂的时候出了错，而她们只是想努力扭转上帝的错误，变成自己应该属于的那个性别。</p>
+<p>我想，当家庭给予足够的认同和理解，当社会予以足够的包容，她们也能够像所有的正常人一样，找到自我存在的价值，堂堂正正走在阳光下。</p>
+                    <!-- TODO：来源 -->
+                    <p>
+    
+                        <!--来源: （填写时的来源内容（主要针对官方科普号），来源不可点击跳转，如果上传时没有填写来源，不展示）-->
+                         来源: 有来医生                    </p>
+                     
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    
+
+  
+    
+</div>
+<section class="footer">
+    <!-- 模态框 -->
+    <div class="w">
+        <div class="module-box clearfix">
+            <div class="module fleft">
+                <div class="mod-hd clearfix" style="margin-bottom: 10px;">
+                    <h2 class="title">
+                        科普中国系列品牌网站
+                    </h2>
+                </div>
+                <div class="mod-bd clearfix">
+                    <div class="links">
+                        <a href="http://www.news.cn/science/kpzg.htm" target="_blank">新华网科普中国频道</a>
+                        <a href="http://kpzg.people.com.cn/" target="_blank">人民网科普中国频道</a>
+                        <a target="_blank">学习强国科普中国频道</a>
+                        <a href="http://kpzg.people.com.cn/GB/444839/index.html" target="_blank">科普中国要闻解读</a>
+                        <a href="https://share.gmw.cn/kepu/node_144851.htm" target="_blank">科普中国直播系列</a>
+                    </div>
+                </div>
+                <div class="mod-hd clearfix" style="margin-bottom: 10px;display: none;">
+                    <h2 class="title title-noAfter">
+                        入驻科普号
+                    </h2>
+                </div>
+                <div class="mod-bd clearfix " style="display: none;">
+                    <div class="links">
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=49" target="_blank">
+                            心理服务科普基地建设                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=53" target="_blank">
+                            把科学带回家                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=65" target="_blank">
+                            中国科学院物理研究所                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=70" target="_blank">
+                            蝌蚪五线谱                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=107" target="_blank">
+                            世界动物保护协会                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=48" target="_blank">
+                            中国宇航学会                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=66" target="_blank">
+                            蒲公英医学情报总局                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=59" target="_blank">
+                            消防先生                        </a>
+                                                <a href="https://cloud.kepuchina.cn/model/orgIndex?id=4944&amp;type=1" target="_blank">
+                            老爸评测                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=69" target="_blank">
+                            阮光锋营养师                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=71" target="_blank">
+                            植物人史军                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=47" target="_blank">
+                            中国兵工学会                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=58" target="_blank">
+                            饮食参考                        </a>
+                                                <a href="https://cloud.kepuchina.cn/homepage/kphIndex?type=1&amp;id=56" target="_blank">
+                            混知                        </a>
+                                            </div>
+                </div>
+                <div class="mod-hd clearfix" style="margin-bottom: 10px;">
+                    <h2 class="title title-noAfter">
+                        合作机构
+                    </h2>
+                </div>
+                <div class="mod-bd clearfix ">
+                    <div class="links">
+                        <a href="https://www.cyscc.org/" target="_blank">中国科协青少年科技中心</a>
+                        <a href="http://www.nimrf.net.cn/" rel="nofollow" target="_blank">国家岩矿化石标本资源共享平台</a>
+                        <a href="http://www.ckcest.cn/" rel="nofollow" target="_blank">中国工程科技知识中心</a>
+                        <a href="https://www.cdstm.cn/" target="_blank">中国数字科技馆</a>
+                        <a href="http://www.centv.cn/" target="_blank">中国教育网络电视台</a>
+                        <a href="http://www.airchina.com.cn/" target="_blank">中国国际航空公司</a>
+                        <a href="http://www.weathertv.cn/" target="_blank">中国气象频道</a>
+                        <a href="http://www.zgkp.net.cn/index.html" target="_blank">深圳科博会</a>
+                        <a href="http://mall.10010.com/pushpage/59800000164672.11.html" target="_blank">中国联通沃家电视</a>
+                        <a href="http://www.cheaa.com/" target="_blank">中国家电网</a>
+                        <a href="http://www.bast.net.cn/" target="_blank">北京市科学技术协会</a>
+                        <a href="http://www.agrogene.cn/" target="_blank">基因农业网</a>
+                        <a href="http://www.chinaott.net/" target="_blank">CNTV-未来电视</a>
+                        <a href="https://www.cibn.cc/index.html" target="_blank">CIBN</a>
+                        <a target="_blank">更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <div class="ct1">联系我们</div>
+                <div class="ct2">电话/TEL</div>
+                <div class="ct3">4006790966</div>
+                <a class="feedback" style="width: 100px" target="_blank" href="https://cloud.kepuchina.cn/feedback/index">
+                    <img src="/assets/images/xiangqing/fankui.png" alt="意见反馈" style="width: 100px;height: 36px;">
+                </a>
+            </div>
+        </div>
+        <div class="module">
+            <div class="bottom-nav  tl">
+                <ul>
+                    <li><a href="http://www.kepuchina.cn/gywm/" target="_blank">关于我们</a></li>
+                    <li><a href="http://www.kepuchina.cn/lxwm/" target="_blank">联系我们</a></li>
+                    <li><a href="#" target="_blank">招贤纳士</a></li>
+                    <li><a href="#" target="_blank">法律声明</a></li>
+                    <li><a href="#" target="_blank">网站地图</a></li>
+                </ul>
+            </div>
+            <div class="copyright tl"><img src="/assets/images/xiangqing/jing-icon.png" alt="" style="vertical-align: middle;width: 15px;position: relative;top: -2px;
+              "> 京公网安备11010202008423号 京ICP备 16016202号-1</div>
+            <!-- <div style="text-align: center;">
+                <a id="_pingansec_bottomimagelarge_shiming"
+                    href="https://si.trustutn.org/info?sn=624161223026064016066&amp;certType=1" target="_blank">
+                    <img src="/assets/images/xiangqing/renzheng.png" alt="" style="width: 136px;height: 53px;">
+                </a>
+            </div> -->
+        </div>
+</div></section>
+<!-- 回到顶部 -->
+<style>
+    .to_top {
+        display: none;
+        width: 70px;
+        height: 70px;
+        padding: 15px;
+        line-height: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #949494;
+        box-sizing: border-box;
+        background: #fff url("/assets/images/to-top.png") no-repeat center center;
+        background-size: 30px 30px;
+        box-shadow: 2px 3px 11px 0px rgb(0, 0, 0, 0.08);
+        box-sizing: border-box;
+    }
+    .to_top span{
+        display: none;
+    }
+    .to_top:hover{
+        background-image: none;
+    }
+    .to_top:hover span{
+        display: block;
+    }
+</style>
+<div class="to_top">
+    <span>返回<br>顶部</span>
+</div>
+<!-- js -->
+<script src="https://cloud.kepuchina.cn/vendors/scripts/util.js"></script>
+<script src="https://cloud.kepuchina.cn/assets/scripts/common/jquery.toTop.min.js"></script>
+<script src="//static.kepuchina.cn/lib/plugin/layer/layer.js"></script>
+<script src="https://cloud.kepuchina.cn/vendors/scripts/header.js"></script>
+<script src="https://cloud.kepuchina.cn/vendors/scripts/download-dialog.js"></script><script src="//static.kepuchina.cn/lib/plugin/laydate/laydate.js"></script>
+<script src="//static.kepuchina.cn/lib/plugin/webuploader/webuploader.min.js"></script>
+<link href="//static.kepuchina.cn/lib/plugin/pagination/pagination.css" rel="stylesheet">
+<script src="//static.kepuchina.cn/lib/plugin/pagination/jquery.pagination.js"></script>
+<script type="text/javascript">
+    (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = '//static.meiqia.com/dist/meiqia.js?_=t';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', 65768);
+    _MEIQIA('manualInit');
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?161b5a7e0ce784af73bc6eba919efce8";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    $(document)
+        .on("click", ".noUse", function (e) {
+            layer.msg("系统升级中，暂时无法查看");
+        })
+</script><script src="https://cloud.kepuchina.cn/vendors/scripts/download-dialog.js"></script>
+<script src="https://cloud.kepuchina.cn/vendors/scripts/new-collection.js"></script>
+<script>
+const audios = document.getElementsByTagName("audio");
+// 暂停函数
+function pauseAll() {
+    var self = this;
+    [].forEach.call(audios, function(i) {
+        // 将audios中其他的audio全部暂停
+        i !== self && i.pause()
+    })
+};
+
+// 给play事件绑定暂停函数
+
+[].forEach.call(audios, function(i) {
+    i.setAttribute("controlsList","nodownload");
+    i.addEventListener('play', pauseAll.bind(i))
+})
+        $(function () {
+            let __contribution = {
+                addContributionScore(uuid) {
+                    $.post("/Ucenter/addContribution", { uuid: uuid, extra: btoa("150-30") },
+                        function (res) {
+                            if (res.code == 0 && res.data && Number(res.data.score)>0) {
+                                layer.msg("<img src='/assets/images/contribution/contribution-tip.png' >");
+                            }
+                        }
+                    );
+                },
+                initTimeout() {
+                    const uuid = $('._blockParma').data('id').trim();
+                    const login = $('#login').val();
+                    if (uuid && uuid != ''&& Number(login) === 1) {
+                        setTimeout(()=>__contribution.addContributionScore(uuid), 30000)
+                    }
+                }
+            }
+            __contribution.initTimeout();
+        })
+
+</script>
+
+
+
+
+<div class="download_dialog-wrap">  <div class="download_dialog-content">    <div class="download_dialog-header">      <div class="download_dialog-close-btn" title="关闭"></div>      <div class="download_dialog-title">温馨提示</div>    </div>    <div class="download_dialog-body">      <div class="download_dialog-tips">请选择您的下载用途（可多选）</div>      <ul class="download_dialog-items"><li class="download_dialog-item"><label><input data-id="1" type="checkbox">电视台</label></li><li class="download_dialog-item"><label><input data-id="2" type="checkbox">广播</label></li><li class="download_dialog-item"><label><input data-id="3" type="checkbox">新媒体</label></li><li class="download_dialog-item"><label><input data-id="4" type="checkbox">教学课件</label></li><li class="download_dialog-item"><label><input data-id="5" type="checkbox">宣传册</label></li><li class="download_dialog-item"><label><input data-id="6" type="checkbox">公共大屏</label></li><li class="download_dialog-item"><label><input data-id="7" type="checkbox">宣传栏</label></li></ul>      <div class="">        <span>其他</span><input class="download_dialog-desc-input" maxlength="20" placeholder="可自行填写，不可超过20个字" value="">      </div>      <div class="download_dialog-score-tips">        <div class="download_dialog-score-tips-desc"></div>        <div class="download_dialog-score-tips-select">选择扣除的帐号：<span></span></div>        <div class="download_dialog-score-tips-pay">本次下载需要支付积分：<span></span></div>      </div>    </div>    <div class="download_dialog-footer">      <button class="download_dialog-footer-btn download_dialog-cancel-btn">取消</button>      <button class="download_dialog-footer-btn download_dialog-submit-btn">下载</button>    </div>  </div></div><script src="https://static.meiqia.com/fe-widget/v1.4.178.prod.20241111_136/entrypoint-v1.4.178.prod.20241111_136.js"></script><iframe name="meiqia-sdk" id="meiqia-sdk" style="width: 0px !important; height: 0px !important; display: none !important; visibility: hidden !important;"></iframe><div id="meiqia-container"></div></body></html>

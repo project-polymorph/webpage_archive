@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="zh-tw">
+  <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8;">
+    <title>露天市集 | 全台最大的網路購物市集</title>
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+<link href="https://www.ruten.com.tw/css/d/v3/style-base.css?v=20240924_beda402090" rel="stylesheet" type="text/css">
+<link href="https://www.ruten.com.tw/css/d/v3/pages/www/style-error.css?v=20220208_c5e660c1a5" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://ts.ruten.com.tw/ts_sender.php" async=""></script><script type="text/javascript" src="https://ts.ruten.com.tw/ts_sender.php" async=""></script><script src="https://pub.ruten.com.tw/passport/events/20250122/passport.js" async=""></script><style>*,:before,:after{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x: 0;--tw-border-spacing-y: 0;--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#ebecf3}:before,:after{--tw-content: ""}html,:host{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#d2d3d9}input::placeholder,textarea::placeholder{opacity:1;color:#d2d3d9}button,[role=button]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}.tw-fixed{position:fixed}.tw-absolute{position:absolute}.tw-relative{position:relative}.tw-inset-0{top:0;right:0;bottom:0;left:0}.tw-bottom-0{bottom:0}.tw-bottom-\[10px\]{bottom:10px}.tw-bottom-\[14px\]{bottom:14px}.tw-bottom-\[82px\]{bottom:82px}.tw-left-1\/2{left:50%}.tw-left-4{left:16px}.tw-left-\[70px\]{left:70px}.tw-right-0{right:0}.tw-right-3{right:12px}.tw-right-4{right:16px}.tw-top-0{top:0}.tw-top-1\/2{top:50%}.tw-top-4{top:16px}.tw-top-\[10px\]{top:10px}.tw-top-\[180px\]{top:180px}.tw-z-10{z-index:10}.tw-z-\[1000\]{z-index:1000}.tw-z-\[1100\]{z-index:1100}.tw-z-\[51\]{z-index:51}.tw-z-\[52\]{z-index:52}.tw-z-\[999\]{z-index:999}.tw-mx-auto{margin-left:auto;margin-right:auto}.tw-my-8{margin-top:32px;margin-bottom:32px}.-tw-mt-\[40px\]{margin-top:-40px}.-tw-mt-\[70px\]{margin-top:-70px}.tw-mb-2{margin-bottom:8px}.tw-mb-3{margin-bottom:12px}.tw-mb-4{margin-bottom:16px}.tw-mb-6{margin-bottom:24px}.tw-mt-1{margin-top:4px}.tw-mt-10{margin-top:40px}.tw-mt-2{margin-top:8px}.tw-mt-24{margin-top:96px}.tw-mt-5{margin-top:20px}.tw-mt-\[100px\]{margin-top:100px}.tw-mt-\[2px\]{margin-top:2px}.tw-mt-\[65px\]{margin-top:65px}.tw-mt-\[70px\]{margin-top:70px}.tw-mt-\[97px\]{margin-top:97px}.tw-block{display:block}.tw-flex{display:flex}.tw-grid{display:grid}.tw-hidden{display:none}.tw-h-12{height:48px}.tw-h-6{height:24px}.tw-h-\[100px\]{height:100px}.tw-h-\[151px\]{height:151px}.tw-h-\[153px\]{height:153px}.tw-h-\[155px\]{height:155px}.tw-h-\[158px\]{height:158px}.tw-h-\[175px\]{height:175px}.tw-h-\[200px\]{height:200px}.tw-h-\[40px\]{height:40px}.tw-h-\[48px\]{height:48px}.tw-h-\[499px\]{height:499px}.tw-h-\[500px\]{height:500px}.tw-h-\[50px\]{height:50px}.tw-h-\[60px\]{height:60px}.tw-h-\[72px\]{height:72px}.tw-h-dvh{height:100dvh}.tw-h-full{height:100%}.tw-max-h-\[640px\]{max-height:640px}.tw-min-h-\[640px\]{min-height:640px}.tw-w-12{width:48px}.tw-w-6{width:24px}.tw-w-\[100px\]{width:100px}.tw-w-\[132px\]{width:132px}.tw-w-\[140px\]{width:140px}.tw-w-\[150px\]{width:150px}.tw-w-\[165px\]{width:165px}.tw-w-\[175px\]{width:175px}.tw-w-\[185px\]{width:185px}.tw-w-\[200px\]{width:200px}.tw-w-\[220px\]{width:220px}.tw-w-\[274px\]{width:274px}.tw-w-\[280px\]{width:280px}.tw-w-\[300px\]{width:300px}.tw-w-\[340px\]{width:340px}.tw-w-\[343px\]{width:343px}.tw-w-\[375px\]{width:375px}.tw-w-\[40px\]{width:40px}.tw-w-\[50px\]{width:50px}.tw-w-\[74px\]{width:74px}.tw-w-\[98px\]{width:98px}.tw-w-\[99px\]{width:99px}.tw-w-\[calc\(100\%-100px\)\]{width:calc(100% - 100px)}.tw-w-fit{width:-moz-fit-content;width:fit-content}.tw-w-full{width:100%}.-tw-translate-x-1\/2{--tw-translate-x: -50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-tw-translate-y-1\/2{--tw-translate-y: -50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.tw--translate-x-1\/2{--tw-translate-x: -50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.tw--translate-y-1\/2{--tw-translate-y: -50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.tw-translate-x-1\/2{--tw-translate-x: 50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.tw-scale-\[0\.9\]{--tw-scale-x: .9;--tw-scale-y: .9;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.tw-scale-\[1\.3\]{--tw-scale-x: 1.3;--tw-scale-y: 1.3;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.tw-transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes tw-spin{to{transform:rotate(360deg)}}.tw-animate-spin{animation:tw-spin 1s linear infinite}.tw-cursor-pointer{cursor:pointer}.tw-grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.tw-flex-col{flex-direction:column}.tw-items-center{align-items:center}.tw-justify-center{justify-content:center}.tw-gap-2{gap:8px}.tw-gap-\[12px\]{gap:12px}.tw-gap-\[26px\]{gap:26px}.tw-gap-x-8{-moz-column-gap:32px;column-gap:32px}.tw-gap-y-2{row-gap:8px}.tw-space-x-1>:not([hidden])~:not([hidden]){--tw-space-x-reverse: 0;margin-right:calc(4px * var(--tw-space-x-reverse));margin-left:calc(4px * calc(1 - var(--tw-space-x-reverse)))}.tw-space-x-2>:not([hidden])~:not([hidden]){--tw-space-x-reverse: 0;margin-right:calc(8px * var(--tw-space-x-reverse));margin-left:calc(8px * calc(1 - var(--tw-space-x-reverse)))}.tw-space-x-8>:not([hidden])~:not([hidden]){--tw-space-x-reverse: 0;margin-right:calc(32px * var(--tw-space-x-reverse));margin-left:calc(32px * calc(1 - var(--tw-space-x-reverse)))}.tw-space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse: 0;margin-top:calc(8px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(8px * var(--tw-space-y-reverse))}.tw-space-y-\[10px\]>:not([hidden])~:not([hidden]){--tw-space-y-reverse: 0;margin-top:calc(10px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(10px * var(--tw-space-y-reverse))}.tw-overflow-hidden{overflow:hidden}.tw-rounded{border-radius:4px}.tw-rounded-2xl{border-radius:16px}.tw-rounded-full{border-radius:9999px}.tw-rounded-lg{border-radius:8px}.tw-rounded-xl{border-radius:12px}.tw-border{border-width:1px}.tw-border-4{border-width:4px}.tw-border-l-2{border-left-width:2px}.tw-border-t-2{border-top-width:2px}.tw-border-solid{border-style:solid}.tw-border-secondary-light{--tw-border-opacity: 1;border-color:rgb(88 202 227 / var(--tw-border-opacity))}.tw-border-white{--tw-border-opacity: 1;border-color:rgb(255 255 255 / var(--tw-border-opacity))}.tw-border-l-\[\#46436E\]{--tw-border-opacity: 1;border-left-color:rgb(70 67 110 / var(--tw-border-opacity))}.tw-border-t-\[\#46436E\]{--tw-border-opacity: 1;border-top-color:rgb(70 67 110 / var(--tw-border-opacity))}.tw-border-t-transparent{border-top-color:transparent}.tw-bg-\[\#11103D\]{--tw-bg-opacity: 1;background-color:rgb(17 16 61 / var(--tw-bg-opacity))}.tw-bg-\[\#123584\]{--tw-bg-opacity: 1;background-color:rgb(18 53 132 / var(--tw-bg-opacity))}.tw-bg-\[\#2D295A\]{--tw-bg-opacity: 1;background-color:rgb(45 41 90 / var(--tw-bg-opacity))}.tw-bg-\[\#423e6b\]{--tw-bg-opacity: 1;background-color:rgb(66 62 107 / var(--tw-bg-opacity))}.tw-bg-\[\#FFA348\]{--tw-bg-opacity: 1;background-color:rgb(255 163 72 / var(--tw-bg-opacity))}.tw-bg-black\/50{background-color:#00000080}.tw-bg-blue-500{--tw-bg-opacity: 1;background-color:rgb(59 130 246 / var(--tw-bg-opacity))}.tw-bg-secondary{--tw-bg-opacity: 1;background-color:rgb(45 41 90 / var(--tw-bg-opacity))}.tw-bg-white{--tw-bg-opacity: 1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.tw-bg-opacity-70{--tw-bg-opacity: .7}.tw-bg-opacity-80{--tw-bg-opacity: .8}.tw-object-contain{-o-object-fit:contain;object-fit:contain}.tw-object-cover{-o-object-fit:cover;object-fit:cover}.tw-p-3{padding:12px}.tw-p-5{padding:20px}.tw-px-10{padding-left:40px;padding-right:40px}.tw-px-3{padding-left:12px;padding-right:12px}.tw-px-4{padding-left:16px;padding-right:16px}.tw-px-5{padding-left:20px;padding-right:20px}.tw-px-6{padding-left:24px;padding-right:24px}.tw-px-\[26px\]{padding-left:26px;padding-right:26px}.tw-px-\[40px\]{padding-left:40px;padding-right:40px}.tw-py-2{padding-top:8px;padding-bottom:8px}.tw-py-3{padding-top:12px;padding-bottom:12px}.tw-py-6{padding-top:24px;padding-bottom:24px}.tw-pt-2{padding-top:8px}.tw-pt-\[32px\]{padding-top:32px}.tw-pt-\[60px\]{padding-top:60px}.tw-text-center{text-align:center}.tw-text-2xl{font-size:24px}.tw-text-4xl{font-size:36px}.tw-text-\[32px\]{font-size:32px}.tw-text-base{font-size:16px}.tw-font-bold{font-weight:700}.tw-font-semibold{font-weight:600}.tw-leading-6{line-height:1.5rem}.tw-leading-9{line-height:2.25rem}.tw-leading-\[1\.5\]{line-height:1.5}.tw-text-\[\#FFA348\]{--tw-text-opacity: 1;color:rgb(255 163 72 / var(--tw-text-opacity))}.tw-text-gray-800{--tw-text-opacity: 1;color:rgb(71 72 77 / var(--tw-text-opacity))}.tw-text-gray-900{--tw-text-opacity: 1;color:rgb(51 52 59 / var(--tw-text-opacity))}.tw-text-white{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity))}.tw-opacity-0{opacity:0}.tw-opacity-100{opacity:1}.tw-opacity-60{opacity:.6}.tw-shadow-2xl{--tw-shadow: 0 25px 50px -12px rgb(0 0 0 / .25);--tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.tw-backdrop-blur-sm{--tw-backdrop-blur: blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.tw-transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.tw-transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.tw-transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.tw-duration-300{transition-duration:.3s}.tw-duration-500{transition-duration:.5s}.tw-ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}body{line-height:initial}img,video{height:revert-layer}img{display:revert-layer}.passport-modal-body img,#calendar.calendar-section img{height:auto}@keyframes tw-fadeIn{0%{opacity:0}to{opacity:1}}@keyframes tw-slideIn{0%{transform:translate(-50%,-60%);opacity:0}to{transform:translate(-50%,-50%);opacity:1}}@keyframes tw-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.tw-modal-animation{animation:tw-fadeIn .3s ease-out}.tw-modal-content-animation{animation:tw-slideIn .3s ease-out}.tw-loading-spinner{border:4px solid #f3f3f3;border-top:4px solid #FF963B;border-radius:50%;width:40px;height:40px;animation:tw-spin 1s linear infinite}.modal-content-animation::-webkit-scrollbar{width:6px}.modal-content-animation::-webkit-scrollbar-track{background:#f1f1f1}.modal-content-animation::-webkit-scrollbar-thumb{background:#888;border-radius:3px}.modal-content-animation::-webkit-scrollbar-thumb:hover{background:#555}@media (min-width: 768px){.md\:tw-block{display:block}.md\:tw-w-\[480px\]{width:480px}}
+</style></head>
+<body>
+  <div class="rt-page">
+      <header class="rt-header-top">
+        <div class="rt-header-inner">
+          <div class="rt-header-part">
+            <ul class="rt-header-topnav">
+              <li class="rt-header-topnav-item">
+                <a class="rt-header-topnav-link" href="https://www.ruten.com.tw/system/notice.php" title="前往公告區">公告</a>
+              </li>
+              <li class="rt-header-topnav-item">
+                <a class="rt-header-topnav-link" id="header_service" title="前往露天市集幫助中心" href="https://www.ruten.com.tw/help">幫助中心</a>
+              </li>
+            </ul>
+          </div>
+          <div class="rt-header-part">
+            <div class="rt-header-daigou">
+              <a class="rt-header-topnav-link rt-header-daigou-ebay" href="https://pub.pchomeus.com/ebayglobal-day/index.html" title="前往海外代購EBAY專頁"></a>
+            </div>
+            <div class="rt-header-login rt-header-top-divider" id="header_login_info">
+              <div class="rt-header-loading" title="執行中，請稍候">
+                <span class="rt-header-loading-icon"></span>
+              </div>
+              <div class="rt-header-loaded rt-header-dropdown-wrap">
+                <a class="rt-header-topnav-link rt-header-dropdown-icon rt-header-user-nick rt-align-right" id="header_user_nick" title="前往個人賣場"></a>
+                <div class="rt-header-dropdown">
+                  <ul class="rt-header-dropdown-menu">
+                    <!-- <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" id="header_rpoint_record" href="https://www.ruten.com.tw/event/rpoint_record.php" title="前往我的露幣">
+                        <span>露幣</span>
+                        <div class="dropdown-menu-link-info">
+                          <i class="angle-left-icon"></i>
+                        </div>
+                      </a>
+                    </li> -->
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://member.ruten.com.tw/user/editprofile.php" title="修改會員資料" data-ts-log-type="click" data-ts-log-rule="main_htop">會員資料</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://seller.ruten.com.tw/settings/userkyc" title="露天實名認證" data-ts-log-type="click" data-ts-log-rule="main_htop">實名認證</a>
+                    </li>
+                    <!-- 2024/11/20 新增露天社群入口 -->
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://fun.ruten.com.tw" title="露天社群" data-ts-log-type="click" data-ts-log-rule="main_htop">露天社群</a>
+                    </li>
+                    <!-- <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" id="header_user_store" title="前往個人賣場">我的賣場</a>
+                    </li> -->
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" id="header_credit_user_nick" title="前往評價頁">我的評價</a>
+                    </li>
+                    <li class="dropdown-menu-item dropdown-menu-logout">
+                      <a class="dropdown-menu-link dropdown-menu-logout-link" id="header_logout_link" href="https://member.ruten.com.tw/user/logout.php" title="登出頁面" data-type="logout-link">登出</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="rt-header-not-loaded">
+                <div class="rt-header-login-item">
+                  <a class="rt-header-topnav-link" href="https://member.ruten.com.tw/user/register_step1.htm" rel="nofollow" title="免費註冊">免費註冊</a>
+                </div>
+                <div class="rt-header-login-item">
+                  <a class="rt-header-topnav-link" href="https://member.ruten.com.tw/user/login.htm" rel="nofollow" title="登入頁面">登入</a>
+                </div>
+              </div>
+              <div class="rt-header-error">
+                <div class="rt-header-login-item">
+                  <a class="rt-header-topnav-link" href="https://member.ruten.com.tw/user/login.htm" rel="nofollow" title="登入頁面">登入</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <header class="rt-header">
+        <div class="rt-header-inner">
+          <div class="rt-header-heading">
+            <div itemscope="" itemtype="http://schema.org/WPHeader">
+              <a class="rt-header-logo" href="https://www.ruten.com.tw" title="前往露天市集首頁" itemprop="url">
+                <span class="rt-logo-title" itemprop="name">露天市集 | 全台最大的網路購物市集</span>
+              </a>
+            </div>
+          </div>
+          <!-- <div class="rt-header-search" id="searchForm" name="searchForm" method="GET" action="https://www.ruten.com.tw/find/" accept-charset="utf-8">
+            <input type="hidden" id="searchfrom" name="searchfrom" value="indexbar" /> -->
+      
+          <div class="rt-header-search" id="searchForm">
+            <div class="rt-header-search-keyword-wrap search-bar-keyword-wrap">
+              <input id="searchKeyword" class="rt-header-search-input" name="q" accesskey="4" type="text" placeholder="" data-type="keyword-input" autocomplete="off">
+              <ul id="suggestions" class="search-bar-keyword-list"></ul>
+            </div>
+      
+            <div class="rt-header-search-select-wrap">
+              <select id="searchType" class="rt-header-search-select" title="搜尋項目下拉選單">
+                <option value="0">搜全站</option>
+                <option value="1">搜帳號</option>
+              </select>
+              <div class="rt-header-search-select-icon"></div>
+            </div>
+            <input id="searchFormSubmit" class="rt-header-search-submit" type="button" value="" title="搜尋">
+            <div id="historyWrap" class="rt-header-search-history-wrap hide">
+              <ul id="historyKeywords" class="rt-header-search-history-list"></ul>
+              <div class="rt-header-search-history-title">
+                <span class="rt-text-small">歷史搜尋</span>
+                <i id="historyClear" class="rt-header-search-history-clear"></i>
+              </div>
+            </div>
+          </div>
+      
+          <ul class="rt-nav">
+            <li class="rt-nav-item">
+              <div class="rt-header-sell rt-header-dropdown-wrap">
+                <a class="rt-nav-link" id="header_sell" rel="nofollow" title="賣家中心" itemprop="url">
+                  <div class="rt-nav-icon-wrap">
+                    <span class="rt-header-sell-icon"></span>
+                  </div>
+                  <div class="rt-nav-name" itemprop="name">賣家中心</div>
+                </a>
+                <div class="rt-header-dropdown">
+                  <ul class="rt-header-dropdown-menu">
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://mybidu.ruten.com.tw/upload/item_initial.php">單品上架</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://mybidu.ruten.com.tw/upload/easy_text2.htm?g_mode=B">超簡易上架</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://mass.ruten.com.tw/y/start.php">Excel&nbsp;上架</a>
+                    </li>
+                    <li class="dropdown-menu-item" style="border-top: 1px solid #ddd;padding-top:5px">
+                      <a class="dropdown-menu-link" href="https://seller.ruten.com.tw/">賣家中心</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://mybid.ruten.com.tw/master/my.php?l_type=sel_wait_confirm">訂單管理</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://mybid.ruten.com.tw/master/my.php?l_type=sel_selling">商品管理</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://point.ruten.com.tw/es_account/index.php">收款管理中心</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://point.ruten.com.tw/account/fee.php">計費中心</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://mybid.ruten.com.tw/datacube/">錢進趨勢</a>
+                    </li>
+                    <li class="dropdown-menu-item">
+                      <a class="dropdown-menu-link" href="https://promote.ruten.com.tw/rtb/dashboard.php" rel="nofollow" title="廣告中心" target="_blank" itemprop="url"><span itemprop="name">廣告中心</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="rt-nav-item">
+              <div class="rt-header-mybid rt-header-dropdown-wrap">
+                <a class="rt-nav-link" id="header_mybid" rel="nofollow" title="買家中心" itemprop="url">
+                  <div class="rt-nav-icon-wrap">
+                    <span class="rt-header-mybid-icon"></span>
+                  </div>
+                  <div class="rt-nav-name" itemprop="name">買家中心</div>
+                </a>
+                <div class="rt-header-dropdown">
+                  <div class="rt-header-dropdown-grid">
+                    <div class="grid-item-width">
+                      <ul class="rt-header-dropdown-menu">
+                        <li class="dropdown-menu-item">
+                          <a class="dropdown-menu-link" href="https://mybid.ruten.com.tw/master/my.php?l_type=buy_full">購買清單</a>
+                        </li>
+                        <!-- PC 版 comming soon -->
+                        <!-- <li class="dropdown-menu-item">
+                          <a class="dropdown-menu-link" href="https://mybid.ruten.com.tw">瀏覽紀錄</a>
+                        </li> -->
+                        <li class="dropdown-menu-item">
+                          <a class="dropdown-menu-link" href="https://www.ruten.com.tw/event/rpoint_record.php">我的露幣</a>
+                        </li>
+                        <li class="dropdown-menu-item">
+                          <a class="dropdown-menu-link" href="https://mybid.ruten.com.tw/master/my.php?l_type=buy_tracing">追蹤清單</a>
+                        </li>
+                        <li class="dropdown-menu-item">
+                          <a class="dropdown-menu-link" href="https://mybid.ruten.com.tw/master/my_shipping_voucher.php">我的優惠券</a>
+                        </li>
+                        <li class="dropdown-menu-item">
+                          <a class="dropdown-menu-link" href="https://mybid.ruten.com.tw/friend/myfrlist.php">最愛賣家</a>
+                        </li>
+                        <li class="dropdown-menu-item" style="border-top: 1px solid #ddd;padding-top:5px">
+                          <a class="dropdown-menu-link" href="https://www.ruten.com.tw/event/shipping_discount.php">領取免運券</a>
+                        </li>
+                        <li class="dropdown-menu-item">
+                          <a class="dropdown-menu-link" href="https://www.ruten.com.tw/event/mgm.php">推薦好友</a>
+                        </li>
+                        <li class="dropdown-menu-item">
+                          <a class="dropdown-menu-link" href="https://www.ruten.com.tw/event/daily_mission.php">天天簽到</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+      
+            <li id="rtChatMountPoint" class="rt-nav-item" onclick="rtChat.openChat('', event)">
+              <div class="rt-header-messenger rt-nav-link rt-messenger-inbox" id="header_messenger" style="position: relative;" onclick="rtChat.openChat('', event)">
+                <div class="rt-messenger-icon-anchor rt-nav-icon-wrap" onclick="rtChat.openChat('', event)">
+                  <div class="rt-messenger-icon-static rt-messenger-chat-icon" onclick="rtChat.openChat('', event)"></div>
+                  <div class="rt-messenger-inbox-notification-dot" onclick="rtChat.openChat('', event)"></div>
+                  <span class="item-count" id="unread-message-count" onclick="rtChat.openChat('', event)"></span>
+                </div>
+                <div class="rt-nav-name" onclick="rtChat.openChat('', event)">
+                  露露通
+                </div>
+              </div>
+            <div data-v-39928ba2="" id="messengerContainer" class="rt-chat-container" style="top: 61px; left: -100px;"><section data-v-acae2506="" data-v-39928ba2="" class="rt-chat-inbox" style="display: none;"><div data-v-acae2506="" class="rt-chat-inbox-bubble"><div data-v-acae2506="" class="rt-chat-inbox-arrow-top"></div><div data-v-acae2506="" class="rt-chat-inbox-title">
+      對話紀錄
+    </div><div data-v-acae2506="" class="rt-chat-inbox-status"><div data-v-acae2506="" class="rt-chat-inbox-icon not-login"></div>
+      請登入即可使用
+      <a data-v-acae2506="" href="https://member.ruten.com.tw/user/login.htm?refer=https://www.ruten.com.tw/store/grube4/?srsltid=AfmBOoqMmz0qTFffXTpsTKajIGMG6iUEGlQZAmgimB_IMiq708vXbBVJ" class="rt-chat-inbox-button">
+        登入
+      </a></div></div></section><!----></div></li>
+      
+            <li class="rt-nav-item">
+              <div class="rt-header-shopping-cart">
+                <a class="rt-nav-link" id="header_cart" href="https://mybid.ruten.com.tw/deliver/list_cart.php">
+                  <div class="rt-nav-icon-wrap shopping-cart target">
+                    <span class="rt-shopping-cart-icon"></span>
+                    <span class="item-count" id="goods-count"></span>
+                  </div>
+                  <div class="rt-nav-name">購物車</div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </header>
+    <div id="errorWrap" class="rt-wrap rt-error-wrap rt-mt-20x"><div class="rt-error-code-simple hide">B0005</div> <div class="rti rt-error-seller-banned-icon"></div> <p class="rt-text-ink rt-subtitle rt-mt-5x">此帳號停權中</p> <div class="rt-mt-7x"><a href="https://www.ruten.com.tw" class="rt-button rt-button-primary">回到露天首頁</a> <a href="#" class="rt-button rt-button-default rt-button-outline">回到上一頁</a></div></div>
+      <div class="rt-footer">
+        <div class="rt-footer-inner">
+          <div class="rt-footer-section">
+            <ul class="rt-footer-nav" itemscope="" itemtype="http://schema.org/WPFooter">
+              <li class="about rt-footer-nav-item">
+                <a href="https://pub.ruten.com.tw/about/index.html" title="關於露天市集" itemprop="url">
+                  <span class="rt-footer-nav-name" itemprop="name">關於露天</span>
+                </a>
+              </li>
+              <li class="security rt-footer-nav-item">
+                <a href="https://www.ruten.com.tw/help/buyer/1929/" title="關於交易安全說明" itemprop="url">
+                  <span class="rt-footer-nav-name" itemprop="name">交易安全</span>
+                </a>
+              </li>
+              <li class="member rt-footer-nav-item">
+                <a href="https://www.ruten.com.tw/help/member/4401/" title="會員合約內容" itemprop="url">
+                  <span class="rt-footer-nav-name" itemprop="name">會員合約</span>
+                </a>
+              </li>
+              <li class="privacy rt-footer-nav-item">
+                <a href="https://www.ruten.com.tw/help/member/3860/" title="隱私權聲明項目" itemprop="url">
+                  <span class="rt-footer-nav-name" itemprop="name">隱私權聲明</span>
+                </a>
+              </li>
+              <li class="ipr rt-footer-nav-item">
+                <a href="https://www.ruten.com.tw/help/member/5825/" title="智慧財產權保護傘" itemprop="url">
+                  <span class="rt-footer-nav-name" itemprop="name">智慧財產權保護傘</span>
+                </a>
+              </li>
+              <li class="jobs rt-footer-nav-item">
+                <a href="http://www.104.com.tw/jobbank/cust_job/introduce.cfm?j=5a3a432634463e6956583a1d1d1d1d5f2443a363189j97" target="_blank" itemprop="url">
+                  <span class="rt-footer-nav-name" itemprop="name">徵才</span>
+                </a>
+              </li>
+              <li class="export rt-footer-nav-item">
+                <a href="https://www.ebay.com/" title="eBay" target="_blank" itemprop="url">
+                  <span class="rt-footer-nav-name" itemprop="name">eBay</span>
+                </a>
+              </li>
+              <li class="pchomepay rt-footer-nav-item">
+                <a href="https://www.pchomepay.com.tw/" title="支付連" target="_blank" itemprop="url">
+                  <span class="rt-footer-nav-name" itemprop="name">支付連</span>
+                </a>
+              </li>
+              <li class="pchome rt-footer-nav-item">
+                <a href="http://www.pchome.com.tw/" title="PChome" target="_blank" itemprop="url">
+                  <span class="rt-footer-nav-name" itemprop="name">PChome</span>
+                </a>
+              </li>
+              <li class="notice rt-footer-nav-item">
+                <a href="https://www.ruten.com.tw/system/notice.php" title="公告" temprop="url">
+                  <span class="rt-footer-nav-name" itemprop="name">公告</span>
+                </a>
+              </li>
+              <li class="cm rt-footer-nav-item">
+                <a href="https://www.ruten.com.tw/help" title="幫助中心" temprop="url">
+                  <span class="rt-footer-nav-name" itemprop="name">幫助中心</span>
+                </a>
+              </li>
+              <li class="seller rt-footer-nav-item">
+                <a href="https://seller.ruten.com.tw" title="賣家中心" temprop="url">
+                  <span class="rt-footer-nav-name">賣家中心</span>
+                </a>
+              </li>
+              <li class="category rt-footer-nav-item">
+                <a href="https://www.ruten.com.tw/category" title="看全部分類" temprop="url">
+                  <span class="rt-footer-nav-name">看全部分類</span>
+                </a>
+              </li>
+            </ul>
+      
+          </div>
+      
+          <div class="rt-footer-section">
+            <div class="rt-footer-copyright">
+              <p class="copyright-item copyright-item-notice">客戶服務專線：02-55589168&nbsp;&nbsp;服務時間：週一&nbsp;~&nbsp;五&nbsp;9:00&nbsp;~&nbsp;18:00</p>
+              <p class="copyright-item">露天市集國際資訊股份有限公司版權所有，轉載必究&nbsp;•&nbsp;Copyright&nbsp;©&nbsp;PChome&nbsp;eBay&nbsp;Co.,&nbsp;Ltd.</p>
+            </div>
+            <div class="rt-footer-download">
+              <div class="download-app">
+                <h4 class="download-app-title">下載露天市集APP</h4>
+                <div class="download-app-content">
+                  <a class="download-app-android" href="https://play.google.com/store/apps/details?id=com.ruten.android.rutengoods.rutenbid" target="_blank" title="前往Google Play下載 Android 版本 APP"></a>
+                  <a class="download-app-ios" href="https://itunes.apple.com/tw/app/%E9%9C%B2%E5%A4%A9%E6%8B%8D%E8%B3%A3/id981799568?mt=8" target="_blank" title="前往APP Store 下載 IOS 版本 APP"></a>
+                </div>
+              </div>
+              <div class="download-qrcode" title="QR Code"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+<script async="" src="https://ts.ruten.com.tw/ts_async.js?24"></script><script type="text/javascript">
+  window.RT = window.RT || {};
+  RT.config = {
+    www_host           : 'https://www.ruten.com.tw',
+    search_host        : 'https://find.ruten.com.tw',
+    member_host        : 'https://member.ruten.com.tw',
+    mobile_host        : 'https://m.ruten.com.tw',
+    goods_host         : 'https://goods.ruten.com.tw',
+    www_pchomeus_host  : 'https://www.pchomeus.com',
+    mybid_host         : 'https://mybid.ruten.com.tw',
+    mybidu_host        : 'https://mybidu.ruten.com.tw',
+    point_host         : 'https://point.ruten.com.tw',
+    class_host         : 'https://class.ruten.com.tw',
+    pub_host           : 'https://pub.ruten.com.tw',
+    ad_host            : 'https://ahd.ruten.com.tw',
+    ahd_host           : 'https://ahd.ruten.com.tw',
+    kwad_host          : 'http://kwad.ruten.com.tw',
+    bid_img_dir        : 'https://www.ruten.com.tw/images',
+    alert_host         : 'https://alert.ruten.com.tw',
+    im_host            : 'https://im.ruten.com.tw',
+    rtapi_host         : 'https://rtapi.ruten.com.tw',
+    rapi_host          : 'https://rapi.ruten.com.tw',
+    img_host           : 'https://a.rimg.com.tw',
+    upload_host        : 'https://upload.ruten.com.tw',
+    promote_host       : 'https://promote.ruten.com.tw',
+    seller_host        : 'https://seller.ruten.com.tw',
+    mass_host          : 'https://mass.ruten.com.tw',
+    preorder_host      : 'https://preorder.ruten.com.tw',
+    fun_host           : 'https://fun.ruten.com.tw',
+  };
+  RT.config.env = 'main';
+  RT.config.ppPayway = [
+    'PAYLINK',
+    'PP_PI',
+    'PL_ATM',
+    'PL_ACCOUNT',
+    'PL_POSTATM',
+    'PP_CRD',
+    'PP_CRD_N3',
+    'PP_CRD_N6',
+    'PP_CRD_N12',
+    'PP_EACH'
+  ];
+  RT.config.ppRelatedPayway = RT.config.ppPayway.concat([
+    'CVS_COD',
+    'SEVEN',
+    'SEVEN_COD',
+    'TCAT_COD',
+    'PP_CPON'
+  ]);
+
+  RT.config.isTurnstile = Boolean(0);
+  RT.config.cloudflareSiteKey = '0x4AAAAAAAKbPpcP9XsIGfOR';
+
+  if(window.Box) {
+    RT.App = Box.Application;
+
+    RT.App.initBroadcast = function(name, obj) {
+      setTimeout(function() {
+        RT.App.broadcast(name, obj)
+      });
+    };
+  }
+</script>
+      
+      <div data-ts-log-type="anchor" data-ts-log-position="top" class="back-to-top-wrap back-to-top-hide" id="back_to_top_wrap">
+        <div class="back-to-top">
+          <p class="back-to-top-text">TOP</p>
+        </div>
+      </div>
+      
+<script type="text/javascript" src="https://www.ruten.com.tw/js/vue-2.6.10.min.js" charset="utf-8"></script>
+      <script type="text/javascript" src="https://www.ruten.com.tw/js/vuex-2.1.2.min.js?v=20171123"></script>
+      <script type="text/javascript" src="https://www.ruten.com.tw/js/js.cookie-2.1.2.min.js?v=20171123"></script>
+      
+        <script type="text/javascript" src="https://www.ruten.com.tw/js/jquery-3.5.0.js"></script>
+      
+<script type="text/javascript">
+/*<![CDATA[*/setTimeout(function(){(function() {
+var script = document.createElement('script'), event;
+script.setAttribute('type', 'text/javascript');
+script.setAttribute('src', 'https://www.ruten.com.tw/js/lib/rtchat_vendors.min.js?v=70f9c929d507c113ab61');
+if(typeof window.Event === 'function') {
+  event = new Event('rtchat_vendors.min.js:loaded');
+} else {
+  event = document.createEvent('Event');
+  event.initEvent('rtchat_vendors.min.js:loaded', true, true);
+}
+script.onload = function(e) {window.dispatchEvent(event);e.target.complete=true;}
+document.documentElement.appendChild(script);
+})();(function() {
+var script = document.createElement('script'), event;
+script.setAttribute('type', 'text/javascript');
+script.setAttribute('src', 'https://www.ruten.com.tw/js/lib/rtchat_teddy.min.js?v=7add32680bde68fd44ea');
+if(typeof window.Event === 'function') {
+  event = new Event('rtchat_teddy.min.js:loaded');
+} else {
+  event = document.createEvent('Event');
+  event.initEvent('rtchat_teddy.min.js:loaded', true, true);
+}
+script.onload = function(e) {window.dispatchEvent(event);e.target.complete=true;}
+document.documentElement.appendChild(script);
+})();})/*]]>*/
+</script>
+      
+      
+<script type="text/javascript" src="https://www.ruten.com.tw/js/d/desktop.js?v=d43fddc54e0787d83116" charset="utf-8"></script>
+      
+      <script src="https://pub.ruten.com.tw/passport/index.js"></script>
+      
+<!-- ts code start -->
+<script type="text/javascript">
+(function(R,u,t,e,n,T,S){
+t=R[t]=function(){(t.queue=t.queue||[]).push(arguments);};
+t.host=n;T=u.createElement(e);T.async=1;T.src=n+'/ts_async.js?24';
+S=u.getElementsByTagName(e)[0];S.parentNode.insertBefore(T,S);
+}(window,document,'_ts_js_fn','script','https://ts.ruten.com.tw'));
+
+_ts_js_fn('init');
+_ts_js_fn('push', 'hc=404');
+_ts_js_fn('push', 'fn=be7a135ddac2');
+_ts_js_fn('push', 'rc=B0005');
+_ts_js_fn('push', 'ln=97');
+_ts_js_fn('run');
+</script>
+<!-- ts code end -->
+
+<!-- ga code start -->
+<!-- <script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+</script>
+
+<script type="text/javascript">
+/*<![CDATA[*/setTimeout(function(){(function() {
+var script = document.createElement('script'), event;
+script.setAttribute('type', 'text/javascript');
+script.setAttribute('src', 'https://www.ruten.com.tw/js/lib/rt_analytics.min.js?v=94cc5d793232db78e3df');
+if(typeof window.Event === 'function') {
+  event = new Event('rt_analytics.min.js:loaded');
+} else {
+  event = document.createEvent('Event');
+  event.initEvent('rt_analytics.min.js:loaded', true, true);
+}
+script.onload = function(e) {window.dispatchEvent(event);e.target.complete=true;}
+document.documentElement.appendChild(script);
+})();})/*]]>*/
+</script>
+ -->
+<!-- ga code end -->
+
+<!-- Facebook Pixel Code -->
+<!-- <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.documentElement;
+s.appendChild(t)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1609625759130349');
+fbq('track', 'PageView');
+</script> -->
+<!-- End Facebook Pixel Code -->
+
+  </div><!----><!---->
+<script type="text/javascript" src="https://www.ruten.com.tw/js/d/www/error.view.js?v=2bccadafe291e60e7e6a" charset="utf-8"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;90fe917e986e14f8&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}},&quot;token&quot;:&quot;ff391752730e44bb84d4d6a302ac0f4c&quot;,&quot;b&quot;:1}" crossorigin="anonymous"></script>
+
+
+<div class="rt-toast-container top-center"><div></div></div><div style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="185" height="185" viewBox="0 0 185 185"><symbol id="not-login" viewBox="0 0 185 185"><defs><path id="a" d="M0 .921h178v112.245H0z"></path><path id="c" d="M.976.874h104.389V99H.976z"></path><path id="e" d="M5.688.727c-2.749 0-4.999 2.25-4.999 5v5.659c0 2.75 2.25 5 4.999 5h29.668c2.749 0 4.999-2.25 4.999-5V5.727c0-2.75-2.25-5-4.999-5"></path></defs><g fill-rule="evenodd"><g transform="translate(4 32.123)"><mask id="b" fill="#fff"><use xlink:href="#a"></use></mask><path fill="#FFF3E0" d="M3.582 43.345C8.131 28.469 21.333 4.025 41.531 1.179c23.119-3.258 29.618 25.41 64.655 29.516 20.287 2.377 26.522-6.25 42.166 0 15.84 6.329 31.241 23.88 29.515 39.355-3.082 27.648-59.866 40-89.953 42.165C67 113.72 23.192 116.87 6.394 89.727-4.981 71.349 1.956 48.665 3.582 43.345" mask="url(#b)"></path></g><path fill="#4FAAFF" d="M167.638 130.153c0 10.665-8.646 19.311-19.312 19.311s-19.311-8.645-19.311-19.311c0-10.665 8.645-19.313 19.31-19.313 10.667 0 19.313 8.648 19.313 19.313"></path><path fill="#FFF" d="M131.629 158.86h-80.39c-6.6 0-12-5.4-12-12V70.647c0-6.6 5.4-12 12-12h80.39c6.6 0 12 5.4 12 12v76.213c0 6.6-5.4 12-12 12"></path><g transform="translate(32 66.123)"><mask id="d" fill="#fff"><use xlink:href="#c"></use></mask><path fill="#FFCC81" d="M93.365 99H12.976c-6.6 0-12-5.4-12-12V12.874c0-6.6 5.4-12 12-12h80.39c6.6 0 12 5.4 12 12V87c0 6.6-5.4 12-12 12" mask="url(#d)"></path></g><path fill="#FFF" d="M121.546 61.859c0 17.828-14.452 32.28-32.28 32.28-17.827 0-32.281-14.452-32.281-32.28 11.484 0 41.756.963 64.56 0"></path><path fill="#FFF" d="M120.663 60.815c0 16.187-13.122 29.31-29.31 29.31-16.187 0-29.309-13.123-29.309-29.31 0-16.187 13.122-29.31 29.31-29.31 16.187 0 29.31 13.123 29.31 29.31"></path><path fill="#FFA728" d="M99.362 54.836c0 7.162-5.807 12.97-12.969 12.97-7.162 0-12.968-5.808-12.968-12.97 0-7.162 5.806-12.969 12.968-12.969s12.97 5.807 12.97 12.97"></path><path stroke="#333" stroke-linecap="round" d="M104.582 54.836c0 7.162-5.807 12.97-12.969 12.97-7.163 0-12.968-5.808-12.968-12.97 0-7.162 5.805-12.969 12.968-12.969 7.162 0 12.969 5.807 12.969 12.97z"></path><g><path fill="#FFA728" d="M85.09 70.93c9.912 0 18.428 5.979 22.138 14.527a29.176 29.176 0 01-15.875 4.667l-.485-.004c-9.46-.153-17.83-4.788-23.08-11.874A24.044 24.044 0 0185.09 70.93z"></path><path fill="#333" d="M91.354 70.43c8.643 0 16.246 4.453 20.64 11.193-.24.24-.486.475-.735.705-4.199-6.554-11.545-10.898-19.905-10.898-8.361 0-15.708 4.344-19.906 10.898-.249-.23-.494-.465-.735-.704 4.393-6.74 11.997-11.194 20.64-11.194z"></path></g><g><path stroke="#333" stroke-linecap="round" d="M106.766 85.75a29.187 29.187 0 01-15.412 4.374c-16.188 0-29.31-13.122-29.31-29.31 0-2.023.205-3.999.596-5.907m3.263-8.64c5.053-8.82 14.558-14.762 25.45-14.762 16.188 0 29.31 13.122 29.31 29.31 0 8.59-3.696 16.317-9.584 21.678M63.61 51.337c.224-.655.471-1.3.74-1.936m-25.11 57.271V71.173c0-6.89 5.637-12.526 12.526-12.526h4.464m-16.991 58.069v-6.119m104.39 30.596v5.14c0 6.89-5.638 12.527-12.527 12.527H51.767c-6.89 0-12.528-5.637-12.528-12.526v-24.076m86.263-63.611h5.6c6.889 0 12.527 5.637 12.527 12.526v64.247m-54.805-20.403h39.146m-71.506 0h24.01m-24.01 10.96h38.624m11.482 0h21.922m-72.028-21.921h72.028"></path><path stroke="#FFA728" d="M149.37 48.207a3.653 3.653 0 11-7.31 0 3.653 3.653 0 017.31 0zm21.922 40.712a2.61 2.61 0 11-5.221-.003 2.61 2.61 0 015.221.004zM25.148 108.753a3.653 3.653 0 01-3.655 3.653 3.653 3.653 0 110-7.306 3.654 3.654 0 013.655 3.653z"></path><path fill="#FFCC81" d="M134.233 42.466a2.61 2.61 0 11-5.221 0 2.61 2.61 0 015.222 0M17.318 97.793a2.61 2.61 0 11-5.22-.003 2.61 2.61 0 015.22.003m158.672-2.089a2.61 2.61 0 11-5.221-.003 2.61 2.61 0 015.221.004"></path><path stroke="#FFA728" stroke-linecap="round" stroke-linejoin="round" d="M34.075 56.079h3.843m-1.921-1.922v3.844m-12.36 93.072h3.843m-1.922-1.921v3.844"></path><path stroke="#333" stroke-linecap="round" d="M108.137 28.373l1.565-8.873m3.654 12.005l5.741-7.829m-1.566 12.005l7.829-3.654"></path><path fill="#FFF" d="M108.356 150.509H78.689c-2.75 0-5-2.25-5-5v-5.659c0-2.75 2.25-5 5-5h29.667c2.75 0 5 2.25 5 5v5.659c0 2.75-2.25 5-5 5"></path><path fill="#FFF" d="M105.225 152.596H75.557c-2.75 0-5-2.25-5-5v-5.658c0-2.75 2.25-5 5-5h29.668c2.75 0 5 2.25 5 5v5.658c0 2.75-2.25 5-5 5"></path></g><g transform="translate(73 134.123)"><mask id="f" fill="#fff"><use xlink:href="#e"></use></mask><path fill="#FFA728" d="M30.137 19.517H.469c-2.75 0-5-2.25-5-5V8.859c0-2.75 2.25-5 5-5h29.668c2.75 0 5 2.25 5 5v5.658c0 2.75-2.25 5-5 5" mask="url(#f)"></path></g><g stroke="#333" stroke-linecap="round"><path d="M80.474 142.68h13.57m5.22 0h8.351m-31.991 6.659a5.215 5.215 0 01-1.936-4.05v-5.22c0-2.87 2.349-5.219 5.219-5.219h29.23c2.87 0 5.218 2.349 5.218 5.219v5.22c0 2.87-2.348 5.22-5.218 5.22H80.764"></path></g></g></symbol></svg></div><div class="tw-fixed tw-w-[100px] tw-h-[100px] tw-z-[51] passport-btn tw-transition-opacity tw-duration-500 tw-opacity-60 tw-opacity-100" style="right: 16px; bottom: 60px; z-index: 10000;">
+      <button type="button" class="tw-relative tw-w-full tw-h-full">
+        <div class="tw-absolute tw-right-3 tw-top-0 tw-transform tw-translate-x-1/2 -tw-translate-y-1/2 tw-w-6 tw-h-6 tw-bg-[#11103D] tw-rounded-full tw-flex tw-items-center tw-justify-center tw-text-white tw-cursor-pointer tw-z-[52] passport-btn-close tw-border tw-border-white tw-border-solid">
+          ✕
+        </div>
+        <img src="https://pub.ruten.com.tw/passport/events/20250122/assets/passport_btn-DTSNf6PP.png" alt="護照" class="tw-w-full tw-h-full tw-object-contain">
+      </button>
+    </div></body><script type="text/javascript" src="https://www.ruten.com.tw/js/lib/rtchat_vendors.min.js?v=70f9c929d507c113ab61"></script><script type="text/javascript" src="https://www.ruten.com.tw/js/lib/rtchat_teddy.min.js?v=7add32680bde68fd44ea"></script></html>

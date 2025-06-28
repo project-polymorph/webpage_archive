@@ -1,0 +1,88 @@
+# 性别认同与心理健康咨询案例
+
+男  47岁 江苏省南通市
+
+2022.02.28
+
+## 问题描述
+女儿24岁，不认同自己的女孩身份，喜欢做男孩，不愿意叫她女儿，姐姐等女性称呼。但穿着没有男性特征，也不抵触打扮自己。不愿意出门不愿意社交，不愿意谈恋爱对男女性都没有兴趣，天天玩玩手机有点颓废。她自己认为是跨性别也很苦恼和有压力。她从小就有端倪，没引起重视。这种情况到底是个什么病，有没有什么治疗办法，能不能推荐有名的医院科室，谢谢了。
+
+---
+
+## 医生回答
+
+张颜波 | 主任医师  
+三甲  
+山东第一医科大学第二附属医院神经内科
+
+根据你说的情况分析如下考虑，目前问题不大，需要一个正规心理治疗，建议心理科好好看看，主要心理问题。  
+回答于 2022-02-28  
+![](https://kano.guahao.cn//mCY263228082.jpg?timestamp=1581904129740&square=1&resize=72x72&webp=80)
+
+---
+
+张东健 | 副主任医师  
+三甲  
+天津市静海区医院神经内科
+
+看了您的病情介绍，结合目前您的描述及症状，建议精神心理科就诊，进行心理疏导治疗试试！  
+回答于 2022-02-28  
+![](https://kano.guahao.cn//nK5323121174.jpg?timestamp=1596001030626&square=1&resize=72x72&webp=80)
+
+---
+
+程宗新 | 副主任医师  
+三甲  
+南昌大学第三附属医院神经内科
+
+青年女性，既往体健，家属代诉患者不认同女孩性别，拒绝被认同女性，考虑诊断性别障碍，建议看看心理科，认知治疗引导。  
+回答于 2022-02-28  
+![](https://kano.guahao.cn//Ehf52609701.jpg?timestamp=1541051662823&square=1&resize=72x72&webp=80)
+
+---
+
+张光运 | 主任医师  
+三甲  
+空军特色医学中心神经内科门诊
+
+根据提供资料，考虑性别认知障碍可能性大。建议精神科或心理科门诊面诊评估是否需要进行心理疏导等治疗。  
+回答于 2022-02-28  
+![](https://kano.guahao.cn//fd1282002074.jpg?timestamp=1586150552678&square=1&resize=72x72&webp=80)
+
+---
+
+陈泽峰 | 主任医师  
+三甲  
+天津市第四中心医院神经内科
+
+你好：看了你的叙述，这种情况像是抑郁症了，建议看一下心理科医生，需要系统治疗，适当运动，增加户外活动等。  
+回答于 2022-02-28  
+![](https://kano.guahao.cn//Z0h2702828.jpg?timestamp=1610587398086&square=1&resize=72x72&webp=80)
+
+---
+
+张琪 | 主任医师  
+三甲  
+天津市静海区医院神经内科
+
+这就是典型的性别认同障碍，目前建议心理门诊就诊评估一下，心理疏导治疗，或者是厌恶疗法有的还可以扭转，尽快评估治疗。  
+回答于 2022-02-28  
+![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAC91BMVEUAAADm8fzr9Pzg7vrj7/vl8fva6vvc6/nc6/nk8Pvc6/nc6/nc6/nc6/nc6/n////c6/nc6/n+///f7frc6/nc6/nc6/nc6/nl8Pvc6/nc6/nc6/nc6/nj7/vc6/nc6/nc6/n////////c6/pfoP/c6/n////c6/n////c6/nc6/n////c6/nc6/nc6/nc6/nc6/nf7frc6/nc6/lfoP/////////////////c6/nc6/n///////////////////////////////////////9foP9foP9Olv95r/////////+81//q9PxfoP9foP9foP9foP/c6/n////43MRfoP/zxbRwfJPb6vnc7Pvp7/Tn7vP09/ne7PnzxLNodo/y+P7t8vfZ4OeSnK76/P/628FdoP9bnv/0vKz43sb8/v/zv69Smf/0wbD1y7jzva30w7FZnP/3+/9an/7i7/r2wq1reZHg7vpPl//1xrP1+f5Xm//t9f3d6vb0uKfq8Pb0vq5Vmv/r7e714tH/58n42cL0yLb0uqn0taXf7P/p8/zZ6fn/ya3b7v7v9v3i4uj/4sf31b9ue5KYwv+Etv/f6PP5xrH8x6+BtP/m8fv53sXf7vzk8Pvl2dv/5Mjj8P/g5u/938X2z7vs9P9po/rk3uHo19X638ajoKZlc4zM4f/F3f++2f9Mlf+4rqyYl6B0f5Xg7v+exv97sf9npf98p/G+uNDr087Vv8PpwrmRkp7R5P+21P/h4+vqzcrvy8Gvz/+ny/9tqf+SrOWxttbw4NXt0MjLvMj6ybXNvLT2rpvo8f+Rvv+Juv90rf/j6fDG1eXr07/WxLj1x7X2s6CLj5yFipphcIra6f/V5//l5+qKq+ro5eTz3s3x18Lxybudm6J6hJhzpvXR4O/N2+ns49yostqKlaiBiJmbr+Ghsd69zN354MfgwL7fyruapbfowLLFt7HVtayxoKOttsX80biOvP/X1uDAtK6spql+i6KwwOf859SsrdDSGFkuAAAAUXRSTlMAAgULGxAHzpUWPEAq3GbOsjQpFPu/f3ch9rekSyXoV29E9sjArhzyhVHjk5KEX0Xs1ZeIfVLDs6Gbjns76OJwYOuVaNeeLfHm29bQsFVUQT+/SrtpAAAQ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)
+
+---
+
+杨金昌 | 副主任医师  
+三甲  
+绥化市第一医院口腔外科门诊
+
+这种情况考虑性别认知障碍的可能性很大，可以到心理科就诊做一下系统的评估，然后做一下认知治疗引导及心理疏导，或者进行厌恶治疗(必要时查一下性激素六项看一下性激素水平是否正常)。平时注意均衡营养，多进行户外活动和社会交往，可以到上海精神卫生中心或者三甲医院的心理科就诊。  
+回答于 2022-03-01  
+
+特别申明：答案仅为医生个人经验或建议分享，不能视为诊断依据；如有诊疗需求，请务必前往正规医院就诊。  
+![](https://kano-sns.guahao.cn/4NS94848666?webp=80)
+
+---
+
+已帮助_35.7万_患者
+
+￥68起我要提问

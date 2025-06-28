@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>cdts_AVCAR成人论坛</title>
+<meta http-equiv="keywords" content="cdts">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="google/jquery-ui.css" type="text/css" media="all">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+	<!-- search form -->
+    <div class="span12">
+      <h1><a href="/"><img src="/template/color_luntan19/images/logo.png"></a></h1>
+      <form class="form-search" id="q-form" method="get" style="margin: 20px 0;">
+        <div class="input-append" id="q-input" style="width: 100%;">
+          <input type="text" style="width: 700px;height: 35px;font-size:18px;" class="span6 search-query ui-autocomplete-input" name="q" title="输入任意关键词皆可搜索" value="cdts" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+          <button type="submit" style="height: 45px;width: 150px;background: red;color: white;text-shadow: unset;font-size: 17px;" class="btn">搜索一下</button>
+        </div>
+        <div class="condition" id="q-options" style="margin: 10px;font-size: 15px;">
+          <label class="radio inline"><input type="radio" name="f" value="author">发帖作者</label>
+			<label class="radio inline"><input type="radio" name="f" value="subject" checked="">标题</label>
+          <label class="radio inline">
+            <input type="radio" name="f" value="_all">全文
+          </label>
+          <label class="checkbox inline">
+            <input type="checkbox" name="m" value="yes">模糊搜索 
+          </label>
+          <label class="checkbox inline">
+            <input type="checkbox" name="syn" value="yes">同义词
+          </label>
+          <font style="padding-left: 10px;">按</font>
+          <select name="s" size="1" style="margin-top: -3px;width: 108px;">
+            <option value="relevance">相关性</option>
+			<option value="dateline_DESC" selected="">最新帖子</option>
+					<option value="dateline_ASC">最旧帖子</option>
+          </select>
+          <font>排序</font>
+          <font style="padding-left: 30px;">搜索指定板块：</font>
+          <select name="fid" size="1" style="margin-top: -3px;width: 108px;">
+          <option value="">所有板块</option>
+                      <option value="2">折磨</option>
+		              <option value="37">飙车板块</option>
+		              <option value="38">图片区</option>
+		              <option value="39">小说区</option>
+		              <option value="41">呕吐</option>
+		              <option value="42">触手</option>
+		              <option value="43">处男</option>
+		              <option value="45">正太控</option>
+		              <option value="46">出轨</option>
+		              <option value="49">动漫二次元</option>
+		              <option value="50">sm专栏</option>
+		              <option value="51">亚洲美图</option>
+		              <option value="52">欧洲美图</option>
+		              <option value="53">高跟丝袜图区</option>
+		              <option value="54">人妻乱伦</option>
+		              <option value="59">女优百科（存档）</option>
+		              <option value="61">BT合集专区（存档）</option>
+		              <option value="62">成人动漫视频</option>
+		              <option value="63">游戏资源</option>
+		              <option value="64">成人H漫画</option>
+		              <option value="65">里番合集</option>
+		              <option value="67">资源求助</option>
+		              <option value="79">乱伦迷情</option>
+		              <option value="89">残忍画面</option>
+		              <option value="90">妄想</option>
+		              <option value="91">恶作剧</option>
+		              <option value="92">粗暴</option>
+		              <option value="93">通奸</option>
+		              <option value="94">姐妹</option>
+		              <option value="95">双性人</option>
+		              <option value="96">跳舞</option>
+		              <option value="98">性骚扰</option>
+		              <option value="99">恋腿癖</option>
+		              <option value="100">偷窥</option>
+		              <option value="101">男同</option>
+		              <option value="102">情侣</option>
+		              <option value="103">瘙痒</option>
+		              <option value="104">运动</option>
+		              <option value="105">女同</option>
+		              <option value="106">性感</option>
+		              <option value="107">美容院</option>
+		              <option value="108">处女</option>
+		              <option value="109">学校</option>
+		              <option value="110">性奴</option>
+		              <option value="111">花痴</option>
+		              <option value="112">恋乳癖</option>
+		              <option value="113">乱伦</option>
+		              <option value="114">偶像艺人</option>
+		              <option value="115">野外露出</option>
+		              <option value="116">猎艳</option>
+		              <option value="117">M男</option>
+		              <option value="130">超乳</option>
+		              <option value="131">肌肉</option>
+		              <option value="133">娇小</option>
+		              <option value="134">屁股</option>
+		              <option value="135">高</option>
+		              <option value="136">苗条</option>
+		              <option value="137">胖女人</option>
+		              <option value="138">孕妇</option>
+		              <option value="139">微乳</option>
+		              <option value="140">无毛</option>
+		              <option value="141">公主</option>
+		              <option value="142">格斗家</option>
+		              <option value="143">女检查官</option>
+		              <option value="144">明星脸</option>
+		              <option value="145">女老板</option>
+		              <option value="146">模特儿</option>
+		              <option value="147">秘书</option>
+		              <option value="148">美少女</option>
+		              <option value="149">新娘</option>
+		              <option value="150">姐姐</option>
+		              <option value="151">车模</option>
+		              <option value="152">寡妇</option>
+		              <option value="153">熟女</option>
+		              <option value="154">女医生</option>
+		              <option value="155">妓女</option>
+		              <option value="156">女大学生</option>
+		              <option value="157">女教师</option>
+		              <option value="158">护士</option>
+		              <option value="159">荡妇</option>
+		              <option value="160">高中学生</option>
+		              <option value="161">制服</option>
+		              <option value="162">女战士</option>
+		              <option value="163">及膝袜</option>
+		              <option value="164">娃娃</option>
+		              <option value="165">女装大佬</option>
+		              <option value="166">内衣</option>
+		              <option value="167">兔女郎</option>
+		              <option value="168">猫耳女</option>
+		              <option value="169">紧身衣</option>
+		              <option value="170">迷你裙警察</option>
+		              <option value="171">空姐</option>
+		              <option value="172">连裤袜</option>
+		              <option value="173">体育服</option>
+		              <option value="174">水手服</option>
+		              <option value="175">旗袍</option>
+		              <option value="176">迷你裙</option>
+		              <option value="177">校服</option>
+		              <option value="178">泳装</option>
+		              <option value="180">sm</option>
+		              <option value="181">口交</option>
+		              <option value="182">按摩棒</option>
+		              <option value="183">子宫颈</option>
+		              <option value="184">催眠</option>
+		              <option value="185">乳液</option>
+		              <option value="186">羞耻</option>
+		              <option value="187">凌辱</option>
+		              <option value="188">拘束</option>
+		              <option value="189">轮奸</option>
+		              <option value="190">插入异物</option>
+		              <option value="191">灌肠</option>
+		              <option value="192">监禁</option>
+		              <option value="193">紧缚</option>
+		              <option value="194">强奸</option>
+		              <option value="195">药物</option>
+		              <option value="196">车震</option>
+		              <option value="197">粪便</option>
+		              <option value="198">跳蛋</option>
+		              <option value="199">多p</option>
+		              <option value="200">颜面骑乘</option>
+		              <option value="201">食粪</option>
+		              <option value="202">足交</option>
+		              <option value="203">乳交</option>
+		              <option value="204">按摩</option>
+		              <option value="205">女上位</option>
+		              <option value="206">舔阴</option>
+		              <option value="207">拳交</option>
+		              <option value="208">深喉</option>
+		              <option value="209">69</option>
+		              <option value="210">潮吹</option>
+		              <option value="212">放尿</option>
+		              <option value="213">打手枪</option>
+		              <option value="214">吞精</option>
+		              <option value="215">肛交</option>
+		              <option value="216">自慰</option>
+		              <option value="217">中出</option>
+		              <option value="222">站务管理</option>
+		              <option value="235">无码专区（存档）</option>
+		              <option value="248">广播专版</option>
+		              <option value="597">绿帽淫妻</option>
+		              <option value="617">交流分享</option>
+		              <option value="618">夫妻情侣单男交友</option>
+		              <option value="619">绿帽淫妻小说</option>
+		              <option value="624">使用技巧教程</option>
+		              <option value="625">游戏</option>
+		              <option value="629">其他</option>
+		              <option value="1220">伪娘变装</option>
+		              <option value="1221">伪娘交友</option>
+		              <option value="1222">图片漫画</option>
+		              <option value="1223">伪娘小说</option>
+		              <option value="1224">交流讨论</option>
+		              <option value="1827">在线视频</option>
+		              <option value="2047">亚洲色情</option>
+		              <option value="2048">自淫系列</option>
+		              <option value="2049">SM捆绑</option>
+		              <option value="2050">制服丝袜</option>
+		              <option value="2052">无码专区</option>
+		              <option value="2053">人妻熟女</option>
+		              <option value="2054">欧美性爱</option>
+		              <option value="2055">中文字幕</option>
+		              <option value="2056">4K岛国</option>
+		              <option value="2057">偷拍自拍</option>
+		              <option value="2058">强奸乱伦</option>
+		              <option value="2059">丝袜美腿</option>
+		              <option value="2060">卡通动漫</option>
+		              <option value="2061">制服师生</option>
+		              <option value="2062">拳交系列</option>
+		              <option value="2063">韩国精品</option>
+		              <option value="2064">韩国制服主播</option>
+		              <option value="2065">韩国萝莉主播</option>
+		              <option value="2066">韩国大秀主播</option>
+		              <option value="2067">韩国自慰主播</option>
+		              <option value="2068">韩国唯美三级</option>
+		              <option value="2069">韩国明星学生</option>
+		              <option value="2070">香港伦理</option>
+		              <option value="2071">日本伦理</option>
+		              <option value="2072">韩国伦理</option>
+		              <option value="2073">欧美伦理</option>
+		              <option value="2112">嫖娼信息（广告）</option>
+		              <option value="2845">国产女王调教</option>
+		              <option value="2846">国产女奴调教</option>
+		              <option value="3498">国产自拍</option>
+		              <option value="3603">三级伦理</option>
+		              <option value="3604">网络热门</option>
+		              <option value="3605">猎奇另类</option>
+		              <option value="3606">中文字幕</option>
+		              <option value="3607">国产sm区</option>
+		              <option value="3608">韩国视频</option>
+		              <option value="3609">无码资源</option>
+		              <option value="3714">猎奇另类（在线）</option>
+		              <option value="3715">人妖伪娘</option>
+		              <option value="3716">明星PS合成</option>
+		              <option value="3717">人兽杂交</option>
+		              <option value="3718">男同</option>
+		              <option value="3719">女同</option>
+		              <option value="3720">偷拍自拍</option>
+		              <option value="3761">中文字幕（在线）</option>
+		              <option value="3762">无码中文</option>
+		              <option value="3763">强奸中文</option>
+		              <option value="3764">巨乳中文</option>
+		              <option value="3765">乱伦中文</option>
+		              <option value="3766">制服中文</option>
+		              <option value="3767">人妻中文</option>
+		              <option value="3768">调教中文</option>
+		              <option value="3769">出轨中文</option>
+		              <option value="3770">精品短视频</option>
+		              <option value="5883">在线视频精品区</option>
+		              <option value="5885">回收站</option>
+		              <option value="6010">综合三区（在线）</option>
+		              <option value="6011">网络热门 (在线)</option>
+		              <option value="6012">sm区 (在线)</option>
+		              <option value="6013">三级伦理 (在线)</option>
+		              <option value="6014">无码资源 (在线)</option>
+		              <option value="6040">国产女王调教</option>
+		              <option value="6041">国产女奴调教</option>
+		              <option value="6042">明星换脸</option>
+		              <option value="6043">韩国精品</option>
+		              <option value="6044">韩国极品主播</option>
+		              <option value="6045">香港伦理</option>
+		              <option value="6046">国产伦理</option>
+		              <option value="6047">日本伦理</option>
+		              <option value="6048">韩国伦理</option>
+		              <option value="6049">欧美伦理</option>
+		              <option value="6051">强奸无码</option>
+		              <option value="6052">人妻无码</option>
+		              <option value="6056">乱伦无码</option>
+		              <option value="6059">十一无码</option>
+		              <option value="6060">巨乳无码</option>
+		              <option value="6061">制服无码</option>
+		              <option value="6069">韩国视频 (在线)</option>
+		              <option value="6081">综合二区（在线）</option>
+		              <option value="6302">gif动态图</option>
+		              <option value="7084">磁力种子下载</option>
+		              <option value="7085">国产原创</option>
+		              <option value="7086">亚洲无码原创</option>
+		              <option value="7087">亚洲有码原创</option>
+		              <option value="7088">高清中文字幕</option>
+		              <option value="7089">三级写真</option>
+		              <option value="7090">VR视频区</option>
+		              <option value="7091">素人有码系列</option>
+		              <option value="7092">欧美无码</option>
+		              <option value="7093">4K原版</option>
+		              <option value="7094">韩国主播</option>
+		              <option value="7095">动漫原创</option>
+		              <option value="7096">VR资源下载</option>
+		              <option value="7097">VR有码（在线）</option>
+		              <option value="7098">VR无码（在线）</option>
+		              <option value="7099">老司机交流</option>
+		              <option value="7100">网友资源分享</option>
+		              <option value="7107">TXT小说下载</option>
+		              <option value="7109">都市制服</option>
+		              <option value="7111">武侠玄幻</option>
+		              <option value="7112">重口另类</option>
+		              <option value="7118">人妻绿帽</option>
+		              <option value="7120">强暴凌辱</option>
+		              <option value="8148">综合在线大区</option>
+		              <option value="8149">综合分类</option>
+		            </select>
+		</div>
+      </form>
+    </div>
+    
+    
+    <!-- begin search result -->
+        <div class="span12">
+      <!-- neck bar -->
+      	  <p class="result">大约有<b>230</b>项符合查询结果，库内数据总量为<b>1,054,044</b>项。（搜索耗时：0.0088秒）</p>
+            
+      <!-- fixed query -->
+            <div class="link corrected">
+        <h4>您是不是要找：</h4>
+        <p>
+                    <span><a href="/search/s.php?q=%E6%88%90%E9%83%BDts" class="text-error">成都ts</a></span>
+                    <span><a href="/search/s.php?q=%E9%9B%8C%E5%A0%95ts" class="text-error">雌堕ts</a></span>
+                    <span><a href="/search/s.php?q=%E6%88%90%E9%83%BD+%E5%90%8C%E4%BA%8B" class="text-error">成都 同事</a></span>
+                  </p>
+      </div>
+            
+      <!-- empty result -->
+            
+      <!-- result doc list -->
+      <dl class="result-list">
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=792940" target="_blank"><h4>141. 找<em>CDTS</em> <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message"> 本帖最后由 找<em>CDTS</em> 于 2021-2-17 02:40 编辑 
+
+找爱发骚的，主动的，被洗脑的m，加我q3355258997备用号198002996，前一个没有秒同意的话就加后一个</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>老司机交流（存档）</span>
+				<span><strong>作者:</strong>找CDTS</span>
+				<span><strong>发表时间:</strong>2021-02-17</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=736187" target="_blank"><h4>142. 找<em>CDts</em>小姐姐 <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message"> 本帖最后由 韩韩寒 于 2021-1-14 09:15 编辑 
+
+有没有山东的的CD，CDm，ts小姐姐，本人很大哟。
+22岁170cm60kgJJ17cm</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘交友</span>
+				<span><strong>作者:</strong>韩韩寒</span>
+				<span><strong>发表时间:</strong>2020-12-17</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=706499" target="_blank"><h4>143. 温州zn找<em>cdts</em>小姐姐 <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message"> 本帖最后由 易千重 于 2020-11-16 07:04 编辑 
+
+本人19 
+身高184
+q3533597010
+没有什么经验请多关照</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘药药变装交友约炮</span>
+				<span><strong>作者:</strong>易千重</span>
+				<span><strong>发表时间:</strong>2020-11-16</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=691724" target="_blank"><h4>144. 沈阳萌新cdm扩列，只加<em>cdts</em>姐妹和真女，zn退散 <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">请尽情羞辱小骚逼小贱货，扣扣178008261</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘交友</span>
+				<span><strong>作者:</strong>虫2</span>
+				<span><strong>发表时间:</strong>2020-10-31</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=684873" target="_blank"><h4>145. <em>CDTS</em>小说（搬运） <small>[相关度：86%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">铃··铃··铃··铃··铃听到电话铃声，我深深的歎了一口气。我知道这个铃声并不好听，可是对於一个花了2.93美元从旧货市场买来的破电话，你还能要求什么呢？
+
+我不知道谁会在周末打电话给我，如果不是这个铃声，我都快...</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘小说</span>
+				<span><strong>作者:</strong>sharesinv</span>
+				<span><strong>发表时间:</strong>2020-10-25</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=684871" target="_blank"><h4>146. <em>CDTS</em>小说 , (搬运） <small>[相关度：90%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">我从小时候起就认为我是个女孩，虽然年纪很小，但却总想着过一天女孩子的生活。
+那时的父母整天吵架，在我四岁的时候就离了婚。妈妈是医科大学毕业的，爸爸是做煤炭生意的，，在离婚之后妈妈就重新进到了医院工作。...</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘小说</span>
+				<span><strong>作者:</strong>sharesinv</span>
+				<span><strong>发表时间:</strong>2020-10-25</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=684870" target="_blank"><h4>147. <em>cdts</em>小说  完美 <small>[相关度：67%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">
+不知道从哪时候开始我竟然对女生穿的丝袜产生了极大的兴趣.我每次走在路上都会忍不住的盯着路上那些漂亮姊姊的美腿呢.家中除了爸爸和我之外就是我那个爱美的姊姊了.妈妈在我很小的时候就离开了我们.所以我几乎可算是...</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘小说</span>
+				<span><strong>作者:</strong>sharesinv</span>
+				<span><strong>发表时间:</strong>2020-10-25</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=683836" target="_blank"><h4>148. 北京素质zn寻在京<em>cdts</em> <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">北京素质zn 176 65 30 颜值过得去 寻在京<em>cdts</em> 长期 宁缺毋滥qq1470756232 </p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>老司机交流（存档）</span>
+				<span><strong>作者:</strong>763838859</span>
+				<span><strong>发表时间:</strong>2020-10-23</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=683835" target="_blank"><h4>149. 北京素质zn寻<em>cdts</em> <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">北京素质zn 寻在京<em>cdts</em> 长期交往
+176 65 30 宁缺毋滥 qq1470756232</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>老司机交流（存档）</span>
+				<span><strong>作者:</strong>763838859</span>
+				<span><strong>发表时间:</strong>2020-10-23</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=671304" target="_blank"><h4>150. <em>CDTS</em> <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message"> 本帖最后由 1977577260 于 2020-12-1 10:08 编辑 
+
+</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘交友</span>
+				<span><strong>作者:</strong>1977577260</span>
+				<span><strong>发表时间:</strong>2020-10-11</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=670260" target="_blank"><h4>151. <em>CDTS</em> <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message"></p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘交友</span>
+				<span><strong>作者:</strong>1977577260</span>
+				<span><strong>发表时间:</strong>2020-10-10</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=655891" target="_blank"><h4>152. 长沙求<em>CDTs</em> <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">有意向的请加QQ2293978101</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘交友</span>
+				<span><strong>作者:</strong>739560</span>
+				<span><strong>发表时间:</strong>2020-09-28</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=654879" target="_blank"><h4>153. 温州zn找<em>cdts</em>  2421498771 <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message"> 本帖最后由 温州江南皮革厂 于 2020-9-27 21:45 编辑 
+
+PC11111111111</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘交友</span>
+				<span><strong>作者:</strong>温州江南皮革厂</span>
+				<span><strong>发表时间:</strong>2020-09-27</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=654494" target="_blank"><h4>154. 河北学生党zn找伪娘药娘或<em>CDTS</em> <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">河北石家庄保定或北京的小可爱都行，加QQ2269870191</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>老司机交流（存档）</span>
+				<span><strong>作者:</strong>sjkkf</span>
+				<span><strong>发表时间:</strong>2020-09-27</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=649576" target="_blank"><h4>155. 河南三门峡渑池义马的<em>CDTs</em>有吗？ <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">本人直男想约渑池义马的CD TS.口交吃精</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘药药变装交友约炮</span>
+				<span><strong>作者:</strong>liu472300</span>
+				<span><strong>发表时间:</strong>2020-09-23</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=647098" target="_blank"><h4>156. 北京zn寻<em>cdts</em> <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">刚刚接触这个圈子 想找个固定cd或者ts 本人176 65 30 在北京海淀 qq1470756232</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>老司机交流（存档）</span>
+				<span><strong>作者:</strong>763838859</span>
+				<span><strong>发表时间:</strong>2020-09-21</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=633872" target="_blank"><h4>157. 青岛zn寻<em>cdts</em> <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">青岛zn，有多次与<em>cdts</em>做爱经验，活儿好，要求穿丝袜高跟鞋，可口爆最好。q593215902，备注青岛cd或青岛ts</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘交友</span>
+				<span><strong>作者:</strong>daniuzai</span>
+				<span><strong>发表时间:</strong>2020-09-09</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=632775" target="_blank"><h4>158. 昆明找<em>cdts</em> <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">昆明找<em>cdts</em>，现实，可谈，q2464648548</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘交友</span>
+				<span><strong>作者:</strong>JRico</span>
+				<span><strong>发表时间:</strong>2020-09-08</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=606368" target="_blank"><h4>159. 寻找青岛<em>CDts</em>伪娘 <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">有没有青岛的tsCD伪娘  我的弟弟又粗又大有的话留下你的联系方式</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘交友</span>
+				<span><strong>作者:</strong>nan2614</span>
+				<span><strong>发表时间:</strong>2020-08-18</span>
+          </p>
+        </dd>
+                <dt>
+          <a href="/forum.php?mod=viewthread&amp;tid=598588" target="_blank"><h4>160. 各位<em>CDTS</em>姐妹们，这个小家伙怎么处理啊 <small>[相关度：95%]</small></h4></a>          
+        </dt>
+        <dd>
+          <p class="message">给位姐妹们这个小家伙怎么美白啊，大家有什么好办法呢</p>
+          <p class="field-info text-error">
+            <span><strong>板块:</strong>伪娘交友</span>
+				<span><strong>作者:</strong>2918123886</span>
+				<span><strong>发表时间:</strong>2020-08-10</span>
+          </p>
+        </dd>
+              </dl>
+      
+      <!-- pager -->
+            <div class="pagination pagination-centered">
+        <ul>
+          <!--<li><a href="#">Prev</a></li>-->
+          <li><a href="/search/s.php?q=cdts&amp;m=&amp;f=subject&amp;s=dateline_DESC&amp;fid=&amp;p=3">3</a></li><li><a href="/search/s.php?q=cdts&amp;m=&amp;f=subject&amp;s=dateline_DESC&amp;fid=&amp;p=4">4</a></li><li><a href="/search/s.php?q=cdts&amp;m=&amp;f=subject&amp;s=dateline_DESC&amp;fid=&amp;p=5">5</a></li><li><a href="/search/s.php?q=cdts&amp;m=&amp;f=subject&amp;s=dateline_DESC&amp;fid=&amp;p=6">6</a></li><li><a href="/search/s.php?q=cdts&amp;m=&amp;f=subject&amp;s=dateline_DESC&amp;fid=&amp;p=7">7</a></li><li class="disabled"><a>8</a></li><li><a href="/search/s.php?q=cdts&amp;m=&amp;f=subject&amp;s=dateline_DESC&amp;fid=&amp;p=9">9</a></li><li><a href="/search/s.php?q=cdts&amp;m=&amp;f=subject&amp;s=dateline_DESC&amp;fid=&amp;p=10">10</a></li><li><a href="/search/s.php?q=cdts&amp;m=&amp;f=subject&amp;s=dateline_DESC&amp;fid=&amp;p=11">11</a></li><li><a href="/search/s.php?q=cdts&amp;m=&amp;f=subject&amp;s=dateline_DESC&amp;fid=&amp;p=12">12</a></li>          <!--<li><a href="#">Next</a></li>-->
+        </ul>
+      </div>
+      
+    </div>
+        <!-- end search result -->
+  </div>
+</div>
+
+<!-- hot search -->
+
+<!-- related query -->
+<section class="link">
+  <div class="container">
+    <h4>相关搜索:</h4>
+    <p>
+            <span><a href="/search/s.php?q=%E6%88%90%E9%83%BDcdts">成都cdts</a></span>
+            <span><a href="/search/s.php?q=%E5%8C%97%E4%BA%ACcdts">北京cdts</a></span>
+            <span><a href="/search/s.php?q=%E6%B5%8E%E5%8D%97cdts">济南cdts</a></span>
+            <span><a href="/search/s.php?q=%E4%B8%8A%E6%B5%B7cdts">上海cdts</a></span>
+            <span><a href="/search/s.php?q=cdts+magnet">cdts magnet</a></span>
+            <span><a href="/search/s.php?q=%E8%AE%B8%E6%98%8Ccdts%E4%BC%AA%E5%A8%98">许昌cdts伪娘</a></span>
+      	
+	</p>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div class="container">
+    <p>(C)opyright 2011 - AVCAR search - 页面处理总时间：0.0121秒<br>
+      Powered by <a href="/search/s.php" target="_blank" title="AVCAR成人论坛搜索">AVCAR成人论坛全文搜索系统</a></p>
+  </div>
+</footer>
+<script type="text/javascript" src="google/jquery.min.js"></script>
+<script type="text/javascript" src="google/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	// input tips
+	$('#q-input .search-query').focus(function(){
+		if ($(this).val() == $(this).attr('title')) {
+			$(this).val('').removeClass('tips');
+		}
+	}).blur(function(){
+		if ($(this).val() == '' || $(this).val() == $(this).attr('title')) {
+			$(this).addClass('tips').val($(this).attr('title'));
+		}
+	}).blur().autocomplete({
+		'source':'suggest.php',
+		'select':function(ev,ui) {
+			$('#q-input .search-query').val(ui.item.label);
+			$('#q-form').submit();
+		}
+	});
+	// submit check
+	$('#q-form').submit(function(){
+		var $input = $('#q-input .search-query');
+		if ($input.val() == $input.attr('title')) {
+			alert('请先输入关键词');
+			$input.focus();
+			return false;
+		}
+	});	
+});	
+</script>
+
+
+<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul></body></html>

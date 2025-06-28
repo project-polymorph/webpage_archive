@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="https://static.guahao.cn/bbs/favicon.ico">
+    <meta name="baidu-site-verification" content="Rk9zXLfIEQ">
+    <title>话题详情页</title>
+    <meta charset="utf-8">
+<link rel="canonical" href="https://bbs.guahao.com/topic/mdYWT10115023229779969">
+<!-- External CSS -->
+	<link rel="stylesheet" href="https://static.guahao.cn/bbs/css/health.base.min.css?v=1725948554046" type="text/css">
+<!--[if IE 6]>
+<link rel="stylesheet" type="text/css" href="https://static.guahao.cn/bbs/css/hack/ie6.css?v=1.3"/>
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="https://static.guahao.cn/bbs/css/hack/ie7.css?v=1.3"/>
+<![endif]-->
+<script src="https://hm.baidu.com/hm.js?5b429d13128244b81606de3da50eb839"></script><script type="text/javascript">
+	// $GF { Array } - functions defined in pages which has no module. The collected functions will be defined in page directly.
+	$GF = [];
+
+	// 图片加载失败,error设置默认图片也加载失败避免死循环
+	window.NoFind = function(src) {
+		var img = event.srcElement;
+		img.src = src;
+		img.onerror = null;
+	};
+</script>
+<script type="text/javascript">    
+	//打点日志全局变量
+	$GLog = {
+		requestMethod:'GET',
+		loginId:'',
+		perSessiionId:'173986855230612451675071',
+		shortSessionId:'',
+		referurl:'',
+		userAgent:'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/131.0.0.0 Safari/537.36',
+		logUrl: '',
+		debug: false,
+		domainEnd: 'bbs.guahao.com'
+	}
+	// $GC { Object } - globle configure
+     $GC = {
+		staticServer:"https://static.guahao.cn",
+		imageServer:"",
+		echartServer: "",
+		flashIp: "",
+		guahaoServer:"https://bbs.guahao.com:443",
+		guahaoPcServer:"https://www.guahao.com/",
+		eopsServer:"",
+		authentication:"",
+		isLogined:"",
+		isdocLogined:"",
+		mobilevalidcodepwd : 'lvxian95169',
+		version:"1725948554046",
+		jsPPath:"https://static.guahao.cn" + "/bbs/js",
+		isDev: false,
+		serviceServer: "https://sns-web-api.guahao.com",
+		detailPath: 'https://sns.guahao.com/',
+		proxyPath: '/gateway'
+	};
+
+	// $GS { Array } - the init parameters for startup
+	$GS = [$GC.jsPPath + "/base/jquery-1.8.1.min.js?20170125",
+		$GC.jsPPath + "/plugins/jquery.placeholder.js",
+		$GC.jsPPath + "/plugins/json2.js",
+		$GC.jsPPath + "/base/bbs.js?_=1725948554046",
+		$GC.jsPPath + "/plugins/jquery.cookie.js",
+		$GC.jsPPath + "/plugins/qrcode.js",
+		$GC.jsPPath + "/plugins/restful.js?_=1725948554046",
+		$GC.jsPPath + "/plugins/scout.js?_=1725948554046",
+		function(){
+
+		 // load common module
+		GL.load([SnsWeb.adaptModule("common")], function () {
+            if(GL.Browser.ie6){
+                GL.load([$GC.jsPPath + "/hack/ie6.js" + "?_=" + $GC.version]);
+            }
+            // load the modules defined in page
+            var moduleName = $("#gc").data("module") || $("#gc2").data("module");
+            if(moduleName){
+                var module = SnsWeb.modules[moduleName];
+                if(!module) {
+                    module = SnsWeb.adaptModule(moduleName);
+                }
+                if(module) {
+                    GL.load([module]);
+                }
+            }
+        });
+
+	}];
+</script>
+
+    <link rel="stylesheet" href="https://static.guahao.cn/bbs/css/common/common.css?_=1725948554046" type="text/css">
+        <link rel="stylesheet" href="https://static.guahao.cn/bbs/css/topic/index.css?_=1725948554046" type="text/css"><script type="text/javascript" src="https://static.guahao.cn/bbs/js/base/jquery-1.8.1.min.js?20170125"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/plugins/jquery.placeholder.js"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/plugins/json2.js"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/base/bbs.js?_=1725948554046"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/plugins/jquery.cookie.js"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/plugins/qrcode.js"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/plugins/restful.js?_=1725948554046"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/plugins/scout.js?_=1725948554046"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/modules/common.js?_=1725948554046"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/plugins/jquery.toast.js?_=1725948554046"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/plugins/jquery-gl-modal.js?_=1725948554046"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/plugins/jquery.confirm.js?_=1725948554046"></script><script type="text/javascript" src="https://static.guahao.cn/bbs/js/modules/topic/index.js?_=1725948554046"></script><script type="text/javascript" src=""></script>
+</head>
+<body>
+
+<div id="gc" class="gp-topic" data-module="topic/index">
+<div class="g-header">
+    <div class="g-header-box">
+        <a href="https://www.guahao.com/"><img class="g-logo" style="width: 88px;" src="https://kano.guahao.cn/wBj348282651"></a>
+        <div class="g-login">
+                            您好！请 <span id="J_Login" class="login">登录</span> | <span class="register" id="J_Register">注册</span>
+        </div>
+    </div>
+</div>
+    <div class="g-content">
+        <div class="g-whole">
+            <div class="J_Nav navigation"><a href="https://www.guahao.com/">首页 &gt; </a><span>undefined</span></div><div class="g-article">
+                <div style="text-align: center; margin-top: 100px;">
+                    <img style="width: 150px; height: 150px;" src="https://kano.guahao.cn/b5963307826" alt="">
+                    <p style="margin-top: 30px; line-height: 40px; font-size: 16px;">您好，为了给您提供更加优质的服务，微医将于3月20日进行健康号产品升级，届时健康号产品的视频发布功能将暂停使用，历史发布视频暂时无法查看，由此给您带来的诸多不便，深表歉意。感谢您对微医平台的理解和支持。</p>
+                </div>
+            </div>
+            <div class="g-doctor">
+                    <div class="g-doc-article g-error">
+                        <div class="arc-title"><span>热门文章</span></div>
+                        <hr class="lin-sx">
+                        <div class="arc-list">
+                        </div>
+                    </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+<div class="g-bottom">
+    <div id="gf">
+        <div class="g-container">
+                <div class="g-footer g-clear">
+                    <a class="logo g-left" href="https://www.guahao.com/"></a>
+                    <div class="links g-left">
+                        <dl class="one g-clear">
+                            <dt>关于微医</dt>
+                            <dd><a href="https://www.guahao.com/about" rel="nofollow">关于我们</a></dd>
+                            <dd><a href="https://www.guahao.com/friendlylink/index">友情链接</a></dd>
+                            <dd><a href="https://www.guahao.com/recruitment/list" rel="nofollow">加入微医</a></dd>
+                            <dd><a href="https://www.guahao.com/statement" rel="nofollow">版权声明</a></dd>
+                            <dd><a href="https://www.guahao.com/contact" rel="nofollow">联系我们</a></dd>
+                            <dd class="last"><a href="http://e.weibo.com/95169guahaowang" rel="nofollow" target="_blank">新浪微博</a></dd>
+                            <dd><a href="https://www.guahao.com/kb">知识库</a></dd>
+                        </dl>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="code g-left">
+                        <a class="nihe" href="http://www.nihe.org.cn" rel="nofollow" target="_blank">中国健康教育中心<br>卫生部新闻宣传中心</a>
+                        <a class="cha" href="http://www.cha.org.cn/" rel="nofollow" target="_blank">中国医院协会<br>门急诊管理专业委员会</a>
+                        <a class="fudanmed" href="http://www.fudanmed.com/manage/index.aspx" rel="nofollow" target="_blank">上海复旦医院管理公司</a>
+                        <a class="cfnews" href="http://www.cfnews.org.cn" rel="nofollow" target="_blank">中国家庭报<br>卫计委人口文化发展中心</a>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="internation g-right">
+                        <a href="http://icih.h.gov.cn/" rel="nofollow" target="_blank"><i></i>
+                            <h3>国际互联网医疗大会</h3>
+                            <p>International Conference</p>
+                            <p>on Internet Healthcare</p>
+                        </a>
+                    </div>
+                </div>
+                    <p class="copyright">
+                        版权所有：杭州微医健康科技有限公司&nbsp;&nbsp;&nbsp;
+                        <a href="https://www.guahao.com/icpcard" rel="nofollow">浙B2-20200356</a>&nbsp;&nbsp;
+                        <a href="https://www.guahao.com/medicalhealthzj" rel="nofollow">浙卫(03)网审[2014]015号</a>&nbsp;&nbsp;
+                        <a href="https://www.guahao.com/medicaldrugszj" rel="nofollow">(浙)-经营性-2014-0022</a>&nbsp;&nbsp;
+                        <a class="alliance" href="http://www.anquan.org/authenticate/cert/?site=www.guahao.com" target="_blank" rel="nofollow"></a>
+                        <a class="alliance attestation" href="http://si.trustutn.org/info?sn=553170628029381014121&amp;certType=1" target="_blank" rel="nofollow"></a>
+                        <a class="record" href="http://www.miibeian.gov.cn/" rel="nofollow" target="_blank"></a>
+
+                    </p>
+                <div style="width:300px;margin:0 auto; padding:20px 0;">
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010902000463" rel="nofollow" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://h2img.guahao.com/img/ghs.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010902000463号</p></a>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript" src="https://static.guahao.cn/bbs/js/base/GL.js?_=1725948554046"></script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?5b429d13128244b81606de3da50eb839";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<div id="ads"></div></body></html>

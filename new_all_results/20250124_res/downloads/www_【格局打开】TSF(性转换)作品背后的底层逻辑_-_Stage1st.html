@@ -1,0 +1,3724 @@
+<!DOCTYPE html>
+<html class=" widthauto"><head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>【格局打开】TSF(性转换)作品背后的底层逻辑 - 第2页 - 动漫论坛 -  Stage1st -  stage1/s1 游戏动漫论坛</title>
+<style cssr-id="vueuc/binder">.v-binder-follower-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: auto;
+}
+
+.v-binder-follower-content {
+  position: absolute;
+  z-index: auto;
+}
+
+.v-binder-follower-content > * {
+  pointer-events: all;
+}</style><style cssr-id="n-global">body {
+
+ margin: 0;
+ font-size: 14px;
+ font-family: v-sans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+ line-height: 1.6;
+ -webkit-text-size-adjust: 100%;
+ -webkit-tap-highlight-color: transparent;
+
+}
+
+body input {
+
+ font-family: inherit;
+ font-size: inherit;
+ 
+}</style><style cssr-id="n-popover">.n-popover {
+
+ transition:
+ box-shadow .3s var(--n-bezier),
+ background-color .3s var(--n-bezier),
+ color .3s var(--n-bezier);
+ position: relative;
+ font-size: var(--n-font-size);
+ color: var(--n-text-color);
+ box-shadow: var(--n-box-shadow);
+ word-break: break-word;
+ 
+}
+
+.n-popover > .n-scrollbar {
+
+ height: inherit;
+ max-height: inherit;
+ 
+}
+
+.n-popover:not(.n-popover--raw) {
+
+ background-color: var(--n-color);
+ border-radius: var(--n-border-radius);
+ 
+}
+
+.n-popover:not(.n-popover--raw):not(.n-popover--scrollable):not(.n-popover--show-header-or-footer) {
+padding: var(--n-padding);
+}
+
+.n-popover .n-popover__header {
+
+ padding: var(--n-padding);
+ border-bottom: 1px solid var(--n-divider-color);
+ transition: border-color .3s var(--n-bezier);
+ 
+}
+
+.n-popover .n-popover__footer {
+
+ padding: var(--n-padding);
+ border-top: 1px solid var(--n-divider-color);
+ transition: border-color .3s var(--n-bezier);
+ 
+}
+
+.n-popover.n-popover--scrollable .n-popover__content, .n-popover.n-popover--show-header-or-footer .n-popover__content {
+
+ padding: var(--n-padding);
+ 
+}
+
+.n-popover-shared {
+
+ transform-origin: inherit;
+ 
+}
+
+.n-popover-shared .n-popover-arrow-wrapper {
+
+ position: absolute;
+ overflow: hidden;
+ pointer-events: none;
+ 
+}
+
+.n-popover-shared .n-popover-arrow-wrapper .n-popover-arrow {
+
+ transition: background-color .3s var(--n-bezier);
+ position: absolute;
+ display: block;
+ width: calc(var(--n-arrow-height) * 1.414);
+ height: calc(var(--n-arrow-height) * 1.414);
+ box-shadow: 0 0 8px 0 rgba(0, 0, 0, .12);
+ transform: rotate(45deg);
+ background-color: var(--n-color);
+ pointer-events: all;
+ 
+}
+
+.n-popover-shared.popover-transition-enter-from, .n-popover-shared.popover-transition-leave-to {
+
+ opacity: 0;
+ transform: scale(.85);
+ 
+}
+
+.n-popover-shared.popover-transition-enter-to, .n-popover-shared.popover-transition-leave-from {
+
+ transform: scale(1);
+ opacity: 1;
+ 
+}
+
+.n-popover-shared.popover-transition-enter-active {
+
+ transition:
+ box-shadow .3s var(--n-bezier),
+ background-color .3s var(--n-bezier),
+ color .3s var(--n-bezier),
+ opacity .15s var(--n-bezier-ease-out),
+ transform .15s var(--n-bezier-ease-out);
+ 
+}
+
+.n-popover-shared.popover-transition-leave-active {
+
+ transition:
+ box-shadow .3s var(--n-bezier),
+ background-color .3s var(--n-bezier),
+ color .3s var(--n-bezier),
+ opacity .15s var(--n-bezier-ease-in),
+ transform .15s var(--n-bezier-ease-in);
+ 
+}
+
+[v-placement="top-start"] > .n-popover-shared {
+
+ margin-bottom: var(--n-space);
+ 
+}
+
+[v-placement="top-start"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-bottom: var(--n-space-arrow);
+ 
+}
+
+[v-placement="top-start"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="top-start"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ top: 100%;
+ bottom: auto;
+ height: var(--n-space-arrow);
+ 
+}
+
+[v-placement="top-start"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ top: calc(var(--n-arrow-height) * 1.414 / -2);
+ left: calc(var(--n-arrow-offset) - var(--v-offset-left));
+ 
+}
+
+[v-placement="top"] > .n-popover-shared {
+
+ margin-bottom: var(--n-space);
+ 
+}
+
+[v-placement="top"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-bottom: var(--n-space-arrow);
+ 
+}
+
+[v-placement="top"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="top"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ top: 100%;
+ bottom: auto;
+ height: var(--n-space-arrow);
+ 
+}
+
+[v-placement="top"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ top: calc(var(--n-arrow-height) * 1.414 / -2);
+ transform: translateX(calc(var(--n-arrow-height) * 1.414 / -2)) rotate(45deg);
+ left: 50%;
+ 
+}
+
+[v-placement="top-end"] > .n-popover-shared {
+
+ margin-bottom: var(--n-space);
+ 
+}
+
+[v-placement="top-end"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-bottom: var(--n-space-arrow);
+ 
+}
+
+[v-placement="top-end"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="top-end"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ top: 100%;
+ bottom: auto;
+ height: var(--n-space-arrow);
+ 
+}
+
+[v-placement="top-end"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ top: calc(var(--n-arrow-height) * 1.414 / -2);
+ right: calc(var(--n-arrow-offset) + var(--v-offset-left));
+ 
+}
+
+[v-placement="bottom-start"] > .n-popover-shared {
+
+ margin-top: var(--n-space);
+ 
+}
+
+[v-placement="bottom-start"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-top: var(--n-space-arrow);
+ 
+}
+
+[v-placement="bottom-start"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="bottom-start"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ bottom: 100%;
+ top: auto;
+ height: var(--n-space-arrow);
+ 
+}
+
+[v-placement="bottom-start"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ bottom: calc(var(--n-arrow-height) * 1.414 / -2);
+ left: calc(var(--n-arrow-offset) - var(--v-offset-left));
+ 
+}
+
+[v-placement="bottom"] > .n-popover-shared {
+
+ margin-top: var(--n-space);
+ 
+}
+
+[v-placement="bottom"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-top: var(--n-space-arrow);
+ 
+}
+
+[v-placement="bottom"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="bottom"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ bottom: 100%;
+ top: auto;
+ height: var(--n-space-arrow);
+ 
+}
+
+[v-placement="bottom"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ bottom: calc(var(--n-arrow-height) * 1.414 / -2);
+ transform: translateX(calc(var(--n-arrow-height) * 1.414 / -2)) rotate(45deg);
+ left: 50%;
+ 
+}
+
+[v-placement="bottom-end"] > .n-popover-shared {
+
+ margin-top: var(--n-space);
+ 
+}
+
+[v-placement="bottom-end"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-top: var(--n-space-arrow);
+ 
+}
+
+[v-placement="bottom-end"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="bottom-end"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ bottom: 100%;
+ top: auto;
+ height: var(--n-space-arrow);
+ 
+}
+
+[v-placement="bottom-end"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ bottom: calc(var(--n-arrow-height) * 1.414 / -2);
+ right: calc(var(--n-arrow-offset) + var(--v-offset-left));
+ 
+}
+
+[v-placement="left-start"] > .n-popover-shared {
+
+ margin-right: var(--n-space);
+ 
+}
+
+[v-placement="left-start"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-right: var(--n-space-arrow);
+ 
+}
+
+[v-placement="left-start"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="left-start"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ left: 100%;
+ right: auto;
+ width: var(--n-space-arrow);
+ 
+}
+
+[v-placement="left-start"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ left: calc(var(--n-arrow-height) * 1.414 / -2);
+ top: calc(var(--n-arrow-offset-vertical) - var(--v-offset-top));
+ 
+}
+
+[v-placement="left"] > .n-popover-shared {
+
+ margin-right: var(--n-space);
+ 
+}
+
+[v-placement="left"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-right: var(--n-space-arrow);
+ 
+}
+
+[v-placement="left"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="left"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ left: 100%;
+ right: auto;
+ width: var(--n-space-arrow);
+ 
+}
+
+[v-placement="left"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ left: calc(var(--n-arrow-height) * 1.414 / -2);
+ transform: translateY(calc(var(--n-arrow-height) * 1.414 / -2)) rotate(45deg);
+ top: 50%;
+ 
+}
+
+[v-placement="left-end"] > .n-popover-shared {
+
+ margin-right: var(--n-space);
+ 
+}
+
+[v-placement="left-end"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-right: var(--n-space-arrow);
+ 
+}
+
+[v-placement="left-end"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="left-end"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ left: 100%;
+ right: auto;
+ width: var(--n-space-arrow);
+ 
+}
+
+[v-placement="left-end"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ left: calc(var(--n-arrow-height) * 1.414 / -2);
+ bottom: calc(var(--n-arrow-offset-vertical) + var(--v-offset-top));
+ 
+}
+
+[v-placement="right-start"] > .n-popover-shared {
+
+ margin-left: var(--n-space);
+ 
+}
+
+[v-placement="right-start"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-left: var(--n-space-arrow);
+ 
+}
+
+[v-placement="right-start"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="right-start"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ right: 100%;
+ left: auto;
+ width: var(--n-space-arrow);
+ 
+}
+
+[v-placement="right-start"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ right: calc(var(--n-arrow-height) * 1.414 / -2);
+ top: calc(var(--n-arrow-offset-vertical) - var(--v-offset-top));
+ 
+}
+
+[v-placement="right"] > .n-popover-shared {
+
+ margin-left: var(--n-space);
+ 
+}
+
+[v-placement="right"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-left: var(--n-space-arrow);
+ 
+}
+
+[v-placement="right"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="right"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ right: 100%;
+ left: auto;
+ width: var(--n-space-arrow);
+ 
+}
+
+[v-placement="right"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ right: calc(var(--n-arrow-height) * 1.414 / -2);
+ transform: translateY(calc(var(--n-arrow-height) * 1.414 / -2)) rotate(45deg);
+ top: 50%;
+ 
+}
+
+[v-placement="right-end"] > .n-popover-shared {
+
+ margin-left: var(--n-space);
+ 
+}
+
+[v-placement="right-end"] > .n-popover-shared.n-popover-shared--show-arrow {
+
+ margin-left: var(--n-space-arrow);
+ 
+}
+
+[v-placement="right-end"] > .n-popover-shared.n-popover-shared--overlap {
+
+ margin: 0;
+ 
+}
+
+[v-placement="right-end"] > .n-popover-shared > .n-popover-arrow-wrapper {
+
+ right: 0;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ right: 100%;
+ left: auto;
+ width: var(--n-space-arrow);
+ 
+}
+
+[v-placement="right-end"] > .n-popover-shared > .n-popover-arrow-wrapper .n-popover-arrow {
+
+ right: calc(var(--n-arrow-height) * 1.414 / -2);
+ bottom: calc(var(--n-arrow-offset-vertical) + var(--v-offset-top));
+ 
+}
+
+[v-placement="right-start"] > .n-popover-shared.n-popover-shared--center-arrow .n-popover-arrow {
+top: calc(max(calc((var(--v-target-height, 0px) - var(--n-arrow-height) * 1.414) / 2), var(--n-arrow-offset-vertical)) - var(--v-offset-top));
+}
+
+[v-placement="left-start"] > .n-popover-shared.n-popover-shared--center-arrow .n-popover-arrow {
+top: calc(max(calc((var(--v-target-height, 0px) - var(--n-arrow-height) * 1.414) / 2), var(--n-arrow-offset-vertical)) - var(--v-offset-top));
+}
+
+[v-placement="top-end"] > .n-popover-shared.n-popover-shared--center-arrow .n-popover-arrow {
+right: calc(max(calc((var(--v-target-width, 0px) - var(--n-arrow-height) * 1.414) / 2), var(--n-arrow-offset)) + var(--v-offset-left));
+}
+
+[v-placement="bottom-end"] > .n-popover-shared.n-popover-shared--center-arrow .n-popover-arrow {
+right: calc(max(calc((var(--v-target-width, 0px) - var(--n-arrow-height) * 1.414) / 2), var(--n-arrow-offset)) + var(--v-offset-left));
+}
+
+[v-placement="right-end"] > .n-popover-shared.n-popover-shared--center-arrow .n-popover-arrow {
+bottom: calc(max(calc((var(--v-target-height, 0px) - var(--n-arrow-height) * 1.414) / 2), var(--n-arrow-offset-vertical)) + var(--v-offset-top));
+}
+
+[v-placement="left-end"] > .n-popover-shared.n-popover-shared--center-arrow .n-popover-arrow {
+bottom: calc(max(calc((var(--v-target-height, 0px) - var(--n-arrow-height) * 1.414) / 2), var(--n-arrow-offset-vertical)) + var(--v-offset-top));
+}
+
+[v-placement="top-start"] > .n-popover-shared.n-popover-shared--center-arrow .n-popover-arrow {
+left: calc(max(calc((var(--v-target-width, 0px) - var(--n-arrow-height) * 1.414) / 2), var(--n-arrow-offset)) - var(--v-offset-left));
+}
+
+[v-placement="bottom-start"] > .n-popover-shared.n-popover-shared--center-arrow .n-popover-arrow {
+left: calc(max(calc((var(--v-target-width, 0px) - var(--n-arrow-height) * 1.414) / 2), var(--n-arrow-offset)) - var(--v-offset-left));
+}</style><link href="https://www.saraba1st.com/2b/thread-2116912-1-1.html" rel="canonical">
+<meta name="keywords" content="【格局打开】TSF(性转换)作品背后的底层逻辑">
+<meta name="description" content=" 【格局打开】TSF(性转换)作品背后的底层逻辑 ,Stage1st">
+<meta name="generator" content="Discuz! X3.5">
+<meta name="author" content="s1,sarba1st,stage1st">
+<meta name="copyright" content="s1,sarba1st,stage1st">
+<meta name="MSSmartTagsPreventParsing" content="True">
+<meta http-equiv="MSThemeCompatible" content="Yes">
+<base href="https://www.saraba1st.com/2b/"><link rel="stylesheet" type="text/css" href="data/cache/style_7_common.css?bob"><link rel="stylesheet" type="text/css" href="data/cache/style_7_forum_viewthread.css?bob"><!--[if IE]><link rel="stylesheet" type="text/css" href="data/cache/style_7_iefix.css?bob" /><![endif]--><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-BYLFGNMRD4&amp;l=dataLayer&amp;cx=c&amp;gtm=457e5240za200"></script><script type="text/javascript">var STYLEID = '7', STATICURL = 'https://static.saraba1st.com/', IMGDIR = 'static/image/s1', VERHASH = 'bob', charset = 'utf-8', discuz_uid = '0', cookiepre = 'B7Y9_0c0a_', cookiedomain = '.saraba1st.com', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'newthread', creditnotice = '', defaultstyle = '', REPORTURL = 'aHR0cHM6Ly93d3cuc2FyYWJhMXN0LmNvbS8yYi90aHJlYWQtMjExNjkxMi0yLTEuaHRtbA==', SITEURL = 'https://www.saraba1st.com/2b/', JSPATH = 'data/cache/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
+<script src="data/cache/common.js?bob" type="text/javascript"></script>
+<meta name="application-name" content="Stage1st">
+<meta name="msapplication-tooltip" content="Stage1st">
+<meta name="msapplication-task" content="name=论坛;action-uri=https://www.saraba1st.com/2b/forum.php;icon-uri=https://www.saraba1st.com/2b/static/image/s1/bbs.ico">
+<link rel="archives" title="Stage1st" href="https://www.saraba1st.com/2b/archiver/">
+<link rel="stylesheet" id="css_widthauto" type="text/css" href="data/cache/style_7_widthauto.css?bob">
+<script type="text/javascript">HTMLNODE.className += ' widthauto'</script>
+<script src="data/cache/forum.js?bob" type="text/javascript"></script>
+</head>
+
+<body id="nv_forum" class="pg_viewthread" onkeydown="if(event.keyCode==27) return false;">
+<div id="append_parent" data-observed="1"><div id="ls_fastloginfield_ctrl_menu" class="sltm" style="display: none; width: 40px;"><ul><li class="current">用户名</li><li>UID</li><li>Email</li></ul></div></div><div id="ajaxwaitid"></div>
+<div id="toptb" class="cl">
+<div class="wp">
+<div class="z"></div>
+<div class="y">
+<a id="switchblind" href="javascript:;" onclick="toggleBlind(this)" title="开启辅助访问" class="switchblind"></a>
+<a href="javascript:;" id="switchwidth" onclick="widthauto(this)" title="切换到窄版" class="switchwidth">切换到窄版</a>
+</div>
+</div>
+</div>
+
+<div id="qmenu_menu" class="p_pop blk" style="display: none;">
+<div class="ptm pbw hm">
+请 <a href="javascript:;" class="xi2" onclick="lsSubmit()"><strong>登录</strong></a> 后使用快捷导航<br>没有账号？<a href="member.php?mod=register" class="xi2 xw1">立即注册</a>
+</div>
+<div id="fjump_menu" class="btda"></div></div><div id="hd">
+<div class="wp">
+<div class="hdc cl"><h2><a href="./" title="Stage1st"><img src="static/image/s1/logo.png" alt="Stage1st" class="boardlogo" id="boardlogo" border="0"></a></h2><script src="data/cache/logging.js?bob" type="text/javascript"></script>
+<form method="post" autocomplete="off" id="lsform" action="member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;infloat=yes&amp;lssubmit=yes" onsubmit="return lsSubmit();">
+<div class="fastlg cl">
+<span id="return_ls" style="display:none"></span>
+<div class="y pns">
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td>
+<span class="ftid">
+<select name="fastloginfield" id="ls_fastloginfield" width="40" selecti="0" style="display: none;">
+
+
+
+<option value="username"></option></select><a href="javascript:;" id="ls_fastloginfield_ctrl" style="width:40px">用户名</a>
+</span>
+<script type="text/javascript">simulateSelect('ls_fastloginfield')</script>
+</td>
+<td><input type="text" name="username" id="ls_username" autocomplete="off" class="px vm"></td>
+<td class="fastlg_l"><label for="ls_cookietime"><input type="checkbox" name="cookietime" id="ls_cookietime" class="pc" value="2592000">自动登录</label></td>
+<td>&nbsp;<a href="javascript:;" onclick="showWindow('login', 'member.php?mod=logging&amp;action=login&amp;viewlostpw=1')">找回密码</a></td>
+</tr>
+<tr>
+<td><label for="ls_password" class="z psw_w">密码</label></td>
+<td><input type="password" name="password" id="ls_password" class="px vm" autocomplete="off"></td>
+<td class="fastlg_l"><button type="submit" class="pn vm" style="width: 75px;"><em>登录</em></button></td>
+<td>&nbsp;<a href="member.php?mod=register" class="xi2 xw1">立即注册</a></td>
+</tr>
+</tbody></table>
+<input type="hidden" name="formhash" value="49f07ccb">
+<input type="hidden" name="quickforward" value="yes">
+<input type="hidden" name="handlekey" value="ls">
+</div>
+</div>
+</form>
+</div>
+
+<div id="nv_ph"><div id="nv">
+<a href="javascript:;" id="qmenu" onmouseover="delayShow(this, function () {showMenu({'ctrlid':'qmenu','pos':'34!','ctrlclass':'a','duration':2});showForummenu(6);})">快捷导航</a>
+<ul><li id="mn_Nf7af"><a href="plugin.php?id=liangzai_mqycode" hidefocus="true">购买邀请码</a></li><li id="mn_F151"><a href="forum-151-1.html" hidefocus="true">VTB</a></li><li id="mn_F75"><a href="forum-75-1.html" hidefocus="true">卓明谷</a></li><li id="mn_N4e4d" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="forum-6-1.html" hidefocus="true">动漫</a></li><li id="mn_N22a4"><a href="forum-4-1.html" hidefocus="true">游戏</a></li><li id="mn_Necd6"><a href="forum-135-1.html" hidefocus="true">手游</a></li><li id="mn_F77"><a href="forum-77-1.html" hidefocus="true">八卦体育</a></li><li id="mn_Nc7a3"><a href="forum-136-1.html" hidefocus="true">模玩</a></li><li id="mn_Nd7a1"><a href="forum-48-1.html" hidefocus="true">影视</a></li><li id="mn_N88b1"><a href="forum-51-1.html" hidefocus="true">数码</a></li><li id="mn_N8dd3"><a href="https://bbs.saraba1st.com/2b/thread-2206666-1-1.html" hidefocus="true" style="color: red">s1义父捐助</a></li></ul>
+</div></div>
+<ul class="p_pop h_pop" id="plugin_menu" style="display: none">  <li><a href="x7ree_opengs-x7ree_opengs.html" id="mn_plink_x7ree_opengs">开放式竞猜</a></li>
+ </ul>
+<ul class="p_pop h_pop" id="mn_N4e4d_menu" style="display: none"><li><a href="forum-144-1.html" hidefocus="true">欧美动漫</a></li><li><a href="forum-83-1.html" hidefocus="true">动漫鉴赏区</a></li></ul><div class="p_pop h_pop" id="mn_userapp_menu" style="display: none"></div><div id="mu" class="cl">
+</div><div id="scbar" class="cl">
+<form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($('scbar_txt'))" action="search.php?searchsubmit=yes" target="_blank">
+<input type="hidden" name="mod" id="scbar_mod" value="forum">
+<input type="hidden" name="formhash" value="49f07ccb">
+<input type="hidden" name="srchtype" value="title">
+<input type="hidden" name="srhfid" value="6">
+<input type="hidden" name="srhlocality" value="forum::viewthread">
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="scbar_icon_td"></td>
+<td class="scbar_txt_td"><input type="text" name="srchtxt" id="scbar_txt" value="请输入搜索内容" autocomplete="off" x-webkit-speech="" speech="" class=" xg1" placeholder="请输入搜索内容"></td>
+<td class="scbar_type_td"><a href="javascript:;" id="scbar_type" class="xg1 showmenu" onclick="showMenu(this.id)" hidefocus="true">帖子</a></td>
+<td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true"><strong class="xi2">搜索</strong></button></td>
+<td class="scbar_hot_td">
+<div id="scbar_hot">
+</div>
+</td>
+</tr>
+</tbody></table>
+</form>
+</div>
+<ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="curforum" fid="6">本版</a></li><li><a href="javascript:;" rel="forum" class="curtype">帖子</a></li><li><a href="javascript:;" rel="user">用户</a></li></ul>
+<script type="text/javascript">
+initSearchmenu('scbar', '');
+</script>
+</div>
+</div>
+
+
+         <script type="text/javascript">
+           if (typeof jQuery != 'undefined'){
+              var boan_old_jq = jQuery;
+           } 
+         </script><script type="text/javascript" src="source/plugin/boan_h5upload/js/jquery-1.11.0.min.js?bob" charset="utf-8"></script>
+          <script type="text/javascript">
+             var boan_jq=$.noConflict();
+             if (typeof  boan_old_jq != 'undefined'){
+               jQuery = boan_old_jq;
+              }
+         </script><link href="./source/plugin/boan_h5upload/css/webuploader_fast.css" rel="stylesheet" type="text/css">        <script>
+            var SWFUpload;
+        	SWFUpload = function(settings) {
+        		this.initUpload(settings);
+       	    };
+           
+            SWFUpload.prototype.initUpload = function(userSettings) {
+            	try {
+            		this.customSettings = {};	
+            		this.settings = {};
+            		this.eventQueue = [];
+            		this.initSettings1(userSettings);
+            	} catch (ex) {
+            		throw ex;
+            	}
+            };
+            SWFUpload.prototype.initSettings1 = function (userSettings) {
+            	this.ensureDefault = function(settingName, defaultValue) {
+            		var setting = userSettings[settingName];
+            		if (setting != undefined) {
+            			this.settings[settingName] = setting;
+            		} else {
+            			this.settings[settingName] = defaultValue;
+            		}
+            	};
+            
+            	this.ensureDefault("upload_url", "");
+            	this.ensureDefault("file_post_name", "Filedata");
+            	this.ensureDefault("post_params", {});
+            
+            	this.ensureDefault("file_types", "*.*");
+            	this.ensureDefault("file_types_description", "All Files");
+            	this.ensureDefault("file_size_limit", 0);	
+            	this.ensureDefault("file_upload_limit", 0);
+            	this.ensureDefault("file_queue_limit", 0); 
+                this.ensureDefault("custom_settings", {});
+	            this.customSettings = this.settings.custom_settings;
+            }
+        </script>
+<div id="wp" class="wp">
+<script type="text/javascript">var fid = parseInt('6'), tid = parseInt('2116912');</script>
+
+<script src="data/cache/forum_viewthread.js?bob" type="text/javascript"></script>
+<script type="text/javascript">zoomstatus = parseInt(1);var imagemaxwidth = '800';var aimgcount = new Array();</script>
+
+<style id="diy_style" type="text/css"></style>
+<!--[diy=diynavtop]--><div id="diynavtop" class="area"></div><!--[/diy]-->
+<div id="pt" class="bm cl">
+<div class="z">
+<a href="./" class="nvhm" title="首页">Stage1st</a><em>»</em><a href="forum.php">论坛</a> <em>›</em> <a href="forum.php?gid=1">主论坛</a> <em>›</em> <a href="forum-6-1.html">动漫论坛</a> <em>›</em> <a href="thread-2116912-1-1.html">【格局打开】TSF(性转换)作品背后的底层逻辑 ...</a>
+</div>
+</div>
+
+<style id="diy_style" type="text/css"></style>
+<div class="wp">
+<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+</div>
+
+<div id="ct" class="wp cl">
+<div id="pgt" class="pgs mbm cl ">
+<div class="pgt"><div class="pg"><a href="thread-2116912-1-1.html" class="prev">&nbsp;&nbsp;</a><a href="thread-2116912-1-1.html">1</a><strong>2</strong><label><input type="text" name="custompage" class="px" size="2" title="输入页码，按回车快速跳转" value="2" onkeydown="if(event.keyCode==13) {window.location='forum.php?mod=viewthread&amp;tid=2116912&amp;extra=page%3D1&amp;page='+this.value;; doane(event);}"><span title="共 2 页"> / 2 页</span></label></div></div>
+<span class="y pgb"><a href="forum-6-1.html">返回列表</a></span>
+<a id="newspecial" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=6')" href="javascript:;" title="发新帖" class="pgsbtn showmenu">发新帖</a></div>
+
+
+
+<div id="postlist" class="pl bm">
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="pls ptn pbn">
+<div id="tath" class="cl">
+<a href="space-uid-388433.html" title="青龙圣者"><img src="https://avatar.saraba1st.com/000/38/84/33_avatar_small.jpg"></a>
+楼主: <a href="space-uid-388433.html" title="青龙圣者">青龙圣者</a>
+</div>
+</td>
+<td class="plc ptm pbn vwthd">
+<div class="y">
+<a href="forum.php?mod=viewthread&amp;action=printable&amp;tid=2116912" title="打印" target="_blank"><i class="fico-print fic4 fc-s vm"></i></a>
+<a href="forum.php?mod=redirect&amp;goto=nextoldset&amp;tid=2116912" title="上一主题"><i class="fico-left fic4 fc-s vm"></i></a>
+<a href="forum.php?mod=redirect&amp;goto=nextnewset&amp;tid=2116912" title="下一主题"><i class="fico-right fic4 fc-s vm"></i></a>
+</div>
+<h1 class="ts">
+<a href="forum.php?mod=forumdisplay&amp;fid=6&amp;filter=typeid&amp;typeid=15">[原创]</a>
+<span id="thread_subject">【格局打开】TSF(性转换)作品背后的底层逻辑</span>
+</h1>
+<span class="xg1">
+<a href="thread-2116912-1-1.html" onclick="return copyThreadUrl(this, 'Stage1st')">[复制链接]</a>
+</span>
+</td>
+</tr>
+</tbody></table>
+
+
+<table cellspacing="0" cellpadding="0" class="ad">
+<tbody><tr>
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table><div id="post_59535485"><a name="newpost"></a><table id="pid59535485" class="plhin" summary="pid59535485" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59535485" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-388433.html" target="_blank" class="xw1">青龙圣者</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59535485" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59535485_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-388433.html" target="_blank" class="xi2">青龙圣者</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=32" target="_blank">卡片召唤师</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=388433&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2014-5-15</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=388433&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-388433.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/38/84/33_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59535485" id="postnum59535485" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>41</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<em class="authicn fico-person fic4 fnmr vm" id="authicon59535485" title="楼主"></em>
+&nbsp;楼主<span class="pipe">|</span>
+<em id="authorposton59535485">发表于 2023-1-29 22:16</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=388433" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><style type="text/css">.pcb{margin-right:0}</style><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59535485">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59534487&amp;ptid=2116912" target="_blank"><font color="#999999">HazukiShion 发表于 2023-1-29 20:51</font></a></font><br>
+就性转而言更多的不是变嫁吗？变百的反而是少数吧？<br>
+我一直好奇变嫁这种作品的受众到底是BL还是NL[f ...</blockquote></div><br>
+因为里的变嫁更多，这篇主要讨论表的</td></tr></tbody></table>
+
+</div>
+<div id="comment_59535485" class="cm">
+</div>
+
+<div id="post_rate_div_59535485"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59535485"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59535485&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59535485" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59535485', 'misc.php?mod=report&amp;rtype=post&amp;rid=59535485&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59535485_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59535485')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59535494"><table id="pid59535494" class="plhin" summary="pid59535494" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59535494" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-388433.html" target="_blank" class="xw1">青龙圣者</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59535494" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59535494_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-388433.html" target="_blank" class="xi2">青龙圣者</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=32" target="_blank">卡片召唤师</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=388433&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2014-5-15</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=388433&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-388433.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/38/84/33_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59535494" id="postnum59535494" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>42</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<em class="authicn fico-person fic4 fnmr vm" id="authicon59535494" title="楼主"></em>
+&nbsp;楼主<span class="pipe">|</span>
+<em id="authorposton59535494">发表于 2023-1-29 22:17</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=388433" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59535494">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59534601&amp;ptid=2116912" target="_blank"><font color="#999999">MiaoJi 发表于 2023-1-29 21:02</font></a></font><br>
+这不就是百合吗，男主想成为mtf，图里也说了你要是执意变性那我就做蕾丝边，为什么又本质bg了 ...</blockquote></div><br>
+这说明和身体性别无关，早在是男的的时候就喜欢了，喜欢的是作为男人时候的性格和魅力。<br>
+生物上的性征无所谓。</td></tr></tbody></table>
+
+</div>
+<div id="comment_59535494" class="cm">
+</div>
+
+<div id="post_rate_div_59535494"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59535494"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59535494&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59535494" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59535494', 'misc.php?mod=report&amp;rtype=post&amp;rid=59535494&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59535494_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59535494')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59535774"><table id="pid59535774" class="plhin" summary="pid59535774" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59535774" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-202313.html" target="_blank" class="xw1">爱尔米娜</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59535774" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59535774_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-202313.html" target="_blank" class="xi2">爱尔米娜</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=53" target="_blank">半肾</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=202313&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2011-8-11</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=202313&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-202313.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/20/23/13_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59535774" id="postnum59535774" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>43</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59535774" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59535774">发表于 2023-1-29 22:38</em>
+<span class="xg1">来自手机</span>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=202313" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59535774">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59534487&amp;ptid=2116912" target="_blank"><font color="#999999">HazukiShion 发表于 2023-1-29 20:51</font></a></font><br>
+就性转而言更多的不是变嫁吗？变百的反而是少数吧？<br>
+我一直好奇变嫁这种作品的受众到底是BL还是NL[f ...</blockquote></div><br>
+取向受生理性别和激素影响，是200%的异性恋</td></tr></tbody></table>
+
+</div>
+<div id="comment_59535774" class="cm">
+</div>
+
+<div id="post_rate_div_59535774"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59535774"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59535774&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59535774" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59535774', 'misc.php?mod=report&amp;rtype=post&amp;rid=59535774&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59535774_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59535774')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59538228"><table id="pid59538228" class="plhin" summary="pid59538228" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59538228" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-535233.html" target="_blank" class="xw1">JAS39-Gripen</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59538228" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59538228_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-535233.html" target="_blank" class="xi2">JAS39-Gripen</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=31" target="_blank">死死团</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=535233&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2020-9-29</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=535233&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-535233.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/53/52/33_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59538228" id="postnum59538228" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>44</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59538228" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59538228">发表于 2023-1-30 03:51</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=535233" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59538228">
+美少女开坦克，美少女打篮球，美少女野外露营等，二次元美少女做的大部分事，其实就是男人们在性转自己</td></tr></tbody></table>
+
+</div>
+<div id="comment_59538228" class="cm">
+</div>
+
+<div id="post_rate_div_59538228"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59538228"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59538228&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59538228" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59538228', 'misc.php?mod=report&amp;rtype=post&amp;rid=59538228&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59538228_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59538228')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59538295"><table id="pid59538295" class="plhin" summary="pid59538295" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59538295" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-516358.html" target="_blank" class="xw1">ultraseven</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59538295" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59538295_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-516358.html" target="_blank" class="xi2">ultraseven</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=57" target="_blank">圣者</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=516358&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2019-5-28</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=516358&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-516358.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/noavatar.svg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59538295" id="postnum59538295" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>45</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59538295" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59538295">发表于 2023-1-30 04:57</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=516358" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59538295">
+变嫁就是BG啊，一个外表和行为像女性，心理也逐渐趋同于女性的人和男性谈恋爱，从外部的观察者看来这不是BG是什么？<img src="https://static.saraba1st.com/image/smiley/face2017/065.png" smilieid="742" border="0" alt="">变嫁不过是和伪娘，皮物等tag一样属于主流bg的延伸</td></tr></tbody></table>
+
+</div>
+<div id="comment_59538295" class="cm">
+</div>
+
+<div id="post_rate_div_59538295"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59538295"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59538295&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59538295" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59538295', 'misc.php?mod=report&amp;rtype=post&amp;rid=59538295&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59538295_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59538295')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59538308"><table id="pid59538308" class="plhin" summary="pid59538308" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59538308" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-516358.html" target="_blank" class="xw1">ultraseven</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59538308" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59538308_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-516358.html" target="_blank" class="xi2">ultraseven</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=57" target="_blank">圣者</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=516358&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2019-5-28</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=516358&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-516358.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/noavatar.svg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59538308" id="postnum59538308" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>46</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59538308" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59538308">发表于 2023-1-30 05:02</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=516358" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59538308">
+个人最喜欢的还是一类TSF作品，往往结合世界观可以整出一些很有意思的作品，比如多年前的《拔刀狂想曲》，拔出刀来可以变为女性身体战斗，刀断了就变不回去了<img src="https://static.saraba1st.com/image/smiley/face2017/065.png" smilieid="742" border="0" alt=""></td></tr></tbody></table>
+
+</div>
+<div id="comment_59538308" class="cm">
+</div>
+
+<div id="post_rate_div_59538308"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59538308"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59538308&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59538308" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59538308', 'misc.php?mod=report&amp;rtype=post&amp;rid=59538308&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59538308_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59538308')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59538342"><table id="pid59538342" class="plhin" summary="pid59538342" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59538342" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-509839.html" target="_blank" class="xw1">rizutoaoitori</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59538342" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59538342_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-509839.html" target="_blank" class="xi2">rizutoaoitori</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=32" target="_blank">卡片召唤师</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=509839&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2018-12-11</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=509839&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-509839.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/50/98/39_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59538342" id="postnum59538342" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>47</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59538342" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59538342">发表于 2023-1-30 06:26</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=509839" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59538342">
+还有一类欺诈TS，即“主角本人和作者以为他变身了，但直到故事最后会揭秘主角根本从一开始就是女的，男性的记忆反而是伪造的”<br>
+另外的就是叙诡，主角的行为方式和自称都男性化，但直到一卷最后才揭示这其实是有着某些特殊经历而行为偏男性化的女性，这个不能算TS而只是拿读者开涮罢了？</td></tr></tbody></table>
+
+</div>
+<div id="comment_59538342" class="cm">
+</div>
+
+<div id="post_rate_div_59538342"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59538342"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59538342&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59538342" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59538342', 'misc.php?mod=report&amp;rtype=post&amp;rid=59538342&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59538342_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59538342')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59539240"><table id="pid59539240" class="plhin" summary="pid59539240" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59539240" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-563600.html" target="_blank" class="xw1">起名困难症</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59539240" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59539240_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-563600.html" target="_blank" class="xi2">起名困难症</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=53" target="_blank">半肾</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=563600&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2023-1-5</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=563600&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-563600.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/noavatar.svg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59539240" id="postnum59539240" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>48</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59539240" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59539240">发表于 2023-1-30 09:26</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=563600" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59539240">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59538295&amp;ptid=2116912" target="_blank"><font color="#999999">ultraseven 发表于 2023-1-30 04:57</font></a></font><br>
+变嫁就是BG啊，一个外表和行为像女性，心理也逐渐趋同于女性的人和男性谈恋爱，从外部的观察者看来这不是BG ...</blockquote></div><br>
+那变百里面如果主角完全女性化了，是不是也算百合？</td></tr></tbody></table>
+
+</div>
+<div id="comment_59539240" class="cm">
+</div>
+
+<div id="post_rate_div_59539240"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59539240"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59539240&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59539240" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59539240', 'misc.php?mod=report&amp;rtype=post&amp;rid=59539240&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59539240_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59539240')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59539263"><table id="pid59539263" class="plhin" summary="pid59539263" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59539263" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-563600.html" target="_blank" class="xw1">起名困难症</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59539263" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59539263_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-563600.html" target="_blank" class="xi2">起名困难症</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=53" target="_blank">半肾</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=563600&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2023-1-5</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=563600&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-563600.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/noavatar.svg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59539263" id="postnum59539263" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>49</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59539263" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59539263">发表于 2023-1-30 09:28</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=563600" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59539263">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59538342&amp;ptid=2116912" target="_blank"><font color="#999999">rizutoaoitori 发表于 2023-1-30 06:26</font></a></font><br>
+还有一类欺诈TS，即“主角本人和作者以为他变身了，但直到故事最后会揭秘主角根本从一开始就是女的，男性的 ...</blockquote></div><br>
+所以说特殊经历或者伪造记忆导致的偏男性化和TS导致的偏男性化在外人看来有什么区别<br>
+在不考虑什么灵魂性别的情况下</td></tr></tbody></table>
+
+</div>
+<div id="comment_59539263" class="cm">
+</div>
+
+<div id="post_rate_div_59539263"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59539263"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59539263&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59539263" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59539263', 'misc.php?mod=report&amp;rtype=post&amp;rid=59539263&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59539263_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59539263')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59541049"><table id="pid59541049" class="plhin" summary="pid59541049" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59541049" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-226883.html" target="_blank" class="xw1">wolf1997</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59541049" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59541049_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-226883.html" target="_blank" class="xi2">wolf1997</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=53" target="_blank">半肾</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=226883&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2012-2-18</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=226883&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-226883.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/noavatar.svg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59541049" id="postnum59541049" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>50</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59541049" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59541049">发表于 2023-1-30 11:36</em>
+<span class="xg1">来自手机</span>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=226883" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59541049">
+欧尼酱里，真寻该如何证明自身精神为男性？<br>
+或者说，在如今的二次元里，男性精神该如何证明自己精神是男性？<br>
+<br>
+在原作现在的进度里，真寻的男性精神已经难以自证：<br>
+<br>
+一、真寻的行为与爱好已无法和女生完全区分开来。<br>
+真寻过去喜欢打黄油、看皇叔，可是经过二次元语境下长期的宣传后，女生打黄油、看皇叔也早已不在稀奇，更何况变成女生后的真寻甚至不打黄油看皇叔了，最后一点男性的爱好也逐渐消逝。反过来，在如今美少女万能的环境下，还有什么爱好能迅速有力地证明其属于男性？<br>
+除开爱好，真寻能展现其为男性的地方只剩下上厕所这种玩个一两次就没了的活。哦，他还会对女生身体保持矜持，还会故意挑逗男性，自诩男人更懂男人……好像也没多有区分。<br>
+<br>
+二、真寻的性格言行无缝对接转性后状态。<br>
+作为成年男性的真寻TS，不仅仅是转成女生，而且是转成了小学女生，年龄上差距明显，然而事实上真寻因为摆烂的原因，性格停滞不前，言行举止更是早已丧失了男性特征，出门运动求妹妹的时候就是一小女孩。真寻的性格，让他在失去男儿身时变得比女生还女生。<br>
+<br>
+三、如今能代表真寻过去存在的、故事里将真寻区别于其他角色的，是真寻自身作为大人看待事物的经验，当中不包含男性特征。<br>
+在欧尼酱原作里，真寻其实大多数时候都是以一种大人看小孩的心态看待周围。他在学校里成绩优异，受女生欢迎，受男生暗恋，这些都建立在他作为大人的经验。所以本质上，欧尼酱这部作品到现在，反而更像是relife这种重返校园生活，改过自身的作品，TS元素已不是重点。<br>
+也因此，当真寻失去这些经验时，他的男性精神也将随之而去。这就是动画里没有做的真寻失忆那一话，那一话里真寻彻底成了女孩。也就是说，真寻骨子里没有男性特征。<br>
+<br>
+当然以上问题，本质上是因为作者猫豆腐在设计真寻之初就直接设计了真寻女生形象，至于过去的男性形象直到最近才正式补完。<br>
+TS主角的设计里，先设计男形态再转性，还是直接设计女形态，两者有什么区别，对故事有什么影响，感觉又能讨论一番。</td></tr></tbody></table>
+
+</div>
+<div id="comment_59541049" class="cm">
+</div>
+
+<div id="post_rate_div_59541049"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59541049"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59541049&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59541049" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59541049', 'misc.php?mod=report&amp;rtype=post&amp;rid=59541049&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59541049_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59541049')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59541656"><table id="pid59541656" class="plhin" summary="pid59541656" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59541656" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-487768.html" target="_blank" class="xw1">盐盐盐盐盐</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59541656" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59541656_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-487768.html" target="_blank" class="xi2">盐盐盐盐盐</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=32" target="_blank">卡片召唤师</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=487768&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2018-1-24</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=487768&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-487768.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/noavatar.svg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59541656" id="postnum59541656" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>51</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59541656" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59541656">发表于 2023-1-30 12:21</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=487768" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59541656">
+百合和bl相对于bg哪不一样本身就是两点，一是肉体不一样，比如有人他就不想看男/女的肉体，只想看某一种的，但他又要看爱情（或者说深入交流戏），那就看bl，百合，二是相对于千百年来人类社会默认的男女爱情，同**文学里面包含了一种禁忌之恋，冲破社会压力的暗喻，也就是所谓的我爱你不是对你这个性别的肉体有感觉而是爱你这个人本身，这样可以凸显同**里爱的纯粹性和对人格本身的追求<br>
+ts百合/bl把一个原本某性别的角色肉体性别改了，第一点仍然可以满足只想看某种肉体的读者的需求，但第二种意义就完全失去了，作为一个性别成长之后再性转然后搞百合/bl，那他喜欢曾经的异性仍然包含从来的男女之爱的教育影响，也仍然包含他只对这个性别的肉体有感觉所以爱里是带着身体需求的，我觉得这是性转作品究竟归类在性转前性别还是性转后性别争论的问题所在<br>
+不过这只是非常非常早期的同**创作的一种思路，比如现在声称天生就是同**取向对同性身体有感觉的人很多且lgbt的社会接受度在提高，那么今天这个社会的读者看同**作品一开始就不包含第二种意义，甚至很多同**作品直接就设定为只有某种性别的舞台或者作品里同**并没有社会压力，这种变化下百合bl和bg仅仅差一个肉体性别不同了，那性转就可以直接归到性转后性别类里，毕竟以肉体性别为准，变百就是百，变嫁就是bg，性转再搞基就是bl咯<br>
+至于什么男性的精神女性的精神，都这个年代了，没有什么精神是只可以有某种性别有的，所以我是不同意什么男的就是怎么样女的就是怎么样所以变个肉体就不一样，当然受社会影响肯定会有一些趋向，但既然文学创作大多数都是具体到某几个人，那什么形象都是可以写的，一开始就不拘泥于肉体</td></tr></tbody></table>
+
+</div>
+<div id="comment_59541656" class="cm">
+</div>
+
+<div id="post_rate_div_59541656"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59541656"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59541656&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59541656" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59541656', 'misc.php?mod=report&amp;rtype=post&amp;rid=59541656&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59541656_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59541656')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59542735"><table id="pid59542735" class="plhin" summary="pid59542735" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59542735" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-388433.html" target="_blank" class="xw1">青龙圣者</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59542735" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59542735_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-388433.html" target="_blank" class="xi2">青龙圣者</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=32" target="_blank">卡片召唤师</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=388433&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2014-5-15</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=388433&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-388433.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/38/84/33_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59542735" id="postnum59542735" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>52</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<em class="authicn fico-person fic4 fnmr vm" id="authicon59542735" title="楼主"></em>
+&nbsp;楼主<span class="pipe">|</span>
+<em id="authorposton59542735">发表于 2023-1-30 13:45</em>
+<span class="xg1">来自手机</span>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=388433" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59542735">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59541049&amp;ptid=2116912" target="_blank"><font color="#999999">wolf1997 发表于 2023-1-30 11:36</font></a></font><br>
+欧尼酱里，真寻该如何证明自身精神为男性？<br>
+或者说，在如今的二次元里，男性精神该如何证明自己精神是男性 ...</blockquote></div><br>
+如果作者想升华主题，大概率会最后变回来选择做哥哥。<br>
+看作者要不要这么写<br>
+<br>
+—— 来自 vivo V1824A, Android 11上的 <a href="https://github.com/ykrank/S1-Next/releases" target="_blank">S1Next-鹅版</a> v2.5.4</td></tr></tbody></table>
+
+</div>
+<div id="comment_59542735" class="cm">
+</div>
+
+<div id="post_rate_div_59542735"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59542735"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59542735&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59542735" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59542735', 'misc.php?mod=report&amp;rtype=post&amp;rid=59542735&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59542735_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59542735')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59546454"><table id="pid59546454" class="plhin" summary="pid59546454" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59546454" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-509839.html" target="_blank" class="xw1">rizutoaoitori</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59546454" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59546454_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-509839.html" target="_blank" class="xi2">rizutoaoitori</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=32" target="_blank">卡片召唤师</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=509839&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2018-12-11</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=509839&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-509839.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/50/98/39_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59546454" id="postnum59546454" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>53</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59546454" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59546454">发表于 2023-1-30 18:11</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=509839" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59546454">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59539263&amp;ptid=2116912" target="_blank"><font color="#999999">起名困难症 发表于 2023-1-30 09:28</font></a></font><br>
+所以说特殊经历或者伪造记忆导致的偏男性化和TS导致的偏男性化在外人看来有什么区别<br>
+在不考虑什么灵魂性 ...</blockquote></div><br>
+答案是作者说了算<br>
+叙诡的有以女主视角看到其他人对女主回应感到奇怪的描写，好像当作疑似嫌疑人的烟雾弹用了；<br>
+欺诈的直接设定女主是“霸王”所以显得男性化很正常，不如说她偶尔下意识的想法和举动甚至反而不符合地球男性普通穿越者背景设定，是伏笔（bushi）<br>
+这种就只是把TS当作小戏法来用，还不如伪圣女的TS最后善堕差点雌堕具体</td></tr></tbody></table>
+
+</div>
+<div id="comment_59546454" class="cm">
+</div>
+
+<div id="post_rate_div_59546454"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59546454"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59546454&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59546454" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59546454', 'misc.php?mod=report&amp;rtype=post&amp;rid=59546454&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59546454_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59546454')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59546497"><table id="pid59546497" class="plhin" summary="pid59546497" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59546497" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-549000.html" target="_blank" class="xw1">capraeLinn</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59546497" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59546497_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-549000.html" target="_blank" class="xi2">capraeLinn</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=31" target="_blank">死死团</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=549000&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2021-11-28</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=549000&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-549000.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/54/90/00_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59546497" id="postnum59546497" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>54</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59546497" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59546497">发表于 2023-1-30 18:15</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=549000" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59546497">
+<div class="quote"><blockquote>TS真正的目的并不是对异性的幻想，而是自己经历TS过程中，即使生理变化后依然能散发出原本性别的魅力</blockquote></div><br>
+这段实在不敢苟同。就以妖幻三重奏为例，仅从动画化的部分看，TS本身的目的更多的是借助男心女身卖福利，尽管确实展现了原本性别的魅力（保护妖巫女），但是这个part是否是作品所试图表达的主旨，还有待探讨。个人觉得这个部分更像是展现“男心”的手段，而不是目的。<br>
+就算仅以“能够变回男性”为特征，小说《绝对不要回到原来的世界》以及漫画《青梅竹马变成了可爱的美少女》等都是能够经常性变回男性、强调TS的作品，但是这类TS刻画的重点集中在反差萌（无论是男心女身的反差，还是羞涩的男孩子的反差），都与“散发出原本性别的魅力”大相径庭，个人感觉““散发出原本性别的魅力”更多的是塑造角色的手段，而不是TS的目的或者本质。<br>
+严肃向TS看得不是很多。楼友提到过的漫画《直到我不再是我》刻画重心集中在青春期性别变化导致的内心挣扎，个人认为是相当能够展现TS这一题材魅力的作品。<br>
+所以说，个人认为与其说TS的底层逻辑是保留原本性别的魅力，不如说是在原本的男性形象上添加了女性的性格和生理特征，从而塑造出了一个区别于传统男主或女主的角色。<br>
+至于小说漫画与动画的载体区别，这应该不会对添加设计TS这一要素产生关键性的影响……<br>
+最后偏个题，恋爱只会带来束缚和争议，变单才是王道（划掉）</td></tr></tbody></table>
+
+</div>
+<div id="comment_59546497" class="cm">
+</div>
+
+<div id="post_rate_div_59546497"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59546497"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59546497&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59546497" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59546497', 'misc.php?mod=report&amp;rtype=post&amp;rid=59546497&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59546497_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59546497')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59546636"><table id="pid59546636" class="plhin" summary="pid59546636" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59546636" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-540482.html" target="_blank" class="xw1">吃为是</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59546636" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59546636_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-540482.html" target="_blank" class="xi2">吃为是</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=53" target="_blank">半肾</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=540482&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2021-2-18</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=540482&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-540482.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/54/04/82_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59546636" id="postnum59546636" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>55</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59546636" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59546636">发表于 2023-1-30 18:27</em>
+<span class="xg1">来自手机</span>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=540482" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59546636">
+<i class="pstatus"> 本帖最后由 吃为是 于 2023-1-30 18:34 编辑 </i><br>
+<br>
+性转题材最喜欢的是那种疯逼味，配上转生什么的脱离现代文明对自我的否定要溢出来了《最终审判》。楼上说的诡计叙述看过《前世星月弑红颜》，伪造男性经历的看过《加斯利亚的花》，都是国内的网文，还有一类是变身或伪装进女生宿舍吃豆腐的，这种极其讨厌和无聊。11区的acgn变身作品反而看得少，看到的大部分都是楼主说的第一类变身美少女百合贴贴。</td></tr></tbody></table>
+
+</div>
+<div id="comment_59546636" class="cm">
+</div>
+
+<div id="post_rate_div_59546636"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59546636"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59546636&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59546636" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59546636', 'misc.php?mod=report&amp;rtype=post&amp;rid=59546636&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59546636_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59546636')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59546884"><table id="pid59546884" class="plhin" summary="pid59546884" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59546884" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-559798.html" target="_blank" class="xw1">只因皮饺子</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59546884" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59546884_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-559798.html" target="_blank" class="xi2">只因皮饺子</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=30" target="_blank">工具</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=559798&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2022-10-6</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=559798&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-559798.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/noavatar.svg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59546884" id="postnum59546884" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>56</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59546884" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59546884">发表于 2023-1-30 18:54</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=559798" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59546884">
+有啥好分析的，tsf本质上就是爽番。对社会上绝大多数男人来说美少女的生活就是爽。别做欧尼酱男主不也是性转后生活才开始变得丰富充实吗</td></tr></tbody></table>
+
+</div>
+<div id="comment_59546884" class="cm">
+</div>
+
+<div id="post_rate_div_59546884"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59546884"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59546884&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59546884" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59546884', 'misc.php?mod=report&amp;rtype=post&amp;rid=59546884&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59546884_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59546884')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59546980"><table id="pid59546980" class="plhin" summary="pid59546980" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59546980" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-538780.html" target="_blank" class="xw1">蓝灯横滨</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59546980" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59546980_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-538780.html" target="_blank" class="xi2">蓝灯横滨</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=52" target="_blank">大贤者</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=538780&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2020-12-26</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=538780&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-538780.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/53/87/80_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59546980" id="postnum59546980" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>57</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59546980" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59546980">发表于 2023-1-30 19:03</em>
+<span class="xg1">来自手机</span>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=538780" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59546980">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59541049&amp;ptid=2116912" target="_blank"><font color="#999999">wolf1997 发表于 2023-1-30 11:36</font></a></font><br>
+欧尼酱里，真寻该如何证明自身精神为男性？<br>
+或者说，在如今的二次元里，男性精神该如何证明自己精神是男性 ...</blockquote></div><br>
+男性精神根本不存在（性别建构主义并感）</td></tr></tbody></table>
+
+</div>
+<div id="comment_59546980" class="cm">
+</div>
+
+<div id="post_rate_div_59546980"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59546980"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59546980&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59546980" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59546980', 'misc.php?mod=report&amp;rtype=post&amp;rid=59546980&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59546980_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59546980')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59547028"><table id="pid59547028" class="plhin" summary="pid59547028" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59547028" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-46372.html" target="_blank" class="xw1">cxj649</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59547028" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59547028_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-46372.html" target="_blank" class="xi2">cxj649</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=54" target="_blank">婆罗门</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=46372&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2006-10-23</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=46372&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-46372.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/noavatar.svg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59547028" id="postnum59547028" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>58</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59547028" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59547028">发表于 2023-1-30 19:08</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=46372" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59547028">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59546636&amp;ptid=2116912" target="_blank"><font color="#999999">吃为是 发表于 2023-1-30 18:27</font></a></font><br>
+性转题材最喜欢的是那种疯逼味，配上转生什么的脱离现代文明对自我的否定要溢出来了《最终审判》。楼上说的 ...</blockquote></div><br>
+&amp;#x56FD;&amp;#x5185;&amp;#x4E00;&amp;#x4E9B;&amp;#x53D8;&amp;#x767E;&amp;#x6587;&amp;#x4E5F;&amp;#x7B97;&amp;#x5BF9;&amp;#x5F97;&amp;#x8D77;&amp;#x767E;&amp;#x5408;&amp;#x5427;&amp;#x90A3;&amp;#x91CC;&amp;#x538C;&amp;#x6076;&amp;#x7684;&amp;#x7406;&amp;#x7531;&amp;#x4E86;<img src="https://static.saraba1st.com/image/smiley/face2017/068.png" smilieid="680" border="0" alt=""></td></tr></tbody></table>
+
+</div>
+<div id="comment_59547028" class="cm">
+</div>
+
+<div id="post_rate_div_59547028"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59547028"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59547028&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59547028" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59547028', 'misc.php?mod=report&amp;rtype=post&amp;rid=59547028&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59547028_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59547028')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59547349"><table id="pid59547349" class="plhin" summary="pid59547349" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59547349" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-460110.html" target="_blank" class="xw1">爱吃冻鳗的猫</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59547349" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59547349_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-460110.html" target="_blank" class="xi2">爱吃冻鳗的猫</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=53" target="_blank">半肾</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=460110&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2016-10-19</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=460110&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-460110.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/46/01/10_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59547349" id="postnum59547349" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>59</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59547349" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59547349">发表于 2023-1-30 19:39</em>
+<span class="xg1">来自手机</span>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=460110" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59547349">
+本质就是“想变得受欢迎”吧，想被人夸赞，想被人喜爱。<br>
+为什么不变成帅哥？因为变成美少女更加一步到位吧，连攻略女人都省略了。<br>
+大概就这种心理吧。</td></tr></tbody></table>
+
+</div>
+<div id="comment_59547349" class="cm">
+</div>
+
+<div id="post_rate_div_59547349"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59547349"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59547349&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59547349" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59547349', 'misc.php?mod=report&amp;rtype=post&amp;rid=59547349&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59547349_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59547349')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59550395"><table id="pid59550395" class="plhin" summary="pid59550395" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59550395" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-204865.html" target="_blank" class="xw1">51569</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59550395" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59550395_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-204865.html" target="_blank" class="xi2">51569</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=52" target="_blank">大贤者</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=204865&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2011-8-26</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=204865&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-204865.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/20/48/65_avatar_middle.jpg"></a></div>
+</div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59550395" id="postnum59550395" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>60</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59550395" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59550395">发表于 2023-1-30 23:58</em>
+<span class="xg1">来自手机</span>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=204865" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59550395">
+史莱姆那个没有转变的描写吧，我看动画后面转变之后的生理障碍心理障碍啥都没有，简直就是套个皮物，真不理解大众这么接受。不如说它根本不是tsf作品，而是蜘蛛子哪类的异种转生作品。</td></tr></tbody></table>
+
+</div>
+<div id="comment_59550395" class="cm">
+</div>
+
+<div id="post_rate_div_59550395"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59550395"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59550395&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59550395" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59550395', 'misc.php?mod=report&amp;rtype=post&amp;rid=59550395&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59550395_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59550395')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59550550"><table id="pid59550550" class="plhin" summary="pid59550550" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59550550" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-506769.html" target="_blank" class="xw1">Sliurus</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59550550" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59550550_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-506769.html" target="_blank" class="xi2">Sliurus</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=53" target="_blank">半肾</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=506769&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2018-11-22</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=506769&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-506769.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/50/67/69_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59550550" id="postnum59550550" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>61</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59550550" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59550550">发表于 2023-1-31 00:12</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=506769" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59550550">
+<i class="pstatus"> 本帖最后由 Sliurus 于 2023-1-31 00:13 编辑 </i><br>
+<br>
+变百是bg，那性别认知障碍的算百合还是bg？算心理性别可以耍流氓的地方可太多了，还是专注于肉体吧</td></tr></tbody></table>
+
+</div>
+<div id="comment_59550550" class="cm">
+</div>
+
+<div id="post_rate_div_59550550"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59550550"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59550550&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59550550" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59550550', 'misc.php?mod=report&amp;rtype=post&amp;rid=59550550&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59550550_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59550550')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59552636"><table id="pid59552636" class="plhin" summary="pid59552636" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59552636" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-388433.html" target="_blank" class="xw1">青龙圣者</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59552636" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59552636_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-388433.html" target="_blank" class="xi2">青龙圣者</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=32" target="_blank">卡片召唤师</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=388433&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2014-5-15</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=388433&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-388433.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/38/84/33_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59552636" id="postnum59552636" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>62</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<em class="authicn fico-person fic4 fnmr vm" id="authicon59552636" title="楼主"></em>
+&nbsp;楼主<span class="pipe">|</span>
+<em id="authorposton59552636">发表于 2023-1-31 09:53</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=388433" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59552636">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59550395&amp;ptid=2116912" target="_blank"><font color="#999999">51569 发表于 2023-1-30 23:58</font></a></font><br>
+史莱姆那个没有转变的描写吧，我看动画后面转变之后的生理障碍心理障碍啥都没有，简直就是套个皮物，真不理 ...</blockquote></div><br>
+史莱姆有卖主角抱枕，从这个角度来说把它当男性向商品消费确实算TS</td></tr></tbody></table>
+
+</div>
+<div id="comment_59552636" class="cm">
+</div>
+
+<div id="post_rate_div_59552636"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59552636"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59552636&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59552636" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59552636', 'misc.php?mod=report&amp;rtype=post&amp;rid=59552636&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59552636_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59552636')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59552697"><table id="pid59552697" class="plhin" summary="pid59552697" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59552697" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-388433.html" target="_blank" class="xw1">青龙圣者</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59552697" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59552697_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-388433.html" target="_blank" class="xi2">青龙圣者</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=32" target="_blank">卡片召唤师</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=388433&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2014-5-15</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=388433&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-388433.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/38/84/33_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59552697" id="postnum59552697" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>63</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<em class="authicn fico-person fic4 fnmr vm" id="authicon59552697" title="楼主"></em>
+&nbsp;楼主<span class="pipe">|</span>
+<em id="authorposton59552697">发表于 2023-1-31 09:59</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=388433" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59552697">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59550550&amp;ptid=2116912" target="_blank"><font color="#999999">Sliurus 发表于 2023-1-31 00:12</font></a></font><br>
+变百是bg，那性别认知障碍的算百合还是bg？算心理性别可以耍流氓的地方可太多了，还是专注于肉体吧 ...</blockquote></div><br>
+以双方的认知来判断。<br>
+如果自我认知是女，女性角色那方认知你是个男的，当然还是BG。</td></tr></tbody></table>
+
+</div>
+<div id="comment_59552697" class="cm">
+</div>
+
+<div id="post_rate_div_59552697"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59552697"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59552697&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59552697" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59552697', 'misc.php?mod=report&amp;rtype=post&amp;rid=59552697&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59552697_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59552697')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59554619"><table id="pid59554619" class="plhin" summary="pid59554619" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59554619" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-532656.html" target="_blank" class="xw1">多看书少看v</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59554619" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59554619_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-532656.html" target="_blank" class="xi2">多看书少看v</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=4" target="_blank">禁止发言</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=532656&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2020-7-18</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=532656&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar">头像被屏蔽</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59554619" id="postnum59554619" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>64</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59554619" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59554619">发表于 2023-1-31 12:46</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=532656" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="locked">提示: <em>作者被禁止或删除 内容自动屏蔽</em></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59554619"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59554619&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59554619" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59554619', 'misc.php?mod=report&amp;rtype=post&amp;rid=59554619&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59554619_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59554619')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59554695"><table id="pid59554695" class="plhin" summary="pid59554695" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59554695" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-549807.html" target="_blank" class="xw1">创始’’’天翔</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59554695" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59554695_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-549807.html" target="_blank" class="xi2">创始’’’天翔</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=49" target="_blank">火球法师</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=549807&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2021-12-10</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=549807&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-549807.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/54/98/07_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59554695" id="postnum59554695" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>65</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59554695" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59554695">发表于 2023-1-31 12:58</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=549807" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59554695">
+<div class="quote"><blockquote><font size="2"><a href="https://www.saraba1st.com/2b/forum.php?mod=redirect&amp;goto=findpost&amp;pid=59531550&amp;ptid=2116912" target="_blank"><font color="#999999">起名困难症 发表于 2023-1-29 16:54</font></a></font><br>
+非要撕定义的话：如果把一个百合角色抓去**，让她认为自己是男的，捏造了一段男性记忆，后面又恢复正常，那 ...</blockquote></div><br>
+野生boss出现了<img src="https://static.saraba1st.com/image/smiley/face2017/067.png" smilieid="708" border="0" alt=""></td></tr></tbody></table>
+
+</div>
+<div id="comment_59554695" class="cm">
+</div>
+
+<div id="post_rate_div_59554695"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59554695"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59554695&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59554695" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59554695', 'misc.php?mod=report&amp;rtype=post&amp;rid=59554695&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59554695_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59554695')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="post_59554892"><a name="lastpost"></a><table id="pid59554892" class="plhin" summary="pid59554892" cellspacing="0" cellpadding="0">
+<tbody><tr>
+ <td class="pls" rowspan="2">
+<div id="favatar59554892" class="pls cl favatar">
+<div class="pi">
+<div class="authi"><a href="space-uid-549807.html" target="_blank" class="xw1">创始’’’天翔</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo59554892" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo59554892_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-549807.html" target="_blank" class="xi2">创始’’’天翔</a></strong>
+<em>当前离线</em>
+</div><div class="cl">
+<p><em><a href="home.php?mod=spacecp&amp;ac=usergroup&amp;gid=49" target="_blank">火球法师</a></em></p>
+<p>
+精华  
+<span class="pipe">|</span>
+战斗力   鹅
+<span class="pipe">|</span>
+回帖  <a href="home.php?mod=space&amp;uid=549807&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" target="_blank" class="xi2">0</a>
+</p>
+<p>注册时间  2021-12-10</p>
+</div><div class="imicn">
+<a href="home.php?mod=space&amp;uid=549807&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/s1/userinfo.gif" alt="查看详细资料"></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar"><a href="space-uid-549807.html" class="avtm" target="_blank"><img src="https://avatar.saraba1st.com/000/54/98/07_avatar_middle.jpg"></a></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="source/plugin/smstong/mobile.gif" title="已绑定手机"></div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&amp;goto=findpost&amp;ptid=2116912&amp;pid=59554892" id="postnum59554892" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>66</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon59554892" src="https://static.saraba1st.com/image/common/online_member.gif">
+<em id="authorposton59554892">发表于 2023-1-31 13:23</em>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=2116912&amp;page=2&amp;authorid=549807" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="t_f" id="postmessage_59554892">
+我认为TS的魅力点在于性别的模糊，至少我很喜欢。TS的原因本身大多是一种不可抗力，写的事无巨细就破坏掉那股醍醐味，变成整个TS就像强迫读者做变性手术一样。无论变百变嫁，能写出性别的模糊感绝对是有高分的。像之前看的《这不是我想要的约会》，主角的青少年感和少女感平衡的很不错。反例就是《月华下的约会》，她要是一开始就说主角是女的我还能看下去，结果一性转就比女人还女人。<br>
+看了也有好几部国内TS小说，感觉很多TS主角原本男性魅力没多少或者没展现，但无论嫁还是百，娇妻化起来一个比一个快<img src="https://static.saraba1st.com/image/smiley/face2017/068.png" smilieid="680" border="0" alt=""></td></tr></tbody></table>
+
+</div>
+<div id="comment_59554892" class="cm">
+</div>
+
+<div id="post_rate_div_59554892"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition59554892"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;repquote=59554892&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_59554892" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+<a href="javascript:;" onclick="showWindow('miscreport59554892', 'misc.php?mod=report&amp;rtype=post&amp;rid=59554892&amp;tid=2116912&amp;fid=6', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_59554892_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_59554892')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</tbody></table>
+</div><div id="postlistreply" class="pl"><div id="post_new" class="viewthread_table" style="display: none"></div></div>
+</div>
+
+
+<form method="post" autocomplete="off" name="modactions" id="modactions">
+<input type="hidden" name="formhash" value="49f07ccb">
+<input type="hidden" name="optgroup">
+<input type="hidden" name="operation">
+<input type="hidden" name="listextra" value="page%3D1">
+<input type="hidden" name="page" value="2">
+</form>
+
+
+
+<div class="pgs mtm mbm cl">
+<div class="pg"><a href="thread-2116912-1-1.html" class="prev">&nbsp;&nbsp;</a><a href="thread-2116912-1-1.html">1</a><strong>2</strong><label><input type="text" name="custompage" class="px" size="2" title="输入页码，按回车快速跳转" value="2" onkeydown="if(event.keyCode==13) {window.location='forum.php?mod=viewthread&amp;tid=2116912&amp;extra=page%3D1&amp;page='+this.value;; doane(event);}"><span title="共 2 页"> / 2 页</span></label></div><span class="pgb y"><a href="forum-6-1.html">返回列表</a></span>
+<a id="newspecialtmp" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=6')" href="javascript:;" title="发新帖" class="pgsbtn showmenu">发新帖</a>
+</div>
+
+<!--[diy=diyfastposttop]--><div id="diyfastposttop" class="area"></div><!--[/diy]-->
+<script type="text/javascript">
+var postminchars = parseInt('10');
+var postmaxchars = parseInt('100000');
+var postminsubjectchars = parseInt('1');
+var postmaxsubjectchars = parseInt('80');
+var disablepostctrl = parseInt('0');
+</script>
+
+<div id="f_pst" class="pl bm bmw">
+<form method="post" autocomplete="off" id="fastpostform" action="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;extra=page%3D1&amp;replysubmit=yes&amp;infloat=yes&amp;handlekey=fastpost" onsubmit="return fastpostvalidate(this)">
+<table cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td class="pls">
+</td>
+<td class="plc">
+
+<span id="fastpostreturn"></span>
+
+
+<div class="cl">
+<div id="fastsmiliesdiv" class="y"><div id="fastsmiliesdiv_data"><div id="fastsmilies"></div></div></div><div class="hasfsl" id="fastposteditor">
+<div class="tedt mtn">
+<div class="bar">
+<span class="y">
+<a href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912" onclick="return switchAdvanceMode(this.href)">高级模式</a>
+</span><script src="data/cache/seditor.js?bob" type="text/javascript"></script>
+<div class="fpd">
+<a href="javascript:;" title="文字加粗" class="fbld">B</a>
+<a href="javascript:;" title="设置文字颜色" class="fclr" id="fastpostforecolor">Color</a>
+<a id="fastpostimg" href="javascript:;" title="图片" class="fmg">Image</a>
+<a id="fastposturl" href="javascript:;" title="添加链接" class="flnk">Link</a>
+<a id="fastpostquote" href="javascript:;" title="引用" class="fqt">Quote</a>
+<a id="fastpostcode" href="javascript:;" title="代码" class="fcd">Code</a>
+
+        <span id="s1-fastpost-smiley" data-seditorkey="fastpost" data-v-app=""><!----><a href="javascript:;" class="fsml">Smilies</a><!----></span>
+        <script src="https://static.saraba1st.com/assets/s1smiles/s1smiles.iife.js?bob" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://static.saraba1st.com/assets/s1smiles/s1smiles.css?bob">
+</div></div>
+<div class="area">
+<div class="pt hm">
+您需要登录后才可以回帖 <a href="member.php?mod=logging&amp;action=login" onclick="showWindow('login', this.href)" class="xi2">登录</a> | <a href="member.php?mod=register" class="xi2">立即注册</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="seccheck_fastpost">
+</div>
+
+
+<input type="hidden" name="formhash" value="49f07ccb">
+<input type="hidden" name="usesig" value="">
+<input type="hidden" name="subject" value="  ">
+<p class="ptm pnpost">
+<a href="home.php?mod=spacecp&amp;ac=credit&amp;op=rule&amp;fid=6" class="y" target="_blank">本版积分规则</a>
+<button type="button" onclick="showWindow('login', 'member.php?mod=logging&amp;action=login&amp;guestmessage=yes')" onmouseover="checkpostrule('seccheck_fastpost', 'ac=reply');this.onmouseover=null" name="replysubmit" id="fastpostsubmit" class="pn pnc vm" value="replysubmit"><strong>发表回复</strong></button>
+<label for="fastpostrefresh"><input id="fastpostrefresh" type="checkbox" class="pc">回帖后跳转到最后一页</label>
+<script type="text/javascript">if(getcookie('fastpostrefresh') == 1) {$('fastpostrefresh').checked=true;}</script>
+</p>
+</td>
+</tr>
+</tbody></table>
+</form>
+</div>
+<script>
+                   boan_jq("img").each(function(index,el){
+                            if(boan_jq(this).width()>=500){
+                                boan_jq(this).attr('alt','【格局打开】TSF(性转换)作品背后的底层逻辑');
+                                boan_jq(this).attr('title','');
+                            }
+                    });
+           </script>
+<script type="text/javascript">
+new lazyload();
+</script>
+<script type="text/javascript">document.onkeyup = function(e){keyPageScroll(e, 1, 0, 'forum.php?mod=viewthread&tid=2116912&amp;extra=page%3D1', 2);}</script>
+</div>
+
+<div class="wp mtn">
+<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+</div>
+
+<script type="text/javascript">
+function succeedhandle_followmod(url, msg, values) {
+var fObj = $('followmod_'+values['fuid']);
+if(values['type'] == 'add') {
+fObj.innerHTML = '不收听';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=del&fuid='+values['fuid'];
+} else if(values['type'] == 'del') {
+fObj.innerHTML = '收听TA';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=add&hash=49f07ccb&fuid='+values['fuid'];
+}
+}
+fixed_avatar([59535485,59535494,59535774,59538228,59538295,59538308,59538342,59539240,59539263,59541049,59541656,59542735,59546454,59546497,59546636,59546884,59546980,59547028,59547349,59550395,59550550,59552636,59552697,59554619,59554695,59554892], 1);
+</script>	</div>
+<script> var boan_h5upload_dispose= {width:2600,height:8000,quality:85,noCompressIfLarger:false,crop:false,},boan_h5upload_ispng = 0, boan_h5upload_isbig = false,boan_h5upload_force = 0,
+        boan_h5upload_havepic = 0,
+        boan_h5upload_insertatt = 0,
+        boan_h5upload_isbasepic = 0,
+        boan_h5upload_isbasechk = 0,
+        boan_h5upload_ispic_type = 0,
+        boan_h5upload_remote = 0,
+        boan_h5upload_ispic_qrcode = 1,
+        boan_h5upload_qrcodeurl = 'https://www.saraba1st.com/2b/plugin.php?id=boan_h5upload:qrcode&uid=a4deiNkibakGTrlBiSUipMuJehRhZLMa%2Bnm6ldzb';  
+        boan_h5upload_qrcodelife = '600';
+        boan_h5upload_allowdown = 0;
+        boan_h5upload_img_hlongup = 0;
+        boan_h5upload_att_hlongup = 0 ;
+        boan_h5upload_hlongurl = '';
+        boan_h5upload_ossserver = ''; 
+        </script>
+         <script type="text/javascript">
+           if (typeof boan_jq != 'undefined'){
+             boan_old_jq = jQuery; 
+             jQuery = boan_jq;
+           } 
+         </script>
+<script type="text/javascript">
+var boan_h5upload_lang = new Array();
+
+boan_h5upload_lang['F_EXCEED_SIZE'] = '单个文件大小不得超过';
+boan_h5upload_lang['Q_EXCEED_NUM_LIMIT']= '最多只能上传';
+boan_h5upload_lang['Q_EXCEED_SIZE_LIMIT'] = '上传文件总大小超出';
+boan_h5upload_lang['Q_TYPE_DENIED'] = '无效文件类型，请上传正确的文件类型';
+boan_h5upload_lang['F_DUPLICATE'] = '请不要重复上传相同文件';
+boan_h5upload_lang['up_error'] = '上传错误，请刷新重试！';
+boan_h5upload_lang['wait_up'] = '等待上传...';
+boan_h5upload_lang['cancel_up'] = '取消上传';
+boan_h5upload_lang['ok_up'] = '上传完成.';
+boan_h5upload_lang['sel_file'] = '选择文件';
+boan_h5upload_lang['explain_img'] = '文件拖到此可上传,在下方编辑器按Ctrl+V可粘贴剪切板图形';
+boan_h5upload_lang['insert_left'] = '居 左';
+boan_h5upload_lang['insert_center'] = '居中插图';
+boan_h5upload_lang['insert_right'] = '居 右';
+boan_h5upload_lang['insert_tile'] = '平 铺';
+boan_h5upload_lang['insert_old'] = '只插旧图';
+boan_h5upload_lang['insert_new'] = '只插新图';
+boan_h5upload_lang['order'] = '正 序';
+boan_h5upload_lang['set_img_order'] = '设置插图顺序';
+boan_h5upload_lang['backward'] = '倒 序';
+boan_h5upload_lang['del_img_all'] = '删全图';
+boan_h5upload_lang['confirm_del_all'] = '您真要删除所有图片吗？';
+boan_h5upload_lang['one'] = '个';
+boan_h5upload_lang['uppercent'] = '正在上传(';
+boan_h5upload_lang['uping'] = '上传中...';
+boan_h5upload_lang['upwaiting'] = '正在上传，请稍等……';
+boan_h5upload_lang['explain_file'] = '文件拖到此处可上传';
+boan_h5upload_lang['upbig'] = '上传大附件到本地';
+boan_h5upload_lang['downfile'] = '正在下载远程附件，请稍等……';
+boan_h5upload_lang['noie'] = '不支持IE核心,请更换其它内核的浏览器';
+boan_h5upload_lang['notext'] = '不支持纯文本模式';
+boan_h5upload_lang['explain_portal'] = '可将文件拖拽到此处上传,按Ctrl+V可粘贴剪切板内容。';
+boan_h5upload_lang['explain_fast'] = '按Ctrl+V可以在编辑区粘贴剪切板中的图形';
+boan_h5upload_lang['attach'] = '附件';
+boan_h5upload_lang['img_describe'] = '图片描述';
+boan_h5upload_lang['sel_img'] = '上传图片';
+boan_h5upload_lang['explain_album'] = '把图形文件拖拽到此处也可以上传哦';
+boan_h5upload_lang['explain_gif'] = 'GIF图片不能裁剪且必须于小于';
+boan_h5upload_lang['examine'] = '您的头像已经提交审核，请等待管理员批准,';
+boan_h5upload_lang['sel_bigfile'] = '选择大文件';
+boan_h5upload_lang['explain_insert'] = '你有未插入的图片, 请插入或者删除不需要的图片再继续！';
+boan_h5upload_lang['explain_must_insert'] = '您必须插入图片才能发贴，单击上传界面的图片即可插入。';
+boan_h5upload_lang['qrcodetoimg'] = '扫码传图';
+boan_h5upload_lang['qrcode_4'] = '温馨提示：扫描右侧的二维码可以上传手机图片到本页面。';
+boan_h5upload_lang['qrcode_5'] = '二维码已失效';
+boan_h5upload_lang['qrcode_6'] = '点击刷新';
+boan_h5upload_lang['drop_order'] = '拖动图片可改变顺序';
+boan_h5upload_lang['base_img'] = '原图上传';
+
+
+</script>
+  
+<script src="source/plugin/boan_h5upload/js/webuploader.min.js" charset="utf-8" type="text/javascript"></script><script src="source/plugin/boan_h5upload/js/boan_h5upload_fast.js?49f07ccb " charset="utf-8" type="text/javascript"></script>
+         <script type="text/javascript">
+           if (typeof  boan_old_jq != 'undefined'){
+               jQuery = boan_old_jq;
+           }
+         </script><div id="ft" class="wp cl">
+<div id="flk" class="y">
+<p>
+<a href="archiver/">Archiver</a><span class="pipe">|</span><a href="forum.php?showmobile=yes">手机版</a><span class="pipe">|</span><a href="forum.php?mod=misc&amp;action=showdarkroom">小黑屋</a><span class="pipe">|</span><a href="http://www.shjbzx.cn/" style="font-weight: bold;">上海互联网违法和不良信息举报中心</a><span class="pipe">|</span><a href="http://www.12377.cn" style="font-weight: bold;">网上有害信息举报专区</a><span class="pipe">|</span><a href="#" style="font-weight: bold;">962110 反电信诈骗</a><span class="pipe">|</span><a href="#" style="font-weight: bold;">举报电话 021-62035905</a><span class="pipe">|</span><strong><a href="https://bbs.saraba1st.com" target="_blank">Stage1st</a></strong>
+( <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备13020230号-1</a><span class="pipe">|</span><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010702007642" target="_blank"><img width="14" height="14" src="static/image/s1/ico_mps.png">沪公网安备 31010702007642号</a> )<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260281688'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1260281688' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1260281688"></span><script src=" https://s4.cnzz.com/z_stat.php?id=1260281688" type="text/javascript"></script>
+
+<script>
+//声明_czc对象:
+var _czc = _czc || [];
+//绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
+_czc.push(["_setAccount", "1260281688"]);
+_czc.push(["_trackPageview", "http://www.giordano.com/HK/?utm_source=gdn&utm_medium=banner&utm_campaign=july30_31", "https://bbs.saraba1st.com/2b/forum.php"]);
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-141266582-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-141266582-1');
+</script></p>
+<p class="xs0">
+GMT+8, 2025-2-9 02:08<span id="debuginfo">
+, Processed in 0.076857 second(s), 5 queries
+, Gzip On, Redis On.
+</span>
+</p>
+</div>
+<div id="frt">
+<p>Powered by <strong><a href="https://www.discuz.vip/" target="_blank">Discuz!</a></strong> <em>X3.5</em></p>
+<p class="xs0">© 2001-2025 <a href="https://code.dismall.com/" target="_blank">Discuz! Team</a>.</p>
+</div></div>
+<script src="home.php?mod=misc&amp;ac=sendmail&amp;rand=1739038098" type="text/javascript"></script>
+
+<div id="scrolltop">
+<span><a href="forum.php?mod=post&amp;action=reply&amp;fid=6&amp;tid=2116912&amp;extra=page%3D1&amp;page=2" onclick="showWindow('reply', this.href)" class="replyfast" title="快速回复"><b>快速回复</b></a></span>
+<span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa"><b>返回顶部</b></a></span>
+<span>
+<a href="forum-6-1.html" hidefocus="true" class="returnlist" title="返回列表"><b>返回列表</b></a>
+</span>
+</div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script><iframe allow="join-ad-interest-group" data-tagging-id="G-BYLFGNMRD4" data-load-time="1739038103422" height="0" width="0" src="https://td.doubleclick.net/td/ga/rul?tid=G-BYLFGNMRD4&amp;gacid=50021323.1739038103&amp;gtm=45je5240v9117797121za200&amp;dma=0&amp;gcd=13l3l3l3l1l1&amp;npa=0&amp;pscdl=noapi&amp;aip=1&amp;fledge=1&amp;frm=0&amp;tag_exp=102067808~102081485~102123608~102308675~102482433~102539968~102556565~102558064~102587591~102605417&amp;z=152234051" style="display: none; visibility: hidden;"></iframe>
+
+
+</body></html>

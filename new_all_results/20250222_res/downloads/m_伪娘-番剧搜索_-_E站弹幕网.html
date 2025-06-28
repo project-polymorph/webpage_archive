@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<title>伪娘-番剧搜索</title>
+<meta name="keywords" content="伪娘">
+<meta name="description" content="伪娘番剧列表-E站弹幕网">
+<link rel="Shortcut Icon" href="/Public/images/icon.png" type="image/x-icon"> <!-- icon -->
+<meta content="width=device-width,user-scalable=no" name="viewport"> <!-- 禁止移动端缩放 - Disable mobile terminal scaling -->
+<script src="https://zz.bdstatic.com/linksubmit/push.js"></script><script src="https://hm.baidu.com/hm.js?cd233fa6d59713f4143fc9a460159193"></script><script type="text/javascript" src="/Public/js/jquery.js"></script>  <!-- 引入jquery - public jquery-->
+<script type="text/javascript" src="/Public/js/public.js"></script>  <!-- 引入公共js - public javascript -->
+<link rel="stylesheet" type="text/css" href="/Public/css/public.css"> <!-- 引入公共css - public css  -->
+<!-- <link rel="stylesheet" type="text/css" href="/Public/css/index.css" /> 引入首页css - index css  -->
+<link rel="stylesheet" type="text/css" href="/Public/css/img_comic.css">
+<style>
+@media screen and (min-width: 830px) { 
+    .some_ranking{
+	    float:right; margin-top:15px;
+    }
+    #some_drama{
+    	width:1155px;
+    	margin:0 auto; border:1px solid #ccc; border-radius:20px; height:515px;
+    }
+}
+  .page_color:hover{background:#98d5e2;}
+@media screen and (max-width: 830px) { 
+    .some_ranking{
+	    clear:both;
+    }
+}
+.gonggao{display:none;}
+  
+.some_drama .img1{ border-radius:8px; width:160px; height:100px; float:left; }
+</style>
+</head>
+
+<body>
+<!-- 公共头部 - public_header -->
+<script>
+// borwserRedirect
+(function browserRedirect(){
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == 'ipad';
+    var bIsIphone = sUserAgent.match(/iphone os/i) == 'iphone os';
+    var bIsMidp = sUserAgent.match(/midp/i) == 'midp';
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == 'rv:1.2.3.4';
+    var bIsUc = sUserAgent.match(/ucweb/i) == 'web';
+    var bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce';
+    var bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile';
+    var bIsAndroid = sUserAgent.match(/android/i) == 'android';
+    if(bIsIpad || bIsIphone || bIsMidp || bIsUc7 || bIsUc || bIsCE || bIsWM || bIsAndroid ){
+        window.location.href = "https://m.ezdmw.site/Index/search_some.html?searchText=%E4%BC%AA%E5%A8%98&page=0";
+    }
+})();
+</script>
+
+<script>var public_timer = ""; var public_timer_comic = "";</script>
+
+<link rel="stylesheet" href="/src/css/header.css">
+  
+
+<!--头部-->
+<div class="header">
+    <div class="nav-top">
+        <div class="nav-ct clearfix">
+            <div class="menu-nav">
+                <ul class="clearfix">
+                    <li><img src="/Public/images/icon.png" style="position:relative;left:28px;top:4px;">
+                        <a class="top-link" href="/">主站</a>
+                    </li>
+                    <li>
+                        <a class="top-link" href="/Index/up_details/983.html" style="color:red;">手机APP</a>
+                        <div class="download"></div>
+                    </li>
+
+                    <li>
+                        <a class="top-link" href="/Index/up_details/1337.html" style="color:pink;">网站公益</a>
+                        <div class="download"></div>
+                    </li>
+                    <!--
+                    <li>
+                        <a class="top-link" onclick="alert('群号：');">申请入群</a>
+                    </li>
+                    -->
+                                                            <li>
+                        <a class="top-link" href="/Index/login.html">登录</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="user-nav">
+                <ul class="clearfix">
+                    <li class="avatar item">
+                        <a class="top-link" href="/Index/userstate.html?name=[匿名网友]">空间</a>
+                    </li>
+                    <li class="avatar item">
+                        <a class="top-link" href="/Index/modify.html">简介</a>
+                    </li>
+                    <li class="item">
+                        <a class="top-link" href="/Index/comment_news.html">消息</a>
+                    </li>
+                    <li class="item">
+                        <a class="top-link" href="/Index/my_follow.html">关注</a>
+                    </li>
+                    <li class="item">
+                        <a class="top-link" href="/Index/my_collection.html">收藏</a>
+                    </li>
+                    <li class="item">
+                        <a class="top-link" href="/Index/historical_watch.html">历史</a>
+                    </li>
+                    
+                    <li class="item" id="sign_span">
+                                    <a class="top-link" id="addon_sign" style="color:orange;">签到<em style="color:red;font-size:8px;"></em></a>
+                                    <span style="position:absolute;background:#fff;color:green;padding:0 8px;margin-left:10px;" id="sign_success"></span>
+                                </li>                    <script>
+                    $("#addon_sign").click(function(){
+                        $.ajax({
+                              error: function(XMLHttpRequest, textStatus, errorThrown) {
+                              //if(textStatus == "error") alert("请求失败QaQ\nXMLHttpRequest.readyState状态码："+XMLHttpRequest.readyState+"\nXMLHttpRequest.status状态码："+XMLHttpRequest.status);
+                          },
+                          type : "POST",
+                          data: {"addon_sign":false},
+                          url: "/Index/table_addon_sign.html",//后台映射的URL 
+                          dataType:"json",//返回的数据格式
+                          success : function(result) { //result即你的返回值
+                              if(result != null){
+                                  setTimeout(function(){
+                                      $("#sign_span").css("display", "none");
+                                  },3600);
+                                  if(result == "请先登录"){ $("#sign_success").html('请先登录'); }
+                                  else if(result == "今日已签到"){ $("#sign_success").html('今日已签到，明天在签到试试手气吧~'); }
+                                  else{ $("#sign_success").html('<img src="/Public/images/yesGo.png" style="width:15px;position:relative;top:3px;" /> 签到成功！您随机获得'+result+'萌币奖励！'); }
+                              }  
+                          }
+                        });
+                    });
+                    </script>
+                  
+                    <li class="avatar item">
+                        <a class="top-link" href="/Index/userstate.html?name=风轻云淡">
+                        <!-- 头像（登录显示，否则提示未登录）  - head portrait -->
+                        </a><a class="top-link" href="/Index/login.html" target="_blank" style="color:#b0e2ee;margin-left:-30px;">尚未登录</a>                        
+                    </li>
+                    <li class="item contribute">
+                        <a class="top-link" href="/Index/app_tiezi.html">投稿</a>
+                        <ul class="sec-menu">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="nav-img" style="background-image: url(&quot;//www.ezdmw.site/Public/images/html_bj.jpg&quot;);">
+        <div class="img-content">
+            <a href="#">
+                <!--<img src="" alt="">-->
+            </a> 
+            <div class="top-logo">
+                <img src="/src/images/header/top-logo.png">
+            </div>
+            <div class="extra">
+                <a class="rank" href="/Index/fan_ranking.html?name=2025年1月【连载中】&amp;atype=hor" target="_blank">
+                    <span>新番排行榜</span>
+                </a>
+                <div class="search">
+                    <form action="/Index/search.html" method="get">
+                        <input type="text" name="searchText" required="required" autocomplete="off" maxlength="100" placeholder="搜索，输入一个简短的关键字~">
+                        <button type="submit"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+  
+  
+    <!-- 公告 -->
+            
+    
+    
+    
+    
+    <div class="nav-guide" id="nav_guide">
+        <div class="guide-wrapper">
+            <ul class="nav clearfix">
+                <li>
+                    <a href="/">
+                    <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Index/end_comic.html">
+                      <span>追番</span><div class="num"><span class="public_new_comic">^0^ </span></div>
+                    </a>
+                    <ul>
+                        <li><a href="/Index/end_comic.html"><span class="icon"></span><span>追番综合</span></a></li>
+                        <li><a href="/Index/search_some.html?searchText=连载&amp;page=0"><span class="icon"></span><span>连载动画</span></a></li>
+                        <li><a href="/Index/search_some.html?searchText=完&amp;page=0&amp;hot=true"><span class="icon"></span><span>完结动画</span></a></li>
+                        <li><a href="/Index/end_comic.html#span_index"><span class="icon"></span><span>番剧索引</span></a></li>
+                        <li><a href="/Index/fan_ranking.html?name=2025年1月【连载中】&amp;atype=hor"><span class="icon"></span><span>新番排行榜</span></a></li>
+                        <li><a href="/Index/end_comic_after.html"><span class="icon"></span><span>新番时间表</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/Index/anime.html">
+                    <span>动漫</span><div class="num"><span>^_^ </span></div>
+                    </a>
+                    <ul>
+                        <li><a href="/Index/anime.html"><span class="icon"></span><span>动漫综合</span></a></li>
+                        <li><a href="/Index/search_some.html?searchText=补番&amp;page=0&amp;hot=true"><span class="icon"></span><span>补番推荐</span></a></li>
+                        <li><a href="/Index/search_some.html?searchText=剧场&amp;page=0&amp;hot=true"><span class="icon"></span><span>动漫电影</span></a></li>
+                        <li><a href="/Index/search_some.html?searchText=热血&amp;page=0&amp;hot=true"><span class="icon"></span><span>热血动漫</span></a></li>
+                        <li><a href="/Index/search_some.html?searchText=后宫&amp;page=0&amp;hot=true"><span class="icon"></span><span>后宫动漫</span></a></li>
+                        <li><a href="/Index/search_some.html?searchText=完&amp;page=0&amp;hot=true"><span class="icon"></span><span>完结动漫</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/Index/contribution/contribution.html?type=community&amp;order=hot">
+                        <span style="position:relative;top:-1px;">社区</span><div class="num"><img src="/Public/images/shequ.png" style="width:26px;position:relative;top:-10px;"></div>
+                    </a>
+                    <ul>
+                        <li><a href="/Index/contribution.html?type=community&amp;order=hot"><span class="icon"></span><span>综合</span></a></li>
+                        <li><a href="/Index/contribution/up_article.html?type=whole&amp;order=hot"><span class="icon"></span><span>文章</span></a></li>
+                        <li><a href="/Index/contribution/contribution.html?type=佳句&amp;order=new"><span class="icon"></span><span>佳句</span></a></li>
+                        <li><a href="/Index/contribution/up_ask.html?type=问答&amp;order=hot"><span class="icon"></span><span>问答</span></a></li>
+                        <li><a href="/Index/contribution/up_review.html?type=whole&amp;order=hot"><span class="icon"></span><span>漫评</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/Index/contribution/up_atlas.html?type=whole&amp;order=hot">
+                    <span>图集</span><div class="num"><span>TaT</span></div>
+                    </a>
+                    <ul>
+                        <li><a href="/Index/contribution/up_atlas.html?type=whole&amp;order=hot"><span class="icon"></span><span>图集综合</span></a></li>
+                        <li><a href="/Index/contribution/up_atlas.html?type=动漫&amp;order=hot"><span class="icon"></span><span>动漫图集</span></a></li>
+                        <li><a href="/Index/contribution/up_atlas.html?type=壁纸&amp;order=hot"><span class="icon"></span><span>动漫壁纸</span></a></li>
+                        <li><a href="/Index/contribution/up_atlas.html?type=表情&amp;order=hot"><span class="icon"></span><span>动漫表情</span></a></li>
+                        <li><a href="/Index/contribution/up_atlas.html?type=头像&amp;order=hot"><span class="icon"></span><span>动漫头像</span></a></li>
+                        <li><a href="/Index/contribution/up_atlas.html?type=其他/综合&amp;order=hot"><span class="icon"></span><span>其他/综合</span></a></li>
+                    </ul>
+                </li>
+                                                <li>
+                     <a href="/Index/contribution/contribution.html?type=【资源】学习园地&amp;order=new" target="_blank" style="position:relative;top:-8px;"><span class="square-1">学习园地</span></a>
+                 </li>
+            </ul>
+            <!--小图banner
+            <a href="" target="_blank">
+                <div><img src="" alt=""></div>
+            </a>
+            -->
+        </div>
+    </div>
+</div>
+
+
+    <!-- 用户信息面板 - user panel-->
+    <div class="user_mask"></div> <!-- 遮罩层 - user_mask-->
+    <div class="user_panel">
+        <div class="head_portrait_panel">
+        <!-- 显示用户的详细信息 -->
+                </div>
+        <h3 class="user_update"></h3>
+        <!--<h3 class="user_update"><img src="/Public/images/dan.png" style="width:21px; height:22px; position:relative; left:3px;top:6px;" /><a style="font-size:16px;margin-left:2px;" id="danmu"> 默认关闭弹幕</a></h3>-->
+        <script>var public_user=""; var ROOT = "";$('.portrait_img').click(function(){window.location = ROOT+"/Index/userstate.html?name="+public_user;}); $('.portrait_img1').click(function(){window.location = ROOT+"/Index/userstate.html?name="+public_user;}); $('.public_new_flashing').click(function(){window.location = ROOT+"/Index/comment_news.html";}); $('.public_new_flashing1').click(function(){window.location = ROOT+"/Index/comment_news.html";});</script>
+        <h3 class="user_update" style="height:0;overflow:hidden; text-indent:-9999px"><img src="/Public/images/collection3.png" style="height:21px; position:relative; left:3px; top:5px; margin-right:2px;"><a href="/Index/my_collection.html" style="font-size:16px; position:relative; left:2px; top:2px;">我的收藏</a><img src="/Public/images/collection4.png" style="height:21px; position:relative; left:3px; top:5px; margin-right:2px;margin-left:27px;"><a href="/Index/my_follow.html" style="font-size:16px; position:relative; top:1px; left:2px;">我的关注</a></h3>
+        <h3 class="user_update" style="height:0;overflow:hidden; text-indent:-9999px"><img src="/Public/images/clock1.png" style="height:18px; width:19px; position:relative; top:5px; left:4px; margin-right:2px;"> <a href="/Index/submit_up.html" style="font-size:16px; position:relative; top:1px;">投稿管理</a><img src="/Public/images/nav/nav_submission1.png" style="height:18px; position:relative; top:5px; left:4px; margin-right:5px;margin-left:25px;"><a href="/Index/app_tiezi.html" style="font-size:16px;margin-left:2px; position:relative; top:1px;">投稿作品</a></h3>
+        <h3 class="user_update" id="user_update" style="height:0;overflow:hidden; text-indent:-9999px"><img src="/Public/images/browse1.png" style="width:23px; height:24px; position:relative; left:2px;top:4px;"><a href="/Index/modify.html" style="font-size:16px;margin-left:2px;position:relative; top:-2px;">个人信息</a><img src="/Public/images/user.png" style="height:25px; position:relative; top:3px;margin-left:25px;"><a style="font-size:16px; position:relative; top:-3px;">账户管理</a></h3>
+        <h3 class="user_update"><img src="/Public/images/user.png" style="width:22px; height:24px; position:relative; left:4px;top:5px;"><a href="/Index/login.html" style="font-size:16px;margin-left:2px;"> 登录发现新天地~</a></h3>
+        <h3 class="user_update"><img src="/Public/images/user.png" style="width:22px; height:24px; position:relative; left:4px;top:5px;"><a href="/Index/reg.html" style="font-size:16px;margin-left:2px;"> 注册账号~</a></h3>
+        <div style="display:none;" id="user_update1">
+            <h3 class="user_update" id="user_update1" style="margin-left:16px; width:80%;margin-top:-10px;"><a href="/Index/user_out.html" style="font-size:16px; position:relative; top:1px;">退出登录</a><a href="/Index/back_pass.html" style="font-size:16px; position:relative; top:1px;margin-left:30px;">修改密码</a></h3>
+            <h3 class="user_update" id="user_update1" style="margin-left:16px; width:80%;margin-top:-10px;"><a href="/Index/login.html" style="font-size:16px; position:relative; top:1px;">切换账号</a><a href="/Index/reg.html" style="font-size:16px; position:relative; top:1px;margin-left:30px;">注册账号</a></h3>
+        </div>       
+        <!--<h3 class="user_update"><img src="/Public/images/user.png" style="width:22px; height:24px; position:relative; left:4px;top:5px;" /><a href="/Home/Index/exchange.html" style="font-size:16px;margin-left:2px;color:red;" target="_blank"> 口令兑换萌币~</a></h3>-->
+        <!--
+        <h3 class="user_update"><img src="/Public/images/user.png" style="width:22px; height:24px; position:relative; left:4px;top:5px;" /><a href="/Home/Index/websiteTasks.html" style="font-size:16px;margin-left:2px;color:red;" target="_blank"> 完成新手任务，领取丰厚奖励！</a>
+        <style>.user_update{border:1px solid #000;position:relative;top:-3px;height:28px;line-height:28px;padding:0;border:none;padding-bottom:3px;}.nav span{color:#000;}</style>
+        -->
+    </div>
+  
+  
+    <!-- 消息推送 -->
+    <script type="text/javascript"> 
+    /* //ajax定时查询有无消息，后期推荐使用WebSocket*/
+    if(public_user != ""){
+        setInterval(function(){
+            $.ajax({
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                //if(textStatus == "error") alert("请求失败QaQ\nXMLHttpRequest.readyState状态码："+XMLHttpRequest.readyState+"\nXMLHttpRequest.status状态码："+XMLHttpRequest.status);
+            },
+            type : "GET",
+            data: {"username":public_user},
+            url: "/Index/get_user_news.html",//后台映射的URL 
+            dataType:'json',//返回的数据格式
+            success : function(result) { //result即你的返回值
+                //判断是否私聊，私聊自动刷新
+                var comment_private_href = location.href;
+                if(comment_private_href.indexOf('comment_private') != -1 && result=="private"){
+                    //window.location = location.href;
+                }
+                if(result >= 1 || result=="private"){
+                    var public_timer = setInterval(function(){ $('.public_new_flashing').fadeOut(100).fadeIn(100); },350);
+                    //$('.public_new_flashing').css("position", "relative");
+                    //$('.public_new_flashing').css("left", "0px");
+                }else{
+                    //$('.public_new_flashing').css("position", "absolute");
+                    //$('.public_new_flashing').css("left", "-999999px");
+                }
+            }
+            });	
+        },600000);
+    }
+    //每隔10分钟查询有无新消息 https://www.baidu.com/s?ie=UTF-8&wd=1分钟等于多少毫秒
+      
+    /*弹幕开关*/
+    $('#danmu').click(function(){
+        if($('#danmu').html() == " 默认关闭弹幕"){
+            if(window.confirm('关闭后将不显示任何弹幕，确定吗？')){
+                 $.ajax({
+                          error: function(XMLHttpRequest, textStatus, errorThrown) {
+                          //if(textStatus == "error") alert("请求失败QaQ\nXMLHttpRequest.readyState状态码："+XMLHttpRequest.readyState+"\nXMLHttpRequest.status状态码："+XMLHttpRequest.status);
+                      },
+                      type : "POST",
+                      data: {"danmu_c":"close"},
+                      url: "/Index/danmu_cookie.html",//后台映射的URL 
+                      dataType:'json',//返回的数据格式
+                      success : function(result) { //result即你的返回值
+                          alert(result);
+                      }
+                 });	
+                 window.location.href = location.href;
+            }
+        }
+        if($('#danmu').html() == " 默认开启弹幕"){
+            if(window.confirm('开启后将显示弹幕，确定吗？')){
+                 $.ajax({
+                          error: function(XMLHttpRequest, textStatus, errorThrown) {
+                          //if(textStatus == "error") alert("请求失败QaQ\nXMLHttpRequest.readyState状态码："+XMLHttpRequest.readyState+"\nXMLHttpRequest.status状态码："+XMLHttpRequest.status);
+                      },
+                      type : "POST",
+                      data: {"danmu_c":"open"},
+                      url: "/Index/danmu_cookie.html",//后台映射的URL 
+                      dataType:'json',//返回的数据格式
+                      success : function(result) { //result即你的返回值
+                          alert(result);
+                      }
+                 });	
+                 window.location.href = location.href;
+            }
+        }
+    });
+    </script>
+
+
+    <!--追番消息提醒-->
+    <a id="zhuifan" class="gonggao" href="/Index/end_comic.html" target="_blank" style="position:relative;z-index:10;display:none;"></a>
+  
+  
+    <!-- 追番消息推送 -->
+    <script type="text/javascript"> 
+        var public_user="";
+        if(public_user != ""){ 
+          $.ajax({
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+              //if(textStatus == "error") alert("请求失败QaQ\nXMLHttpRequest.readyState状态码："+XMLHttpRequest.readyState+"\nXMLHttpRequest.status状态码："+XMLHttpRequest.status);
+            },
+            type : "GET",
+            data: {"username":public_user},
+            url: "/Index/comic_new.html",//后台映射的URL 
+            dataType:'json',//返回的数据格式
+            success : function(result) { //result即你的返回值
+              if(result >= 1){
+                $('.public_new_comic').html("new");
+                $('.public_new_comic').css("color","red");
+                var public_timer_comic = setInterval(function(){ $('.public_new_comic').fadeOut(100).fadeIn(100); },350);
+                $('#zhuifan').html('<p style="color:orange; text-align:center; background:#f4eeee; padding:6px; width:1160px;display:block; margin:0 auto; margin-bottom:20px; border-top-right-radius:10px; border-top-left-radius:10px;"><img src="/Public/images/public.png" style="position:relative; top:3px;" />您追的番剧更新了，点此查看</p>');
+                $('#zhuifan').fadeIn();
+              }
+            }
+          });
+          /*  //ajax定时查询有追番更新，后期推荐使用WebSocket */
+          setInterval(function(){
+            $.ajax({
+              error: function(XMLHttpRequest, textStatus, errorThrown) {
+                //if(textStatus == "error") alert("请求失败QaQ\nXMLHttpRequest.readyState状态码："+XMLHttpRequest.readyState+"\nXMLHttpRequest.status状态码："+XMLHttpRequest.status);
+              },
+              type : "GET",
+              data: {"username":public_user},
+              url: "/Index/comic_new.html",//后台映射的URL 
+              dataType:'json',//返回的数据格式
+              success : function(result) { //result即你的返回值
+                if(result >= 1){
+                  $('.public_new_comic').html("new");
+                  var public_timer_comic = setInterval(function(){ $('.public_new_comic').fadeOut(200).fadeIn(200); },650);
+                  $('#zhuifan').html('<p style="color:orange; text-align:center; background:#f4eeee; padding:6px; width:1160px;display:block; margin:0 auto; margin-bottom:20px; border-top-right-radius:10px; border-top-left-radius:10px;"><img src="/Public/images/public.png" style="position:relative; top:3px;" />您追的番剧更新了，点此查看</p>');
+                  $('#zhuifan').fadeIn();
+                }
+              }
+            });	
+          },300000);
+        }
+        //每隔5分钟查询有无更新 https://www.baidu.com/s?ie=UTF-8&wd=1分钟等于多少毫秒
+    </script>
+
+
+   <!-- 统计-->
+   <script>
+   if(public_user != "风轻云淡"){
+       var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?cd233fa6d59713f4143fc9a460159193";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+   }
+   </script>
+   
+
+   <!--jx sm-->
+   <script type="text/javascript">
+   if (document.location.host != "www.ezdmw.site") {
+       location.href = location.href.replace(document.location.host,'www.ezdmw.site');
+   }
+   </script>
+
+
+   <!-- 百度推送-->
+   <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+   </script>
+   
+
+    <!--点击返回顶部卡通-->
+    <span style="font-size:14px" id="top_katong"><p id="back-to-top"><a href="#top"><img src="/Public/images/app/top_katong.png?update=1.0">点我返回顶部</a></p></span>
+    <style>
+    p#back-to-top{
+        position:fixed;
+        display:none;
+        bottom:285px;
+        right:-5px;
+        z-index:9;
+    }
+    p#back-to-top a{
+        text-align:center;
+        text-decoration:none;
+        color:#d1d1d1;
+        display:block;
+        width:105px;
+        -moz-transition:color 1s;
+        -webkit-transition:color 1s;
+        -o-transition:color 1s; word-spacing:8px; letter-spacing:1px;
+    }
+    p#back-to-top a:hover{
+        color:#979797;
+    }
+    @media screen and (max-width: 830px) { #top_katong{display:none;} }
+    .nav-img {
+        /*background-image: url("");*/
+    }
+    </style>
+    <script>
+    //当滚动条的位置处于距顶部860像素以下时，跳转链接出现，否则消失
+    $(window).scroll(function(){
+        if ($(window).scrollTop()>860){
+            $("#back-to-top").fadeIn(1500);
+        }
+        else
+        {
+            $("#back-to-top").fadeOut(1500);
+        }
+    });
+    //当点击跳转链接后，回到页面顶部位置
+    $("#back-to-top").click(function(){
+        if ($("html").scrollTop()) {
+            $("html").animate({ scrollTop: 0 }, 300);
+            return false;
+        }
+        $("body").animate({ scrollTop: 0 }, 300);
+        return false;            
+    });
+    </script>
+    
+    <!-- 有无激活账户，开启真实邮箱验证时取消注销 -->
+    
+
+   <!--canvas绘制雪花特效，开启时取消注销（cpu占用很高）
+    <script type="text/javascript" src="//www.ezdmw.site/demo/snow-master/snow2.js"></script>
+    <script type="text/javascript" src="//www.ezdmw.site/demo/snow-master/ac.header-newyear.js"></script>
+    <style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    canvas { width:100%;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none; height:296px;
+    }
+    .header_content {
+        position: relative;
+        width: 1200px;
+        height: 180px;
+        margin: 0 auto;
+    }
+    .header_content a {
+        display: block;
+        position: absolute;
+        top: 137px;
+        right: 111px;
+        width: 92px;
+        height: 35px;
+        font-size: 14px;
+        color: #7d360f;
+        text-align: center;
+        line-height: 35px;
+        text-decoration: none;
+        border-radius: 2px;
+        background: #f9e2ba;
+    }
+    .header_content a:hover {
+        background: #f6cf89;
+    }
+    </style>
+    -->
+    
+    
+    
+
+
+<!-- 主页内容 - index_centent -->
+<section class="index_centent">
+    <!-- 搜索结果 - search Result -->
+              <section class="some_drama" id="some_drama" style="margin-bottom:150px;padding:15px;border:none;height:1860px;">
+                <h2 style="padding-top:0px;">【伪娘】动漫
+                   <!-- <a href="#">更多></a> -->
+                <a href="//www.ezdmw.site/Index/search_some.html?searchText=%E4%BC%AA%E5%A8%98&amp;page=0&amp;hot=true" style="color:blue;float:right;">最新</a><a style="float:right;color:#000;">排序方式：</a></h2><div style="padding:20px;height:130px;border:1px solid #ccc;clear:both;"><a href="/Index/bangumi/82952.html" target="_blank"><img src="https://all.moei.xyz/atlas_oss/Public/images/some_img/2197.jpg" class="img1"><p style="display:block;width:920px;float:left;color:#4169E1;margin-left:20px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:18px;font-weight:bold;margin-bottom:5px;"><!--<span class="play_some"><img src="/Public/images/clock1.png" style="margin-left:10px;position:relative;top:1px;width:13px;" /> 1970-01-01</span>-->前辈是男孩子&nbsp;&nbsp;更至12话<span style="float:right;">2024年7月【全集完】<span></span></span></p></a><p style="display:block;width:920px;float:left;color:#000;margin-left:22px;font-size:14px;line-height:30px;">简介：
+电视动画片《前辈是男孩子》改编自pom创作的同名漫画作品，于2023年3月25日在AnimeJapan2023上宣布动画化。该片由project No.9负责制作，于2024年7月5日播出。
+剧情：
+花岗真琴，一位男生，却对可爱的事物情有独钟，常常以女生的形象出现在学校。
+某..</p></div><div style="padding:20px;height:130px;border:1px solid #ccc;clear:both;"><a href="/Index/bangumi/41932.html" target="_blank"><img src="https://all.moei.xyz/atlas_oss/Public/images/some_img/1652.jpg" class="img1"><p style="display:block;width:920px;float:left;color:#4169E1;margin-left:20px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:18px;font-weight:bold;margin-bottom:5px;"><!--<span class="play_some"><img src="/Public/images/clock1.png" style="margin-left:10px;position:relative;top:1px;width:13px;" /> 1970-01-01</span>-->南家三姐妹第四季&nbsp;&nbsp;更至13话<span style="float:right;">2013年1月【全集完】<span></span></span></p></a><p style="display:block;width:920px;float:left;color:#000;margin-left:22px;font-size:14px;line-height:30px;">简介：
+《南家三姐妹 欢迎回来（みなみけ おかえり）》是根据日本漫画家樱场小春的漫画《南家三姐妹（みなみけ）》改编的同系列第3期动画，由动画公司Asread制作，2009年1月4日开始播放，播放至2009年3月30日结束，共13话。2009年6月23日，OAD1《南家三姐妹 甜品别腹（みなみ..</p></div><div style="padding:20px;height:130px;border:1px solid #ccc;clear:both;"><a href="/Index/bangumi/34642.html" target="_blank"><img src="https://all.moei.xyz/atlas_oss/Public/images/some_img/1519.jpg" class="img1"><p style="display:block;width:920px;float:left;color:#4169E1;margin-left:20px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:18px;font-weight:bold;margin-bottom:5px;"><!--<span class="play_some"><img src="/Public/images/clock1.png" style="margin-left:10px;position:relative;top:1px;width:13px;" /> 1970-01-01</span>-->放浪男孩&nbsp;&nbsp;更至12话<span style="float:right;">2011年1月【全集完】<span></span></span></p></a><p style="display:block;width:920px;float:left;color:#000;margin-left:22px;font-size:14px;line-height:30px;">简介：
+《放浪男孩》是根据日本漫画家志村贵子作画的同名漫画改编的电视动画作品，于2011年1月13日起于在富士电视台的“noitaminA”播放。电视放送共11话，放送的第10话为原本第10话和第11话的剪辑版，原本的12话作为第11话放送。而BD/DVD的第5、6卷收录了原本的第10话和1..</p></div><div style="padding:20px;height:130px;border:1px solid #ccc;clear:both;"><a href="/Index/bangumi/33645.html" target="_blank"><img src="https://all.moei.xyz/atlas_oss/Public/images/some_img/1506.jpg" class="img1"><p style="display:block;width:920px;float:left;color:#4169E1;margin-left:20px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:18px;font-weight:bold;margin-bottom:5px;"><!--<span class="play_some"><img src="/Public/images/clock1.png" style="margin-left:10px;position:relative;top:1px;width:13px;" /> 1970-01-01</span>-->海月姬&nbsp;&nbsp;更至11话<span style="float:right;">2010年4月【全集完】<span></span></span></p></a><p style="display:block;width:920px;float:left;color:#000;margin-left:22px;font-size:14px;line-height:30px;">简介：
+《海月姬》是一部由川村泰祐执导，大野敏哉编剧，能年玲奈、菅田将晖、长谷川博己等主演的喜剧电影。该片改编自东村明子原著的漫画，这部作品以合租公寓天水馆为舞台，讲述的是热爱水母的宅女女主角与兴趣爱好各不相同的其他宅女团体“尼姑庵”、以及出入天水馆的女装男子之间奇妙的友情故事。
+剧情：
+主..</p></div><div style="padding:20px;height:130px;border:1px solid #ccc;clear:both;"><a href="/Index/bangumi/23888.html" target="_blank"><img src="https://all.moei.xyz/atlas_oss/Public/images/some_img/1149.jpg" class="img1"><p style="display:block;width:920px;float:left;color:#4169E1;margin-left:20px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:18px;font-weight:bold;margin-bottom:5px;"><!--<span class="play_some"><img src="/Public/images/clock1.png" style="margin-left:10px;position:relative;top:1px;width:13px;" /> 1970-01-01</span>-->神之谜题 第三季&nbsp;&nbsp;更至25话<span style="float:right;">2013年4月【全集完】<span></span></span></p></a><p style="display:block;width:920px;float:left;color:#000;margin-left:22px;font-size:14px;line-height:30px;">简介：
+神之谜题是以解谜为题材的原创动画，舞台是私立学院学员高等部，主人公是对谜题十分着迷并自信逢谜必破的高一学生大门。有一天，他受到学生会长邀请，同青梅竹马少女野叶一起前往学校附近的遗迹解“不能解开之谜”，原来这是一个由神秘智能集团制造出的能危机人类生命的“贤者之谜”。可是热爱解谜的大门硬..</p></div><div style="padding:20px;height:130px;border:1px solid #ccc;clear:both;"><a href="/Index/bangumi/23863.html" target="_blank"><img src="https://all.moei.xyz/atlas_oss/Public/images/some_img/1148.jpg" class="img1"><p style="display:block;width:920px;float:left;color:#4169E1;margin-left:20px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:18px;font-weight:bold;margin-bottom:5px;"><!--<span class="play_some"><img src="/Public/images/clock1.png" style="margin-left:10px;position:relative;top:1px;width:13px;" /> 1970-01-01</span>-->神之谜题 第二季&nbsp;&nbsp;更至25话<span style="float:right;">2012年4月【全集完】<span></span></span></p></a><p style="display:block;width:920px;float:left;color:#000;margin-left:22px;font-size:14px;line-height:30px;">简介：
+神之谜题是以解谜为题材的原创动画，舞台是私立学院学员高等部，主人公是对谜题十分着迷并自信逢谜必破的高一学生大门。有一天，他受到学生会长邀请，同青梅竹马少女野叶一起前往学校附近的遗迹解“不能解开之谜”，原来这是一个由神秘智能集团制造出的能危机人类生命的“贤者之谜”。可是热爱解谜的大门硬..</p></div><div style="padding:20px;height:130px;border:1px solid #ccc;clear:both;"><a href="/Index/bangumi/23838.html" target="_blank"><img src="https://all.moei.xyz/atlas_oss/Public/images/some_img/1147.jpg" class="img1"><p style="display:block;width:920px;float:left;color:#4169E1;margin-left:20px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:18px;font-weight:bold;margin-bottom:5px;"><!--<span class="play_some"><img src="/Public/images/clock1.png" style="margin-left:10px;position:relative;top:1px;width:13px;" /> 1970-01-01</span>-->神之谜题 第一季&nbsp;&nbsp;更至25话<span style="float:right;">2011年4月【全集完】<span></span></span></p></a><p style="display:block;width:920px;float:left;color:#000;margin-left:22px;font-size:14px;line-height:30px;">简介：
+神之谜题是以解谜为题材的原创动画，舞台是私立学院学员高等部，主人公是对谜题十分着迷并自信逢谜必破的高一学生大门。有一天，他受到学生会长邀请，同青梅竹马少女野叶一起前往学校附近的遗迹解“不能解开之谜”，原来这是一个由神秘智能集团制造出的能危机人类生命的“贤者之谜”。可是热爱解谜的大门硬..</p></div><div style="padding:20px;height:130px;border:1px solid #ccc;clear:both;"><a href="/Index/bangumi/3646.html" target="_blank"><img src="https://all.moei.xyz/atlas_oss/Public/images/some_img/255.jpg" class="img1"><p style="display:block;width:920px;float:left;color:#4169E1;margin-left:20px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:18px;font-weight:bold;margin-bottom:5px;"><!--<span class="play_some"><img src="/Public/images/clock1.png" style="margin-left:10px;position:relative;top:1px;width:13px;" /> 1970-01-01</span>-->骇客娃娃&nbsp;&nbsp;更至13话<span style="float:right;">2015年10月【全集完】<span></span></span></p></a><p style="display:block;width:920px;float:left;color:#000;margin-left:22px;font-size:14px;line-height:30px;">
+
+简介：
+《骇客娃娃》（ ハッカドール THE あにめ～しょん）是一部根据日本游戏公司DeNA开发的《骇客娃娃》手游改编而成的动画片，由TRIGGER负责动画制作，2015年10月2日首播[1]  。
+本部动画讲述了在情报过度发达的现代社会，人们沉溺在铺天盖地的信息海洋中，为其所缚，变得不..</p></div><div style="padding:20px;height:130px;border:1px solid #ccc;clear:both;"><a href="/Index/bangumi/3177.html" target="_blank"><img src="https://all.moei.xyz/atlas_oss/Public/images/some_img/220.jpg" class="img1"><p style="display:block;width:920px;float:left;color:#4169E1;margin-left:20px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:18px;font-weight:bold;margin-bottom:5px;"><!--<span class="play_some"><img src="/Public/images/clock1.png" style="margin-left:10px;position:relative;top:1px;width:13px;" /> 1970-01-01</span>-->乱步奇谭 Game of Laplace&nbsp;&nbsp;更至11话<span style="float:right;">2015年7月【全集完】<span></span></span></p></a><p style="display:block;width:920px;float:left;color:#000;margin-left:22px;font-size:14px;line-height:30px;">
+
+简介：
+《乱步奇谭 Game of Laplace》是以已逝世50年的日本著名推理作家江户川乱步的作品为原案，并以现代为舞台改编而成的原创动画。动画的相关企划由noitaminA于2014年11月27日的发表会上公开[1]  ，并于2015年7月2日起在noitaminA播放，同年九月十..</p></div><div style="padding:20px;height:130px;border:1px solid #ccc;clear:both;"><a href="/Index/bangumi/2407.html" target="_blank"><img src="https://all.moei.xyz/atlas_oss/Public/images/some_img/164.jpg" class="img1"><p style="display:block;width:920px;float:left;color:#4169E1;margin-left:20px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:18px;font-weight:bold;margin-bottom:5px;"><!--<span class="play_some"><img src="/Public/images/clock1.png" style="margin-left:10px;position:relative;top:1px;width:13px;" /> 1970-01-01</span>-->记录的地平线 第二季&nbsp;&nbsp;更至25话<span style="float:right;">2014年10月【全集完】<span></span></span></p></a><p style="display:block;width:920px;float:left;color:#000;margin-left:22px;font-size:14px;line-height:30px;">
+
+简介：
+电视系列动画《记录的地平线》改编自网络小说家橙乃真希创作，原和弘负责插画的同名轻小说，第一期由SATELIGHT制作，第二期改为STUDIO DEEN制作。
+动画第一期于2013年10月5日起在NHK教育频道播放，全25话[1]  ；第二期于2014年10月4日起在NHK教育频道..</p></div><a href="?searchText=伪娘&amp;page=10&amp;hot=&amp;sort=" style="border:1px solid #ccc; font-weight:bold; font-size:18px; padding:5px; border-radius:10px; margin-bottom:30px; margin-top:30px;text-align:center;color:#000;display:inline-block; width:42%; margin-right:2%;float:right;" class="page_color">下一页</a></section></section>
+  
+    
+    <!-- 引入评论框架 
+    <iframe style="width:100%;height:600px;" id="IFeditValue" 
+        src="/comment/?comment_index=sou=伪娘" 
+        frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="auto" allowfullscreen="true" id="comment_iframe">
+    </iframe>
+    -->
+
+
+<script>
+//自适应ifranme高度
+var oIframe = 0;
+function setIframeHeight(iframe) {
+	if (iframe) {
+    	var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+    	if (iframeWin.document.body) {
+    	    iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+    	    iframe.height = parseInt(iframe.height);
+	    }
+	}
+	};
+
+	window.onload = function () {
+	setIframeHeight(document.getElementById('IFeditValue'));
+};
+</script> 
+
+
+<script>
+//pc端该页搜索默认展开
+if ($(window).width() >= 830) {  
+    $('.search').fadeIn(0); //展开
+}
+
+//反馈
+$('.feedback').click(function(){
+	var oReason = prompt("输入反馈内容");
+	if (oReason != null){
+		//发送反馈的ajax请求
+		$.ajax({
+			error: function(XMLHttpRequest, textStatus, errorThrown) {
+                if(textStatus == "error") alert("请求失败QaQ\nXMLHttpRequest.readyState状态码："+XMLHttpRequest.readyState+"\nXMLHttpRequest.status状态码："+XMLHttpRequest.status);
+            },
+            type : "POST",
+            data: {"text": oReason},
+            url: "/Index/feedback.html",//后台映射的URL 
+            dataType:'json',//返回的数据格式
+            success : function(result) { //result即你的返回值
+	            alert(result);
+	            if(result == "我们已经收到您的反馈~\n\n提示：（切勿反馈垃圾信息，否则禁止访问本站）")
+	              $('.feedback').css("display", "none");
+            }
+        }); 
+	}
+});
+</script>
+  
+  
+<br><br><br><br><br><br>
+<!-- 公共尾部 -->
+<!-- 公共尾部 - public_footer -->
+<footer class="public_footer" style="clear:both;font-family:'黑体';"><br>
+    <div class="you" id="f_pc" style="border-radius:10px;">
+      <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E站动漫 (゜-゜)つロ 干杯~  @E站弹幕网 www.ezdmw.site 【仅供热爱动漫网友分享交流，谢绝广告】
+        </h2>
+    </div>
+    <div id="f_pc">
+	    <section>
+	       <h2>关于我们</h2>
+	        <a href="/Index/about.html" target="_blank" class="left_top">联系</a>
+	        <a onclick="alert('1、视频内容均视来自频分享站点所提供的公开引用资源，本小站自身不存储、控制、编辑或修改第三方视频画面及内容\n\n2、如果您对本站所载视频作品版权的归属存有异议，请立即联系我们，我们将在第一时间予以删除');">声明</a>
+	        <!--<a href="/Index/user_opinion.html" target="_blank">意见</a>-->
+	    </section>
+	    <section>
+	        <h2>用户帮助 </h2>
+	        <a href="/Index/login.html" target="_blank" class="left_top">登录</a>
+	        <a href="/Index/reg.html" target="_blank">注册</a>
+	        <a href="/Index/app_tiezi.html" target="_blank">投稿</a>
+	        <a href="/Index/back_pass.html" target="_blank">改密</a>
+	        <a href="/Index/appeal.html" target="_blank">解封</a>
+	    </section>
+	    <section>
+	        <h2>应用/提示 </h2>
+	        <a href="/Index/up_details.html?id=983" class="left_top">下载客户端</a>
+	        <a>严禁发布反动 色情等内容</a>
+	    </section>
+	    <section>
+            <h2>资源声明</h2>
+	        <a class="ti">内容均来自第三方分享站点提供的公开引用资源，如有侵权，请联系删除.</a>
+	    </section>
+    </div>
+    <aside id="f_m" style="margin-bottom:100px;"><a href="/Index/about.html">联系我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <a href="/Index/login.html" class="ti">登录/注册</a>
+    </aside>
+</footer>
+<style>
+#f_pc a{margin-left:15px;} #f_pc .left_top, #f_pc .ti{margin-left:32px;}
+@media screen and (max-width: 830px) {
+    .public_footer{padding-bottom:30px;}
+}
+</style>
+
+</body></html>

@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-Hans"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>快穿反派：黑化男神，强势宠  1118女装大佬的男装大佬(14)  无线电子书</title>
+    <meta name="keywords" content="快穿反派：黑化男神，强势宠目录,最近更新章节，免费阅读,小说快穿反派：黑化男神，强势宠,快穿反派：黑化男神，强势宠最新章节,快穿反派：黑化男神，强势宠txt">
+    <meta name="description" content="1118女装大佬的男装大佬(14)快穿反派：黑化男神，强势宠TXT在线阅读,无线移动阅读-无线电子书">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202502130101/show_ads_impl.js"></script><script src="/js/jquery.js"></script>
+    <script type="text/javascript">
+        var mouseY = 0;
+        var ChapterTitle = "1118女装大佬的男装大佬(14)";
+        var BookInfo = "";
+        var TargetUrl = "";
+        var TxtContents = "";
+        var IsSettingPanelShow = false;
+        var BookName = "快穿反派：黑化男神，强势宠";
+        var names = ["顾言"];
+        var prevpage ="/wxread/85245_37228785.html";
+var nextpage ="/wxread/85245_37228787.html";
+var chapterpage ="/wxbook/85245.html";
+        var Domain = "";
+
+        $(window).keydown(function (event) {
+            switch (event.keyCode) {
+                case 37:
+                    window.top.location = prevpage;
+                    break;
+                case 39:
+                    window.top.location = nextpage;
+                    break;
+                case 13:
+                    if (event.keyCode == 13) {
+                        window.top.location = "/wxbook/85245.html";
+                        return false;
+                    }
+            }
+        });
+
+        var xmlhttp; if (window.XMLHttpRequest) { xmlhttp = new XMLHttpRequest(); } else { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); }
+
+        var ScrollNum = 1;
+
+        var LoadCount = 0;
+
+        var ReadSetting = { "fontsize": "18px", "fontweight": "bold", "ModeName": "NormalMode", "Brightness": "0.5", "UseFullScreen": "0" };
+
+        //黑夜模式
+        var NightMode = { "color": "#8A7B66", "bgcolor": "#000" };
+
+        //怀旧纸张
+        var NPZMode = { "color": "#000", "bgimg": "url(/images/fg_hz.png)" };
+
+        //淡蓝海洋
+        var BlueMode = { "color": "#000", "bgimg": "url(/images/fg_dl.png)" };
+
+        //粉红世家
+        var PinkMode = { "color": "#000", "bgimg": "url(/images/fg_hf.png)" };
+
+        //灰色世界
+        var NormalMode = { "color": "#000", "bgcolor": "#f4f4f4" };
+
+        //白雪天地
+        var WhiteMode = { "color": "#000", "bgcolor": "#fff" };
+
+        //明黄清俊
+        var YellowMode = { "color": "#000", "bgcolor": "#faf7ed", "bgimg": "url(/images/fg_mh.png)" };
+
+        const synth = window.speechSynthesis;
+        var al_voice = null;
+
+        var VLang = "";
+        var VVoiceURI = "";
+        var VRate = 1;
+        var VPitch = 1;
+        var UserVoiceObj = null;
+        var TxtIdNum = [37];
+        var IsPalyingVoice = false;
+
+        var CurrentId = 0;
+        var IsCanResume = false;
+
+        $(document).ready(function () {
+
+            try {
+                var MinSize = parseInt($(window).width());
+
+                if (MinSize > parseInt($(window).height())) {
+                    MinSize = parseInt($(window).height());
+                }
+            }
+            catch (e) {
+            }
+
+            replaceHtmlContents(names);
+
+            $("#Lab_Contents").click(function (evt) {
+                if (IsSettingPanelShow) {
+                    ShowSettingPanel();
+                }
+                else {
+                    mouseY = evt.pageY;
+                    autoScroll();
+                    mouseY = 0;
+                }
+            });
+
+
+
+            if ('speechSynthesis' in window) {
+
+                $("#Btn_PlayVoice").show();
+
+                //console.log("List_Voice.show");
+
+                synth.addEventListener("voiceschanged", () => {
+                    if (!al_voice) {
+                        al_voice = synth.getVoices();
+                    }
+                });
+
+                //多一种尝试
+                synth.onvoiceschanged = () => {
+                    if (!al_voice) {
+                        al_voice = synth.getVoices();
+                    }
+                };
+
+                document.addEventListener("visibilitychange", () => {
+
+                    if (document.hidden) {
+                        if (IsPalyingVoice) {
+                            IsCanResume = true;
+                        }
+                    }
+                    else {
+                        if (IsPalyingVoice) {
+                            IsCanResume = false;
+
+                            if (CurrentId + 3 > TxtIdNum) {
+                                return;
+                            }
+
+                            synth.cancel();
+
+                            DoResumeTalk();
+                        }
+                    }
+                })
+
+                $("#List_Voice").change(function () {
+                    var val = $("#List_Voice").val();
+
+                    al_voice.forEach(e => {
+
+                        if (e.name === val) {
+
+                            VLang = e.lang;
+
+                            VVoiceURI = e.name;
+
+                            UserVoiceObj = e;
+                        }
+                    })
+
+                    SaveSetting();
+
+                    synth.cancel();
+
+                    DoTalkParam();
+                }
+                );
+
+                $("#List_Rate").change(function () {
+                    VRate = $("#List_Rate").val();
+                    synth.cancel();
+                    DoTalkParam();
+
+                    SaveSetting();
+
+                    getSupportVoices();
+                }
+                );
+
+                $("#List_Pitch").change(function () {
+
+                    VPitch = $("#List_Pitch").val();
+
+                    synth.cancel();
+                    DoTalkParam();
+
+                    SaveSetting();
+
+                    getSupportVoices();
+                }
+                );
+
+                setTimeout(getSupportVoices, 2000);
+
+                synth.cancel();
+            }
+
+            setTimeout(ProRead, 2000);
+
+            try {
+                doReadStyle();
+            }
+            catch (e) {
+
+            }
+
+            $.getScript("https://www.wxdzs.net/BM/Count.aspx?bookid=85245&chapterid=37228786&title=1118女装大佬的男装大佬(14)&referer=" + escape(document.referrer));
+
+        });
+
+        function getSupportVoices() {
+
+            var dropdown = $("#List_Voice");
+
+            var optionsCount = dropdown.find("option").length;
+            if (optionsCount > 1) {
+                return;
+            }
+
+            if (!al_voice) {
+                al_voice = synth.getVoices();
+            }
+
+            if (!al_voice) {
+                console.log("null");
+                return;
+            }
+
+            al_voice.forEach(function (e) {
+                var vname = e.name;
+
+                if (e.lang.indexOf("zh-") > -1 || e.lang.indexOf("zh_") > -1 || e.lang.indexOf("ZH-") > -1 || e.lang.indexOf("ZH_") > -1) {
+                    //下拉框文字
+                    var ListMsg = e.name.replace("- Chinese (Simplified, PRC)", "普通话").replace("- Chinese (Cantonese Traditional)", "广东话")
+                        .replace("- Chinese (Hong Kong)", "香港").replace("- Chinese (Mainland)", "普通话").replace("- Chinese (Zhongyuan Mandarin Shaanxi)", "陕西话")
+                        .replace("- Chinese (Northeastern Mandarin)", "东北话").replace("- Chinese (Taiwan)", "台湾话").replace("- Chinese (Taiwanese Mandarin)", "台湾普通话")
+                        .replace("(Natural)", "").replace(" Online", "").trim();
+
+                    var IsSelect = "";
+
+                    if (e.name == VVoiceURI) {
+                        IsSelect = "selected";
+                    }
+
+                    if (e.localService) {
+                        var option = "<option value='" + e.name + "' " + IsSelect + ">本地:" + ListMsg + "</option>";
+                        $("#List_Voice").append(option);
+                    }
+                    else {
+
+                        var option = "<option value='" + e.name + "' " + IsSelect + ">远程:" + ListMsg + "</option>";
+                        $("#List_Voice").append(option);
+                    }
+                }
+            })
+        }
+
+        function DoTalk() {
+
+            synth.cancel();
+
+            DoSpeak("无线电子书", false, 0);
+
+            DoSpeak("快穿反派：黑化男神，强势宠", false, 0);
+
+            DoSpeak("1118女装大佬的男装大佬(14)", false, 0);
+
+            InitParamColor();
+
+            DoTalkParam();
+        }
+
+        function DoTalkParam() {
+
+
+            for (var i = CurrentId; i < TxtIdNum; i++) {
+                var msg = $("#txt_" + i).text();
+
+                if (msg.length > 0) {
+                    DoSpeak(msg, true, i);
+                }
+            }
+        }
+
+        function DoTalkPrev() {
+            synth.cancel();
+
+            InitParamColor();
+
+            if (CurrentId > 0) {
+                CurrentId--;
+            }
+
+            DoTalkParam();
+        }
+
+        function DoTalkNext() {
+            synth.cancel();
+
+            InitParamColor();
+
+            CurrentId++;
+
+            DoTalkParam();
+        }
+
+        function InitParamColor() {
+            for (var i = 0; i < TxtIdNum; i++) {
+                $("#txt_" + i).removeAttr("style");
+            }
+        }
+
+        function DoSpeak(msg, isParam, paramId) {
+            try {
+                IsPalyingVoice = true;
+
+                var vo = new SpeechSynthesisUtterance();
+
+                var LastScrollTime = new Date();
+
+                //声音基础控制
+                vo.volume = 1; // 声音的音量，区间范围是0到1，默认是1。
+                vo.rate = VRate;// 设置播放语速，范围：0.1 - 10之间    正常为1倍播放
+                vo.pitch = VPitch; // 表示说话的音高，数值，范围从0（最小）到2（最大）。默认值为1。
+
+                //朗读声音选择
+                vo.lang = VLang; // 使用的语言，字符串， 例如："zh-cn"
+                vo.voiceURI = VVoiceURI;
+
+
+                if (!UserVoiceObj) {
+                    al_voice.forEach(e => {
+
+                        if (e.name === VVoiceURI) {
+
+                            VLang = e.lang;
+
+                            VVoiceURI = e.name;
+
+                            UserVoiceObj = e;
+                        }
+                    })
+                }
+
+                vo.voice = UserVoiceObj;
+
+                vo.onend = (event) => {
+
+                    //计数器加1
+                    if (isParam) {
+                        $("#txt_" + paramId).removeAttr("style");
+                        $("#txt_" + paramId).text(msg);
+                    }
+                }
+
+                vo.onstart = (event) => {
+
+                    if (isParam) {
+                        CurrentId = paramId;
+
+                        $("#txt_" + CurrentId).attr("style", "color:red;");
+
+                        if ($("#txt_" + paramId).offset().top - $(document).scrollTop() + 150 > $(window).height()) {
+                            $(document).scrollTop($("#txt_" + paramId).offset().top - 80);
+                        }
+                    }
+
+                }
+
+                vo.onerror = (event) => {
+                    console.log('onerror' + event.msg);
+                }
+
+                vo.onpause = (event) => {
+                }
+
+                vo.onresume = (event) => {
+                }
+
+                vo.onboundary = (event) => {
+                    if (isParam) {
+                        var cmsg = "";
+                        if (event.charIndex + 1 < msg.length) {
+                            cmsg = msg.substring(0, event.charIndex)
+                                + "<span  id='SpanReadTag" + paramId + "' style='color:yellow;'>" + msg.substring(event.charIndex, event.charIndex + 2) + "</span>"
+                                + msg.substring(event.charIndex + 2);
+                        }
+                        else {
+                            cmsg = msg.substring(0, event.charIndex) + "<span id='SpanReadTag" + paramId + "' style='color:yellow;'>" + msg.substring(event.charIndex, event.charIndex + 1) + "</span>";
+                        }
+
+                        $("#txt_" + paramId).html(cmsg);
+
+                        //动态滚动当前阅读标签到舒服的可视位置
+                        var timeNow = new Date();
+
+                        if (timeNow - LastScrollTime > 10 * 1000) {
+
+                            if ($("#SpanReadTag" + paramId).offset().top - $(document).scrollTop() + 150 > $(window).height()) {
+                                $(document).scrollTop($("#SpanReadTag" + paramId).offset().top - 80);
+                            }
+
+                            LastScrollTime = new Date();
+                        }
+                    }
+                }
+                vo.text = msg;
+
+                synth.speak(vo);
+            }
+            catch
+            {
+
+            }
+        }
+
+        function DoPauseTalk() {
+            synth.pause();
+
+            IsCanResume = true;
+        }
+
+        function DoResumeTalk() {
+
+            if (IsCanResume) {
+                synth.resume();
+
+                IsCanResume = false;
+            }
+            else {
+                DoTalkParam();
+            }
+        }
+
+        function DoCancelTalk() {
+            synth.cancel();
+        }
+
+        function count() {
+            try {
+
+            }
+            catch (e) {
+            }
+        }
+
+        function ProRead() {
+            try { xmlhttp.open("GET", nextpage, true); xmlhttp.send(); } catch (e) { }
+        }
+
+        function doReadStyle() {
+            $("body").removeClass();
+
+            var CacheStyle = getCookie("MySetting");
+
+            if (!CacheStyle) {
+
+                ReadSetting.fontsize = "22px";
+
+                ReadSetting.fontweight = "normal";
+
+                if ($(window).width() < 600) {
+                    ReadSetting.ModeName = "NPZMode";
+                }
+                else {
+                    ReadSetting.ModeName = "YellowMode";
+                }
+
+
+                ReadSetting.Brightness = "0";
+
+                ReadSetting.VLang = "";
+                ReadSetting.VVoiceURI = "";
+                ReadSetting.VRate = 1;
+                ReadSetting.VPitch = 1;
+
+            }
+            else {
+                ReadSetting = eval("(" + CacheStyle + ")");
+            }
+
+            $("#Lab_Contents").css("font-size", ReadSetting.fontsize);
+
+            if (ReadSetting.fontsize == "26px") {
+                $("#Lab_Contents").css("line-height", "52px");
+            }
+            else if (ReadSetting.fontsize == "24px") {
+                $("#Lab_Contents").css("line-height", "48px");
+            }
+            else if (ReadSetting.fontsize == "22px") {
+                $("#Lab_Contents").css("line-height", "44px");
+            }
+            else if (ReadSetting.fontsize == "20px") {
+                $("#Lab_Contents").css("line-height", "40px");
+            }
+            else if (ReadSetting.fontsize == "18px") {
+                $("#Lab_Contents").css("line-height", "36px");
+            }
+            else {
+                $("#Lab_Contents").css("line-height", "32px");
+            }
+
+            $("#Lab_Contents").css("font-weight", ReadSetting.fontweight);
+
+            doChangeMode();
+
+
+            //从cookie获取语音设置
+            VLang = ReadSetting.VLang;
+            VVoiceURI = ReadSetting.VVoiceURI;
+            VRate = ReadSetting.VRate;
+            VPitch = ReadSetting.VPitch;
+
+
+            $("#List_Rate").val(VRate);
+            $("#List_Pitch").val(VPitch);
+        }
+
+        function doChangeMode() {
+
+            $("#TopPanel").css("color", "");
+            $("#TopPanel").css("background-color", "");
+            $("#TopPanel").css("border-bottom", "");
+            $("#PanBottom").css("color", "");
+            $("#PanBottom").css("background-color", "");
+            $("#PanBottom").css("border-top", "");
+
+            $("#PageBody").css("backgrouond-repeat", "repeat-y");
+
+            if (ReadSetting.ModeName == "NightMode") {
+                //无背景图
+                $("#PageBody").css("color", NightMode.color);
+                $("#PageBody").css("background-color", NightMode.bgcolor);
+                $("#PageBody").css("background-image", "");
+                $("#TopPanel").css("color", NightMode.color);
+                $("#TopPanel").css("background-color", NightMode.bgcolor);
+                $("#TopPanel").css("border-bottom", "1px solid #8A7B66");
+
+                $("#PanBottom").css("color", NightMode.color);
+                $("#PanBottom").css("background-color", NightMode.bgcolor);
+                $("#PanBottom").css("border-top", "1px solid #8A7B66");
+            }
+            else if (ReadSetting.ModeName == "NPZMode") {
+                $("#PageBody").css("background-color", "#FEF5CA");
+                $("#PageBody").css("color", NPZMode.color);
+                $("#PageBody").css("background-image", NPZMode.bgimg);
+            }
+            else if (ReadSetting.ModeName == "BlueMode") {
+                $("#PageBody").css("background-color", "");
+                $("#PageBody").css("color", BlueMode.color);
+                $("#PageBody").css("background-image", BlueMode.bgimg);
+            }
+            else if (ReadSetting.ModeName == "PinkMode") {
+                $("#PageBody").css("background-color", "");
+                $("#PageBody").css("color", PinkMode.color);
+                $("#PageBody").css("background-image", PinkMode.bgimg);
+            }
+            else if (ReadSetting.ModeName == "NormalMode") {
+                //无背景图
+                $("#PageBody").css("color", NormalMode.color);
+                $("#PageBody").css("background-color", NormalMode.bgcolor);
+                $("#PageBody").css("background-image", "");
+            }
+            else if (ReadSetting.ModeName == "WhiteMode") {
+                //无背景图
+                $("#PageBody").css("color", WhiteMode.color);
+                $("#PageBody").css("background-color", WhiteMode.bgcolor);
+                $("#PageBody").css("background-image", "");
+            }
+            else if (ReadSetting.ModeName == "YellowMode") {
+                $("#PageBody").css("background-color", YellowMode.bgcolor);
+                $("#PageBody").css("color", YellowMode.color);
+                $("#PageBody").css("background-image", YellowMode.bgimg);
+            }
+        }
+
+        function ChangeFontSize(obj) {
+
+            ReadSetting.fontsize = obj;
+
+            $("#Lab_Contents").css("font-size", obj);
+
+            if (obj == "26px") {
+                $("#Lab_Contents").css("line-height", "52px");
+            }
+            else if (obj == "24px") {
+                $("#Lab_Contents").css("line-height", "48px");
+            }
+            else if (obj == "22px") {
+                $("#Lab_Contents").css("line-height", "44px");
+            }
+            else if (obj == "20px") {
+                $("#Lab_Contents").css("line-height", "40px");
+            }
+            else if (obj == "18px") {
+                $("#Lab_Contents").css("line-height", "36px");
+            }
+            else {
+                $("#Lab_Contents").css("line-height", "32px");
+            }
+
+            SaveSetting();
+        }
+
+        function ChangeFontWeight(obj) {
+            ReadSetting.fontweight = obj;
+            $("#Lab_Contents").css("font-weight", obj);
+            SaveSetting();
+        }
+
+        function ChangeModeName(obj) {
+            ReadSetting.ModeName = obj;
+            doChangeMode();
+            SaveSetting();
+        }
+
+        function SaveSetting() {
+            if (ReadSetting.fontsize == null || typeof (ReadSetting.fontsize) == "undefined") {
+                ReadSetting.fontsize = "18px";
+            }
+
+            if (ReadSetting.fontweight == null || typeof (ReadSetting.fontweight) == "undefined") {
+                ReadSetting.fontweight = "normal";
+            }
+
+            ReadSetting.Brightness = "0";
+
+            if (ReadSetting.ModeName == null || typeof (ReadSetting.ModeName) == "undefined") {
+                ReadSetting.ModeName = "NPZMode";
+            }
+
+            var SettingString = "{\"fontsize\": \"" + ReadSetting.fontsize + "\", \"fontweight\": \"" + ReadSetting.fontweight + "\",\"Brightness\":\"" + ReadSetting.Brightness + "\", \"ModeName\": \"" + ReadSetting.ModeName + "\""
+                + ",\"VLang\": \"" + VLang + "\",\"VVoiceURI\": \"" + VVoiceURI + "\",\"VRate\": \"" + VRate + "\", \"VPitch\": \"" + VPitch + "\"}";
+
+            setCookie("MySetting", SettingString, 2 * 360 * 24 * 60 * 60);
+
+            //console.log(SettingString);
+        }
+
+        function ShowSettingPanel() {
+            if (!IsSettingPanelShow) {
+                var ScrollY;
+                if (window.pageYOffset) {
+                    ScrollY = window.pageYOffset;
+                }
+                else if (document.documentElement && document.documentElement.scrollTop) {
+                    ScrollY = document.documentElement.scrollTop;
+                }
+                else if (document.body) {
+                    ScrollY = document.body.scrollTop;
+                }
+
+
+                $("#Pan_Top").show();
+
+                $("#Pan_Setting").show();
+
+                IsSettingPanelShow = true;
+            }
+            else {
+                $("#Pan_Top").hide();
+                $("#Pan_Setting").hide();
+                IsSettingPanelShow = false;
+            }
+        }
+
+        function autoScroll() {
+            var WinHeight = $(window).height();
+
+            var ScrollY;
+            if (window.pageYOffset) {
+                ScrollY = window.pageYOffset;
+            }
+            else if (document.documentElement && document.documentElement.scrollTop) {
+                ScrollY = document.documentElement.scrollTop;
+            }
+            else if (document.body) {
+                ScrollY = document.body.scrollTop;
+            } else {
+                return;
+            }
+
+            var winPosY = mouseY - ScrollY;
+
+            if (winPosY > WinHeight * 3 / 4) {
+                var newScrollY = ScrollY + WinHeight - 50;
+                $(document).scrollTop(newScrollY);
+            }
+            else if (winPosY < WinHeight * 1 / 4) {
+                var newScrollY = ScrollY - WinHeight + 50;
+                $(document).scrollTop(newScrollY);
+            } else if (winPosY < WinHeight * 5 / 8 && winPosY > WinHeight * 3 / 8) {
+                ShowSettingPanel();
+            }
+
+        }
+
+        function JumpNext() {
+            top.location = nextpage;
+        }
+
+        function JumpPrev() {
+            top.location = prevpage;
+        }
+
+        function BackBook() {
+            top.location = "/wxbook/85245.html";
+        }
+
+        //写入cookies
+        function setCookie(name, value, expires) {
+            var exp = new Date();
+            exp.setTime(exp.getTime() + expires * 1000);
+            var expString = "; expires=" + exp.toGMTString();
+            var pathString = "; path=/";
+            var domain = "; domain=" + Domain;
+            document.cookie = name + "=" + escape(value) + expString + domain + pathString;
+        }
+
+        //读取cookies
+        function getCookie(name) {
+            var arrStr = document.cookie.split("; ");
+            for (var i = 0; i < arrStr.length; i++) {
+                var temp = arrStr[i].split("=");
+                if (temp[0] == name) {
+                    return unescape(temp[1]);
+                }
+            }
+            return null;
+        }
+
+        //删除cookies
+        function delCookie(name) {
+            setCookie(name, "", -10);
+        }
+
+        function replaceHtmlContents(names) {
+            // 获取id为“Lab_Contents”的元素
+            const labContentsElement = document.getElementById('Lab_Contents');
+
+            // 检查元素是否存在
+            if (!labContentsElement) {
+                console.error("找不到id为'Lab_Contents'的元素");
+                return;
+            }
+
+            // 检查输入是否为数组
+            if (!Array.isArray(names)) {
+                console.error("输入必须是一个数组");
+                return;
+            }
+
+            // 获取原始文本内容 (使用 innerHTML，因为要插入 HTML 标签)
+            let originalText = labContentsElement.innerHTML;
+
+            // 替换文本中的对应词
+            for (let i = 0; i < names.length; i++) {
+                // 使用正则表达式进行全局替换，并使用转义处理特殊字符
+                const regex = new RegExp(names[i].replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+
+                originalText = originalText.replace(regex, "<span style=\"color:#795548;font-weight: bold;\">" + names[i] + "</span>");
+            }
+
+            // 将替换后的文本设置回元素
+            labContentsElement.innerHTML = originalText;
+        }
+
+    </script>
+    <style type="text/css">
+        a { color: inherit; text-decoration: none; outline: none; }
+
+            a[href]:active,
+            button:active { background-image: -webkit-linear-gradient(to top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)); background-image: linear-gradient(to top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)); }
+
+        .erzitop { float: left; width: 25%; text-align: center; line-height: 44px; color: #8A7B66; }
+
+        .erzitop_ { float: left; width: 20%; text-align: center; line-height: 44px; color: #8A7B66; }
+
+        .erzibottom { float: left; width: 33%; text-align: center; line-height: 44px; color: #8A7B66; }
+
+        .box-all { line-height: 44px; font-size: 14px; color: #000; background-color: #fff; width: 760px; color: #000; position: fixed; left: 0; right: 0; bottom: 0px; margin: 0 auto; padding: 0px 10px; }
+
+        .box-list { border-bottom: 1px solid #e1e1e1; position: relative; line-height: 60px; overflow: hidden; }
+
+        .box-close { width: 44px; height: 44px; color: #808080; font-size: 20px; position: absolute; right: 0px; top: 0px; }
+
+        .box-list span { padding: 0px 8px; float: left; }
+
+        .clear { clear: both; }
+
+        .box-list p { width: 30px; height: 30px; margin: 15px 4px; float: left; }
+
+        .kong p { margin: 10px 0px; }
+
+        .bodywidth { width: 960px; margin: 0 auto; }
+        .readbodywidth { width: 760px; margin: 0 auto; }
+
+        body { margin: 0; background-color: #ede8d5; }
+
+        .onlyh5 { display: none; }
+
+        .top1_pan { display: none; height: 64px; position: fixed; top: 0px; width: 760px; margin: 0 auto; background-color: #fff; background-size: 100%; border-bottom: 1px solid #bfa785; }
+
+        @media only screen and (max-device-width: 600px) {
+            .bodywidth { width: 100%; margin: 0 auto; }
+            .readbodywidth { width: 100%; margin: 0 auto; }
+            .box-all { line-height: 44px; font-size: 14px; color: #000; background-color: #fff; width: 100%; color: #000; position: fixed; left: 0; right: 0; bottom: 0px; margin: 0 auto; padding: 0px 10px; }
+            .top1_pan { display: none; height: 64px; position: fixed; top: 0px; left: 0px; width: 100%; background-color: #fff; background-size: 100%; border-bottom: 1px solid #bfa785; }
+
+            .onlypc { display: none; }
+
+            .onlyh5 { display: none; }
+        }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-R9DW2Z6K7K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-R9DW2Z6K7K');
+    </script>
+
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1528290802035802" crossorigin="anonymous" data-checked-head="true"></script>
+
+<meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script async="" src="https://fundingchoicesmessages.google.com/i/ca-pub-1528290802035802?href=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;ers=2"></script><script async="" src="https://fundingchoicesmessages.google.com/f/AGSKWxU3lB1pz6mBHBmhPEWpcztlMG44XJlMGCcT4HvaWmoGyLElkQpAIaV36A8TneYAnPfZBxhQZ4_7fXYVklW9KzkjaiRrH7MoT1je_-cpFo_TUeLIGa-_q3yAb3ylyIr3zN4mxGMl3Q==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzM5OTAzODUyLDcwODAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzddXSwiaHR0cHM6Ly93d3cud3hkenMubmV0L3d4cmVhZC84NTI0NV8zNzIyODc4Ni5odG1sIixudWxsLFtbOCwibC03M01Hc3J4VE0iXSxbOSwiZW4tVVMiXSxbMjMsIjE3Mzk5MDM4NTIiXSxbMTksIjIiXSxbMTcsIlswXSJdLFsyNCwiIl1dXQ"></script><script async="" src="https://fundingchoicesmessages.google.com/f/AGSKWxVLTA6aiYswMe2JimBUl5j-NeYhkUwVFEukoFJP7ZTmytJA3N7NpGSBLRok6vNGY8qlzOLrlYLE-yrVJSSHtOEOBNAilJUNOEAu-jsZ-eNfrQlCqqgDAd6RUXkiO-Kkia6rgaeuJw==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzM5OTAzODUyLDc2MTAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzcsOV0sbnVsbCwyLG51bGwsImVuIl0sImh0dHBzOi8vd3d3Lnd4ZHpzLm5ldC93eHJlYWQvODUyNDVfMzcyMjg3ODYuaHRtbCIsbnVsbCxbWzgsImwtNzNNR3NyeFRNIl0sWzksImVuLVVTIl0sWzIzLCIxNzM5OTAzODUyIl0sWzE5LCIyIl0sWzE3LCJbMF0iXSxbMjQsIiJdXV0"></script><script async="" src="https://fundingchoicesmessages.google.com/f/AGSKWxUMIAPrrCywaHybkAE1S4HqVi4bJrgUZtmIhLCcyKUeIdQR_debJylOLxgvVMth5DOV27wbTiIlp5TlBFg9iFesECHUVW0QluiM4Dh1yGnaESo7Npe_ALhHtc-wXNdtEBCdPb-4RA==?fccs=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLFsxNzM5OTAzODUzLDQyOTAwMDAwMF0sbnVsbCxudWxsLG51bGwsW251bGwsWzcsOSw2XSxudWxsLDIsbnVsbCwiZW4iLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCwxXSwiaHR0cHM6Ly93d3cud3hkenMubmV0L3d4cmVhZC84NTI0NV8zNzIyODc4Ni5odG1sIixudWxsLFtbOCwibC03M01Hc3J4VE0iXSxbOSwiZW4tVVMiXSxbMjMsIjE3Mzk5MDM4NTIiXSxbMTksIjIiXSxbMTcsIlswXSJdLFsyNCwiIl1dXQ"></script></head>
+<body>
+    <div class="bodywidth" style="height: auto !important;">
+
+        <div class="onlypc">
+            
+<style type="text/css">
+    .height-top { height: 70px; }
+
+    .imgh5wh { float: left; width: 218px; height: 55px; margin: 15px 92px 0 0; }
+
+    .shujia { overflow: hidden; width: 120px; height: 40px; line-height: 40px; background: #fff; float: right; text-align: center; font-size: 14px; border: 1px solid #e6e6e6; margin-top: 22px; margin-right: 10px; }
+
+
+    @media only screen and (max-device-width: 600px) {
+        .height-top { height: 60px; }
+
+        .shujia { overflow: hidden; width: 80px; height: 34px; line-height: 34px; background: #fff; float: right; text-align: center; font-size: 14px; border: 1px solid #e6e6e6; margin-top: 13px;margin-right: 10px; }
+
+        .imgh5wh { float: left; width: 139px; height: 35px; margin: 4px 40px 0 0; }
+    }
+</style>
+<script type="text/javascript">
+    document.onkeydown = KeyDown;
+
+    function KeyDown() {
+        if (event.keyCode == 13) {
+            Search();
+            return false;
+        }
+    }
+
+    function Search() {
+        var keywords = $("#Txt_KeywordsPC").val();
+        if (keywords != null && keywords != "") {
+            top.location = "/wxlist/" + keywords + ".html";
+        }
+        return false;
+    }
+
+    function Searchh5() {
+        var keywords = $("#Txt_Keywords").val();
+        if (keywords != null && keywords != "") {
+            top.location = "/wxlist/" + keywords + ".html";
+        }
+        return false;
+    }
+</script>
+<div>
+    <div class="height-top">
+        <div class="imgh5wh">
+            <img src="/wxdzs/images/logo.png" style="width: 200px;">
+        </div>
+        <div class="onlypc" style="float: left; margin-top: 22px;">
+            <input id="Txt_KeywordsPC" placeholder="志怪书" style="float: left; overflow: hidden; width: 348px; height: 34px; border: 1px solid #dbdbdb; border-right: none; font-size: 14px; padding: 2px 11px; color: #666;">
+
+            <div style="width: 40px; height: 40px; float: left; background-color: #bf2c24;">
+                <input type="button" onclick="Search();" style="border: none; background: url(/wxdzs/images/search.png) no-repeat; width: 20px; height: 20px; margin: 10px;">
+            </div>
+        </div>
+        <a class="shujia" href="/BookMark.aspx"><span style="padding-top: 30px;">我的书架</span></a>
+    </div>
+    <div class="onlypc" style="height: 41px; line-height: 41px; background-color: #3e3d43; margin-top: 10px; font-size: 14px; color: #fff; margin-bottom: 10px;">
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/" title="无线电子书" style="height: 40px; line-height: 40px; display: block;">首页</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/topmm_.html" title="女生小说排行榜" style="height: 40px; line-height: 40px; display: block;">女生</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/玄幻.html" title="玄幻小说排行榜" style="height: 40px; line-height: 40px; display: block;">玄幻</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/奇幻.html" title="奇幻小说排行榜" style="height: 40px; line-height: 40px; display: block;">奇幻</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/武侠.html" title="武侠小说排行榜" style="height: 40px; line-height: 40px; display: block;">武侠</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/仙侠.html" title="仙侠小说排行榜" style="height: 40px; line-height: 40px; display: block;">仙侠</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/都市.html" title="都市小说排行榜" style="height: 40px; line-height: 40px; display: block;">都市</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/言情.html" title="言情小说排行榜" style="height: 40px; line-height: 40px; display: block;">言情</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/军事.html" title="军事小说排行榜" style="height: 40px; line-height: 40px; display: block;">军事</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/历史.html" title="历史小说排行榜" style="height: 40px; line-height: 40px; display: block;">历史</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/科幻.html" title="科幻小说排行榜" style="height: 40px; line-height: 40px; display: block;">科幻</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/悬疑.html" title="悬疑小说排行榜" style="height: 40px; line-height: 40px; display: block;">悬疑</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="/wxlist/topend_.html" title="完本小说排行榜" style="height: 40px; line-height: 40px; display: block;">完本</a></span>
+        <span style="width: 6.5%; float: left; text-align: center;" class="hover0"><a href="#" title="小说APP下载" style="height: 40px; line-height: 40px; display: block;">APP</a></span>
+    </div>
+    <div class="onlyh5" style="height: 41px; line-height: 41px; background-color: #3e3d43; margin-top: 10px; font-size: 14px; color: #fff; box-sizing: border-box;">
+        <span style="width: 18%; float: left; text-align: center;" class="hover0"><a href="https://www.wxdzs.net/" style="height: 40px; line-height: 40px; display: block;">首页</a></span>
+        <span style="width: 18%; float: left; text-align: center;" class="hover0"><a href="/wxlist/topmm_.html" style="height: 40px; line-height: 40px; display: block;">女频</a></span>
+        <span style="width: 18%; float: left; text-align: center;" class="hover0"><a href="/wxlist/index.html" style="height: 40px; line-height: 40px; display: block;">排行榜</a></span>
+        <span style="width: 18%; float: left; text-align: center;" class="hover0"><a href="/wxlist/topend_.html" style="height: 40px; line-height: 40px; display: block;">完本</a></span>
+        <span style="width: 18%; float: left; text-align: center;" class="hover0"><a href="#" title="客户端app下载" style="height: 40px; line-height: 40px; display: block;">客户端</a></span>
+    </div>
+    <div>
+        <div class="onlyh5" style="margin-top: 12px;">
+            <input id="Txt_Keywords" value="志怪书" style="float: left; overflow: hidden; width: 80%; height: 34px; border: 1px solid #dbdbdb; border-right: none; font-size: 14px; padding: 2px 11px; color: #666;">
+
+            <div style="width: 40px; height: 40px; float: left; background-color: #bf2c24;">
+                <input type="button" onclick="Searchh5();" style="border: none; background: url(/wxdzs/images/search.png) no-repeat; width: 20px; height: 20px; margin: 10px;">
+            </div>
+
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+        </div>
+
+        <div id="PageBody" class="readbodywidth" style="background-repeat: repeat-y; background-size: 100%; margin: 0px auto; background-color: rgb(250, 247, 237); color: rgb(0, 0, 0); background-image: url(&quot;/images/fg_mh.png&quot;); height: auto !important;">
+
+
+            <div id="TopPanel">
+                <div style="height: 44px;">
+                    <div class="erzitop" onclick="ShowSettingPanel()">
+                        设置
+                    </div>
+                    <div class="erzitop" onclick="JumpPrev();">
+                        上一章
+                    </div>
+                    <div class="erzitop" onclick="JumpNext();">
+                        下一章
+                    </div>
+                    <div class="erzitop" onclick="BackBook();">
+                        <a href="/wxbook/85245.html" title="快穿反派：黑化男神，强势宠">书页</a>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="Pan_Top" class="top1_pan" style="min-height: 180px;">
+                <div class="erzitop_" onclick="javascript:history.go(-1);return false;">
+                    返回
+                </div>
+                <div class="erzitop_" onclick="ShowSettingPanel()">
+                    设置
+                </div>
+                <div class="erzitop_" onclick="JumpPrev();">
+                    <a href="/wxread/85245_37228785.html" title="1117女装大佬的男装大佬(13)  快穿反派：黑化男神，强势宠">上一章</a>
+                </div>
+                <div class="erzitop_" onclick="JumpNext();">
+                    <a href="/wxread/85245_37228787.html" title="1119女装大佬的男装大佬(15)  快穿反派：黑化男神，强势宠">下一章</a>
+                </div>
+                <div class="erzitop_" onclick="BackBook();">
+                    <a href="/wxbook/85245.html" title="快穿反派：黑化男神，强势宠">书页</a>
+                </div>
+
+                <div style="clear: both;"></div>
+                <div style="margin-left: 30px;">
+                    <select id="List_Voice" title="选择朗读声音">
+                    <option value="Google&nbsp;普通话（中国大陆）">远程:Google&nbsp;普通话（中国大陆）</option><option value="Google&nbsp;粤語（香港）">远程:Google&nbsp;粤語（香港）</option><option value="Google 國語（臺灣）">远程:Google 國語（臺灣）</option></select>
+                    <div style="padding-top: 10px; padding-bottom: 5px;">
+                        <label>语音速度:</label>
+                        <input id="List_Rate" type="range" min="0" max="2" value="1" step="0.5">
+                    </div>
+                    <div style="padding-top: 5px; padding-bottom: 10px;">
+                        <label>语音音调:</label>
+                        <input id="List_Pitch" type="range" min="0" max="2" value="1" step="0.2">
+                    </div>
+                    <div style="padding-top: 1px; padding-bottom: 10px;">
+                        <a href="#" onclick="DoTalkPrev();">前一段</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="DoPauseTalk();">暂停</a> &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="DoResumeTalk();">继续</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="DoCancelTalk();">停止</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="DoTalkNext();">下一段</a>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="Pan_Setting" class="box-all" style="display: none;">
+                <div class="box-list">
+                    <span>字体:</span>
+                    <span style="font-size: 16px;" onclick="ChangeFontSize('16px');">Aa</span>
+                    <span style="font-size: 18px;" onclick="ChangeFontSize('18px');">Aa</span>
+                    <span style="font-size: 20px;" onclick="ChangeFontSize('20px');">Aa</span>
+                    <span style="font-size: 22px;" onclick="ChangeFontSize('22px');">Aa</span>
+                    <span style="font-size: 24px;" onclick="ChangeFontSize('24px');">Aa</span>
+                    <span style="font-size: 26px;" onclick="ChangeFontSize('26px');">Aa</span>
+                </div>
+                <div class="clear"></div>
+                <div class="box-list">
+                    <span>风格:</span><p style="background-color: #d1f3f8; border: 1px dashed #06535f;" onclick="ChangeModeName('BlueMode')"></p>
+                    <p style="background-color: #f4d1dc; border: 1px dashed #ff6796;" onclick="ChangeModeName('PinkMode')"></p>
+                    <p style="background-color: #9c6619; border: 1px dashed #633c03;" onclick="ChangeModeName('NPZMode')"></p>
+                    <p style="background-color: #f7eccc; border: 1px dashed #faf7ed;" onclick="ChangeModeName('YellowMode')"></p>
+                    <p style="background-color: #fff; border: 1px dashed #353333;" onclick="ChangeModeName('WhiteMode')"></p>
+                    <p style="background-color: #e1e1e1; border: 1px dashed #797777;" onclick="ChangeModeName('NormalMode')"></p>
+                </div>
+                <div class="clear"></div>
+                <div class="box-list">
+                    <span>模式:</span><span style="font-size: 14px;" onclick="ChangeModeName('NPZMode');">🌞白天</span>
+                    <span style="font-size: 14px;" onclick="ChangeModeName('NightMode');">🌙黑夜</span>
+                </div>
+            </div>
+
+
+
+
+            <div style="margin: 0 auto; width: 100%; margin-top: 15px; margin-bottom: 5px; text-align: center;">
+                <h1 style="font-size: 22px;" id="ChapterTitle">1118女装大佬的男装大佬(14)</h1>
+            </div>
+            <div style="clear: both;"></div>
+
+            <div id="Btn_PlayVoice" style="margin: 0px auto 5px; width: 100%; text-align: center;">
+                <span style="font-size: 16px;">无线电子书&nbsp;&nbsp;&nbsp;&nbsp;快穿反派：黑化男神，强势宠</span>
+                <br>
+                <div style="margin-top: 10px;">
+                    <a href="#" onclick="DoTalk();" style="font-size: 18px;">🔊点这里听书</a>
+                    <br>
+                    *已支持Chrome,Edge,Safari,Firefox浏览器
+                </div>
+
+            </div>
+
+            <div style="clear: both;"></div>
+
+            <div class="google-auto-placed" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-1528290802035802" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 280px;" data-ad-status="unfilled"><div id="aswift_1_host" style="border: none; height: 280px; width: 760px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;"><iframe id="aswift_1" name="aswift_1" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:760px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="760" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1528290802035802&amp;output=html&amp;h=280&amp;adk=2881363992&amp;adf=778123922&amp;pi=t.aa~a.3185066116~rp.1&amp;w=760&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739903852&amp;rafmt=1&amp;to=qs&amp;pwprc=3218524746&amp;format=760x280&amp;url=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;fwr=0&amp;pra=3&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=40&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739903852156&amp;bpp=2&amp;bdt=387&amp;idt=128&amp;shv=r20250211&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie_enabled=1&amp;eoidce=1&amp;prev_fmts=0x0&amp;nras=2&amp;correlator=570290214340&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=573&amp;ady=313&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=2374668424071112&amp;tmod=1126763136&amp;uas=0&amp;nvt=1&amp;fc=1920&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=2&amp;uci=a!2&amp;fsb=1&amp;dtd=131" data-google-container-id="a!2" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="COWbwfjuzYsDFYmfjggdjZ43kw" data-load-complete="true"></iframe></div></ins></div><div style="width: 96%; font-size: 20px; line-height: 34px; min-height: 0px !important; margin: 0px auto; height: auto !important;">
+                <div id="Lab_Contents" class="kong" style="font-size: 22px; line-height: 44px; overflow-wrap: break-word; table-layout: fixed; word-break: break-all; margin-left: 5px; font-weight: normal; height: auto !important;">
+                    <p id="txt_0">　　沐七七双手抱着自己的膝盖，缩在沙发的角落上面，一边哭着一边说，看起来心情非常的低落。</p><p>
+</p><p id="txt_1">　　司语也不太会安慰人，所以只能看着她哭。</p><p>
+</p><p id="txt_2">　　哭着哭着，她好像睡着了。</p><p>
+</p><p id="txt_3">　　走到一边拿起毛毯盖到她的身上。</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-1528290802035802" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 280px;" data-ad-status="unfilled"><div id="aswift_2_host" style="border: none; height: 280px; width: 725px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;"><iframe id="aswift_2" name="aswift_2" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:725px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="725" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-1528290802035802&amp;output=html&amp;h=280&amp;adk=1564633636&amp;adf=3084640366&amp;w=725&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739903852&amp;num_ads=1&amp;rafmt=1&amp;armr=3&amp;sem=mc&amp;pwprc=3218524746&amp;ad_type=text_image&amp;format=725x280&amp;url=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;fwr=0&amp;pra=3&amp;rh=181&amp;rw=724&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=27&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739903852514&amp;bpp=1&amp;bdt=745&amp;idt=-M&amp;shv=r20250211&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D1c74bdb1f38107d4%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_Mb6AP8_WZXnEOIRNMlwKHWZnBR1mA&amp;gpic=UID%3D000010532b09440c%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_MYHHs_i7Rwbbq6mJPxZfub-irxX4Q&amp;eo_id_str=ID%3D7130e64ba7ad8cf3%3AT%3D1739903852%3ART%3D1739903852%3AS%3DAA-AfjZYd63lpBCyHT250wvv8KpE&amp;prev_fmts=0x0%2C760x280&amp;nras=3&amp;correlator=570290214340&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=593&amp;ady=863&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=2374668424071112&amp;tmod=1126763136&amp;uas=0&amp;nvt=1&amp;fc=1408&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=3&amp;uci=a!3&amp;fsb=1&amp;dtd=198" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CLTU2PjuzYsDFQfrrQAdG8Y77g" data-load-complete="true"></iframe></div></ins></div><p>
+</p><p id="txt_4">　　司语走到阳台晒了一会儿太阳，半眯了一会儿，醒来的时候，睡在沙发上面的人已经不见了，只留下一张纸条放在桌子上。</p><p>
+</p><p id="txt_5">　　谢谢你，看你已经睡着，所以我没有打扰你。</p><p>
+</p><p id="txt_6">　　我回家了，到时联系你。</p><p>
+</p><p id="txt_7">　　看着桌子上的纸条司语扔到了一边的垃圾桶，然后收拾一下沙发。</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-1528290802035802" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_3_host" style="border: none; height: 0px; width: 725px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_3" name="aswift_3" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 725px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="725" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-1528290802035802&amp;output=html&amp;h=280&amp;adk=1564633636&amp;adf=1572204407&amp;w=725&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739903852&amp;num_ads=1&amp;rafmt=1&amp;armr=3&amp;sem=mc&amp;pwprc=3218524746&amp;ad_type=text_image&amp;format=725x280&amp;url=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;fwr=0&amp;pra=3&amp;rh=181&amp;rw=724&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=27&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739903852514&amp;bpp=1&amp;bdt=745&amp;idt=-M&amp;shv=r20250211&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D1c74bdb1f38107d4%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_Mb6AP8_WZXnEOIRNMlwKHWZnBR1mA&amp;gpic=UID%3D000010532b09440c%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_MYHHs_i7Rwbbq6mJPxZfub-irxX4Q&amp;eo_id_str=ID%3D7130e64ba7ad8cf3%3AT%3D1739903852%3ART%3D1739903852%3AS%3DAA-AfjZYd63lpBCyHT250wvv8KpE&amp;prev_fmts=0x0%2C760x280%2C725x280&amp;nras=4&amp;correlator=570290214340&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=593&amp;ady=1413&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=2374668424071112&amp;tmod=1126763136&amp;uas=0&amp;nvt=1&amp;fc=1408&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=4&amp;uci=a!4&amp;btvi=1&amp;fsb=1&amp;dtd=201" data-google-container-id="a!4" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CNf22PjuzYsDFY6zjggdK0EPlA" data-load-complete="true"></iframe></div></ins></div><p>
+</p><p id="txt_8">　　把这件事情当做了一次平凡的过往。</p><p>
+</p><p id="txt_9">　　她做完这一切之后，就躺在床上，然后带着游戏头盔进入了游戏世界。</p><p>
+</p><p id="txt_10">　　进入游戏世界那一瞬间，消息就响了。</p><p>
+</p><p id="txt_11">　　沐七：“师父，来定情湖边，这里新出了一个桃花副本，我们杀桃花丧尸去。”</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-1528290802035802" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_4_host" style="border: none; height: 0px; width: 725px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_4" name="aswift_4" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 725px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="725" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-1528290802035802&amp;output=html&amp;h=280&amp;adk=1564633636&amp;adf=3433616950&amp;w=725&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739903852&amp;num_ads=1&amp;rafmt=1&amp;armr=3&amp;sem=mc&amp;pwprc=3218524746&amp;ad_type=text_image&amp;format=725x280&amp;url=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;fwr=0&amp;pra=3&amp;rh=181&amp;rw=724&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=27&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739903852514&amp;bpp=1&amp;bdt=746&amp;idt=-M&amp;shv=r20250211&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D1c74bdb1f38107d4%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_Mb6AP8_WZXnEOIRNMlwKHWZnBR1mA&amp;gpic=UID%3D000010532b09440c%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_MYHHs_i7Rwbbq6mJPxZfub-irxX4Q&amp;eo_id_str=ID%3D7130e64ba7ad8cf3%3AT%3D1739903852%3ART%3D1739903852%3AS%3DAA-AfjZYd63lpBCyHT250wvv8KpE&amp;prev_fmts=0x0%2C760x280%2C725x280%2C725x280&amp;nras=5&amp;correlator=570290214340&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=593&amp;ady=1919&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=2374668424071112&amp;tmod=1126763136&amp;uas=0&amp;nvt=1&amp;fc=1408&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=5&amp;uci=a!5&amp;btvi=2&amp;fsb=1&amp;dtd=204" data-google-container-id="a!5" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CNny2PjuzYsDFcO-jggdPokOiw" data-load-complete="true"></iframe></div></ins></div><p>
+</p><p id="txt_12">　　司语一听，问了一句：“多少级？”</p><p>
+</p><p id="txt_13">　　沐七：“放心，才15级而己。”</p><p>
+</p><p id="txt_14">　　司语这才点了对方的传送阵来到了她的面前，这里确实是新开的一个副本，十里桃花海完完全全的盛开，隐约之间还能闻到桃花的香味。</p><p>
+</p><p id="txt_15">　　沐七七从桃花林里面直接穿了出来，一头的桃花花瓣落在身上，她甜甜的笑着：“师父，来帮我做任务，我要杀一百只丧尸。”</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-1528290802035802" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_5_host" style="border: none; height: 0px; width: 725px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_5" name="aswift_5" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 725px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="725" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-1528290802035802&amp;output=html&amp;h=280&amp;adk=1564633636&amp;adf=4281256221&amp;w=725&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739903852&amp;num_ads=1&amp;rafmt=1&amp;armr=3&amp;sem=mc&amp;pwprc=3218524746&amp;ad_type=text_image&amp;format=725x280&amp;url=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;fwr=0&amp;pra=3&amp;rh=181&amp;rw=724&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=27&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739903852514&amp;bpp=1&amp;bdt=745&amp;idt=-M&amp;shv=r20250211&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D1c74bdb1f38107d4%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_Mb6AP8_WZXnEOIRNMlwKHWZnBR1mA&amp;gpic=UID%3D000010532b09440c%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_MYHHs_i7Rwbbq6mJPxZfub-irxX4Q&amp;eo_id_str=ID%3D7130e64ba7ad8cf3%3AT%3D1739903852%3ART%3D1739903852%3AS%3DAA-AfjZYd63lpBCyHT250wvv8KpE&amp;prev_fmts=0x0%2C760x280%2C725x280%2C725x280%2C725x280&amp;nras=6&amp;correlator=570290214340&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=593&amp;ady=2513&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=2374668424071112&amp;tmod=1126763136&amp;uas=0&amp;nvt=1&amp;fc=1408&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=6&amp;uci=a!6&amp;btvi=3&amp;fsb=1&amp;dtd=207" data-google-container-id="a!6" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CJ6q2fjuzYsDFVyrjggdZJAd_Q" data-load-complete="true"></iframe></div></ins></div><p>
+</p><p id="txt_16">　　说完之后就立刻跑过来组队。</p><p>
+</p><p id="txt_17">　　杀这个地方的丧尸十分的容易，不过并没有多少人会来找你任务，毕竟这里的等级基本上都是偏低的，不过在这末世的世界观里面，能够出现十里桃花海，也算是十分美丽的一处世外桃源了。</p><p>
+</p><p id="txt_18">　　所以来这里的人基本上都是情侣，手拉着手，漫步在这桃花海里约会。</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-1528290802035802" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_6_host" style="border: none; height: 0px; width: 725px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_6" name="aswift_6" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 725px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="725" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-1528290802035802&amp;output=html&amp;h=280&amp;adk=1564633636&amp;adf=4178243582&amp;w=725&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739903852&amp;num_ads=1&amp;rafmt=1&amp;armr=3&amp;sem=mc&amp;pwprc=3218524746&amp;ad_type=text_image&amp;format=725x280&amp;url=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;fwr=0&amp;pra=3&amp;rh=181&amp;rw=724&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=27&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739903852514&amp;bpp=1&amp;bdt=745&amp;idt=-M&amp;shv=r20250211&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D1c74bdb1f38107d4%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_Mb6AP8_WZXnEOIRNMlwKHWZnBR1mA&amp;gpic=UID%3D000010532b09440c%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_MYHHs_i7Rwbbq6mJPxZfub-irxX4Q&amp;eo_id_str=ID%3D7130e64ba7ad8cf3%3AT%3D1739903852%3ART%3D1739903852%3AS%3DAA-AfjZYd63lpBCyHT250wvv8KpE&amp;prev_fmts=0x0%2C760x280%2C725x280%2C725x280%2C725x280%2C725x280&amp;nras=7&amp;correlator=570290214340&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=593&amp;ady=3053&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=2374668424071112&amp;tmod=1126763136&amp;uas=0&amp;nvt=1&amp;fc=1408&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=7&amp;uci=a!7&amp;btvi=4&amp;fsb=1&amp;dtd=209" data-google-container-id="a!7" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CKPM2fjuzYsDFfebjggd6A4Cow" data-load-complete="true"></iframe></div></ins></div><p>
+</p><p id="txt_19">　　如果是完全潜行，是游戏的方式的话，就像是真人约会。</p><p>
+</p><p id="txt_20">　　沐七七拉着司语就直接充入桃花林里，看着一头又一头冲出来的粉红色的丧尸，她这一次乖巧的没有冲上去，而是缩在了司语的身后。</p><p>
+</p><p id="txt_21">　　司语手起刀落刷刷刷的，手中的火异能一个又一个的群伤是放得出去，大量的粉红色的丧尸死的干干净净。</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-1528290802035802" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_7_host" style="border: none; height: 0px; width: 725px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_7" name="aswift_7" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 725px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="725" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-1528290802035802&amp;output=html&amp;h=280&amp;adk=1564633636&amp;adf=3353772293&amp;w=725&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739903852&amp;num_ads=1&amp;rafmt=1&amp;armr=3&amp;sem=mc&amp;pwprc=3218524746&amp;ad_type=text_image&amp;format=725x280&amp;url=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;fwr=0&amp;pra=3&amp;rh=181&amp;rw=724&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=27&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739903852514&amp;bpp=1&amp;bdt=745&amp;idt=1&amp;shv=r20250211&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D1c74bdb1f38107d4%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_Mb6AP8_WZXnEOIRNMlwKHWZnBR1mA&amp;gpic=UID%3D000010532b09440c%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_MYHHs_i7Rwbbq6mJPxZfub-irxX4Q&amp;eo_id_str=ID%3D7130e64ba7ad8cf3%3AT%3D1739903852%3ART%3D1739903852%3AS%3DAA-AfjZYd63lpBCyHT250wvv8KpE&amp;prev_fmts=0x0%2C760x280%2C725x280%2C725x280%2C725x280%2C725x280%2C725x280&amp;nras=8&amp;correlator=570290214340&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=593&amp;ady=3593&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=2374668424071112&amp;tmod=1126763136&amp;uas=0&amp;nvt=1&amp;fc=1408&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=8&amp;uci=a!8&amp;btvi=5&amp;fsb=1&amp;dtd=212" data-google-container-id="a!8" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CMLX2fjuzYsDFdqrjggdek4xqg" data-load-complete="true"></iframe></div></ins></div><p>
+</p><p id="txt_22">　　沐七：“哇，师父好棒，我师父天下第一。”</p><p>
+</p><p id="txt_23">　　沐七：“加油加油，师父加油。”</p><p>
+</p><p id="txt_24">　　轻轻松松的解决了一百只丧尸之后，司语回头，一身黑色的长袍，再加上身上火红色的火焰，看起来就像是九天战神一样，十分的帅气。</p><p>
+</p><p id="txt_25">　　“你除了会喊加油这外，你还会什么？”</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-1528290802035802" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_8_host" style="border: none; height: 0px; width: 725px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_8" name="aswift_8" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 725px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="725" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-1528290802035802&amp;output=html&amp;h=280&amp;adk=1564633636&amp;adf=2785988581&amp;w=725&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739903852&amp;num_ads=1&amp;rafmt=1&amp;armr=3&amp;sem=mc&amp;pwprc=3218524746&amp;ad_type=text_image&amp;format=725x280&amp;url=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;fwr=0&amp;pra=3&amp;rh=181&amp;rw=724&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=27&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739903852516&amp;bpp=1&amp;bdt=747&amp;idt=1&amp;shv=r20250211&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D1c74bdb1f38107d4%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_Mb6AP8_WZXnEOIRNMlwKHWZnBR1mA&amp;gpic=UID%3D000010532b09440c%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_MYHHs_i7Rwbbq6mJPxZfub-irxX4Q&amp;eo_id_str=ID%3D7130e64ba7ad8cf3%3AT%3D1739903852%3ART%3D1739903852%3AS%3DAA-AfjZYd63lpBCyHT250wvv8KpE&amp;prev_fmts=0x0%2C760x280%2C725x280%2C725x280%2C725x280%2C725x280%2C725x280%2C725x280&amp;nras=9&amp;correlator=570290214340&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=593&amp;ady=3863&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=2374668424071112&amp;tmod=1126763136&amp;uas=0&amp;nvt=1&amp;fc=1408&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=9&amp;uci=a!9&amp;btvi=6&amp;fsb=1&amp;dtd=302" data-google-container-id="a!9" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CKyR3_juzYsDFRi0jggdFnMRfA" data-load-complete="true"></iframe></div></ins></div><p>
+</p><p id="txt_26">　　沐七：“我还会喊666。”</p><p>
+</p><p id="txt_27">　　司语：“滚！”</p><p>
+</p><p id="txt_28">　　这里的任务完成之后，沐七七就回去交任务了，就完任务之后，看着得到的任务物品，笑的像个傻子一样。</p><p>
+</p><p id="txt_29">　　她傻乎乎的笑了，然后小心翼翼的把手中的盒子藏在了自己的背包里。</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-1528290802035802" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_9_host" style="border: none; height: 0px; width: 725px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_9" name="aswift_9" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 725px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="725" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-1528290802035802&amp;output=html&amp;h=280&amp;adk=1564633636&amp;adf=2117057630&amp;w=725&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739903852&amp;num_ads=1&amp;rafmt=1&amp;armr=3&amp;sem=mc&amp;pwprc=3218524746&amp;ad_type=text_image&amp;format=725x280&amp;url=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;fwr=0&amp;pra=3&amp;rh=181&amp;rw=724&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=27&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739903852518&amp;bpp=1&amp;bdt=749&amp;idt=0&amp;shv=r20250211&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D1c74bdb1f38107d4%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_Mb6AP8_WZXnEOIRNMlwKHWZnBR1mA&amp;gpic=UID%3D000010532b09440c%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_MYHHs_i7Rwbbq6mJPxZfub-irxX4Q&amp;eo_id_str=ID%3D7130e64ba7ad8cf3%3AT%3D1739903852%3ART%3D1739903852%3AS%3DAA-AfjZYd63lpBCyHT250wvv8KpE&amp;prev_fmts=0x0%2C760x280%2C725x280%2C725x280%2C725x280%2C725x280%2C725x280%2C725x280%2C725x280&amp;nras=10&amp;correlator=570290214340&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=593&amp;ady=3573&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=2374668424071112&amp;tmod=1126763136&amp;uas=0&amp;nvt=1&amp;fc=1408&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=10&amp;uci=a!a&amp;btvi=7&amp;fsb=1&amp;dtd=327" data-google-container-id="a!a" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CILA4PjuzYsDFdecjggd9H0ZsA" data-load-complete="true"></iframe></div></ins></div><p>
+</p><p id="txt_30">　　然后回头的时候就撞到了一个人。</p><p>
+</p><p id="txt_31">　　司语坐在桃花林的草地里里等着，突然，她收到了消息：“师父，我被杀了，55555…”</p><p>
+</p><p id="txt_32">　　被杀了？</p><p>
+</p><p id="txt_33">　　司语猛的站了起来，然后快速给她定位沐七跟踪，直接来到了这里。</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-1528290802035802" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_10_host" style="border: none; height: 0px; width: 725px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_10" name="aswift_10" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 725px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="725" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&amp;client=ca-pub-1528290802035802&amp;output=html&amp;h=280&amp;adk=1564633636&amp;adf=115897304&amp;w=725&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1739903852&amp;num_ads=1&amp;rafmt=1&amp;armr=3&amp;sem=mc&amp;pwprc=3218524746&amp;ad_type=text_image&amp;format=725x280&amp;url=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;fwr=0&amp;pra=3&amp;rh=181&amp;rw=724&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=27&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739903852520&amp;bpp=1&amp;bdt=751&amp;idt=0&amp;shv=r20250211&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D1c74bdb1f38107d4%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_Mb6AP8_WZXnEOIRNMlwKHWZnBR1mA&amp;gpic=UID%3D000010532b09440c%3AT%3D1739903852%3ART%3D1739903852%3AS%3DALNI_MYHHs_i7Rwbbq6mJPxZfub-irxX4Q&amp;eo_id_str=ID%3D7130e64ba7ad8cf3%3AT%3D1739903852%3ART%3D1739903852%3AS%3DAA-AfjZYd63lpBCyHT250wvv8KpE&amp;prev_fmts=0x0%2C760x280%2C725x280%2C725x280%2C725x280%2C725x280%2C725x280%2C725x280%2C725x280%2C725x280&amp;nras=11&amp;correlator=570290214340&amp;frm=20&amp;pv=1&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=593&amp;ady=3799&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=2374668424071112&amp;tmod=1126763136&amp;uas=0&amp;nvt=1&amp;fc=1408&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=11&amp;uci=a!b&amp;btvi=8&amp;fsb=1&amp;dtd=348" data-google-container-id="a!b" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CLaA4vjuzYsDFQ-bjggdxRQjhw" data-load-complete="true"></iframe></div></ins></div><p>
+</p><p id="txt_34">　　发现孤零零的躺在地上成为尸体的的她。</p><p>
+</p><p id="txt_35">　　“5555…师父…”</p><p>
+</p><p id="txt_36">　　“谁杀的？”</p><p>
+</p><p id="txt_37"></p><p>
+
+                </p></div>
+            </div>
+
+            <div style="clear: both;"></div>
+
+            <div style="margin: 0 auto; width: 100%; margin-top: 15px; margin-bottom: 5px; text-align: center;">
+                <span style="font-size: 16px;">无线电子书&nbsp;&nbsp;&nbsp;&nbsp;快穿反派：黑化男神，强势宠</span>
+            </div>
+
+            <div id="PanBottom">
+                <div style="height: 37px; margin: 0 auto; margin-top: 10px;">
+                    <div class="erzibottom" onclick="JumpPrev();">
+                        上一章
+                    </div>
+                    <div class="erzibottom" onclick="BackBook();">
+                        书页
+                    </div>
+                    <div class="erzibottom" onclick="JumpNext();">下一章</div>
+                </div>
+            </div>
+            <div style="height: 30px;"></div>
+        </div>
+    </div>
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1528290802035802&amp;output=html&amp;adk=1812271804&amp;adf=3025194257&amp;abgtt=6&amp;lmt=1739903852&amp;plat=9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&amp;plas=423x896_l%7C481x896_r&amp;format=0x0&amp;url=https%3A%2F%2Fwww.wxdzs.net%2Fwxread%2F85245_37228786.html&amp;pra=5&amp;wgl=1&amp;aihb=0&amp;asro=0&amp;ailel=1~2~4~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24~29~30~34&amp;aiael=1~2~3~4~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24~29~30~34&amp;aicel=33~38&amp;aifxl=29_18~30_19&amp;aiixl=29_5~30_6&amp;aiapm=0.15&amp;aiapmi=0.33938&amp;uach=WyJMaW51eCIsIjYuMTEuMCIsIng4NiIsIiIsIjEzMS4wLjY3NzguMjY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkdvb2dsZSBDaHJvbWUiLCIxMzEuMC42Nzc4LjI2NCJdLFsiQ2hyb21pdW0iLCIxMzEuMC42Nzc4LjI2NCJdLFsiTm90X0EgQnJhbmQiLCIyNC4wLjAuMCJdXSwwXQ..&amp;dt=1739903852146&amp;bpp=10&amp;bdt=377&amp;idt=105&amp;shv=r20250211&amp;mjsv=m202502130101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie_enabled=1&amp;eoidce=1&amp;nras=1&amp;correlator=570290214340&amp;frm=20&amp;pv=2&amp;u_tz=0&amp;u_his=2&amp;u_h=600&amp;u_w=800&amp;u_ah=600&amp;u_aw=800&amp;u_cd=24&amp;u_sd=1&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1905&amp;bih=993&amp;scr_x=0&amp;scr_y=0&amp;eid=31090351&amp;oid=2&amp;pvsid=2374668424071112&amp;tmod=1126763136&amp;uas=0&amp;nvt=1&amp;fsapi=1&amp;fc=1920&amp;brdim=20%2C20%2C20%2C20%2C800%2C0%2C1920%2C1080%2C1920%2C993&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=134" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><iframe name="googlefcPresent" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="__tcfapiLocator" src="about:blank" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcInactive" src="about:blank" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcLoaded" src="about:blank" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe src="https://ep2.adtrafficquality.google/sodar/sodar2/232/runner.html" width="0" height="0" style="display: none;"></iframe><iframe src="https://www.google.com/recaptcha/api2/aframe" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="https://googleads.g.doubleclick.net/pagead/html/r20250211/r20190131/zrt_lookup.html" style="display: none;"></iframe></html>

@@ -1,0 +1,243 @@
+# 兒童的性別焦慮
+
+**Gender Dysphoria in Children**
+
+**美國兒科醫生協會（American College of Pediatricians）－2017年6月**
+
+摘要：兒童的性別焦慮（Gender dysphoria，GD），是描述這樣一個心理狀態：兒童所經驗到的性別與他們的生理性別有明顯的不一致。絕大多數在青春期前患上性別焦慮的兒童，到青春期晚期時，這個狀態都得以解决。現時，在醫生、治療師、和學者之間正在進行一個激烈－但被壓抑－的討論，討論一個正在迅速成為兒童性別焦慮的新治療標準。這種新的治療模式假設性別焦慮是與生俱來的，並涉及採用促性腺素釋放激素（gonadotropin releasing hormone，GnRH）激動劑，接著使用跨性別激素（cross-sex hormones），以抑制青春期－這個組合導致未成年人不育。從現有文獻的檢視表明，這種治療方案建立在不科學的性別意識形態基礎上，缺乏證據基礎，違背了「首先不要對病人造成傷害」（First do no harm）的存在已久的倫理原則。
+
+**兒童的性別焦慮：這場辯論所關乎的不僅科學**
+
+心理性別（Gender）是指與生理性別（biological sex）有關的心理和文化特徵。1它是心理學概念和社會學術語，不是生物學概念。性別認同（Gender identity）是指一個人對自己作為男性或女性的意識，有時被稱為一個人的「所感受的性別（experienced gender）」。兒童的性別焦慮，是描述這樣一個心理狀態：兒童所經驗到的性別與他們的生理性別有明顯的不一致。他們經常表示相信他們是異性。2兒童當中有性別焦慮的患病率估計不到1%。3到專業診所轉診的性別差異因年齡而異。在青春期前的兒童，男女孩比例的範圍是從2：1到4.5：1。在青少年中，男女性別比例接近相等；在成年人中，男性對女性的比例的範圍是從1:1到6.1:1。2
+
+關於如何治療有性別焦慮的兒童的爭論主要是一場倫理爭論；一場涉及醫生的世界觀和科學問題的爭論。醫學不是在道德真空中發生的，每一個治療行動或不行動都是由醫生的哲學世界觀產生的某種道德判斷的結果。醫學也不會出現在政治真空中，而處於性政治（sexual politics）的反面則會對持有政治不正確觀點的人產生嚴重後果。
+
+作為一個例子，一位長期被公認為是兒童性別認同問題的首屈一指的權威，肯尼思·朱克（Kenneth Zucker）醫生，同時還是一位長期爭取同性戀權益和跨性別權益的宣導者。然而，朱克認為，對有性別焦慮的青春期前的孩子的最好做法，是幫助他們調整自己的性別認同與其解剖性別（anatomic sex）一致，令許多成年跨性別活躍人士驚愕不已。這個觀點最終使他失去他30年作為多倫多的成癮與心理健康中心（Center for Addiction and Mental Health）的兒童、青少年和家庭性別認同診所（Child Youth and Family Gender Identity Clinic，GIC）董事的職位。4，5
+
+許多批評青春期抑制（pubertal suppression）的人持有現代主義目的論的世界觀。他們認為，人類的本性是有一個有目的的設計，這是不言而喻的，與這種設計合作就導致人類生生不息。然而，其他人自認是反對目的論的後現代主義者。把兩組人聯合在一起的，是對「首先不要對病人造成傷害」的一個傳統解釋。例如，有一個不斷增長的肯定同性戀的醫生、心理健康專家、和學者的在綫社區，有一個標題為「首先不要對病人造成傷害：批評青年跨性別的專業人員（First, do no harm: youth trans critical professionals）」的網頁。他們寫道：
+
+我們關注當前有個趨勢，要快速診斷和肯定年輕人為跨性別，通常將他們置於走向醫療變性的道路上…。我們認為，在長期不能被證明是安全的、不必要的手術和／或激素治療，對年輕人來說是重大的風險。若鼓勵那些年輕人直接或間接接受這種醫療的政策，而他們可能無法評估其風險和益處，這在我們看來是非常令人生疑的。6
+
+相比之下，主張醫療干預範式的人，也是後現代主義者，但是對「首先不要對病人造成傷害」持有一個主觀看法。洛杉磯兒童醫院（Children’s Hospital Los Angeles）的一位青少年醫學專家，也是兒童變性（pediatric gender transitioning）的主導者，約翰娜·奧爾森·甘迺迪（Johanna Olson Kennedy）醫生指出：「\[首先不要對病人造成傷害\]真的是主觀的。歷史上我們來自一個十分家長式（paternalistic）的角度…\[按此\]醫生有權決定甚麼是有傷害，甚麼是沒有傷害，而這樣在心理性別（gender）的世界真的是有問題的。」7她不僅聲稱「首先不要對病人造成傷害」是主觀的，而且後來她還指出，應該留給孩子自己决定：根據自己的主觀思想和感情甚麼是傷害。7既然兒童和青少年在認知和體驗方面都不成熟，美國兒科醫生協會（本協會）認為這很有問題和不道德。
+
+**性別焦慮作為一種天生內在性別認同（innate internal sexed identity）的結果**
+
+社會工作教授威廉·布倫南（William Brennan）醫生寫道：「語言有深刻的力量使人改變對現實的看法。」8，正是由於這個原因，語言工程（linguistic engineering）總是先於社會工程（social engineering），甚至在醫學領域。許多人持有錯誤的看法，認為心理性別（gender）曾經有的意思是生理性別（biological sex）。雖然這兩個詞往往交替使用，但是它們從未是真正的同義詞。9，10 1960年代後期和1970年代的女權主義者使用心理性別（gender）來指一個「社會性別」（social sex），這可能不同於人的「生理性別」（biological sex），以克服根植於性別刻板形象（sex stereotypes）對女性的不公正歧視。主要是這些女權主義者，將「心理性別」（gender）這個詞主流化，取代性別（sex）這個詞。最近，為了消除異性戀正統主義（heteronormativity），酷兒理論家（queer theorists）已經通過將社會性別（biological sex）與性吸引力的概念合併，將「心理性別」（gender）擴大到超過50類別。9然而，無論哪個用法，都不反映這詞的原本含義。
+
+在1950年前，心理性別（gender）只適用於語法而不適用於人。9，10拉丁系語言將名詞及其修飾詞分類為男性或女性，因此仍被稱為心理性別（gender）。在1950年代和1960年代，當性學家意識到，他們的變性議程不能從性（sex）和變性（transsexual）這些文字得到充分保護，這就改變了。從純科學的觀點來看，人類具有生物決定的性（biologically determined sex）和先天的性別差異（innate sex differences）。沒有性學家可以通過激素和手術改變一個人的基因。變性（Sex change）客觀上是不可能的。他們的解決方案是劫持「心理性別」（gender）這個詞，並賦予它一個適用於人的新意義。約翰·莫尼（John Money）博士是這些重新定義「心理性別」（gender）為「顯示內部性別認同的社會績效」（the social performance indicative of an internal sexed identity）的其中最突出的一位性學家。10在本質上，這些性學家發明了證明他們以性別重置（sex reassignment）來治療易性癖（transsexualism）是正當的所必須的意識形態基礎，並稱之為心理性別（gender）。「內在性別認同」（internal sexed identity）這種人為的意識形態，現在主導了主流醫學、精神病學界、和學術界。這種語言學史清楚地表明，心裡性別（gender）不是，也從來不是一個生物或科學實體。相反，心理性別（gender）是一個社會和政治建構的概念。
+
+在「兒童和青少年的性別發展和性別錯位的概述」（Overview of Gender Development and Gender Nonconformity in Children and Adolescents）一文，福西爾和奧爾森·甘乃迪（Forcier and Olson-Kennedy）認為人類性學（human sexuality）的二元模型（binary model）是「意識形態」（ideology），提出在一個「性別的連續體」（gender continuum）上的「與生俱來的性別認同」（innate gender identity）的「另類觀點」（alternative perspective）。他們建議兒科醫生告訴父母，孩子的「真正性別（real gender）」是他或她感覺到的性別，因為「一個孩子的大腦和身體可能不一致。」11
+
+福西爾和奧爾森·甘乃迪所聲稱的孩子的大腦和身體之間有天生差異，源於彌散加權（diffusion-weighted）的核磁共振成像（MRI）的掃描顯示男孩的青春期睾丸激素激增，增加了白質體積（white matter volume），以及從自我認同是跨性別的成年人的大腦研究。Rametti及其同事的一項研究發現，沒有開始睾酮治療的女跨男（female-to-male，FtM）的跨性別成年人的大腦的白質微觀結構（white matter microstructure），接近男性多過女性。12其他彌散加權的核磁共振成像的研究表明，女跨男和男跨女（male-to-female，MtF）的跨性別者的白質微觀結構介乎基因女性（genetic females）和基因男性（genetic males）的中間。13然而，這些研究的臨床意義是可疑的，因為研究對象的數量小，和神經可塑性的存在。神經可塑性是指長期行為改變大腦結構這個已被確認的現象。沒有證據表明人生來就有永遠不變的大腦微觀結構，但有明顯的證據表明經驗改變大腦微觀結構。14因此，如果確定跨性別人士的大腦是有差異的，這可能是跨性別行為的結果，而不是其原因。然而，更重要的是，事實是所有男性嬰兒的大腦在產前被自己的內源性睾酮男性化，內源性睾酮是從他們的睾丸在妊娠大約八星期時開始分泌的。當然，女性嬰兒沒有睾丸，因此，她們的大腦沒有被內源性睾酮男性化。15，16，17因此，除非有一種罕見的性發展障礙（disorders of sex development，DSD），男孩天生沒有女性化的大腦，女孩天生沒有男性化的大腦。
+
+行為遺傳學家幾十年來就認識到，雖然基因和激素影響行為，但它們並不決定一個人就必定有某種特定方式的思考、感受、或行為。表觀遺傳學已經證明基因並非行為的「藍圖」（blueprints）。相反，人類「通過基因－環境交互作用的動態過程，發展其特徵，…\[純粹基因\]不決定我們是誰」。18關於易性癖（transgenderism）的病因，成人跨性別者的雙胞胎研究（twin studies）證明，產前基因和激素的影響是極小的。
+
+雙胞胎研究有助於闡明，一個特徵在出生前由生物本能決定的程度。由於同卵雙胞胎在其母親懷孕時有完全相同的DNA（去氧核糖核酸），接觸同樣的產前環境，那些純粹由基因和／或通過產前環境確定的特徵，會在100%的情況下都顯現在兩個胎兒。種族就是一個例子，同卵雙胞胎在100%的情況下都是同一個種族，因為種族是由基因決定的。
+
+至今最大的跨性別的雙胞胎研究，調查了110對雙胞胎，由密爾頓·戴蒙德（Milton Diamond）醫生在易性癖國際雜誌（International Journal of Transgenderism）的2013年5月號發表。19表5記錄了，同卵雙胞胎中有一致（concordant）易性癖（transsexualism）的數目大於異卵雙胞胎的。這令人覺得性別焦慮可能出於一個生理傾向。然而，最重要的數據記錄，是有一致性的同卵雙胞胎偏低。74個同卵雙胞胎中，只有21個－即是28%－在易性癖方面是一致的；其餘72%的同卵雙胞胎，在易性癖方面不是一致的。這意味著；導致雙胞胎中的一個有易性癖而另一個沒有易性癖的因素的至少72%，是在出生後發生的，而不是生理的。在同卵雙胞胎中如此高的不一致率，證明了沒有一個人生來就預先確定有性別焦慮，當然也沒有預先確定會認同為跨性別者（transgender）或變性者（transsexual）。這點符合以下這個得到證明的事實：當有性別焦慮的兒童沒有被鼓勵去模仿異性時，絕大部分的性別焦慮都會減退。低的一致率也支持這個理論：持續的性別焦慮主要是出於非共享環境影響（non-shared environmental influences）對某些生理上脆弱的兒童的衝擊。需要明確的是，單單雙胞胎研究就確定了，以為在產前「女性化」（feminized）或「男性化」（masculinized）的大腦被困在錯誤的身體裡而產生一個「天生性別認同」（innate gender identity）的這個「另類觀點」（alternative perspective），實際上是一個沒有嚴格科學依據的意識形態的信仰。
+
+相反，人類性學的目的論的二元觀點（teleological binary view of human sexuality），與生理現實是相符的。人類設計的標準，是生來就是男性或女性。性染色體對（Sex chromosome pairs）「XY」和「XX」分別是男性和女性的遺傳決定性別的因素（genetic determinants of sex）。它們不是一個錯亂的身體（disordered body）或出生缺陷的遺傳標記。人類的性是通過設計而產生的，目的是為了繁衍我們的物種。這一原則是不言而喻的。除非有一種罕見的性發育障礙（disorders of sex development，DSD），嬰兒在出生時不是被「指定」（assigned）一個生理性別（sex）或心理性別（gender）；而是在出生時被承認，出生性別在子宮內從其身體結構看得出來，是顯而易見的（birth sex declares itself anatomically in utero and is clearly evident and acknowledged at birth）。
+
+極為罕見的性發育障礙，包括但不限於雄激素不敏感綜合症（androgen insensitivity syndrome）、和先天性腎上腺皮質增生症（congenital adrenal hyperplasia），都是從人類的二元性規範（binary sexual norm）的偏差，全部是在醫學上可識別的。不同於自我認同為「跨性別」（transgender）卻有正常基因型和激素軸的人，那些有性發育障礙的人有一種先天的生理狀況。對有性發育障礙的人，指定他們的性別是複雜的，取決於各種遺傳、激素、和物理因素。然而，北美陰陽人協會（Intersex Society of North America）在2006年的共識聲明，不贊同將性發育障礙視為第三性別。20
+
+**產後因素在性別焦慮的發展和持續上佔主導**
+
+同卵雙胞胎的研究表明，非共享產後事件（環境因素）在性別焦慮的發展和持續上佔主導。這並不奇怪，因為一個孩子的情緒和心理發展受到從嬰兒期起的正面和負面經驗的影響，這是得到公認的。家庭和同伴關係、學校和社區、任何形式的虐待、媒體接觸、慢性病、戰爭、和自然災害的經歷，都是影響個人情感、社會、和心理發展的環境因素的例子。沒有一個單一的家庭動態、社會情況、不良事件（adverse event）、或其組合，被發現會註定任何兒童會發展出性別焦慮。這一事實，加上雙胞胎研究，表明對某些生理上脆弱的兒童而言有許多途徑可能導致性別焦慮。對於兒童的性別焦慮的病因治療和心理治療的文獻，主要基於臨床病例研究。這些研究表明，社會强化、父母的精神病理、家庭動態、以及主流和社會媒體所助長的社會感染，對某些脆弱的兒童發展和（或）持續性別焦慮都有促成作用。可能還有其他未知的促成因素。
+
+大多數患性別焦慮的兒童的家長記得，他們最初對其孩子穿異性衣服和做其他跨性別行為的反應，是寬容和／或鼓勵。有時父母的精神病理是社會强化的根源。例如，有性別焦慮的男孩、並渴望有女兒的母親中，一小群人經歷了被稱為「病理性性別悲哀」（pathologic gender mourning）的現象，在這小群中，母親對有女兒的渴望，由母親積極地將自己的兒子裝扮成一個女孩表現出來。這些母親通常患有嚴重的抑鬱症，當她們的兒子以女性方式穿著和舉止時，其抑鬱得以緩解。21
+
+大量的臨床文獻資料表明，女性化的男孩的父親－與對照男孩的父親相比－在其兒子二歲到五歲之間花在他們的時間更少。這與顯示出女性化的男孩感覺更親近他們的母親而不是他們的父親的資料是一致的。斯托勒（Stoller）在他對有性別焦慮的男孩的臨床研究中，觀察到大多數與他們的母親有過度親密的關係，並與他們的父親有冷漠的、粗淺的關係。他認為男孩的性別焦慮是一種「發育停滯…，在這種情況下，一種過分親密和悅人的母子共生關係（excessively close and gratifying mother-infant symbiosis），不受父親的影響，阻礙男孩適當地脫離母親的女性身體和女性行為。」21
+
+在有性別焦慮的兒童中，也發現到母親的精神病理（maternal psychopathology）－特別是抑鬱症和躁鬱症－的比率，「以任何標準都是高。」此外，大多數有性別焦慮的兒童的父親很容易感受到威脅，難以調節情緒，並內裡有不足的感覺（possess an inner sense of inadequacy）。這些父親通常以過度工作或與家人疏遠的方法來處理他們的衝突。大多數情况下，父母不能互相支持，難以解决婚姻衝突。這引起了衝突和敵意的加劇。在這種情況下，因為母親的退出或憤怒和父親缺少參與，男孩變得對其自我價值越來越不確定。男孩的焦慮和不安全感加劇，正如他的憤怒也加劇，都可能導致他無法認同他的生理性別。22
+
+對有性別焦慮的女童和親子關係的系統研究尚未進行；然而，臨床觀察表明，母親和女兒之間的關係通常是疏遠和以衝突為特徵，這可能導致女兒無法從母親那裡得到認同。在其他情況下，男性氣概（masculinity）受到讚揚，而女性氣質（femininity）則被父母貶低。此外，在有些情況，女孩害怕她們的父親，因為父親可能對母親表達憤怒甚至對母親虐待。一個女孩可能認為女性是不安全的，心理上對此防禦，因而感覺她真的是一個男孩；在潛意識裡相信，如果她是個男孩，她會不被父親傷害和得到父親的愛。21
+
+有證據表明，精神病理和／或發展的多樣性（developmental diversity）可能在青少年中導致性別焦慮，尤其是年輕女性。最近的研究表明，越來越多青少年到性別認同診所要求性別重置（sex reassignment，SR）。海諾（Kaltiala-Heino）和他的同事，試圖對芬蘭頭兩年到一家青少年性別認同診所申請在法律和醫學上進行性別重置的青少年，按他們的社會、精神、和性別認同的相關因素與青少年發展研究描述。他們對2013年底前參與評估的所有申請性別重置的青少年的檔案進行一個結構化的定量回顧圖表審查（structured quantitative retrospective chart review）和定性分析。他們發現，根據流行病學知識，轉診的人數超過預期。在申請者中，產後女孩（Natal girls）明顯過多；性別焦慮發病前出現嚴重精神病理是常見的；許多年輕人都有自閉症（on the autism spectrum）。這些結果不符合性別焦慮的孩子被普遍接受的形象。研究人員得出結論，治療指南需要按嚴重心理和發育困難的背景考慮未成年人的性別焦慮。23
+
+有趣的是，也有這種新增的趨勢，就是當青少年在如Tumblr、Reddit、和YouTube的社交媒體網站狂歡（binges）後就自我診斷為跨性別。這表明社會感染可能發揮作用。在許多學校和社區，有整個同輩群體同時「出櫃」為跨性別。6最後，應該考慮調查兒童期不良事件－包括性虐待－和易性癖之間的因果關係。兒童的性別不和諧（childhood gender discordance）和成年同性戀取向有重疊，這已經在很久之前被確認了。24同時也有大量的文獻記載，與異性戀成年人相比，同性戀成年人明顯有更多的兒童期不良事件和性虐待。安德烈·羅伯茨（Andrea Roberts）和他的同事們在2013年發表了一項研究，發現「與異性戀者相比，同性戀者在童年有更高的受虐的風險，一半至全部的原因是由於虐待對性向（sexuality）的影響。」25因此，可能有一些人是由於童年虐待和／或性虐待而發展出性別焦慮，並後來認同為跨性別的身份。這是一個需要研究的領域。
+
+**性別焦慮是一個客觀的心理障礙**
+
+心理學越來越拒絕心理健康規範的概念，而把重點放在情緒困擾上。例如，美國精神病學協會（American Psychiatric Association，APA）在心理疾病的診斷和統計手册第五版（fifth edition of the Diagnostic and Statistical Manual of Mental Disorders，DSM-V）解釋說，它將性別焦慮列在那裡，不是由於個人思想和現實之間的差距，而是由於存在情緒困擾，妨礙了社會功能。DSM-V也指出，需要診斷，是為保險公司支付跨性別激素和性別重置手術（sex reassignment surgery，SRS）－以緩解性別焦慮的情緒困擾－的費用。一旦這個情緒困擾解除，性別焦慮就不再被認為是一種障礙。2
+
+這一推論存在問題。考慮下面的例子：一個患有神經性厭食症（anorexia nervosa）的女孩執著地誤以為她是肥胖的；一個患有軀體變型障礙（body dysmorphic disorder，BDD）的人錯誤地以為她很醜；一個患有身體完整性認同障礙（body integrity identity disorder，BIID）的人自以為是一個殘疾人，感覺自己被困在一個功能齊全的身體。患有身體完整性認同障礙的人通常很被自己健全的身體困擾，以致他們尋求以手術截斷他們健康的肢體或脊髓。26跨性別的安妮·勞倫斯（Anne Lawrence）醫生認為身體完整性認同障礙與性別焦慮有很多相似的地方。27上述錯誤的信念，像性別焦慮一樣，不僅僅在感受上對人造成痛苦，還會有為害其生命。在每一種情况下，以外科手術去「肯定（affirm）」那個錯誤假設（以抽脂對待厭食，以整容手術對待軀體變型障礙，以截肢或手術引起截癱對待身體完整性認同障礙，以性別重置手術對待性別焦慮）可能可以很好的緩解患者的痛苦情緒，但無助於解決潛在的心理問題，並可能導致患者的死亡。完全脫離物理現實，心理治療的藝術作為心理學領域將逐漸演化成為一種醫療干預專科，對患者帶來毀滅性的結果。
+
+另外，我們可尋找一個最低的標準。正常（Normality）被定義為「根據它的設計運作」。28大腦的主要功能之一是感知物理現實。符合物理現實的思想是正常的。偏離物理現實的思想是不正常的，也可能對個人或對他人有害。不管有異常想法的人有沒有感到困擾，這都是真的。一個人相信自己是某個他不是的人，充其量只是思維混亂的標誌；最壞的情况是，這是一種錯覺。僅僅因為一個人以為或感覺到某件事，並不能使它真的如此。即使異常的想法是生理上「無法改變的（hardwired）」，這仍然是真的。
+
+人類發展的標準是：一個人的思想要與物質現實相一致；一個人的性別認同要與生理性別相一致。那些自認「感覺像異性」或「介於兩性之間」或其他類別的人並不構成第三性別。他們仍然是生理上的男人或生理上的女人。性別焦慮是在心思（mind）－不是在身體－的一個問題。患有性別焦慮的兒童即使感覺他們的身體有錯亂，但是實情並非如此。同樣，一個孩子在發育第二性徵時感覺困擾，並不意味著青春期應該被當作一種疾病來治療，因為青春期實際上並不是一種疾病。同樣地，盡管許多有性別焦慮的男性表達他們是被困在男性體內的「女性本質」（feminine essence）這種信念，但這種信念沒有科學依據。
+
+直到最近，關於兒童性別焦慮的普遍世界觀是，它反映了兒童的異常思維或混亂，這可能是暫時的也可能不是暫時的。因此，標準的方法，是觀察等待或尋求家庭和個人的心理治療。1，2治療的目標是處理家族病理－如果這存在的話，治療孩子的任何社會心理疾病，並幫助孩子使其性別認同與生理性別相一致。21，22青春期抑制辯論正反雙方的專家都一致認為，在這種背景下，80%到95%有性別焦慮的兒童到青春期後期會接受他們的生理性別。29然而，這種世界觀開始轉變，因為成年的跨性別活躍人士日益推動「女性本質」的故事以獲取社會的接納。10在2007年，波士頓兒童醫院（Boston Children’s Hospital）開設了全國第一個兒童性別診所，米迦勒•貝利（J. Michael Bailey）醫生寫道：
+
+現時，對男跨女易性癖的主導文化理解是，所有的男跨女（male-to-female，MtF）人士，從本質上講，是被困在男人身體的女人。然而，這種理解沒有甚麼科學依據，而且與臨床觀察不一致。雷·布蘭查德（Ray Blanchard）已經證明，有兩種不同子類型的男跨女的跨性別者。其中一個子類型的成員－同性戀的跨性別者－最好被理解為男同性戀的一種類型。另一種子類型－幻想變性性興奮（autogynephilic）跨性別者－是出於想成為女性的性欲望。主流文化的理解的持續，雖然可以解釋，但是對科學和對許多跨性別者都是有損害的。30
+
+隨著「女性本質」觀念的持續存在，有人援引跨性別者的痛苦，以爭辯説，透過早期的認同、肯定、和青春期的壓抑，來拯救兒童免遭遇同一命運。現在他們斷言，歧視、暴力、精神病理、和自殺，是對一個性別焦慮兒童沒有給予社會肯定和青春期阻滯劑（puberty blockers）或跨性別激素的直接和必然的後果。31然而，患有性別焦慮症的青年中有80%到95%在過了青春期後，即使沒有社會的肯定，但他們在身體和心理上都是完整的，這個事實否定了上述的聲稱。29此外，死於自殺的人之中超過90%有一種確診的精神混亂。32沒有證據表明自殺的性別焦慮兒童有甚麼不同。因此，預防自殺的基礎，對他們和對所有兒童都應該是相同的：盡早識別和處理心理疾病。
+
+然而，現在全美國有40個性別診所，推動對兒童使用青春期抑制（pubertal suppression）和跨性別激素。青春期抑制的基本原理，是讓有性別焦慮的兒童有時間探討其性別認同，不受第二性徵出現所引發的情緒困擾影響。這些診所執行的標準是基於「專家意見」。沒有一個單一的大型的、隨機的、有對照的研究，記錄對性別焦慮的兒童抑制青春期和幾十年來使用激素，所產生的所謂的利益和潛在的危害。也沒有一個長期的、大型的、隨機的、有對照的研究，比較了對兒童性別焦慮進行青春期抑制的各種心理治療干預、並隨後幾十年使用有毒的合成類固醇的結果。在今天「循證醫學（evidence-based medicine）」的時代，這應該讓每個人都停下來。更令人關注的是，在Tanner（譚納，青春期性徵分期）分期2（通常11歲），進行青春期抑制並隨後使用跨性別激素，會讓這些孩子不育，沒有性腺組織或配偶子可以冷凍保存。33，34，35
+
+神經科學的研究清楚地證明，在二十幾歲前青少年的大腦在認知上不成熟，缺乏風險評估所必須的成年人的能力。36若允許對未成年人進行不可逆轉的、改變生活的醫療程序，是有嚴重道德問題的，未成年人太年輕，自己不能給予有效的同意。知情同意（informed consent）的這種倫理要求是行醫的基礎，正如美國衛生和人類服務部（Department of Health & Human Services）的網站所強調：「受試人（human subject）的自願同意是絕對必要的」。37此外，在缺乏充分的、自由的、和知情同意的情況下，當一個人被導致不育，甚至只是一種療法的次要結果，這是違反國際法律的。38
+
+**肯定跨性別的協定（Transgender-Affirming Protocol）：證據基礎是甚麼？**
+
+在過去的二十年中，海因斯公司（Hayes, Inc.）已經發展成為一個被國際公認，以評估廣泛的醫療科技以確定對患者安全、健康結果、和資源利用的影響的研究和諮詢公司。該公司在2014年對有關治療成人和兒童的性別焦慮的科學文獻進行了全面的審查和評估。它的結論是雖然「證據顯示使用性別重置手術對患性別焦慮症的成年人有正面的益處」，但是「\[這研究固有的\]嚴重局限性只能容許微弱的結論。」39同樣，海因斯公司發現，對患有性別焦慮的成年人使用跨性別激素的做法是基於「很低」的證據質量：
+
+多個研究的大多數結果並沒有一致證明統計上有意義的改善。有關男跨女（MtF）的成人的生活質量和功能的證據非常稀少。對於接受跨性別激素治療的成人，證據顯示，衡量其幸福的綜合指標較差，這直接適用於性別焦慮患者，但證據是稀疏和／或有衝突的。研究設計不允許我們作因果關係的結論，而且研究通常也有與執行研究有關的弱點。有潛在長期安全風險與激素治療有相關，但沒有任何風險得到證實或確定地排除。40
+
+關於使用促性腺素釋放激素（GnRH，gonadotropin releasing hormone，）激動劑和跨性別激素治療患有性別焦慮的兒童，海因斯公司判給最低的評分，表明文獻「太稀少，而且\[存在的\]研究太有局限性，無法給出結論」。40
+
+**盡管缺乏醫學證據，性別診所遍佈美國各地**
+
+2007年，波士頓兒童醫院的兒科內分泌專家，和全國第一個性別診所的創辦人諾曼·斯派克（Norman Spack）醫生，在美國開展青春期抑制的範式。41首先，它透過實行改變名字和代名詞並促進兒童在家庭內和家庭外模仿異性，肯定孩子的虛假自我概念。緊接著，在早至11歲時，通過促性腺素釋放激素激動劑抑制青春期，最後，患者在16歲時可使用跨性別激素，以預備作為一個較年長的青少年或成年人時進行性別重置手術。42內分泌協會（Endocrine Society）的指南現時禁止在16歲之前使用跨性別激素，但是這個禁令正在被重新考慮。43有些性別專家已經繞過青春期抑制，而直接把跨性別激素給予年僅11歲的兒童。44其理由是，孩子會體驗所渴望的性別的青春期發展，從而在同齡人按自然青春期軌跡發育時，避免因保持一個青春期前的外觀而產生醫源性情緒困擾。
+
+2014年，共有24個主要分佈在東岸和在加利福尼亞的性別診所，一年後全國共有40個性別診所。達拉斯兒童醫學中心的兒科內分泌學家，其性別教育和護理，跨學科支持計畫（GENder Education and Care, Interdisciplinary Support program，Genecis）的一名成員，西米娜·洛佩茲（Ximena Lopez）醫生，說：「\[該協定的使用\]確實增長很快。其主要原因是父母的要求，將患者帶到兒科內分泌專家的門前，因為他們知道有這個服務。」45注意，協定的使用增加，主要的原因是父母的要求，不是循證醫學。
+
+**促性腺素釋放激素激動劑的風險**
+
+用於抑制患性別焦慮症的兒童的青春期的促性腺素釋放激素激動劑，包括兩樣被准予用於兒童性早熟的治療的藥物：醋酸亮丙瑞林（leuprolide），透過每月或每三個月進行一次肌內注射（intramuscular injection）給藥製劑；瑞林（histrelin），每年皮下植入一次。34除了防止第二性徵的發育以外，促性腺素釋放激素激動劑還抑制骨的生長，降低骨質增生，防止青少年大腦的依賴性類固醇激素的組織和發育，並且透過在治療期間阻止性腺組織（gonadal tissue）和成熟的配子（mature gametes）的發展而抑制生育。如果孩子不繼續使用促性腺素釋放激素激動劑，青春期會隨之而來。34，42因此，內分泌協會認為，促性腺素釋放激素激動劑，以及在社會上以異性身份生活，是完全可逆的干預，對兒童沒有永久性傷害的風險。42然而，社會學習理論、神經科學、和下面所描述曾接受過青春期抑制的青少年的單一長期隨訪研究，挑戰這種說法。
+
+在對他們第一期70個準備接受青春期抑制的青春期前兒童的隨訪研究中，德弗里斯（de Vries）和他的同事們證明，所有受試者最終接受跨性別的身份並要求跨性別激素。46這是值得關注的。正常情况下，青春期前有性別焦慮的青年的80%到95%不會持續有性別焦慮。要100%的青春期前兒童均選擇跨性別激素，表明該協定本身不可避免地導致每個人自認為跨性別。鼓勵有性別焦慮的兒童在社會上模仿異性，然後實行抑制青春期，這有一個明顯的自我實現的性質。鑒於已經得到確認的神經可塑性的現象，重複模仿異性的行為會在某些方面改變兒童的大腦結構和功能－可能使兒童的身份定位與其生理性別更難一致。這點，連同阻止大腦進一步的內源性男性化或女性化（endogenous masculinization or feminization）的青春期抑制，使兒童保持作為一個性別表現不一致（gender non-conforming）的青春期前的男孩卻偽裝成一個青春期前的女孩，或者反之。因為他們的同齡人正常發展為年輕男性和年輕女性，這些孩子們在心理上被孤立了。他們會不太可能認同他們實際是的生理男性或女性。一個模仿異性和抑制青春期的協定，啟動了一個單一的不可避免的結果（認同為跨性別），需要終生使用有毒的合成激素，導致不育，既不是完全可逆的，也不是無害的。
+
+**促性腺素釋放激素激動劑、跨性別激素、與不孕**
+
+由於促性腺素釋放激素激動劑阻止在兩性的性腺組織和配子的成熟，在Tanner分期2進行過青春期抑制的年輕人，再轉為用跨性別激素，會導致不育，在未來沒有任何可能有遺傳後代，因為他們沒有可冷凍保存的性腺組織和配子。如果青春期前的兒童被直接給予性激素，同樣的結果也會發生。我們建議，沒有使用青春期抑制的年紀較大的青少年，在開始跨性別激素之前，考慮冷凍保存配子。這會允許他們通過人工生殖科技在未來孕育後代。雖然有記錄案例有跨性別者，在停止了他們的性激素後，讓他們的身體產生配子，懷孕，並生下孩子，但是沒有絕對保證，這在長遠是一個可行的選擇。此外，接受性別重置手術及生殖器官切除的跨性別者被導致永久不育。34，35，36
+
+**與跨性別激素有關的額外健康風險**
+
+有性別焦慮的兒童服用跨性別激素的潛在風險，是基於成人的文獻。回想這些成人文獻，海因斯的報告指出：「有潛在長期安全風險與激素治療有相關，但沒有任何風險得到證實或確定地排除。」40舉例，大多數專家同意，在男跨女（MtF）的成年人中，當口服炔雌醇（oral ethinyl estradiol）時，會增加冠狀動脈疾病的風險；因此，推薦替代的雌激素製劑（estrogen formulations）。然而，有一項對使用替代製劑的男跨女（MtF）成年人的研究，發現類似的新增風險。因此，這種風險不被確定或被排除。進行跨性別過渡的孩子，相比成年人，會在一個顯著更長的時間需要這些激素。因此，他們更有可能經驗到在成年人中、生理上理論上會有、然而實際上很少觀察到的發病率。既然有這些問題，最準確的說法是，將口服雌激素給予男孩可能令他們經歷下列的風險：血栓／栓塞；心血管疾病；增加體重；高甘油三酯血症（hypertrigyceridemia）；血壓升高；糖耐量降低；膽囊疾病；泌乳素瘤；乳腺癌。47，48，49同樣，有接受睾酮的女孩可能增加下列的風險：低高密度脂蛋白（HDL）和甘油三酯升高；增加同型半胱氨酸（homocysteine）的水平；肝毒性；紅細胞增多症；增加睡眠呼吸暫停的危險；抗胰島素性（insulin resistance）；對乳腺、子宮內膜組織、和卵巢組織的影響不明。47，48，49此外，女孩可以早至16歲，在接受睾酮治療至少一年後，合法獲得乳房切除手術；這個手術有它自己一套不可逆的風險。34
+
+**有性別焦慮的後青春期的青少年**
+
+如前所述，青春期前患有性別焦慮的兒童有80%到95%若沒有社會的肯定和醫療干預，在青春期後期會解決這焦慮。這意味著5%到20%歲在繼續作為年輕人時會持續他們的性別焦慮。現時，沒有醫學或心理測試確定哪些兒童會在成為年輕的成年人時持續他們的性別焦慮。青春期前有性別焦慮而持續到青春期的兒童更可能持續到成年期。內分泌學會和其他人，包括朱克（Zucker）醫生，因此認為，肯定那些在青春期後持續有性別焦慮的、以及那些在青春期後表達有性別焦慮的兒童，是合理的，並在16歲時進行跨性別激素。42
+
+因為以下理由，本協會不同意。首先，並非所有患有性別焦慮的青少年都不可避免地進展到認同跨性別，但跨性別激素不可避免地導致所有患者的不可逆轉的改變。第二，年輕的青少年還不够成熟，無法做出重大的醫療決定。青少年大腦直到二十幾歲才達到全面風險評估的能力。在未成年人不能為自己提供知情同意的時候，允許他們接受改變生命的醫療干預，包括跨性別激素和－對出生為女孩而言－雙側乳房切除術，是重大的倫理問題。如前所述，本協會也擔心一個新增的趨勢，就是青少年在社交媒體網站狂歡後自我診斷為跨性別。雖然許多這些青少年在自我認同後會尋求治療師，但是許多州已經被非科學的政治壓力強迫禁止所謂的「性傾向轉變治療（conversion therapy）」。這些禁令不僅阻止治療師探查年輕人的性吸引和認同（sexual attractions and identity），也阻止探查他或她的性別認同（gender identity）。治療師不允許問為甚麼一個青少年認為他或她是跨性別；不能探索深層次的精神健康問題；不能考慮性別焦慮的象徵性質；不能看可能的混雜問題，例如社交媒體的使用或社會感染。6
+
+**成人性別重置手術對兒童的風險的影響**
+
+調查表明，跨性別成人在使用激素和性別重置手術（sex reassignment surgery，SRS）後，表達了一種「解脫」和「滿足」的感覺。然而，性別重置手術不會導致與一般人群相同的健康水平。50
+
+例如，在2001年一個對392個男跨女（male-to-female，MtF）和123個女跨男（female-to-male，FtM）的跨性別人士的研究發現，62%的男跨女和55%的女跨男的跨性別人士感到沮喪；每類人的近三分之一（32%）曾試圖自殺。51同樣，在2009年，庫恩（Kuhn）和他的同事們發現，52名男跨女和3名女跨男在性別重置手術後十五年，當與對照組相比，有明顯較差的一般健康狀況和生活滿意度。52最後，瑞典一個對手術後的跨性別患者的三十年隨訪研究發現，手術後跨性別成年人自殺率比一般人群高近二十倍。需要明確的是，這並不能證明性別重置導致自殺或其他心理疾病的風險增加。而是，它表明，性別重置本身並不能使個人的心理健康水平與一般人群相同。作者總結了他們的發現如下：
+
+有易性癖的人，在性別重置後，比一般人群有高很多的死亡、自殺行為、和精神病發病率的風險。我們的研究結果表明，性別重置雖然緩解性別焦慮，但是可能不足以作為易性癖的治療，這些結果應該要激發我們，對這個患者組別在性別重置後改善他們的精神和身體的照顧。50
+
+值得注意的是，這些心理健康差異是在世界上最肯定女同性戀者、男同性戀者、雙性戀者和跨性別者（lesbian, gay, bisexual and transgender，LGBT）的國家之一觀察到的。這表明，這些健康差異並不主要是由於社會偏見，而是由於成人的跨性別狀況或生活方式。這也與2008年在LGBT健康雜誌（Journal of LGBT Health）發表的一項美國研究的發現一致，就是歧視並沒有導致認同為LGBT的個人與異性戀人口之間的心理健康差異。53
+
+如果沒有激素和手術干預措施，只有5－20%有性別焦慮的青春期前兒童會面對一個跨性別的成年，跨性別的成年似乎使他們更易患某些疾病和增加過早死亡的風險。相反，對有接受青春期抑制的有性別焦慮的青春期前兒童進行的單一研究表明，這些兒童的100%會面對跨性別的成年。因此，現時在兒童性別診所進行的跨性別肯定的干預措施，會在統計上對其餘80至95%在青春期前有性別焦慮的兒童產生這一結果：若沒有干預，這些兒童會在成人期認同他們的生理性別。
+
+**對研究的建議**
+
+同卵雙胞胎的研究確立了，出生後的環境因素對性別焦慮和易性癖的發展產生重要的影響。數據也反映了，有性別焦慮的青春期前的兒童之中有超過80%會得到解決。因此，識別那些在生理上脆弱的兒童中引起性別焦慮的各種環境因素和途徑，應該是研究的重點之一。應特別注意兒童不良事件和社會感染的影響。另一個需要研究的領域是在心理治療。長期的縱向研究，將患性別焦慮的兒童和他們的家庭隨機以各種治療方式治療，並按多個身體和社會情緒健康的度量法評估，這是迫切需要的，應該很早以前就推出。此外，對那些手術後的跨性別成年人進行長期隨訪研究，評估其身體和心理健康目標的度量法，必須包括一個不接受性別重置手術的跨性別人士組成一個匹配的對照組。這是驗證這個假設－性別重置手術本身可能會對個人造成比僅使用心理療法造成更多傷害－的唯一方法。
+
+**結論**
+
+兒童的性別焦慮，是描述這樣一個心理狀態：兒童所感受到的性別與他們的生理性別有明顯的不一致。雙胞胎研究表明性別焦慮不是天生的特質。此外，除非有性別焦慮的兒童有青春期前的肯定和激素干預，否則80%至95%有性別焦慮的兒童會在青春期後期接受他們的生理性別這現實。
+
+用激素治療有性別焦慮的兒童，相當於對認知能力不足以提供知情同意的青年進行大規模試驗和絕育。允許對太年輕而無法給予有效同意的未成年人作出不可逆轉的、改變生命的療程，有一個嚴重的道德問題；青少年無法理解這些決定的重要性。
+
+純粹按倫理考慮，就必須要終止對兒童和青少年使用促性腺素釋放激素激動劑、跨性別激素、和性別重置手術來抑制青春期。本協會建議立即停止這些干預措施，並立即停止通過學校課程和立法政策來推動性別意識形態（gender ideology）。衛生保健、學校課程和立法必須遵守物理現實。科學研究應該聚焦於更好的了解這種焦慮的心理基礎，最佳的家庭的和個人的治療方法，以及闡明那些透過等待觀察而得以解決的兒童、那些透過治療（therapy）而得以解決的兒童、和那些盡管有治療但是持續有焦慮的兒童之間的差異。
+
+主要作者：米歇爾·克里特拉（Michelle Cretella），醫學博士（MD）
+
+2016年8月
+
+2017年6月更新
+
+美國兒科醫生協會是一個由專門研究嬰兒、兒童和青少年的執業醫師和保健專業人員所組成的全國醫學協會。協會的使命是使所有的兒童都能達到他們最佳的身體和情緒健康和幸福。
+
+這個立場的一個可列印的Adobe Acrobat（PDF）副本（英文）可通過點擊這裡取得：兒童的性別焦慮（Gender Dysphoria in Children）（https://www.acpeds.org/wordpress/wp-content/uploads/6.6.17-gender-dysphoria-in-children.pdf）。
+
+**參考**
+
+1. Shechner T. Gender identity disorder: a literature review from a developmental perspective. Isr J Psychiatry Relat Sci 2010; 47:132-138.
+
+2. American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders. 5th ed; 2013:451-459.
+
+3. Cohen-Kettenis PT, Owen A, Kaijser VG, Bradley SJ, Zucker KJ. Demographic characteristics, social competence, and behavior problems in children with gender identity disorder: a cross-national, cross-clinic comparative analysis. J Abnorm Child Psychol. 2003; 31:41–53.
+
+4. Singal J. How the fight over transgender kids got a leading sex researcher fired. New York Magazine, Feb 7, 2016. Available at: [http://nymag.com/scienceofus/2016/02/fight-over-trans-kids-got-a-researcher-fired.html.](http://nymag.com/scienceofus/2016/02/fight-over-trans-kids-got-a-researcher-fired.html.) Accessed May 15, 2016.
+
+5. Bancroft J, Blanchard R, Brotto L, et al. Open Letter to the Board of Trustees of CAMH; Jan 11, 2016. Available at: ipetitions.com/petition/boardoftrustees-CAMH. Accessed May 125, 2016.
+
+6. Youth Trans Critical Professionals. Professionals Thinking Critically about the Youth Transgender Narrative. Available at: [https://youthtranscriticalprofessionals.org/about/.](https://youthtranscriticalprofessionals.org/about/.) Accessed June 15, 2016.
+
+7. Skipping the puberty blockers: American “transgender children” doctors are going rogue; Nov 4, 2014. Available at: [https://gendertrender.wordpress.com/2014/11/11/skipping-the-puberty-blockers-american-transgender-children-doctors-are-going-rogue/.](https://gendertrender.wordpress.com/2014/11/11/skipping-the-puberty-blockers-american-transgender-children-doctors-are-going-rogue/.) Accessed May 15, 2016.
+
+8. Brennan, W. Dehumanizing the Vulnerable: When word games take lives. Chicago: Loyola University Press, 1995.
+
+9. Kuby, G. The Global Sexual Revolution: Destruction of freedom in the name of freedom. Kettering, OH: Angelico Press, 2015.
+
+10. Jeffeys, S. Gender Hurts: A feminist analysis of the politics of transgendersim. NY: Routledge, 2014 (p. 27).
+
+11. Forcier M, Olson-Kennedy J. Overview of gender development and gender nonconformity in children and adolescents. UpToDate; 2016. Available at: www.uptodate.com/contents/overview-of-gender-development-and-clinical-presentation-of-gender-nonconformity-in-children-and-adolescents?source=search_result&search=Overview+of+gender+nonconformity+in+children&selectedTitle=2percent7E150. Accessed May 16, 2016.
+
+12. Rametti G, Carrillo B, Gomez-Gil E, et al. White matter microstructure in female to male transsexuals before cross-sex hormonal treatment. A diffusion tensor imaging study. J Psychiatr Res 2011; 45:199-204.
+
+13. Kranz GS, Hahn A, Kaufmann U, et al. White matter microstructure in transsexuals and controls investigated b diffusion tensor imaging. J Neurosci 2014; 34(46):15466-15475.
+
+14. Gu J, Kanai R. What contributes to individual differences in brain structure? Front Hum Neurosci 2014; 8:262.
+
+15. Reyes FI, Winter JS, Faiman C. Studies on human sexual development fetal gonadal and adrenal sex steroids. J Clin Endocrinol Metab 1973; 37(1):74-78.
+
+16. Lombardo M. Fetal testosterone influences sexually dimorphic gray matter in the human brain. J Neurosci 2012; 32:674-680.
+
+17. Campano A. \[ed\]. Geneva Foundation for Medical Education and Research. Human Sexual Differentiation; 2016. Available at: www.gfmer.ch/Books/Reproductive_health/Human_sexual_differentiation.html. Accessed May 11, 2016.
+
+18. Shenk, D. The Genius in All of Us: Why everything you’ve been told about genetics, talent, and IQ is wrong. (2010) New York, NY: Doubleday; p. 18.
+
+19. Diamond, M. “Transsexuality Among Twins: identity concordance, transition, rearing, and orientation.” International Journal of Transgenderism, 14(1), 24–38. (Note: the abstract of this article erroneously states that the concordance rate from MZ twins is 20 percent. Dr. Cretella, the author of this paper, “Gender Dysphoria in Children,” has therefore referenced Dr. Diamond’s data directly to demonstrate that the actual concordance rate is slightly higher at 28 percent.)
+
+20. Consortium on the Management of Disorders of Sex Development. Clinical Guidelines for the Management of Disorders of Sex Development in Childhood. Intersex Society of North America; 2006. Available at: www.dsdguidelines.org/files/clinical.pdf. Accessed Mar 20, 2016.
+
+21. Zucker KJ, Bradley SJ. Gender Identity and Psychosexual Disorders. FOCUS 2005; 3(4):598-617.
+
+22. Zucker KJ, Bradley SJ, Ben-Dat DN, et al. Psychopathology in the parents of boys with gender identity disorder. J Am Acad Child Adolesc Psychiatry 2003; 42:2-4.
+
+23. Kaltiala-Heino et al. Two years of gender identity service for minors: overrepresentation of natal girls with severe problems in adolescent development. Child and Adolescent Psychiatry and Mental Health (2015) 9:9.
+
+24. Zucker KJ, Spitzer RL. Was the Gender Identity Disorder of Childhood Diagnosis Introduced into DSM-III as a Backdoor Maneuver to Replace Homosexuality? Journal of Sex and Marital Therapy. 2005; 31:31-42.
+
+25. Roberts A. Considering alternative explanations for the associations among childhood adversity, childhood abuse, and adult sexual orientation: reply to Bailey and Bailey (2013) and Rind (2013). Arch Sexual Behav 2014; 43:191-196.
+
+26. Blom RM, Hennekam RC, Denys D. Body integrity identity disorder. PLoS One 2012; 7(4).
+
+27. Lawrence A. Clinical and theoretical parallels between desire for limb amputation and gender identity disorder. Arch Sexual Behavior 2006; 35:263-278.
+
+28. King CD. The meaning of normal. Yale J Biol Med 1945; 18:493-501.
+
+29. Cohen-Kettenis PT, Delemarre-van de Waal HA, Gooren LJ. The treatment of adolescent transsexuals: changing insights. J Sexual Med 2008; 5:1892–1897.
+
+30. Bailey MJ, Triea K. What many transsexual activists don’t want you to know and why you should know it anyway. Perspect Biol Med 2007;50:521-534. Available at: www.ncbi.nlm.nih.gov/pubmed/17951886. Accessed May 11, 2016.
+
+31. Sadjadi S. The endocrinologist’s office–puberty suppression: saving children from a natural disaster? Med Humanit 2013;34:255-260.
+
+32. Bertolote JM, Fleischmann A. Suicide and psychiatric diagnosis: a worldwide perspective. World Psychiatry 2002;1(3):181–185.
+
+33. Eyler AE, Pang SC, Clark A. LGBT assisted reproduction: current practice and future possibilities. LGBT Health 2014;1(3):151-156.
+
+34. Schmidt L, Levine R. Psychological outcomes and reproductive issues among gender dysphoric individuals. Endocrinol Metab Clin N Am 2015;44:773-785.
+
+35. Jeffreys, S. The transgendering of children: gender eugenics. Women’s Studies International Forum 2012;35:384-393.
+
+36. Johnson SB, Blum RW, Giedd JN. Adolescent maturity and the brain: the promise and pitfalls of neuroscience research in adolescent health policy. J Adolesc Health 2009;45(3):216-221.
+
+37. US Department of Health and Human Services. Nuremberg Code; 2015. Available at: www.stat.ncsu.edu/people/tsiatis/courses/st520/references/nuremberg-code.pdf. Accessed 5/15/16.
+
+38. World Health Organization. Eliminating forced, coercive and otherwise involuntary sterilization. Interagency Statement; 2014. Available at: www.unaids.org/sites/default/files/media_asset/201405_sterilization_en.pdf. Accessed May 16, 2016.
+
+39. Hayes, Inc. Sex reassignment surgery for the treatment of gender dysphoria. Hayes Medical Technology Directory. Lansdale, Pa.: Winifred Hayes; May 15, 2014.
+
+40. Hayes, Inc. Hormone therapy for the treatment of gender dysphoria. Hayes Medical Technology Directory. Lansdale, Pa: Winifred Hayes; May 19, 2014.
+
+41. Kennedy P. Q & A with Norman Spack: a doctor helps children change their gender. Boston Globe, Mar 30, 2008. Available at [http://archive.boston.com/bostonglobe/ideas/articles/2008/03/30/qa_with_norman_spack/.](http://archive.boston.com/bostonglobe/ideas/articles/2008/03/30/qa_with_norman_spack/.) Accessed May 16, 2016.
+
+42. Hembree WC, Cohen-Kettenis PT, Delemarre-van de Wall HA, et al. Endocrine treatment of transsexual persons: An Endocrine Society clinical practice guideline. J Clin Endocrinol Metab 2009;94:3132-3154.
+
+43. Reardon S. Transgender youth study kicks off: scientists will track psychological and medical outcomes of controversial therapies to help transgender teens to transition. Nature 2016;531:560. Available at: www.nature.com/news/largest-ever-study-of-transgender-teenagers-set-to-kick-off-1.19637. Accessed May 16, 2016.
+
+44. Keleman M. What do transgender children need? Houstonian Magazine, Nov 3, 2014. Available at: www.houstoniamag.com/articles/2014/11/3/what-do-transgender-children-need-november-2014. Accessed May 16, 2016
+
+45. Farwell S. Free to be themselves: Children’s Medical Center Dallas opens clinic for transgender children and teenagers, the only pediatric center of its type in the Southwest. Dallas Morning News, Jun 4, 2015. Available at: [http://interactives.dallasnews.com/2015/gender/.](http://interactives.dallasnews.com/2015/gender/.) Accessed May 16, 2016
+
+46. De Vries ALC, Steensma TD, Doreleijers TAH, Cohen-Kettenis, PT. Puberty suppression in adolescents with gender identity disorder: a prospective follow-up study. J Sex Med 2011;8:2276-2283.
+
+47. Feldman J, Brown GR, Deutsch MB, et al. Priorities for transgender medical and healthcare research. Curr Opin Endocrinol Diabetes Obes 2016;23:180-187.
+
+48. Tangpricha V. Treatment of transsexualism. UpToDate Available at: www.uptodate.com/contents/treatment-of-transsexualism?

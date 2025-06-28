@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="initial-scale=1,user-scalable=0,minimum-scale=1,maximum-scale=1">
+  <title></title>
+  <style>
+    html,
+    body,
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    #browserError {
+      width: 100%;
+      height: 100%;
+    }
+    #browserError .imgWrap {
+      display: none;
+    }
+    body.vivo-sun-model .night{
+      display: none;
+    }
+    body.vivo-dark-model .white{
+      display: none;
+    }
+    #browserError .imgWrap .img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      margin-top: 20vh;
+    }
+    #browserError .imgWrap p{
+      text-align: center;
+      color:#999;
+      night-color: rgba(255, 255, 255, 0,9);
+      font-size: 16px;
+      margin-top: 21px;
+    }
+  </style>
+</head>
+
+<body class="vivo-sun-model">
+  <div id="browserError">
+    <div class="imgWrap" style="display: block;">
+      <div class="img">
+        <svg width="90" height="90" class="night" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="60" y="74" width="60" height="18" rx="3" fill="#456FFF"></rect>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M159 109C159 107.343 157.657 106 156 106H144C142.343 106 141 107.343 141 109V123H107.515C106.719 123 105.956 123.316 105.393 123.879L90 139.272L74.6066 123.879C74.044 123.316 73.2809 123 72.4853 123H39V109C39 107.343 37.6569 106 36 106H24C22.3431 106 21 107.343 21 109V138C21 139.657 22.3431 141 24 141H66.2721L85.7574 160.485C88.1005 162.828 91.8995 162.828 94.2426 160.485L113.728 141H156C157.657 141 159 139.657 159 138V109Z" fill="white" fill-opacity="0.16"></path>
+          <path d="M24 27C22.3431 27 21 28.3431 21 30V59C21 60.6569 22.3431 62 24 62H36C37.6569 62 39 60.6569 39 59V45H60H120H141V59C141 60.6569 142.343 62 144 62H156C157.657 62 159 60.6569 159 59V30C159 28.3431 157.657 27 156 27H120H60H24Z" fill="#DBDBDB" fill-opacity="0.72"></path>
+          </svg>
+          <svg width="90" height="90" class="white" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="60" y="74" width="60" height="18" rx="3" fill="#456FFF"></rect>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M159 109C159 107.343 157.657 106 156 106H144C142.343 106 141 107.343 141 109V123H107.515C106.719 123 105.956 123.316 105.393 123.879L90 139.272L74.6066 123.879C74.044 123.316 73.2809 123 72.4853 123H39V109C39 107.343 37.6569 106 36 106H24C22.3431 106 21 107.343 21 109V138C21 139.657 22.3431 141 24 141H66.2721L85.7574 160.485C88.1005 162.828 91.8995 162.828 94.2426 160.485L113.728 141H156C157.657 141 159 139.657 159 138V109Z" fill="black"></path>
+            <path d="M24 27C22.3431 27 21 28.3431 21 30V59C21 60.6569 22.3431 62 24 62H36C37.6569 62 39 60.6569 39 59V45H60H120H141V59C141 60.6569 142.343 62 144 62H156C157.657 62 159 60.6569 159 59V30C159 28.3431 157.657 27 156 27H120H60H24Z" fill="#DBDBDB"></path>
+          </svg>
+            
+      </div>
+      <p>抱歉，您访问的页面不存在</p>
+    </div>
+  </div>
+  <script> 
+    (function () {
+      try {
+        window.newTopic = window.newTopic || {}
+        var isSun = window.topicNews && window.topicNews.getSkinMode ? window.topicNews.getSkinMode() : 'true'
+        setSkinModel(isSun)
+        // 根据日夜间模式，为全局变量赋值和body标签添加class
+        function setSkinModel (isSun) {
+          isSun = isSun + ''
+          var $body = document.querySelector('body')
+          var bodyClass = $body.classList
+          if (isSun === 'true') {
+            bodyClass.remove('vivo-dark-model')
+            bodyClass.add('vivo-sun-model')
+          } else {
+            bodyClass.add('vivo-dark-model')
+            bodyClass.remove('vivo-sun-model')
+          }
+        }
+        // 切换日夜间模式，客户端回调通知前端结果
+        window.newTopic.changeSkinModel = function(isSun) {
+          setSkinModel(isSun)
+        }
+      } catch (error) {
+      }
+
+      function getUrlParam(key) {
+        var reg = new RegExp('[?|&]' + key + '=([^&]+)')
+        var match = location.search.match(reg)
+        return match && match[1]
+      }
+      var articleId = getUrlParam('articleId') || ''
+      var source = getUrlParam('source') || ''
+      var srcId = getUrlParam('docid') || getUrlParam('docId') || ''
+      var cpNewsPrefix = getUrlParam('cpNewsPrefix') || ''
+      var hrefFrom = getUrlParam('from')
+      var reason = hrefFrom && hrefFrom === 'vivo' ? "断开链接" : "合作方下架"
+      var pureContent = getUrlParam('pureContent')
+      var url = "https://fdcontentdispatch.vivo.com.cn/error/page/report.do?articleId=" + articleId + "&srcId=" + srcId + "&source=" + source + "&reason=" + reason + "&vivoBusiness=browser"
+
+      if(source === 'yidian' && (pureContent === null || pureContent !== '1')) {
+        url += "&pureContent=0" 
+      }
+      
+      if (source === 'toutiao') {
+        cpNewsPrefix = 'V02'
+      } else {
+        var xhr = new XMLHttpRequest()
+        xhr.timeout = 3000
+        xhr.open('GET', url, true)
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var result = xhr.responseText ? JSON.parse(xhr.responseText) : {};
+            if (result && result.code === 0) {
+              console.log('请求404页面上报接口成功');
+            } else {
+              console.log('请求404页面上报接口失败');
+            }
+          }
+        }
+        xhr.send(null)
+      }
+      // push重定向
+      // 0-普通进入详情页 1-  通知栏push进入  2-应用内push
+      var enterDetailPageType = window.vivoNewsDetailPage && window.vivoNewsDetailPage.getCurrentPagePushStyle && window.vivoNewsDetailPage.getCurrentPagePushStyle()
+      var imgWrap = document.querySelector('#browserError .imgWrap')
+      // 是push的场景且有加参数才发起请求
+      if (enterDetailPageType && enterDetailPageType != 0 && cpNewsPrefix) {
+        var vxId = ''
+        if (srcId.length < 20) {
+          var newIdStr = '00000000000000000000' + srcId
+          newIdStr = newIdStr.substr(-20, 20)
+          vxId = cpNewsPrefix + newIdStr
+        } else {
+          vxId = cpNewsPrefix + srcId
+        }
+        var pushUrl = '//browser.vivo.com.cn/client/news/findPushReplaceUrlByDocId.do?docId=' + vxId
+        var pushXhr = new XMLHttpRequest()
+        pushXhr.timeout = 3000
+        pushXhr.open('GET', pushUrl, true)
+        pushXhr.onreadystatechange = function () {
+          if (pushXhr.readyState == 4 && pushXhr.status == 200) {
+            var result = pushXhr.responseText ? JSON.parse(pushXhr.responseText) : {};
+            if (result && result.retcode === 0 && result.data) {
+              // 使用replace进行重定向跳转,防止history返回有问题
+              window.location.replace(result.data)
+            } else {
+              imgWrap.style.display = 'block'
+              console.log('push接口请求错误');
+            }
+          } else {
+            imgWrap.style.display = 'block'
+          }
+        }
+        pushXhr.send(null)
+      } else {
+        imgWrap.style.display = 'block'
+      }
+    })()
+  </script>
+
+
+</body></html>

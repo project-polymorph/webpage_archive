@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 266.667px;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <script type="text/javascript">
+        (function(){
+            var cl = document.documentElement || document.body
+            var clw = cl.clientWidth
+            var htmlDom = document.getElementsByTagName("html")[0];
+            htmlDom.style.fontSize = clw / 7.2 + "px";
+        })()
+    </script>
+    <style>
+        .miss_main{
+            width: 600px;
+            height: 540px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .logo{
+            margin-top: 20px;
+            font-size: 0;
+        }
+        .miss_img{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0;
+        }
+        .miss_img img{
+            width: auto;
+            height: 50%;
+        }
+        .tips{
+            color: #333;
+            font-size: 16px;
+            line-height: 1.5em;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .toindex{
+            font-size: 16px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .time_show span{
+           color: #e74c0f;
+        }
+        .toindex a{
+            color: #e74c0f;
+        }
+
+        .miss_search{
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .miss_search input{
+            float: left;
+            width: 300px;
+            height: 100%;
+            border: 1px solid #e2e2e2;
+            box-sizing: border-box;
+            padding: 0 10px;
+            outline: none;
+        }
+        .miss_search span{
+            display: block;
+            width: 80px;
+            height: 100%;
+            float: left;
+            background: #e74c0f;
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .miss_main{
+                width: 6.8rem;
+                height: auto;
+                overflow: hidden;
+                border-radius: 0.1rem;
+                padding: 0.2rem;
+                padding-bottom: 0.6rem;
+            }
+            .logo{
+                margin-top: 0rem;
+            }
+            .miss_img{
+                margin-top: 0.2rem;
+            }
+            .tips{
+                font-size: 0.3rem;
+                margin-top: 0.2rem;
+            }
+            .toindex{
+                font-size: 0.26rem;
+                margin-top: 0.2rem;
+            }
+            .miss_search{
+                width: 100%;
+                height: 0.6rem;
+                margin-top: 0.2rem;
+            }
+            .miss_search input{
+                width: 5rem;
+                padding: 0 0.1rem;
+            }
+            .miss_search span{
+                width: 1rem;
+                font-size: 0.3rem;
+                line-height: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="miss_main">
+        <div class="logo"><img src="images/c_logo.png" alt=""></div>
+        <div class="miss_img"><img src="images/miss_bg.gif" alt=""></div>
+        <div class="tips">抱歉，因系统升级，您查看的链接已发生变化，可搜索关键词查看稿件。<br>感谢关注环球人物网</div>
+
+        <div class="miss_search">
+            <input type="text" id="search_key" placeholder="请输入关键词">
+            <span>搜索</span>
+        </div>
+
+        <div class="toindex">
+            <a href="https://www.globalpeople.com.cn">跳转首页</a>
+        </div>
+
+    </div>
+
+    <script>
+        function msg(text, time = 1000, url = null){
+            var msg = document.createElement('div');
+            msg.className = ' msg';
+
+            var msg_text = document.createElement('p');
+            msg_text.className = ' msg_text';
+            msg_text.innerText = text;
+
+            msg.appendChild(msg_text);
+
+            document.documentElement.appendChild(msg);
+            setTimeout(function(){
+                document.documentElement.removeChild(msg);
+                if(url != null){
+                    window.location.href = url;
+                }
+            }, time)
+        }
+
+        // 搜索
+        var search_btn = document.querySelector('.miss_search span');
+        var search_key = document.querySelector('#search_key');
+        search_btn.onclick = function(){
+            var key = search_key.value;
+            if(key=="" || !key){
+                msg('搜索词不能为空！');
+                search_key.focus();
+                return;
+            }
+            window.location.href="https://www.globalpeople.com.cn/305967/306116/index.html?keywords="+key;
+        };
+
+        search_key.onkeydown = function(e){
+            if(e.keyCode == 13){
+                var key = search_key.val();
+                if(key=="" || !key){
+                    msg('搜索词不能为空！');
+                    search_key.focus();
+                    return;
+                }
+                window.location.href="https://www.globalpeople.com.cn/305967/306116/index.html?keywords="+key;
+            }
+        }
+    </script>
+
+</body></html>

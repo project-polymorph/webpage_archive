@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>华西都市报—“我希望社会能包容我”</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<meta name="Keywords" content="华西都市报,华西都市报电子版,华西都市报广告">
+<meta name="author" content="华西都市报">
+<meta name="Description" content="《华西都市报》创刊于1995年1月1日，是中国第一张都市报，是四川发行量最大、影响力最强、覆盖面最广的综合性日报，也是中国西部最大区域组合城市媒体">
+<link href="/static/styles/index.css" rel="stylesheet" type="text/css">
+<script src="/static/javascripts/jquery-1.4.2.js" type="text/javascript"></script>
+<script src="/www/index.php?mod=index&amp;con=index&amp;act=htmlCheck" type="text/javascript"></script>
+<script src="/static/javascripts/tongyong.js" type="text/javascript"></script>
+<style type="text/css">
+
+.selectBox{display:block; position:absolute;  background-color:#ff0000;filter:alpha(opacity=1);-moz-opacity:0.01;-khtml-opacity:0.01;opacity:0.01;}
+#divfocus{border:#ff0000 solid 4px; width:300px; position:absolute; padding:10px 15px; font-size:20px; background-color:#EEE; display:none;text-align:left;vertical-align:middle; font-family:黑体,仿宋,Verdana, Geneva, sans-serif;}
+
+body{margin:0px;padding:0px;}
+</style>
+</head>
+
+<body>
+<script src="/static/javascripts/jquery-1.4.2.js" type="text/javascript"></script>
+<script src="/static/javascripts/tongyong.js" type="text/javascript"></script>
+<script type="text/javascript">
+function showdate()
+{
+	var today, theday;
+	today = new Date();
+	var d=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+	var today_year = (today.getYear() < 1900) ? (1900 + today.getYear()) : today.getYear(); 
+	theday = today_year+"年" + [today.getMonth()+1]+"月" +today.getDate()+"日 "+ d[today.getDay()];
+	document.write(theday+" ");
+}
+$(document).ready(function(){
+  
+  $('li.rq').mousemove(function(){
+	 
+ 	 $(this).find('div').slideDown("1000");//you can give it a speed
+  });
+  $('li.rq').mouseleave(function(){
+ 	 $(this).find('div').slideUp("fast");
+  });
+   $('li.top_1').mousemove(function(){
+	 
+ 	 $(this).find('div').slideDown("1000");//you can give it a speed
+  });
+  $('li.top_1').mouseleave(function(){
+ 	 $(this).find('div').slideUp("fast");
+  });
+});
+
+function date_diff(date,diff)
+{
+    if(typeof date=='object' && date.constructor==Date)
+    {
+       if(isNaN(diff=parseInt(diff)))
+            return false;
+        var MS_OF_A_DAY=24*60*60*1000,
+        time_start=Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()),
+        time_diff=time_start+diff*MS_OF_A_DAY,
+        date=new Date();
+        date.setTime(time_diff);
+        return date;
+    }
+    return false;
+}
+
+function showsqb(date)
+{
+var ss = date;
+var l = ss.substr(0,4);
+var y = ss.substr(4,2); 
+var r = ss.substr(6,2);
+
+var myDate=new Date();
+myDate.setFullYear(l,y-1,r);
+var hasDate=new Date();
+
+if(myDate.getDay()==0)          hasDate=date_diff(myDate,-2)
+if(myDate.getDay()==1)          hasDate=date_diff(myDate,-3)
+if(myDate.getDay()==2)          hasDate=myDate
+if(myDate.getDay()==3)          hasDate=date_diff(myDate,-1)
+if(myDate.getDay()==4)          hasDate=date_diff(myDate,-2)
+if(myDate.getDay()==5)          hasDate=myDate
+if(myDate.getDay()==6)          hasDate=date_diff(myDate,-1)
+
+
+var ll=hasDate.getFullYear();
+var yy=hasDate.getMonth()+1;
+if (yy<10)
+{
+yy='0'+yy
+}
+var rr=hasDate.getDate();
+if (rr<10)
+{
+rr='0'+rr
+}
+var alink="/shtml/hxdsb/"+ll+yy+rr+"/ve01.shtml"
+location.href=alink;
+}
+
+function showpdf(date2)
+{
+var sss = date2;
+var l2 = sss.substr(0,4);
+var y2 = sss.substr(4,2); 
+   
+var r2 = sss.substr(6,2);
+  
+var blink="http://wccdaily.scol.com.cn/pdfurl/"+l2+"/"+y2+"/"+r2+"/default_"+sss+".htm"
+//return blink;
+window.open (blink);
+}
+</script>
+
+<div id="head">
+<div class="h_con">
+    <div class="logo"><img src="/static/images/index/logo_hx.gif" border="0" onclick="gotourl('/')"></div>
+    <div class="riqi"><script type="text/javascript">showdate();</script>2025年1月14日 星期二 <p>电子报</p></div>
+    <div class="gd_ps"><a href="http://www.scol.com.cn/advert/advapply/paper4.htm" target="_blank">广告价格</a>&nbsp;&nbsp;<a href="mailto:wccdaily@scol.com.cn" target="_blank">主编信箱</a><br><img src="/static/images/index/pdf.gif" border="0" onclick="javascript:showpdf(&quot;20140819&quot;);">&nbsp;&nbsp;<span style="color:#b90000"><a href="#" onclick="javascript:showpdf(&quot;20140819&quot;);" target="_blank">查看PDF版</a></span></div>
+    <div class="gd"><script src="http://www.huaxi100.com/data/html/2499.js" type="text/javascript"></script>
+</div>
+</div>
+</div>
+
+<div id="top2">
+<ul class="menu2">
+<li class="rq">日期查询：<span>2014&nbsp;年&nbsp;08&nbsp;月&nbsp;19&nbsp;日&nbsp;</span><img src="/static/images/index/down.gif"><br>
+<div class="div_rq"><iframe src="/shtml/hxdsb/7148.htm" width="270" height="200" scrolling="no" frameborder="0"></iframe></div>
+</li>
+</ul>
+</div>
+
+<div id="top">
+<ul class="menu">
+
+<li class="rq2">
+<script src="/js/tab.js" type="text/javascript"></script>
+<style>
+#tb_header{width:420px; height:45px; line-height:45px}
+#tb_1,#tb_2,#tb_3,#tb_4{float:left; width:100px; text-align:center; padding:0}
+#tb_1_content,#tb_2_content,#tb_3_content,#tb_4_content{margin:0 auto; width:100%; text-align:left; padding:0}
+.tabheader_tb_1{background-image:url(/static/images/index/tab_1.jpg)}
+.tabheader_tb_2{background-image:url(/static/images/index/tab_2.jpg)}
+.tabheader_tb_3{background-image:url(/static/images/index/tab_3.jpg)}
+.tabheader_tb_4{background-image:url(/static/images/index/tab_4.jpg)}
+.tb_on{font-size:14px; color:#fff; font-weight:bold}
+.tb_on a,.tb_on a:visited{font-size:14px; color:#fff; font-weight:bold}
+.tb_off{font-size:14px; color:#ff0; font-weight:bold}
+.tb_off a,.tb_off a:visited{font-size:14px; color:#ff0; font-weight:bold}
+</style>
+<div id="tb_header" class="tabheader_tb_1">
+<div id="tb_1" class="tb_on"><a onmouseover="switchTab (document.getElementById('tb_1'));" href="/shtml/hxdsb/20140819/va01.shtml" target="_self"><img src="/static/images/index/spacer.gif" width="100" height="45" border="0"></a></div>
+<div id="tb_2" class="tb_off"><a onmouseover="switchTab (document.getElementById('tb_2'));" href="/shtml/hxdsb/20140819/vd01.shtml" target="_self"><img src="/static/images/index/spacer.gif" width="100" height="45" border="0"></a></div>
+<div id="tb_3" class="tb_off"><a onmouseover="switchTab (document.getElementById('tb_3'));" href="/shtml/hxdsb/20140819/vf01.shtml" target="_self"><img src="/static/images/index/spacer.gif" width="100" height="45" border="0"></a></div>
+<div id="tb_4" class="tb_off"><a onmouseover="switchTab (document.getElementById('tb_4'));" onclick="javascript:showsqb(&quot;20140819&quot;);" target="_self"><img src="/static/images/index/spacer.gif" width="100" height="45" border="0"></a></div>
+</div>
+</li>
+
+	  <li class="top_liang"></li>
+        <li class="top" onclick="gotourl('http://www.huaxi100.com/topic-moma.html')"><a href="javascript:void(0)">华西魔码</a></li>
+        <li class="top" onclick="gotourl('http://www.huaxi100.com')"><a href="javascript:void(0)">华西都市网</a></li>
+        <li class="top" onclick="gotourl('/shtml/hxdsb/20140819/vlist.shtml')"><a href="javascript:void(0)">版面概览</a></li>
+        <li class="top_1"><a href="javascript:void(0)">版面导航</a>
+            <div class="div_dh">
+                <table width="100%" height="100%">
+                <tbody><tr>
+                                	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va01.shtml')">a01：要闻</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va02.shtml')">a02：第一眼</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va03.shtml')">a03：第一眼</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va04.shtml')">a04：第一眼</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va05.shtml')">a05：第一眼</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va06.shtml')">a06：第一眼</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va07.shtml')">a07：大都市</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va08.shtml')">a08：华西汇</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va09.shtml')">a09：观天下</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va10.shtml')">a10：观天下</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va11.shtml')">a11：观天下</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va12.shtml')">a12：锐评论</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va13.shtml')">a13：运动会</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va14.shtml')">a14：星娱乐</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va15.shtml')">a15：大特稿</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va16.shtml')">a16：财富潮</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va17.shtml')">a17：财富潮</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va18.shtml')">a18：观楼市</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va19.shtml')">a19：上学堂</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va20.shtml')">a20：游天下</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va21.shtml')">a21：游天下</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va22.shtml')">a22：游天下</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va23.shtml')">a23：游天下</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va24.shtml')">a24：游天下</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va25.shtml')">a25：品味客</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va26.shtml')">a26：品味客</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va27.shtml')">a27：品味客</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/va28.shtml')">a28：装饰家</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd01.shtml')">d01：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd02.shtml')">d02：川南读本</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd03.shtml')">d03：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd04.shtml')">d04：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd05.shtml')">d05：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd06.shtml')">d06：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd07.shtml')">d07：川南读本</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd08.shtml')">d08：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd09.shtml')">d09：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd10.shtml')">d10：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd12.shtml')">d12：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd13.shtml')">d13：川南读本</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd14.shtml')">d14：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd15.shtml')">d15：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vd16.shtml')">d16：川南读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/ve01.shtml')">e01：华西社区报</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/ve02.shtml')">e02：华西社区报</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/ve03.shtml')">e03：华西社区报</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/ve04.shtml')">e04：华西社区报</td>
+                                                                            	                    	                    		<td valign="middle" class="high_li" onclick="gotourl('/shtml/hxdsb/20140819/ve05.shtml')">e05：华西社区报</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/ve06.shtml')">e06：华西社区报</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/ve07.shtml')">e07：华西社区报</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/ve08.shtml')">e08：华西社区报</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/ve09.shtml')">e09：华西社区报</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/ve10.shtml')">e10：华西社区报</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/ve11.shtml')">e11：华西社区报</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/ve12.shtml')">e12：华西社区报</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf01.shtml')">f01：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf02.shtml')">f02：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf03.shtml')">f03：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf04.shtml')">f04：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf05.shtml')">f05：川东北读本</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf06.shtml')">f06：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf07.shtml')">f07：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf09.shtml')">f09：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf10.shtml')">f10：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf11.shtml')">f11：川东北读本</td>
+                                            	</tr>
+                                                    	                    	                        	<tr><td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf12.shtml')">f12：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf13.shtml')">f13：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf14.shtml')">f14：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf15.shtml')">f15：川东北读本</td>
+                                                                            	                    	                        	<td valign="middle" onclick="gotourl('/shtml/hxdsb/20140819/vf16.shtml')">f16：川东北读本</td>
+                                            	</tr>
+                                                    </tbody></table>
+            </div>
+        </li>
+        <li class="top" onclick="gotourl('/')"><a href="/">首页</a></li>
+		<li class="top_hei"></li>
+</ul>
+</div><div id="container">
+<div id="left">
+<div class="pic">
+    	<img id="imgPage" style="BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px" src="/hxdsb/20140819/b_page_48.jpg" width="298" height="451">
+                  <a onclick="gotourl('232229.shtml',0)" href="javascript:;" class="selectBox" style="top:24px; left:14px; width:228px; height:201px; " title="“我希望社会能包容我”" alt="232229"></a>
+  		          <a onclick="gotourl('232230.shtml',0)" href="javascript:;" class="selectBox" style="top:81px; left:226px; width:61px; height:59px; " title="中午运动最减压" alt="232230"></a>
+  		          <a onclick="gotourl('232231.shtml',0)" href="javascript:;" class="selectBox" style="top:142px; left:224px; width:62px; height:78px; " title="“秋膘”到底该不该贴" alt="232231"></a>
+  		          <a onclick="gotourl('232232.shtml',0)" href="javascript:;" class="selectBox" style="top:230px; left:14px; width:271px; height:201px; " title="广告" alt="232232"></a>
+  		        <map name="imgPageMap" id="imgPageMap">
+                  <area id="area232229" shape="rect" coords="14,24,228,201" target="_top" href="232229.shtml" onmouseover="javascript:makediv(this,232229);" onmouseout="javascript:hidediv(232229);">
+                  <area id="area232230" shape="rect" coords="226,81,61,59" target="_top" href="232230.shtml" onmouseover="javascript:makediv(this,232230);" onmouseout="javascript:hidediv(232230);">
+                  <area id="area232231" shape="rect" coords="224,142,62,78" target="_top" href="232231.shtml" onmouseover="javascript:makediv(this,232231);" onmouseout="javascript:hidediv(232231);">
+                  <area id="area232232" shape="rect" coords="14,230,271,201" target="_top" href="232232.shtml" onmouseover="javascript:makediv(this,232232);" onmouseout="javascript:hidediv(232232);">
+                </map>
+    </div>
+    <div class="shuo">
+    	<span class="s_left">第0e05版：<a>华西社区报</a></span>
+        <span class="s_right"><a href="ve04.shtml">上一版</a>&nbsp;&nbsp;<a href="ve06.shtml">下一版</a></span>
+    </div>
+    <div class="gd"><script src="http://api.ihx100.com/api.php?mod=js&amp;bid=2990" type="text/javascript"></script></div>
+    
+    <div class="title">
+    	<div class="t_title">标题导航</div>
+        <div class="t_con">
+        	<dl class="Rcon">
+          	            		 <dd>
+            	 <a title="“我希望社会能包容我”" onclick="gotourl('232229.shtml',0)" href="javascript:;" alt="232229" class="li_down">“我希望社会能包容我”</a>
+             	</dd>
+                      		 <dd>
+            	 <a title="中午运动最减压" onclick="gotourl('232230.shtml',0)" href="javascript:;" alt="232230">中午运动最减压</a>
+             	</dd>
+                      		 <dd>
+            	 <a title="“秋膘”到底该不该贴" onclick="gotourl('232231.shtml',0)" href="javascript:;" alt="232231">“秋膘”到底该不该贴</a>
+             	</dd>
+                      		 <dd>
+            	 <a title="广告" onclick="gotourl('232232.shtml',0)" href="javascript:;" alt="232232">广告</a>
+             	</dd>
+                   		 </dl>
+        </div>
+    </div>
+</div>
+
+<div id="c_right">
+	<div class="bt_top">
+    	<span class="riq">日期：[2014年08月19日]</span>
+        <span class="bm">-- 华西社区报 --</span>
+        <span class="bc">版次:[e05]</span>
+    </div>
+    	<div class="bt_title" align="center">“我希望社会能包容我”</div>
+        
+     <div class="bt_top" align="center">2014年08月19日 </div>
+    <div class="ct_line"></div>
+    
+    <div class="bt_con">  
+    	                	<div align="center"><a target="_blank" href="/hxdsb/20140819/45e62e5b99dd873ac508123b6a2c17b2.jpg"><img class="auto-width" src="/hxdsb/20140819/m_45e62e5b99dd873ac508123b6a2c17b2.jpg" border="0"></a><br><br></div>                	<div align="center"><a target="_blank" href="/hxdsb/20140819/05de5fca496bb48a60e8c77a56eff8b3.jpg"><img class="auto-width" src="/hxdsb/20140819/m_05de5fca496bb48a60e8c77a56eff8b3.jpg" border="0"></a><br><br></div>        <br>
+        　　<p align="LEFT"><font color="#000000" face="宋体"><b>道德模范刘霆将做变性手术成女人 医生曾建议其听从内心<br>人物·刘霆<br></b></font><font color="#000000" face="宋体">　　2005年，刘霆考上浙江林学院后，为了照顾患尿毒症的母亲，便背着母亲上大学。2007年，刘霆荣获“全国道德模范”、“中华孝亲敬老楷模”、“浙江骄傲”、杭州“平民英雄”等荣誉。</font><font color="#231f1f" face="宋体">刘霆平常喜欢把自己打扮成女人模样<br>　　曾因“背着母亲上大学”而闻名的全国道德模范刘霆，8月14日宣布将接受手术变成女儿身。<br>　　他是“全国道德模范”，也是“平民英雄”，还是一位易性病人。为了救患尿毒症的母亲，为了迎合社会，刘霆藏起想做女人的梦想。他在怎样的困扰与挣扎下才做出变性决定？又将面对怎样的新生活？记者对刘霆进行了专访。<br><br></font><font color="#231f1f" face="宋体"><b>“从小就认为自己是女孩儿”<br></b></font><font color="#231f1f" face="宋体">　　记者：能谈下你的基本情况吗？刘霆：我家在浙江省湖州市双林镇，我是家里的独子，今年28岁了。见过我的、听过我说话的，开始都会把我当作一个女的。从有性别意识开始，我就认为自己是个女孩儿。我的脸、声音、身形、做派、心思都像女生，可生理器官却是男的，身份证性别填着“男”，社会身份也是男的，这让我很难熬，既不能这样，也不能那样，不知道将来怎样，很迷茫。<br>　　记者：是什么让你感觉从小就是女孩儿？刘霆：小时候，我喜欢玩洋娃娃，给洋娃娃洗澡、换衣服，编些小手工，偷偷穿母亲的百褶裙、高跟鞋，涂她的口红。后来我发现，这些都是女孩子玩的。<br>　　记者：父母反应怎样？刘霆：父母很担心，很反感我这样。他们逼我擦掉口红，剪短头发，不许穿女孩子衣服。尽管父母很宠爱我，但一听到我说话，立刻就严厉起来，要我说话别发嗲。当时，我总认为父母不喜欢我。<br><br></font><font color="#231f1f" face="宋体"><b>曾命令自己，要像真正男生<br></b></font><font color="#231f1f" face="宋体">　　记者：你身上的荣誉会给你带来冲突感吗？刘霆：顶着全国道德模范光环，我不断命令自己：刘霆，所有人都在看着你，你要像个真正的男生。不能再有变性啊、做女人啊此类自我的想法了。<br>　　我曾接受学校邀请到处演讲。演讲结束，孩子们围住我喊“哥哥”，我无言以对，内心有一种罪恶感，如果我变成女性，他们会怎么看我？我会把面前这天真无邪的孩子带坏吗？为了传播正能量，我曾一度豁出去，尝试做一个真正的男人。我剪短头发，把自己晒黑，和男性们混在一起，学他们走路、说话。可这一切，最终没有拗过自己的内心。<br>　　记者：什么让你母亲从反对到支持你变性？<br>　　刘霆：我告诉母亲，我真的很痛苦，如果不是为了她，我真的想结束生命！<br>　　2013年12月12日，母亲陪我到上海做心理咨询。医生建议我听从自己的内心，可以穿女性衣服，以女性的身份生活，这有利于现阶段的心理健康。医生还嘱咐说，如果选择变性，越快越好。<br>　　走出医院那一刻，我感到特别轻松。<br><br></font><font color="#231f1f" face="宋体"><b>为了做自己，风险不是问题<br></b></font><font color="#231f1f" face="宋体">　　记者：现在都做了哪些准备？刘霆：医生们非常慎重。现在手术方案已经定下来了，但是因为我营养不良，医生说得等身体恢复。现在，手术是要脸部、皮肤光滑。以后两期手术比较大，一是做胸部，二是再造性器官，大概要一年时间。<br>　　记者：韩国变性美女河莉秀也过来给你加油，她给了你哪些建议？她变性后生活怎样？<br>　　刘霆：她很幸福，很成功，她希望我手术顺利，能够实现梦想。<br>　　记者：你母亲最初说即使你回归女儿身，也许没有男生再喜欢你？对新生活、工作有哪些准备？<br>　　刘霆：不做手术，找个女生结婚生孩子，对我是不可能的，原来就没有这条路的。对于将来是不是会有男生喜欢我，我不会过分勉强，我有这个心理准备，只要做好我自己，就行了。 据《京华时报》</font>    </p></div>
+</div>
+
+</div>
+<div id="footer">
+	<div class="f_gd"><script src="http://www.huaxi100.com/data/html/2498.js" type="text/javascript"></script></div>
+    <div class="f_line"></div>
+    <div class="f_mu">
+    	<div class="f_mu_con" align="center">
+        <img src="/static/images/index/lxxz.gif" border="0" onclick="gotourl('#')">
+        <img src="/static/images/index/online.gif" border="0" onclick="gotourl('#')">
+        <img src="/static/images/index/xzkhd.gif" border="0" onclick="gotourl('/hxdsb/20140819/hxdsb_20140819.exe',1)">
+        <img src="/static/images/index/pdf_read.gif" border="0" onclick="gotourl('http://ardownload.adobe.com/pub/adobe/reader/win/8.x/8.1.2/chs/AdbeRdr812_zh_CN.exe')">
+        <img src="/static/images/index/hxdsw.gif" border="0" onclick="gotourl('http://www.huaxi100.com')">
+        <img src="/static/images/index/hxlogo.gif" border="0" onclick="gotourl('http://www.huaxi100.com/wmg/wmg_brief.html')">
+        </div>
+    </div>		
+</div>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F97502e9d38e3e9ad242177ca8fa800a5' type='text/javascript'%3E%3C/script%3E"));
+</script><script src=" https://hm.baidu.com/h.js?97502e9d38e3e9ad242177ca8fa800a5" type="text/javascript"></script>
+<div id="divfocus"></div>
+<script language="javascript" type="text/javascript">
+(function(){
+	$(".selectBox").mouseover(function(e){
+		  $(this).css({'border':'#ff0000 solid 1px','backgroundColor':'#ff0000','opacity':0.3});	
+		  offset = $(this).offset();
+		  $("#divfocus").css({'top':parseInt(offset.top)+'px','left':parseInt(offset.left+$(this).outerWidth())+'px'}).show().html($(this).attr("title"));
+	});
+	$(".selectBox").mouseout(function(e){
+		  $(this).css({'border':'0','opacity':'0'});
+		  $("#divfocus").hide().html("");
+	});	
+	$(".Rcon a").mouseover(function(e){
+		 $(".selectBox[alt="+$(this).attr("alt")+"]").trigger("mouseover");
+	});
+	$(".Rcon a").mouseout(function(e){
+		  $(".selectBox[alt="+$(this).attr("alt")+"]").trigger("mouseout");
+	});
+})()
+</script>
+
+
+
+</body></html>

@@ -1,0 +1,55 @@
+# 很小就穿过女性的衣服，异装癖要怎么戒掉？
+
+**1个回答**
+
+我很小的时候就穿过女性的衣服，然后还上瘾了。现在已经成年了，但是还是会上淘宝买来穿。如果是不SY的话，自己会偷偷穿蛮久，但是SY的话，射完就没兴趣了，就会马上脱下来。我知道自己这是异装癖，我也很想自己戒掉，但是就是戒掉。怎么办啊？就因为自己的异装癖，搞得花了很多钱，导致自己的男装还没女装多。
+
+- 行为
+- 疑病
+- 困惑
+
+![](//lapp.xinli001.com/images/website-www/v5/unhug.png)
+
+给TA抱抱 2 个抱抱
+
+![](//lapp.xinli001.com/images/website-www/v5/uncollect.png)
+
+收藏问题 1 个收藏
+
+![](//lapp.xinli001.com/images/website-www/v5/answer-click.png)
+
+我来回答 1个回答
+
+点击上传
+
+当前已输入0个字符, 您还可以输入50000个字符。
+
+点击按钮开始智能验证
+
+提交回答
+
+同意《社区问答规范》
+
+- 你的小太阳☀️ 鲸鱼社工 累计帮助了10234人
+    
+    楼主，你好~我是鲸鱼社工小北~异装癖是恋物症的一种特殊形式，表现对异性衣着特别喜爱，反复出现穿戴异性服饰的强烈欲望并付诸行动，由此可引起性兴奋和达到性满足。异装症可以从有时穿戴一、二件，直至完全的装饰打扮。一般始于童年后期，且至少在初期与产生性唤起有关。研究发现性染色体或性激素并无异常，到目前为止，病因最合理的解释还是恋物症中所作的解释：正常的性发育受到阻碍而又加上条件性的学习。目前主要的治疗方法有以下两种：
+    
+    1. 精神分析治疗
+    
+    通过暗示和疏导，帮助了解自己的心境和人际关系，将感情通过正常生活中的正常途径，而不是通过改穿异性服装升华或转移出去，从而使异装症行为得以纠正。
+    
+    2. 厌恶疗法
+    
+    即在出现异性装扮欲望和行为时，立即主动拉弹预先套在手腕上的橡皮圈，使手腕产生明显的疼痛刺激，直至抑制这种欲望和行为为止，并计算拉弹次数。如果在用此法纠正异性装扮欲望和行为过程中，拉弹次数逐渐减少，则经过一段时间，这种欲望和行为便可得以控制和消除，此时可将橡皮圈脱掉。这样，即使以后偶有轻微反复，也完全可以通过自我控制予以消除。以上两种方法都需要专业的心理医生和心理咨询师来进行，因此，建议楼主寻求专业的心理医生和心理咨询师的帮助。祝好~（壹心理鲸鱼社工 🐳）
+    
+![](//lapp.xinli001.com/images/website-www/v5/unfollow.png) 关注![打赏图标](data:image/png;base64,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) ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAASCAYAAAC5DOVpAAAAAXNSR0IArs4c6QAAAQRJREFUOBGtVLtuwkAQnDVGKOLRAGlSpueP4A8iJEhEhURBZyvKDyQfkn8IP4BES4eIAAkJxZu5g+58Robb4nyenRmtd1cWXIlWqv0/xRdpsQhW+1d59kkiX8LgnU9tZkDKa2x5iq59eo4zyZM8bjBR4NGTdmBvZe13fVLByFEUAF6zY4Y5FA8FWieVa1b/0B6NBg77CpBrhhMS6vJzBYbSSHWnisbhjYNn1BO+lQwq51yZaWSMSmodOgdVNWDpT3GcCEiGRTCzSg0/QczY6N/tC1ZBzCBYiIgd2t09Y2W2X0Eq44/A9iuIWRQHqozLuh8PsTRVmYjYwPX5etP5PRNu2SX+AXnZOUZEe1GrAAAAAElFTkSuQmCC) ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAASCAYAAAC5DOVpAAAAAXNSR0IArs4c6QAAAP1JREFUOBGtk70OAUEQx//DKSSUNEqtCC0h8fEaPIRGpdPxDB5EXHNE51yikUi0aqGRYM1uIlHsrhw7yW325uOXmf9kCV/MX0Y9CDETgAeiY7dRKZpKEqaA9K9W+yxDpgrE/wTkbPlW2E3chtxV3gb4jBlh/joqAM/BZ/K3u2dMuGPM46WNcU1A29ki2JUFoa/Jt7q0MMJjwlppYzYa+UF0ERCZbrPKywIWwZani2dENO40KqOEBMUr1WanpDf2KDoUEUJnMEHJjSvYuV0rHZ3AWPyQP7U0F5opvZx0xs9f6eUE9t7k3zACXVv18kGCpEnNTur2y0GYs/jPd+kLZRQ8AUM8Kk4AAAAASUVORK5CYII=) 有用 2 ![](//lapp.xinli001.com/images/website-www/v5/comment.png) 评论 0
+    
+时间：2020-11-28
+
+举报
+
+[详情](https://m.xinli001.com/qa/answer-5833149)
+    
+0条评论
+
+评论

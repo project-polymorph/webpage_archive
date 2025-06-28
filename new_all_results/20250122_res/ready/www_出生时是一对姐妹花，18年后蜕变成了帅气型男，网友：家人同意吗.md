@@ -1,0 +1,39 @@
+# 出生时是一对姐妹花，18年后蜕变成了帅气型男，网友：家人同意吗
+
+2019-07-19 22:44:47　来源: [育儿小公园](https://www.163.com/dy/media/T1533202177051.html)  [举报](https://www.163.com/special/0077jt/tipoff.html?title=%E5%87%BA%E7%94%9F%E6%97%B6%E6%98%AF%E4%B8%80%E5%AF%B9%E5%A7%90%E5%A6%B9%E8%8A%B1%EF%BC%8C18%E5%B9%B4%E5%90%8E%E8%9C%95%E5%8F%98%E6%88%90%E4%BA%86%E5%B8%85%E6%B0%94%E5%9E%8B%E7%94%B7%EF%BC%8C%E7%BD%91%E5%8F%8B%EF%BC%9A%E5%AE%B6%E4%BA%BA%E5%90%8C%E6%84%8F%E5%90%97)
+
+![Scan me!](data:image/png;base64,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)
+
+用微信扫码二维码
+
+出生时是一对姐妹花，18年后蜕变成了帅气型男，网友：家人同意吗
+
+性别都是天生的，不过有些人对自己的性别并不满意，甚至是对自己现在的性别感到讨厌，这种人的症状就是易性癖。下面要说的这个案例，这两个人出生时是一对姐妹花，18年后蜕变成了帅气型男，网友：家人同意吗？这样的结局确实有点令人感到诧异，不过当事人可开心了。
+
+1995年的时候，双生儿姐妹贾克琳跟珍妮弗出生了，家里人对这对双生儿的到来是非常开心，然而这对双生儿在成长的过程中，她们的行为是逐渐趋于男性化。穿衣服上，这两个女孩是越发喜欢穿男性的衣服，头发上，她们并不喜欢长头发，扎头发，相反，他们喜欢清爽的短发。在心理上，两位女生一直都希望自己都是男生。为了让自己更像男性，这对姐妹选择定期去注射男性激素，她们希望从内做起，让自己往男性靠拢。
+
+2018年的时候，这对姐妹做出了更大胆的举动，她们前往医院进行了平胸手术，通过这个手术，达成她们的胸部更趋向于男性的目的，最后，为了让她们彻底变成男性，她们将自己的所有信息改成男性。面对这对双胞胎这样的举动，她们的父母是非常反感的，反感的程度甚至要跟这对双胞胎脱离亲子关系。
+
+对于这对双胞胎的所为，通过系列举措使得自己变成百分百的男性，网友们也是有着自个的观点。
+
+@鼎美：传统观念里，身体都是出自父母，父母给予的身体可不能轻易践踏。作为子女要做的就是好好爱惜自己的身体，如果私自对身体进行改造，这是不孝的行为。
+
+@yuanmei：孩子长大以后，她们都有自己的心思，自己的想法，所以他们选择“变性”也是可以明白他们的意图。
+
+@缘字诀：每个人都有自己的追求，以性别为例，有些人一直都认为自己就该是这种性别，这些人如果一辈子里得不到自己想要的性别，他们这一辈子的心理都会有着极大的压抑情绪。
+
+@千年之约：尽管个人有变性的需求，但是作为一个社会人，他需要考虑到自己的社会关系，假如自己变性了，社会关系也会随之改变，尤其是自己的父母，本来还指望孩子生出后代，但孩子有这样的念头，对家庭可是会造成很糟糕的影响。
+
+特别声明：以上内容(如有图片或视频亦包括在内)为自媒体平台“网易号”用户上传并发布，本平台仅提供信息存储服务。
+
+### 网友评论
+
+网友评论仅供其表达个人看法，并不表明网易立场。
+
+目前没有热门跟贴
+
+![育儿小公园](https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/5yB36oZl1AkKiffm9oVstdwTTHUhSvwgM8efTOv=Ack1K1533202137500.jpeg&thumbnail=160y160&quality=80&type=jpg)
+
+[育儿小公园](https://www.163.com/dy/media/T1533202177051.html)
+
+文章数 [_192_](https://www.163.com/dy/media/T1533202177051.html)关注度

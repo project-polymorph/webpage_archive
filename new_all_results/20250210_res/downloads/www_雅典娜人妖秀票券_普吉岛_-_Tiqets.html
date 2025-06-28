@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="page"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Request filtered by WAF. (403)</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            height: 100%;
+            background: #1c1c1c;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .page {
+            text-align: center;
+            z-index: 1;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.75);
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: auto;
+        }
+        .page h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #00A3AF;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        .text p {
+            font-size: 18px;
+            color: #ffffff;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
+        }
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(130deg, #00A3AF, #004F91, #0085CA);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            z-index: 0;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .topbar__logo__wrapper img { height: 42px; }
+        @media (max-width: 600px) {
+            .page h1 {
+                font-size: 28px;
+            }
+            .text p { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="page">
+        <header class="topbar">
+            <div class="topbar__inner">
+                <div class="topbar__logo__wrapper">
+                    <img src="https://cdn.tiqets.com/assets/logos/tiqets-logo-white.svg" alt="Tiqets">
+                </div>
+            </div>
+        </header>
+        <div class="content-wrapper">
+            <div class="content">
+                <div class="blocked">
+                    <h1 class="blocked_heading">Request filtered by WAF. (403)</h1>
+                    <div class="text">
+                        <p>Your request has been filtered by our web application firewall. Please contact our customer service for more information. (403)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body></html>
