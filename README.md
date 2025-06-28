@@ -9,11 +9,10 @@ This directory contains the archived webpages.
 ## process and clean files
 
 ```sh
-python scripts/workflow.py /home/yunwei37/trans-digital-cn/.github/downloader/webpage_archive/new_all_results/20250123_res
+python scripts/workflow.py trans-digital-cn/.github/downloader/webpage_archive/new_all_results/20250123_res
 
-cd cd /home/yunwei37/trans-digital-cn/
-python .github/downloader/file_processor.py /home/yunwei37/trans-digital-cn/.github/downloader/webpage_archive/new_all_results/20250123_res /home/yunwei37/trans-digital-cn/.github/downloader/content_archive/workspace
+python .github/downloader/file_processor.py trans-digital-cn/.github/downloader/webpage_archive/new_all_results/20250123_res trans-digital-cn/.github/downloader/content_archive/workspace
 
-cd /home/yunwei37/trans-digital-cn/.github/downloader/content_archive/
-python /home/yunwei37/trans-digital-cn/.github/downloader/content_archive/.github/scripts/workspace/organize_files.py
+cd trans-digital-cn/.github/downloader/content_archive/
+python trans-digital-cn/.github/downloader/content_archive/.github/scripts/workspace/organize_files.py
 ```
